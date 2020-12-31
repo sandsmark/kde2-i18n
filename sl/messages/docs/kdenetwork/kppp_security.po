@@ -1,0 +1,199 @@
+# SLOVENIAN TRANSLATION OF KDE DOCUMENTATION.
+# Copyright (C) 2001 Free Software Foundation, Inc.
+# Andrej Vernekar <andrej.vernekar@kiss.uni-lj.si>, 2001.
+# $Id: kppp_security.po 103748 2001-06-25 09:19:51Z romanm $
+# $Source$
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdenetwork 2.2\n"
+"POT-Creation-Date: 2001-02-09 01:25+0100\n"
+"PO-Revision-Date: 2001-06-16 23:07+0100\n"
+"Last-Translator: Andrej Vernekar <andrej.vernekar@kiss.uni-lj.si>\n"
+"Language-Team: Slovenian <sl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.9.1beta\n"
+
+#: index.docbook:2
+msgid "&kppp; and security issues"
+msgstr "&kppp; in vprašanja varnosti"
+
+#: index.docbook:4
+msgid ""
+"This section is mainly for superusers (<systemitem>root</systemitem>"
+") people with high security demands, or simply technically interested "
+"people. It is not necessary to read this if you only use &Linux; at home for "
+"yourself, although you may learn a thing or two in any case."
+msgstr ""
+"Ta razdelek je v glavnem za superuporabnike (<systemitem>root</systemitem>"
+"), ljudi s pomembnimi varnostnimi vprašanji ali za preprosto tehnično "
+"zainteresirane ljudi. Ni vam potrebno prebrati tega, če uporabljate &Linux; "
+"samo doma za vaše potrebe (čeprav se lahko naučite kaj novega, če to "
+"preberete)."
+
+#: index.docbook:10
+msgid "Restricting access to &kppp;"
+msgstr "Omejevanje dostopa do &kppp;"
+
+#: index.docbook:12
+msgid ""
+"A system administrator might want to restrict access as to who is allowed to "
+"use &kppp;. There are two ways to accomplish this."
+msgstr ""
+"Sistemski administrator bo mogoče želel omejiti dostop, komu je dovoljeno "
+"uporabljati &kppp;. Za to obstajata dva načina:"
+
+#: index.docbook:16
+msgid "Restricting access with group permissions"
+msgstr "Omejevanje dostopa z dovoljenji za skupine"
+
+#: index.docbook:18
+msgid ""
+"Create a new group (you might want to name it "
+"<systemitem>dialout</systemitem>"
+" or similar), and put every user that should be allowed to use &kppp; into "
+"that group. Then type at the prompt:"
+msgstr ""
+"Ustvarite novo skupino (mogoče jo boste hoteli poimenovati "
+"<systemitem>dialout</systemitem> ali podobno), dodajte vse uporabnike, ki "
+"naj bi imeli dovoljenje za uporabo &kppp;-ja v to skupino in vtipkajte:"
+
+#: index.docbook:22
+msgid ""
+"<prompt>#</prompt> <userinput><command>chown</command> "
+"<option>root.dialout</option> "
+"<filename>/opt/kde/bin/kppp</filename></userinput>\n"
+"<prompt>#</prompt> <userinput><command>chmod</command> <option>4750</option>"
+" <filename>/opt/kde/bin/kppp</filename></userinput>"
+msgstr ""
+"<prompt>#</prompt> <userinput><command>chown</command> "
+"<option>root.dialout</option> "
+"<filename>/opt/kde/bin/kppp</filename></userinput>\n"
+"<prompt>#</prompt> <userinput><command>chmod</command> <option>4750</option>"
+" <filename>/opt/kde/bin/kppp</filename></userinput>"
+
+#: index.docbook:26
+msgid ""
+"This assumes that &kde; was installed in <filename class=\"directory\"> "
+"/opt/kde/</filename> and that your new group is named "
+"<systemitem>dialout</systemitem>."
+msgstr ""
+"Tukaj se privzame, da je bil &kde; nameščen v </filename "
+"class=\"directory\">/usr/local/kde</filename>in vaša nova skupina se "
+"imenuje <systemitem>dialout</systemitem>."
+
+#: index.docbook:33
+msgid "Restricting access &kppp;'s way"
+msgstr "Omejevanje dostopa na &kppp;-jev način"
+
+#: index.docbook:35
+msgid ""
+"Before doing anything, &kppp; checks if there is a file named "
+"<filename>/etc/kppp.allow</filename>. If such a file exists, only users "
+"named in this file are allowed to dial out. This file must be readable by "
+"everyone (but of course <emphasis>NOT</emphasis>"
+" writable.) Only login names are recognized, so you cannot use "
+"<acronym>UID</acronym>'s in this file. Here is a short example:"
+msgstr ""
+"Preden se karkoli naredi, &kppp; preveri, če obstaja datoteka imenovana "
+"<filename>/etc/kppp.allow</filename>. Če ta datoteka obstaja, bodo SAMO "
+"uporabniki imenovani v tej datoteki imeli dovoljenje za klicanje. Ta "
+"datoteka mora biti berljiva vsakemu uporabniku (seveda "
+"<emphasis>NE</emphasis> zapisljiva). Prepoznana so samo imena s katerimi se "
+"uporabniki prijavijo, zato ne morete uporabiti <acronym>UID</acronym>-jev v "
+"tej datoteki. Tukaj je kratek primer:"
+
+#: index.docbook:42
+msgid ""
+"# /etc/kppp.allow\n"
+"# comment lines like this are ignored\n"
+"# as well as empty lines\n"
+"\n"
+"fred\n"
+"karl\n"
+"daisy"
+msgstr ""
+"# /etc/kppp.allow\n"
+"# comment lines like this are ignored\n"
+"# as well as empty lines\n"
+"\n"
+"fred\n"
+"karl\n"
+"daisy"
+
+#: index.docbook:52
+msgid ""
+"In the example above, only the users <systemitem>fred</systemitem>, "
+"<systemitem>karl</systemitem> and <systemitem>daisy</systemitem>"
+" are allowed to dial out, as well as every user with a "
+"<acronym>UID</acronym> of 0 (so you don't have to explicitly list root in "
+"the file)."
+msgstr ""
+"V zgornjem primeru samo uporabniki <systemitem>fred</systemitem>, "
+"<systemitem>karl</systemitem> in <systemitem>daisy</systemitem> lahko "
+"kličejo, kot tudi vsak uporabnik z <acronym>UID</acronym> nastavljen na 0. "
+"Zato vam ni potrebno postaviti uporabnika root v to datoteko."
+
+#: index.docbook:62
+msgid "&kppp; has the <acronym>SUID</acronym> bit on? What about security?"
+msgstr "&kppp; ima nastavljen <acronym>SUID</acronym> bit. Kaj pa varnost?"
+
+#: index.docbook:65
+msgid ""
+"It's virtually impossible to write a dialler without the "
+"<acronym>SUID</acronym> bit that is both safe and easy to use for "
+"inexperienced users. &kppp; addresses the security issues with the following "
+"strategy."
+msgstr ""
+"Navidezno je nemogoče napisati program za klicanje brez "
+"<acronym>SUID</acronym> bita, ki je istočasno varen in preprost za uporabo "
+"za neizkušene uporabnike. &kppp; odgovarja na varnostna vprašanja z "
+"naslednjo strategijo:"
+
+#: index.docbook:69
+msgid "Immediately after the program starts, &kppp; forks."
+msgstr "Takoj ko se program zažene, se &kppp; razveji."
+
+#: index.docbook:69
+msgid ""
+"The master process, which handles all the <acronym>GUI</acronym> stuff such "
+"as user interaction) drops the <acronym>SUID</acronym>"
+" state after the fork, and runs with normal user privileges."
+msgstr ""
+"Glavni proces (master process) (kateri skrbi za vse <acronym>GUI</acronym> "
+"stvari, uporabniško medsebojno delovanje in podobno) takoj za tem prekine "
+"<acronym>SUID</acronym> način in teče z navadnimi uporabniškimi "
+"privilegiji."
+
+#: index.docbook:69
+msgid ""
+"The slave process keeps its privileges, and is responsible for all actions "
+"that need <systemitem>root</systemitem> privileges. To keep this part safe, "
+"no &kde; or &Qt; library calls are used here, just simple library calls. The "
+"source code for this process is short (around 500 lines) and well "
+"documented, so it's easy for you to check it for security holes."
+msgstr ""
+"Podrejeni proces (slave process) ohrani svoje privilegije in je odgovoren za "
+"akcije, ki potrebujejo privilegije <systemitem>root</systemitem>-a. Da "
+"ohranimo ta del varen, se tukaj ne uporabijo nobeni klici &kde; ali &Qt "
+"knjižnic, ampak samo preprosti klici C knjižnic. Izvorna koda za ta proces "
+"je kratka (okrog 500 vrstic) in dobro dokumentirana, zato jo je lahko "
+"preveriti, če vsebuje varnostne luknje."
+
+#: index.docbook:69
+msgid ""
+"Master and slave processes communicate with standard &UNIX; "
+"<acronym>IPC</acronym>."
+msgstr ""
+"Glavni in podrejeni proces komunicirata s standardnim &UNIX; "
+"<acronym>IPC</acronym>."
+
+#: index.docbook:91
+msgid ""
+"Special thanks to Harri Porten for writing this excellent piece of code. It "
+"was thought to be impossible, but he managed it within a week."
+msgstr ""
+"Resnično hvala Harriju Portenu, da je napisal ta odlični del kode. Jaz sem "
+"mislil, da je nemogoče - on pa jo je napisal v enem tednu."

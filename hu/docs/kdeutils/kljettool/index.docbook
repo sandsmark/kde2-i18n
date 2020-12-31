@@ -1,0 +1,436 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kljettool;">
+  <!ENTITY pjl "<filename>PJL</filename>">
+  <!ENTITY % Hungarian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title>A KLJetTool kézikönyve</title>
+<authorgroup>
+<author>
+<firstname>Mike</firstname>
+<surname>McBride</surname>
+<affiliation><address><email>mpmcbride7@yahoo.com</email></address></affiliation>
+</author>
+
+<othercredit role="developer">
+<firstname>Bernd Johannes</firstname>
+<surname>Wuebben</surname>
+<affiliation>
+<address><email>wuebben@kde.org</email></address>
+</affiliation>
+<contrib>fejlesztő</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname>Espen</firstname>
+<surname>Sand</surname>
+<affiliation>
+<address><email>espen@kde.org</email></address>
+</affiliation>
+<contrib>fejlesztő</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation>
+<address><email>vampyr@atconnex.net</email></address></affiliation>
+<contrib>lektor</contrib>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>tszanto@mol.hu</email></address></affiliation>
+<contrib>fordító</contrib>
+</othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Mike McBride</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>21/10/2000</date>
+<releaseinfo>1.01.00</releaseinfo>
+
+<abstract><para>Ez a dokumentum a &kljettool; 1.1-es verzióját írja le.</para>
+</abstract>
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KLJetTool</keyword>
+<keyword>laserjet</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Bevezetés</title>
+
+<para>A &kljettool; alkalmazás segítségével a Hewlett-Packard gyártmányú Laserjet nyomtatók paramétereit
+lehet módosítani. Néhány újabb típusnál, például az 5L és a 6L nyomtatóknál már el is hagyták
+a beépített vezérlőpanelt, és a gép jellemzőit már csak szoftveres módon lehet 
+megváltoztatni. Ezt a szoftvert csak a Windows operációs rendszerhez szokták legtöbbször
+mellékelni. A &kljettool; megpróbálja betölteni ezt az űrt, és a Unix operációs rendszeren is elérhetővé teszi
+a szoftveres vezérlést. A program minden olyan nyomtatóval működik, mely értelmezni tudja a Hewlett-Packard cég PJL (
+Printer Job Language) vezérlőnyelvét. Bizonyos jellemzők nem módosíthatók minden 
+nyomtatótípuson.</para>
+
+<para>Sok sikert kívánok a program használatához!</para>
+
+<para>Bernd Johannes Wuebben <email>wuebben@kde.org</email></para>
+</chapter>
+
+<chapter id="installation">
+<title>Telepítés</title>
+
+<sect1 id="how-to-obtain-kljettool">
+<title>A &kljettool; megszerzése</title>
+
+<para>A &kljettool; a KDE projekt (<ulink
+url="http://www.kde.org">http://www.kde.org</ulink>) része, letölthető az
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink> címről, a
+KDE projekt központi FTP-kiszolgálójáról.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Követelmények</title>
+
+<para>A &kljettool; lefordításához a libkdecore és a libkfm könyvtárak
+legújabb változatára van szükség. Az összes szükséges könyvtár valamint a &kljettool; program is
+megtalálható az <ulink
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink> címen. </para>
+</sect1>
+
+<sect1 id="compilation-and-installation">
+<title>A program lefordítása és telepítése</title>
+
+<para>A &kljettool; lefordításához a következő parancsokat kell kiadni
+a KDE forrásprogram alapkönyvtárában:</para>
+
+<screen>
+<prompt>%</prompt> <userinput>cd kdeutils</userinput>
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput>make</userinput>
+<prompt>%</prompt> <userinput>make install</userinput>
+</screen>
+
+<para>A &kljettool; az <application>autoconf</application> segítségével készült, ezért remélhetően
+hibátlanul le fog futni a fordítás.  Ha mégis problémába ütközne, kérjen segítséget a KDE
+levelezőlistáin.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="getting-kljettool-to-work">
+<title>A &kljettool; első elindítása</title>
+
+<para>Néhány Linux disztribúció nyomtatási alrendszere olyan beállításokkal szokott települni, hogy
+hogy nem ismeri fel az &kljettool; &pjl; fájljainak formátumát, és megpróbálja
+értelmezni a fájlok tartalmát a telepített szűrők segítségével.
+Ennek következtében a &kljettool; nem az elvárt módon működik.</para>
+
+<para>Az alábbiakban összefoglaljuk azokat a lépéseket, amelyek a &kljettool; működésének biztosításához
+szükségesek 5.0-s vagy korábbi Red Hat Linux rendszerekben (az ennél újabb verzióknál ezek a lépések már nem
+kellenek). Feltehetően más disztribúcióknál is hasonló a helyzet.
+A végrehajtandó lépéseket könnyű elvégezni, csak az a cél,
+hogy a nyomtatási alrendszer a kapott &pjl; fájlokat módosítás nélkül
+továbbküldje a nyomtatóra.</para>
+    
+<para>A régi Red Hat Linux rendszerek tehát nem ismerik fel a <abbrev>PJL</abbrev> fájlokat egy
+alapértelmezett telepítés után, és megpróbálják a beállítások alapján módosítani az elküldött 
+adatokat. Azt kell elérnünk, hogy a &pjl; fájlokat engedje tovább a rendszer. Mielőtt azonban
+végrehajtaná a javasolt módosításokat, győződjön meg arról, hogy a &kljettool;
+valóban nem működik-e a rendszerben. A legtöbb disztribúció mostanra már
+felfrissítette a nyomtatási rendszerét.</para>
+    
+<para>A régi Red Hat disztribúcióhoz hasonló más disztribúciók nyomtatási alrendszerét
+feltehetően hasonló módon lehet "megtanítani" a
+<abbrev>PJL</abbrev> (Printer Job Language) fájlok helyes kezelésére.</para>
+
+<para>A Red Hat rendszerekben a
+<filename>/var/spool/lpd/lp/filter</filename> szkript fut le minden alkalmommal a(z)
+<filename>/etc/printcap</filename> fájlból indítva, ha nyomtatás történik az
+'<command>lpr</command>' parancs segítségével. A szűrő a
+'<application>file</application>' nevű parancsot hívja meg a nyomtatási adatfájlra,
+mely visszajelzi a
+'<application>filter</application>' alkalmazásnak az adatfájl
+formátumát.  Ezután az adatfájl formátumának megfelelő alkalmazás fog elindulni,
+hogy a nyomtató számára értelmezhető módon konvertálja át az adatokat. A
+'<application>file</application>' alkalmazás a <filename>/etc/magic</filename> fájl használatával
+dönti el, hogy a nyomtatandó dokumentum milyen formátumú ( <abbrev>pl.</abbrev>
+PostScript, dvi, egyszerű szöveg <abbrev>stb.</abbrev> ).</para>
+    
+<para>Például, ha egy <filename>teszt.ps</filename> nevű PostScript
+dokumentumot kell kinyomtatni, a file segédprogram jelzi a
+'<application>filter</application>' szkriptnek, hogy a fájl PostScript
+formátumú. Ennek hatására a '<application>filter</application>' elindítja a
+<application>ghostscript</application> programot, hogy az átkonvertálja a
+<filename>teszt.ps</filename> fájlt PCL 5 formátumba (melyet a LaserJet nyomtatók közvetlenül képesek
+kezelni). Az így átalakított dokumentum kerül ki a nyomtatóra. </para>
+
+<para>Sajnos a régi Red Hat rendszerekben nincs definiálva a &pjl; fájltípus,
+ezért a nyomtatási rendszer megpróbálkozik mindenféle konvertálással, ahelyett,
+hogy módosítás nélkül kiküldené az adatokat a nyomtatóra. </para>
+
+<para>A hiba kijavításához a következő két tennivaló elvégzése
+szükséges:</para>
+
+<itemizedlist>
+<listitem>
+<para> Adjon hozzá egy új sort a(z) <filename>/etc/magic</filename> fájlhoz, hogy a
+'<application>file</application>' program felismerje a &pjl; fájlok
+formátumát.</para>
+
+<para>Egyszerűen másolja át az alábbi két sort az Ön rendszerének <filename>/etc/magic</filename>
+fájljába.  Teljesen mindegy, hogy a(z) <filename>/etc/magic</filename> fájlon belül hol szerepel ez
+a két sor.</para>
+
+<screen>
+# HP Printer Job Language, Bernd Wuebben (wuebben@math.cornell.edu)
+0	string		\033%-12345X	 HP PJL printer commands
+</screen>
+
+</listitem>
+<listitem><para>A(z) <filename>/var/spool/lpd/lp/filter</filename> szkriptnek meg kell mondani,
+hogy milyen parancsot kell végrehajtani &pjl; fájlok esetén. Ehhez az alábbi két sort kell a 'filter' szkripthez
+hozzáfűzni:</para>
+
+<screen>
+   *pjl* )
+                                             startpnt="INPUT-to-prdata";;
+</screen>
+		
+<para>Ha megnézi a szkript tartalmát, rögtön észre fogja venni, hogy hová kell beilleszteni a sorokat (
+az én verziómban a 220. sor tájékán). A kiegészítés hatására a nyomtatóprogram a
+&pjl; fájlokat konvertálás nélkül fogja kiküldeni a nyomtatóra.</para>
+
+</listitem>
+</itemizedlist>
+
+<para>Mellékeltem a saját rendszerem <filename>filter</filename> szkriptjét és
+<filename>/etc/magic</filename> fájlját. Használhatja ezeket is, ha a módosítás
+nem sikerülne. A fájlok ugyanabban a könyvtárban találhatók,
+ahol ez a dokumentációs fájl.</para>
+
+<para>Örömmel fogadom, ha valaki megírja, hogy más disztribúciókban
+milyen, a fentiektől esetleg eltérő módon sikerült a szükséges változtatásokat
+végrehajtani. </para>
+
+</chapter>
+
+<chapter id="usage">
+<title>Használat</title>
+
+<para>A &kljettool; nagyon egyszerűen kezelhető, a program legtöbb funkciója nem kíván
+részletes magyarázatot. </para>
+    
+<sect1 id="screen">
+<title>A &kljettool; főképernyője</title>
+
+<para>A &kljettool; elindítása után megjelenő ablak 5 lapot
+tartalmaz: a <link linkend="printer"><guilabel>Nyomtató</guilabel></link>, a <link
+linkend="paper"><guilabel>Papír</guilabel></link>, a <link
+linkend="operations"><guilabel>Műveletek</guilabel></link>, a <link
+linkend="fonts"><guilabel>Betűtípusok</guilabel></link> és a <link
+linkend="about-tab"><guilabel>Névjegy</guilabel></link> lapokat.</para>
+
+<screenshot>
+<screeninfo>A &kljettool; főablaka.</screeninfo>
+	<mediaobject>
+	  <imageobject>
+	    <imagedata fileref="screenshot.png" format="PNG"/>
+	  </imageobject>
+	  <textobject>
+	    <phrase>Képernyőfotó</phrase>
+	  </textobject>
+	</mediaobject>
+</screenshot>
+
+<para>Az ablak alsó részén 4 nyomógomb látható:</para>
+
+<variablelist>
+<varlistentry><term><guibutton>Segítség</guibutton></term>
+<listitem><para>Megnyitja ezt a dokumentumot a
+segítségböngészőben.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>OK</guibutton></term>
+<listitem><para>A módosítások elmentése és a &kljettool;
+program bezárása.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Alkalmazás</guibutton></term>
+<listitem><para>A módosítások elmentése a &kljettool; alkalmazás
+bezárása nélkül (hogy további módosításokat lehessen 
+elvégezni).</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Bezárás</guibutton></term>
+<listitem><para>Kilépés a programból a módosítások mentése nélkül.</para></listitem>
+</varlistentry>
+</variablelist>
+
+<sect2 id="printer">
+<title>A <guilabel>Nyomtató</guilabel> lap</title>
+<variablelist>
+
+<varlistentry><term><guilabel>Működési mód</guilabel></term>
+<listitem><para>Itt lehet választani a takarékos és a minőségi nyomtatási mód között.
+A takarékos mód megfelelő a legtöbb nyomtatáshoz és kevesebb festéket fogyaszt.  A minőségi
+mód választása esetén a kép a lehető legjobb minőségű lesz, de magasabb festékfogyasztás
+mellett.</para></listitem>
+</varlistentry>
+<varlistentry><term><guilabel>Felbontás</guilabel></term>
+<listitem><para>A 300 és 600 dpi-s felbontás közül
+lehet választani.</para></listitem>
+</varlistentry>
+<varlistentry><term><guilabel>Nyomtató</guilabel></term>
+<listitem><para>A nyomtatók listájából lehet választani egy típust.  Ha az Ön nyomtatója nem
+szerepel a listában, olvassa el a(z) <link
+linkend="getting-kljettool-to-work">"A &kljettool; első
+elindítása"</link> szakaszt.</para></listitem>
+</varlistentry>
+<varlistentry><term><guilabel>Tónus</guilabel></term>
+<listitem><para>Itt lehet beállítani a kapott kép tónusát (sötétségi
+fokát).</para></listitem>
+</varlistentry>
+<varlistentry><term><guilabel>Felbontásjavítás</guilabel></term>
+<listitem><para>A felbontásjavítást lehet ki-be kapcsolni.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2 id="paper">
+<title>A <guilabel>Papír</guilabel> lap</title>
+
+<variablelist>
+<varlistentry><term><guilabel>Formátum</guilabel></term>
+<listitem><para>Ebben a kombinált listában lehet kiválasztani a használni
+kívánt papírméretet.</para></listitem>
+</varlistentry>
+<varlistentry><term>Másolatok</term>
+<listitem><para>Ennyi példányban fog minden oldalt elkészíteni a nyomtató.</para>
+<note><para>Ez a beállítás <emphasis>nem</emphasis> bírálja felül az egyes alkalmazásokban
+beállított hasonló értéket, az alkalmazások által elküldött minden nyomtatási feladatra
+vonatkozik.</para>
+<para>(A végeredményként kapott szorzó az itt és az alkalmazásban beállított érték szorzata
+lesz.)</para>
+<para>Például:</para>
+<para>Ha például a <application>KWord</application>-ben 2 nyomtatási példányt állított
+be, de a &kljettool;-ban csak egy másolatot, akkor a levél két példányban
+fog elkészülni (a <application>KWord</application> jelezni fogja, hogy először az első,
+utána pedig a második példányt készíti el - 2 x 1 = 2
+példány).</para>
+<para>Másrészt, ha a <application>KWord</application>-ben csak egy példány,
+a &kljettool;-ban pedig 2 másolat van beállítva, akkor is 2 példány fog készülni a
+levélből (ebben az esetben a <application>KWord</application> csak egy példányt nyomtat
+ki, de a &kljettool; minden oldalból kettőt küld tovább, tehát két levélpéldány
+készül el (1 x 2 = 2 másolat).</para>
+<para>Végül, ha a <application>KWord</application>-ben és a &kljettool;-ban is két nyomtatási
+másolatot jelöl ki, akkor a levélből összesen 4 példány fog
+elkészülni (2 x 2 = 4 másolat).</para></note></listitem>
+</varlistentry>
+<varlistentry><term><guilabel>Sorok</guilabel></term>
+<listitem><para>Ez határozza meg, hogy nyomtatáskor hány szövegsor kerüljön
+egy lapra.</para></listitem>
+</varlistentry>
+<varlistentry><term><guilabel>Tájolás</guilabel></term>
+<listitem><para>Itt lehet kiválasztani, hogy álló vagy fekvő oldalra
+történjen-e a nyomtatás.</para></listitem>
+</varlistentry>
+<varlistentry><term><guilabel>Egyebek</guilabel></term>
+<listitem><para>Két opció tartozik ide:</para>
+<variablelist>
+<varlistentry>
+<term><guilabel>Kézi adagolás</guilabel></term>
+<listitem><para>Itt lehet előírni a nyomtatónak, hogy a kézi adagolású tálcából
+vegye a papírt a normál tálca helyett.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Automatikus folytatás</guilabel></term>
+<listitem><para>Ha ez az opció ki van jelölve, és a kívánt méretű papír nem áll rendelkezésre a
+nyomtatóban, akkor a nyomtató nem áll le hibaüzenettel, hanem az alapértelmezett tálcában található
+méretű papírral folytatja a munkát.  Ha nincs kijelölve, akkor a nyomtató addig fog várakozni, amíg bele
+nem helyezik a kívánt méretű papírt.</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2 id="operations">
+<title>A <guilabel>Műveletek</guilabel> lap</title>
+
+<variablelist>
+<varlistentry><term><guilabel>Sorvége mód</guilabel></term>
+<listitem><para>Ez határozza meg a nyomtatóra küldött sorvége jelet.  Csak akkor módosítsa,
+ha problémái vannak a nyomtatással.</para></listitem>
+</varlistentry>
+<varlistentry><term><guilabel>Oldalvédelem</guilabel></term>
+<listitem><para>Itt lehet ki-be kapcsolni a nyomtató oldalvédelmét.  Ha tudni szeretné, hogy
+mit jelent ez a funkció, akkor keresse meg a nyomtató kézikönyvében.</para></listitem>
+</varlistentry>
+<varlistentry><term><guilabel>Lekapcsolási idő</guilabel></term>
+<listitem><para>Ha az itt megadott ideig nem végez műveletet a nyomtató, akkor automatikusan átvált
+energiatakarékossági módba.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="fonts">
+<title>A <guilabel>Betűtípusok</guilabel> lap</title>
+
+<para>Itt lehet kiválasztani a nyomtatásnál használt betűtípusok nyelvét, karakterkészletét és
+betűméretét.</para>
+
+</sect2>
+
+<sect2 id="about-tab">
+<title>A <guilabel>Névjegy</guilabel> lap</title>
+
+<para>Néhány információ a program szerzőiről és verziószámáról.</para>
+
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title>Köszönetnyilvánítás és licencegyezmény</title>
+<para>
+&kljettool;
+</para>
+<para>
+Program copyright Bernd Johannes Wuebben <email>wuebben@kde.org</email>, 1997-2000. </para>
+<para>További közreműködők:</para>
+<itemizedlist><listitem><para>Espen Sand <email>espen@kde.org</email>
+</para></listitem></itemizedlist>
+<para>Documentation copyright Mike McBride<email>mpmcbride7@yahoo.com</email> és Bernd Johannes Wuebben <email>wuebben@kde.org</email>, 2000.
+</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+End:
+-->
+

@@ -1,0 +1,70 @@
+<sect1 id="interrupts">
+<sect1info>
+
+<authorgroup>
+<author>
+<firstname>Matthias</firstname>
+<surname>H&ouml;lzer</surname>
+</author>
+<author>
+<firstname>Helge</firstname>
+<surname>Deller</surname>
+</author>
+<author>
+<firstname>Duncan</firstname>
+<surname>Haldane</surname>
+</author>
+<author>
+<firstname>Mike</firstname>
+<surname>McBride</surname>
+</author>
+</authorgroup>
+
+<date>04/06/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>Kontrollkeskus</keyword>
+<keyword>IRQ</keyword>
+<keyword>katkestused</keyword>
+<keyword>süsteemne info</keyword>
+</keywordset>
+</sect1info>
+<title>Kasutuses olevad IRQ liinid</title>
+
+<para>See lehekülg näitab infot kasutuses olevate IRQ (Interrupt ReQuest - katkestuse soov)
+liinide ja seadmete, mis neid kasutavad, kohta.</para>
+
+<para>IRQ on riistvaraline liin, mida kasutavad PC (ISA siini) seadmed nagu klaviatuurid,
+modemid, helikaartid jne. katkestuse signaalide saatmiseks protsessorile, ütlemaks, et
+seade on valmis andmete saatmiseks või vastu võtmiseks. Kahjuks on i386 arhitektuuriga
+arvutitel erinevate seadmete vahel jagamiseks ainult kuusteist IRQ liini (0-15).</para>
+
+<para>Paljud riistvara probleemid on IRQ konfliktide tulemus kui kaks seadet üritavad
+kasutada sama IRQ liini või on tarkvara valesti konfigureeritud kasutama teist IRQ liini
+kui riistavara tegelikult kasutab.</para>
+
+<note><para>Täpne kuvatav info sõltub süsteemist. Mõnede süsteemide puhul
+IRQ info näitamine pole veel võimalik.</para></note>
+
+<para>Linux operatsioonisüsteemi korral loetakse see info failist
+<filename>/proc/interrupts</filename>, mis on võimalik ainult siis kui kernelisse
+on sisse kompileeritud <filename>/proc</filename> pseudo-failisüsteemi
+toetus.</para>
+
+<para>Esimeses tulbas on IRQ number, teises tulbas alates viimasest arvuti käivitamisest
+vastu võetud katkestuste arv. Kolmandas tulbas on ära toodud katkestuse tüüp ning neljandas
+seda katkestust kasutama määratud seade.</para>
+
+<para>Kasutaja ei saa sellel lehel ühtegi seadistust muuta.</para>
+
+<sect2 id="interupt-author">
+<title>Autorid</title>
+<para>
+Matthias H&ouml;lzer <email>hoelzer@kde.org</email>,
+Helge Deller <email>helge.deller@ruhruni-bochum.de</email>,
+Duncan Haldane <email>duncan@kde.org</email>,and
+Michael McBride <email>mmcbride@ematic.com</email></para>
+</sect2>
+</sect1>

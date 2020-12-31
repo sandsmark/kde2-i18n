@@ -1,0 +1,312 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="not-kde">
+<title
+>Ayiyinyaniso &kde;-ezalanayo, kodwa ebuzwa rhoqo kodwa ke :-)</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Ndisitshintsha njani isisombululo sekhusi?</para>
+</question>
+<answer>
+<para
+>Sebenzisa <keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>+</keycap
+></keycombo
+> ne <keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>-</keycap
+></keycombo
+> ukurhangqa izisombululo ozichazileyo kwi <filename
+>XF86Config</filename
+> (mhlawumbi phantsi <filename class="directory"
+>/etc/X11</filename
+>; tyhala jikelele kuqala). Ukuba ukhetha ukufumana izandla zakho zimdaka, ungasoloko uhlela ifayile ngqo. Ngokubeka isisombululo osithandayo ekuqaleni (okanye uyenze ekuphela kwayo edwelisiweyo), i &X-Windows; zizakusoloko ziqala ngeso sisombululo. <caution
+><para
+>Soloko usenza ukhuphelo lasemva lweyakho <filename
+>XF86Config</filename
+> ifayile <emphasis
+>phambi</emphasis
+> uqale ukuyihlela. Iimposiso kule fayile zingenza eyakho i &X-Windows; zingasebenzi.</para
+></caution
+> <note
+><para
+>Le miyalelo isebenza kuphela ukuba usebenzisa uguqulelo 3.3.x lwe XFree86 umncedisi. Ukuba usebenzisa XFree86 4.x, kufuneka udibane nge <ulink url="http://xfree.org"
+>XFree86(TM): Iphepha Lasekhaya</ulink
+>.</para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndingawutshintsha njani umbala wobunzulu?</para>
+</question>
+<answer>
+<para
+>AFAIK, akukho ndlela ongayenza ngayo kubhabho. Ungaqala noba yi &X-Windows; usebenzisa <command
+>startx <option
+> -bpp <replaceable
+>inani</replaceable
+></option
+></command
+> apho <replaceable
+>inani</replaceable
+> linokuba ngu 8, 16, 24, okanye 32 kuxhomekeke kubunzulu obufunayo, okanye ukuba usebenzisa i <application
+>xdm</application
+>/&kdm;, ozakuyihlela <filename
+>/etc/X11/xdm/Xservers</filename
+> (inokwahluka) ngokubeka <userinput
+>:0 local /usr/X11R6/bin/X -bpp 16</userinput
+> yobunzulu bombala 16.</para>
+<para
+>Ngokuhambelana, ungahlela i <filename
+>XF86Config</filename
+> ifayile kwaye dibanisa ilayini njenge <userinput
+>Ubunzulu Bombala Ongagqibekanga <replaceable
+>inani</replaceable
+></userinput
+> kwiCandelo "Ikhusi". Ixesha elizayo uqala i X, izakusebenza ngobunzulu bombala obuqwalaselwe-ngokutsha.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndingenza ntoni ukuba ndisebenzisa imouse enamaqhosha-amabini?</para>
+</question>
+<answer>
+<para
+>Yiya kuthenga enamaqhosha-amathathu, okanye sebenzisa iqhosha lesithathu. Iqhosha lesithathu eliboniswa ngokucinezela zombini i &LMB; ne &RMB; kunye. Uzakufuna ukwenza <option
+>Sebenzisa Amaqhosha amathathu</option
+> kweyakho <filename
+>XF86Config</filename
+> ifayile. </para
+> 
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Yintoni i "encangathi" iwindow?</para>
+</question>
+<answer>
+<para
+>Kwimeko-bume yedesktop enesiqhamo enedesktop ezininzi ezinesiqhamo, i "sticky" window izakuhlala kwikhusi xa uswitsha phakathi kwe desktops, njengokujonga kwiglasi yekhusi. <application
+>Xclock</application
+> ngumthunywa othile wokuqwlasela, njengoko ufuna umzekelo omnye kuphela wayo, kwaye isoloko ihlala nawe. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndiyibuyisela njani i "X" isalathisi se mouse ngetolo?</para>
+</question>
+<answer>
+<para
+>Iindidi ezahlukeneyo zesalathisi kwi X zichazwa kwi <filename class="headerfile"
+>X11/cursorfont.h</filename
+>. Ungayitshintsha usebenzisa <command
+>xsetroot -cursor_name <replaceable
+>name_of_cursor</replaceable
+></command
+>. Umzekelo, Ndinokulandelayo kweyam i <filename
+>.Xclients</filename
+>:</para>
+<screen>
+xsetroot -cursor_name left_ptr
+</screen>
+<para
+>Oku kuzakweza eqhelekileyo ekhohlo-isalathisi esisekonene. Ukubona olunye uhambelwano, chwetheza <command
+>xfd -fn cursor</command
+>. Kwaye kunjalo, sukulibala ukuba <command
+>man xsetroot</command
+> ngumhlobo wakho.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndizitsala njani/faka iifayile ze diff?</para>
+</question>
+<answer>
+<para
+>Ukujikelezisa intsingiselo-diff elungele ukulapha, sebenzisa i <command
+>diff -u <replaceable
+>endala-ifayile entsha-ifayile</replaceable
+> &gt; <replaceable
+>ifayile yokwalapha</replaceable
+></command
+>. Ukufaka idiff kwi fayile (<abbrev
+>i.e.</abbrev
+> "lapha ifayile"), phumeza <command
+>lapha &lt; <replaceable
+>ifayile yokulapha</replaceable
+></command
+>.</para
+> 
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndiyifumana njani i &Linux; ukunyusa icebo le floppy zombini kwi dos ne ext2 floppies?</para>
+</question>
+<answer>
+<para
+>Khankanya nje udidi lwendlela yefayile njengezenzekelayo kwi <filename
+>/etc/fstab</filename
+>. Ubhaqo oluzenzekelayo lusebenza kakuhle kwi dos ne ext2.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndiyiqala njani i &kde; nge <keycap
+>Num Lock</keycap
+> kwi?</para>
+</question>
+<answer>
+<para
+>Uzamile <command
+>isetleds zomntu</command
+>? Ukongezelela, ungafuna ukuhlela eyakho <filename
+>$<envar
+>IKHAYA</envar
+>/.Xmodmap</filename
+> kwaye beka iilayini ezilandelayo kuyo.</para>
+<screen>
+! ilungisa kwakhona eyamanani incwadi ezakusetyenziswa ngaphandle kwe NumLock
+keycode 79 = 7
+keycode 80 = 8
+keycode 81 = 9
+
+keycode 83 = 4
+keycode 84 = 5
+keycode 85 = 6
+
+keycode 87 = 1
+keycode 88 = 2
+keycode 89 = 3
+
+keycode 90 = 0
+keycode 91 = comma
+keycode 86 = plus
+
+! ayisisebenzisi isitshixo se NumLock
+keycode 77 =            
+</screen>
+<para
+>Ezinye izihambelwano ezenzekayo:</para>
+<itemizedlist
+> <listitem
+><para
+><application
+>xkeycaps</application
+>: <mousebutton
+>ekunene</mousebutton
+> unqakrazo luzakuvumela amahlelo. Inokuba nokwenza oku njengengcambu.</para
+></listitem
+> <listitem
+><para
+><command
+>umntu XF86Config</command
+> kwaye jonga phantsi kwebhodi yezitshixo.</para
+></listitem
+> <listitem
+><para
+>Faka <application
+>NumLockX</application
+> ekhoyo kwi <ulink url="http://dforce.sh.cvut.cz/~seli/en/numlockx"
+>http://dforce.sh.cvut.cz/~seli/en/numlockx</ulink
+>.</para
+></listitem
+> </itemizedlist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndiyithatha njani iwindow okanye izidubulo zekhusi ze desktop?</para>
+</question>
+<answer>
+<para
+>Sebenzisa i &ksnapshot;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kukho isixhobo sokwenza amaphepha eweb?</para>
+</question>
+<answer>
+<para
+>Ewe, kwaye kukho ezininzi phaya, uquka i <application
+>I ofisi yeNkwenkwezi</application
+>, <application
+>&Netscape; Umqambi</application
+>, ne <application
+>XEmacs</application
+>. Kukho ezininzi &kde; izicelo. Ukufumana uluhlu oluninzi , yiya kwi <ulink url="http://apps.kde.com"
+>APPS.&kde;.com: Eyokugqibela kwi &kde; Izicelo</ulink
+> kwaye phendla i <emphasis
+>web ubhekiso phambili</emphasis
+>. Zama ezininzi kwaye khetha eyona ilungelene neemfuno zakho.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Zithetha ntoni ezo acronyms ezinjenge AFAIK?</para>
+</question>
+<answer>
+<para
+><screen>
+AAMOF: njengento eyinyaniso
+AFAIK: njengoko ndisazi
+AISE: njengoko ndiyibona
+BFN: hamba kakuhle ngoku
+BION: uyikholelwa okanye hayi
+BRB: lunga emva
+BTW: ngendlela
+CMIIW: ndilungise ukuba andilunganga
+FUD: uloyiko, ukungaqiniseki, nentandabuzo
+FWIW: kokuxabisekileyo
+FYI: kulwazi lwakho
+HTH: themba oku kuyanceda
+IIRC: ukuba ndibiza kakuhle
+IMHO: kulwazi lwam oluphantsi
+LOL: uhleka kakkhulu
+MYOB: jonga eyakho ingxaki
+PITA: intlungu empundwini
+ROTFL: uzibhuqa emgangathweni ehleka
+RTFM: funda incwadi elungileyo
+SOP: inkqubo esezantsi esebenzayo
+TIA: enkosi ngaphambili
+YMMV: umgama wakho uzakwahluka
+</screen
+></para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

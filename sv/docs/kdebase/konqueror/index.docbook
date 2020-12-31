@@ -1,0 +1,6003 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&konqueror;">
+  <!ENTITY % Swedish "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;"
+> 
+
+<bookinfo>
+<title
+>Handbok &konqueror;</title>
+
+<authorgroup>
+
+<author
+> <firstname
+>Erwan</firstname
+> <surname
+>Loisant</surname
+> <affiliation
+> <address
+><email
+>erwan@loisant.org</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<othername
+>The KDE Team</othername>
+<contrib
+>Utvecklare</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Granskare</contrib>
+</othercredit>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@telia.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+> <year
+>2001</year>
+<holder
+>Erwan Loisant, Pamela Roberts</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-02-03</date>
+<releaseinfo
+>2.01.00</releaseinfo>
+
+<abstract
+><para
+>&konqueror; är &kde;:s avancerade filhanterare, webbläsare och dokumentvisare.</para>
+<para
+>Det här dokumentet beskriver &konqueror; version 2.1</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Kdebase</keyword>
+<keyword
+>Filhanterare</keyword>
+<keyword
+>Bläddrare</keyword>
+<keyword
+>Visare</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="basics">
+<title
+>Grundläggande användning av &konqueror;</title>
+
+<important
+><para
+> En mus med tre knappar kan vara användbar när du kör &konqueror; eller vilket annat &kde;-program som helst. Om din mus bara har två knappar ska du kunna ställa in ditt system så att du kan simulera en mittenknapp, genom att trycka på båda knapparna samtidigt. </para
+></important>
+
+<sect1 id="konq-start">
+<title
+>Att starta &konqueror;</title>
+
+<para
+>Eftersom  &konqueror; är en kombinerad filhanterare och webbläsare byter den mellan de här två lägena vid behov under körning, men det är bekvämt att kunna välja vilket läge som ska användas när man startar programmet.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Om du har en ikon som ser ut som ett <guiicon
+>hus</guiicon
+> i panelen eller på skrivbordet, så startar  &konqueror; som en filhanterare om du klickar på den.</para
+></listitem
+> <listitem
+><para
+>Eller vänsterklicka på ikonen av <guiicon
+>jorden</guiicon
+> i panelen eller på skrivbordet för att starta &konqueror; som webbläsare.</para
+></listitem
+> <listitem
+><para
+>Från <guimenu
+>K</guimenu
+>-menyn, välj <menuchoice
+><guimenuitem
+> Hemkatalog</guimenuitem
+></menuchoice
+> för att starta &konqueror; som filhanterare eller välj <menuchoice
+><guisubmenu
+>Internet</guisubmenu
+><guimenuitem
+>Webbläsaren Konqueror</guimenuitem
+></menuchoice
+> för att starta som webbläsare. </para
+></listitem
+> <listitem
+><para
+><keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>F2</keycap
+></keycombo
+> visar dialogrutan <guilabel
+>Kör kommando</guilabel
+>, skriv <userinput
+><command
+>konqueror</command
+></userinput
+> (små bokstäver) och tryck på returtangenten eller klicka på knappen <guibutton
+>Kör</guibutton
+> för att starta i filhanteringsläge, eller skriv bara in en webbadress för att starta &konqueror; som webbläsare.</para
+></listitem
+> </itemizedlist>
+
+<para
+>&konqueror; startas också automatiskt när man <mousebutton
+>vänster</mousebutton
+>klickar på en skrivbordsikon som representerar en katalog, som ikonen för <guiicon
+>papperskorgen</guiicon
+>, eller en webbadress.</para>
+
+<caution
+><para
+>Om du är van vid att behöva dubbelklicka för att utföra en åtgärd, var försiktig, eftersom &konqueror; är förinställd att använda enkelklick, liksom övriga &kde;.</para
+></caution>
+
+</sect1>
+
+<sect1 id="parts">
+<title
+>&konqueror;s delar</title>
+
+<para
+>En kort titt på huvuddelarna i &konqueror;s fönster:</para>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="parts.png"/></imageobject
+> <textobject
+> <phrase
+>Här är en skärmbild av &konqueror;</phrase
+> </textobject
+> </mediaobject>
+
+<para
+><interface
+>Namlisten</interface
+> är raden tvärs över fönstret längst upp i &konqueror;s fönster, och fungerar på samma sätt som för andra &kde;-program. <mousebutton
+>Höger</mousebutton
+>klicka på mittendelen för att visa den trevliga fönstermenyn.</para>
+
+<para
+><interface
+>Menyraden</interface
+> är raden som innehåller namnen på alla menyerna, <mousebutton
+>vänster</mousebutton
+>klicka på ett namn för att antingen visa eller dölja menyn, eller använd <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+> den understrukna bokstaven</keycap
+></keycombo
+> i namet som en snabbtangent, till exempel <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>R</keycap
+></keycombo
+> för att visa menyn <guimenu
+>Redigera</guimenu
+>. De olika menyerna beskrivs i avsnittet <link linkend="menubar"
+>Menyraden</link
+> i det här dokumentet.</para>
+
+<para
+><interface
+>Verktygsraden</interface
+> innehåller ikoner för ofta använda åtgärder. Håll muspekaren över en ikon för att se en kort beskrivning av vad ikonen gör, använd <mousebutton
+>vänster</mousebutton
+>klick för att aktivera ikonen. Klicka med <mousebutton
+>höger</mousebutton
+> musknapp på en tom yta i verktygsraden för att ändra utseende och plats på verktygsraden.</para>
+
+<para
+><interface
+>Platsverktygsraden</interface
+> visar sökvägen till katalogen, webbadressen eller filen som visas. Du kan skriva in en sökväg eller webbadress här och trycka på returtangenten för att gå dit. Den svarta ikonen till vänster i platsverktygsraden rensar textinmatningsrutan.</para>
+
+<para
+><interface
+>Bokmärkesverktygsraden</interface
+> är ett område under <interface
+>Platsverktygsraden</interface
+> i den ovanstående skärmbilden. Du kan lägga till ofta använda bokmärken här, se avsnittet <link linkend="orgbmark"
+>Organisera dina bokmärken</link
+> i det här dokumentet.</para>
+
+<para
+><interface
+>Fönstret</interface
+> är det huvudsakliga området i &konqueror; och kan visa dig innehållet i en katalog, en webbsida, eller ett dokument. Genom att använda <link linkend="menu-window"
+><guimenu
+>Fönstermenyn</guimenu
+></link
+> kan du dela upp &konqueror;s huvudfönster i en eller flera olika vyer, vilket är användbart för drag och släpp operationer.</para>
+
+<para
+><interface
+>Statusraden</interface
+> går tvärs över fönstret längst ner och visar ofta allmän information om det som muspekaren finns över. Om du har delat huvudfönstret i ett antal vyer får du en statusrad för varje vy, som inkluderar en liten lampa till vänster för att visa vilken som är den <quote
+>aktiva</quote
+> vyn. Ett <mousebutton
+>höger</mousebutton
+>klick på statusraden visar statusradens <mousebutton
+>höger</mousebutton
+>klicksmeny.</para>
+
+<note
+><para
+>Oroa dig inte om &konqueror; inte ser exakt likadan ut som skärmbilden, den är mycket anpassningsbar och det finns inget särskilt <quote
+>standardsätt</quote
+> att ställa in den.</para
+> <itemizedlist
+> <listitem
+><para
+>Du kan använda menyn <link linkend="menu-settings"
+><guimenu
+>Inställningar</guimenu
+></link
+> för att välja att visa eller dölja menyraden, verktygsraden, platsverktygsraden och bokmärkesverktygsraden.</para
+></listitem
+> <listitem
+><para
+>Du kan också <quote
+>platta ut</quote
+> verktygsraden, platsverktygsraden och bokmärkesverktygsraden genom att vänsterklicka på de vertikala linjerna i vänsterkanten på raderna, eller flytta omkring dem genom att hålla nere vänsterknappen medan du drar runt dem. </para
+></listitem
+> </itemizedlist
+> <para
+>För mer detaljer om hur man ändrar &konqueror;s utseende, se avsnittet <link linkend="config"
+>Anpassa &konqueror;</link
+>.</para
+></note>
+
+</sect1>
+
+<sect1 id="bubble">
+<title
+>Verktygstips och Vad är det här?</title>
+
+<para
+>Du kan ta reda på en hel del om hur &konqueror; fungerar utan att behöva läsa hela det här dokumentet om du drar nytta av verktygstipsen och <guimenuitem
+>Vad är det här?</guimenuitem
+> funktionen.</para>
+
+<para
+>Verktygstips betyder att en kortfattad beskrivning av vad knappen gör visas om du håller muspekaren över en knapp i verktygsraden.</para>
+
+<para
+><guimenuitem
+>Vad är det här?</guimenuitem
+> aktiveras i menyraden med <menuchoice
+><guimenu
+>Hjälp</guimenu
+><guimenuitem
+>Vad är det här?</guimenuitem
+></menuchoice
+>, med <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+> snabbtangenten, eller genom att helt enkelt vänsterklicka på frågetecknet nära övre högra hörnet i ett fönster. Det här ändrar markören till att visa ett frågetecken intill pilen.</para>
+
+<para
+>När det här frågetecknet syns, gör inte ett vänsterklick någonting innan du har klickat på ett objekt (eller texten intill) som stöder <guimenuitem
+>Vad är det här?</guimenuitem
+>, isåfall visas en någorlunda omfattande beskrivning av vad objektet är tänkt att göra. De flesta dialogrutor som &konqueror; visar stöder <guimenuitem
+>Vad är det här?</guimenuitem
+> funktionen.</para>
+
+</sect1>
+
+<sect1 id="lmb-mmb">
+<title
+>Åtgärder med musens <mousebutton
+>vänster</mousebutton
+>- och <mousebutton
+>mitten</mousebutton
+>knapp</title>
+
+<para
+>Om du klickar med vänster musknapp på ett objekt i &konqueror;s fönster <quote
+>aktivateras</quote
+> det. Alltså:</para>
+
+<itemizedlist
+> <listitem
+><para
+><mousebutton
+>Vänster</mousebutton
+>klicka på en ikon i verktygsraden för att göra vad det än är meningen att ikonen ska göra. </para
+></listitem
+> <listitem
+><para
+><mousebutton
+>Vänster</mousebutton
+>klicka på en text i menyraden för att visa den menyn.</para
+></listitem
+> <listitem
+><para
+><mousebutton
+>Vänster</mousebutton
+>klicka på ett menyval för att utföra den åtgärden.</para
+></listitem
+> <listitem
+><para
+><mousebutton
+>Vänster</mousebutton
+>klicka på en länk på en webbsida för att &konqueror; ska fälja länken.</para
+></listitem
+> <listitem
+><para
+><mousebutton
+>Vänster</mousebutton
+>klicka på en katalogikon eller namn för att &konqueror; ska gå ner till (visa innehållet i) den katalogen.</para
+></listitem
+> <listitem
+><para
+><mousebutton
+>Vänster</mousebutton
+>klicka på ett filnamn eller ikon för att få &konqueror; att göra vad den anser lämpligt, baserat på filtypen. I allmänhet betyder detta att öppna <acronym
+>HTML</acronym
+>-sidor, förhandsgranska text-, bild- eller <application
+>KOffice</application
+>-filer inbäddade i &konqueror;s fönster. (<quote
+>Förhandsgranska</quote
+> betyder att du kan titta på filen men inte ändra den).</para
+> <para
+>&konqueror; avgör vad filtypen är genom att passa ihop filnamnet med en lista av kända typer. Om det misslyckas försöker den gissa typen från filens innehåll. Du kan ändra listan på kända filtyper och tillhörande åtgärder och lägga till nya typer, se avsnittet <link linkend="file-associations"
+>Filbindningar</link
+>.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Att klicka mittenknappen på en fil- eller katalognamn eller en ikon gör i huvudsak samma sak som ett <mousebutton
+>vänster</mousebutton
+>klick, utom att det görs i ett nytt &konqueror;-fönster.</para>
+
+</sect1>
+
+<sect1 id="rmb-menus">
+<title
+><mousebutton
+>Höger</mousebutton
+>klicksmenyer</title>
+
+<para
+>Att högerklicka nästan var som helst i &konqueror;s fönster visar en lämplig meny.</para>
+
+<variablelist
+> <varlistentry
+> <term
+>I namnlisten</term
+> <listitem
+><para
+><mousebutton
+>Höger</mousebutton
+>klick på en tom yta i namnlisten visar fönstermenyn, som tillåter att positionen för &konqueror;s fönster samt dekorationen som används för alla &kde;:s programfönster ändras. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>I verktygsraden</term
+> <listitem
+><para
+><mousebutton
+>Höger</mousebutton
+>klick på en tom yta i verktygsraden visar verktygsradsmenyn. Man kan använda den för att styra om verktygsraden är längst upp, längst ner, till vänster eller till höger i &konqueror;s fönster. Man kan också använda verktygsradsmenyn för att ställa in storleken på knapparna i verktygsraden, och om de visas som ikoner, text eller både och.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>I platsverktygsraden</term
+> <listitem
+><para
+><mousebutton
+>Höger</mousebutton
+>klicka i webbaddressrutan för att klippa ut, kopiera, klistra in eller tömma det här fältet, eller för att ändra funktionen för <link linkend="path-complete"
+>automatisk komplettering av sökvägar</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>I bokmärkesverktygsraden</term
+> <listitem
+><para
+> Om bokmärkesverktygsraden visas, så visas bokmärkesmenyn med ett <mousebutton
+>höger</mousebutton
+>klick på en tom yta, vilket låter dig ändra dess plats, och om den visas som text, ikoner eller både och. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Inne i en vy</term
+> <listitem
+><para
+>Om man <mousebutton
+>höger</mousebutton
+>klickar på en tom yta i en vy får man den här menyn, som innehåller <guiicon
+>Upp</guiicon
+>, <guiicon
+>Tillbaka</guiicon
+>, <guiicon
+>Framåt</guiicon
+> och <guiicon
+>Uppdatera</guiicon
+> samt alternativet <guimenuitem
+>Skapa ny</guimenuitem
+> från menyn <guimenu
+>Redigera</guimenu
+>. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>På en fil eller katalog</term
+> <listitem
+><para
+>Det här är en mycket användbar funktion. Ett <mousebutton
+>höger</mousebutton
+>klick på namnet eller ikonen för vilken fil eller katalog som helst <quote
+>väljer</quote
+> inte bara det objektet men visar också en meny som gör att man kan <guiicon
+>Klippa ut</guiicon
+>, <guiicon
+>Kopiera</guiicon
+> eller ta bort objektet på olika sätt, lägga till det i <guimenu
+>Bokmärken</guimenu
+>, öppna det med ett program som man anger, förhandsgranska det, byta namn på det eller redigera filtypen eller dess egenskaper.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>I statusraden</term
+> <listitem
+><para
+><mousebutton
+>Höger</mousebutton
+>klicka på statusraden längst ner i ett fönster eller vy för att lägga till eller ta bort en vy inne i &konqueror;s fönster.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="filemanager">
+<title
+>Filhanteraren &konqueror;</title>
+
+<note
+><para
+>Med &Linux; är alla kataloger arrangerade i en enkel inverterat trädstruktur som går ner och grenar ut från en enda toppnivåkatalog, <quote
+>rot</quote
+>. Det här betyder att man kan gå från vilken katalog som helst till en annan genom att först gå <quote
+>upp</quote
+> till man når en gemensam punkt och sedan <quote
+>ner</quote
+> genom lämpliga underkataloger tills målet nås. </para
+> <para
+>Platsen för vilken fil eller katalog som helst i trädet kan beskrivas med dess <quote
+>sökväg</quote
+>, som är en enkel lista med de kataloger som man måste gå ner igenom för att nå målet. Sökvägen <filename class="directory"
+>/home/pam</filename
+> är till exempel underkatalogen <filename class="directory"
+>pam</filename
+> av underkatalogen <filename class="directory"
+>home</filename
+> av toppnivåkatalogen, som representeras av det inledande <quote
+>/</quote
+>.</para
+> <para
+>Observera att alla tillgängliga enheter i systemet, inklusive diskett och CDROM, finns i trädet som utgår från /. Deras exakta sökvägar beror på hur systemet är inställt, men är oftast något som liknar <filename class="directory"
+>/mnt/floppy</filename
+> och <filename class="directory"
+>/mnt/cdrom</filename
+>. Se också avsnittet om <link linkend="floppy-cd"
+>Diskett- och CDROM-enheter.</link
+></para
+></note>
+
+<sect1 id="navigation">
+<title
+>Navigering</title>
+
+<para
+>&konqueror; är i grund och botten en filhanterare, och som sådan visar den namn på filerna och underkatalogerna i en katalog. <quote
+>Sökvägen</quote
+> för katalogen man tittar på syns i namnlisten och dessutom i platsverktygsraden.</para>
+
+<para
+>Underkataloger visas vanligtvis med en ikon som ser ut som en liten mapp, även om en del speciella kataloger, som <filename
+>Papperskorgen</filename
+> och <filename
+>Desktop</filename
+>, kan ha annorlunda, utmärkande, ikoner. Filer har sina egna ikoner, som kan indikera vilken filtyp den har, eller åtminstone vad &konqueror; tror att den har. </para>
+
+<para
+>Du kan <quote
+>välja</quote
+> en fil eller underkatalog genom att använda tangentbordets piltangenter för att flytta dig genom objekten som visas. Utseendet på det valda objektet ändras, och en del information om det visas på statusraden.</para>
+
+<para
+>För att flytta mellan kataloger kan du helt enkelt stega upp eller ner i trädet:</para>
+
+<itemizedlist
+> <listitem
+><para
+>För att gå ner i en underkatalog, vänsterklicka på dess namn eller ikon, eller om du har <quote
+>valt</quote
+> den tryck bara på returtangenten.</para
+></listitem
+> <listitem
+><para
+>För att gå upp i katalogträdet, klicka på knappen <guiicon
+>Upp</guiicon
+> i verktygsraden, eller använd <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Uppåtpil</keysym
+></keycombo
+>, eller använd menyradens val <menuchoice
+><guimenu
+>Gå</guimenu
+><guimenuitem
+>Upp</guimenuitem
+></menuchoice
+>.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Man kan också gå direkt till vilken katalog som helst, genom att skriva in sökvägen i platsverktygsraden eller i dialogrutan som visas med menyradens val <menuchoice
+><guimenu
+>Plats</guimenu
+><guimenuitem
+>Öppna plats</guimenuitem
+></menuchoice
+>, eller med <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+>. Glöm inte bort att med &Linux; är fil- och katalognamn med små och stora bokstäver olika, även om <acronym
+>WWW</acronym
+> webbadresser inte är det.</para>
+
+<para
+>När man väl har flyttat till en ny katalog kan man gå tillbaka till den föregående genom att använda verktygsradens <guiicon
+>Tillbaka</guiicon
+>-knapp, menyradens val <menuchoice
+><guimenu
+>Gå</guimenu
+> <guimenuitem
+>Tillbaka</guimenuitem
+></menuchoice
+>, eller <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Vänsterpil</keysym
+></keycombo
+>.</para>
+
+<para
+>När man har gått tillbaka kan man gå framåt igen. Använd verktygsradens <guiicon
+>Framåt</guiicon
+>-knapp, menyradens val <menuchoice
+><guimenu
+>Gå</guimenu
+><guimenuitem
+>Framåt</guimenuitem
+></menuchoice
+>, eller <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Högerpil</keysym
+></keycombo
+>.</para>
+
+<tip
+><para
+>En meny med de senast besökta platserna visas genom att hålla nere vänsterknappen när muspekaren befinner sig över verktygsradens <guiicon
+>Upp</guiicon
+>-, <guiicon
+>Tillbaka</guiicon
+>- eller <guiicon
+>Framåt</guiicon
+>-knappar.</para
+></tip>
+
+<sect2 id="path-complete">
+<title
+>Automatisk komplettering av sökvägar</title
+> 
+
+<para
+>Du kan få hjälp av &konqueror; för att skriva in en sökväg i platsverktygsraden genom att aktivera en av <guimenuitem
+>Kompletterings</guimenuitem
+>funktionerna. <mousebutton
+>Höger</mousebutton
+>klicka på en tom del av platsverktygsraden och välj <guimenuitem
+>Komplettering</guimenuitem
+> för att göra detta. Du kan då välja mellan följande alternativ:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Inget</term
+> <listitem
+><para
+>Vad du skriver in är vad du får.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Manuell</term
+> <listitem
+><para
+>Om du skriver <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+> medan en sökväg skrivs in i platsverktygsradens fönster, kompletterar &konqueror; den så långt det går utan att den blir tvetydig. Om katalogen till exempel innehåller de två filerna <filename
+>testfil19.txt</filename
+> och <filename
+>testfil20.txt</filename
+>, så utökas filnamnet i platsverktygsradens fönster till <filename
+>testfil</filename
+> om du skriver in <userinput
+>t</userinput
+> följt av <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+>. Man kan därefter skriva <userinput
+>2</userinput
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+> för att visa hela filnamnet <filename
+>testfil20.txt</filename
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Popupp</term
+> <listitem
+><para
+>Ett popuppfönster visas medan du skriver, som anger passande namn för det som du skrivit in hittills. När sökvägen du vill ha syns i fönstret, använd <keysym
+>Nedåtpil</keysym
+> och <keysym
+>Uppåtpil</keysym
+> för att välja den och tryck sedan på returtangenten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Automatisk</term
+> <listitem
+><para
+>Medan du skriver in i platsverktygsradens fönster  utökar &konqueror; automatiskt det du skriver genom att markera en möjlig komplettering eller delkomplettering. Fortsätt att skriva om det inte är vad du vill ha, eller tryck på <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+> för att acceptera den markerade delen. När fil- eller katalognamnet som du vill ha syns helt och hållet tryck på returtangenten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Kort automatisk</term
+> <listitem
+><para
+>Det här är som automatiskt läge utom att det är begränsat till mer rimliga förslag.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="sidebar">
+<title
+>Sidraden</title>
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="dirtree.png"/></imageobject
+> <textobject
+> <phrase
+>Med sidraden</phrase
+> </textobject
+> </mediaobject>
+
+<para
+>Om du vill ha en bättre överblick av katalogstrukturen, eller lätt tillgång till dina bokmärken, historik och nätverk, så delas fönstret i två delar med <menuchoice
+><guimenu
+>Fönster</guimenu
+> <guimenuitem
+>Visa sidrad</guimenuitem
+></menuchoice
+>, som syns ovan.</para>
+
+<para
+>Den vänstra, sidraden, innehåller fem träd, med namnen <guilabel
+> Bokmärken</guilabel
+>, <guilabel
+>Hemkatalogen</guilabel
+>, <guilabel
+>Historik</guilabel
+>, <guilabel
+>Nätverk</guilabel
+> och <guilabel
+>Rotkatalogen</guilabel
+>. Högerdelen visar den valda katalogen eller webbsidan. I den här skärmbilden användes menyradens val <menuchoice
+><guimenu
+>Visa</guimenu
+><guimenuitem
+>Vyläge...</guimenuitem
+></menuchoice
+> och <menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Detaljerad listvy</guimenuitem
+></menuchoice
+> för att få en textlistning av kataloginnehållet på högersidan istället för en som innehåller ikoner. </para>
+
+<para
+>När &konqueror; visar mer än en vy, finns det en liten ruta längst ner till höger i varje vy. Genom att <mousebutton
+>vänster</mousebutton
+>klicka på rutan så visas eller döljs en nästan osynlig liten ikon. Vyer som visar den här ikonen är länkade så att en ändring av katalog i en vy gör att den andra vyn också ändrar till den nya katalogen. På så sätt visas automatiskt innehållet i den andra vyn när ett objekt väljs i sidraden.</para>
+
+<para
+>För att navigera bland objekten i sidraden med musen:</para>
+
+<itemizedlist
+> <listitem
+><para
+><mousebutton
+>Vänster</mousebutton
+>klicka på <guilabel
+>+</guilabel
+> symbolen för att visa underkataloger.</para
+></listitem
+> <listitem
+><para
+>För att dölja ett delträd vänsterklicka på <guilabel
+>-</guilabel
+> symbolen.</para
+></listitem
+> <listitem
+><para
+>När du väl kan se det objekt du vill ha, vänsterklicka på namnet eller ikonen för att öppna det i det andra fönstret. </para
+></listitem
+> </itemizedlist>
+
+<para
+>Eller, när du väl har valt ett objekt i sidraden, kan du navigera med tangentbordet:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Använd <keysym
+>Uppåtpil</keysym
+> och <keysym
+>Neråtpil</keysym
+> för att flytta dig uppåt och neråt. </para
+></listitem
+> <listitem
+><para
+><keysym
+>Högerpil</keysym
+> går ner i en katalog.</para
+></listitem
+> <listitem
+><para
+><keysym
+>Vänsterpil</keysym
+> döljer en underkatalog.</para
+></listitem
+> <listitem
+><para
+>När du väl kan se det objekt du vill ha, öppnar returtangenten det i det andra fönstret.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Trädet <guilabel
+>Bokmärken</guilabel
+> i sidraden innehåller dina bokmärken, precis som de visas i bokmärkesmenyn.</para>
+
+<para
+>Trädet <guilabel
+>Historik</guilabel
+> innehåller webbadresser för de senast besökta webbplatserna.</para>
+
+<para
+><guilabel
+>Hemkatalogen</guilabel
+> som visas i sidraden är i själva verket din personliga hemkatalog, som har en sökväg som liknar <filename class="directory"
+>/home/pam2</filename
+> om ditt användarnamn är <quote
+>pam2</quote
+>.</para>
+
+<para
+>Trädet <guilabel
+>Rotkatalog</guilabel
+> har sökvägen <filename class="directory"
+>/</filename
+>, och är toppnivåkatalogen för systemets lokala filer. Om du visar <quote
+>Rot</quote
+>-katalogen hittar du en katalog som heter <filename class="directory"
+>root</filename
+>. Den här hör till systemadministratören och är hennes hemkatalog. Du hittar också en katalog som heter <filename class="directory"
+>home</filename
+>, där du bör hitta din egen <quote
+>hem</quote
+>-katalog igen.</para>
+
+<para
+>Trädet <guilabel
+>Nätverk</guilabel
+> innehåller detaljer för filer eller webbsidor som du kan nå via ditt nätverk (om du är ansluten till ett sådant).</para>
+</sect2>
+
+<sect2 id="file-find">
+<title
+>Att hitta filer och kataloger</title>
+
+<para
+>Om du inte vet eller inte kommer ihåg var en fil eller katalog finns i systemet, använd då verktygsradens knapp <guiicon
+>Hitta fil</guiicon
+> eller menyradens val <menuchoice
+><guimenu
+>Verktyg</guimenu
+><guimenuitem
+>Hitta fil</guimenuitem
+></menuchoice
+>. Det här bäddar in filsökningsprogrammet &kfind; i &konqueror;s fönster. Se avsnittet <quote
+>Hitta dina förlorade filer</quote
+> i &kde;:s bruksanvisning för mer detaljer om &kfind;. </para>
+
+<note
+><para
+>Om namnet på en fil eller katalog börjar med en punkt, så är det en <quote
+>gömd</quote
+> fil eller katalog, och visas inte normalt av &konqueror;.</para
+> <para
+>För att visa gömda filer och underkataloger använd menyradens val <menuchoice
+><guimenu
+>Visa</guimenu
+><guimenuitem
+>Visa gömda filer</guimenuitem
+></menuchoice
+>.</para
+></note>
+
+</sect2>
+
+<sect2 id="floppy-cd">
+<title
+>Diskett- och CDROM-enheter</title>
+
+<para
+>En eventuell diskett- eller CD-enhet som du har i systemet finns ofta i katalogen <filename class="directory"
+>/mnt</filename
+>, med en sökväg som liknar <filename class="directory"
+>/mnt/floppy</filename
+> eller <filename class="directory"
+>/mnt/cdrom</filename
+>, där detaljerna beror på hur systemet har ställts in.</para>
+
+<para
+>&Linux; kräver att du <command
+>monterar</command
+> en diskett eller CD-ROM; när du har stoppat in den i enheten, så att &Linux; kan se vad som finns på den. Du måste också avmontera den innan du tar ut den så att &Linux; kan registrera att den inte längre är tillgänglig. </para>
+
+<para
+>Hur du gör det här beror på systemet:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Du kan ha en <application
+>Automount</application
+> funktion, som gör att du inte behöver bry dig om att montera eller avmontera manuellt, även om du kan märka att CDROM-enheten ibland startar av sig själv utan någon uppenbar orsak.</para
+></listitem
+> <listitem
+><para
+>Du kan ha ikoner för <guiicon
+>floppy</guiicon
+> och cdrom på ditt skrivbord. Om detta är fallet, monteras en enhet genom att vänsterklicka på ikonen. Genom att göra detta ska också ett &konqueror;-fönster som visar innehållet på disketten eller CD:n dyka upp. För att avmontera <mousebutton
+>höger</mousebutton
+>klicka på ikonen och välj <guimenuitem
+>Avmontera</guimenuitem
+>. Titta i avsnittet <link linkend="making"
+>Skapa ny...</link
+> för att se hur en sådan ikon kan skapas.</para
+></listitem
+> <listitem
+><para
+>Eller så kan du göra det på det traditionella sättet genom att skriva i ett textkonsollfönster:</para
+> <screen>
+<userinput
+><command
+>mount</command
+> <option
+><replaceable
+>/mnt/floppy</replaceable
+></option
+></userinput>
+</screen
+> <para
+>för att montera, till exempel, diskettenheten, och</para
+> <screen>
+<userinput
+><command
+>umount</command
+> <option
+><replaceable
+>/mnt/floppy</replaceable
+></option
+></userinput
+></screen
+> <para
+>för att avmontera den. Skriv <command
+>umount</command
+> inte <command
+>unmount</command
+>. </para
+> <note
+><para
+>Istället för att öppna en textkonsoll för att skriva in kommandona <command
+>mount</command
+> eller <command
+>umount</command
+>, kanske du föredrar att använda &konqueror;s funktion <menuchoice
+><guimenu
+> Verktyg</guimenu
+><guimenuitem
+>Kör kommando</guimenuitem
+></menuchoice
+> (<keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+>). </para
+></note
+> </listitem
+> </itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="deleting">
+<title
+>Ta bort filer och kataloger</title>
+
+<para
+>&konqueror; ger dig tre olika sätt att göra dig av med en oönskad fil eller katalog:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Du kan flytta den till katalogen <filename
+>Papperskorg</filename
+>, vilket är den säkraste metoden, eftersom du kan få tillbaka den om du inser att du gjort ett misstag.</para
+></listitem
+> <listitem
+><para
+>Du kan helt enkelt ta bort den, vilket tar bort posten från katalogen och lägger till diskutrymmet som filen upptar till systemets lista på ledigt diskutrymme.</para
+></listitem
+> <listitem
+><para
+>Eller så kan du förstöra den, vilket liknar att bara ta bort, men också skriver över diskutrymmet som upptas av filen med slumpmässig data. Det här är användbart för att till exempel göra sig av med en besvärande avdelningspromemoria eller liknande fil, när du inte vill att något spår av den ska finnas kvar i systemet.</para
+></listitem
+> </itemizedlist>
+
+<note
+><para
+>Teoretiskt sett, kan till och med <quote
+>förstörda</quote
+> filer återskapas av någon med tillräcklig skicklighet och beslutsamhet.</para
+></note
+> 
+
+<para
+>Det enklaste sättet att ta bort en fil eller katalog är att placera muspekaren över namnet eller ikonen och trycka på höger musknapp, som visar en meny med valen <guimenuitem
+>Flytta till papperskorgen</guimenuitem
+>, <guimenuitem
+>Ta bort</guimenuitem
+> och <guimenuitem
+>Förstör</guimenuitem
+>.</para>
+
+<para
+>Eller om du har <quote
+>valt</quote
+> objektet, ger menyn <guimenu
+>Redigera</guimenu
+> i menyraden dig valen <guimenuitem
+>Flytta till papperskorgen</guimenuitem
+>, <guimenuitem
+>Ta bort</guimenuitem
+> och <guimenuitem
+>Förstör</guimenuitem
+>.</para>
+
+<para
+><keycap
+>Del</keycap
+> flyttar ett eller flera valda objekt till papperskorgen.</para>
+
+<para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Del</keycap
+></keycombo
+> tar verkligen, helt och hållet, och utan återvändo bort ett eller flera valda objekt.</para>
+
+<para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+> <keycap
+>Del</keycap
+></keycombo
+> förstör ett eller flera valda objekt.</para>
+
+<note
+><para
+>Du kommer inte kunna ta bort en fil eller katalog om du inte har nödvändiga rättigheter, se avsnittet om <link linkend="super-user"
+>Systemadministreringsläge</link
+> för ytterligare detaljer.</para
+></note>
+
+</sect1>
+
+<sect1 id="moving">
+<title
+>Flytta och kopiera</title>
+
+<para
+>För att kopiera en fil eller underkatalog mellan kataloger kan du:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Placera muspekaren över namnet eller ikonen och hålla nere högerknappen, så att en meny med valet <guimenuitem
+>Kopiera</guimenuitem
+> visas. Välj det.</para
+> <para
+>Eller om objektet är <quote
+>valt</quote
+> kan du använda knappen <guiicon
+>Kopiera</guiicon
+> i verktygsraden eller menyradens val <menuchoice
+><guimenu
+>Redigera</guimenu
+> <guimenuitem
+>Kopiera</guimenuitem
+></menuchoice
+>, eller snabbtangenten <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+>.</para
+></listitem
+> <listitem
+><para
+>Flytta till katalogen du vill kopiera objektet till och klistra sedan in det i den nya katalogen genom att använda verktygsradens knapp <guiicon
+>Klistra in</guiicon
+> eller menyradens val <menuchoice
+><guimenu
+>Redigera</guimenu
+> <guimenuitem
+>Klistra in</guimenuitem
+></menuchoice
+> eller snabbtangenten <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+>, eller genom att flytta muspekaren till en tom yta i fönstret och hålla nere högerknappen för att visa en meny som innehåller valet <guimenuitem
+>Klistra in</guimenuitem
+>. </para
+></listitem
+> </itemizedlist>
+
+<para
+>Att flytta en fil eller underkatalog mellan kataloger görs på samma sätt som kopiering, utom att du väljer <guimenuitem
+>Klipp ut</guimenuitem
+> eller <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+> instället för <guimenuitem
+>Kopiera</guimenuitem
+>. Objektet som du har klippt ut tas bort från originalkatalogen när du utför <guimenuitem
+>Klistra in</guimenuitem
+> i den nya katalogen.</para>
+
+<note
+><para
+>Du kanske inte kan kopiera eller flytta en fil eller katalog om du inte har nödvändiga rättigheter. Se avsnittet om <link linkend="super-user"
+>Systemadministreringsläge</link
+> för ytterligare detaljer.</para
+></note>
+
+<sect2>
+<title
+>Att använda drag och släpp</title>
+
+<para
+>&konqueror; stöder också drag och släpp för att flytta eller kopiera filer och kataloger.</para>
+
+<para
+>Om du har ställt in &konqueror; att visa sidraden som beskrivs i ett tidigare avsnitt, så:</para>
+
+<procedure
+> <step
+><para
+>Försäkra dig om att de två vyerna inte är länkade (de små rutorna nere till höger i varje vy ska vara tomma, vänsterklicka på en av dem om de inte är tomma).</para
+></step
+> <step
+><para
+>Navigera i sidraden så att du kan se katalogen du vill kopiera eller flytta till.</para
+></step
+> <step
+><para
+>Ställ in huvudvyn så att den visar objektet som du vill kopiera eller flytta. Placera sedan muspekaren över namnet eller ikonen, och med vänsterknappen nertryckt, <quote
+>dra</quote
+> det till sidraden och placera muspekaren över målkatalogen. Släpp knappen så visas en meny där du kan välja <guimenuitem
+>Kopiera hit</guimenuitem
+> eller <guimenuitem
+>Flytta hit</guimenuitem
+>.</para
+></step
+> </procedure>
+
+<para
+>Du kan också ställa in &konqueror; att visa mer än en katalog och dra &amp; släppa mellan dem.</para>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="dragdrop.png"/></imageobject
+> <textobject
+> <phrase
+>Dela vyer för drag &amp; släpp</phrase
+> </textobject
+> </mediaobject>
+
+<para
+>För den här skärmbilden har vi använt menyradens val <menuchoice
+><guimenu
+>Fönster</guimenu
+> <guimenuitem
+>Dela vyn vänster/höger</guimenuitem
+></menuchoice
+>, som också är tillgänglig med snabbtangenten <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>L</keycap
+></keycombo
+>, för att dela &konqueror;s huvudfönster i två vyer, som var och en visar innehållet i olika kataloger.</para>
+
+<para
+>Med det här arrangemanget är det lätt att dra och släppa mellan katalogerna, men var noga med att släppa objektet på en tom yta i målkatalogvyn - att släppa det på ett annat filnamn eller ikon kan orsaka problem.</para>
+
+<para
+>När ett fönster delas i två (eller flera) vyer är det ofta bäst att försäkra sig att de inte är länkade - de små rutorna nere till höger ska vara tomma.</para>
+
+<para
+>Den <quote
+>aktiva</quote
+> vyn, dvs den vars sökväg syns i platsverktygsraden och som svarar på navigerings och menyradskommandon, visas med den lilla gröna lampan i nedre vänstra hörnet. För att aktivera en vy, vänsterklicka på en tom yta i vyn eller på dess statusrad.</para>
+
+<para
+>För att ta bort en aktiv vy från &konqueror;s fönster, använd snabbtangenten <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>R</keycap
+></keycombo
+>, eller menyradens val <menuchoice
+><guimenu
+>Fönster</guimenu
+> <guimenuitem
+>Ta bort den aktiva vyn</guimenuitem
+></menuchoice
+>, eller högerklicka på statusraden och välj <guimenuitem
+>Ta bort den aktiva vyn</guimenuitem
+> från menyn som visas.</para>
+
+<note
+><para
+>Du kan också dra och släppa mellan olika instanser av &konqueror;.</para
+></note>
+
+</sect2>
+</sect1>
+
+<sect1 id="multiple">
+<title
+>Välja flera filer</title>
+
+<para
+>Ibland vill du ta bort, kopiera eller flytta ett antal filer som är lika på något sätt. Du kanske till exempel vill flytta alla .png grafikfiler från en katalog till en annan. &konqueror; gör detta lätt genom att låta dig välja flera filer baserat på likheter i deras filnamn.</para>
+
+<para
+>Använd menyradens val <menuchoice
+><guimenu
+>Redigera</guimenu
+> <guimenuitem
+>Markera...</guimenuitem
+></menuchoice
+> eller snabbtangenten <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+>. Det här visar en liten dialogruta där du kan ange ett filnamn som innehåller jokertecknen <keycap
+>*</keycap
+>, som matchar ett godtyckligt antal tecken, och <keycap
+>?</keycap
+> som matchar ett enda tecken. Tryck på <guibutton
+>Ok</guibutton
+> och &konqueror; markerar alla filer med namn som matchar. Till exempel:</para>
+      
+<itemizedlist
+> <listitem
+><para
+> <userinput
+><filename
+>flagga*.png</filename
+></userinput
+> väljer alla filnamn som börjar med bokstäverna <quote
+>flagga</quote
+> och slutar med <quote
+><filename
+>.png</filename
+></quote
+>.</para
+></listitem
+> <listitem
+><para
+><userinput
+><filename
+>not?.txt</filename
+></userinput
+> väljer <filename
+>not1.txt</filename
+> och <filename
+>not9.txt</filename
+> men inte <filename
+>not99.txt</filename
+>.</para
+></listitem
+> </itemizedlist>
+
+<para
+>När du har valt ett antal filer, kan du begränsa valet genom att använda menyradens val <menuchoice
+><guimenu
+>Redigera</guimenu
+> <guimenuitem
+>Avmarkera...</guimenuitem
+></menuchoice
+> eller <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+> för att ange vilken av de valda filerna som ska avmarkeras.</para>
+
+<para
+>Använd <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>U</keycap
+></keycombo
+> eller menyradens val <menuchoice
+><guimenu
+>Redigera</guimenu
+> <guimenuitem
+>Avmarkera alla</guimenuitem
+></menuchoice
+> eller vänsterklicka helt enkelt på en tom yta i vyn för att avmarkera valet.</para>
+
+<para
+>Du kan till och med invertera valet, det vill säga avmarkera alla markerade filer och välja de som tidigare inte var markerade. Använd menyradens val <menuchoice
+><guimenu
+>Redigera</guimenu
+><guimenuitem
+>Invertera markering</guimenuitem
+></menuchoice
+> eller <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>*</keycap
+></keycombo
+> för att göra detta.</para>
+
+<para
+>När du väl har valt de rätta filerna så fungerar de normala kommandona ta bort, kopiera och flytta med alla valda filer på en gång. </para>
+
+<note
+><para
+>Beroende på typen av tangentbord och landsinställnigarna, märker du troligen att snabbtangenterna <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+>, <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+> och <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>*</keycap
+></keycombo
+> bara fungerar med det numeriska tangentbordets <keycap
+>+</keycap
+>, <keycap
+>-</keycap
+> och <keycap
+>*</keycap
+> tangenter.</para
+></note>
+
+</sect1>
+
+<sect1 id="making">
+<title
+>Skapa ny...</title>
+
+<para
+>När &konqueror; är i filhanteringsläge visas en undermeny med <guisubmenu
+>Skapa ny... </guisubmenu
+> från menyn <guimenu
+>Redigera</guimenu
+> eller med menyn som du får med ett <mousebutton
+>höger</mousebutton
+>klick på en tom yta i katalogvyn, som låter dig skapa något av följande i den aktuella katalogen:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Länk till program...</guimenuitem
+></term
+> <listitem
+><para
+>Det här alternativet är mest användbart om du vill skapa en ikon som ska öppna ett särskilt program. Det öppnar en dialogruta med fyra flikar. I den första, <guilabel
+>Allmänt</guilabel
+>, kan du välja en ikon och texten som syns intill den. Den andra fliken, <guilabel
+>Skydd</guilabel
+>, låter dig välja vem som kan använda eller ändra ikonen. Under fliken <guilabel
+>Kör</guilabel
+> måste du skriva in kommandot som kör programmet, till exempel <userinput
+>kedit</userinput
+> för att starta &kedit; texteditorn. <userinput
+>kedit /home/pam/todo.txt</userinput
+> skulle öppna filen <filename
+>/home/pam/todo.txt</filename
+> i &kedit;. I allmänhet kan du lämna fliken <guilabel
+>Program</guilabel
+> tom. </para
+> <para
+>För att programikonen ska synas på ditt skrivbord, skapa länken i katalogen <filename class="directory"
+>~/Desktop</filename
+> eller visa undermenyn <guisubmenu
+>Skapa ny... </guisubmenu
+> genom att klicka på en tom yta på skrivbordet.</para
+> <para
+>Om du har många speciella programlänkar och inte vill skräpa ner skrivbordet, varför inte skapa dem i din programkatalog? Du kan gå dit i &konqueror; genom att välja <menuchoice
+><guimenu
+>Gå</guimenu
+> <guimenuitem
+>Program</guimenuitem
+></menuchoice
+>. Skapa sedan en enda ikon på ditt skrivbord som öppnar din programkatalog, som oftast är <filename class="directory"
+>~/.kde/share/applink</filename
+>.</para
+> <para
+>För att lägga till en programlänk i panelen, skapa den först i programkatalogen och dra sedan ikonen till en tom yta i panelen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Länk till plats (URL)...</guimenuitem
+></term
+> <listitem
+><para
+>Det här låter dig skapa en ikon för att öppna &konqueror; med en särskild katalog eller webbsida. Som med <guimenuitem
+>Länk till program...</guimenuitem
+> kan du visa programikonen på ditt skrivbord genom att skapa länken i katalogen <filename
+>~/Desktop</filename
+> eller visa undermenyn <guisubmenu
+>Skapa ny... </guisubmenu
+> genom att klicka på en tom yta på skrivbordet. När du först skapar den kommer texten som visas intill ikonen att vara hela sökvägen eller webbadressen, men du kan ändra den genom att högerklicka på ikonen, välja <guimenuitem
+> Egenskaper...</guimenuitem
+> och skriva in den önskade texten under fliken <guilabel
+>Allmänt</guilabel
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Diskettenhet...</guimenuitem
+></term
+> <listitem
+><para
+>Använd det här valet för att skapa en ikon som monterar en diskettenhet och öppnar &konqueror; med diskettens innehåll. För att avmontera disketten när du är klar med den, <mousebutton
+>höger</mousebutton
+>klicka på ikonen och välj <guimenuitem
+>Avmontera</guimenuitem
+>. I själva verket behöver det här inte vara en diskettenhet, utan det kan vara vilken hårddisk eller partition som helst i systemet som inte normalt är monterad. I de flesta fall vill du skapa ikonen på ditt skrivbord.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>CDROM-enhet...</guimenuitem
+></term
+> <listitem
+><para
+>Det här alternativet liknar <guimenuitem
+>Diskettenhet...</guimenuitem
+>, men för en CDROM-enhet instället.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Katalog...</guimenuitem
+></term
+> <listitem
+><para
+>Ett enkelt sätt att skapa en ny (under)katalog.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Textfil...</guimenuitem
+></term
+> <listitem
+><para
+>Använd det här för att skapa en vanlig, tom, textfil. En liten dialogruta öppnas så att du kan ange namnet på den nya filen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>HTML-fil...</guimenuitem
+></term
+> <listitem
+><para
+>Skapar en stomme för en <acronym
+>HTML</acronym
+>-källkodsfil. När du skriver in den nya filens namn i den lilla dialogrutan är det förmodligen bäst att ge den filändelsen <literal role="extension"
+>.html </literal
+> för att undvika sammanblandning.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Presentationsdokument...</guimenuitem
+></term
+> <listitem
+><para
+>Skapar en stomme för ett <application
+>Koffice</application
+> &kpresenter; dokument. Ger namnet filändelsen <literal role="extension"
+>.kpr</literal
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Textdokument...</guimenuitem
+></term
+> <listitem
+><para
+>Skapar en stomme för ett <application
+>Koffice</application
+> &kword; dokument med &kword;s standardstilmall. Ger namnet filändelsen <literal role="extension"
+>.kwd</literal
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Kalkylark...</guimenuitem
+></term
+> <listitem
+><para
+>Använd det här för att skapa ett nytt <application
+>KOffice</application
+> &kspread; kalkylark, och namnge det med filändelsen <literal role="extension"
+>.ksp</literal
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Illustrationsdokument...</guimenuitem
+></term
+> <listitem
+><para
+>Skapar ett nytt <application
+>KOffice</application
+> &killustrator; dokument. Namnger det med filändelsen <literal role="extension"
+>.kil</literal
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="newname">
+<title
+>Att ändra namn och rättigheter</title>
+
+<para
+>Det enklaste sättet att byta namn på en fil eller katalog är att <mousebutton
+>höger</mousebutton
+>klicka på den och välja <guimenuitem
+>Byt namn</guimenuitem
+>.</para>
+
+<para
+>Eller, för att ändra namnet och rättigheterna för en fil eller katalog <mousebutton
+>höger</mousebutton
+>klicka på namnet eller ikonen och välj <guimenuitem
+>Egenskaper...</guimenuitem
+>. Eller om du har <quote
+>valt</quote
+> filen eller katalogen, kan du använda menyradens val <menuchoice
+><guimenu
+>Redigera</guimenu
+> <guimenuitem
+>Egenskaper</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Det här visar dialogrutan Egenskaper, som har två flikar:</para>
+
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>Allmänt</guilabel
+>, som ger dig en del information om objektet och låter dig ändra namnet, och för kataloger, den tillhörande ikonen.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Skydd</guilabel
+>, som visar dig objektets ägare och åtkomstskydd och låter dig ändra skyddet.</para
+></listitem
+> </itemizedlist>
+
+<sect2 id="super-user">
+<title
+>Systemadministreringsläge</title>
+
+<para
+>Om du kör som en normal användare och försöker komma åt filer utanför din egen hemkatalog förhindras du ofta från att göra det och får ett felmeddelande som <errorname
+>Åtkomst nekas</errorname
+>. </para>
+
+<para
+>För att komma åt de här filerna måste du vara inloggad som systemadministratör, ofta känd som <quote
+>root</quote
+>. </para>
+
+<para
+>Istället för att logga ut och sedan in igen, kan du starta &konqueror; från <guimenu
+>K</guimenu
+>-menyn i systemadministreringsläge genom att välja <menuchoice
+><guisubmenu
+>System</guisubmenu
+> <guimenuitem
+>Filhanteraren (systemadministreringsläge)</guimenuitem
+></menuchoice
+>. Du blir tillfrågad om <quote
+>root</quote
+>-lösenordet, och om du kan ange det, kommer &konqueror; att starta med fullständiga åtkomsträttigheter till alla filer i systemet.</para>
+
+<warning
+><para
+>Var försiktig. Som systemadminstratör (root) har du fullständig kontroll över systemet, och ett felaktigt kommando kan lätt göra oåterkallelig skada.</para>
+<para
+>Dessutom är det ytterst olämpligt att ansluta till Internet som root, eftersom det allvarligt ökar sårbarheten för hackare.</para
+></warning>
+
+</sect2>
+</sect1>
+
+<sect1 id="commandline">
+<title
+>Kommandoraden</title>
+
+<para
+>Även om &konqueror; är en mycket kraftfull och flexibel grafisk filhanterare, finns det tillfällen när den erfarna &Linux;-användaren vill använda de grundläggande funktionerna och arbeta med den textbaserade kommandoraden.</para>
+
+<para
+>Hon kan förstås öppna ett terminalprogram, kanske via &konqueror;s menyrad <menuchoice
+><guimenu
+>Verktyg</guimenu
+><guimenuitem
+>Öppna Terminal</guimenuitem
+></menuchoice
+> eller med <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>T</keycap
+></keycombo
+>.</para>
+
+<para
+>Men &konqueror; har ytterligare en trevlig funktion, menyradens val <menuchoice
+><guimenu
+>Fönster</guimenu
+><guimenuitem
+>Visa Terminalemulator</guimenuitem
+></menuchoice
+> öppnar ett terminalfönster som en ny vy inne i &konqueror;, och så länge länkikonen syns i nedre högra hörnet följer terminalen alla katalogändringar som görs i den normala filhanteringsvyn.</para>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="cmndline.png"/></imageobject
+> <textobject
+> <phrase
+>Med terminalemulatorn infogad</phrase
+> </textobject
+> </mediaobject>
+
+</sect1>
+
+</chapter>
+
+<chapter id="browser">
+<title
+>Webbläsaren &konqueror;</title>
+
+<note
+><para
+>När du startar &konqueror; som webbläsare för första gången ska den visa en introduktion till &konqueror;s huvudfunktioner. Om du glömde att lägga till den här introduktionen till dina bokmärken kan du alltid se den genom att skriva in <userinput
+>about:konqueror</userinput
+> i platsverktygsraden.</para
+></note>
+
+<sect1 id="conn-inet">
+<title
+>Ansluta till Internet</title>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="konqorg.png"/></imageobject
+> <textobject
+> <phrase
+>Bläddra till www.konqueror.org</phrase
+> </textobject
+> </mediaobject>
+
+<para
+>När du väl är ansluten till Internet, kan du använda &konqueror; för att titta på webben precis lika lätt som du kan använda den för att hantera dina lokala filer. Skriv bara in en webbadress i platsverktygsradens fönster, tryck på returtangenten och du är på väg!</para>
+
+<itemizedlist
+> <listitem
+><para
+>Om du använder en uppringd modemförbindelse, använder du &kppp; eller ett liknande uppringningsprogram för att göra anslutningen.</para
+></listitem
+> <listitem
+><para
+>Om din dator är ansluten till ett lokalt nätverk (<acronym
+>LAN</acronym
+>) som ger dig en proxy-anslutning till Internet måste du ställa in &konqueror; för proxy-anslutningen som beskrivs i avsnittet <link linkend="configure-proxy"
+>Proxy &amp; Cache</link
+>. </para
+></listitem
+> <listitem
+><para
+>Om du är tursam nog att ha en snabb kabelanslutning, så tillhandahåller troligen din leverantör ett externt kabelmodem som behöver en Ethernet-anslutning till din dator. Tyvärr beror detaljerna när det gäller att upprätta förbindelsen på leverantören och i viss utsträckning på vilken Linux-distribution du använder. Vissa Internetleverantörer ansluter sina kunder till Internet via en proxy-server. Om detta är fallet se avsnittet <link linkend="configure-proxy"
+>Proxy &amp; Cache</link
+> i det här dokumentet. Det kan vara lönt att söka efter hjälp i arkivet för e-postlistan för din leverantörs användargrupp.</para
+></listitem
+> </itemizedlist>
+
+<note
+><para
+>Ett felmeddelande som <errorname
+>Okänd värddator</errorname
+> betyder oftast att &konqueror; inte kan hitta en anslutning till Internet eller att du har skrivit in en felaktig webbadress.</para
+></note>
+
+</sect1>
+
+<sect1 id="surf">
+<title
+>Surfa och söka</title>
+
+<para
+>När du väl har en anslutning till Internet, kan du surfa med &konqueror; precis på samma sätt som med vilken annan webbläsare som helst.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Skriv in en webbadress i platsverktygsraden, tryck på returtangenten och &konqueror; laddar ner och visar sidan. Du kan använda funktionen för automatisk komplettering för att hjälpa dig skriva in adressen. Det här liknar funktionen <link linkend="path-complete"
+>Automatisk komplettering av sökvägar</link
+>, men baserar valen på din historik istället för katalogerna i systemet.</para
+></listitem
+> <listitem
+><para
+><mousebutton
+>Vänster</mousebutton
+>klicka på en länk på sidan för att gå dit.</para
+></listitem
+> <listitem
+><para
+>För att öppna en länk i en ny instans av &konqueror;, och lämna den gamla sidan synlig, högerklicka på länken och välj <guimenuitem
+>Nytt fönster</guimenuitem
+>.</para
+> <para
+>Du kan också välja flervyläget med <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>L</keycap
+></keycombo
+> eller menyradens val <menuchoice
+><guimenu
+>Fönster</guimenu
+> <guimenuitem
+>Dela vyn vänster/höger</guimenuitem
+></menuchoice
+>, som låter dig se olika sidor samtidigt. Det här kan vara användbart om du tittar på en komplicerad uppsättning sidor som det här dokumentet, men försäkra dig om att den lilla rutan i nedre högra hörnet är tom när du gör det här.</para
+></listitem
+> <listitem
+><para
+>För att gå tillbaka till den föregående sidan använd snabbtangenten <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keysym
+>Vänsterpil</keysym
+></keycombo
+> på verktygsraden, eller menyradens val <menuchoice
+><guimenu
+>Gå</guimenu
+><guimenuitem
+>Tillbaka</guimenuitem
+></menuchoice
+>, precis som du gör när du navigerar bland dina egna filer.</para
+></listitem
+> <listitem
+><para
+>På liknande sätt, när du väl har gått tillbaka, kan du gå framåt genom att använda <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keysym
+>Högerpil</keysym
+></keycombo
+>, knappen <guiicon
+>Framåt</guiicon
+>, eller menyradens val <menuchoice
+><guimenu
+>Gå</guimenu
+> <guimenuitem
+>Framåt</guimenuitem
+></menuchoice
+>.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Om du vill stoppa nerladdningen av någon anledning använd då <keycap
+>Esc</keycap
+>-tangenten, verktygsradens <guiicon
+>Stopp</guiicon
+>-knapp eller menyradens val <menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Stoppa</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>När du tittar på en webbsida bör du se två nya ikoner i verktygsraden, som ser ut som förstoringsglas med små <guiicon
+>+</guiicon
+> och <guiicon
+>-</guiicon
+> symboler. Använd dem för att justera storleken på texten på sidan om du tycker att den är svårläst, men om detta fungerar beror på hur <acronym
+>HTML</acronym
+>-sidan har konstruerats.</para>
+
+<para
+>Vissa verkar spendera mer tid på att leta efter en webbsida än att verkligen läsa den. Vet du att du kan bara skriva in ämnet du letar efter i platsverktygsraden och &konqueror; skickar det automatiskt till en webbsöktjänst? Prova det genom att ange namnet på din hemstad.</para>
+
+<para
+>Eller så kan du be om att använda en särskild söktjänst. Skriv till exempel in <userinput
+>altavista:konqueror</userinput
+> eller bara <userinput
+>av:konqueror</userinput
+> för att använda Altavista för att göra sökningen. För mer detaljer om &konqueror;s avancerade sökfunktioner, se avsnittet <link linkend="configure-enhanced-browsing"
+>Utökad webbläsning</link
+>.</para>
+
+
+</sect1>
+
+<sect1 id="save-print-web">
+<title
+>Spara och skriva ut webbsidor</title>
+
+<para
+>När du tittar på en webbsida kan du spara den (eller åtminstone den grundläggande <acronym
+>HTML</acronym
+>-texten eller liknande källtext) på din lokala disk med menyradens val <menuchoice
+><guimenu
+>Plats</guimenu
+><guimenuitem
+>Spara som...</guimenuitem
+></menuchoice
+> eller <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+>. Om sidan du tittar på använder ramar, har du också tillgång till valet <menuchoice
+><guimenu
+>Plats</guimenu
+><guimenuitem
+>Spara ram som...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Om sidan använder en bakgrundsbild, så kan du hämta och spara den med menyradens val <menuchoice
+><guimenu
+>Plats</guimenu
+><guimenuitem
+>Spara bakgrundsbild som...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Men om vad du verkligen vill ha är den underbara bilden av den senaste Ferrarin, visas en meny med <guimenuitem
+>Spara bild som...</guimenuitem
+> om du högerklickar på bilden. Om du väljer <guimenuitem
+>Kopiera bildplats</guimenuitem
+> istället sparas webbadressen på klippbordet så att du kan klistra in den var du vill. Försäkra dig om att du respekterar ägarens copyright, och ber om lov innan du använder några bilder som du sparat på det här sättet till något annat än ditt eget nöje.</para>
+
+<para
+><mousebutton
+>Höger</mousebutton
+>klicka på en länk (som kan vara en bild) och välj <guimenuitem
+>Kopiera länkplatsen</guimenuitem
+>. Det här kopierar webbadressen till klippbordet så att du sedan kan klistra in den i, till exempel, ett e-postmeddelande till en vän som berättar för henne om den här underbara nya platsen.</para>
+
+<para
+>Att skriva ut en kopia av sidan som du tittar på görs enkelt med menyradens val <menuchoice
+><guimenu
+>Plats</guimenu
+> <guimenuitem
+>Skriv ut...</guimenuitem
+></menuchoice
+> eller <guimenuitem
+>Skriv ut ram</guimenuitem
+>, med <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> eller med verktygsradens knapp <guiicon
+>Skriv ut</guiicon
+>.</para>
+
+</sect1>
+
+<sect1 id="ftp">
+<title
+>&FTP;</title>
+
+<para
+>&FTP;, eller filöverföringsprotokollet (eng. File Transfer Protocol), är ett av de tidigaste sätten, och kanske fortfarande det bästa sättet, att överföra filer mellan datorer via Internet.</para>
+
+<para
+>Med &FTP; kan du se filer och kataloger på fjärrdatorn precis som om de fanns på din egen dator, ladda ner dem till din dator med  &konqueror;s normala <guimenuitem
+>Kopiera</guimenuitem
+> och <guimenuitem
+>Klistra in</guimenuitem
+> eller dra och släpp metoder och, om det är tillåtet, ladda upp filer från din dator till den andra datorns filsystem. För att prova det, skriv in webbadressen:</para>
+
+<screen>
+<userinput
+>ftp://ftp.kde.org/pub/kde</userinput>
+</screen>
+
+<para
+>i platsverktygsraden och tryck på returtangenten. Bara du är ansluten till Internet, och &kde;:s &FTP;-plats inte är för upptagen, bör du se katalogen <filename class="directory"
+>/pub/kde</filename
+> på  ftp.kde.org.</para>
+
+<note
+><para
+>Även om, formellt sett, &FTP;-webbadresser ska börja med <userinput
+>ftp://</userinput
+> och <abbrev
+>WWW</abbrev
+>-adresser ska börja med <userinput
+>http://</userinput
+> är &konqueror; oftast smart nog att räkna ut vad som menas, och lägger till de här tecknen åt dig om du utelämnar dem.</para
+></note>
+
+<para
+>När du ska komma åt en &FTP;-plats behövs oftast någon form av användarnamn och lösenord. För att förenkla saker och ting, accepterar de flesta &FTP;-platser som tillhandahåller filer för fri nerladdning ordet <systemitem
+>anonymous</systemitem
+> som användarnamn och din e-postadress som lösenord, och för att göra livet ännu enklare anger &konqueror; det här automatiskt utan att besvära dig. </para>
+
+<para
+>Platser som är mer intresserade av säkerhet behöver ett riktigt användarnamn och lösenord, som  &konqueror; i så fall kommer att fråga dig om, eller så kan du inkludera användarnamnet i webbadressen du skriver in i platsverktygsraden, som till exempel</para>
+
+<screen>
+<userinput
+>ftp://<replaceable
+>användarnamn</replaceable
+>@ftp.cia.org</userinput
+></screen>
+
+<para
+>&konqueror; frågar dig sedan efter lösenordet.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="bookmarks">
+<title
+>Att använda bokmärken</title>
+
+<para
+>Fastän du kan använda &konqueror;s bokmärken för att spara platser för dina egna filer och kataloger, är de mest användbara när du surfar på webben, då de låter dig bygga upp en lista på användbara platser.</para>
+
+<para
+>För att visa listan på <guimenu
+>Bokmärken</guimenu
+> kan du antingen <mousebutton
+>vänster</mousebutton
+>klicka på menyradens val <guimenu
+>Bokmärken</guimenu
+>, eller använda snabbtangenten <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>B</keycap
+></keycombo
+>. När listan väl är synlig kan du flytta dig i den med piltangenterna eller musen, och sedan trycka på returtangenten eller klicka med vänsterknappen för att besöka den valda platsen.</para>
+
+<para
+>För att lägga till ett nytt bokmärke i listan använd menyradens val <link linkend="menu-bookmarks"
+><menuchoice
+><guimenu
+>Bokmärken</guimenu
+> <guimenuitem
+>Lägg till bokmärke</guimenuitem
+></menuchoice
+></link
+> eller <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>B</keycap
+></keycombo
+> eller <mousebutton
+>höger</mousebutton
+>klicka och välj <guimenuitem
+>Lägg till bokmärkena</guimenuitem
+> när du tittar på den önskade katalogen eller webbsidan.</para>
+
+<para
+><guimenu
+>Bokmärkes</guimenu
+>listan kan innehålla kataloger med andra bokmärken, eller till och med andra kataloger.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Om du också använder &Netscape;, läggs automatiskt en katalog med &Netscape;s bokmärken till i &konqueror;s bokmärkeslista, så att du kan använda dina aktuella &Netscape;-bokmärken i &konqueror;. </para
+></listitem
+> <listitem
+><para
+>Objekt i din bokmärkesverktygsrad visas oftast som en katalog som kallas <quote
+>verktygsrad</quote
+> även om detta kan ändras med <guilabel
+>Redigera bokmärken</guilabel
+>.</para
+></listitem
+> <listitem
+><para
+>För att lägga till ett bokmärke i en underkatalog istället för i huvudlistan med bokmärken, välj katalogen i menyn <guimenu
+>Bokmärken</guimenu
+> och använd <guimenuitem
+>Lägg till bokmärke</guimenuitem
+> i den här katalogen.</para
+></listitem
+></itemizedlist>
+
+<para
+>Om du har ett system som kan starta både &Linux; och &Windows;, så skapar <application
+>Internet Explorer</application
+>s <menuchoice
+> <guimenu
+>Arkiv</guimenu
+><guisubmenu
+>Importera och exportera</guisubmenu
+><guimenuitem
+>Exportera favoriter</guimenuitem
+></menuchoice
+> en <filename
+>.htm</filename
+>-fil som innehåller länkar till dina <application
+>IE</application
+>-favoriter. Inne i &konqueror; kan du sedan, om du har tillgång till <application
+>Windows</application
+>-partitionen, hitta den här filen och lägga till den till dina bokmärken. På det här sättet kan du komma åt alla dina gamla <application
+>IE</application
+>-favoriter.</para>
+
+<sect1 id="orgbmark">
+<title
+>Organisera dina bokmärken</title>
+
+<para
+>Menyvalet <menuchoice
+><guimenu
+>Bokmärken</guimenu
+> <guimenuitem
+>Redigera bokmärken...</guimenuitem
+></menuchoice
+> öppnar <guilabel
+>Bokmärkeseditorn</guilabel
+> i ett nytt fönster. Här är vad du kan göra i den:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Flytta runt objekt med drag och släpp eller genom att använda <guimenuitem
+>Klipp ut</guimenuitem
+> och <guimenuitem
+>Klistra in</guimenuitem
+>, eller <guimenuitem
+>Ta bort</guimenuitem
+> oönskade bokmärken och kataloger. Ordningen i <guilabel
+>Bokmärkeseditorn</guilabel
+> är samma ordning som bokmärkena visas i <guimenu
+>Bokmärkes</guimenu
+>listan. Du kan få listan att se ännu bättre ut genom att infoga en avskiljare här och där med <menuchoice
+><guimenu
+>Arkiv</guimenu
+><guimenuitem
+>Lägg till avskiljare</guimenuitem
+></menuchoice
+> eller <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>I</keycap
+></keycombo
+>.</para
+></listitem
+> <listitem
+><para
+>Skapa nya kataloger och underkataloger med menyn <guimenuitem
+>Skapa ny undermeny</guimenuitem
+> i <guimenu
+>Arkiv</guimenu
+>menyn eller från menyn som visas när du <mousebutton
+>höger</mousebutton
+>klickar på fönstrets huvuddel, eller med <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+>.</para
+></listitem
+> <listitem
+><para
+>Byt namn på ett bokmärke genom att välja det och använda <keycap
+>F2</keycap
+> eller <menuchoice
+><guimenu
+>Redigera</guimenu
+><guimenuitem
+>Byt namn </guimenuitem
+></menuchoice
+> eller genom att <mousebutton
+> höger</mousebutton
+>klicka på bokmärket och välja  <guimenuitem
+>Byt namn</guimenuitem
+>.</para
+></listitem
+> <listitem
+><para
+>Ändra ett bokmärkes webbadress genom att <mousebutton
+>vänster</mousebutton
+>klicka två gånger på webbadressen.</para
+></listitem
+> <listitem
+><para
+>Ändra katalogen som används för bokmärken i bokmärkesverktygsraden genom att välja katalogen och sedan <mousebutton
+>vänster</mousebutton
+>klicka på <guimenuitem
+>Använd som verktygsrad</guimenuitem
+> i menyn <guimenu
+>Redigera</guimenu
+>.</para
+></listitem
+> <listitem
+><para
+>Konvertera till eller från &Netscape; och Mozilla bokmärken.</para
+></listitem
+> </itemizedlist>
+
+<note
+><para
+>Om du inte får bokmärkesverktygsraden att visas när du markerar rutan <guimenuitem
+>Visa bokmärkesverktygsrad</guimenuitem
+> i &konqueror;s meny <guimenu
+>Inställningar</guimenu
+>, välj då en lämplig katalog i <guilabel
+>Bokmärkeseditorn</guilabel
+> och <mousebutton
+>vänster</mousebutton
+>klicka på <guimenuitem
+>Använd som verktygsrad</guimenuitem
+> i menyn <guimenu
+>Redigera</guimenu
+>.</para
+></note>
+
+</sect1
+> 
+</chapter>
+
+<chapter id="save-settings">
+<title
+>Spara inställningar &amp; profiler</title>
+
+<para
+>Dina nuvarande inställningar i <guimenu
+>Visa</guimenu
+>menyn (som <guimenuitem
+>Vyläge</guimenuitem
+>, <guimenuitem
+>Använd index.html</guimenuitem
+> och <guimenuitem
+>Visa gömda filer</guimenuitem
+>) sparas automatiskt av &konqueror; som förvalda alternativ.</para>
+
+<para
+>Men du kan också ange andra inställningar för <guimenu
+>Visa</guimenu
+>menyn för vilken individuell katalog som helst. För att göra detta markera rutan <guimenuitem
+>Vyegenskaper sparade i katalog</guimenuitem
+> i menyn <guimenu
+>Inställningar</guimenu
+>, ändra inställningarna under <guimenu
+>Visa</guimenu
+> till det du vill ha och avmarkera rutan <guimenuitem
+>Vyegenskaper sparade i katalog</guimenuitem
+> igen. Genom att göra detta skapas en <filename
+>.directory</filename
+>-fil i katalogen som innehåller katalogens inställningar under <guimenu
+>Visa</guimenu
+>. Använd <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guimenuitem
+>Ta bort katalogegenskaper</guimenuitem
+></menuchoice
+> för att ta bort de katalogspecifika inställningarna (eller ta bara bort <filename
+>.directory</filename
+>-filen).</para>
+<note
+><para
+>En trevlig användning av den här funktionen är om du har en katalog full med bilder. Du kan ställa in den här speciella katalogen att visa miniatyrbilder (genom  att välja <guimenuitem
+>Ikonvy</guimenuitem
+> och <guimenuitem
+>Förhandsgranska bilder</guimenuitem
+> från menyn <guimenu
+>Visa</guimenu
+>) när du öppnar den, medan du inte visar miniatyrbilder i andra kataloger. </para
+></note>
+
+<para
+>Dina nuvarande inställningar för menyraden, verktygsraden, platsverktygsraden och bokmärkesverktygsraden sparas också som förval.</para>
+
+<para
+>&konqueror;s övergripande utseende när du startar avgörs av en av två profiler, beroende på om du startar som filhanterare eller webbläsare. De här avgör fönsterstorlek, om fönstret är delat i två eller flera vyer, om sidraden eller terminalemulatorn visas, och startkatalogen eller webbadressen.</para>
+
+<para
+>För att ändra det här uppstartsbeteendet, ställ helt enkelt in &konqueror; som du vill, och välj sedan <guimenuitem
+>Spara vyprofil "filhantering"</guimenuitem
+> eller <guimenuitem
+>Spara vyprofil "webbläsning"</guimenuitem
+> i menyn <guimenu
+>Fönster</guimenu
+> beroende på vilket läge du använder. Om du vill att &konqueror; ska starta med ett tomt fönster skriv in <userinput
+>about:blank</userinput
+> i platsverktygsraden innan du sparar profilen.</para
+>     
+
+<para
+>Du kan också skapa ytterligare uppstartsprofiler och spara dem med <menuchoice
+><guimenu
+>Fönster</guimenu
+><guimenuitem
+>Anpassa vyprofiler...</guimenuitem
+></menuchoice
+>. Därefter kan du välja dem från menyn <menuchoice
+><guimenu
+>Fönster</guimenu
+><guimenuitem
+>Ladda vyprofil</guimenuitem
+> </menuchoice
+>. </para>
+    
+<note
+><para
+> Du kan skapa en skrivbordsikon för att starta &konqueror; med din nya profil. Börja med att skapa en skrivbordsikon genom att dra &konqueror;ikonen från <guimenu
+>K</guimenu
+>-menyn till skrivbordet och välja <guimenuitem
+>Kopiera hit</guimenuitem
+>. Högerklicka sedan på den nya ikonen, välj <guimenuitem
+>Egenskaper...</guimenuitem
+> och ändra <guilabel
+>Programnamn</guilabel
+> under fliken  <guilabel
+>Kör</guilabel
+> till <userinput
+><command
+>kfmclient</command
+> <option
+>openProfile <replaceable
+>MinNyaProfil</replaceable
+></option
+></userinput
+>, där <replaceable
+>MinNyaProfil</replaceable
+> är vad du kallade din nya profil. Ändra sedan namnet under fliken <guilabel
+>Allmänt</guilabel
+> till något som liknar <filename
+>MinNyaProfil.desktop</filename
+> och välj en mer passande ikon </para
+></note>
+
+</chapter>
+
+<chapter id="man-info">
+<title
+>Titta på manual- och infosidor</title>
+<para
+> Om du vill läsa &UNIX; manualsidor, gör &konqueror; det lätt. Skriv till exempel <userinput
+>man:touch</userinput
+> eller <userinput
+>#touch</userinput
+> i platsverktygsraden för att se sidan för kommandot touch.</para
+> 
+
+<para
+>Och att bläddra i Info-sidor blir nästan en trevlig erfarenhet. <userinput
+>info:/dir</userinput
+> visar toppnivåkatalogen för Info-sidorna och sedan är det bara att klicka på de rätta länkarna för att hitta sidan du vill ha.</para
+> 
+
+</chapter>
+
+<chapter id="config">
+<title
+>Anpassa &konqueror;</title>
+
+<para
+>Precis som resten av &kde;, är &konqueror; mycket anpassningsbar, så att du verkligen kan få den känslan och det utseendet som bäst passar dina behov och önskningar.</para>
+
+<sect1 id="configure-bars">
+<title
+>Ändra verktygsrader</title>
+
+<para
+>När &kde; just har installerats innehåller &konqueror;s fönster en menyrad, en verktygsrad, en platsverktygsrad och möjligen också en bokmärkesverktygsrad.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Kanske du inte behöver alla de här raderna. För att dölja en av dem, gå till menyn <guimenu
+>Inställningar</guimenu
+> och avmarkera motsvarande ruta. För att visa en dold rad, markera bara rutan.</para
+></listitem
+> <listitem
+><para
+>Till vänster i varje rad kan du se några vertikala linjer. Genom att vänsterklicka på dem kan du <quote
+>platta ut</quote
+> raden, vilket betyder att den döljs men kan snabbt återställas genom att klicka på de nu horisontella linjerna.</para
+></listitem
+> <listitem
+><para
+>Du kan också dra en rad till en ny plats med de här linjerna.</para
+></listitem
+> <listitem
+><para
+>Om du högerklickar på verktygsraden eller bokmärkesverktygsraden, visas en meny för att anpassa den här raden. Du kan välja placering, textplacering och ikonstorlek.</para
+></listitem
+> </itemizedlist>
+
+
+<note
+><para
+>Om du döljer menyraden, kommer du inte kunna använda <guimenu
+>Inställnings</guimenu
+>menyn! För att återställa menyraden, högerklicka i vyn och markera <guimenuitem
+>Visa menyrad</guimenuitem
+>.</para
+></note>
+
+<para
+>Ikonerna som visas i de olika raderna kan ändras genom att använda <menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa verktygsrader...</guimenuitem
+></menuchoice
+>, som visar dialogrutan <guilabel
+>Anpassa verktygsrader</guilabel
+> och låter dig ändra ikonerna i:</para>
+
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>Huvudverktygsraden &lt;Konqueror&gt;</guilabel
+>.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Platsverktygsraden &lt;Konqueror&gt;</guilabel
+>. Det finns oftast inte någon större anledning att ändra den här. </para
+></listitem
+> <listitem
+><para
+><guilabel
+>Huvudverktygsraden &lt;khtmlpart&gt;</guilabel
+>. Den här innehåller normalt ikonerna <guiicon
+>Öka</guiicon
+> och <guiicon
+>Minska</guiicon
+> teckenstorleken samt <guiicon
+>Säkerhet</guiicon
+> som bara visas när &konqueror; är i webbläsningsläge. </para
+></listitem
+> </itemizedlist>
+
+<para
+>Observera att du kan ordna om platsen för knapparna i en verktygsrad genom att klicka på uppåtpilen eller neråtpilen.</para>
+
+</sect1>
+
+<sect1 id="configfm">
+<title
+>Filhanterare</title>
+
+<para
+>Välj <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Anpassa Konqueror...</guisubmenu
+><guimenuitem
+>Filhanteraren</guimenuitem
+></menuchoice
+> eller från <guimenu
+>K</guimenu
+>-menyn välj <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Filbläddring</guisubmenu
+><guimenuitem
+>Filhanteraren</guimenuitem
+></menuchoice
+>. Det här visar en dialog ruta med fyra flikar: <guilabel
+>Utseende</guilabel
+>, <guilabel
+>Papperskorg</guilabel
+>, <guilabel
+>Beteende</guilabel
+> och <guilabel
+>Övrigt</guilabel
+>. </para>
+
+<sect2>
+<title
+>Beteende</title
+> 
+
+<para
+>Här kan du välja om Konqueror öppnar ett nytt fönster när du öppnar en katalog, eller visar katalogens innehåll i det nuvarande fönstret.</para>
+<para
+><guilabel
+>Webbadressen hem</guilabel
+> används för att låta dig välja hemadressen, som &konqueror; kommer att gå till när du klickar på <guiicon
+>Hem</guiicon
+>-knappen (det här är vanligtvis din hemkatalog <filename
+>~</filename
+>), men det här valet överskrids av den nuvarande <link linkend="save-settings"
+>profilinställningen</link
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Utseende</title>
+
+<para
+>Den här fliken låter dig ställa in teckensnittsstorlek och färger som används av &konqueror; och hur text som hör ihop med ikoner visas. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Papperskorg</title>
+
+<para
+>Här kan du välja om &konqueror; frågar efter bekräftelse innan objekt tas bort.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Övrigt</title>
+
+<para
+>Den här fliken låter dig välja terminalprogram (som &konsole; eller <application
+>xterm</application
+>) som används när du öppnar ett terminalfönster med <guimenuitem
+>Öppna terminal</guimenuitem
+> eller <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>T</keycap
+></keycombo
+>.</para>
+
+</sect2>
+
+</sect1>
+
+
+<sect1 id="file-associations">
+<title
+>Filbindningar</title>
+
+<para
+>Vad  &konqueror; gör när du klickar på ett filnamn eller ikon avgörs av filtypen och listan på åtgärder som &konqueror; har för de olika filtyperna. Det här kan ändras för att passa din smak eller för att lägga till en ny filtyp.</para>
+
+<para
+><mousebutton
+>Höger</mousebutton
+>klicka på en textfil och välj <guimenuitem
+>Redigera filtyp</guimenuitem
+>. Det här visar en ny dialogruta.</para>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="filetype1.png"/></imageobject
+> <textobject
+> <phrase
+>Dialogrutan <guimenuitem
+>Redigera filtyp</guimenuitem
+>, fliken <guimenu
+>Allmänt</guimenu
+></phrase
+> </textobject
+> </mediaobject>
+
+<para
+>Under fliken <guilabel
+>Allmänt</guilabel
+>, definierar sektionen <guilabel
+>Föredragen ordning av program</guilabel
+> vad som syns i menyn <guimenuitem
+>Öppna med</guimenuitem
+> för den här sortens fil. Du kan ändra de här programmen och deras ordning. Du kan också ändra ikonen som &konqueror; använder för den här filtypen genom att vänsterklicka på ikonen, och du kan lägga till filändelser (<guilabel
+>Filnamsmönster</guilabel
+>) för alla andra filtyper som du vill ska hanteras på samma sätt.</para>
+
+<note
+><para
+>&konqueror; är smart nog att känna igen de flesta enkla textfiler och behandla dem som sådana även om de inte har filändelsen <filename
+>.txt</filename
+>.</para
+></note>
+
+<para
+>Fliken <guimenuitem
+>Inbäddning</guimenuitem
+> (som i själva verket refererar till förhandsgranskningen) anger vad som händer när du vänsterklickar på ett filnamn. </para>
+
+<note
+><para
+>Filtyper är uppdelade i flera grupper: <guimenuitem
+>application</guimenuitem
+>, <guimenuitem
+>audio</guimenuitem
+>, <guimenuitem
+>image</guimenuitem
+>, <guimenuitem
+>inode</guimenuitem
+>, <guimenuitem
+>message</guimenuitem
+>, <guimenuitem
+>text</guimenuitem
+> och <guimenuitem
+>video</guimenuitem
+>.</para
+></note>
+
+<para
+>&konqueror; kan anpassas för att associera vilken filtyp som helst med ett installerat program.</para>
+
+<para
+>Bildtypen Targa finns till exempel inte i &konqueror;. Om du har en sådan fil på din disk, kommer den att ha ett frågetecken som ikon. Om du vänsterklickar på den, frågar &konqueror; vilket program du vill använda. Du kan helt enkelt skriva in ett namn på ett lämpligt program varje gång du väljer en Targa-fil, men den bästa metoden är att tala om för &konqueror; vad som ska göras med Targa-bilder.</para>
+
+<para
+>Låt oss lägga till Targa-mimetypen till &konqueror;.</para>
+
+<procedure
+> <step
+><para
+>Öppna dialogrutan <menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Anpassa Konqueror...</guisubmenu
+> <guimenuitem
+>Filbindningar</guimenuitem
+></menuchoice
+>.</para
+></step
+> <step
+><para
+>Klicka på knappen <guibutton
+>Lägg till...</guibutton
+> nere till vänster, för att visa en liten dialogruta.</para
+></step
+> <step
+><para
+>Välj <guimenuitem
+>Image</guimenuitem
+> i kombinationsrutan, skriv in <userinput
+>Targa</userinput
+> i textrutan <guilabel
+>Typnamn</guilabel
+>, och tryck på <guibutton
+>Ok</guibutton
+>.</para
+> <mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="filetype3.png"/></imageobject
+> <textobject
+> <phrase
+>Lägga till Targa-typen, steg 2</phrase
+> </textobject
+> </mediaobject
+> </step
+> <step
+><para
+>Ta nu en titt i övre högra hörnet i dialogrutan filbindningar. Klicka på ikonknappen och välj en passande ikon, här verkar den bästa ikonen vara <guiicon
+>image</guiicon
+>. Lägg till mönstren <userinput
+>*.tga</userinput
+> och <userinput
+>*.TGA</userinput
+> i textrutan <guilabel
+>Filnamnsmönster</guilabel
+> genom att klicka på knappen <guibutton
+>Lägg till...</guibutton
+> överst till höger. Det här betyder att alla filer med filändelsen <literal role="extension"
+>.tga</literal
+> eller <literal role="extension"
+>.TGA</literal
+> (stora och små bokstäver är viktiga) nu kommer att betraktas som Targa-bilder.</para
+></step
+> <step
+><para
+>&konqueror; vet nu vad en Targa-fil är, men vet inte vad som ska göras med den. Vi måste tala om för &konqueror; vilket program som ska startas för att titta på en Targa-fil. Klicka på knappen <guibutton
+>Lägg till...</guibutton
+> i nedre högra hörnet under <guilabel
+>Föredragen ordning av program</guilabel
+>, för att visa följande dialogruta.</para
+> <mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="filetype4.png"/></imageobject
+> <textobject
+> <phrase
+>Lägga till Targa-typen, steg 3</phrase
+> </textobject
+> </mediaobject
+> </step
+> <step
+><para
+>Du kan välja ett program från listan <guilabel
+>Kända program</guilabel
+>, men eftersom vi vill använda <application
+>Gimp</application
+> som inte finns listad, skriv <userinput
+>gimp</userinput
+> i rutan <guilabel
+>Lägg till program</guilabel
+>.</para
+></step
+> <step
+><para
+><application
+>Gimp</application
+> är verkligen trevligt, men stort och inte avsett för snabb visning. Klicka en gång till på knappen <guibutton
+>Lägg till...</guibutton
+> i nedre högra hörnet i dialogrutan Redigera filtyp, för att visa den lilla dialogrutan Välj program, och skriv in <userinput
+><application
+>xv</application
+></userinput
+> eller namnet på något annat lämpligt program som finns installerat i rutan <guilabel
+>Lägg till program</guilabel
+>. </para
+></step
+> <step
+><para
+>Nu har du två program i listan. Det första blir det förvalda programmet, och du kan arrangera dem som du föredrar med knapparna <guibutton
+>Flytta upp</guibutton
+> och <guibutton
+>Flytta ner</guibutton
+>. Du bör välja ett program för snabbgranskning som förvalt program. </para
+></step
+> </procedure>
+
+<para
+>Alla Targa-filer kommer nu att kännas igen.</para>
+
+</sect1>
+
+<sect1 id="configure-browser">
+<title
+>Webbläsaren Konqueror</title>
+
+<para
+>Välj <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Anpassa Konqueror...</guisubmenu
+> <guimenuitem
+>Webbläsaren Konqueror</guimenuitem
+></menuchoice
+> eller välj <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guimenu
+>Webbläsning</guimenu
+><guimenuitem
+>Webbläsaren Konqueror</guimenuitem
+></menuchoice
+> från K-menyn. Det här visar en dialogruta med fem flikar: <guilabel
+>HTML</guilabel
+>, <guilabel
+>Utseende</guilabel
+>, <guilabel
+>Java</guilabel
+>, <guilabel
+>Javaskript</guilabel
+> och <guilabel
+>Insticksprogram</guilabel
+>.</para>
+
+<sect2>
+<title
+>HTML</title>
+
+<para
+>Den här fliken låter dig bestämma om &konqueror;s markör ska ändras från en pekare till en hand när den är över en länk på sidan (lämpligt eftersom annars kan du missa länkar som visas som bilder istället för text), och om textlänkar ska visas understrukna.</para
+> <para
+>Den låter dig också bestämma om bilder ska laddas eller, för snabbare bläddring, bara när du önskar.</para>
+
+</sect2>
+
+<sect2>
+
+<title
+>Utseende</title>
+
+<para
+>Den här sidan låter dig välja teckensnittstyp, teckenuppsättning och förvald kodning som ska användas vid webbläsning.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Java</title>
+
+<para
+>&Java; är inte Javaskript, utan ett fullständigt språk. <acronym
+>HTML</acronym
+>-sidor som använder &Java; kan göra att &Java;-program, som oftast kallas <quote
+>miniprogram</quote
+>, att laddas ner och köras på din maskin.</para>
+
+<para
+>Fliken <guilabel
+>Java</guilabel
+> låter dig ställa in &konqueror;s globala och domänspecifika policies för &Java;.</para>
+
+<para
+>Rutan <guilabel
+>Aktivera Java globalt</guilabel
+> anger om &konqueror; accepterar eller ignorerar Java-miniprogram i allmänhet, men det här kan ändras genom att lägga till domänspecifika policies för att acceptera eller avstå från att använda Java. Hela domännamnet måste skrivas in här, för att till exempel aktivera (eller stänga av) Java för platsen http://news.bbc.co.uk, måste du skriva in <userinput
+>news.bbc.co.uk</userinput
+> i fältet Värddator/Domän, att bara skriva <userinput
+>bbc.co.uk</userinput
+> eller <userinput
+>*.bbc.co.uk</userinput
+> fungerar inte.</para>
+
+<para
+>För att kunna köra &Java;-miniprogram, behöver du ha en Java Virtuell Maskin (<acronym
+>JVM</acronym
+>) installerad på datorn, och &konqueror; måste veta var den finns. Du kan oftast bara skriva <userinput
+>java</userinput
+> i textrutan <guilabel
+>Sökväg till körbar Java, eller 'java'</guilabel
+>, men om det inte fungerar eller om du har flera olika virtuella maskiner installerade och du vill att &konqueror; ska använda en särskild, skriv då in hela sökvägen till din &Java;-installation, såsom <filename
+>/usr/java/bin</filename
+>.</para>
+
+<warning
+><para
+>Som med vilken webbläsare som helst, att använda aktivt innehåll (Java eller Javaskript) kan försvaga systemets säkerhet. Det rekommenderas att alternativet <guilabel
+>Använd säkerhetshanterare</guilabel
+> under fliken <guilabel
+>Java</guilabel
+> markeras om du använder &Java;. Det här kräver att &Java;-installationen på datorn uppfyller Java 2. </para
+></warning>
+
+<note
+><para
+> Besök <ulink url="http://www.konqueror.org"
+>http://www.konqueror.org</ulink
+> för uppdaterad information om hur bra olika &Java; <acronym
+>JVM</acronym
+>:er fungerar med &konqueror;. </para
+></note>
+
+</sect2>
+
+<sect2>
+<title
+>Javaskript</title>
+
+<para
+>Javaskript är ett litet skriptspråk som ofta används för att lägga till animering eller andra funktioner på <acronym
+>HTML</acronym
+>-sidor.. &konqueror; innehåller en tolk som uppfyller ECMAScript för att hantera skriptspråk som &Netscape;s JavaScript och &Microsoft;s JScript..</para>
+		
+<para
+>Rutan <guilabel
+>Aktivera Javaskript globalt</guilabel
+> avgör om &konqueror; accepterar eller ignorerar Javaskript i allmänhet, men det här kan ändras genom att lägga till domänspecifika policies för att acceptera eller avstå från att använda Javaskript. </para>
+
+<para
+>Under <guilabel
+>Policy för Javaskript webbpopupp</guilabel
+> i dialogrutan, kan alternativet <guilabel
+>Neka</guilabel
+> vara användbart om du regelbundet besöker webbsidor som använder detta för att visa webbreklam, men var medveten om att vissa platser kräver detta för normal funktion. Alternativet <guilabel
+>Visa avlusningsfönster</guilabel
+> skriver ut information och varningar från Javaskripttolken i ett eget fönster.</para>
+</sect2>
+
+<sect2>
+<title
+>Insticksprogram</title>
+<para
+>Den här fliken låter dig aktivera eller stänga av körning av insticksprogram generellt. För mer information om insticksprogram se avsnittet <link linkend="plugin"
+>Insticksprogram</link
+>. </para
+> 
+</sect2>
+
+</sect1>
+
+<sect1 id="configure-enhanced-browsing">
+<title
+>Utökad webbläsning</title>
+
+<para
+>Använd menyradens <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Anpassa Konqueror...</guisubmenu
+> <guimenuitem
+>Utökad webbläsning</guimenuitem
+></menuchoice
+> eller K-menyns <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Webbläsning</guisubmenu
+> <guimenuitem
+>Utökad webbläsning</guimenuitem
+></menuchoice
+> för att visa dialogrutan <guilabel
+>Utökad webbläsning</guilabel
+> från KDE:s inställningscentral.</para>
+
+<para
+>Om rutan <guilabel
+>Aktivera Internetsökord</guilabel
+> är markerad kan du helt enkelt skriva in normala ord och meningar som "linux" i platsverktygsraden och antingen omdirigeras du till en lämplig plats eller så visas en lista med möjliga länkar. För att göra det här skickar &konqueror; orden till <filename
+>www.internetkeywords.org</filename
+> som dirigerar om dig om den hittar ett passande Internetsökord.</para>
+
+<para
+>Kombinationsrutan <guilabel
+>Sökmotor som reservlösning</guilabel
+> låter dig ange en söktjänst som används om ett exakt passande Internetsökord inte hittas. Om du väljer <guilabel
+>Inget</guilabel
+> används <filename
+>www.internetkeywords.org</filename
+>.</para>
+
+<para
+>Om du markerar rutan <guilabel
+>Aktivera webbgenvägar</guilabel
+> låter &konqueror; dig använda <guilabel
+>Genvägar</guilabel
+> definierade i rutan nedan för att välja en särskild söktjänst. Du kan till exempel skriva in <userinput
+>av:linux</userinput
+> i platsverktygsraden för att söka efter <quote
+>linux</quote
+> med Altavista.</para>
+</sect1>
+
+<sect1 id="cookies">
+<title
+>Kakor</title>
+
+<para
+>Använd menyradens <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Anpassa Konqueror...</guisubmenu
+> <guimenuitem
+>Kakor</guimenuitem
+></menuchoice
+> eller K-menyns <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Webbläsning</guisubmenu
+> <guimenuitem
+>Kakor</guimenuitem
+></menuchoice
+> för att visa en dialogruta med två flikar: <guilabel
+>Policy</guilabel
+> och <guilabel
+>Hantering</guilabel
+>.</para>
+
+<sect2>
+<title
+>Policy</title>
+
+<para
+>Den här fliken låter dig bestämma om &konqueror; hanterar kakor överhuvudtaget, och om du ska bli tillfrågad för att bekräfta att de accepteras.</para>
+<para
+>Du kan också ställa in domänspecifika kakpolicies och till och med dela dem med andra genom att använda <guibutton
+>Importera</guibutton
+> och <guibutton
+>Exportera</guibutton
+>.</para
+> 
+</sect2>
+
+<sect2>
+<title
+>Hantering</title>
+
+<para
+>Den här fliken är intressant därför att den låter dig se de kakor som har sparats i din dator, och låter dig ta bort någon av dem eller allihopa.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="configure-proxy">
+<title
+>Proxy &amp; Cache</title>
+
+<para
+>Dialogrutan <guilabel
+>Proxy &amp; Cache</guilabel
+> visas med menyradens <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Anpassa Konqueror...</guisubmenu
+> <guimenuitem
+>Proxy &amp; Cache</guimenuitem
+></menuchoice
+> eller K-menyns <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Webbläsning</guisubmenu
+> <guimenuitem
+>Proxy &amp; Cache</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>En <quote
+>proxy</quote
+>-anslutning till Internet görs via en annan maskin, oftast en <acronym
+>LAN</acronym
+>-server (Local Area Network), och ger dig förbättrad säkerhet genom att avgränsa datorer anslutna till det lokala nätverket från Internets egna vidöppna värld. En proxy-server kan också ha en cache med nerladdade filer för att ge dig snabbare tillgång till de senast nerladdade filerna.</para>
+
+<para
+>Proxy-servrar hör traditionellt ihop med ett lokalt internt nätverk i en organisation, men används nu också av vissa Internetleverantörer med kabelnätverk, som ansluter kunder som bor nära varandra i ett lokalt nätverk för att förbättra den totala prestandan i kabelnätverket. </para>
+
+<para
+>Om du är ansluten till ett lokalt nätverk, är kanske en proxy det enda sättet som du kan ansluta till webben, och i så fall måste du fråga din systemadministratör eller internetleverantör om anslutningsinformation.</para>
+
+<procedure
+> <step
+><para
+>För att ställa in &konqueror; att fungera med din proxy-server, öppna dialogrutan Proxy &amp; Cache, markera <guilabel
+>Använd proxy</guilabel
+> och fyll i fälten enligt vad du har fått reda på från din systemadministratör eller Internetleverantör.</para
+></step
+> <step
+><para
+>Naturligtvis ska inte proxy-servern användas för att komma åt en dator på det lokala nätverket. Skriv därför in namnen på lokala datorer i nätverket separerade med kommatecken i rutan <guilabel
+>Ingen proxy för:</guilabel
+>. Ofta är det här domännamnet för din internetleverantör eller ditt företag. Om du till exempel befinner dig i skolnätverket "Ireste", skulle du skriva <userinput
+>ireste.fr,intranet</userinput
+>, där <quote
+>intranet</quote
+> är namnet på datorn där webbservern för Intranätet finns. Det här är viktigt om du befinner dig i ett lokalt nätverk, eftersom proxy-servern inte hittar de lokala maskinerna.</para
+></step
+> </procedure>
+
+<note
+><para
+>Alternativet <guilabel
+>Använd cache</guilabel
+> i dialogrutan är inte egentligen ett proxy-alternativ. Det låter dig välja att lagra (i en cache) nerladdade sidor på din lokala disk så att de inte behöver laddas ner igen nästa gång du använder dem. Vi råder dig att använda det här alternativet (vare sig du använder en proxy eller inte) om du inte har ont om diskutrymme i din hemkatalog. </para
+></note>
+
+</sect1>
+
+<sect1 id="crypto">
+<title
+>Krypto</title>
+
+<para
+>Använd menyradens <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Anpassa Konqueror...</guisubmenu
+> <guimenuitem
+>Krypto</guimenuitem
+></menuchoice
+> eller K-menyns <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Personligt</guisubmenu
+> <guimenuitem
+>Krypto</guimenuitem
+></menuchoice
+> för att visa en dialogruta som låter dig välja vilka <acronym
+>SSL</acronym
+>-alternativ som ska användas när du besöker säkra (https) platser. Använd de förvalda inställningarna om du inte är helt säker på vad du gör.</para
+> </sect1>
+
+<sect1 id="configure-user-agent">
+<title
+>Användaragent</title>
+
+<para
+>Vissa webbplatser skräddarsyr sina <acronym
+>HTML</acronym
+>-sidor för den webbläsare som du använder för att titta på dem. Det här görs för att hantera olikheter mellan webbläsare och görs genom att webbservern frågar efter webbläsarens <quote
+>Användaragent</quote
+> och sedan jämför den med en lista på kända webbläsare. Tyvärr känner väldigt få webbplatser igen <quote
+>&konqueror;</quote
+>.</para>
+
+<para
+>För att lösa det här problemet, kan du avgöra vad &konqueror; rapporterar som användaragent. Använd menyradens <menuchoice
+><guimenu
+> Inställningar</guimenu
+><guisubmenu
+>Anpassa Konqueror...</guisubmenu
+> <guimenuitem
+>Användaragent</guimenuitem
+></menuchoice
+> eller K-menyns <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Webbläsning</guisubmenu
+> <guimenuitem
+>Användaragent</guimenuitem
+></menuchoice
+> för att visa en dialogruta som låter dig välja användaragentsträngen för valda servrar eller domäner.</para>
+
+<para
+>En del exempel på användaragentsträngar (som kan vara användbara) finns i kombinationsrutan <guilabel
+>Använd följande identitet</guilabel
+>.</para>
+
+</sect1>
+
+<sect1 id="plugin">
+<title
+>Insticksprogram för &Netscape;</title>
+
+<para
+>För närvarande stöder &konqueror; insticksprogram för &Netscape; 4.x.</para>
+
+<para
+>Om du väljer <menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guisubmenu
+>Webbläsning</guisubmenu
+> <guimenuitem
+> Insticksprogram för Netscape</guimenuitem
+></menuchoice
+> från K-menyn, visas en dialogruta med två flikar: <guilabel
+>Sök</guilabel
+> och <guilabel
+>Insticksprogram</guilabel
+>.</para>
+
+<sect2>
+<title
+>Sök</title>
+
+<para
+>Den här sidan gör att &kde; kan söka efter nya insticksprogram för &Netscape;, antingen manuellt genom att trycka på knappen <guibutton
+>Sök efter nya insticksprogram</guibutton
+> eller automatiskt varje gång &kde; startas.</para>
+	
+<para
+>Sökningen görs genom att leta igenom katalogerna som listas under <guilabel
+>Sök i kataloger</guilabel
+> efter <literal role="extension"
+>.so</literal
+>-filer som innehåller insticksprogramkod. Den undersöker varje sådan fil för att ta reda på vilken <acronym
+>MIME</acronym
+>-typ som insticksprogrammet stöder. Därefter skapas en definition av <acronym
+>MIME</acronym
+>-typen för &kde; i användarens katalog <filename class="directory"
+> ~/.kde/share/mimelnk</filename
+> för att andra program ska få reda på den nya MIME-typen.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Insticksprogram</title>
+
+<para
+>Den här sidan visar alla &Netscape;-insticksprogram som &kde; har hittat, och för varje insticksprogram visas <acronym
+>MIME</acronym
+>-typen och filnamnsändelsen som används för att känna igen det.</para>
+
+</sect2>
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Kommandoreferens</title>
+
+<sect1 id="menubar">
+<title
+>Menyraden</title>
+
+<sect2 id="menu-location">
+<title
+>Menyn <guimenu
+>Plats</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+>Nytt <accel
+>F</accel
+>önster</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppnar</action
+> ytterligare ett &konqueror;-fönster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>D</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>uplicera fönstret</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öppnar ytterligare ett &konqueror;-fönster, som <action
+>duplicerar det nuvarande.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+>Öppna <accel
+>p</accel
+>lats</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna en katalog eller fil</action
+> genom att ange dess sökväg (till exampel <filename class="directory"
+>/home/pam</filename
+> eller <filename
+>/home/pam/fred.txt</filename
+>) i en enkel dialogruta.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+>Spara <accel
+>b</accel
+>akgundsbild som...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Gäller bara om du tittar på en webbsida med en bakgrundsbild. Öppnar dialogrutan <guilabel
+>Spara som</guilabel
+> för att låta dig spara bakgrundsbilden på din egen dator.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>para som...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Gäller bara om du visar ett dokument eller webbsida, och använder dialogrutan <guilabel
+>Spara som</guilabel
+> för att låta dig spara en kopia på din egen dator.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+>Spara <accel
+>r</accel
+>am som...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Liknar <guimenuitem
+>Spara som</guimenuitem
+> men är till för en webbplats som använder ramar.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+>Skriv <accel
+>u</accel
+>t...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skriv ut</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+>Skriv ut ram</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skriv ut ramen som visas för en webbsida.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+>Öppna med Netscape</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna också webbsidan du tittar på i &konqueror; med Netscape.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>lats</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>vsluta</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Stänger</action
+> &konqueror;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-edit">
+<title
+>Menyn <guimenu
+>Redigera</guimenu
+></title>
+
+<note
+><para
+>De flesta valen i menyn <guimenu
+>Redigera</guimenu
+> på menyraden kan också hittas genom att högerklicka på en tom area i en vy.</para
+></note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+>Å<accel
+>n</accel
+>gra</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Låter dig ibland ångra ett misstag.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>lipp ut</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lägger markerade objekt på klippbordet.</action
+> Om man sedan <guimenuitem
+>Klistrar in</guimenuitem
+> kommer objekten att flyttas från ursprungsplatsen till den nya platsen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+>K<accel
+>o</accel
+>piera</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kopiera markerade objekt till klippbordet.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+>K<accel
+>l</accel
+>istra in</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Klistra in objekt från klippbordet till den katalog som visas för närvarande.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F2</keycap
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>yt namn</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Låter dig byta namn på en fil eller katalog</action
+> utan att behöva öppna dialogrutan <guimenuitem
+>Egenskaper...</guimenuitem
+>. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Del</keycap
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+>Flytta till <accel
+>p</accel
+>apperskorgen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Flyttar markerade object till katalogen Papperskorg.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Del</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>a bort</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Tar bort de markerade objekten.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>Del</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>örstör</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Förstör de markerade objekten.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+>Skapa <accel
+>n</accel
+>y</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skapa en länk</action
+> till ett program, webbadress, diskett- eller CDROM-enhet, eller skapa en ny katalog, text- eller <acronym
+>HTML</acronym
+>-fil. Se avsnittet <link linkend="making"
+>Skapa ny...</link
+> för mer detaljer.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+>Redigera filtyp..</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna</action
+> dialogrutan <guilabel
+>Redigera filtyp</guilabel
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+>Egenskaper..</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna</action
+> dialogrutan <guilabel
+>Redigera egenskaper</guilabel
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>arkera</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Tillsammans med kommandona <guimenuitem
+>Avmarkera</guimenuitem
+>, <guimenuitem
+>Avmarkera alla</guimenuitem
+> och <guimenuitem
+>Invertera markering</guimenuitem
+>, ger detta ett enkelt och kraftfullt sätt att välja flera filer.</para
+> <para
+><action
+>Det visar en enkel dialogruta där du kan ange ett filnamn</action
+> med jokertecknen * och ?, genom att till exempel skriva in <literal role="extension"
+>*.html</literal
+> väljs alla filer som slutar med <literal role="extension"
+>.html</literal
+> medan <filename
+>?a*</filename
+> väljer alla filer som har bokstaven  a som det andra tecknet i sina filnamn.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>vmarkera</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Avmarkera fil eller katalog.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>U</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+>A<accel
+>v</accel
+>markera alla</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Avmarkera alla markerade filer eller kataloger.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>*</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nvertera markering</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Invertera nuvarande markering.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>U</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>arkera alla</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Väljer all text på en HTML-sida eller på en textsida som förhandsgranskas</action
+>, du kan sedan <guimenuitem
+>Kopiera</guimenuitem
+> den och <guimenuitem
+>Klistra in</guimenuitem
+> den i en texteditor.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>ök</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Hitta en textsträng</action
+> på en textsida som du förhandsgranskar eller på en <acronym
+>HTML</acronym
+>-sida.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>ök i ram</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Hitta en textsträng</action
+> i en <acronym
+>HTML</acronym
+>-ram.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>å till rad...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gå till ett särskilt radnummer på en textsida som du förhandsgranskar.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-view">
+
+<title
+>Menyn <guimenu
+>Visa</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guisubmenu
+>Vyläge...</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Väljer</action
+> <guimenuitem
+>Ikonvy</guimenuitem
+>, <guimenuitem
+>Flerkolumnsvy</guimenuitem
+>, <guimenuitem
+>Trädvy</guimenuitem
+>, <guimenuitem
+>Detaljerad Listvy</guimenuitem
+> eller <guimenuitem
+>Textvy</guimenuitem
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>nvänd index.html</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Om en vald katalog innehåller en fil som heter <filename
+>index.html</filename
+>, <action
+>öppnas den som en webbsida</action
+> istället för att visa katalogen som en lista med filer.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Lås till aktuell position</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lås till aktuell position. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Lås upp vyn</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lås upp alla vyer. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Länkvy</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Länka aktuell vy till andra i ett fönster med flera vyer.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>ppdatera</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Uppdatera.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Esc</keycap
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>toppa</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Stoppa laddning (särskilt användbart vid webbläsning).</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Ikonstorlek</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Välj storleken på ikoner som används när en katalog visas med ikonvy.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Sortera</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Välj ordning som poster visas i fönstret med ikonvy och flerkolumnsvy.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Storleksokänslig sortering</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Välj om sorteringsordningen för trädvy, detaljerad listvy eller textvy är storlekskänslig.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Visa dokumentets källa</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Visa dokumentets källtext.</action
+></para
+> <para
+>Bara tillgängligt om du tittar på ett dokument eller en <acronym
+>HTML</acronym
+>-sida.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Visa ramens källa</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Visa ramens källtext.</action
+></para
+> <para
+>Gäller bara om du tittar på en webbplats som använder ramar. Liknar <guimenuitem
+>Visa dokumentets källa</guimenuitem
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Säkerhet...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Talar om för dig om den nuvarande webbläsningsanslutningen är säkrad</action
+> med <acronym
+>SSL</acronym
+> och låter dig visa dialogrutan <guilabel
+>Krypteringsinställningar</guilabel
+>. Att <mousebutton
+>vänster</mousebutton
+>klicka på menyradens hänglås gör samma sak.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Ang<accel
+>e</accel
+> kodning</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ange kodning</action
+></para
+> <para
+>Låter dig välja den teckenkodning som används för att visa <acronym
+>HTML</acronym
+>-sidor. <guimenuitem
+>Automatisk</guimenuitem
+> är vanligtvis det bästa valet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guisubmenu
+>Förhandsgranska</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Låter dig välja att visa miniatyrbilder för bilder, textfiler eller HTML-sidor istället för de normala ikonerna med ikonvy eller flerkolumnsvy.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Visa gömda filer</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Visa gömda (punkt) filer.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Visa detaljer...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Låter dig välja vilka fil- och katalogdetaljer som visas i trädvy, detaljerad listvy och textvy.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Bakgrundsfärg...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Välj bakgrundsfärg för filhanteringsläge. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Bakgrundsbild...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Välj bakgrundsbild för filhanteringsläge. </action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-go">
+<title
+>Menyn <guimenu
+>Gå</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Up Arrow</keysym
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>G</accel
+>å</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>pp</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gå uppåt en nivå i kataloghierarkin.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Left Arrow</keysym
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>G</accel
+>å</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>illbaka</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gå tillbaka</action
+> till den tidigare vyn.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Right Arrow</keysym
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>G</accel
+>å</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>ramåt</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Du kan bara <action
+>gå framåt</action
+> om du precis har gått tillbaka.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Home</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>G</accel
+>å</guimenu
+> <guimenuitem
+>Hemadress</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gå till din hemkatalog.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>G</accel
+>å</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>rogram</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna katalogen som innehåller dina program.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>G</accel
+>å</guimenu
+> <guimenuitem
+>Sidradsinställningar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppnar katalogen som innehåller detaljerna för dina sidradsinställningar i ett eget fönster.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>G</accel
+>å</guimenu
+> <guimenuitem
+>Papperskorgen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna</action
+> katalogen <filename class="directory"
+>Papperskorg</filename
+> i ett eget fönster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>G</accel
+>å</guimenu
+> <guimenuitem
+>Mallar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna</action
+> katalogen <filename class="directory"
+>Mallar</filename
+> i ett eget fönster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>G</accel
+>å</guimenu
+> <guimenuitem
+>Autostart</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna</action
+> katalogen <filename class="directory"
+>Autostart</filename
+> i ett eget fönster.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-bookmarks">
+<title
+>Menyn <guimenu
+>Bokmärken</guimenu
+></title>
+
+<note
+><para
+>Se avsnittet <link linkend="bookmarks"
+>Att använda bokmärken</link
+> i den här handboken för en mer utförlig beskrivning av de här menyvalen. </para
+></note>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>B</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>okmärken</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>ägg till bokmärke</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lägg till aktuellt val till dina bokmärken.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>okmärken</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>edigera bokmärken...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna din bokmärkeskatalog i ett eget fönster.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>okmärken</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>y undermeny</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skapa en ny katalog i din bokmärkeskatalog.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>okmärken</guimenu
+> <guimenuitem
+>Netscapes bokmärken</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>För att se och använda dina &Netscape;-bokmärken.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>okmärken</guimenu
+> <guimenuitem
+>Bokmärkesverktygsraden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>För att se, redigera och använda dina poster i bokmärkesverktygsraden.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-tools">
+<title
+>Menyn <guimenu
+>Verktyg</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>F2</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Verk<accel
+>t</accel
+>yg</guimenu
+> <guimenuitem
+>Kö<accel
+>r</accel
+> kommando...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kör ett program</action
+> genom att ange dess namn i en enkel dialogruta.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>T</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Verk<accel
+>t</accel
+>yg</guimenu
+> <guimenuitem
+>Öppna <accel
+>T</accel
+>erminal...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna</action
+> ett &konsole; terminalfönster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Verk<accel
+>t</accel
+>yg</guimenu
+> <guimenuitem
+>Hitta <accel
+>f</accel
+>il...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Starta filsökningsprogrammet.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-settings">
+<title
+>Menyn <guimenu
+>Inställningar</guimenu
+></title>
+
+<note
+><para
+>Se också avsnittet <link linkend="save-settings"
+>Spara inställningar &amp; profiler</link
+>.</para
+></note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>Visa <accel
+>m</accel
+>enyrad</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Visa/göm menyraden.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>Visa <accel
+>v</accel
+>erktygsrad</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Visa/göm verktygsraden.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>Visa <accel
+>e</accel
+>xtra verktygsrad</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Låter dig ha en andra verktygsrad.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>Visa <accel
+>p</accel
+>latsverktygsrad</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Visa/göm platsverktygsraden.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>Visa <accel
+>b</accel
+>okmärkesverktygsrad</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Visa/göm bokmärkesverktygsraden.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>Vyegenskaper spara<accel
+>d</accel
+>e i katalog</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Spara vyegenskaper i nuvarande katalog.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>Ta bort katalogegenskaper</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ta bort katalogegenskaper.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>Anpassa <accel
+>t</accel
+>angentbindningar...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Låter dig titta på och ändra &konqueror;s tangentbindningar</action
+>, dvs kopplingen mellan åtgärder som  <guimenuitem
+>Kopiera</guimenuitem
+> och tangenter eller tangentkombinationer som <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+>.</para
+> </listitem
+></varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>Anpassa verktygs<accel
+>r</accel
+>ader...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+> Låter dig anpassa huvud-, extra- och platsverktygsraderna.</action
+> Se avsnittet <link linkend="configure-bars"
+>Ändra verktygsrader</link
+>. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>In<accel
+>s</accel
+>tällningar</guimenu
+> <guimenuitem
+>A<accel
+>n</accel
+>passa Konqueror...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Låter dig anpassa filhanteraren, filbindningar, webbläsaren, Internetsökord, kakor, proxy-servrar, krypto, användaragent, tangentbindningar eller verktygsrader genom att visa en passande dialogruta.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-window">
+<title
+>Menyn <guimenu
+>Fönster</guimenu
+></title>
+
+<note
+><para
+>Se också avsnittet <link linkend="save-settings"
+>Spara inställningar &amp; profiler</link
+>.</para
+></note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>L</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+>Dela vyn v<accel
+>ä</accel
+>ster/höger</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Dela vyn vänster/höger.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>T</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+>Dela vyn <accel
+>t</accel
+>opp/botten</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Dela vyn topp/botten.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+>Ny vy till höger</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lägg till en ny vy till höger</action
+> i &konqueror;s fönster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+>Ny vy  i botten</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lägg till en ny vy längst ner</action
+> i &konqueror;s fönster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>R</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>a bort den aktiva vyn</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ta bort den aktiva vyn.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+>Visa sidrad</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Visa sidraden</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+>Visa terminalemulator</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öppna en liten textterminalvy längst ner i huvudfönstret.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>para vyprofil "Filhantering"</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Spara den aktuella vyprofilen som den förvalda för filhanteringsläge.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>para vyprofil "Webbläsning "</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Spara den aktuella vyprofilen som den förvalda för webbläsningsläge.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+>Anpassa vyprofiler...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Låter dig ändra en befintlig vyprofil eller skapa en ny. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+>Ladda <accel
+>v</accel
+>yprofil</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ladda vyprofil.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>önster</guimenu
+> <guimenuitem
+>Fullskärmsläge</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Fullskärmsläge.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-help">
+<title
+>Menyn <guimenu
+>Hjälp</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jälp</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nnehåll</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Innehåll</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jälp</guimenu
+> <guimenuitem
+>Vad är det <accel
+>h</accel
+>är?</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ritar ett frågetecken (?) intill muspekaren</action
+>. Att klicka på ett objekt i fönstret som <guiicon
+>Stopp</guiicon
+>knappen visar då en kort förklaring. Se <link linkend="bubble"
+>Verktygstips och Vad är det här?</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jälp</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>apportera fel...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Rapportera fel.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jälp</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>m Konqueror...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Om &konqueror;</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jälp</guimenu
+> <guimenuitem
+>Om <accel
+>K</accel
+>DE...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Visar</action
+> dig &konqueror;s versionsnummer, upphovsmän och licensavtalet.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Vanliga frågor</title>
+
+<qandaset>
+
+<qandaentry>
+<question
+><para
+>Hur kan jag titta på webbplatser som inte använder latinskt alfabet?</para
+></question>
+<answer
+><para
+>Detaljerade instruktioner finns på <ulink url="http://www.konqueror.org/i18n.html"
+>http://www.konqueror.org/i18n.html</ulink
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kan jag köra &konqueror; i en annan fönsterhanterare?</para
+></question>
+
+<answer
+><para
+>Installera bara &Qt;, kdelibs och kdebase, och starta helt enkelt &konqueror;. från din favoritfönsterhanterare. Det bör fungera utmärkt, men om det inte gör det (&kde;-utvecklare provar inte det här fallet ofta), rapportera det till <ulink url="http://bugs.kde.org"
+>http://bugs.kde.org</ulink
+> och försök köra <application
+>kdeinit</application
+> innan du startar &konqueror;, det fungerar oftast.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Var lägger &konqueror; all sin inställningsinformation?</para
+></question>
+<answer
+><para
+>I allmänhet i katalogen <filename
+>~/.kde</filename
+> (eller <filename
+>~/.kde2</filename
+>). Ändra inte de här filerna om du inte verkligen vet vad du gör.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Katalogen <filename class="directory"
+>~/.kde/share/apps/konqueror/profiles</filename
+> består av individuella filer som innehåller inställningar för var och en av dina <link linkend="save-settings"
+>profiler</link
+>.</para
+></listitem
+> <listitem
+><para
+>Dina bokmärken finns i <filename class="directory"
+>~/.kde/share/apps/konqueror/bookmarks.xml</filename
+></para
+></listitem
+> <listitem
+><para
+>Kakor finns i <filename class="directory"
+>~/.kde/share/apps/kcookiejar/cookies</filename
+></para
+></listitem
+> <listitem
+><para
+>Din historik, som används av funktionen för automatisk komplettering, finns i <filename
+>~/.kde/share/config/konq_history</filename
+></para
+></listitem
+> <listitem
+><para
+>Katalogen <filename class="directory"
+>~/.kde/share/config/</filename
+> med filerna <filename
+>konqiconviewrc</filename
+>, <filename
+>konqlistviewrc</filename
+> och <filename
+>konquerorrc</filename
+> som innehåller en hel mängd allmänna inställningar.</para
+></listitem
+> <listitem
+><para
+>Katalogen <filename class="directory"
+>~/.kde/share/apps/kio_http/cache/</filename
+> innehåller webbläsarcachen.</para
+></listitem
+> <listitem
+><para
+>Sidraden använder filerna och underbiblioteken i <filename class="directory"
+>~/.kde/share/apps/konqueror/dirtree</filename
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Alla katalogspecifika vyinställningar läggs i filerna <literal role="extension"
+>.directory</literal
+> i varje individuell katalog.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hur tömmer jag historikfilen (den har blivit ganska så stor)?</para
+></question>
+<answer
+><para
+>Det enda sättet som finns för närvarande är att ta bort filen <filename
+>~/.kde/share/config/konq_history</filename
+>, &konqueror; skapar då en ny tom fil nästa gång du använder den. Men observera att du inte kan använda &konqueror; för att ta bort den här filen, du måste starta en textterminal och skriva <userinput
+><command
+>rm</command
+> <option
+>~/.kde/share/config/konq_history</option
+></userinput
+></para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hur aktiverar jag, stänger av eller tömmer webbläsarcachen?</para
+></question
+> <answer>
+<para
+>Av någon anledning görs detta i dialogrutan för Proxy-servrar, välj <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Anpassa Konqueror...</guisubmenu
+><guimenuitem
+>Proxy &amp; Cache</guimenuitem
+></menuchoice
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&konqueror; kan inte köra &Netscape;s insticksprogram <application
+>Flash</application
+>-spelare.</para
+></question>
+<answer
+><para
+>Det här är ett problem med <application
+>Flash</application
+>-insticksprogrammet självt. Det startar inte förrän det kan låsa ljudenheten, och i &kde; så håller <application
+>artsd</application
+> den här enheten.</para
+></answer>
+</qandaentry>
+
+</qandaset>
+
+</chapter>
+
+
+<chapter id="credits">
+
+<title
+>Tack till och licens</title>
+
+<para
+>&konqueror;. Program Copyright 1999-2001, &konqueror;-utvecklarna:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>David Faure <email
+>faure@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (delar, I/O-bibliotek) och underhållare</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Simon Hausmann <email
+>hausmann@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (ramverk, delar)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Michael Reiher <email
+>michael.reiher@gmx.de</email
+></term
+> <listitem
+><para
+>utvecklare (ramverk)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Mattias Welk <email
+>welk@fokus.gmd.de</email
+></term
+> <listitem
+><para
+>utvecklare</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Alexander Neundorf <email
+>neundorf@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (listvyer)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Lars Knoll <email
+>knoll@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (<acronym
+>HTML</acronym
+>-visningsmotor)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Antti Koivisto <email
+>koivisto@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (<acronym
+>HTML</acronym
+>-visningsmotor)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dirk Mueller <email
+>mueller@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (<acronym
+>HTML</acronym
+>-visningsmotor)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Peter Kelly <email
+>pmk@post.com</email
+></term
+> <listitem
+><para
+>utvecklare (<acronym
+>HTML</acronym
+>-visningsmotor, Javaskript)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Waldo Bastian <email
+>bastian@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (<acronym
+>HTML</acronym
+>-visningsmotor, I/O-bibliotek)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Matt Koss <email
+>koss@miesto.sk</email
+></term
+> <listitem
+><para
+>utvecklare (I/O-bibliotek)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Alex Zepeda <email
+>jazepeda@pacbell.net</email
+></term
+> <listitem
+><para
+>utvecklare (I/O-bibliotek)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Stephan Kulow <email
+>coolo@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (I/O-bibliotek)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Richard Moore <email
+>rich@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (stöd för &Java;-miniprogram)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dima Rogozin <email
+>dima@mercury.co.il</email
+></term
+> <listitem
+><para
+>utvecklare (stöd för &Java;-miniprogram)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Harri Porten <email
+>porten@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (Javaskript)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Stefan Schimanski <email
+>1Stein@gmx.de</email
+></term
+> <listitem
+><para
+>utvecklare (stöd för &Netscape;-insticksprogram)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Carsten Pfeiffer <email
+>pfeiffer@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (ramverk)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>George Staikos <email
+>staikos@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (SSL stöd)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dawit Alemayehu <email
+>adawit@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (I/O-bibliotek, autentiseringsstöd)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Carsten Pfeiffer <email
+>pfeiffer@kde.org</email
+></term
+> <listitem
+><para
+>utvecklare (ramverk)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Torsten Rahn <email
+>torsten@kde.org</email
+></term
+> <listitem
+><para
+>Grafik / ikoner</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Torben Weis <email
+>weis@kde.org</email
+></term
+> <listitem
+><para
+>upphovsman till kfm</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Dokumentation Copyright 2000, 2001</para>
+
+<itemizedlist
+> <listitem
+><para
+>Erwan Loisant <email
+>erwan@loisant.org</email
+></para
+></listitem
+> <listitem
+><para
+>Pamela Roberts <email
+>pam.roberts@btinternet.com</email
+></para
+></listitem
+> </itemizedlist>
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@telia.com</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<para
+>&konqueror; är en del av kdebase-paketet som är en väsentlig del av &kde;.</para>
+
+<para
+>För instruktioner om hur man skaffar &kde; se <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>.</para>
+
+<para
+>För ytterligare information om &konqueror; skulle du kunna besöka <ulink url="http://www.konqueror.org"
+>http://www.konqueror.org</ulink
+>.</para>
+
+</appendix>
+
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+
+

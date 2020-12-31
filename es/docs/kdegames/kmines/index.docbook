@@ -1,0 +1,451 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmines;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE"> 
+  
+   
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>Manual de &kmines;</title>
+
+<authorgroup>
+<author>
+<firstname>Nicolas</firstname>
+<surname>Hadacek</surname>
+<affiliation>
+<address><email>hadacek@kde.org</email></address>
+</affiliation>
+</author>
+<author>
+<firstname>Michael</firstname>
+<surname>McBride</surname>
+<affiliation><address><email>mmcbride@ematic.org</email></address></affiliation>
+</author>
+<othercredit role="developer">
+<firstname>Nicolas</firstname>
+<surname>Hadacek</surname>
+<affiliation>
+<address><email>hadacek@kde.org</email></address>
+</affiliation>
+<contrib>Desarrollador</contrib>
+</othercredit>
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+<contrib>Revisor</contrib>
+</othercredit>
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Nicolas Hadacek, Michael McBride</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>03/02/2001</date>
+<releaseinfo>2.00.10</releaseinfo>
+
+<abstract><para>&kmines; es la versión para KDE del clásico juego del 
+buscaminas.</para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>juego</keyword>
+<keyword>buscaminas</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introducción</title>
+
+<para>&kmines; es el clásico juego del buscaminas. Debe descubrir todas las
+casillas vacías sin reventar en una mina.</para>
+
+<para>Cuando descubre una casilla, un número aparece: indica cuantas minas
+rodean esta casilla. Si no hay ningún número las casillas próximas se descubren
+automáticamente. Durante el proceso de descubrir casillas es 
+<emphasis>muy</emphasis> útil poner una bandera en las casillas que contienen
+una mina.</para>
+
+</chapter>
+
+<chapter id="how-to-play">
+<title>Cómo jugar</title>
+
+<para>Usted tiene que usar el ratón y sus tres botones (con ratones de dos
+botones, pulsar el botón central generalmente se consigue pulsando simultáneamente el botón <mousebutton>izquierdo</mousebutton> y el <mousebutton>derecho</mousebutton>) para descubrir o poner una bandera en las casillas. Aquí están los
+detalles :</para>
+
+<itemizedlist>
+<listitem><para>El botón izquierdo descubrirá una casilla. Si hay una bomba
+debajo de esa casilla, la bomba explotará, y el juego se acabará </para>
+<para>Si no hay ninguna bomba debajo de la casilla, un número aparecerá. Ese es
+el número de casillas próximas que tienen una bomba debajo. ¿ Cuáles ?, se
+estará preguntando. Ese es el propósito del juego.</para>
+<para>Por cada cuadro (excluyendo bordes y esquinas) hay otros 8 cuadros vecinos.
+</para>
+<para>Si ninguno de los cuadros vecinos tiene una bomba, entonces un hueco vacío se mostrará bajo la casilla y todos los cuadros vecinos se
+descubrirán automáticamente.</para>
+<note><para>Pulsar con el botón <mousebutton>izquierdo</mousebutton> una
+casilla con bandera es seguro y no hace nada.</para></note></listitem>
+<listitem><para>El botón <mousebutton>izquierdo</mousebutton> marcará una casilla como conteniendo una mina (dibujando una bandera roja) o, si la opción está
+seleccionada, como estando dudosa (dibujando un signo de interrogación). La
+etiqueta de dudoso puede ser útil cuando este pensando sobre la posición de
+las minas.</para></listitem>
+<listitem><para>El botón <mousebutton>central</mousebutton> limpiará las 
+casillas de alrededor si ya está etiquetado el número correcto de casillas. 
+Es muy útil porque es mucho mas rápido que descubrir todas las casillas individualmente. </para>
+<warning><para>Si las banderas no está apropiadamente colocadas, explotará una bomba.</para></warning></listitem>
+<listitem><para>Pulsando en la <guiicon>sonrisa amarilla</guiicon> empezará una
+partida nueva.</para></listitem>
+</itemizedlist>
+
+<note><para>Esta es la configuración predeterminada. Los botones del ratón se
+pueden reprogramar. Para más información, vea la sección titulada<link
+linkend="prefs">Opciones del Juego</link>.</para></note>
+
+<sect1 id="screen"><title>La Pantalla de &kmines;</title>
+
+<screenshot>
+<screeninfo>La Pantalla de &kmines;</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="kmines1.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>   
+
+<para>La pantalla de  &kmines; consiste en:</para>
+
+<itemizedlist>
+<listitem><para>Un cuadro mostrándole el número de minas que quedan todavía 
+por marcar. Cada vez que usted marca el lugar de una bomba, este número
+decrecerá una unidad.</para>
+<note><para>Este cuadro no determina si usted tiene razón o no, sólo cuantas minas necesita teóricamente marcar antes de terminar esta partida.</para></note>
+<para>En este ejemplo, quedan 10 minas por marcar.</para></listitem>
+<listitem><para>Una Cara Amarilla Sonriendo. Pulsándola comenzará una nueva
+partida. Si pierde la partida, fruncirá el ceño.</para></listitem>
+<listitem><para>El cuadro de la derecha muestra cuanto tiempo lleva esta ronda.
+El tiempo más corto en cada nivel pasa a la lista de la mejor puntuación con 
+su nombre.</para></listitem>
+<listitem><para>El área de juego. Esta variará en tamaño dependiendo del nivel
+de dificultad del juego. En este ejemplo consiste en 64 casillas. Aqui es donde
+usted juega su partida.</para></listitem>
+<listitem><para>Una línea de estado en el pie de la ventana. En este ejemplo 
+simplemente dice <guilabel>Partida parada</guilabel>.</para></listitem>
+</itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="prefs"><title>Opciones del juego</title>
+<para>Las opciones de &kmines; se ajustan seleccionando<menuchoice>
+<guimenu>Configurar</guimenu> <guimenuitem>Preferencias</guimenuitem> </menuchoice>
+en la barra de menús. Esto le llevará a un cuadro de diálogo.</para>
+
+<screenshot>
+<screeninfo>Preferencias &kmines;</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="kmines2.png" format="PNG"/></imageobject>
+</mediaobject>
+</screenshot>  
+
+<para>Este cuadro de diálogo se divide en dos secciones.</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Configuración Principal</guilabel></term>
+<listitem><para>La opción superior, rotulada <guilabel>tamaño de la casilla</guilabel>, determina el tamaño de cada uno de los cuadros del área de juego.
+Se elijen pequeños de forma predeterminada. Usted pude incrementar el tamaño si está trabajando con un monitor de una resolución muy alta.</para> 
+
+<para>La siguiente opción debajo, etiquetada <guilabel>Activar Marca ?</guilabel>, determina si se pueden marcar los cuadros como <quote>cuestionables</quote>. Si esta opción está marcada, entonces pulsando con el botón derecho del 
+ratón primero pondrá una bandera en una casilla. Si se pulsa otra vez en la 
+misma casilla la bandera cambiará a un signo <guiicon>?</guiicon>, para indicar
+que usted no sabe si allí hay una bomba o no. Si pulsa otra vez, la casilla volverá a quedar en blanco.</para>
+
+<para>Si esta opción no está marcada, la primera pulsación con el botón <mousebutton>derecho</mousebutton> del ratón pondrá en la casilla una bandera roja.
+La segunda la dejará en blanco otra vez, saltándose entonces el símbolo ?.</para>
+
+<para>La siguiente opción debajo, etiquetada <guilabel>Activar Teclado</guilabel>, determina si las teclas rápidas del teclado funcionarán cuando se juega
+la partida.</para>
+
+<note><para>Las únicas teclas rápidas afectadas son aquellas responsables de jugar la partida. Comandos tales como <guimenuitem>Nueva Partida</guimenuitem> y <guimenuitem>Abandonar</guimenuitem> todavía funcionan, independientemente de esta opción.</para></note>
+
+<para>La última parte de esta sección permite cambiar la acción de cada uno de los tres botones del ratón. Sus opciones son:</para>
+
+<variablelist>
+<varlistentry>
+<term>Revelar</term>
+<listitem><para>Esto revelará el contenido de la casilla. Si no hay bomba, entonces un número aparecerá. Si hay una bomba debajo de esa casilla, entonces la bomba explotará y la partida habrá acabado.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>Cambiar Marca</term>
+<listitem><para>Pulsando con este botón en una casilla marcará o desmarcará una bandera roja.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>Autorevelar</term>
+<listitem><para>Pulsando en una casilla con este botón automáticamente revelará
+todas las casillas alrededor que no esten marcadas con una bandera roja. Si alguna de esas casillas tiene una bomba debajo, la bomba explotará y la partida se
+habrá terminado.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>Cambiar Marca ?</term>
+<listitem><para>Pulsando con este botón en una casilla marcará o desmarcará con un signo de interrogación.</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Configuración de Colores</guilabel></term>
+<listitem><para>Este cuadro de diálogo le permitirá ajustar los colores de la pantalla de kmines. Para ajustar, simplemete pulse el botón del color al lado de cada descripción y seleccione el nuevo color.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>Guardando sus cambios</term>
+<listitem><para>Una vez sus cambios están listos, pulse "<guibutton>OK</guibutton>" para hacerlos permanentes.</para>
+<para>Si quiere abandonar los cambios, pulse "<guibutton>Cancelar</guibutton>"
+para abortar los cambios.</para>
+<para>Si pulsa en "<guilabel>Predeterminado</guilabel>", la configuración 
+predeterminada se restaurará. Pulse  "<guilabel>OK</guilabel>" 
+para hacer esta configuración predeterminada permanente o edite la configuración un poco más.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+
+</chapter>
+
+<chapter id="command">
+<title>Atajos de Comandos y teclado</title>
+
+<para>Las siguientes secciones describen brevemente cada opción de la barra de menú.</para>
+
+<sect1 id="game-menu">
+<title>Menú <guimenu>Partida</guimenu></title>
+
+<para>El menú <guimenu>Partida</guimenu> consiste en 5 opciones.</para>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>N</keycap></keycombo>
+</shortcut>
+<guimenu><accel>P</accel>artida</guimenu>
+<guimenuitem><accel>N</accel>ueva Parida</guimenuitem> </menuchoice></term>
+<listitem><para>Comienza una nueva partida.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycap>H</keycap>
+</shortcut>
+<guimenu><accel>P</accel>artida</guimenu>
+<guimenuitem>Mejores Puntuaciones...</guimenuitem> </menuchoice></term>
+<listitem><para>Esto le muestra las mejores puntuaciones (los tiempos más cortos) para cada nivel de dificultad.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>P</keycap></keycombo>
+</shortcut>
+<guimenu><accel>P</accel>artida</guimenu>
+<guimenuitem><accel>P</accel>ausa</guimenuitem> </menuchoice></term>
+<listitem><para>Pausa la partida. Esto ocultará el tablero (no haga trampas) y 
+le dará un botón para pulsar cuando quiera continuar la partida.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>P</keycap></keycombo>
+</shortcut>
+<guimenu><accel>P</accel>artida</guimenu>
+<guimenuitem>Im<accel>p</accel>rimir</guimenuitem> </menuchoice></term>
+<listitem><para>Imprime el tablero.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu><accel>P</accel>artida</guimenu>
+<guimenuitem>Abandonar</guimenuitem> </menuchoice></term>
+<listitem><para><action>Abandona</action> &kmines;</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="settings-menu"><title>Menú <guimenu>Configurar</guimenu></title>
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>C</accel>onfigurar</guimenu>
+<guimenuitem>Mostrar Barra de <accel>M</accel>enú</guimenuitem> </menuchoice></term>
+<listitem><para>Si hay una marca delante de esta opción, entonces la barra de menú se hará visible. Seleccionando esta opción, se oculta la barra de menú.</para>
+<note><para>Para restaurar la barra de menú oculta, pulse fuera del área de juego con el botón derecho del ratón. Esto hará emerger un pequeño submenú. Simplemente seleccionando <guimenuitem>Mostrar Barra de Menú</guimenuitem> 
+en este submenú hará la barra de menú visible de nuevo.</para></note></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>C</accel>onfigurar</guimenu>
+<guimenuitem>Configurar Asociaciones de Teclas...</guimenuitem> </menuchoice></term>
+<listitem><para>Le permite cambiar las asociaciones de teclas de &kmines;</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>C</accel>onfigurar</guimenu>
+<guimenuitem><accel>C</accel>onfigurar KMines</guimenuitem> </menuchoice></term>
+<listitem><para>Le permite ajustar las opciones del juego. Para información mas detallada, vea la sección titulada <link linkend="prefs">Opciones del Juego</link>.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>C</accel>onfigurar</guimenu>
+<guisubmenu>Nivel</guisubmenu> </menuchoice></term>
+<listitem><para>Le permite ajustar el nivel de dificultad desde un submenú.</para>
+<para>Hay tres niveles de dificultad predeterminados:
+<guimenuitem>Fácil</guimenuitem> (64 casillas, 10 minas),
+<guimenuitem>Normal</guimenuitem> (256 casillar, 40 minas), y
+<guimenuitem>Experto</guimenuitem> (480 casillas, 99 minas).  
+Hay también una configuración de nivel <guimenuitem>Personalizado...</guimenuitem></para>
+<para>Si selecciona <guimenuitem>Personalizado...</guimenuitem>, un pequeño cuadro de diálogo aparecerá, que le permitirá ajustar el Ancho (número de casillas de lado a lado), Alto (número de casillas de arriba abajo) y el número de minas, usando barras deslizadoras o directamente introduciéndolos en los cuadros de texto.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title>Menú <guimenu>Ayuda</guimenu></title>
+
+<variablelist>
+<varlistentry>
+<term><anchor id="contents"/><menuchoice>
+<shortcut><keycombo action="simul"><keycap>F1</keycap></keycombo></shortcut>
+<guimenu><accel>A</accel>yuda</guimenu><guimenuitem><accel>C</accel>ontenido</guimenuitem></menuchoice></term>
+<listitem>
+<para>Esto invoca el sistema de ayuda de &kde; empezando en las páginas de ayuda de &kmines; (este documento).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="bug"/><menuchoice>
+<shortcut><keycombo action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
+<guimenu><accel>A</accel>yuda</guimenu><guimenuitem>¿Qué es esto?</guimenuitem></menuchoice></term>
+<listitem><para>Esto cambia el cursor del ratón a una combinación de flecha y signo de interrogación. Pulsando en cosas dentro de &kmines; con esta flecha abrirá una ventana de ayuda (si es que existe alguna para ese asunto en particular) explicando la función de los señalado.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><anchor id="whats-this"/><menuchoice>
+<guimenu><accel>A</accel>yuda</guimenu><guimenuitem>Informar un Fallo...</guimenuitem></menuchoice></term>
+<listitem>
+<para>Si usted tiene una buena idea para la próxima versión del juego o el programa no le funciona, puede seleccionar esta opción para enviar un informe de fallo al autor.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><anchor id="about-kmines"/><menuchoice>
+<guimenu><accel>A</accel>yuda</guimenu><guimenuitem>About
+<accel>K</accel>Mines</guimenuitem></menuchoice></term>
+<listitem>
+<para>Esto mortrará información sobre la versión y el autor.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-kde"/><menuchoice>
+<guimenu><accel>A</accel>yuda</guimenu><guimenuitem>About
+<accel>K</accel>DE</guimenuitem></menuchoice></term>
+<listitem>
+<para>Esto muestra la versión de &kde; y otra información básica.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="keys"><title>Asociaciones de Teclas Predeterminadas</title>
+<para>Las siguentes tablas muestran las asociaciones de teclas predeterminadas.</para>
+
+
+<table>
+<title>Menú Asociaciones</title>
+<tgroup cols="2">
+<thead><row><entry>Combinación</entry><entry>Acción</entry></row></thead>
+<tbody>
+<row><entry><keycombo action="simul"><keycap>Cursores</keycap></keycombo></entry><entry>Mueve el cursor en el área de juego.</entry></row>
+<row><entry><keycombo action="simul"><keycap>Ctrl</keycap></keycombo></entry><entry>Revela automáticamente todas las casillas no marcadas con una bandera.</entry></row>
+<row><entry><keycombo action="simul"><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></entry><entry>Nueva Partida</entry></row>
+<row><entry><keycombo action="simul"><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry><entry>Pausar Partida</entry></row>
+<row><entry><keycombo action="simul"><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry><entry>Imprimir Partida</entry></row>
+<row><entry><keycombo action="simul"><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></entry><entry>Abandonar &kmines;</entry></row>
+<row><entry><keycombo action="simul"><keycap>F1</keycap></keycombo></entry><entry>Contenido de Ayuda</entry></row>
+<row><entry><keycombo action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo></entry><entry>Ayuda ¿Qué es Esto?</entry></row>
+<row><entry><keycombo action="simul"><keycap>Shift</keycap></keycombo></entry><entry>Revelar Mina.</entry></row>
+<row><entry><keycombo action="simul"><keycap>Space</keycap></keycombo></entry><entry>Marcar Mina</entry></row>
+
+</tbody>
+</tgroup>
+</table>
+
+<para>Estas asociaciones de teclas pueden cambiarse seleccionando <menuchoice>
+<guimenu>Configurar</guimenu> <guimenuitem>Configurar Asociaciones de Teclas</guimenuitem>
+</menuchoice> en la barra de menú.</para>
+
+</sect1>
+
+</chapter>
+<chapter id="credits"><title>Créditos y Licencia</title>
+ 
+<para>
+&kmines;
+</para>
+<para>
+Programa: copyright 1996-2000 Nicolas Hadacek <email>hadacek@kde.org</email></para>
+<para>Documentación: copyright 2000 Nicolas Hadacek <email>hadacek@kde.org</email></para>
+<para>Documentación actualizada para KDE 2.0 por Mike McBride <email>mpmcbride7@yahoo.com</email></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>                  
+
+<appendix id="installation">
+<title>Instalación</title>
+ 
+<sect1 id="getting-kapp">
+<title>Cómo obtener &kmines;</title>
+ 
+<para>&kmines; es parte del proyecto KDE
+<ulink url="http://www.kde.org">http://www.kde.org</ulink>.
+&kmines; se puede encontrar en el paquete kdegames en 
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, 
+el principal servidor ftp del proyecto KDE.</para>
+</sect1>
+
+<sect1 id="compilation">
+<title>Compilación e instalación</title>
+ 
+<para>Para poder compilar e instalar &kmines; en su sistema, escriba lo 
+siguiente en el directorio base de la distribución KDE:</para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput>cd kdegames</userinput>
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput>make</userinput>
+<prompt>%</prompt> <userinput>make install</userinput>
+</screen>
+
+<para>Como &kmines; usa <application>autoconf</application> y
+<application>automake</application> no debería tener problemas compilándolo. 
+En caso de que se vea en problemas por favor informe de ellos a las listas de correo de KDE.</para>
+ 
+</sect1>         
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

@@ -1,0 +1,548 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kdesu;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+
+<title
+>Le manuel de &kdesu;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Geert</firstname
+><surname
+>Jansen</surname
+><affiliation
+><address
+><email
+>g.t.jansen@stud.tue.nl</email
+></address
+></affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>vampyr@atconnex.net</email
+></address>
+</affiliation>
+<contrib
+>Relecteur</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Christophe</firstname
+><surname
+>Dioux</surname
+><contrib
+>Traduction française</contrib
+></othercredit
+><othercredit role="reviewer"
+><firstname
+>Gérard et Inès</firstname
+><surname
+>Delafond</surname
+><affiliation
+><address
+><email
+>g.delafond@medsyn.fr</email
+></address
+></affiliation
+><contrib
+>Relecteurs français</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Geert Jansen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-09-04</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+
+<abstract
+><para
+>&kdesu; est une interface graphique pour la commande Unix &laquo;&nbsp;<command
+>su</command
+>&nbsp;&raquo; </para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>su</keyword>
+<keyword
+>password</keyword>
+<keyword
+>root</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Introduction</title>
+
+<para
+>Bienvenue sur &kdesu;&nbsp;! &kdesu; est une interface graphique dans l'environnement de bureau KDE pour la commande Unix &laquo;&nbsp;<command
+>su</command
+>&nbsp;&raquo;. Il vous permet de lancer un programme au nom d'un autre utilisateur, dès lors que vous pouvez fournir le mot de passe de cet utilisateur. &kdesu; ne dispose d'aucun privilège particulier, il utilise la commande &laquo;&nbsp;<command
+>su</command
+>&nbsp;&raquo; du système.</para>
+
+<para
+>&kdesu; dispose d'une fonction additionnelle&nbsp;: il peut se souvenir des mots de passe pour vous. Si vous utilisez cette fonction, il vous suffit de saisir le mot de passe une seule fois pour chaque commande. Consultez <xref linkend="sec-password-keeping"/> pour de plus amples informations et pour une analyse des questions de sécurité afférentes.</para>
+
+<para
+>Ce programme est prévu pour être lancé depuis la ligne de commande ou depuis un fichier <filename
+>.desktop</filename
+>. Bien qu'il demande le mot de passe superutilisateur à travers une boîte de dialogue graphique, je le considère plus comme une ligne de commande connectée à une interface graphique que comme un véritable programme graphique.</para>
+
+</chapter>
+
+<chapter id="installation">
+<title
+>Installation</title>
+
+<sect1 id="downloading">
+<title
+>Téléchargement</title>
+
+<para
+>&kdesu; fait maintenant partie du <abbrev
+>CVS</abbrev
+> KDE, dans kdebase. Il devrait faire partie de toutes les distributions KDE (2.x). Vous pouvez aussi télécharger une version pour KDE 1.x sur ma page web à l'adresse <ulink url="ftp://skynet.stack.nl/pub/users/geertj/"
+>ftp://skynet.stack.nl/pub/users/geertj/</ulink
+></para>
+
+</sect1>
+
+<sect1 id="compiling">
+<title
+>Compilation</title>
+
+<para
+>&kdesu; faisant partie de kdebase, soit vous l'avez déjà, soit vous l'aurez en installant kdebase.</para>
+
+<para
+>Pour compiler la version pour KDE 1.x, utilisez&nbsp;:</para>
+
+<screen>
+<prompt
+>$</prompt
+> <command
+>./configure</command>
+<prompt
+>$</prompt
+> <command
+>make</command>
+<prompt
+>$</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen>
+
+<para
+>Vous devrez exécuter la dernière étape avec les droits de superutilisateur. Le processus d'installation nécessite en effet d'être autorisé à écrire dans les répertoires système de KDE.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="using-kdesu">
+<title
+>Utiliser &kdesu;</title>
+
+<para
+>L'utilisation de &kdesu; est simple. La syntaxe est la suivante&nbsp;:</para>
+
+    <cmdsynopsis>
+      <command
+>kdesu</command>
+      <arg
+>USER</arg>
+      <arg
+>-n</arg>
+      <arg
+>-t</arg>
+      <arg
+>-q</arg>
+      <arg
+>-d</arg>
+      <arg
+>-f <replaceable
+>FILE</replaceable
+></arg>
+      <arg
+>-c <group>
+	  <arg>
+	  <replaceable
+>COMMAND</replaceable>
+	  <arg
+><replaceable
+>ARG1</replaceable
+></arg>
+	  <arg
+><replaceable
+>ARG2</replaceable
+></arg>
+          <arg rep="repeat"
+><replaceable
+></replaceable
+></arg>
+	 </arg>
+	</group>
+      </arg>
+    </cmdsynopsis>
+
+    <cmdsynopsis>
+      <command
+>kdesu</command>
+      <group>
+	<arg
+>-v</arg>
+	<arg
+>-h</arg>
+	<arg
+>-s</arg>
+      </group>
+    </cmdsynopsis>
+
+<para
+>Les options de la ligne de commande sont expliquées ci-dessous.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><option
+>-c <replaceable
+>PROGRAMME</replaceable
+></option
+></term
+> <listitem
+><para
+>Ceci spécifie le programme à lancer en tant que superutilisateur. Il doit être passé comme un seul argument. Ainsi, par exemple, si vous voulez lancer un nouveau gestionnaire de fichiers, vous saisirez la commande&nbsp;: <userinput
+><command
+>kdesu <option
+>-c <replaceable
+>kfm -sw</replaceable
+></option
+></command
+></userinput
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-f <replaceable
+>FICHIER</replaceable
+></option
+></term
+> <listitem
+><para
+>Cette option permet une utilisation efficace de &kdesu; dans les fichiers <filename
+>.desktop</filename
+>. Elle dit à &kdesu; d'examiner le fichier spécifié par l'argument <parameter
+>FICHIER</parameter
+>. Si ce fichier est accessible en écriture par l'utilisateur courant, &kdesu; exécutera la commande pour le compte de l'utilisateur courant. Si ce n'est pas le cas, la commande sera exécutée pour le compte de l'utilisateur <parameter
+>USER</parameter
+> (par défaut root).</para
+> <para
+><parameter
+>FICHIER</parameter
+> est évalué comme suit&nbsp;: si <parameter
+>FICHIER</parameter
+> commence par un &laquo;&nbsp;/&nbsp;&raquo;, il est considéré comme un nom de fichier absolu. Autrement, il est considéré comme étant le nom d'un fichier de configuration global de KDE. Par exemple, pour configurer le gestionnaire d'affichage <application
+>kdm</application
+>, vous pouvez utiliser <command
+>kdesu <option
+>-ckdmconfig -f kdmrc</option
+></command
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-t</option
+></term
+> <listitem
+><para
+>Active la sortie sur le terminal. Ceci désactive la conservation des mots de passe. Cette option sert principalement pour le débogage&nbsp;; si vous voulez lancer une application en mode console, utilisez plutôt le &laquo;&nbsp;su&nbsp;&raquo; standard.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-n</option
+></term
+> <listitem
+><para
+>Ne conserve pas le mot de passe. Ceci désactive la case à cocher &laquo;&nbsp;<guilabel
+>conserver le mot de passe</guilabel
+>&nbsp;&raquo; dans la boîte de dialogue correspondante.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-q</option
+></term
+> <listitem
+><para
+>Rester silencieux (&laquo;&nbsp;quiet&nbsp;&raquo;)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-d</option
+></term
+> <listitem
+><para
+>Affiche les informations de débogage.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-v</option
+></term
+> <listitem
+><para
+>Affiche l'information sur la version et sort.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-h</option
+></term
+> <listitem
+><para
+>Affiche un peu d'aide.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-s</option
+></term
+> <listitem
+><para
+>Arrête le démon (daemon) kdesu. Consulter <xref linkend="sec-password-keeping"/>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="Configuration">
+<title
+>Configuration</title>
+
+<para
+>&kdesu; est fourni avec un module de contrôle nommé <application
+>kcmkdesu</application
+>. Vous pouvez le trouver dans le menu <guimenu
+>K</guimenu
+>, sous <menuchoice
+><guisubmenu
+>Configuration</guisubmenu
+><guisubmenu
+>Applications</guisubmenu
+> <guimenuitem
+>KDEsu</guimenuitem
+></menuchoice
+>. Vous pouvez modifier les choses suivantes&nbsp;:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Mode écho</guilabel
+></term
+> <listitem
+><para
+>Ceci modifie la manière dont les caractères que vous saisissez sont affichés à l'écran. Les possibilités sont&nbsp;: une étoile par caractère, trois étoiles, ou pas d'écho du tout. La valeur par défaut est une étoile par caractère.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Conservation des mots de passe</guilabel
+></term
+> <listitem
+><para
+>Vous pouvez demander à &kdesu; de se souvenir des mots de passe en cochant la case &laquo;&nbsp;<guilabel
+>conserver les mots de passe</guilabel
+>&nbsp;&raquo;. Si c'est le cas, vous pouvez préciser une limite de temps dans le champ texte qui suit. C'est la durée, en minutes, pendant laquelle le mot de passe restera en mémoire. Par défaut, &kdesu; ne mémorise pas les mots de passe.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="Internals">
+<title
+>Fonctionnement interne</title>
+
+<sect1 id="x-authentication">
+<title
+>Authentification X</title>
+
+<para
+>Le programme que vous exécutez va fonctionner sous l'identité du superutilisateur et n'aura généralement pas accès à votre affichage Xwindow. &kdesu; contourne ce problème en ajoutant un cookie d'authentification pour votre affichage dans un fichier temporaire nommé <filename
+>.Xauthority</filename
+>. Après la fin de la commande, ce fichier sera supprimé. </para>
+
+<para
+>Si vous ne voulez pas utiliser de cookies X, vous devrez vous débrouiller par vos propres moyens. &kdesu; le détectera et n'ajoutera pas de cookie, mais il vous faudra vous assurer que le superutilisateur est autorisé à accéder à votre affichage Xwindow.</para>
+
+</sect1>
+
+<sect1 id="interface-to-su">
+<title
+>Interface avec <command
+>su</command
+></title>
+
+<para
+>&kdesu; utilise la commande &laquo;&nbsp;<command
+>su</command
+>&nbsp;&raquo; du système pour acquérir ses privilèges. Dans ce paragraphe, j'explique en détail ce fonctionnement. </para>
+
+<para
+>Du fait que certaines implantations (comme celle de RedHat) ne veulent pas lire le mot de passe depuis <literal
+>stdin</literal
+>, &kdesu; crée une paire pty/tty et exécute &laquo;&nbsp;<command
+>su</command
+>&nbsp;&raquo; avec ses entrées-sorties standards connectées à tty.</para>
+
+<para
+>Pour exécuter la commande choisie par l'utilisateur, au lieu d'un shell interactif, &kdesu; utilise l'argument &laquo;&nbsp;<option
+>-c</option
+>&nbsp;&raquo; avec <command
+>su</command
+>. Cet argument est compris par tous les shells que je connais, donc le programme devrait être portable. <command
+>Su</command
+> passe cet argument &laquo;&nbsp;<option
+>-c</option
+>&nbsp;&raquo; au shell de l'utilisateur, et le shell exécute le programme. Exemple de commande &nbsp;:&nbsp;&laquo;&nbsp;<command
+>su<option
+> root -c <replaceable
+>le_programme</replaceable
+></option
+></command
+>&nbsp;&raquo;.</para>
+
+<para
+>Plutôt que d'exécuter directement la commande avec <command
+>su</command
+>, &kdesu; exécute un petit morceau de programme nommé <application
+>kdesu_stub</application
+>. Exécuté pour le compte de l'utilisateur cible, il demande quelques informations à &kdesu; à travers le canal pty/tty (qui correspond à son stdin et à son stdout) et exécute le programme de l'utilisateur. L'information qui est transmise comprend&nbsp;: l'affichage X, le cookie d'authentification X (le cas échéant), le <envar
+>PATH</envar
+> et la commande à lancer. La raison pour laquelle un petit programme intermédiaire est utilisé, c'est que le cookie X est une information privée et que, pour cette raison, il ne peut pas être passé sur la ligne de commande.</para>
+
+</sect1>
+
+<sect1 id="password-checking">
+<title
+>Vérification du mot de passe</title>
+
+<para
+>&kdesu; vérifie le mot de passe que vous donnez et envoie un message d'erreur s'il n'est pas correct. La vérification passe par un programme de test&nbsp;: <filename
+>/bin/true</filename
+>. Si le test réussit, le mot de passe est considéré comme étant correct.</para>
+
+</sect1>
+
+<sect1 id="sec-password-keeping">
+<title
+>Conservation du mot de passe</title>
+
+<para
+>Pour votre confort, &kdesu; comprend une fonction de &laquo;&nbsp;conservation du mot de passe&nbsp;&raquo;. Si vous vous intéressez aux questions de sécurité, vous devriez lire ce paragraphe.</para>
+
+<para
+>Le fait de permettre à &kdesu; de se souvenir des mots de passe ouvre une (petite) brèche de sécurité dans votre système. Évidemment, &kdesu; n'autorise personne d'autre que vous-même (votre user id) à utiliser ces mots de passe, mais, si on n'y prend pas garde, ceci descend le niveau de sécurité du superutilisateur à celui d'un utilisateur normal (vous). Un hacker qui prendrait possession de votre compte pourrait ainsi obtenir l'accès root. &kdesu; essaye d'éviter cela. La technique qu'il utilise pour cela est, au moins de mon point de vue, raisonnablement sûre et elle est exposée ci-dessous.</para>
+
+<para
+>&kdesu; utilise un daemon, nommé <application
+>kdesud</application
+>. Ce daemon attend des commandes dans une socket UNIX placée dans <filename
+>/tmp</filename
+>. Le mode de cette socket est 600, ainsi seul votre utilisateur peut s'y connecter. Si la conservation des mots de passe est activée, &kdesu; exécute les commandes par l'intermédiaire de ce daemon. Il écrit la commande et le mot de passe root dans cette socket, puis le daemon exécute la commande &laquo;&nbsp;<command
+>su</command
+>&nbsp;&raquo; comme décrit précédemment. Ensuite, la commande et le mot de passe ne sont pas détruits. Au lieu de cela, ils sont conservés pour une durée déterminée. Il s'agit de la durée spécifiée dans le module de contrôle. Si une autre requête pour la même commande intervient pendant cette période, le client ne vous demandera pas de fournir de nouveau le mot de passe. Pour empêcher les hackers qui prendraient le contrôle de votre compte de voler les mots de passe au daemon (par exemple en lui attachant un débogueur), le daemon est installé set-group-id nogroup. Ceci devrait interdire à tous les utilisateurs normaux (y compris vous) de récupérer les mots de passe dans le processus <application
+>kdesud</application
+>. Par ailleurs, le daemon fixe la variable d'environnement <envar
+>DISPLAY</envar
+> à la valeur qu'elle avait quand il a été lancé. Ainsi, la seule chose que puisse faire un hacker est d'exécuter une application sur votre écran.</para>
+
+<para
+>Un point faible dans ce schéma est que le programme que vous exécutez n'a peut être pas été écrit avec un grand souci de sécurité (comme c'est le cas pour les programmes setuid root). Ceci signifie que ce programme pourrait avoir des débordements de tampons (&laquo;&nbsp;buffer overruns&nbsp;&raquo;) ou d'autres faiblesses qu'un hacker pourrait utiliser.</para>
+
+<para
+>La conservation des mots de passe est donc le fruit d'un compromis entre confort et sécurité. Je vous incite à y réfléchir et à décider par vous-même si vous souhaitez vous en servir ou pas.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="Author">
+<title
+>Auteur</title>
+
+<para
+>&kdesu;</para>
+
+<para
+>Copyright 2000 Geert Jansen</para>
+
+<para
+>&kdesu; est écrit par Geert Jansen. Il est par certains aspects basé sur le &kdesu; de Pietro Iglio, version 0.3. Pietro et moi nous sommes mis d'accord pour que je me charge de la maintenance de ce programme à l'avenir.</para>
+
+<para
+>L'auteur peut être joint par email à <email
+>g.t.jansen@stud.tue.nl</email
+>. Merci de me signaler tous les bugs que vous pourriez rencontrer afin que je les résolve. Si vous avez une suggestion, n'hésitez pas à m'en faire part.</para>
+
+&underFDL;
+&underArtisticLicense;
+
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

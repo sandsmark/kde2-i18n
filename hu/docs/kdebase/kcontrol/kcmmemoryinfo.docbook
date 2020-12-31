@@ -1,0 +1,102 @@
+<sect1 id="memory">
+<sect1info>
+
+<authorgroup>
+
+<author>
+<firstname>Mike</firstname>
+<surname>McBride</surname>
+</author>
+
+<author>
+<firstname>Tam&aacute;s</firstname>
+<surname>Sz&aacute;nt&oacute;</surname>
+</author>
+
+</authorgroup>
+
+<date>04/06/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KControl</keyword>
+<keyword>mem&oacute;ria</keyword>
+<keyword>rendszerinform&aacute;ci&oacute;</keyword>
+</keywordset>
+</sect1info>
+
+<title>Mem&oacute;riainform&aacute;ci&oacute;</title>
+
+<para>Ez a modul a mem&oacute;ria pillanatnyi felhaszn&aacute;l&aacute;s&aacute;r&oacute;l t&aacute;j&eacute;koztat.  Az adatok folyamatosan
+friss&uuml;lnek &eacute;s nagy szolg&aacute;latot tehetnek bizonyos alkalmaz&aacute;sok sz&udblac;k keresztmetszet&eacute;nek
+meghat&aacute;roz&aacute;s&aacute;n&aacute;l.</para>
+
+<sect2 id="memory-intro"><title>A mem&oacute;ria fajt&aacute;i</title>
+
+<para>Fontos meg&eacute;rteni az adatok &eacute;rtelmez&eacute;s&eacute;hez, hogy k&eacute;tfajta "mem&oacute;ria" &aacute;ll
+az oper&aacute;ci&oacute;s rendszer &eacute;s a benne fut&oacute; programok rendelkez&eacute;s&eacute;re.</para>
+
+<para>Az els&odblac; t&iacute;pus a fizikai mem&oacute;ria.  Ez a fajta mem&oacute;ria a sz&aacute;m&iacute;t&oacute;g&eacute;p
+elektronikus mem&oacute;riaegys&eacute;geiben tal&aacute;lhat&oacute;, gyakran haszn&aacute;latos r&ouml;vid&iacute;t&eacute;ssel
+<abbrev>RAM</abbrev>-nak is nevezik (Random Access Memory), a g&eacute;p fizikai r&eacute;sz&eacute;nek tekinthet&odblac;.</para>
+
+<para>A mem&oacute;ria m&aacute;sik t&iacute;pusa a virtu&aacute;lis vagy lapoz&aacute;si (swap) mem&oacute;ria.  Ez l&eacute;nyeg&eacute;ben
+egy lefoglalt r&eacute;szt jelent valamelyik merevlemezes egys&eacute;gen.  Az oper&aacute;ci&oacute;s rendszer
+fenntart egy &uuml;res helyet a merevlemezes egys&eacute;geken "lapoz&aacute;si ter&uuml;letnek", melyet akkor
+fog virtu&aacute;lis mem&oacute;riak&eacute;nt haszn&aacute;lni, ha sz&udblac;k&eacute;ben van a fizikai mem&oacute;ri&aacute;nak.  A lapoz&aacute;si
+mem&oacute;ria kifejez&eacute;s arra utal, hogy itt olyan mem&oacute;riater&uuml;letek m&aacute;solat&aacute;t fogja t&aacute;rolni a rendszer,
+amelyekre felt&eacute;telezhet&odblac;en egy bizonyos ideig nem fog haszn&aacute;lni egyetlen folyamat sem.
+Az oper&aacute;ci&oacute;s rendszer a felszabadult fizikai mem&oacute;ri&aacute;t ezut&aacute;n szabadon haszn&aacute;lhatja egy darabig.
+K&eacute;s&odblac;bb, ha sz&uuml;ks&eacute;g lesz a lemezre kirakott r&eacute;szre, &uacute;jb&oacute;l visszat&ouml;lti a fizikai mem&oacute;ri&aacute;ba.  Term&eacute;szetesen
+ez a virtu&aacute;lis mem&oacute;ria l&eacute;nyegesen lassabb, mint a fizikai, ez&eacute;rt a rendszer igyekszik az adatokat
+(k&uuml;l&ouml;n&ouml;sen a gyakran haszn&aacute;ltakat) a fizikai mem&oacute;ri&aacute;ban tartani.</para>
+
+<para>Az &ouml;sszes el&eacute;rhet&odblac; mem&oacute;ria a fizikai &eacute;s a virtu&aacute;lis mem&oacute;ria m&eacute;ret&eacute;nek az
+&ouml;sszege.</para>
+
+</sect2>
+
+<sect2 id="memory-use">
+<title>Mem&oacute;riainform&aacute;ci&oacute;s modul</title>
+
+<para>Ez az ablak egy fels&odblac; &eacute;s egy als&oacute; r&eacute;szre bomlik.</para>
+
+<para>A fels&odblac; r&eacute;szben az &ouml;sszes fizikai &eacute;s az &ouml;sszes szabad fizikai mem&oacute;ria
+mennyis&eacute;ge l&aacute;tszik, tov&aacute;bb&aacute; a megosztott &eacute;s a puffermem&oacute;ria m&eacute;rete.</para>
+
+<para>Mind a n&eacute;gy esetben ki van jelezve b&aacute;jtban &eacute;s megab&aacute;jtban is a 
+mennyis&eacute;g &eacute;rt&eacute;ke (1 megab&aacute;jt = kicsit t&ouml;bb mint 1000000 b&aacute;jt).</para>
+
+<para>Az als&oacute; r&eacute;szben h&aacute;rom grafikon l&aacute;tszik:  </para>
+
+<itemizedlist>
+<listitem><para>&Ouml;sszes mem&oacute;ria (a fizikai &eacute;s a virtu&aacute;lis mem&oacute;ria
+&ouml;sszege).</para></listitem>
+<listitem><para>Fizikai mem&oacute;ria.</para></listitem>
+<listitem><para>Virtu&aacute;lis (lapoz&aacute;si) mem&oacute;ria.</para></listitem>
+</itemizedlist>
+
+<para>A z&ouml;ld sz&iacute;n&udblac; ter&uuml;let a szabad, a piros a foglalt mem&oacute;ri&aacute;t mutatja.</para>
+
+<tip><para>Az egyes mem&oacute;riar&eacute;szek pontos &eacute;rt&eacute;k&eacute;re &aacute;ltal&aacute;ban nincs sz&uuml;ks&eacute;g, r&aacute;ad&aacute;sul
+folyamatosan v&aacute;ltoznak.  Legt&ouml;bbsz&ouml;r el&eacute;g a f&odblac; tendenci&aacute;kat figyelni.</para>
+
+<para>Van-e elegend&odblac; szabad mem&oacute;ria (z&ouml;ld sz&iacute;n&udblac; ter&uuml;let)?  Ha nincs, akkor
+n&ouml;velje meg a virtu&aacute;lis vagy a fizikai mem&oacute;ria m&eacute;ret&eacute;t.</para>
+
+<para>Ha a g&eacute;p t&uacute;l lass&uacute;nak t&udblac;nik: betelt-e a fizikai mem&oacute;ria &eacute;s folyamatosan
+"kerreg-e" a merevlemez?  Ha igen, akkor t&uacute;l kev&eacute;s a fizikai mem&oacute;ria, &eacute;s a
+g&eacute;p megn&ouml;vekedett m&eacute;rt&eacute;kben haszn&aacute;lja a l&eacute;nyegesen lassabb virtu&aacute;lis mem&oacute;ri&aacute;t a gyakran
+haszn&aacute;lt adatokhoz is. Ha t&ouml;bb fizikai mem&oacute;ri&aacute;t tud helyezni a g&eacute;pbe, akkor
+a g&eacute;p v&aacute;laszid&odblac;i is javulni fognak.</para></tip>
+
+</sect2>
+
+<sect2 id="memory-author">
+<title>A szekci&oacute; szerz&odblac;je</title>
+
+<para> Michael McBride <email>mmcbride@ematic.com</email></para>
+
+</sect2>
+</sect1>

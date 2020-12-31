@@ -1,0 +1,6053 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&konqueror;">
+  <!ENTITY % Slovak "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;"
+> 
+
+<bookinfo>
+<title
+>Manuál pre &konqueror;</title>
+
+<authorgroup>
+
+<author
+> <firstname
+>Erwan</firstname
+> <surname
+>Loisant</surname
+> <affiliation
+> <address
+><email
+>erwan@loisant.org</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<othername
+>The KDE Team</othername>
+<contrib
+>Vývojári</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Recenzent</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Stanislav</firstname
+> <surname
+>Višňovský</surname
+> <affiliation
+> <address
+><email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></address
+> </affiliation
+><contrib
+>Preklad</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+> <year
+>2001</year>
+<holder
+>Erwan Loisant, Pamela Roberts</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-02-03</date>
+<releaseinfo
+>2.01.00</releaseinfo>
+
+<abstract
+><para
+>&konqueror; je pokročilý správca súborov, web prehliadač a prehliadač dokumentov pre &kde;.</para>
+<para
+>Tento dokument popisuje &konqueror; verzie 2.1</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Konqueror</keyword>
+<keyword
+>Kdebase</keyword>
+<keyword
+>Správca súborov</keyword>
+<keyword
+>Prehliadač</keyword>
+<keyword
+>Prehliadač</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="basics">
+<title
+>Základy aplikácie &konqueror;</title>
+
+<important
+><para
+> Pri použití &konqueror; ale aj iných aplikácii &kde; sa vám môže hodiť trojtlačidlová myš. Ak má vaša myš iba dve tlačidlá, mali by ste mať možnosť nastaviť váš systém tak, aby simuloval stredné tlačidlo myši stlačením oboch tlačidiel naraz. </para
+></important>
+
+<sect1 id="konq-start">
+<title
+>Spustenie programu &konqueror;</title>
+
+<para
+>&konqueror; je správca súborov a aj prehliadač, preto bude automaticky prepínať medzi dvoma módmi podľa potreby, ale hodí sa, aby ste mohli určiť použitý mód pri štarte.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Ak máte v paneli alebo na ploche ikonu <guiicon
+>domčeka</guiicon
+>, kliknutím na ňu ľavým tlačidlom myši otvoríte &konqueror; ako správcu súborov.</para
+></listitem
+> <listitem
+><para
+>Ak ale ľavým tlačidlom kliknete v paneli alebo na ploche na ikonu <guiicon
+>sveta</guiicon
+>, spustí sa &konqueror; v móde prehliadača.</para
+></listitem
+> <listitem
+><para
+>Z menu <guimenu
+>K</guimenu
+> vyberte <menuchoice
+><guisubmenu
+>Systém</guisubmenu
+><guimenuitem
+> Konqueror</guimenuitem
+></menuchoice
+> aby sa &konqueror; spustil ako správca súborov alebo vyberte <menuchoice
+><guisubmenu
+>Internet</guisubmenu
+><guimenuitem
+> Web prehliadač Konqueror</guimenuitem
+></menuchoice
+> pre použitie mód prehliadača. </para
+></listitem
+> <listitem
+><para
+><keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>F2</keycap
+></keycombo
+> otvorí dialóg <guilabel
+>Vykonať príkaz</guilabel
+> a sem zadajte <userinput
+><command
+>konqueror</command
+></userinput
+> (malé písmená) a stlačte <keycap
+>Enter</keycap
+> alebo tlačidlo <guibutton
+>Spustiť</guibutton
+>. Tým sa spustí v móde správcu súborov, alebo jednoducho zadajte <acronym
+>URL</acronym
+> aby sa &konqueror; spustil ako prehliadač.</para
+></listitem
+> </itemizedlist>
+
+<para
+>&konqueror; sa automaticky spúšťa, ak kliknete <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši na ikonu plochy predstavujúcu priečinok, napríklad ikonu <guiicon
+>Odpadky</guiicon
+>, alebo na ikonu predstavujúcu <acronym
+>URL</acronym
+>.</para>
+
+<caution
+><para
+>Ak ste zvyknutý na používanie dvojitého kliknutia pre štart akcie, potom si dávajte pozor, pretože &konqueror; štandardne používa jednoduché kliknutie.</para
+></caution>
+
+</sect1>
+
+<sect1 id="parts">
+<title
+>&konqueror; a jeho časti</title>
+
+<para
+>Krátky pohľad na hlavné časti okna &konqueror;:</para>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="parts.png"/></imageobject
+> <textobject
+> <phrase
+>Tu je okno &konqueror;</phrase
+> </textobject
+> </mediaobject>
+
+<para
+><interface
+>Titulok</interface
+> je pruh v hornej časti okna a funguje rovnako ako v každej aplikácii &kde;. Kliknutím <mousebutton
+>pravým</mousebutton
+> tlačidlom myši v strede titulku sa zobrazí jeho menu.</para>
+
+<para
+><interface
+>Menu</interface
+> je pruh obsahujúci rozbaľovacie menu, ktoré si môžete zobraziť alebo skryť <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši na menu, alebo môžete použiť klávesovú skratku <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>podčiarknuté písmeno</keycap
+></keycombo
+>, napríklad <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>U</keycap
+></keycombo
+> pre zobrazenie menu <guimenu
+>Upraviť</guimenu
+>. Rôzne menu sú popísané v kapitole <link linkend="menubar"
+>Menu</link
+> tohto dokumentu.</para>
+
+<para
+><interface
+>Panel nástrojov</interface
+> obsahuje ikony pre často používané operácie. Ukázaním kurzorom myši na ikonu sa zobrazí krátky popis, čo ikona robí, <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši sa ikona aktivuje. Kliknutím <mousebutton
+>pravým</mousebutton
+> tlačidlom na prázdnu plochu panelu môžete zmeniť vzhľad a umiestnenie panelu.</para>
+
+<para
+><interface
+>Panel umiestnenia</interface
+> zobrazuje cestu do priečinku, <acronym
+>URL</acronym
+> alebo súbor, ktorý je práve zobrazený. Môžete sem zadať cestu alebo <acronym
+>URL</acronym
+> a po stlačení <keycap
+>Enter</keycap
+> ju zobraziť. Čierna ikona na ľavom konci panelu vymaže text v poli.</para>
+
+<para
+><interface
+>Panel záložiek</interface
+> je plocha pod <interface
+> panelom umiestnenia</interface
+> na predchádzajúcom obrázku. Sem si môžete pridať často používané záložky, ako sa dočítate v kapitole <link linkend="orgbmark"
+>Poriadok v záložkách</link
+>.</para>
+
+<para
+><interface
+>Okno</interface
+> je hlavná oblasť okna &konqueror; a môže zobrazovať obsah priečinku, stránku WWW alebo obsah dokumentu. Pomocou menu <link linkend="menu-window"
+><guimenu
+>Okno</guimenu
+></link
+> môžete rozdeliť hlavné okno &konqueror; na niekoľko oddelených pohľadov, čo sa hodí pre operácie ťahaj a pusť.</para>
+
+<para
+><interface
+>Stavový riadok</interface
+> je po celom spodnom okraji okna a obvykle zobrazuje všeobecné informácie o tom, kam práve ukazuje kurzor myši. Ak máte hlavné okno rozdelené na viacero pohľadov, každý pohľad má svoj vlastný stavový riadok a bude obsahovať malé svetielko vľavo, ktoré označuje <quote
+>aktívny</quote
+> pohľad. Kliknutím <mousebutton
+>pravým</mousebutton
+> tlačidlom myši na stavovm riadku zobrazíte kontextové menu stavového riadku.</para>
+
+<note
+><para
+>Nebojte sa, že &konqueror; nevyzerá presne ako na tomto obrázku, je veľmi dobre nastaviteľný a neexistuje žiadny <quote
+>štandardný</quote
+> spôsob, ako ho nastaviť. Predovšetkým:</para
+> <itemizedlist
+> <listitem
+><para
+>Pre určenie, či sa má zobrazovať menu, panel nástrojov, panel umiestnenia alebo panel záložiek môžete použiť menu <link linkend="menu-settings"
+><guimenu
+>Nastavenia</guimenu
+></link
+>.</para
+></listitem
+> <listitem
+><para
+>Okrem toho môžete jednotlivé panely <quote
+>zabaliť</quote
+> kliknutím ľavým tlačidlom myši na šrafovanú oblasť na ľavom konci panelu, alebo ho presunúť pomocou držania ľavého tlačidla myši. </para
+></listitem
+> </itemizedlist
+> <para
+>Ďalšie detaily o tom, ako sa dá zmeniť vzhľad okna &konqueror; sú uvedené v kapitole <link linkend="config"
+>Nastavenie &konqueror;</link
+>.</para
+></note>
+
+</sect1>
+
+<sect1 id="bubble">
+<title
+>Bublinová pomoc a Čo je to?</title>
+
+<para
+>Veľa sa o tom, ako &konqueror; funguje, dozviete aj bez prečítania celého tohto manuálu. Stačí využiť bublinovú pomoc a funkciu <guimenuitem
+>Čo je to?</guimenuitem
+>.</para>
+
+<para
+>Bublinová pomoc je funkcia, ktorá vám zobrazí krátky popis toho, na čo práve ukazuje kurzor myši.</para>
+
+<para
+><guimenuitem
+>Čo je to?</guimenuitem
+> sa zavolá z menu výberom <menuchoice
+><guimenu
+>Pomocník</guimenu
+> <guimenuitem
+>Čo je to?</guimenuitem
+></menuchoice
+>, klávesovou skratkou <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+> alebo jednoducho kliknutím ľavým tlačidlom myši na otáznik v pravom hornom rohu okna. Kurzor sa zmení na šipku s otáznikom.</para>
+
+<para
+>Ak je otáznik viditeľný, kliknutím ľavým tlačidlom myši nič neurobíte, kým nekliknete na nejakú časť okna, ktorá podporuje <guimenuitem
+>Čo je to?</guimenuitem
+>. V tom prípade sa zobrazí rozumne dlhý popis toho, čo ovládací prvok má robiť. Väčšina dialógov &konqueror; túto podporu obsahujú.</para>
+
+</sect1>
+
+<sect1 id="lmb-mmb">
+<title
+>Akcie <mousebutton
+>ľavého</mousebutton
+> a <mousebutton
+>stredného</mousebutton
+> tlačidla myši</title>
+
+<para
+>Ak kliknete ľavým tlačidlom myši na položku v okne &konqueror;, okno sa <quote
+>aktivuje</quote
+>. Takže</para>
+
+<itemizedlist
+> <listitem
+><para
+>kliknutie <mousebutton
+>ľavým</mousebutton
+> tlačidlom na ikonu v paneli sa stane to, na čo je ikona určená. </para
+></listitem
+> <listitem
+><para
+>kliknutie <mousebutton
+>ľavým</mousebutton
+> tlačidlom na podmenu v menu sa podmenu rozbalí.</para
+></listitem
+> <listitem
+><para
+>kliknutie <mousebutton
+>ľavým</mousebutton
+> tlačidlom na položku menu, vykoná sa činnosť, na ktorú je položka určená.</para
+></listitem
+> <listitem
+><para
+>kliknutie <mousebutton
+>ľavým</mousebutton
+> tlačidlom na odkaz na WWW stránke prejde &konqueror; na tento odkaz.</para
+></listitem
+> <listitem
+><para
+>kliknutie <mousebutton
+>ľavým</mousebutton
+> tlačidlom na ikonu priečinku alebo meno spôsobí, že&konqueror; prejde do (zobrazí obsah) tohto priečinku.</para
+></listitem
+> <listitem
+><para
+>kliknutie <mousebutton
+>ľavým</mousebutton
+> tlačidlom na ikonu alebo meno súboru spôsobí, že&konqueror; urobí to, čo si myslí, že je pre tento typ súboru odpovedajúce. Obvykle to znamená otvorenie stránok <acronym
+>HTML</acronym
+>, alebo náhľad textu, obrázku alebo súborov <application
+>KOffice</application
+> v rámci okna &konqueror; (<quote
+>Náhľad</quote
+> znamená, že uvidíte obsah súboru, ale nemôžete ho upravovať).</para
+> <para
+>&konqueror; určuje typ súbor pomocou prípony súboru zo zoznamu známych typov. Ak sa to nepodarí, pokúsi sa uhádnuť typ súboru podľa jeho obsahu. Ako môžete zmeniť zoznam známych typov súborov a s nimi asociovaných aplikácií sa dočítate v kapitole <link linkend="file-associations"
+>Asociácie súborov</link
+>.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Kliknutím <mousebutton
+>stredným</mousebutton
+> tlačidlom myši na mene súboru alebo priečinku je vlastne to isté ako kliknutie <mousebutton
+>ľavým</mousebutton
+>, až na to, že sa otvorí nové okno &konqueror;.</para>
+
+</sect1>
+
+<sect1 id="rmb-menus">
+<title
+>Menu <mousebutton
+>pravého</mousebutton
+> tlačidla myši</title>
+
+<para
+>Stlačením pravého tlačidla myši na skoro ktorejkoľvek časti okna &konqueror; zobrazí odpovedajúce menu:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Na titulku</term
+> <listitem
+><para
+>Kliknutie <mousebutton
+>pravým</mousebutton
+> tlačidlom na ktorejkoľvek voľnej časti titulku vyvolá menu titulku, ktoré umožňuje ovládať pozíciu okna, ale aj dekoráciu všetkých okien v &kde;. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Na paneli nástrojov</term
+> <listitem
+><para
+>Kliknutie <mousebutton
+>pravým</mousebutton
+> tlačidlom na ktorejkoľvek voľnej časti panelu nástrojov zobrazí jeho menu. Používa sa pre nastavenie, či má byť tento panel hore, dole, na ľavej alebo pravej strane okna. Umožňuje aj nastaviť veľkosť tlačidiel a či sú zobrazené ako ikony, text alebo ikony a text.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Na paneli umiestnenia</term
+> <listitem
+><para
+>Kliknutie <mousebutton
+>pravým</mousebutton
+> tlačidlom na <acronym
+>URL</acronym
+> vyvolá menu pre operácie Vystrihnúť, Kopírovať, Vložiť a Zmazať, a zmeniť nastavenie <link linkend="path-complete"
+>automatického doplňania</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Na paneli záložiek</term
+> <listitem
+><para
+> Ak máte zobrazený panel pre záložky, kliknutím na ňom zobrazíte jeho menu. To vám umožní zmeniť pozíciu panelu a či sú položky zobrazené ako ikony, text alebo ikony a text. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>V okne</term
+> <listitem
+><para
+>Kliknutie <mousebutton
+>pravým</mousebutton
+> tlačidlom na ktorejkoľvek voľnej časti zobrazí menu, ktoré obsahuje príkazy pre navigáciu <guiicon
+>Hore</guiicon
+>, <guiicon
+>Dopredu</guiicon
+> a <guiicon
+>Dozadu</guiicon
+>. Okrem toho obsahuje aj príkazy <guiicon
+>Vytvoriť nový</guiicon
+> z menu <guimenuitem
+>Upraviť</guimenuitem
+>. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Na súbore alebo priečinku</term
+> <listitem
+><para
+>Toto je asi najužitočnejšia funkcia. Kliknutie <mousebutton
+>pravým</mousebutton
+> tlačidlom na ikone alebo mene súboru alebo priečinku <quote
+>vyberie</quote
+> túto položku a zároveň zobrazí menu umožňujúcu <guiicon
+>Vystrihnúť</guiicon
+>, <guiicon
+>Kopírovať</guiicon
+> alebo Odstrániť položku rôznymi spôsobmi, pridať ich do <guimenu
+>Záložiek</guimenu
+>, otvoriť ju programom, ktorý si vyberiete, zobraziť náhľad, premenovať ju alebo upraviť typ súboru a jeho vlastnosti.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Na stavovom riadku</term
+> <listitem
+><para
+>Kliknutie <mousebutton
+>pravým</mousebutton
+> tlačidlom na spodnej časti okna alebo pohľadu môžete pridať alebo odstrániť pohľad v okne &konqueror;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="filemanager">
+<title
+>Správca súborov &konqueror;</title>
+
+<note
+><para
+>V operačnom systéme &Linux; sú priečinky usporiadané v stromovej štruktúre. Na vrchole je jeden <quote
+>koreňový</quote
+> priečinok. To znamená, že sa do každého priečinku dostanete tak, že sa najprv budete posúvať <quote
+>hore</quote
+>, kým dosiahnete spoločný vrchol a potom sa presúvate <quote
+>dolu</quote
+> až kým sa nedostanete tam, kam chcete. </para
+> <para
+>Pozíciu súboru alebo priečinku v strome môžete popísať touto <quote
+>cestou</quote
+>, čo je jednoduchý zoznam priečinkov, ktorými musíte ísť, aby ste sa dostali do cieľového priečinku. Napríklad, <filename class="directory"
+>/home/pam</filename
+> je priečinok <filename class="directory"
+>pam</filename
+>, ktorý je podpriečinok podpriečinku <filename class="directory"
+>home</filename
+> najvyššieho priečinku, ktorý reprezentuje počiatočný znak <quote
+>/</quote
+>.</para
+> <para
+>Každý dostupný disk na vašom systéme, aj disketa a cdrom, sa objavia v strome pod /. Ich presná cesta závisí na tom, ako máte nastavený systém, ale obvykle je to niečo ako <filename class="directory"
+>/mnt/floppy</filename
+> a <filename class="directory"
+>/mnt/cdrom</filename
+>. Prečítajte si aj kapitolu <link linkend="floppy-cd"
+>Disketové a &CD-ROM; mechaniky</link
+>.</para
+></note>
+
+<sect1 id="navigation">
+<title
+>Navigácia</title>
+
+<para
+>&konqueror; je vlastne správca súborov a preto zobrazuje mená súborov a podpriečinkov v priečinku. <quote
+>Cesta</quote
+> priečinku, ktorý je momentálne zobrazený, je v titulku a v paneli umiestnenia.</para>
+
+<para
+>Podpriečinky sú obvykle zobrazené ako ikony, ktoré vyzerajú ako zložky, aj ked niektoré špeciálne priečinky, napríklad <filename
+>Odpadky</filename
+> a <filename
+>Plocha</filename
+> môžu mať ikony iné. Súbory majú svoje vlastné ikony, ktoré sú určené typom súboru - typom, ktorý určil &konqueror;. </para>
+
+<para
+>Súbor alebo priečinok môžete <quote
+>vybrať</quote
+> aj šipkami na klávesnici. Vzhľad vybranej položky sa zmení a v stavovom riadku sa zobrazia niektoré informácie o nej.</para>
+
+<para
+>Medzi priečinkami sa môžete presúvať jednoducho hore a dolu po strome:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Do podpriečinku prejdete kliknutím ľavým tlačidlom myši na jeho meno alebo ikonu, alebo, ak už je <quote
+>vybraný</quote
+>, stačí stlačiť <keycap
+>Enter</keycap
+>.</para
+></listitem
+> <listitem
+><para
+>Vyššie v strome sa presuniete kliknutím na tlačidlo <guiicon
+>Hore</guiicon
+> v Paneli nástrojov, alebo použite <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Šipka hore</keysym
+></keycombo
+>, alebo z menu <menuchoice
+><guimenu
+>Štart</guimenu
+><guimenuitem
+>Hore</guimenuitem
+></menuchoice
+>.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Do priečinku môžete prejsť aj priamo zadaním cesty k nemu do pruhu umiestnenia alebo do dialogu, ktorý zobrazíte pomocou menu <menuchoice
+><guimenu
+>Umiestnenie</guimenu
+><guimenuitem
+>Prejsť na adresu</guimenuitem
+></menuchoice
+> alebo stlačením <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+>. Nezabúdajte, že v menách priečinkov a súborov v systéme &Linux; rozlišujú veľké a malé písmená, ale v <acronym
+>URL</acronym
+> pre <acronym
+>WWW</acronym
+> nie.</para>
+
+<para
+>Po prechode do nového priečinku sa môžete do predchádzajúceho vrátiť tlačidlom <guiicon
+>Dozadu</guiicon
+> z panelu nástrojov, pomocou menu <menuchoice
+><guimenu
+>Štart</guimenu
+> <guimenuitem
+>Dozadu</guimenuitem
+></menuchoice
+> alebo kombináciou klávesov <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Šipka vľavo</keysym
+></keycombo
+>.</para>
+
+<para
+>Ak ste sa vrátili, môžete prejsť zase dopredu. Použite tlačidlo <guiicon
+>Dopredu</guiicon
+> z panelu nástrojov, pomocou menu <menuchoice
+><guimenu
+>Štart</guimenu
+> <guimenuitem
+>Dopredu</guimenuitem
+></menuchoice
+> alebo kombináciou klávesov <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Šipka vpravo</keysym
+></keycombo
+>.</para>
+
+<tip
+><para
+>Ak budete ľavé tlačidlo myši držať stlačené po stlačení <guiicon
+>Hore</guiicon
+>, <guiicon
+>Dozadu</guiicon
+> alebo <guiicon
+>Dopredu</guiicon
+>, zobrazí sa zoznam naposledy navštívených miest.</para
+></tip>
+
+<sect2 id="path-complete">
+<title
+>Automatické doplňanie cesty</title
+> 
+
+<para
+>&konqueror; vám môže pomôcť pri zadávaní cesty do pruhu umiestnenia, ak povolíte niektorú z funkcií automatického doplňania. Kliknite pravým tlačidlom myši na prázdnu časť textového poľa pruhu umiestnenia a vyberte <guimenuitem
+>Doplnenie</guimenuitem
+>. Budete si môcť vybrať z týchto možností:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Žiadne</term
+> <listitem
+><para
+>Dostanete to, čo napíšete.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ručne</term
+> <listitem
+><para
+>Ak zadáte <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+> počas písania cesty do pruhu umiestnenia, &konqueror; cestu doplní až do miesta, kde je jednoznačná. Napríklad, ak priečinok obsahuje dva súbory <filename
+>testfile19.txt</filename
+> a <filename
+>testfile20.txt</filename
+> zadaním <userinput
+>t</userinput
+> a stlačením <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+> bude meno rozšírené na <filename
+>testfile</filename
+>, potom môžete napísať <userinput
+>2</userinput
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+> a objaví sa celé meno <filename
+>testfile20.txt</filename
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Popup</term
+> <listitem
+><para
+>Zobrazí sa vyskakovacie okno počas písania a bude zobrazovať možné doplnenia k tomu, čo už ste zadali. Až sa v okne objaví cesta, ktorú chcete zadať, stlačením <keysym
+>Šipka dole</keysym
+> a <keysym
+>Šipka hore</keysym
+> ju môžete zo zoznamu vybrať a stlačiť <keycap
+>Enter</keycap
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Automaticky</term
+> <listitem
+><para
+>Ako zadávate do pruhu umiestnenia, &konqueror; bude zadanú cestu automaticky doplňať a doplnenú časť zvýrazňovať. Ak zobrazený návrh nie je to, čo chcete, môžete pokračovať v písaní alebo stlačením <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+> akceptovať zvýraznenú navrhnutú časť. Až bude zobrazená celá cesta, ktorú chcete zadať, stlačte <keycap
+>Enter</keycap
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Polo-automaticky</term
+> <listitem
+><para
+>Podobne ako automaticky, ale je obmedzený len na rozumnejšie návrhy.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="sidebar">
+<title
+>Bočný panel</title>
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="dirtree.png"/></imageobject
+> <textobject
+> <phrase
+>S bočným panelom</phrase
+> </textobject
+> </mediaobject>
+
+<para
+>Ak chcete mať lepší prehľad o štruktúre priečinkov alebo jednoduchý prístup k záložkám, historii a sieti, použite menu <menuchoice
+><guimenu
+>Okno</guimenu
+> <guimenuitem
+>Zobraziť bočný panel</guimenuitem
+></menuchoice
+>. Tým sa aktuálne okno rozdelí na dva pohľady, tak ako vidíte na obrázku hore.</para>
+
+<para
+>Vľavo je takzvaný "Bočný panel", pohľad, ktorý obsahuje päť stromov označených <guilabel
+>Záložky</guilabel
+>, <guilabel
+>Historia</guilabel
+>, <guilabel
+>Domovský priečinok</guilabel
+>, <guilabel
+>Sieť</guilabel
+> a <guilabel
+>Koreňový priečinok</guilabel
+>. Pravý pohľad ukazuje vybraný priečinok alebo stránku WWW. Na zachytenej obrazovke boli použité možnosti menu <menuchoice
+><guimenu
+>Zobraziť</guimenu
+> <guimenuitem
+>Typ pohľadu</guimenuitem
+></menuchoice
+> a <menuchoice
+><guimenu
+>Zobraziť</guimenu
+> <guimenuitem
+>Zobraziť detaily...</guimenuitem
+></menuchoice
+> aby bol zobrazený textový zoznam priečinku vpravo, namiesto zoznamu prehliadača ikon. </para>
+
+<para
+>Ak &konqueror; zobrazuje viac ako jeden pohľad, je v pravom dolnom rohu každého pohľadu malé políčko. Ak naň kliknete <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši, v políčku sa prepne skoro neviditeľná ikona. Pohľady, ktoré túto ikonu majú zobrazenú, sú zviazané, takže ak prejdete v jednom pohľade inam, ostatné pohľady sa tiež zmenia do nového priečinku. Takto vybraním položky v bočnom paneli automaticky zobrazíte jej obsah v druhom pohľade.</para>
+
+<para
+>Pomocou myši môžete v bočnom paneli</para>
+
+<itemizedlist
+> <listitem
+><para
+>kliknutím <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši na symbol <guilabel
+>+</guilabel
+> zobrazíte všetky podpriečinky.</para
+></listitem
+> <listitem
+><para
+>Podstrom zabalíte ľavým tlačidlom kliknutím na symbol <guilabel
+>-</guilabel
+>.</para
+></listitem
+> <listitem
+><para
+>Ak máte zobrazenú požadovanú položku, kliknite na jej menom alebo ikonu ľavým tlačidlom myši a ona sa otvorí v druhom okne. </para
+></listitem
+> </itemizedlist>
+
+<para
+>Alebo môžete použit pre navigáciu klávesnicu.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Pomocou <keysym
+>Šipka hore</keysym
+> a <keysym
+>Šipka dole</keysym
+> sa môžete presúvať hore a dolu. </para
+></listitem
+> <listitem
+><para
+>Pomocou <keysym
+>Šipka doprava</keysym
+> prejdete do priečinku.</para
+></listitem
+> <listitem
+><para
+>Naopak, <keysym
+>Šipka doľava</keysym
+> zabalí podpriečinok.</para
+></listitem
+> <listitem
+><para
+>Až dosiahnete požadovanú položku, stlačením <keycap
+>Enter</keycap
+> ju zobrazíte v druhom pohľade.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Strom <guilabel
+>Záložky</guilabel
+> obsahuje vaše záložky, rovnako, ako sú zobrazené v menu Záložky.</para>
+
+<para
+>Strom <guilabel
+>Historia</guilabel
+> obsahuje <acronym
+>URL</acronym
+> pre naposledy navštívené web servery.</para>
+
+<para
+><guilabel
+>Domovský priečinok</guilabel
+> je váš osobný domovský priečinok, ktorý má cestu niečo ako <filename class="directory"
+>/home/pam2</filename
+> (ak má váš účet meno <quote
+>pam2</quote
+>).</para>
+
+<para
+>Strom <guilabel
+>Koreňový priečinok</guilabel
+> je cesta <filename class="directory"
+>/</filename
+>, a je to základný priečinok systému súborov vášho systému. Ak rozbalíte <quote
+>koreňový</quote
+> priečinok, nájdete další priečinok označený ako <filename class="directory"
+>root</filename
+>. Ten patrí administrátorovi systému a je to jeho domovský priečinok. Nájdete tam aj priečinok <filename class="directory"
+>home</filename
+>, v ktorom by mali byť domovské priečinky všetkých používateľov, teda aj váš, ktorý je dostupný aj v strome <quote
+>Domovský priečinok</quote
+>.</para>
+
+<para
+>Strom <guilabel
+>Sieť</guilabel
+> obsahuje detaily o súboroch alebo web stránkach, ktoré sú dostupné pomocou vašej siete (ak ste k nejakej pripojený).</para>
+</sect2>
+
+<sect2 id="file-find">
+<title
+>Hľadanie súborov a priečinkov</title>
+
+<para
+>Ak neviete, alebo si nepamätáte, kde v hierarchii je nejaký súbor alebo priečinok, použite tlačidlo <guiicon
+>Nájsť súbor</guiicon
+> z panelu nástrojov alebo z menu <menuchoice
+><guimenu
+>Nástroje</guimenu
+><guimenuitem
+>Nájsť súbor</guimenuitem
+></menuchoice
+>. Do okna &konqueror; sa vloží aplikácia pre hľadanie súborov &kfind;. Podrobnosti jej použitia nájdete v kapitole <quote
+>Hľadanie stratených súborov</quote
+> v Používateľskom manuále &kde;. </para>
+
+<note
+><para
+>Ak meno súboru alebo priečinku začína bodkou (.), je to <quote
+>skrytý</quote
+> súbor alebo priečinok, a normálne v okne nebude zobrazený.</para
+> <para
+>Aby ste ich videli, použite menu <menuchoice
+><guimenu
+>Zobraziť</guimenu
+> <guimenuitem
+>Zobraziť skryté súbory</guimenuitem
+></menuchoice
+>.</para
+></note>
+
+</sect2>
+
+<sect2 id="floppy-cd">
+<title
+>Disketové a &CD-ROM; mechaniky</title>
+
+<para
+>Každá disketová alebo &CD; mechanika vášho systému sa obvykle objavuje v priečinku <filename class="directory"
+>/mnt</filename
+>. Každá mechanika má cestu typicky <filename class="directory"
+>/mnt/floppy</filename
+> alebo <filename class="directory"
+>/mnt/cdrom</filename
+>, detaily závisia na tom, ako máte systém nastavený.</para>
+
+<para
+>&Linux; vyžaduje, aby ste pomocou príkazu <command
+>mount</command
+> diskety a &CD-ROM; pripájali po vložení do mechaniky. Až potom &Linux; uvidí, čo tam je. Naopak, pred odstránením disku alebo diskety ju musíte naprv odpojiť, aby &Linux; zistil, že už nebudú k dispozícii. </para>
+
+<para
+>To, ako to urobiť, závisí na vašom systéme:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Možno máte nainštalovaný takzvaný <application
+>Automount</application
+>. V tom prípade sa nemusíte pripájaním a odpájaním zariadení zaoberať, ale môže sa stať, že sa mechanika &CD-ROM; rozbehne bez zjavného dôvodu.</para
+></listitem
+> <listitem
+><para
+>Možno máte pre disketu a &CD-ROM; na ploche ikony. V tom prípade kliknutím ľavým tlačidlom myši na ikonu disketu alebo disk pripojíte. Malo by sa zároveň otvoriť okno &konqueror; s obsahom diskety alebo &CD-ROM;. Disk alebo disketu odpojíte pomocou kliknutia pravého tlačidla myši na ikonu, kde v zobrazenom menu vyberiete <guimenuitem
+>Odpojiť</guimenuitem
+>. To, ako sa takáto ikona vytvára, sa dozviete v kapitole <link linkend="making"
+>Vytvoriť nový...</link
+></para
+></listitem
+> <listitem
+><para
+>Alebo to môžete robiť klasicky pomocou textovej konzole:</para
+> <screen>
+<userinput
+><command
+>mount</command
+> <option
+><replaceable
+>/mnt/floppy</replaceable
+></option
+></userinput>
+</screen
+> <para
+>pre pripojenie diskety a</para
+> <screen>
+<userinput
+><command
+>umount</command
+> <option
+><replaceable
+>/mnt/floppy</replaceable
+></option
+></userinput
+></screen
+> <para
+>pre jej odpojenie. Nezabudnite použiť <command
+>umount</command
+> a nie <command
+>unmount</command
+>. </para
+> <note
+><para
+>Aby ste nemuseli otvárať okno konzole len na to, aby ste použili príkaz <command
+>mount</command
+> alebo <command
+>umount</command
+>, možno dáte prednosť funkcii z menu <menuchoice
+><guimenu
+>Nástroje</guimenu
+> <guimenuitem
+>Vykonať príkaz shellu</guimenuitem
+></menuchoice
+> (<keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>E</keycap
+></keycombo
+>). </para
+></note
+> </listitem
+> </itemizedlist>
+</sect2>
+
+</sect1>
+
+<sect1 id="deleting">
+<title
+>Odstránenie súborov a priečinkov</title>
+
+<para
+>&konqueror; poskytuje tri možnosti, ako sa zbaviť súborov a priečinkov:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Môžete ho presunúť do priečinku <filename
+>Odpadky</filename
+>. To je najbezpečnejšia metóda, pretože súbor môžete obnoviť, ak si uvedomíte, že ho ešte potrebujete a že ste urobili chybu.</para
+></listitem
+> <listitem
+><para
+>Môžete ho jednoducho Zmazať, či sa odstráni položka z priečinku a priestor na disku, ktorý súbor zaberal, sa pridá k voľnému miestu na disku.</para
+></listitem
+> <listitem
+><para
+>Alebo ho môžete Skartovať, čo je podobné Zmazť, ale okrem toho ešte prepíše oblasti disku, kde bol súbor uložený, náhodnými dátami. To sa hodí v prípade tajných dokumentov, u ktorých chcete, aby po nich nezostala v systéme ani stopa.</para
+></listitem
+> </itemizedlist>
+
+<note
+><para
+>Teoreticky by niekto, kto sa naozaj vyzná a má dosť času, mohol obnoviť aj <quote
+>skartované</quote
+> súbory.</para
+></note
+> 
+
+<para
+>Najjednoduchšia metóda odstránenia súboru alebo priečinku je ukázať kurzorom myši na meno alebo ikonu a stlačiť pravé tlačidlo myši. Zobrazí sa kontextové menu, ktoré obsahuje možnosti <guimenuitem
+>Presunúť do odpadkov</guimenuitem
+>, <guimenuitem
+>Zmazať</guimenuitem
+> a <guimenuitem
+>Skartovať</guimenuitem
+>.</para>
+
+<para
+>Alebo, ak ste už <quote
+>vybrali</quote
+> súbor, v menu <guimenu
+>Upraviť</guimenu
+> máte tiež výber z <quote
+><guimenuitem
+>Presunúť do odpadkov</guimenuitem
+></quote
+>, <quote
+><guimenuitem
+>Zmazať</guimenuitem
+></quote
+> a <quote
+><guimenuitem
+>Skartovať</guimenuitem
+></quote
+>.</para>
+
+<para
+><keycap
+>Del</keycap
+> presunie vybranú položku alebo položky do Odpadkov.</para>
+
+<para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Del</keycap
+></keycombo
+> naozaj a nevrátiteľne odstráni vybranú položku alebo položky.</para>
+
+<para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+> <keycap
+>Del</keycap
+></keycombo
+> skartuje vybrané položky.</para>
+
+<note
+><para
+>Súbor alebo priečinok sa vám nepodarí odstrániť v prípade, že na to nemáte dostatočné práva. Detaily nájdete v kapitole <link linkend="super-user"
+>Mód superpoužívateľa</link
+>.</para
+></note>
+
+</sect1>
+
+<sect1 id="moving">
+<title
+>Presun a kopírovanie</title>
+
+<para
+>Aby ste skopírovali súbor alebo podpriečinok medzi priečinkami, môžete:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Ukázať kurzorom myši na jeho meno alebo ikonu a stlačením pravého tlačidla myši sa zobrazí menu. To obsahuje možnosť <guimenuitem
+>Kopírovať</guimenuitem
+>.</para
+> <para
+>Alebo, ak už ste súbor <quote
+>vybrali</quote
+>, môžete použiť tlačidlo <guiicon
+>Kopírovať</guiicon
+> v paneli nástrojov, alebo pomocou menu <menuchoice
+><guimenu
+>Upraviť</guimenu
+> <guimenuitem
+>Kopírovať</guimenuitem
+></menuchoice
+> alebo klávesovou skratkou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+>.</para
+></listitem
+> <listitem
+><para
+>Prejdite do priečinku, kam chcete položku skopírovať a potom ju vložte pomocou tlačidla panelu nástrojov <guiicon
+>Vložiť</guiicon
+> alebo menu <menuchoice
+><guimenu
+>Upraviť</guimenu
+> <guimenuitem
+>Vložiť</guimenuitem
+></menuchoice
+> alebo klávesovou skratkou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+>. No a ešte môžete ukázať kurzorom myši na prádnu oblasť v okne a stlačiť pravé tlačidlo myši. Zobrazí sa menu a v ňom možnosť <guimenuitem
+>Vložiť</guimenuitem
+>. </para
+></listitem
+> </itemizedlist>
+
+<para
+>Presun súboru alebo podpriečinku môžete urobiť skoro úplne rovnako ako kopírovanie, ale namiesto na začiatku použijete namiesto <guimenuitem
+>Kopírovať</guimenuitem
+> <guimenuitem
+>Vystrihnúť</guimenuitem
+> alebo klávesovú skratku <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+>. Položka, ktorú ste vystrihli bude z pôvodného miesta odstránená po použití <guimenuitem
+>Vložiť</guimenuitem
+> v cieľovom priečinku.</para>
+
+<note
+><para
+>Súbor alebo priečinok sa vám skopírovať alebo presunúť v prípade, že na to nemáte dostatočné práva. Detaily nájdete v kapitole <link linkend="super-user"
+>Mód superpoužívateľa</link
+>.</para
+></note>
+
+<sect2>
+<title
+>Použitie techniky "Ťahaj a pusť"</title>
+
+<para
+>&konqueror; podporuje pre kopírovanie a presun súborov a priečinkov aj techniku ťahaj a pusť.</para>
+
+<para
+>Ak ste si v okne zobrazili bočný panel podľa postupu v predchádzajúcej kapitole, potom môžete postupovať takto:</para>
+
+<procedure
+> <step
+><para
+>Overte, že pohľady nie sú zviazané (malé políčka v pravom dolnom rohu každého pohľadu musí byť prázdny, ak nie je, kliknite naň ľavým tlačidlom myši).</para
+></step
+> <step
+><para
+>Pomocou bočného panelu prejdite na miesto, odkiaľ uvidíte priečinok, do ktorého chcete súbory presunúť alebo skopírovať.</para
+></step
+> <step
+><para
+>V hlavnom pohľade zobrazte priečinok obsahujúci položku, ktorú chcete presunúť alebo skopírovať. Ukážte na jej meno alebo ikonu kurzorom myši a s držaným ľavým tlačidlom myši ju <quote
+>ťahajte</quote
+> do bočného pnalu a kurzor umiestnite nad cieľový priečinok. Pustením tlačidla sa zobrazí menu s <guimenuitem
+>Kopírovať</guimenuitem
+> a <guimenuitem
+>Presunúť</guimenuitem
+>.</para
+></step
+> </procedure>
+
+<para
+>&konqueror; dokáže zobrazovať viac ako jeden priečinok a tak môžete súbory presúvať a kopírovať myšou aj medzi nimi.</para>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="dragdrop.png"/></imageobject
+> <textobject
+> <phrase
+>Rozdelené pohľady pre ťahaj a pusť</phrase
+> </textobject
+> </mediaobject>
+
+<para
+>Pre tento obrázok sme použili menu <menuchoice
+><guimenu
+>Okno</guimenu
+> <guimenuitem
+>Rozdeliť pohľad vertikálne</guimenuitem
+></menuchoice
+>, ktoré je dostupné aj klávesovou skratkou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>L</keycap
+></keycombo
+>. Tým sme okno rozdelili na dva pohľady, každý z nich zobrazuje obsah iného priečinku.</para>
+
+<para
+>V takto upravom okne sa jednoducho ťahajú položky medzi priečinkami, ale dajte si pozor, aby ste ich púštali na prázdnu plochu cieľového pohľadu - ak ho pustíte na meno alebo ikonu iného súboru, môžu nastať problémy.</para>
+
+<para
+>Ak máte okno rozdelené na dva alebo viac pohľadov, obvykle sa hodí, aby neboli zviazané - malé políčka v pravom dolnom rohu každého pohľadu by mali byť prázdne.</para>
+
+<para
+><quote
+>Aktívny pohľad</quote
+>, ten, ktorého cesta je v pruhu umiestnenia a ktorý reaguje na navigáciu a príkazy z menu, je označený zeleným svetielkom v ľavom dolnom rohu. Aby sa pohľad stal aktívnym, kliknite naň ľavým tlačidlom myši na prázdnu oblasť pohľadu alebo na jeho stavový riadok.</para>
+
+<para
+>Aktívny pohľad z okna odstránite klávesovou skratkou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>R</keycap
+></keycombo
+> alebo z menu <menuchoice
+><guimenu
+>Okno</guimenu
+> <guimenuitem
+>Odstrániť aktívny pohľad</guimenuitem
+></menuchoice
+>, alebo kliknite pravým tlačidlom myši na statový riadok a vyberte <guimenuitem
+>Odstrániť aktívny pohľad</guimenuitem
+>.</para>
+
+<note
+><para
+>Techniku ťahaj a pusť môžete použiť aj medzi rôznymi inštanciami aplikácie &konqueror;.</para
+></note>
+
+</sect2>
+</sect1>
+
+<sect1 id="multiple">
+<title
+>Výber viacerých súborov</title>
+
+<para
+>Niekedy chcete odstrániť, skopírovať alebo presunúť viac podobných súborov naraz. Napríklad, môžete chcieť presunúť všetky obrázky .png z jednoho priečinku do iného. &konqueror; umožňuje jednoducho vybrať viac súborov podľa podobnosti ich mien.</para>
+
+<para
+>Z menu vyberte <menuchoice
+><guimenu
+>Upraviť</guimenu
+> <guimenuitem
+>Vybrať...</guimenuitem
+></menuchoice
+> alebo stlačte klávesovú skratku <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+>. Tým sa zobrazí malý dialog, kam môžete zadať meno súboru obsahujúce žolíky <keycap
+>*</keycap
+>, ktorý odpovedajú ľubovoľnému počtu znakov, a <keycap
+>?</keycap
+>, čo odpovedá jednému znaku. Stlačením <guibutton
+>OK</guibutton
+> vyberie &konqueror; všetky súbory, ktorých mená odpovedajú tomuto popisu. Napríklad,</para>
+      
+<itemizedlist
+> <listitem
+><para
+> <userinput
+><filename
+>flag*.png</filename
+></userinput
+> vyberie všetky súbory, ktorých mená začínajú písmenami <quote
+>flag</quote
+> a končiace na <quote
+><filename
+>.png</filename
+></quote
+>.</para
+></listitem
+> <listitem
+><para
+><userinput
+><filename
+>memo?.txt</filename
+></userinput
+> vyberie súbory <filename
+>memo1.txt</filename
+> a <filename
+>memo9.txt</filename
+> ale nie <filename
+>memo99.txt</filename
+>.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Ak ste vybrali niekoľko súborov, môžete výber zúžiť pomocou menu <menuchoice
+><guimenu
+>Upraviť</guimenu
+> <guimenuitem
+>Odznačiť...</guimenuitem
+></menuchoice
+> alebo klávesovou skratkou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+> aby ste mohli zadať, ktoré vybrané súbory už nemajú byť vybrané.</para>
+
+<para
+>Pomocou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>U</keycap
+></keycombo
+> alebo menu <menuchoice
+><guimenu
+>Upraviť</guimenu
+> <guimenuitem
+>Odznačiť všetky</guimenuitem
+></menuchoice
+> alebo jednoducho kliknite ľavým tlačidlom myši na prázdnu oblasť pohľadu, čím zrušíte výber.</para>
+
+<para
+>Výber môžete dokonca aj obrátiť, takže všetky vybrané súbory sa stanú nevybranými a naopak. Urobíte to pomocou menu <menuchoice
+><guimenu
+>Upraviť</guimenu
+><guimenuitem
+>Invertovať výber</guimenuitem
+></menuchoice
+> alebo klávesovou skratkou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>*</keycap
+></keycombo
+>.</para>
+
+<para
+>Až budete mať vybrané správne súbory, môžete ich normálne odstrániť, skopírovať alebo presunúť jedným príkazom, ktorý bude pracovať so všetkými vybranými súbormi naraz. </para>
+
+<note
+><para
+>V závislosti na type vašej klávesnice a nastavenia lokalizácie sa môže stať, že pre klávesové skratky <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+>, <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+> a <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>*</keycap
+></keycombo
+> budete musieť použiť <keycap
+>+</keycap
+>, <keycap
+>-</keycap
+> a <keycap
+>*</keycap
+> na numerickej klávesnici.</para
+></note>
+
+</sect1>
+
+<sect1 id="making">
+<title
+>Vytvoriť nový...</title>
+
+<para
+>Ak je &konqueror; v režime správcu súborov, dostanete sa k voľbe <guisubmenu
+>Vytvoriť nový...</guisubmenu
+> z menu <guimenu
+>Upraviť</guimenu
+> aj kliknutím pravým tlačidlom myši na prázdnej ploche pohľadu. Touto voľbou môžete vytvoriť v aktuálnom priečinku tieto typy súborov a priečinkov:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Odkaz na aplikáciu...</guimenuitem
+></term
+> <listitem
+><para
+>Táto voľba sa najviac hodí v prípade, že chcete vytvoriť ikonu, ktorá spustí nejakú aplikáciu. Táto voľba zobrazí dialóg, v ktorom sú štyri záložky. Prvá, <guilabel
+>Všeobecné</guilabel
+>, umožňuje vybrať ikonu a text, ktorý bude pod ňou. Druhá záložka označená <guilabel
+>Práva</guilabel
+> obsahuje výber, kto bude môcť používať a meniť túto ikonu. V záložke <guilabel
+>Vykonať</guilabel
+> musíte zadať príkaz, ktorý sa má spustiť, napríklad <userinput
+>kedit</userinput
+>, ktorý spúšťa textový editor &kedit;. <userinput
+>kedit /home/pam/plan.txt</userinput
+> by otvoril súbor <filename
+>/home/pam/plan.txt</filename
+> v &kedit;. Záložku <guilabel
+>Aplikácia</guilabel
+> obvykle vyplniť nemusíte. </para
+> <para
+>Aby sa ikona aplikácie objavila ploche, vytvorte odkaz na váš priečinok <filename class="directory"
+>~/Desktop</filename
+> alebo pomocou voľby <guisubmenu
+>Vytvoriť nový... </guisubmenu
+> po kliknutí <mousebutton
+>pravým</mousebutton
+> tlačidlom myši na prázdnu časť plochy.</para
+> <para
+>Ak máte veľa odkazov na aplikácie a nechcete ich mať všetky na ploche, môžete si ich uložiť v priečinku Aplikácie. Pomocou &konqueror; sa tam dostanete výberom <menuchoice
+><guimenu
+>Štart</guimenu
+> <guimenuitem
+>Aplikácie</guimenuitem
+></menuchoice
+>. Potom vytvorte jednu ikonu na ploche, ktorá otvorí priečinok Aplikácie, ktorý je obvykle <filename class="directory"
+>~/.kde/share/applink</filename
+>.</para
+> <para
+>Odkaz na aplikáciu vložíte do panelu tak, že ho najprv vytvoríte v priečinku aplikácií a potom ho pretiahnete myšou na prázdne miesto na paneli.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Odkaz na URL...</guimenuitem
+></term
+> <listitem
+><para
+>Táto voľba vám umožňuje vytvoriť ikonu pre spustenie &konqueror; v niektorom priečinku alebo na nejakej web stránke. Podobne ako s <guimenuitem
+>Odkaz na aplikáciu...</guimenuitem
+>, môžete ikonu nechať zobraziť na ploche tým, že ju uložíte to priečinku <filename
+>~/Desktop</filename
+> alebo pomocou podmenu <guisubmenu
+>Vytvoriť nový...</guisubmenu
+> po kliknutí pravým tlačidlom myši na voľnej časti plochy. Text vytvorenej ikony budete zobrazená cesta alebo &URL;, ale môžete ho zmeniť pomocou <guimenuitem
+>Vlastnosti...</guimenuitem
+>, kde zadáte svoj text v záložke <guilabel
+>Všeobecné</guilabel
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Disketová mechanika...</guimenuitem
+></term
+> <listitem
+><para
+>Týmto vytvoríte ikonu, ktorá bude pripojovať disketu a zobrazovať jej obsah v okne &konqueror;. Aby ste disketu odpojili, kliknite na ikonu <mousebutton
+>pravým</mousebutton
+> tlačidlom myši a vyberte <guimenuitem
+>Odpojiť</guimenuitem
+>. V skutočnosti to nemusí byť iba disketa, ale aj pevný disk alebo oddiel na vašom systéme, ktorý nie je normálne pripojený. Vo väčšine prípadov budete chcieť takúto ikonu na ploche.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>CD-ROM zariadenie...</guimenuitem
+></term
+> <listitem
+><para
+>Táto voľba je podobná ako <guimenuitem
+>Disketová mechanika</guimenuitem
+>, ale je pre mechaniku &CD-ROM;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Priečinok...</guimenuitem
+></term
+> <listitem
+><para
+>Jednoduchý spôsob vytvorenia nového (pod)priečinku.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Textový súbor...</guimenuitem
+></term
+> <listitem
+><para
+>Týmto vytvoríte prázdny štandardný textový súbor. V malom dialógu zadáte meno nového súboru.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Súbor HTML...</guimenuitem
+></term
+> <listitem
+><para
+>Vytvorí kostru zdrojového súboru <acronym
+>HTML</acronym
+>. Pri zadávaní mena do dialógu je asi najlepšie dať súboru príponu <literal role="extension"
+>.html </literal
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Prezentácia...</guimenuitem
+></term
+> <listitem
+><para
+>Vytvorí kostru dokumentu <application
+>KOffice</application
+> &kpresenter;. Meno bude mať príponou <literal role="extension"
+>.kpr</literal
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Textový dokument...</guimenuitem
+></term
+> <listitem
+><para
+>Vytvorí kostru dokumentu <application
+>KOffice</application
+> &kword; pomocou štandardnej šablóny &kword;. Meno bude mať príponou <literal role="extension"
+>.kwd</literal
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Tabuľka...</guimenuitem
+></term
+> <listitem
+><para
+>Toto sa používa na vytvorenie nového dokumentu <application
+>KOffice</application
+> &kspread; a meno bude mať príponou <literal role="extension"
+>.ksp</literal
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Ilustrácia...</guimenuitem
+></term
+> <listitem
+><para
+>Vytvorí nový dokument pre <application
+>KOffice</application
+> &killustrator;. Bude mať meno s príponou <literal role="extension"
+>.kil</literal
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="newname">
+<title
+>Zmena mena a prístupových práv</title>
+
+<para
+>Najjednoduchší spôsob, ako zmeniť meno priečinku alebo súboru je kliknúť <mousebutton
+>pravým</mousebutton
+> tlačidlom myši na ňom a vybrať <guimenuitem
+>Premenovať</guimenuitem
+>.</para>
+
+<para
+>Alebo, ak chcete zmeniť ešte niečo iné, kliknite <mousebutton
+>pravým</mousebutton
+> tlačidlom myši na meno alebo ikonu a vyberte <guimenuitem
+>Vlastnosti...</guimenuitem
+>. Zobrazenie tohto dialógu dosiahnete aj tak, že <quote
+>označíte</quote
+> súbor alebo priečinok a zmenu vyberiete <menuchoice
+><guimenu
+>Upraviť</guimenu
+> <guimenuitem
+>Vlastnosti</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Zobrazí sa tým dialóg Vlastnosti, ktorý má dve záložky:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Záložka <guilabel
+>Všeobecné</guilabel
+> obsahuje informácie o položke a umožňuje zmeniť meno a pre priečinok aj ikonu.</para
+></listitem
+> <listitem
+><para
+>Záložka <guilabel
+>Práva</guilabel
+> zobrazuje vlastníka a prístupové práva a tieto vlastnosti môžete zmeniť.</para
+></listitem
+> </itemizedlist>
+
+<sect2 id="super-user">
+<title
+>Mód superpoužívateľa</title>
+
+<para
+>Ak ste prihlásený ako normálny používateľ a pokúsite sa o prístup k súborom mimo váš domovský priečinok, často sa vám takáto zmena nepodarí so správou <errorname
+>Prístup odmietnutý</errorname
+>. </para>
+
+<para
+>Aby ste k týmto súborom mali prístup, musíte byť prihlásený ako administrátor systému, ktorému sa často hovorí super-používateľ alebo <quote
+>root</quote
+>. </para>
+
+<para
+>Aby ste sa nemuseli vždy odhlásiť a znovu prihlásiť, môžete &konqueror; spustiť z menu <guimenu
+>K</guimenu
+> v režime super-používateľa pomocou <menuchoice
+><guisubmenu
+>Systém</guisubmenu
+><guimenuitem
+>Správca súborov (Super-používateľský mód)</guimenuitem
+></menuchoice
+>. Musíte potom zadať heslo pre prihlásenie <quote
+>root</quote
+>, a potom sa spustí &konqueror; s plnými právami ku všetkým súborom vo vašom systéme.</para>
+
+<warning
+><para
+>Dávajte si pozor. Ako super-používateľ máte úplnú kontrolu nad systémom a chybný príkaz môže spôsobiť nenapraviteľné škody.</para>
+<para
+>Navyše nie je dobrý nápad pripojiť sa na internet ako root, pretože to výrazne zníži bezpečnosť vášho počítača.</para
+></warning>
+
+</sect2>
+</sect1>
+
+<sect1 id="commandline">
+<title
+>S príkazovým riadkom</title>
+
+<para
+>Aj ked je &konqueror; veľmi silný a flexibilný správca súborov, v niektorých prípadoch dajú skúsení používatelia prednosť textovému príkazovému riadku.</para>
+
+<para
+>Samozrejme by bolo možné spustiť &konsole; napríklad z menu &konqueror; <menuchoice
+><guimenu
+>Nástroje</guimenu
+><guimenuitem
+>Otvoriť terminál</guimenuitem
+></menuchoice
+> alebo <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>T</keycap
+></keycombo
+>.</para>
+
+<para
+>&konqueror; ale má aj dalšiu funkciu a to že <menuchoice
+><guimenu
+>Okno</guimenu
+> <guimenuitem
+>Zobraziť terminál</guimenuitem
+></menuchoice
+> otvorí okno terminálu ako nový pohľad v okne &konqueror; a ak máte pohľady zviazené, bude terminál sledovať zmeny priečinku v ostatných pohľadoch správcu súborov.</para>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="cmndline.png"/></imageobject
+> <textobject
+> <phrase
+>Pridanie terminálu</phrase
+> </textobject
+> </mediaobject>
+
+</sect1>
+
+</chapter>
+
+<chapter id="browser">
+<title
+>Web prehliadač &konqueror;</title>
+
+<note
+><para
+>Po prvom spustení &konqueror; v režime prehliadača webu, zobrazí sa okno s úvodom do hlavných funkcií aplikácie &konqueror;. Ak ste si túto stránku nepridali do záložiek, môžete si ju znovu zobraziť zadaním umiestnenia <userinput
+>abour:konqueror</userinput
+>.</para
+></note>
+
+<sect1 id="conn-inet">
+<title
+>Pripojenie na Internet</title>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="konqorg.png"/></imageobject
+> <textobject
+> <phrase
+>Prehliadanie www.konqueror.org</phrase
+> </textobject
+> </mediaobject>
+
+<para
+>Po pripojení na Internet môžete používať &konqueror; pre prehliadanie webu rovnako jednoducho, ako s ním pracujete s lokálnymi súbormi. Jednoducho zadáte <acronym
+>URL</acronym
+> do pruhu umiestnenia a stlačíte <keycap
+>Enter</keycap
+>.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Ak používate pre pripojenie modem, asi na vytvorenie spojenia používate &kppp; alebo podobný program.</para
+></listitem
+> <listitem
+><para
+>Ak máte počítač pripojený na lokálnu počítačovú sieť (<acronym
+>LAN</acronym
+>), v ktorej se nastavený proxy server pre pripojenie, musíte &konqueror; nastaviť, aby tento proxy server používal. Návod je v kapitole <link linkend="configure-proxy"
+>Nastavenie proxy</link
+>. </para
+></listitem
+> <listitem
+><para
+>Ak máte toľko štastia, že máte veľmi rýchle pripojenie, váš poskytovateľ vám asi dal externý káblový modem, ktorý vyžaduje pripojenie pomocou siete ethernet. Bohužiaľ, nastavenie takéhoto pripojenia závisí na poskytovateľovi pripojenia a aj na vašej distribúcii Linuxu. Niektorý <acronym
+>ISP</acronym
+> tiež používajú proxy server. V tom prípade si prečítajte kapitolu <link linkend="configure-proxy"
+>Nastavenie proxy</link
+>. Pomoc by ste mohli nájsť aj v archívoch konferencií pre vašu distribúciu.</para
+></listitem
+> </itemizedlist>
+
+<note
+><para
+>Chybová správa <errorname
+>Neznámy hostiteľ</errorname
+> obvykle znamená, že &konqueror; nemohol nájsť pripojenie na Internet alebo že ste zadali nesprávne <acronym
+>URL</acronym
+>.</para
+></note>
+
+</sect1>
+
+<sect1 id="surf">
+<title
+>Surfovanie a hľadanie</title>
+
+<para
+>Po úspešnom pripojení na Internet môžete začať používať aplikáciu &konqueror; ako svoj prehliadač webu.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Zadať &URL; do pruhu umiestnenia a stlačiť <keycap
+>Enter</keycap
+> a &konqueror; stiahne a zobrazí stránku. Môžete použiť funkciu automatického doplnenia &URL;, ktorá vám pomôže zadať cestu. Je to podobné funkcii <link linkend="path-complete"
+> Automatické doplnenie cesty</link
+>, ale je založená na historii vášho prehliadania webu a nie na priečinkoch a súboroch na vašom systéme.</para
+></listitem
+> <listitem
+><para
+>Kliknúť <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši na odkaz na stránke a tak na ňu prejsť.</para
+></listitem
+> <listitem
+><para
+>Zobraziť odkaz v novom okne &konqueror;, takže stará stránka zostane viditeľná. Kliknete pravým tlačidlom myši na odkaz a vyberiete <guimenuitem
+>Nové okno</guimenuitem
+>.</para
+> <para
+>Môžete tiež použiť režim viacerých pohľadov pomocou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>L</keycap
+></keycombo
+> alebo v menu <menuchoice
+><guimenu
+>Okno</guimenu
+> <guimenuitem
+>Rozdeliť pohľad vertikálne</guimenuitem
+></menuchoice
+>, ktorá vám umožní zobraziť rôzne stránky naraz. To sa vám hodí, ak prezeráte zložitú skupinu stránok, napríklad tento dokument. Ale nezabudnite sa uistiť, že malé políčko zviazania pohľadov v pravom dolnom rohu je prázdne.</para
+></listitem
+> <listitem
+><para
+>Prejsť na predchádzajúcu stránku pomocou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keysym
+>Šipka vľavo</keysym
+></keycombo
+>, tlačidlo panelu nástrojov <guiicon
+>Dozadu</guiicon
+> alebo z menu <menuchoice
+><guimenu
+>Štart</guimenu
+> <guimenuitem
+>Dozadu</guimenuitem
+></menuchoice
+>, presne ako pri navigácii lokálnych súborov.</para
+></listitem
+> <listitem
+><para
+>Podobne, ak ste prešli dozadu, môžete prejsť na nasledujúcu stránku pomocou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keysym
+>Šipka vpravo</keysym
+></keycombo
+>, tlačidlo panelu nástrojov <guiicon
+>Dopredu</guiicon
+> alebo z menu <menuchoice
+><guimenu
+>Štart</guimenu
+> <guimenuitem
+>Dopredu</guimenuitem
+></menuchoice
+>.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Ak chcete z nejakého dôvodu prestať načítavať stráku, použite kláves <keycap
+>Esc</keycap
+> alebo tlačidlo <guiicon
+>Zastaviť</guiicon
+> z panelu nástrojov alebo z menu položku <menuchoice
+><guimenu
+>Zobraziť</guimenu
+><guimenuitem
+>Zastaviť</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Pri prehliadaní web stránky, mali by ste v paneli nástrojov vidieť dve nové ikony podobné lupe s malým <guiicon
+>+</guiicon
+> a <guiicon
+>-</guiicon
+>. Môžete ich použiť pre úpravu veľkosti textu na stránke, ak máte problémy s jeho čítaním. To, ako sa táto funkcia bude chovať, závisí na tom, ako je stránka <acronym
+>HTML</acronym
+> vytvorená.</para>
+
+<para
+>Niektorí ľudia strávia oveľa viac času hľadaním stránky než jej čítaním. Viete, že stačí do pruhu umiestnenia zadať predmet, ktorý vás zaujíma a &konqueror; ho automaticky pošle vyhľadávaciemu stroju pre WWW? Skúste zadať meno svojho mesta.</para>
+
+<para
+>Alebo môžete určiť, ktorý vyhľadávací stroj sa má použiť. Napríklad zadaním <userinput
+>altavista:konqueror</userinput
+> alebo jednoducho <userinput
+>av:konqueror</userinput
+> použijete na hľadanie server Altavista. Detaily o týchto pokročilých funkciách pre hľadanie v &konqueror; nájdete v kapitole <link linkend="configure-enhanced-browsing"
+>Rozšírené prehliadanie</link
+>.</para>
+
+
+</sect1>
+
+<sect1 id="save-print-web">
+<title
+>Ukladanie a tlač položiek webu</title>
+
+<para
+>Ak máte zobrazenú webovú stránku, môžete ju uložiť (aspoň základný kód<acronym
+>HTML</acronym
+> alebo niečo podobné) na váš lokálny disk pomocou menu <menuchoice
+><guimenu
+>Miesto</guimenu
+> <guimenuitem
+>Uložiť ako...</guimenuitem
+></menuchoice
+>. Na to isté slúži aj klávesová skratka <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+>. Ak zobrazená stránka obsahuje rámce, budete mať aj možnosť <menuchoice
+><guimenu
+>Miesto</guimenu
+><guimenuitem
+>Uložiť rámec ako...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Ak stránka obsahuje obrázok na pozadí, môžete ju získať a uložiť pomocou <menuchoice
+><guimenu
+>Umiesto</guimenu
+><guimenuitem
+>Uložiť obrázok pozadia ako...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Ale ak naozaj chcete ten fantastický obrázok najnovšieho Ferrari, kliknite naň pravým tlačidlom myši a zobrazí sa kontextové menu. Z neho vyberte <guimenuitem
+>Uložiť obrázok ako...</guimenuitem
+>. Ak vyberiete <guimenuitem
+>Kopírovať umiestnenie obrázku</guimenuitem
+>, potom jeho <acronym
+>URL</acronym
+> bude skopírované do schránky, takže ho potom môžete vložiť, kam len chcete. Nezabúdajte ale na autorské práva a pred použitím obrázkov na niečo iné ako svoje osobné vyžitie si vyžiadajte príslušné povolenie.</para>
+
+<para
+>Kliknutím <mousebutton
+>pravým</mousebutton
+> tlačidlom myši na odkaz (môže to byť aj obrázok) a vybraním <guimenuitem
+>Kopírovať umiestnenie odkazu</guimenuitem
+> skopírujete <acronym
+>URL</acronym
+> do schránky. Potom ho môžete vložiť napríklad do e-mailovej správy, ktorou oznamujete svojmu priateľovi, že existuje táto fantastická stránka.</para>
+
+<para
+>Zobrazenú stránku si jednoducho vytlačíte pomocou menu <menuchoice
+><guimenu
+>Miesto</guimenu
+> <guimenuitem
+>Tlačiť...</guimenuitem
+></menuchoice
+> alebo <guimenuitem
+>Tlačiť rámec</guimenuitem
+>. Samozrejme, existuje aj klávesová skratka <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> alebo z panelu nástrojov tlačidlom <guiicon
+>Tlačiť</guiicon
+>.</para>
+
+</sect1>
+
+<sect1 id="ftp">
+<title
+>&FTP;</title>
+
+<para
+>&FTP;, čiže File Transfer Protocol, je jeden z najstarších a asi stále jeden z najlepších spôsobov prenosu súborov medzi počítačmi po Internete.</para>
+
+<para
+>Pomocou &FTP; si môžete prezrieť priečinky a súbory na vzdialenom počítači rovnako, ako by boli na vašom lokálnom systéme. Môžete si ich stiahnuť na váš počítač pomocou obvyklej funkcie &konqueror; <guimenuitem
+>Kopírovať</guimenuitem
+> a <guimenuitem
+>Vložiť</guimenuitem
+> alebo technikou ťahaj a pusť. Navyše, ak je to povolené, môžete na vzdialený počítač súbory aj prenášať. Celé si to môžete vyskúšať napríklad zadaním <acronym
+>URL</acronym
+>:</para>
+
+<screen>
+<userinput
+>ftp://ftp.kde.org/pub/kde</userinput>
+</screen>
+
+<para
+>do pruhu umiestnenia a stlačte <keycap
+>Enter</keycap
+>. Ak ste pripojený k Internetu a &FTP; server &kde; nie je príliš zaťažený, mali by ste uvidieť priečinok <filename class="directory"
+>/pub/kde</filename
+> na ftp.kde.org.</para>
+
+<note
+><para
+>Ak by sme mali byť presní, malo by <acronym
+>URL</acronym
+> pre &FTP; začínať zadaním <userinput
+>ftp://</userinput
+> a pre <abbrev
+>WWW</abbrev
+> zase <userinput
+>http://</userinput
+>, &konqueror; obvykle dokáže určiť, čo ste zadaním <acronym
+>URL</acronym
+> mysleli a doplní správny začiatok automaticky.</para
+></note>
+
+<para
+>Pre prístup na server &FTP; obvykle potrebujete nejaké používateľské meno a heslo. Aby sa to zjednodušilo, väčšina serverov &FTP;, ktoré poskytujú súbory pre voľné stiahnutie akceptuje meno <systemitem
+>anonymous</systemitem
+> a ako heslo vašu e-mailovú adresu. Aby ste to mali ešte jednoduchšie, &konqueror; tieto informácie automaticky zadá za vás. </para>
+
+<para
+>Servery, ktoré sa viac zaujímajú o svoje zabezpečenie vyžadujú správne používateľské meno a heslo. V tom prípade sa vám &konqueror; na tieto informácie spýta, alebo ich môžete zdať priamo do <acronym
+>URL</acronym
+> v pruhu umiestnenia, ako napríklad</para>
+
+<screen>
+<userinput
+>ftp://<replaceable
+>používateľ</replaceable
+>@ftp.cia.org</userinput
+></screen>
+
+<para
+>&konqueror; sa vás potom spýta na heslo.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="bookmarks">
+<title
+>Použitie záložiek</title>
+
+<para
+>Záložky &konqueror; sú najužitočnejšie pri prehliadaní webu, lebo vám umožňujú vytvoriť si vlastný zoznam zaujímavých serverov. Ale môžete ich kľudne používať aj pre lokálny priečinky a súbory.</para>
+
+<para
+>Rozbaľovací zoznam <guimenu
+>Záložky</guimenu
+> zobrazíte pomocou kliknutím <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši na menu <guimenu
+>Záložky</guimenu
+> alebo klávesovou skratkou <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>B</keycap
+></keycombo
+>. Po zobrazí zoznamu sa v ňom môžete pohybovať pomocou šipiek alebo myšou. Potom stlačením <keycap
+>Enter</keycap
+> alebo kliknutím ľavým tlačidlom myši zobrazíte vybranú položku.</para>
+
+<para
+>Novú položku do zoznamu pridáte pomocou menu <link linkend="menu-bookmarks"
+><menuchoice
+><guimenu
+>Záložky</guimenu
+> <guimenuitem
+>Pridať záložku</guimenuitem
+></menuchoice
+></link
+>, klávesovou kombináciou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>B</keycap
+></keycombo
+> alebo kliknite <mousebutton
+>pravým</mousebutton
+> tlačidlom myši a vyberte <guimenuitem
+>Pridať k záložkám</guimenuitem
+> pri prehliadaní požadovaného priečinku alebo webovej stránky.</para>
+
+<para
+>Zoznam <guimenu
+>Záložky</guimenu
+> môže obsahovať priečinky, ktoré obsahujú záložky a dokonca aj dalšie priečinky.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Ak používate prehliadač &Netscape;, priečinok jeho záložiek bude automaticky pridaný do zoznamu záložiek &konqueror;, takže svoje záložky môžete okamžite používať. </para
+></listitem
+> <listitem
+><para
+>Položky v paneli záložiek sú obvykle uložené v priečinku <quote
+>Toolbar</quote
+>, ale pomocou <guilabel
+>Editor záložiek</guilabel
+> to môžete zmeniť.</para
+></listitem
+> <listitem
+><para
+>Ak chcete záložku pridať do podpriečinku a nie priamo do zoznamu Záložky, vyberte priečinok z menu <guimenu
+>Záložky</guimenu
+> a použite <guimenuitem
+>Pridať záložku</guimenuitem
+> v tomto priečinku.</para
+></listitem
+></itemizedlist>
+
+<para
+>Ak máte systém, na ktorom môžete používať &Linux; a &Windows; (takzvaný duálny boot), môžete v <application
+>Internet Exploreri</application
+> pomocou <menuchoice
+><guimenu
+>File</guimenu
+><guisubmenu
+>Import and export</guisubmenu
+><guimenuitem
+>Export Favorites</guimenuitem
+></menuchoice
+> vytvoriť súbor <filename
+>.htm</filename
+> obsahujúci všetky vaše obľúbené záložky z <application
+>IE</application
+>. Potom v &konqueror; môžete v prípade, že máte prístup k diskovému oddielu <application
+>Windows</application
+>, nájsť tento súbor a pridať ho do vašich záložiek. Tak budete mať prístup ku všetkým vašim starým záložkám z <application
+>IE</application
+>.</para>
+
+<sect1 id="orgbmark">
+<title
+>Poriadok v záložkách</title>
+
+<para
+>Pomocou <menuchoice
+><guimenu
+>Záložky</guimenu
+><guimenuitem
+>Upraviť záložky...</guimenuitem
+></menuchoice
+> spustíte v novom okne <guilabel
+>Editor záložiek</guilabel
+>. Môžete ho použiť na:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Presun položiek pomocou ťahaj a pusť alebo príkazmi <guimenuitem
+>Vystrihnúť</guimenuitem
+> a <guimenuitem
+>Vložiť</guimenuitem
+> alebo <guimenuitem
+>Odstrániť</guimenuitem
+> nechcené záložky a priečinky. Poradie v <guilabel
+>Editore záložiek</guilabel
+> je také isté, ako budú záložky zobrazené v rozbaľovacom zozname <guimenu
+>Záložky</guimenu
+>. Tento zoznam si môžete skrášliť aj pridaním oddeľovačov pomocou <menuchoice
+><guimenu
+>Súbor</guimenu
+><guimenuitem
+>Vložiť oddeľovač</guimenuitem
+></menuchoice
+> alebo <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>I</keycap
+></keycombo
+>.</para
+></listitem
+> <listitem
+><para
+>Vytvorenie nových priečinkov a podpriečinkov pomocou <guimenuitem
+>Vytvoriť nový priečinok</guimenuitem
+> v menu <guimenu
+>Súbor</guimenu
+> alebo z kontextového menu, ktoré sa zobrazí po kliknutí <mousebutton
+>pravým</mousebutton
+> tkačidlom myši v hlavnej časti okna alebo pomocou <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+>.</para
+></listitem
+> <listitem
+><para
+>Zmenu mena záložky jej výberom a stlačením <keycap
+>F2</keycap
+> alebo <menuchoice
+><guimenu
+>Upraviť</guimenu
+><guimenuitem
+>Premenovať</guimenuitem
+></menuchoice
+> alebo kliknutím <mousebutton
+>pravým</mousebutton
+> tlačidlom myši a z kontextového menu použitím <guimenuitem
+>Premenovať</guimenuitem
+>.</para
+></listitem
+> <listitem
+><para
+>Zmenu <acronym
+>URL</acronym
+> záložky dvojitým kliknutím <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši na <acronym
+>URL</acronym
+>.</para
+></listitem
+> <listitem
+><para
+>Zmenu priečinku obsahujúceho položky z panelu záložiek výberom priečinku a kliknutím<mousebutton
+>ľavým</mousebutton
+> tlačidlom myši na <guimenuitem
+>Nastaviť ako priečinok záložiek</guimenuitem
+> v menu <guimenu
+>Nastavenia</guimenu
+>.</para
+></listitem
+> <listitem
+><para
+>Prevod záložiek z prehliadačov &Netscape; a Mozilla.</para
+></listitem
+> </itemizedlist>
+
+<note
+><para
+>Ak sa vám nedarí zobraziť panel záložiek po výbere <guimenuitem
+>Zobraziť panel záložiek</guimenuitem
+> v menu &konqueror; <guimenu
+>Nastavenia</guimenu
+>, vyberte v <guilabel
+>Editore záložiek</guilabel
+> vhodný priečinok a kliknutím <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši ho označte ako <guimenuitem
+>Nastaviť ako priečinok záložiek</guimenuitem
+> z menu <guimenu
+>Nastavenia</guimenu
+>.</para
+></note>
+
+</sect1
+> 
+</chapter>
+
+<chapter id="save-settings">
+<title
+>Uloženie nastavenia a profily</title>
+
+<para
+>Vaše aktuálne nastavenie v menu <guimenu
+>Zobraziť</guimenu
+> (ako je <guimenuitem
+>Typ pohľadu</guimenuitem
+>, <guimenuitem
+>Použiť index.html</guimenuitem
+> a <guimenuitem
+>Ukázať skryté súbory</guimenuitem
+>) sa automaticky ukladá ako štandardné.</para>
+
+<para
+>Pre jednotlivé priečinky môžete zadať samostatné nastavenie menu <guimenu
+>Zobraziť</guimenu
+>. Zaškrtnite <guimenuitem
+>Zobraziť vlastnosti pohľadu v priečinku</guimenuitem
+> v menu <guimenu
+>Nastavenia</guimenu
+>, zmeňte nastavenie v <guimenu
+>Zobraziť</guimenu
+> a zrušte zaškrtnutnutie <guimenuitem
+>Zobraziť vlastnosti pohľadu v priečinku</guimenuitem
+>. Tým vytvoríte v aktuálnom priečinku súbor <filename
+>.directory</filename
+>, v ktorom sú nastavenia uložené. Tento súbor odstránite použitím <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guimenuitem
+>Odstrániť nastavenie priečinku</guimenuitem
+></menuchoice
+> (alebo jednoducho odstráňte súbor <filename
+>.directory</filename
+> ).</para>
+<note
+><para
+>Túto funkciu môžete použiť napríklad pre priečinok plný obrázkov. V tomto priečinku môžete nastaviť, aby sa zobrazovali miniatúry obrázkov (pomocou <guimenuitem
+>Prehliadač ikon</guimenuitem
+> a <guimenuitem
+>Náhľad obrázkov</guimenuitem
+> v menu <guimenu
+>Zobraziť</guimenu
+>), ale aj ked v ostatných priečinkoch zobrazovať miniatúry nechcete. </para
+></note>
+
+<para
+>Vaše aktuálne nastavenie pre menu, panel nástrojov, pruh umiestnenia a panel záložiek sa tiež štandardne ukladá.</para>
+
+<para
+>Celkový vzhľad &konqueror; pri štarte je určený jedným z dvoch profilov. Záleží na tom, či ste ho spustili ako správcu súborov alebo ako web prehliadač. Ovládajú veľkosť okna, či je okno rozdelené na dva a viac pohľadov, či je zobrazený emulátor terminálu a bočný panel a či sa zobrazí priečinok alebo <acronym
+>URL</acronym
+>.</para>
+
+<para
+>Aby ste zmenili toto štartovacie chovanie, jednoducho nastavte &konqueror; tak, ako chcete a potom z menu <guimenu
+>Okno</guimenu
+> vyberte <guimenuitem
+>Uložiť profil pohľadu "Správca súborov"</guimenuitem
+> alebo <guimenuitem
+>Uložiť profil pohľadu "Web prehliadanie"</guimenuitem
+> podľa režimu, v ktorom práve ste. Ak chcete, aby pri štarte bolo okno &konqueror; prázdne, pre uložením profilu zadajte ako miesto <userinput
+>about:blank</userinput
+>.</para
+>     
+
+<para
+>Môžete si vytvoriť aj svoj vlastný spúšťací profil a uložiť ich pomocou <menuchoice
+><guimenu
+>Okno</guimenu
+><guimenuitem
+>Nastaviť profily pohľadu...</guimenuitem
+></menuchoice
+>. Potom si ich môžete vybrať pomocou menu <menuchoice
+><guimenu
+>Okno</guimenu
+><guimenuitem
+>Načítať profil pohľadu</guimenuitem
+></menuchoice
+>. </para>
+    
+<note
+><para
+> Na ploche si môžete vytvoriť ikonu pre spustenie &konqueror; s vaším novým profilom. Najprv vytvorte ikonu ťahaním ikony &konqueror; z menu <guimenu
+>K</guimenu
+> na plochu a výberom <guimenuitem
+>Kopírovať sem</guimenuitem
+>. Potom kliknite pravým tlačidlom myši na túto ikonu a vyberte <guimenuitem
+>Vlastnosti...</guimenuitem
+>. Zmeňte <guilabel
+>Meno programu</guilabel
+> v záložke <guilabel
+>Vykonať</guilabel
+> na <userinput
+><command
+>kfmclient</command
+> <option
+>openProfile <replaceable
+>MojNovyProfil</replaceable
+></option
+></userinput
+>, kde <replaceable
+>MojNovyProfil</replaceable
+> je profil, ktorý chcete použiť pri štarte. Potom v záložke <guilabel
+>Všeobecné</guilabel
+> zmeňte meno na niečo ako <filename
+>MojNovyProfil.desktop</filename
+> a vyberte nejakú lepšiu ikonu.</para
+></note>
+
+</chapter>
+
+<chapter id="man-info">
+<title
+>Zobrazenie manuálových a info stránok</title>
+<para
+> Ak si chcete prečítať manuálové stránky &UNIX; v okne &konqueror;, je to jednoduché. Napríklad zadajte <userinput
+>man:touch</userinput
+> alebo <userinput
+>#touch</userinput
+> do pruhu umiestnenia a zobrazí sa manuálová stránka pre príkaz touch.</para
+> 
+
+<para
+>A prehliadanie stránok Info sa stane skoro príjemný zážitok. <userinput
+>info:/dir</userinput
+> zobrazí priečinok najvyššej úrovne systému Info. Potom už stačí pár kliknutí na správne odkazy a nájdete stránku, ktorú hľadáte.</para
+> 
+
+</chapter>
+
+<chapter id="config">
+<title
+>Nastavenie &konqueror;</title>
+
+<para
+>Podobne ako zvyšok &kde;, &konqueror; je veľmi dobre nastaviteľný, takže môžete použiť taký vzhľad a chovanie, ktoré vám vyhovuje.</para>
+
+<sect1 id="configure-bars">
+<title
+>Zmena panelov</title>
+
+<para
+>Po novej inštalácii &kde; obsahuje okno &konqueror; menu, panel nástrojov, pruh umiestnenia a prípadne panel záložiek.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Možno nepotrebujete všetky tieto panely. Skryjete ich z menu <guimenu
+>Nastavenia</guimenu
+>, kde odznačíte ten, ktorý chcete skryť. Rovnakým postupom opäť zobrazíte takto skryté panely.</para
+></listitem
+> <listitem
+><para
+>Na ľavej strane každého panelu uvidíte niekoľko vertikálnych čiar. Ak na ne kliknete ľavým tlačidlom myši, panel <quote
+>zabalíte</quote
+>, čo znamená, že sa skryje, ale môžete ho jednoducho znovu obnoviť kliknutím na teraz už horizontálne čiary.</para
+></listitem
+> <listitem
+><para
+>Panel pomocou týchto čiar môžete aj presunúť niekam inam ťahaním.</para
+></listitem
+> <listitem
+><para
+>Ak kliknete pravým tlačidlom myši na panel, zobrazí sa menu pre jeho nastavenie. Môžete si vybrať orientáciu, pozíciu textu a veľkosť ikon.</para
+></listitem
+> </itemizedlist>
+
+
+<note
+><para
+>Ak skryjete menu, nedostanete sa k jeho položke <guimenu
+>Nastavenia</guimenu
+>! Aby ste menu zase zobrazili, kliknite pravým tlačidlom myši na pohľad a vyberte <guimenuitem
+>Zobraziť menu</guimenuitem
+>.</para
+></note>
+
+<para
+>Ikony zobrazené v rôznych paneloch môžete zmeniť pomocou <menuchoice
+><guimenu
+>Nastaviť</guimenu
+><guimenuitem
+>Nastaviť panely nástrojov...</guimenuitem
+></menuchoice
+>, čím sa zobrazí dialog <guilabel
+>Nastaviť panel nástrojov</guilabel
+>, kde môžete ikony zmeniť v</para>
+
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>Panel nástrojov &lt;Konqueror&gt;</guilabel
+>.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Pruh umiestnenia &lt;Konqueror&gt;</guilabel
+>. V ňom toho zmeniť nemôžete. </para
+></listitem
+> <listitem
+><para
+><guilabel
+>Panel nástrojov &lt;khtmlpart&gt;</guilabel
+>. Tento panel obvykle obsahuje <guiicon
+>Zväčšiť</guiicon
+> a <guiicon
+>Zmenšiť</guiicon
+> veľkosti písiem a ikony <guiicon
+>Bezpečnosť</guiicon
+>, ktoré sú zobrazené iba ak je &konqueror; v režime prehliadača webu. </para
+></listitem
+> </itemizedlist>
+
+<para
+>Nezabudnite, že môžete zmeniť pozíciu tlačidiel v paneli pomocou tlačidiel so šipkami hore a dolu.</para>
+
+</sect1>
+
+<sect1 id="configfm">
+<title
+>Správca súborov</title>
+
+<para
+>Vyberte <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Nastaviť Konqueror...</guisubmenu
+><guimenuitem
+>Správca súborov</guimenuitem
+></menuchoice
+> alebo z menu <guimenu
+>K</guimenu
+> vyberte <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Prehliadanie súborov</guisubmenu
+><guimenuitem
+>Správca súborov</guimenuitem
+></menuchoice
+>. Zobrazí sa dialog obsahujúci štyri záložky: <guilabel
+>Vzhľad</guilabel
+>, <guilabel
+>Kôš</guilabel
+>, <guilabel
+>Správanie</guilabel
+> a <guilabel
+>Ostatné</guilabel
+>. </para>
+
+<sect2>
+<title
+>Správanie</title
+> 
+
+<para
+>Tu si môžete vybrať, či bude Konqueror otvárať nové okno pri otvorení priečinku, alebo zobrazí obsah priečinku v aktuálnom pohľade.</para>
+<para
+><guilabel
+>Domovské URL</guilabel
+> sa používalo pre výber URL, ktoré &konqueror; zobrazí pri stlačení tlačidla <guiicon
+>Domov</guiicon
+> (obvykle to je váš domovský priečinok <filename
+>~</filename
+>), ale tento výber je predefinovaný aktuálnym nastavením <link linkend="save-settings"
+>profilu</link
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Vzhľad</title>
+
+<para
+>Táto záložka umožňuje nastaviť veľkosť písma a farby použité v &konqueror; a ako bude zobrazený text ikon. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Odpadky</title>
+
+<para
+>Tu môžete určiť, či sa má &konqueror; pýtať na potvrdenie pri odstraňovaní položiek.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Iné</title>
+
+<para
+>Táto záložka umožňuje výber aplikácie pre terminál (ako je &konsole; alebo <application
+>xterm</application
+>), ktorá sa použije pre príkaz <guimenuitem
+>Otvoriť terminál</guimenuitem
+> alebo <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>T</keycap
+></keycombo
+>.</para>
+
+</sect2>
+
+</sect1>
+
+
+<sect1 id="file-associations">
+<title
+>Asociácie súborov</title>
+
+<para
+>To, čo &konqueror; urobí po kliknutí na meno súboru alebo jeho ikonu, určuje typ súboru a zoznam akcií, ktoré &konqueror; udržiava pre rôzne typy súborov a ktorý si môžete upraviť alebo pridať nové typy súborov.</para>
+
+<para
+>Kliknite <mousebutton
+>pravým</mousebutton
+> tlačidlom myši na textovom súbore a vyberte <guimenuitem
+>Upraviť typ súboru</guimenuitem
+>. Zobrazí sa dialog.</para>
+
+<mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="filetype1.png"/></imageobject
+> <textobject
+> <phrase
+>Záložka <guimenu
+>Všeobecné</guimenu
+> v dialogu <guimenuitem
+>Upraviť typ súboru</guimenuitem
+></phrase
+> </textobject
+> </mediaobject>
+
+<para
+>V záložke <guilabel
+>Hlavné</guilabel
+> časť <guilabel
+>Poradie uprednostňovania aplikácií</guilabel
+> určuje, čo sa objaví v menu <guimenuitem
+>Otvoriť pomocou</guimenuitem
+> pre tento typ súborov. Tieto aplikácie môžete zmeniť a rovnako aj ich poradie. Môžete aj zmeniť ikonu, ktorú &konqueror; používa pre tento typ súborov. Urobíte to kliknutím ľavým tlačidlom myši na ikonu. Okrem toho môžete ešte pridať prípony (<guilabel
+>Meno typu súboru</guilabel
+>) pre iné typy súborov, s ktorými sa má pracovať rovnako.</para>
+
+<note
+><para
+>&konqueror; dokáže rozpoznať väčšinu textových súborov a tak s nimi aj pracovať, aj ked nemajú príponu <filename
+>.txt</filename
+>.</para
+></note>
+
+<para
+>Záložka <guimenuitem
+>Integrované</guimenuitem
+> (ale vlastne popisuje náhľady) ovláda, čo sa stane, ked sa klikne ľavým tlačidlom myši na meno súboru. </para>
+
+<note
+><para
+>Typy súborov sú rozdelené do niekoľkých skupín: <guimenuitem
+>application</guimenuitem
+>, <guimenuitem
+>audio</guimenuitem
+>, <guimenuitem
+>image</guimenuitem
+>, <guimenuitem
+>inode</guimenuitem
+>, <guimenuitem
+>message</guimenuitem
+>, <guimenuitem
+>text</guimenuitem
+> a <guimenuitem
+>video</guimenuitem
+>.</para
+></note>
+
+<para
+>&konqueror; môžete nastaviť tak, aby spojil ľubovoľný typ súboru s nainštalovanou aplikáciu.</para>
+
+<para
+>&konqueror; napríklad nepozná typ obrázkov Targa. Ak máte takýto typ obrázku na disku, jeho ikona bude otáznik. Ak naň kliknete ľavým tlačidlom, &konqueror; sa vás spýta, ktorú aplikáciu chcete použiť. Môžete jednoducho zadať meno vhodnej aplikácie vždy, ked vyberiete súbor typu Targa, ale lepšie je nastaviť &konqueror; tak, aby vedel, čo má s obrázkami Targa robiť.</para>
+
+<para
+>Skúsme pridať pre &konqueror; typ MIME pre súbory Targa.</para>
+
+<procedure
+> <step
+><para
+>Otvorte dialóg <menuchoice
+><guimenu
+>Nastavenia</guimenu
+> <guisubmenu
+>Nastaviť Konqueror...</guisubmenu
+> <guimenuitem
+>Asociácie súborov</guimenuitem
+></menuchoice
+>.</para
+></step
+> <step
+><para
+>Kliknite na tlačidlo <guibutton
+>Pridať...</guibutton
+> vľavo dole. Zobrazí sa malý dialóg.</para
+></step
+> <step
+><para
+>Vyberte v zozname <guimenuitem
+>Skupina</guimenuitem
+> vyberte <guimenuitem
+>image</guimenuitem
+>, ako <guilabel
+>Meno typu</guilabel
+> zadajte <userinput
+>Targa</userinput
+>  a stlačte <guibutton
+>OK</guibutton
+>.</para
+> <mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="filetype3.png"/></imageobject
+> <textobject
+> <phrase
+>Pridanie typu Targa, 2. krok</phrase
+> </textobject
+> </mediaobject
+> </step
+> <step
+><para
+>Teraz sa pozrite do pravého horného rohu dialogu. Kliknutím na ikonu vyberte nejakú krajšiu, asi najlepšia bude ikona <guiicon
+>obrázok</guiicon
+>. Do zoznamu <guilabel
+>Meno typu súboru</guilabel
+> pridajte vzorku <userinput
+>*.tga</userinput
+> a <userinput
+>*.TGA</userinput
+> kliknutím na tlačidlo <guibutton
+>Pridať...</guibutton
+>. To znamená, že každý súbor, ktorého prípona je <literal role="extension"
+>.tga</literal
+> alebo <literal role="extension"
+>.TGA</literal
+> (veľkosť písmen sa rozlišuje) bude považovaný za obrázok typu Targa.</para
+></step
+> <step
+><para
+>Teraz už &konqueror; vie, čo má považovať za súbor Targa, ale nevie, čo s nimi robiť. Musíte mu povedať, akú aplikáciu má spustiť pre prezretie súborov Targa. V pravom dolnom rohu plochy <guilabel
+>Poradie uprednostňovania aplikácií</guilabel
+> stlačte tlačidlo <guibutton
+>Pridať...</guibutton
+>. Zobrazí sa tento dialog.</para
+> <mediaobject
+> <imageobject
+><imagedata format="PNG" fileref="filetype4.png"/></imageobject
+> <textobject
+> <phrase
+>Pridanie typu Targa, 3. krok</phrase
+> </textobject
+> </mediaobject
+> </step
+> <step
+><para
+>Môžete vybrať aplikáciu zo zoznamu <guilabel
+>Známe aplikácie</guilabel
+>, ale my chceme použiť <application
+>Gimp</application
+>, ktorý v zozname nie je. Preto zadajte <userinput
+>gimp</userinput
+> do textového poľa.</para
+></step
+> <step
+><para
+><application
+>Gimp</application
+> je veľmi pekná aplikácia, ale je veľmi veľká a nie je určená pre rýchle prehliadanie. Kliknite preto ešte raz na <guibutton
+>Pridať...</guibutton
+> a do poľa pre novú aplikáciu napíšte <userinput
+><application
+>xv</application
+></userinput
+> alebo meno inej vhodnej aplikácie, ktorú máte nainštalovanú. </para
+></step
+> <step
+><para
+>Teraz máte v zozname aplikácií dve. Prvá je štandardná aplikácia, takže možno budete chcieť upraviť ich poradie. To môžete urobiť tlačidlami <guibutton
+>Presunúť hore</guibutton
+> a <guibutton
+>Presunúť dole</guibutton
+>. Ako štandardnú by ste totiž mali nastaviť takú aplikáciu, ktorá sa hodí pre rýchle prezeranie. </para
+></step
+> </procedure>
+
+<para
+>Odteraz budú všetky súbory Targa správne rozpoznané.</para>
+
+</sect1>
+
+<sect1 id="configure-browser">
+<title
+>Prehliadač Konqueror</title>
+
+<para
+>Vyberte <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Nastaviť Konqueror...</guisubmenu
+> <guimenuitem
+>Prehliadač Konqueror</guimenuitem
+></menuchoice
+> alebo z menu K vyberte <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guimenu
+>Web prehliadanie</guimenu
+><guimenuitem
+>Prehliadač Konqueror</guimenuitem
+></menuchoice
+>. Zobrazí sa dialog s piatimi záložkami, <guilabel
+>HTML</guilabel
+>, <guilabel
+>Vzhľad</guilabel
+>, <guilabel
+>Java</guilabel
+>, <guilabel
+>JavaScript</guilabel
+>, <guilabel
+>Moduly</guilabel
+>.</para>
+
+<sect2>
+<title
+>HTML</title>
+
+<para
+>Táto záložka umožňuje určiť, či sa má kurzor v okne meniť zo šipky na ruku pri ukázaní na odkaz na stránke (doporučuje sa to, pretože inak si môžete nevšimnúť odkazov, ktoré sú ako obrázky a nie ako text), a či sa majú textové odkazy podčiarkovať.</para
+> <para
+>Okrem toho môžete určiť, či sa majú nahrávať obrázky, alebo iba ak si to vyžiadate. Tým sa dá prehliadanie výrazne zrýchliť.</para>
+
+</sect2>
+
+<sect2>
+
+<title
+>Vzhľad</title>
+
+<para
+>Táto záložka nastavuje typ písma, jeho veľkosť, znakovú sadu a štandardné kódovanie použité pri prehliadaní.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Java</title>
+
+<para
+>&Java; nie je JavaScript, ale plnohodnotný programovací jazyk. Stránky <acronym
+>HTML</acronym
+> môžu pomocou jazyka &Java; používať programy v tomto jazyki (obvykle sa označujú ako <quote
+>applety</quote
+>), stiahnuť ich a spustiť.</para>
+
+<para
+>Záložka <guilabel
+>Java</guilabel
+> umožäuje nastaviť globálne a doménové politiky pre jazyk &Java;.</para>
+
+<para
+>Voľba <guilabel
+>Globálne povoliť Javu</guilabel
+> ovládač, či &konqueror; bude všeobecne akceptovať alebo ignorovať applety Java. Toto chovanie sa ale dá zmeniť podľa doménovej politiky . Aby ste napríklad povolili (alebo zakázali) Javu pre server http://news.bbc.co.uk, musíte do poľa hostiteľ/doména zadať celé meno domény <userinput
+>news.bbc.co.uk</userinput
+>. Ak by ste zadali iba <userinput
+>bbc.co.uk</userinput
+> alebo <userinput
+>*.bbc.co.uk</userinput
+>, nebude to fungovať.</para>
+
+<para
+>Aby ste mohli spúšťať applety &Java;, potrebujete mať nainštalovanú Java Virtual Machine (<acronym
+>JVM</acronym
+>) a &konqueror; musí vedieť, kde sa nachádza. Obvykle stačí zadať jednoducho <userinput
+>java</userinput
+> do poľa <guilabel
+>Cesta k spustiteľnému súboru java</guilabel
+>, ale ak to nefunguje alebo máte nainštalovaných viacero virtuálnych strojov a chcete, aby &konqueror; používal presne niektorú z nich, zadajte k nej úplnú cestu, napríklad <filename
+>/usr/java/bin</filename
+>.</para>
+
+<warning
+><para
+>Podobne ako s každým iným prehliadačom, ak povolíte aktívny obsah (Java alebo JavaScript), môže to ohroziť bezpečnosť vášho systému. Doporučuje sa použiť voľbu <guilabel
+>Použiť správcu zabezpečenia</guilabel
+> zo záložky <guilabel
+>Java</guilabel
+>. To vyžaduje inštaláciu &Java;, ktorá je kompatibilná s Java2. </para
+></warning>
+
+<note
+><para
+> Najnovšie informácie o rôznych <acronym
+>JVM</acronym
+> a ich podpore v &konqueror; sa dozviete na adrese <ulink url="http://www.konqueror.org"
+>http://www.konqueror.org</ulink
+>. </para
+></note>
+
+</sect2>
+
+<sect2>
+<title
+>JavaScript</title>
+
+<para
+>Javascript je malý skriptovací jazyk, ktorý sa často používa pre pridanie animácie alebo iných funkcí do stránok <acronym
+>HTML</acronym
+>. &konqueror; obsahuje interpreter kompatibilný s ECMAScript, ktorý podporuje jazyky ako &Netscape; JavaScript a &Microsoft;'s JScript.</para>
+		
+<para
+>Voľba <guilabel
+>Globálne povoliť JavaScript</guilabel
+> ovláda, či &konqueror; všeobecne akceptuje alebo ignoruje JavaScript, ale môžete to zmeniť pre jednotlivé domény podobne ako pre jazyk &Java;.</para>
+
+<para
+>V časti <guilabel
+>Rôzne nastavenia JavaScript</guilabel
+> sa vám možno hodí voľba <guilabel
+>Zakázať "window.open()"</guilabel
+> pre servery, ktoré používajú tento príkaz pre zobrazovanie reklám v samostatných oknách. Ale dávajte si pozor, pretože niektoré servery bez funkcie window.open() nefungujú správne. Voľba <guilabel
+>Zobraziť ladiace okno</guilabel
+> zobrazuje informácie a varovania z interpreteru JavaScript v samostatnom okne.</para>
+</sect2>
+
+<sect2>
+<title
+>Moduly</title>
+<para
+>Táto záložka umožňuje globálne povoliť alebo zakázať spúšťanie modulov. Ďalšie informácie o moduloch nájdete v kapitole <link linkend="plugin"
+>Moduly Netscape</link
+>. </para
+> 
+</sect2>
+
+</sect1>
+
+<sect1 id="configure-enhanced-browsing">
+<title
+>Rozšírené prehliadanie</title>
+
+<para
+>Pomocou menu <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Nastaviť Konqueror...</guisubmenu
+> <guimenuitem
+>Rozšírený prehliadač</guimenuitem
+></menuchoice
+> alebo z menu K <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Web prehliadanie</guisubmenu
+> <guimenuitem
+>Rozšírený prehliadač</guimenuitem
+></menuchoice
+> zobrazíte dialog modulu Ovládacieho centra KDE <guilabel
+>Rozšírený prehliadač</guilabel
+>.</para>
+
+<para
+>Ak použijete voľbu <guilabel
+>Povoliť internetové slová</guilabel
+>, môžete do pruhu umiestnenia zadávať priamo normálne slová a slovné spojenia. Budete potom presmerovaný na odpovedajúci server alebo sa zobrazí zoznam možných odkazov. &konqueror; to robí tak, že pošle zadaný text na adresu <filename
+>www.internetkeywords.org</filename
+>, kde vás presmerujú tam, kam ukazuje odpovedajúce internetové kľúčové slovo.</para>
+
+<para
+>Zoznam <guilabel
+>Náhradná vyhľadávacia služba</guilabel
+> umožňuje vybrať stroj, ktorý sa použije, ak sa nepodarilo nájsť presne odpovedajúce internetové kľúčové slovo. Ak vyberiete <guilabel
+>Žiadne</guilabel
+>, použije sa <filename
+>www.internetkeywords.org</filename
+>.</para>
+
+<para
+>Ak použijete voľbu <guilabel
+>Povoliť internetové skratky</guilabel
+>, &konqueror; vám umožní používať <guilabel
+>Skratky</guilabel
+> definované v zozname dole. Napríklad, ak zadáte ako umiestnenie <userinput
+>av:linux</userinput
+>, bude sa slovo <quote
+>linux</quote
+> hľadať pomocou stroja Altavista.</para>
+</sect1>
+
+<sect1 id="cookies">
+<title
+>Cookies</title>
+
+<para
+>Pomocou menu <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Nastaviť Konqueror...</guisubmenu
+><guimenuitem
+>Cookies...</guimenuitem
+></menuchoice
+> alebo z menu K <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Web prehliadanie</guisubmenu
+> <guimenuitem
+>Cookies</guimenuitem
+></menuchoice
+> zobrazíte dialog s dvoma záložkami, <guilabel
+>Politika</guilabel
+> a <guilabel
+>Správa</guilabel
+>.</para>
+
+<sect2>
+<title
+>Politika</title>
+
+<para
+>Táto záložka určuje, ako bude &konqueror; používať cookies, a kedy sa má pýtať na ich potvrdenie od používateľa.</para>
+<para
+>Politika cookies sa dá nastaviť aj pre jednotlivé domény, a dokonca môže potitiky zdieľať viacero používateľov pomocou funkcií <guibutton
+>Import</guibutton
+> a <guibutton
+>Export</guibutton
+>.</para
+> 
+</sect2>
+
+<sect2>
+<title
+>Správa</title>
+
+<para
+>Táto záložka je veľmi zaujímavá, pretože zobrazuje, aké cookies máte na počítači uložené. Dajú sa tu aj odstrániť.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="configure-proxy">
+<title
+>Nastavenie proxy</title>
+
+<para
+>Dialog <guilabel
+>Proxy</guilabel
+> zobrazíte pomocou menu <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Nastaviť Konqueror...</guisubmenu
+><guimenuitem
+>Proxy</guimenuitem
+></menuchoice
+> alebo z menu K <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Web prehliadanie</guisubmenu
+><guimenuitem
+>Proxy</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Pripojenie na Internet pomocou <quote
+>proxy</quote
+> znamená, že používate pre pripojenie nejaký iný počítač, obvykle na vašej lokálnej sieti. Takýmto oddelením počítačov na lokálnej sieti a ostatných počítačov na Internete sa výrazne vylepší zabezpečenie. Server proxy môže navyše ukladať stiahnuté súbory a tak vám pri opakovanom použití urýchliť sťahovanie.</para>
+
+<para
+>Servery proxy sú tradične spojené s lokálnymi intranetmi vrámci organizácii, ale často ich používajú aj poskytovatelia internetu pomocou takzvaných Cable Modem, ktorí používateľov pripájajú na lokálnu sieť a tým zlepšujú výkonnosť siete. </para>
+
+<para
+>Ak ste pripojený pomocou lokálnej siete, proxy je asi pre vás jediný spôsob, ako sa dostať na web. V tom prípade sa musíte spýtať vášho administrátora alebo poskytovateľa pripojenia na detaily o proxy serveri.</para>
+
+<procedure
+> <step
+><para
+>&konqueror; nastavíte pre použitie proxy tak, že zobrazíte dialóg pre nastavenie proxy, vyberiete voľbu <guilabel
+>Používať proxy</guilabel
+> a vyplníte polia podľa informácií, ktoré vám dodal váš administrátor.</para
+></step
+> <step
+><para
+>Samozrejme, že by sa proxy nemala používať pre spojenie s počítačmi na vašej lokálnej sieti. Preto ich môžete zadať do <guilabel
+>Nepoužívať proxy pre:</guilabel
+>. Napíšte sem mená počítačov oddelených čiarkami. Obvykle je to meno domény vášho poskytovateľa pripojenia alebo firmy. Napríklad, ak ste na školskej sieti Ireste, mali by ste zadať <acronym
+>ireste.fr, intranet</acronym
+>, kde <userinput
+>intranet</userinput
+> je počítač, kde je umiestnený váš školský web server. Je to dôležité hlavne ak ste na lokálnej sieti, pretože inak proxy server nemusí nájsť vaše interné počítače.</para
+></step
+> </procedure>
+
+<note
+><para
+>Voľba <guilabel
+>Používať vyrovnávaciu pamäť</guilabel
+> nie je nastavenie proxy. Umožňuje vybrať či uchovávať stiahnuté stránky na vašom lokálnom disku, takže ich nabudúce nemusíte znovu sťahovať. Doporučujeme vám túto voľbu použiť (aj ked používate proxy). Jediná výnimka je, ak máte málo miesta na disku alebo v domovskom priečinku. </para
+></note>
+
+</sect1>
+
+<sect1 id="crypto">
+<title
+>Šifrovanie</title>
+
+<para
+>Pomocou menu v <menuchoice
+><guimenu
+>Nastavenia</guimenu
+> <guisubmenu
+>Nastaviť Konqueror...</guisubmenu
+> <guimenuitem
+>Šifrovanie</guimenuitem
+></menuchoice
+> alebo v menu K v <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Osobné nastavenie</guisubmenu
+><guimenuitem
+>Šifrovanie</guimenuitem
+></menuchoice
+> zobrazíte dialog, kde môžete vybrať, ktoré možnosti <acronym
+>SSL</acronym
+> sa majú používať pri prehliadaní zabezpečených (https) serverov. Ak neviete presne čo robíte, použite štandardné nastavenie.</para
+> </sect1>
+
+<sect1 id="configure-user-agent">
+<title
+>User Agent</title>
+
+<para
+>Niektoré webové servery prispôsobujú stránky <acronym
+>HTML</acronym
+> podľa prehliadača, ktorý práve používate. Robí sa to kvôli tomu, aby sa vyriešili rozdiely medzi prehliadačmi. Server sa preto pýta prehliadača na jeho identifikáciu, ktorá je označená ako <quote
+>User Agent</quote
+>. Toto potom server porovná so zoznamom známych prehliadačov. Bohužiaľ, len málo serverov zatiaľ pozná <quote
+>&konqueror;</quote
+>.</para>
+
+<para
+>Aby ste vyriešili tento problém, môžete nastaviť, ako sa bude &konqueror; tváriť. Pomocou <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Nastaviť Konqueror...</guisubmenu
+><guimenuitem
+>User Agent</guimenuitem
+></menuchoice
+> alebo z menu K <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Web prehliadanie</guisubmenu
+><guimenuitem
+>User Agent</guimenuitem
+></menuchoice
+> sa zobrazí dialog, kde môžete nastaviť identifikáciu User Agent pre vybrané servery a domény.</para>
+
+<para
+>V rozbaľovacom zozname <guilabel
+>Identifikácia</guilabel
+> je niekoľko užitočných príkladov.</para>
+
+</sect1>
+
+<sect1 id="plugin">
+<title
+>Moduly &Netscape;</title>
+
+<para
+>Momentálne &konqueror; podporuje moduly &Netscape; 4.x</para>
+
+<para
+>Ak vyberiete <menuchoice
+><guisubmenu
+>Nastavenia</guisubmenu
+><guisubmenu
+>Web prehliadanie</guisubmenu
+><guimenuitem
+>Moduly pre Netscape</guimenuitem
+></menuchoice
+> z menu K, zobrazí sa dialog s dvoma záložkami, <guilabel
+>Hľadať</guilabel
+> a <guilabel
+>Moduly</guilabel
+>.</para>
+
+<sect2>
+<title
+>Hľadať</title>
+
+<para
+>Táto záložka umožňuje nechať &kde;, aby našlo nové moduly &Netscape;, a to ručne stlačením <guibutton
+>Hľadať nové moduly</guibutton
+> alebo automaticky pri každom štarte &kde;.</para>
+	
+<para
+>Hľadanie prebieha v priečinkoch uvedených v zozname <guilabel
+>Priečinky pre hľadanie</guilabel
+>, kde sa hľadajú súbory <literal role="extension"
+>.so</literal
+> obsahujúce kod modulu. Každý takýto súbor sa skontroluje a určia sa typy <acronym
+>MIME</acronym
+>, ktoré modul podporuje. Potom sú vytvorené definície typov <acronym
+>MIME</acronym
+> pre &kde; v priečinku používateľa <filename class="directory"
+> ~/.kde/share/mimelnk</filename
+>, aby ostatné aplikácie o týchto nových typoch <acronym
+>MIME</acronym
+> vedeli.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Moduly</title>
+
+<para
+>Táto záložka zobrazuje moduly &Netscape;, ktoré &kde; našlo a pre každý modul zoznam jeho typov <acronym
+>MIME</acronym
+> a prípon súborov, ktoré sa použijú pre ich určenie.</para>
+
+</sect2>
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Zoznam príkazov</title>
+
+<sect1 id="menubar">
+<title
+>Menu</title>
+
+<sect2 id="menu-location">
+<title
+>Menu <guimenu
+>Miesto</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+>Nové<accel
+>O</accel
+>kno</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí</action
+> ďalšie okno &konqueror;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>D</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>uplikovať okno</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Otvorí ďalšie okno &konqueror;, ktoré bude rovnaké ako to aktuálne.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>rejsť na adresu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí priečinok alebo súbor</action
+> zadaním jeho cesty, (napríklad <filename class="directory"
+>/home/pam</filename
+> alebo <filename
+>/home/pam/fred.txt</filename
+>) do jednoduchého dialógu.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+>Uložiť <accel
+>O</accel
+>brázok pozadia ako...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Táto funkcia má zmysel, iba ak máte zobrazenú stránku s pozadím. Otvorí dialóg <guilabel
+>Uložiť ako</guilabel
+> a umožní vám uložiť na váš počítač súbor s obrázkom pozadia.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+>Uložiť <accel
+>a</accel
+>ko...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Táto funkcia má zmysel, iba ak máte zobrazenú WWW stránku alebo dokument. V dialógu <guilabel
+>Uložiť ako</guilabel
+> si môžete uložiť kópu na svoj počítač.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+>Uložiť <accel
+>r</accel
+>ámec ako...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Podobne ako <guimenuitem
+>Uložiť ako</guimenuitem
+>, ale pre stránky, ktoré používajú rámce.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>lačiť...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Tlač.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+>Tlačiť rámec</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vytlačí vybraný rámec WWW stránky.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+>Otvoriť pomocou Netscape</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí WWW stránku práve zobrazenú v okne &konqueror; aj pomocou Netscape.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>M</accel
+>iesto</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>oniec</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zavrie</action
+> &konqueror;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-edit">
+<title
+>Menu <guimenu
+>Upraviť</guimenu
+></title>
+
+<note
+><para
+>Väčšina položiek v paneli <guimenu
+>Upraviť</guimenu
+> sa tiež nachádza v kontextovom menu zobrazenom po kliknutí pravým tlačidlom myši niekde na ploche okna.</para
+></note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>Vrá<accel
+>t</accel
+>iť späť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Niekedy umožňuje vrátiť späť omylom vykonanú akciu.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>Vystri<accel
+>h</accel
+>núť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vystrihne vybrané položky do schránky</action
+>. Ak ich potom <guimenuitem
+>Vložíte</guimenuitem
+>, položky budú presunuté z pôvodného miesta do nového.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>opírovať</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skopíruje vybrané položky do schránky.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+> </keycombo
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>V<accel
+>l</accel
+>ožiť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vloží položky zo schránky do momentálne zobrazeného priečinku.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F2</keycap
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>remenovať</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Umožňuje premenovať súbor alebo priečinok</action
+> bez otvorenia dialógu <guimenuitem
+>Vlastnosti...</guimenuitem
+>. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Del</keycap
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>praviť</guimenu
+>  <guimenuitem
+><accel
+>P</accel
+>resunúť do Koša</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Presunie vybrané položky do priečinku Odpadky.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Del</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+><accel
+>Z</accel
+>mazať</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vymaže vybrané položky.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>Del</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>kartovať</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skartuje vybrané položky.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>Vytvoriť <accel
+>n</accel
+>ový</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vytvorí odkaz</action
+> na aplikáciu, <acronym
+>URL</acronym
+>, disketu alebo mechaniku &CD-ROM;, alebo vytvorí nový priečinok, textový alebo <acronym
+>HTML</acronym
+> súbor. Detaily nájdete v kapitole <link linkend="making"
+>Vytvoriť nový...</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>Upraviť typ súboru...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí</action
+> dialóg <guilabel
+>Upraviť typ súboru</guilabel
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>Vlastnosti...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí</action
+> dialóg <guilabel
+>Upraviť vlastnosti</guilabel
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>značiť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Spolu s <guimenuitem
+>Odznačiť</guimenuitem
+>, <guimenuitem
+>Odznačiť všetko</guimenuitem
+> a <guimenuitem
+>Invertovať výber</guimenuitem
+> poskytuje tento príkaz jednoduchý a výkonný spôsob výberu viacerých súborov.</para
+> <para
+><action
+>Zobrazí jednoduchý dialog, kde môžete zadať meno súboru</action
+> pomocou žolíkov * a ?, napríklad zadaním <literal role="extension"
+>*.html</literal
+> vyberiete všetky súbory končiace na <literal role="extension"
+>.html</literal
+> ale <filename
+>?a*</filename
+> vyberie všetky súbory, ktoré majú ako druhé písmeno mena znak a.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>O<accel
+>d</accel
+>značiť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zruší výber súboru alebo priečinku.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>U</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>Odz<accel
+>n</accel
+>ačiť všetky</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zruší výber všetkých vybraných súborov a priečinkov.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>*</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nvertovať výber</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Obráti aktuálny výber.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>U</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>Vybrať <accel
+>v</accel
+>šetko</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vyberie celý text HTML stránky alebo textového súboru, ktorý je práve zobrazený</action
+>, potom môžete použiť <guimenuitem
+>Kopírovať</guimenuitem
+> a <guimenuitem
+>Vložiť</guimenuitem
+> ho do textového editora.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ájsť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Nájde textový reťazec</action
+> v práve zobrazenej textovej alebo <acronym
+>HTML</acronym
+> stránke.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+> </shortcut
+><guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ájsť v rámci</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Nájde textový reťazec</action
+> v rámci <acronym
+>HTML</acronym
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>Prejsť na <accel
+>r</accel
+>iadok...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Prejde na riadok s daným číslom v práve zobrazenej textovej stránke.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-view">
+
+<title
+>Menu <guimenu
+>Zobraziť</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guisubmenu
+>Typ pohľadu...</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vyberie</action
+> typ pohľadu <guimenuitem
+>Prehliadač ikon</guimenuitem
+>, <guimenuitem
+>Multi-stlpcový pohľad</guimenuitem
+>, <guimenuitem
+>Prehliadač stromovej štruktúry</guimenuitem
+>, <guimenuitem
+>Detailný zoznam</guimenuitem
+> alebo <guimenuitem
+>Prehliadač textu</guimenuitem
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>oužiť index.html</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Ak vybraný priečinok obsahuje súbor <filename
+>index.html</filename
+>, zobrazí sa ako webová stránka, namiesto zobrazenia priečinku ako zoznamu súborov.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Zablokovať v tomto mieste</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zamkne aktuálne umiestnenie. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Odblokovať všetky pohľady</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Odomkne všetky pohľady. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Zviazať pohľad</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zviaže aktuálny pohľad s ostatnými v okne s viacerými pohľadmi.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F5</keycap
+></shortcut
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>O<accel
+>b</accel
+>noviť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Znovu načíta obsah.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Esc</keycap
+></shortcut
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Za<accel
+>s</accel
+>taviť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zastaví načítavanie (hodí sa hlavne pri prehliadaní webu).</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Veľkosť ikony</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vyberie veľkosť ikon použitých pri zobrazení priečinkov v ikonovom type pohľadu.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Utriediť...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Výber poradia, v ktorom sú zobrazené položky v okne pri použití prehliadača ikon alebo multi-stlpcovom pohľade.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Nerozlišovať veľkosť písmen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Výber, či sa má triediť v stromových, detailných alebo textových pohľadoch s ohľadom na veľké/malé písmená.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>U</accel
+>praviť</guimenu
+> <guimenuitem
+>Zobraziť zdrojový kód dokumentu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí zdrojový kód dokumentu.</action
+></para
+> <para
+>Je k dispozícii iba ak máte zobrazený dokument alebo stránku <acronym
+>HTML</acronym
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Zobraziť zdrojový kód rámca</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí zdrojový text rámca.</action
+></para
+> <para
+>Používa sa iba ak je zobrazená stránka, ktorá používa rámce. Je to podobné <guimenuitem
+>Zobraziť zdrojový kód dokumentu</guimenuitem
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Bezpečnosť...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Určuje, či je aktuálne spojenie prehliadača zabezpečené</action
+> pomocou <acronym
+>SSL</acronym
+> a umožňuje zobraziť dialóg <guilabel
+>Nastavenie zabezpečenia...</guilabel
+>. Kliknutie <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši na ikonu zámku v menu má rovnakú funkciu.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Nastaviť <accel
+>k</accel
+>ódovanie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Nastaví kódovanie</action
+></para
+> <para
+>Umožňuje vybrať kódovanie znakov použité pre zobrazenie stránok <acronym
+>HTML</acronym
+>. <guimenuitem
+>Automaticky</guimenuitem
+> je obvykle najlepší výber.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guisubmenu
+>Ukážka</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Umožňuje vybrať, či zobrazovať miniatúry obrázkov, textových súborov alebo HTML stránok, namiesto normálnych ikon v multi-stlpcovom pohľade a prehliadači ikon.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Ukázať <accel
+>s</accel
+>kryté súbory</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí skryté súbory (začínajúce bodkou).</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Ukázať detaily...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Umožňuje vybrať, ktoré detaily súboru a priečinoku sú zobrazené v stromových, detailných a textových pohľadoch.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Farba pozadia...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vyberie farbu pozadia v móde správcu súborov. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Obrázok pozadia...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vyberie obrázok pozadia v móde správcu súborov. </action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-go">
+<title
+>Menu <guimenu
+>Štart</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Šipka hore</keysym
+></keycombo
+> </shortcut
+><guimenu
+>Št<accel
+>a</accel
+>rt</guimenu
+> <guimenuitem
+><accel
+>H</accel
+>ore</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Prejde o jednu úroveň vyššie v hierarchii priečinkov.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Šipka doľava</keysym
+></keycombo
+> </shortcut
+><guimenu
+>Št<accel
+>a</accel
+>rt</guimenu
+> <guimenuitem
+>Do<accel
+>z</accel
+>adu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Prejde späť</action
+> na predchádzajúce miesto.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keysym
+>Šipka doprava</keysym
+></keycombo
+> </shortcut
+><guimenu
+>Št<accel
+>a</accel
+>rt</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>opredu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Prejsť dopredu</action
+> môžete iba ak ste predtým prešli dozadu.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Home</keycap
+></keycombo
+> </shortcut
+><guimenu
+>Št<accel
+>a</accel
+>rt</guimenu
+> <guimenuitem
+>Domov</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Prejde do vášho domovského priečinku.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Št<accel
+>a</accel
+>rt</guimenu
+> <guimenuitem
+>Ap<accel
+>l</accel
+>ikácie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí priečinok obsahujúci vaše aplikácie.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Št<accel
+>a</accel
+>rt</guimenu
+> <guimenuitem
+>Nastavenie bočného panelu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí v novom okne priečinok obsahujúci detaily vášho bočného panelu.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Št<accel
+>a</accel
+>rt</guimenu
+> <guimenuitem
+>Odpadky</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí</action
+> v novom okne váš priečinok <filename class="directory"
+>Odpadky</filename
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Št<accel
+>a</accel
+>rt</guimenu
+> <guimenuitem
+>Šablony</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí</action
+> v novom okne váš priečinok <filename class="directory"
+>Šablony</filename
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Št<accel
+>a</accel
+>rt</guimenu
+> <guimenuitem
+>Autoštart</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí</action
+> v novom okne váš priečinok <filename class="directory"
+>Autoštart</filename
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-bookmarks">
+<title
+>Menu <guimenu
+>Záložky</guimenu
+></title>
+
+<note
+><para
+>Podrobný popis týchto položiek menu nájdete v kapitole <link linkend="bookmarks"
+>Použitie záložiek</link
+>. </para
+></note>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>B</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Zá<accel
+>l</accel
+>ožky</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>ridať záložku</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Pridá momentálny výber do vašich záložiek.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Zá<accel
+>l</accel
+>ožky</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>praviť záložky...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí v novom okne priečinok so záložkami.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Zá<accel
+>l</accel
+>ožky</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ový priečinok</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vytvorí nový priečinok vo vašom priečinku záložiek.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Zá<accel
+>l</accel
+>ožky</guimenu
+> <guimenuitem
+>Záložky Netscape</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Umožňuje zobraziť a používať vaše záložky &Netscape;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Zá<accel
+>l</accel
+>ožky</guimenu
+> <guimenuitem
+>Panel záložiek</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Umožňuje zobraziť, upraviť a používať položky z vášho panelu záložiek.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-tools">
+<title
+>Menu <guimenu
+>Nástroje</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>F2</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>N</accel
+>ástroje</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>ykonať príkaz...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Spustí program</action
+> zadaním jeho mena do jednoduchého dialogu.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>T</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>N</accel
+>ástroje</guimenu
+> <guimenuitem
+>Otvoriť <accel
+>t</accel
+>erminál...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí</action
+> okno terminálu &konsole;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>N</accel
+>ástroje</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ájsť súbor...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Spustí aplikáciu &kfind;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-settings">
+<title
+>Menu <guimenu
+>Nastavenia</guimenu
+></title>
+
+<note
+><para
+>Prečítajte si aj kapitolu <link linkend="save-settings"
+>Uloženie nastavenia a profilov</link
+>.</para
+></note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Zobraziť <accel
+>m</accel
+>enu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí alebo skryje menu.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Zobraziť panel <accel
+>n</accel
+>ástrojov</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí alebo skryje panel nástrojov.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Zobraziť <accel
+>e</accel
+>xtra panel nástrojov</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Umožňuje zobraziť aj druhý panel nástrojov.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Zobraziť pruh <accel
+>u</accel
+>miestnenia</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí alebo skryje pruh umiestnenia.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Zobraziť panel <accel
+>z</accel
+>áložiek</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí alebo skryje panel záložiek.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Zobraziť vlastnosti uložené v <accel
+>p</accel
+>riečinku</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Uloží nastavenie pohľadu do aktuálneho priečinku.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Odstrániť nastavenie priečinku</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Odstráni vlastnosti priečinku.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Nastaviť <accel
+>k</accel
+>lávesy...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Umožňuje zobraziť a zmeniť klávesové skratky pre &konqueror;</action
+>, čiže spojenie akcií ako je <guimenuitem
+>Kopírovať</guimenuitem
+> a kláves alebo ich kombinácií, ako je <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+>.</para
+> </listitem
+></varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Nastaviť panely <accel
+>n</accel
+>ástrojov...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Umožňuje nastaviť hlavný a extra panel nástrojov a pruh umiestnenia.</action
+> Podrobnosti sú v kapitole <link linkend="configure-bars"
+>Zmena panelov</link
+>. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Nas<accel
+>t</accel
+>aviť...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Umožňuje nastaviť správcu súborov, asociácie súborov, prehliadač, internetové kľúčové slová, cookies, proxy, šifrovanie, user agent, klávesové skratky a panely nástrojov pomocou dialógu.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-window">
+<title
+>Menu <guimenu
+>Okno</guimenu
+></title>
+
+<note
+><para
+>Prečítajte si aj kapitolu <link linkend="save-settings"
+>Uloženie nastavenia a profilov</link
+>.</para
+></note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>L</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Rozdeliť okno <accel
+>v</accel
+>ertikálne</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Rozdelí pohľad na ľavú a pravú časť.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>T</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Rozdeliť okno <accel
+>h</accel
+>orizontálne</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Rozdelí pohľad na hornú a dolnú časť.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Nový pohľad vpravo</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Pridá nový pohľad vpravo</action
+> v okne &konqueror;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Nový pohľad dole</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Pridá nový pohľad dole</action
+> v okne &konqueror;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>R</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Odst<accel
+>r</accel
+>ániť aktívny pohľad</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Odstráni aktuálny pohľad.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Zobraziť bočný panel</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí bočný panel.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Zobraziť emulátor terminálu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí malý textový terminál v dolnej časti hlavného okna.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>ložiť profil pohľadu "Správca súborov"</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Uloží profil aktuálneho pohľadu ako štandardný pre režim správy súborov.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>ložiť profil pohľadu "Web prehliadanie"</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Uloží profil aktuálneho pohľadu ako štandardný pre režim web prehliadania.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Nastaviť profil pohľadu...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Umožní zmeniť aktuálny profil pohľadu alebo vytvorí nový profil. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Načítať profil <accel
+>p</accel
+>ohľadu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Načíta profil pohľadu.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>O</accel
+>kno</guimenu
+> <guimenuitem
+>Režim celej obrazovky</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Režim celej obrazovky.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="menu-help">
+<title
+>Menu <guimenu
+>Pomocník</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>omocník</guimenu
+> <guimenuitem
+>O<accel
+>b</accel
+>sah</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Obsah</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>omocník</guimenu
+> <guimenuitem
+>Čo je <accel
+>t</accel
+>o?</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Nakreslí otáznik (?) vedľa kurzoru myši</action
+>, a kliknutím týmto kurzorom na niečo v okne, napríklad tlačidlo <guiicon
+>Zastaviť</guiicon
+>, zobrazí krátke vysvetlenie. Podrobnosti nájdete v kapitole <link linkend="bubble"
+>Bublinová pomoc a Čo je to?</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>omocník</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>oslať správu o chybe...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Pošle správu o chybe.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>omocník</guimenu
+> <guimenuitem
+><accel
+>O</accel
+> konqueror...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>O aplikácii &konqueror;</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>omocník</guimenu
+> <guimenuitem
+>Informácie o <accel
+>K</accel
+>DE...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí</action
+> číslo verzie &konqueror;, autorov a licenciu.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Otázky a odpovede</title>
+
+<qandaset>
+
+<qandaentry>
+<question
+><para
+>Ako môžem prehliadať webové stránky pre jazyky nepoužívajúce latinku?</para
+></question>
+<answer
+><para
+>Detailný návod nájdete na adrese <ulink url="http://www.konqueror.org/i18n.html"
+>http://www.konqueror.org/i18n.html</ulink
+></para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Dá sa &konqueror; spustiť aj pod iným správcom okien?</para
+></question>
+
+<answer
+><para
+>Jednoducho nainštalujte &Qt;, kdelibs a kdebase, a vo svojom obľúbenom správcovi okien spustite&konqueror;. Mal by fungovať bez problémov, ale ak nie (vývojári &kde; toto nastavenie často netestujú), oznámte to na adresu <ulink url="http://bugs.kde.org"
+>http://bugs.kde.org</ulink
+> a skúste spustiť <application
+>kdeinit</application
+> pred spustením aplikácie &konqueror;. Obvykle to pomôže.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kde má &konqueror; uložené všetky konfiguračné dáta?</para
+></question>
+<answer
+><para
+>Všeobecne sa dá povedať, že v priečinkoch <filename
+>~/.kde</filename
+> (alebo <filename
+>~/.kde2</filename
+>). Ak neviete presne čo robíte, prosíme, nemente tieto súbory.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Priečino <filename class="directory"
+>~/.kde/share/apps/konqueror/profiles</filename
+> obsahuje jednotlivé súbory obsahujúce nastavenie pre každý z vašich <link linkend="save-settings"
+>profilov. </link
+></para
+></listitem
+> <listitem
+><para
+>Záložky sú uložené v <filename class="directory"
+>~/.kde/share/apps/konqueror/bookmarks.xml</filename
+></para
+></listitem
+> <listitem
+><para
+>Cookies sú uložené v <filename class="directory"
+>~/.kde/share/apps/kcookiejar/cookies</filename
+></para
+></listitem
+> <listitem
+><para
+>Vaša história, ktorá sa používa aj pre funkciu automatického doplňania, je v <filename
+>~/.kde/share/config/konq_history</filename
+></para
+></listitem
+> <listitem
+><para
+>V priečinku <filename class="directory"
+>~/.kde/share/config/</filename
+> sú súbory <filename
+>konqiconviewrc</filename
+>, <filename
+>konqlistviewrc</filename
+> a <filename
+>konquerorrc</filename
+>. Obsahujú väčšinu všeobecného nastavenia.</para
+></listitem
+> <listitem
+><para
+>Priečinok <filename class="directory"
+>~/.kde/share/apps/kio_http/cache/</filename
+> obsahuje vyrovnávaciu pamäť prehliadača.</para
+></listitem
+> <listitem
+><para
+>Bočný panel používa súbory a podpriečinky v <filename class="directory"
+>~/.kde/share/apps/konqueror/dirtree</filename
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Nastavenia špeciálne pre daný priečinok sú uložené do súborov <literal role="extension"
+>.directory</literal
+> v jednotlivých priečinkoch.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ako vymažem súbor s históriou (začína byť veľmi veľký)?</para
+></question>
+<answer
+><para
+>Momentálne jedinou cestou, je vymazať súbor <filename
+>~/.kde/share/config/konq_history</filename
+>, &konqueror; ho vytvorí nový, prázdny pri budúcom použití. Ale nesmiete na jeho zmazanie použiť &konqueror;, ale musíte otvoriť textový terminál a použiť príkaz <userinput
+><command
+>rm</command
+> <option
+>~/.kde/share/config/konq_history</option
+></userinput
+></para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ako zapnem, vypnet alebo vymažem vyrovnávaciu pamäť prehliadača?</para
+></question
+> <answer>
+<para
+>Z nejakého dôvodu sa to robí v nastavení Proxy, vyberte <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guisubmenu
+>Nastaviť Konqueror...</guisubmenu
+><guimenuitem
+>Proxy</guimenuitem
+></menuchoice
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&konqueror; nemôže spustiť modul prehrávača &Netscape; <application
+>Flash</application
+>.</para
+></question>
+<answer
+><para
+>Toto je problém modulu <application
+>Flash</application
+>. Nespustí sa, kým nezíska práva ku zvukovému zariadeniu, ale to v &kde; drží <application
+>artsd</application
+>.</para
+></answer>
+</qandaentry>
+
+</qandaset>
+
+</chapter>
+
+
+<chapter id="credits">
+
+<title
+>Autori a licencia</title>
+
+<para
+>&konqueror;. Program copyright 1999-2001, vývojári &konqueror;:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>David Faure <email
+>faure@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (parts, I/O lib) a správca</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Simon Hausmann <email
+>hausmann@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (framework, parts)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Michael Reiher <email
+>michael.reiher@gmx.de</email
+></term
+> <listitem
+><para
+>vývojár (framework)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Mattias Welk <email
+>welk@fokus.gmd.de</email
+></term
+> <listitem
+><para
+>vývojár</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Alexander Neundorf <email
+>neundorf@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (zoznamy ikon)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Lars Knoll <email
+>knoll@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (<acronym
+>HTML</acronym
+> zobrazenie)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Antti Koivisto <email
+>koivisto@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (<acronym
+>HTML</acronym
+> zobrazenie)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dirk Mueller <email
+>mueller@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (<acronym
+>HTML</acronym
+> zobrazenie)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Peter Kelly <email
+>pmk@post.com</email
+></term
+> <listitem
+><para
+>vývojár (<acronym
+>HTML</acronym
+> zobrazenie, JavaScript)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Waldo Bastian <email
+>bastian@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (<acronym
+>HTML</acronym
+> zobrazenie, I/O lib)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Matt Koss <email
+>koss@miesto.sk</email
+></term
+> <listitem
+><para
+>vývojár (I/O lib)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Alex Zepeda <email
+>jazepeda@pacbell.net</email
+></term
+> <listitem
+><para
+>vývojár (I/O lib)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Stephan Kulow <email
+>coolo@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (I/O lib)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Richard Moore <email
+>rich@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (podpora appletov &Java;)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dima Rogozin <email
+>dima@mercury.co.il</email
+></term
+> <listitem
+><para
+>vývojár (podpora appletov &Java;)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Harri Porten <email
+>porten@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (JavaScript)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Stefan Schimanski <email
+>1Stein@gmx.de</email
+></term
+> <listitem
+><para
+>vývojár (podpora modulov &Netscape;)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Carsten Pfeiffer <email
+>pfeiffer@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (framework)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>George Staikos <email
+>staikos@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (podpora pre SSL)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dawit Alemayehu <email
+>adawit@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (podpora pre prihlasovanie, I/O knižnica)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Carsten Pfeiffer <email
+>pfeiffer@kde.org</email
+></term
+> <listitem
+><para
+>vývojár (vývojový rámec)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Torsten Rahn <email
+>torsten@kde.org</email
+></term
+> <listitem
+><para
+>Grafika / Ikony</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Torben Weis <email
+>weis@kde.org</email
+></term
+> <listitem
+><para
+>autor kfm</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Copyright dokumentácie 2000, 2001</para>
+
+<itemizedlist
+> <listitem
+><para
+>Erwan Loisant <email
+>erwan@loisant.org</email
+></para
+></listitem
+> <listitem
+><para
+>Pamela Roberts <email
+>pam.roberts@btinternet.com</email
+></para
+></listitem
+> </itemizedlist>
+<para
+>Preklad Stanislav Višňovský <email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Inštalácia</title>
+
+<para
+>&konqueror; je súčasťou balíka kdebase, základnej časti &kde;.</para>
+
+<para
+>Inštrukcie, ako získať &kde; nájdete na <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>.</para>
+
+<para
+>Ďalšie informácie o aplikácii &konqueror; nájdete na adrese <ulink url="http://www.konqueror.org"
+>http://www.konqueror.org</ulink
+>.</para>
+
+</appendix>
+
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+
+

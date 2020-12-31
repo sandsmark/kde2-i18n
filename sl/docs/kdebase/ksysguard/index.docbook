@@ -1,0 +1,615 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ksysguard;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Priročnik za &ksysguard;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Chris</firstname
+> <surname
+>Schlaeger</surname
+> <affiliation
+> <address
+><email
+>cs@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Chris</firstname>
+<surname
+>Schlaeger</surname>
+<affiliation>
+<address
+><email
+>cs@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Razvijalec</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Pregledovalec</contrib>
+</othercredit>
+<othercredit role="translator"
+><contrib
+>Prevajalec</contrib
+><firstname
+>Roman</firstname
+><surname
+>Maurer</surname
+><affiliation
+><address
+><email
+>roman.maurer@amis.net</email
+></address
+></affiliation
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Chris Schlaeger</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract
+><para
+>&ksysguard; je upravljalnik opravil in nadzornik sistema prek omrežja, z dodatno funkcionalnostjo programa <application
+>top</application
+>.</para
+></abstract
+> 
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KSysGuard</keyword>
+<keyword
+>nadzornik procesov</keyword>
+<keyword
+>top</keyword>
+<keyword
+>ps</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+>&ksysguard; je upravljalnik opravil in nadzornik izvajanja za KDE. Zgrajen je z arhitekturo odjemnik-strežnik, kar mu omogoča pregledovanje lokalnega, kot tudi oddaljenih gostiteljev. Grafični vmesnik uporablja tako imenovane senzorje, da dobi informacije, ki jih potem prikaže. Senzor lahko vrne preproste vrednosti ali pa bolj zapletene podatke, kot tabele. Za vsako vrsto informacije je na voljo en ali več prikazov. Prikazi so urejeni v delovne liste, ki jih lahko, neodvisno drugega od drugega, shranjujete in nalagate. Zato &ksysguard; ni le preprost upravljalnik opravil, pač pa tudi na moč zmogljivo orodje za nadzor velikih strežniških gruč.</para>
+
+</chapter>
+
+
+<chapter id="usingtheksysguard">
+<title
+>Uporaba &ksysguard;a</title>
+
+<sect1 id="gettingstarted">
+<title
+>Prvi koraki</title>
+
+<para
+>&ksysguard; lahko zaženete z zagonskega menuja, s pomočjo izbire <guimenuitem
+>Sistemski varuh KDE</guimenuitem
+> v menuju <guimenu
+>Sistemi</guimenu
+>. Lahko ga tudi zaženete tako, da v terminalu napišete <command
+>ksysguard</command
+>.</para>
+
+<para
+>Glavno okno &ksysguard;a sestoji iz menujske vrstice, po želji še orodne vrstice in statusne vrstice, brskalnika senzorjev in delovnega prostora. Ko ga prvič zaženete, boste videli svoj lokalni stroj, v brskalniku senzorjev naveden kot <guilabel
+>localhost</guilabel
+>, in dve strani na področju delovnega prostora. To je privzeta sestava.</para>
+
+<para
+>Takšna privzeta sestava neizkušenim uporabnikom zadostuje za omejeno upravljanje s sistemom. Izkušeni uporabniki, ali celo skrbniki sistemov v večjem računalniškem laboratoriju, imajo drugačne potrebe. Program &ksysguard; je zelo prilagodljiv, da ga lahko uporablja mnogo različnih uporabnikov.</para>
+</sect1>
+
+<sect1 id="the-sensor-browser">
+<title
+>Brskalnik senzorjev</title>
+
+<para
+>Brskalnik senzorjev v drevesni strukturi prikazuje registrirane gostitelje in njihove senzorje. Kliknite na držaje drevesa, da odprete ali zaprete vejo. Vsak senzor opazuje določeno sistemsko vrednost.</para>
+
+<sect2 id="connectingtootherhosts">
+<title
+>Povezovanje z drugimi gostitelji</title>
+
+<para
+>Z novim gostiteljem se lahko povežete tako, da izberete <guimenuitem
+>Poveži se z gostiteljem</guimenuitem
+> z menuja <guimenu
+>Datoteka</guimenu
+>. Prikazalo se bo pogovorno okno, v katerega boste vnesli ime gostitelja, s katerim bi se radi povezali. Pod imenom lahko izberete metodo povezave. Privzeta metoda je raba <application
+>ssh</application
+>, varne lupine. Namesto te lahko uporabljate oddaljeno lupino <application
+>rsh</application
+>. Kliknite <guibutton
+>V redu</guibutton
+>, da vzpostavite povezavo. Kmalu po tem se bo v brskalniku senzorjev prikazal novi gostitelj in spet lahko pregledujete seznam senzorjev.</para>
+
+<para
+>Za vzpostavitev povezave se na novem gostitelju požene program <application
+>ksysguardd</application
+>. Ta programa mora biti nameščen na stroju in mora biti vključen v vašo pot, določeno s spremenljivko <envar
+>PATH</envar
+>. Žal <application
+>ssh</application
+> ne prebere in izvede vaše datoteke <filename
+>.profile</filename
+>, zato običajna nastavitev <envar
+>PATH</envar
+> ne bo na voljo. Namesto tega uporablja privzeto pot <envar
+>PATH</envar
+>, kot <parameter
+>/bin:/usr/bin</parameter
+>. Ker namizje KDE najverjetneje ni nameščeno v katerem od teh imenikov, boste morali narediti ali popraviti neko datoteko v vašem domačem imeniku. Ta datoteka se imenuje <filename
+>environment</filename
+> in mora biti v skritem imeniku, imenovanem <filename
+>.ssh</filename
+>. Za podrobnosti glejte stran referenčnega priročnika o <application
+>ssh</application
+>. Datoteka mora vsebovati vrstico, kot je naslednja:</para>
+
+<screen>
+<userinput
+>PATH=/bin:/usr/bin:/opt/kde2/bin</userinput>
+</screen>
+
+<para
+>če je <application
+>ksysguardd</application
+> v imeniku <filename
+>/opt/kde2/bin/ksysguardd</filename
+>.</para>
+
+<note
+><para
+>Za strokovnjake: <application
+>ksysguardd</application
+> je zelo majhen program, ki je le povezan z libc. Zato ga lahko uporabljate tudi v strojih, ki nimajo nameščenega popolnega sistema KDE, kot so strežniki. Če se odločite za prilagojeno ukazno izbiro v konektorju gostitelja, boste morali za zagon <application
+>ksysguardd</application
+> podati popoln ukaz.</para
+></note>
+
+<tip
+><para
+>Ko uporabljate <application
+>ssh</application
+>, preverite, da imate na oddaljenem stroju nameščeno <filename
+>identity.pub</filename
+> in da je gostiteljski ključ oddaljenega stroja vaš stroj že registriral. To najlažje preverite tako, da v ukazni vrstici napišete <command
+>ssh <option
+>oddaljenigostitelj ksysguardd</option
+></command
+>. Če vas pozdravi <application
+>ksysguardd</application
+>, lahko napišete <userinput
+>quit</userinput
+> in vse je prav.</para
+></tip>
+</sect2>
+
+<sect2 id="disconnecting-hosts">
+<title
+>Odklapljanje gostiteljev</title>
+
+<para
+>Za odjavo z gostitelja, ga izberite v brskalniku senzorjev, in iz menuja <guimenu
+>Datoteka</guimenu
+> izberite <guimenuitem
+>Odjavi gostitelja</guimenuitem
+>. Če še vedno uporabljate senzorje, bodo prikazni okvirji zasenčeni, in prikazi se ne bodo več osveževali.</para>
+</sect2>
+</sect1>
+
+<sect1 id="the-workspace">
+<title
+>Delovni prostor</title>
+
+<para
+>Delovni prostor je organiziran po delovnih listih. Iz menuja <guimenu
+>Datoteka</guimenu
+> izberite <guimenu
+>Nova</guimenu
+>, da izdelate nov delovni list. Če želite list spet odstraniti, iz menuja <guimenu
+>Datoteka</guimenu
+> izberite <guimenu
+>Zapri</guimenu
+>. Vse spremembe bodo shranjene v datoteko z delovnim listom. Če delovni list še nikoli ni bil shranjen, boste morali vnesti ime datoteke. Delovni listi sestojijo iz celic, urejenih v mrežo.</para>
+
+<para
+>Vsaka celica je lahko napolnjena s prikazom enega ali več senzorjev. Celico lahko napolnite tako, da senzor povlečete z brskalnika senzorjev in ga spustite na celico. Če je za ta senzor na voljo več kot ena vrsta prikaza, se prikaže dvižni menu. Potem lahko izberete, kateri prikaz bi raje uporabljali. Določene vrste prikazov lahko prikažejo več kot en senzor. Prikazom dodajte več senzorjev tako, da jih povlečete z brskalnika senzorjev in spustite na že obstoječi prikaz.</para>
+
+<para
+>Prikaze lahko nastavite tako, da jih kliknete z desnim gumbom miške. Prikaže se dvižni menu, kjer lahko izberete, ali želite spremeniti lastnosti tega prikaza ali jih odstraniti z delovnega lista.</para>
+
+<sect2 id="signal-plotter">
+<title
+>Risalnik signalov</title>
+
+<para
+>Risalnik signalov spremlja vzorce enega ali več senzorjev v času. Če je prikazano več senzorjev, so vrednosti obarvane z različnimi barvami. Če je prikaz dovolj velik, bo prikazana mreža, ki ponazarja obseg narisanih vzorcev. Risalnik lahko sproti sam računa obseg, če v pogovornem oknu z lastnostmi nastavite minimalno in maksimalno vrednost na 0, sicer pa uporabi podane vrednosti.</para>
+</sect2>
+
+<sect2 id="multimeter">
+<title
+>Multimeter</title>
+
+<para
+>Multimeter prikazuje vrednosti senzorjev kot digitalni merilnik. Med lastnostmi lahko določite minimalno in maksimalno vrednost. Če je obseg prekoračen, se prikaz obarva rdeče, prikaže pa se tudi okno z opozorilom.</para>
+</sect2>
+
+<sect2 id="process-controller">
+<title
+>Nadzornik procesov</title>
+
+<para
+>Nadzornik procesov izpiše seznam procesov v vašem sistemu. Seznam lahko urejate po kateremkoli stolpcu, če nad glavo stolpca pritisnete levi gumb miške. </para>
+
+<para
+>Seznam prikazuje nadaljnje podatke o vsakem procesu. Zavedajte pa se, da vse lastnosti niso na voljo v vsakem operacijskem sistemu.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PID</guilabel
+></term
+> <listitem
+><para
+><abbrev
+>ID</abbrev
+> procesa. Edinstvena številka za vsak proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ime</guilabel
+></term
+> <listitem
+><para
+>Ime izvedljive datoteke, ki je zagnala proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Uporabniška ID</guilabel
+></term
+> <listitem
+><para
+>Prijavno ime uporabnika, ki je zagnal proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>CPE</guilabel
+></term
+> <listitem
+> <para
+>Obremenitev procesorja, v odstotkih.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Čas</guilabel
+></term
+> <listitem
+><para
+>Skupna količina računskega časa, ki ga je proces porabil do zdaj.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nice</guilabel
+></term
+> <listitem
+><para
+>Prijaznost procesa pri razvrščanju. Procesi z višjo številko Nice pridejo manjkrat na vrsto. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Stanje</guilabel
+></term
+> <listitem
+><para
+>Stanje procesa. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Pomnilnik</guilabel
+></term
+> <listitem
+><para
+>Skupna količina pomnilnika (v kbajtih), ki jo proces porablja. To vključuje deljeni pomnilnik.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Pritajen</guilabel
+></term
+> <listitem
+><para
+>Količina fizičnega pomnilnika (v kbajtih), ki jo proces porablja.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Deljeno</guilabel
+></term
+> <listitem
+><para
+>Količina pomnilnika (v kbajtih), ki si ga proces deli z drugimi procesi.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Pod tabelo boste videli gumbe, ki jih bomo zdaj opisali od leve proti desni.</para>
+
+<sect3 id="thetreeview">
+<title
+><guibutton
+>Drevesni</guibutton
+> pogled</title>
+
+<para
+>Drevesni pogled prikazuje odnose med procesi, ki tečejo. Proces, ki ga zažene drug proces, se imenuje otrok tega procesa. Drevo je eleganten način za prikaz tega razmerja med roditeljem in otrokom. Proces <emphasis
+>init</emphasis
+> je prednik vseh procesov.</para>
+
+<para
+>Če vas ne zanimajo otroci določenega procesa, lahko kliknete malo škatlo na levi strani roditelja in poddrevo se bo skrilo. Še en klik te škatle bo spet prikazal poddrevo.</para>
+
+</sect3>
+
+<sect3 id="theprocessfilter">
+<title
+>Filter procesov </title>
+
+<para
+>Za zmanjšanje števila prikazanih procesov lahko uporabite filter procesov. Procese, ki vas ne zanimajo, lahko odfiltrirate. Trenutno lahko prikažete vse procese, le sistemske procese, le uporabniške procese ali le vaše procese.</para>
+
+</sect3>
+
+<sect3 id="thepausebutton">
+<title
+>Gumb <guibutton
+>Premor</guibutton
+></title>
+
+<para
+>Gumb <guibutton
+>Premor</guibutton
+> izberite, če želite zamrzniti samodejno osveževanje seznama procesov.</para>
+</sect3>
+
+<sect3 id="therefreshbutton">
+<title
+>Gumb <guibutton
+>Osveži</guibutton
+> </title>
+
+<para
+>Ta gumb lahko uporabljate, če želite sprožiti takojšnjo osvežitev seznama procesov.</para>
+
+</sect3>
+
+<sect3 id="thekillbutton">
+<title
+>Gumb <guibutton
+>Pobij</guibutton
+> </title>
+
+<para
+>Če ste izbrali enega ali več procesov, lahko pritisnete gumb za pobijanje procesov ter jih s tem uničite. Procesom se pošlje tako imenovani signal SIGKILL, kar povzroči, da se takoj prekinejo. Če imajo ti programi še vedno neshranjene podatke, bodo ti podatki izgubljeni, zato uporabljajte ta gumb previdno.</para>
+
+</sect3>
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>Zahvale in licence</title>
+
+<para
+>&ksysguard; trenutno razvija in vzdržuje Chris Schl&auml;ger <email
+>cs@kde.org</email
+>. Program &ksysguard; je vnovično napisan program <application
+>KTop</application
+>, urejevalnik opravil za KDE 1.x. Na programu <application
+>KTop</application
+> je delalo več ljudi:</para>
+
+<itemizedlist
+> <listitem
+><para
+> A. Sanda <email
+>alex@darkstar.ping.at</email
+></para
+></listitem
+> <listitem
+><para
+> Ralf Mueller <email
+>ralf@bj-ig.de</email
+></para
+></listitem
+> <listitem
+><para
+> Bernd Johannes Wuebben <email
+>wuebben@math.cornell.edu</email
+></para
+></listitem
+> <listitem
+><para
+> Nicolas Leclercq <email
+>nicknet@planete.net</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Prenos v platforme, različne od Linuxa, je naredil:</para>
+
+<itemizedlist
+> <listitem
+><para
+> FreeBSD: Hans Petter Bieker &lt;zerium@traad.lavvu.no&gt;</para
+></listitem
+> </itemizedlist>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Namestitev</title>
+
+<sect1 id="howtoobtainksysguard">
+<title
+>Kako dobiti &ksysguard;</title>
+
+<para
+>&ksysguard; je del projekta KDE, <ulink url="http://www.kde.org/"
+>http://www.kde.org/</ulink
+>. &ksysguard; lahko najdete v glavnem strežniku za FTP projekta KDE, <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Zahteve</title>
+
+<para
+>Če želite uspešno prevesti &ksysguard;, potrebujete KDE 2.0 in Qt 2.2.x. Vse potrebne knjižnice, kot tudi sam &ksysguard;, lahko najdete v <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>. </para>
+
+<para
+>Grafični vmesnik je na voljo na vseh platformah, kjer teče KDE. Program, ki teče v ozadju, je trenutno na voljo za naslednje vrste Unixa:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Linux 2.x</term
+> <listitem
+><para
+> Za delovanje &ksysguard; je treba prevesti jedro Linuxa s podporo za datotečni sistem <filename
+>/proc</filename
+>. To je privzeta nastavitev, ki jo pozna večina distribucij Linuxa.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>FreeBSD</term
+> <listitem
+><para
+>Program &ksysguard; mora biti v lasti skupine kmem in mora imeti nastavljen bit setgid.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Podpora za druge platforme se še pripravlja. Vaša pomoč je zelo zaželena.</para>
+
+</sect1>
+
+<sect1 id="compilationandinstallation">
+<title
+>Prevajanje in namestitev</title>
+
+<para
+>Če želite v vašem sistemu prevesti in namestiti &ksysguard;, napišite naslednje v osnovnem imeniku distribucije kdeutils:</para>
+<screen>
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen>
+
+<para
+>Če trčite ob težave, jih, prosimo, sporočite v dopisne sezname projekta KDE.</para>
+
+</sect1>
+
+</appendix>
+
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

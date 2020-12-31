@@ -1,0 +1,844 @@
+<chapter id="help-system-user-manual">
+<chapterinfo>
+<date
+>2001-05-14</date>
+<releaseinfo
+>0.08.00</releaseinfo>
+</chapterinfo>
+<title
+>A KDE Segítség felhasználói kézikönyve</title>
+<anchor id="help"/>
+
+<sect1 id="help-introduction">
+<title
+>KDE Segítség</title>
+	
+<para
+>A &kde; Segítség rendszeren keresztül mind a hagyományos &UNIX; dokumentáció (<application
+>man</application
+> és <application
+>info</application
+>), mind a &kde; alkalmazások dokumentációja (&XML;) elérhető. </para>
+	
+<para
+> A legtöbb &kde; alapalkalmazáshoz teljes dokumentáció tartozik a dokumentációkészítő csapat erőfeszítéseinek köszönhetően. Ha Ön is részt szeretne venni ebben a munkában, kérjen e-mailen keresztül tájékoztatást a csapat koordinátorától, Lauri Watts-tól ( <email
+>lauri@kde.org</email
+>). Különösebb előképzettség nem szükséges, csak lelkesedés és szorgalom! </para>
+
+<para
+> Ha részt szeretne venni a &kde;-dokumentáció saját nyelvre való lefordításában, akkor vegye fel a kapcsolatot Thomas Diehllel (<email
+>thd@kde.org</email
+>), a fordítócsapatok koordinátorával, aki örömmel vár minden jelentkezőt. További információ (például az egyes fordítócsapatok névsora) található itt: <ulink url="http://i18n.kde.org"
+>KDE nemzetköziesítési honlap</ulink
+> és ennek a dokumentumnak a <link linkend="contact"
+>Kapcsolatfelvételi címek</link
+> részében. </para>
+
+<sect2 id="installation">
+<title
+>Telepítés</title>
+
+<para
+> A &khelpcenter; a &kde; alaprendszer egyik komponense, minden telepített &kde;-ben megtalálható. A program a kdebase nevű csomag része, mely letölthető <ulink url="ftp://ftp.kde.org/"
+>a KDE központi &FTP;-kiszolgálójáról</ulink
+>. </para>
+
+</sect2>
+</sect1>
+
+<sect1 id="invoking-help">
+<title
+>A Segítség előhívása</title>
+
+<para
+> A &khelpcenter; többféle módon is elindítható: </para>
+
+<variablelist
+> <varlistentry
+> <term
+>A <guimenu
+>Segítség</guimenu
+> menüből</term
+> <listitem
+> <para
+> Egy KDE alkalmazáson belül általában használható a <menuchoice
+><guimenu
+>Segítség</guimenu
+> <guimenuitem
+>Tartalom</guimenuitem
+></menuchoice
+> menüpont a dokumentáció betöltéséhez (a tartalomjegyzék oldala jelenik meg). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>A <guimenu
+>K</guimenu
+> menüből</term
+> <listitem
+> <para
+> Kattintson a panelen látható <guiicon
+>K</guiicon
+> betűre, majd válassza a <guimenuitem
+>Segítség</guimenuitem
+> menüpontot a &khelpcenter; elindításához. A program az üdvözlő oldalt fogja betölteni. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>A panelról</term
+> <listitem
+> <para
+> Az alapértelmezett elrendezésnél a panelen található egy indítóikon a &khelpcenter;-hez. Az üdvözlő oldal fog megjelenni. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Parancssorból</term
+> <listitem
+> <para
+> A &khelpcenter; egy <abbrev
+>URL</abbrev
+> megadásával is elindítható. <abbrev
+>URL</abbrev
+>-ek segítségével többek között hozzá lehet férni a Unix <command
+>info</command
+> és <command
+>man</command
+> oldalaihoz. De használható az alábbi módon is: </para
+> <variablelist
+> <varlistentry
+> <term
+>Egy alkalmazás dokumentációja</term
+> <listitem
+> <para
+> <command
+>khelpcenter</command
+> <option
+>help:/<replaceable
+>kedit</replaceable
+></option
+> </para
+> <para
+> Megnyitja a &kedit; segítségfájlját a tartalomjegyzéknél. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Egy helyi URL</term
+> <listitem
+><para
+> <command
+>khelpcenter</command
+> <option
+>file:/ <replaceable
+>usr/local/src/qt/html/index.html</replaceable
+></option
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Egy kézikönyvoldal (man)</term
+> <listitem
+> <para
+> <command
+>khelpcenter</command
+> <option
+>man:/<replaceable
+>strcpy</replaceable
+></option
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Egy információs oldal (info)</term
+> <listitem
+> <para
+> <command
+>khelpcenter</command
+> <option
+>info:/<replaceable
+>gcc</replaceable
+></option
+> </para
+> </listitem
+> </varlistentry
+> </variablelist
+> <para
+> Ha a <command
+>khelpcenter</command
+>-t paraméterek nélkül indítja, akkor az üdvözlő oldal nyílik meg. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<!-- Interface - Basics, using Konqueror -->
+<sect1 id="interface-basics">
+<title
+>A &khelpcenter; kezelőfelülete</title>
+
+<para
+> A &khelpcenter; felülete két részre osztható. </para>
+
+<para
+> Az eszköztár és a menük leírása megtalálható itt: <xref linkend="menu-and-toolbar-ref"/>. </para>
+
+<para
+> A dokumentumon belül találhatók a navigáláshoz szükséges elemek, melyek segítségével a megfelelő helyre lehet lépni: a <guilabel
+>Következő</guilabel
+>, az <guilabel
+>Előző</guilabel
+>, a <guilabel
+>Fel</guilabel
+> és a <guilabel
+>Tartalom</guilabel
+> nevű hivatkozások. A hiperlinkek a dokumentum más részébe való gyors eljutásban segítenek. </para>
+
+<para
+> A linkek az aktív dokumentum más részébe vagy akár egy másik dokumentumba is mutathatnak. A <guiicon
+>Vissza</guiicon
+> (balra mutató nyíl) és <guiicon
+>Következő</guiicon
+> (jobbra mutató nyíl) eszköztárikonok segítségével lehet a megtekintett dokumentumok között lépegetni. </para
+> 
+
+<para
+> A bal oldali panelben a dokumentumok listája látható. A jobb oldalon jelenik meg a kiválasztott dokumentum tartalma. </para>
+
+<sect2 id="contents-pane">
+<title
+>A <guilabel
+>Tartalom</guilabel
+> panel</title>
+
+<para
+> A <guilabel
+>Tartalom</guilabel
+> panel az ablak bal oldali részében található. A jobb és a bal oldalt elválasztó vonal szabadon mozgatható, hogy be lehessen állítani a kényelmes olvasáshoz szükséges ablakszélességet. </para
+> 
+
+<para
+> A <guilabel
+>Tartalom</guilabel
+> panel három lapból áll: az egyik a <link linkend="contents-menu"
+>menüt</link
+> tartalmazza, ebben látható a &khelpcenter; számára elérhető dokumentumok listája, a második a <link linkend="search"
+>Keresés</link
+> panel, ahol egy kulcsszóra lehet rákeresni, a harmadik a &kde; <link linkend="kde-glossary"
+>Kifejezésgyűjteményét</link
+> tartalmazza. </para>
+
+<sect3 id="contents-menu">
+<title
+>A <guilabel
+>Tartalom</guilabel
+> menü</title>
+
+<para
+> A <guilabel
+>Tartalom</guilabel
+> részen az alábbi bejegyzések láthatók: </para
+> 
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Bevezetés</guilabel
+></term
+> <listitem
+><para
+>Üdvözöljük a &kde;-ben! Bevezetés a KDE grafikus környezet használatába.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bevezetés a &kde; használatába</guilabel
+></term
+> <listitem
+> <para
+> Rövid bevezetés a &kde; használatába. Megtalálható benne a &kde; kezelésének kezdők számára készült leírása és néhány általános tipp a &kde; használatához. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>A &kde; felhasználói kézikönyve</guilabel
+></term
+> <listitem
+> <para
+> A &kde; felhasználói kézikönyvében részletes leírás található a &kde; telepítéséről, beállításáról, kezeléséről, az egyéni beállítási lehetőségekről. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Az alkalmazások dokumentációja</guilabel
+></term
+> <listitem
+> <para
+> A &kde; alkalmazások kézikönyvei. Az összes &kde; alkalmazás dokumentációja &XML; formátumú (megtekintés előtt a fájlt HTML-re konvertálja a megjelenítőprogram). A listában megtalálható a legtöbb &kde; alkalmazás neve, ahonnan link mutat a dokumentációra. </para
+> <para
+> Az alkalmazások nevei ugyanolyan fastruktúrába vannak rendezve, mint a <guimenu
+>K</guimenu
+> menü bejegyzései, hogy könnyen meg lehessen találni a keresett dokumentumot. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Unix kézikönyvoldalak</guilabel
+></term
+> <listitem
+> <para
+> A kézikönyvoldalak (man pages) a &UNIX; rendszerek hagyományos dokumentációját tartalmazzák. A legtöbb Unix segédprogramhoz tartozik kézikönyvoldal, sőt néhány programozási függvényhez és fájlformátumhoz is. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Információs oldalak</guilabel
+></term
+> <listitem
+> <para
+> A TeXinfo dokumentációformátumot sok &GNU; alkalmazás használja, például a <command
+>gcc</command
+> (a C/C++ fordítóprogram) és az <command
+>emacs</command
+> szövegszerkesztő. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bevezetők</guilabel
+></term
+> <listitem
+> <para
+> Rövid, feladatorientált vagy tájékoztató jellegű ismertetők. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>A KDE GY.I.K.</guilabel
+></term
+> <listitem
+> <para
+> A &kde;-vel kapcsolatban gyakran felmerülő kérdések (válaszokkal). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>A &kde; az interneten</guilabel
+></term
+> <listitem
+> <para
+> Néhány, a &kde;-vel kapcsolatos fontosabb weboldal címe található itt (a hivatalos &kde; oldalé is). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kapcsolatfelvételi információk</guilabel
+></term
+> <listitem
+> <para
+> Itt találhatók a &kde; projekt vezetőivel és fejlesztőivel való kapcsolatfelvételhez szükséges címek, valamint a &kde; levelezőlistákra való feljelentkezés leírása. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>A &kde; támogatása</guilabel
+></term
+> <listitem
+> <para
+> Ha be szeretne kapcsolódni a projekt munkájába, olvassa el ezt. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="search">
+<title
+>A <guilabel
+>Keresés</guilabel
+> lap</title>
+
+<para
+> A keresés csak akkor használható, ha már fel van telepítve a <application
+>ht://Dig</application
+> indexelőprogram. A dokumentációban megtalálható a program telepítésének és beállításának részletes leírása. A KDE-specifikus beállítások egy külön beállítómodulba kerültek, mely a Vezérlőközpont <menuchoice
+><guisubmenu
+>Segítség</guisubmenu
+><guimenuitem
+>Keresési index</guimenuitem
+></menuchoice
+> ágában található. A modulhoz külön dokumentáció tartozik. </para>
+
+<para
+> A továbbiakban feltételezzük, hogy az indexelő szolgáltatás telepítése és beállítása rendben megtörtént. </para>
+
+<para
+> Maga a keresés meglehetősen egyszerű: írja be a szöveges mezőbe a keresendő szavakat, válassza ki a kívánt opciókat, majd nyomja meg a <guibutton
+>Keresés</guibutton
+> gombot. Az eredménylista a jobb oldalon jelenik meg. </para>
+
+<para
+>A lehetséges beállítások:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Módszer</guilabel
+></term
+> <listitem
+> <para
+> A keresés módja több szó megadása esetén. Az <guilabel
+>és</guilabel
+> választása esetén csak akkor lesz találat, ha egy oldalon az összes megadott szó szerepel. A <guilabel
+>vagy</guilabel
+> esetén minden olyan oldal találatnak számít, amelyen <emphasis
+>legalább az egyik</emphasis
+> szó előfordul, a <guilabel
+>logikai</guilabel
+> opció esetén pedig be lehet írni a műveleti jeleket. </para
+> <para
+> Ebben az utóbbi esetben a keresett szövegbe bírhatók az <literal
+>AND</literal
+>, <literal
+>OR</literal
+> és <literal
+>NOT</literal
+> szimbólumok. Néhány példa:</para
+> <variablelist
+> <varlistentry
+> <term
+><userinput
+>kutya AND macska</userinput
+></term
+> <listitem
+><para
+>Azok az oldalak fognak ennek a feltételnek eleget tenni, amelyeken a <userinput
+>macska</userinput
+> és a <userinput
+>kutya</userinput
+> szó is előfordul. Ha csak az egyik vagy egyik sem, akkor nem lesz találat.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+>macska NOT kutya</userinput
+></term
+> <listitem
+><para
+>Azok az oldalak tesznek eleget ennek a feltételnek, amelyeken a <userinput
+>macska</userinput
+> szó megtalálható, de a <userinput
+>kutya</userinput
+> szó nem.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+>macska OR (kutya NOT orr)</userinput
+></term
+> <listitem
+><para
+>Azok az oldalak tesznek eleget ennek a feltételnek, amelyeken vagy megtalálható a <userinput
+>cat</userinput
+> szó, vagy megtalálható a <userinput
+>kutya</userinput
+> szó de nem fordul elő az <userinput
+>orr</userinput
+>. Tehát ha egy oldalon előfordul a <userinput
+>macska</userinput
+> és az <userinput
+>orr</userinput
+>, akkor az találatnak számít, de ha mind a három egyszerre szerepel, akkor nem.</para
+></listitem
+> </varlistentry
+> </variablelist
+> <para
+>Ha a keresés nem a várt eredményt adja vissza, ellenőrizze, hogy helyesen van-e megadva a keresési kifejezés, nem hiányzik-e egy zárójel vagy egy <literal
+>NOT</literal
+> kulcsszó.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Az eredmények max. száma</guilabel
+></term
+> <listitem
+><para
+>Itt lehet megadni a visszaadott találatok maximális számát.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Formátum</guilabel
+></term
+> <listitem
+><para
+>Ez az opció határozza meg, hogy a találat mellett csak egy egyszerű link jelenjen meg vagy egy bővebb magyarázó szöveg.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Rendezés</guilabel
+></term
+> <listitem
+><para
+>A találatok rendezése az <guilabel
+>Értékelés</guilabel
+> alapján (hogy mennyire pontosan illeszkedik a találat a keresési kifejezéshez), betűrendben a <guilabel
+>Cím</guilabel
+> vagy a <guilabel
+>Dátum</guilabel
+> alapján. Ha bejelöli a <guilabel
+>Fordított sorrendben</guilabel
+> opciót, akkor a rendezés sorrendje fordított (csökkenő) lesz.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Az index frissítése</guilabel
+></term
+> <listitem
+><para
+>Felfrissíti a keresési indexet. Általában új dokumentumok hozzáadásánál, hibás adatbázis javításánál lehet rá szükség. A művelet sokáig eltarthat.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+</sect2>
+
+<sect2 id="man-and-info">
+<title
+>A <application
+>Kézikönyvek (man)</application
+> és <application
+>Információs oldalak (info)</application
+> szakaszok</title>
+
+<para
+>A kézikönyvoldal (man oldal) a Unix rendszerek hagyományos dokumentációjának formátuma. Az egyes parancsok pontos, részletes leírását tartalmazzák, ha információra van szüksége egy Linux parancsról vagy alkalmazásról, ezzel próbálkozzon először. A legendás <quote
+>RTFM</quote
+> aranyköpésben említett kézikönyv általában a man formátumú dokumentáció.</para>
+
+<para
+>A man oldalak nem mindenkinek megfelelőek, elsősorban a szakembereknek szóló technikai részletekre helyezik a hangsúlyt (fejlesztők írták fejlesztőknek). Nem veszik figyelembe a kezdő felhasználók igényeit, emiatt nem mindenki tudja megérteni a bennük szereplő információkat. Sok esetben azonban (elsősorban a parancssoros alkalmazásoknál) ez az egyetlen megbízható információforrás.</para>
+
+<para
+>Talán már Ön is találkozott man(1) vagy ehhez hasonló hivatkozásokkal - ilyenkor a szám azt jelzi, hogy a dokumentum melyik szakaszában kell keresni az információt. A &khelpcenter; automatikus felosztja a dokumentumot a szakaszhatárok mentén, így könnyen megtalálható böngészéssel az a rész, amely a keresett információt tartalmazza.</para>
+
+<para
+>Az információs oldal (info page) a man-hoz hasonló dokumentációs formátum, annak leváltására fejlesztették ki. Sok alkalmazás karbantartója már csak az info oldalakat frissíti, ezért ha egy dokumentáció mindkét formátumban elérhető, akkor feltehetően az info az újabb. Általában azonban mindkét formátumot karbantartják. Ha az alkalmazás egy &GNU; segédprogram, akkor feltehetően csak információs oldal található hozzá, kézikönyvoldal nem.</para>
+
+<sect3 id="navigation">
+<title
+>Navigálás az <application
+>információs</application
+> oldalakon belül</title>
+
+<para
+>Az információs oldalak tartalma hierarchiába van szervezve, legfölül található a <guilabel
+>legfelső szintű</guilabel
+> csomópont, a nyitóoldal. A nyitóoldalra az alsóbb szintekről a <guilabel
+>Top</guilabel
+> linkre kattintva lehet visszajutni.</para>
+
+<para
+>Az <guibutton
+>Előző</guibutton
+> és <guibutton
+>Következő</guibutton
+> gombokkal a hierarchia aktuális szintjén belül lehet egy lappal jobbra vagy balra mozogni.</para>
+
+<para
+>Ha valamelyik dokumentumban rákattint egy linkre, akkor a hierarchiában eggyel lentebbi szintre kerül. A felfelé irányú mozgáshoz kattintson a <guibutton
+>Fel</guibutton
+> gombra.</para>
+
+<para
+>A kézikönyvoldalak és az információs oldalak kezelése hasonlít egymáshoz, a legfelső szinten található a tartalomjegyzék, az egyes oldalak egy szinttel lejjebb láthatók. A dokumentumok tartalma egy oldalra kerül.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="kde-glossary">
+<title
+>A &kde; kifejezésgyűjtemény</title>
+
+<para
+> A kifejezésgyűjteményben megtalálhatók a grafikus felülettel kapcsolatban leggyakrabban előforduló szakkifejezések, fogalmak. A &kde;-specifikus szakszavakon kívül jónéhány általános, a &UNIX;-szal kapcsolatos fogalom leírása is megtalálható itt. </para>
+
+<para
+> A bal oldalon egy fastruktúra jelenik meg, két rendezési lehetőséggel: <guilabel
+>betűrendben</guilabel
+> vagy <guilabel
+>téma szerint</guilabel
+>. Mindkét ágban ugyanazok a bejegyzések szereplnek, csak más sorrendben, másképp csoportosítva, hogy a keresett kifejezés könnyen megtalálható legyen. </para>
+
+<para
+> Ha a bal oldalon kiválasztja valamelyik elemet, a jobb oldalon megjelenik a bejegyzéshez kapcsolódó dokumentum. </para>
+
+</sect2>
+
+<sect2 id="menu-and-toolbar-ref">
+<title
+>A menük és az eszköztár</title>
+
+<para
+> A &khelpcenter; kezelőfelületét igyekeztünk egyszerűnek meghagyni, hogy ne a keresőfelület használatával kelljen bíbelődni, hanem a keresésre lehessen koncentrálni. </para>
+
+<para
+> A következő ikonok láthatók az eszköztárban: </para>
+
+<variablelist
+> <title
+>Az eszköztár ikonjai</title
+> <varlistentry
+> <term
+><guiicon
+>Nyomtatás</guiicon
+></term
+> <listitem
+> <para
+> Kinyomtatja az éppen nézett oldal tartalmát. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Keresés</guiicon
+></term
+> <listitem
+> <para
+> Egy vagy több szó keresése az éppen látható oldalon. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>A betűméret növelése</guiicon
+></term
+> <listitem
+> <para
+> Megnöveli a dokumentumok megjelenítéséhez használt betűméretet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>A betűméret csökkentése</guiicon
+></term
+> <listitem
+> <para
+> Lecsökkenti a dokumentumok megjelenítéséhez használt betűméretet. Az ikon csak akkor használható, ha egyszer korábban a méretet már megnövelte. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> A menük a kövekező menüpontokat tartalmazzák: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenu
+>Fájl</guimenu
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+>Az aktuális keret kinyomtatása</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Kinyomtatja az éppen nézett oldal tartalmát. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>ezárás</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Kilépés a programból </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenu
+>Szerkesztés</guimenu
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+>S<accel
+>z</accel
+>erkesztés</guimenu
+> <guimenuitem
+>Minden <accel
+>k</accel
+>ijelölése</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Az összes szöveg kijelölése az aktuális oldalon. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+>S<accel
+>z</accel
+>erkesztés</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>eresés</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Egy vagy több szó keresése az éppen nézett oldalon. </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenu
+>Nézet</guimenu
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>A dokumentum forrásának megjelenítése</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Az éppen megjelenített <acronym
+>HTML</acronym
+> oldal forrását mutatja meg. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guisubmenu
+>A kódolás <accel
+>b</accel
+>eállítása</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Az aktuális oldal kódolását lehet itt beállítani. Általában nem kell megváltoztatni az alapértelmezett <guimenuitem
+>automatikus</guimenuitem
+> értéket, de ha nem sikerül megjeleníteni egy idegen nyelven írt oldalt, akkor szükség lehet erre a menüpontra. </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+</sect1>
+
+<sect1 id="credits">
+<title
+>Köszönetnyilvánítások és a licencegyezmény</title>
+
+<para
+>&khelpcenter;</para>
+
+<para
+>Az első változatot Matthias Elter (<email
+>me@kde.org</email
+>) készítette</para>
+<para
+>A mostani karbantartó: Matthias Hoelzer-Kluepfel (<email
+>mhk@kde.org</email
+>)</para>
+
+&underFDL;
+&underGPL;
+
+</sect1>
+</chapter>
+
+

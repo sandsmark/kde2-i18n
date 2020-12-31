@@ -1,0 +1,222 @@
+<chapter id="chap-and-pap">
+<title
+></title>
+
+<para
+> </para>
+
+<sect1 id="pap-with-kppp">
+<title
+></title>
+
+<para
+>Es gibt zwei unterschiedliche Methoden, PAP zu nutzen:</para>
+
+<sect2 id="client-side-authentication">
+<title
+>Authentifizierung auf Seiten des Clients</title>
+
+<para
+>Diese Variante wird von vielen kommerziellen ISP genutzt. Grundsätzlich bedeutet das, dass Sie (oder Ihr Computer) sich selbst beim PPP-Server des ISPs authentifizieren müssen. Der PPP-Server darf sich nicht selbst auf Ihrem Computer authentifizieren, und normalerweise ist das auch nicht notwendig, da Sie wissen, mit welchem Computer Sie verbunden sind (da die Verbindung von Ihnen selbst hergestellt wurde). Also ist das nicht sehr Sicherheitsrelevant. <emphasis
+>Kppp</emphasis
+> unterstützt diese Variante direkt. Für weitere Informationen, wie das genutzt wird, siehe unten.</para>
+
+<para
+>Falls Ihr ISP Ihnen nur einen Benutzernamen und ein Passwort gibt, und Ihnen sagt, PAP-Authentifizierung zu benutzen, müssen Sie diese Variante nehmen.</para>
+
+</sect2>
+
+<sect2 id="two-way-authentication">
+<title
+>Zwei-Wege-Authentifizierung</title>
+
+<para
+>Gleich wie oben, aber Ihr Computer fordert den PPP-Server des ISP auf, sich selbst zu authentifizieren. Um eine Verbindung aufzubauen, müssen Sie die Authentifizierungs-Methode <emphasis
+>Skript-basiert</emphasis
+> und nicht <emphasis
+>PAP</emphasis
+> wählen, und müssen dann Sie die Datei <literal
+>/etc/ppp/pap-secrets</literal
+> manuell bearbeiten. Obwohl <emphasis
+>Kppp</emphasis
+> keine eingebaute Unterstützung für diese Variante bietet, ist es einfach, eine Verbindung mit dieser Variante von PAP mit <emphasis
+>Kppp</emphasis
+> aufzubauen. Die Einzelheiten sind im nächsten Abschnitt 'PAP und CHAP mit <emphasis
+>Kppp</emphasis
+>' nachzulesen.</para>
+
+</sect2>
+
+<sect2 id="preparing-kppp-for-pap">
+<title
+></title>
+
+<procedure
+> <step
+> <para
+>Stellen Sie sicher, dass <literal
+>/etc/ppp/options</literal
+> (und <literal
+>&tilde;/.ppprc</literal
+>, falls Sie eine solche Datei haben) <emphasis
+>keinen</emphasis
+> der folgenden Parameter enthält:</para
+> <itemizedlist
+> <listitem
+> <para
+><option
+>+pap</option
+></para
+> </listitem
+> <listitem
+> <para
+><option
+>-pap</option
+></para
+> </listitem
+> <listitem
+> <para
+><option
+>papcrypt</option
+></para
+> </listitem
+> <listitem
+> <para
+><option
+>+chap</option
+></para
+> </listitem
+> <listitem
+> <para
+><option
+>+chap</option
+></para
+> </listitem
+> <listitem
+> <para
+></para
+> </listitem
+> <listitem
+> <para
+><option
+>remotename</option
+></para
+> </listitem
+> </itemizedlist
+> <para
+>Es ist sehr unwahrscheinlich, dass einer dieser Parameter bereits dort steht, aber nur zur Sicherheit.</para
+> </step
+> <step
+> <para
+></para
+> </step
+> <step
+> <para
+></para
+> </step
+> <step
+> <para
+>Wählen Sie den Zugang, für den Sie PAP nutzen möchten, und klicken Sie auf <emphasis
+>Bearbeiten</emphasis
+></para
+> </step
+> <step
+> <para
+></para
+> </step
+> <step
+> <para
+></para
+> </step
+> <step
+> <para
+>Falls Sie das Passwort nicht bei jeder Einwahl erneut eingeben möchten, wählen Sie <emphasis
+>Speichere Passwort</emphasis
+>. Damit wird das Passwort gespeichert. Stellen Sie sicher, dass niemand anderes als Sie Zugriff auf den Zugang hat, sonst hat diese Person Zugriff auf Ihr Passwort.</para
+> </step
+> <step
+> <para
+>Das war's. Schließen Sie die Dialoge, geben Sie den Benutzernamen und das Passwort, die Sie von Ihrem ISP erhalten haben, an und wählen Sie.</para
+> </step
+> </procedure>
+
+
+</sect2>
+
+</sect1>
+
+<sect1 id="pap-and-chap-alternate-method">
+<title
+></title>
+
+<para
+>Das Folgende basiert auf einer E-Mail von <ulink url="kbrown@pdq.net"
+>Keith Brown</ulink
+> und beschreibt, wie man <emphasis
+>Kppp</emphasis
+> mit einem PAP oder CHAP-Zugang zum Laufen bringt. Falls Ihr ISP Ihnen gerade eine Benutzerkennung und ein Passwort für einen PAP-Zugang gegeben hat, können Sie wahrscheinlich diesen Abschnitt überspringen und nur den vorherigen Abschnitt 'PAP mit <emphasis
+>Kppp</emphasis
+>' lesen.</para>
+
+<para
+>PAP scheint auf den ersten Blick wesentlich komplizierter, als es in Wirklichkeit ist. Der Server (die Maschine, mit der Sie sich verbinden) sagt dem Client (ihrer Maschine), sich per PAP zu authentifizieren. Der Client (<emphasis
+>pppd</emphasis
+>) sucht in einer bestimmten Datei nach einem Eintrag, der für diese Verbindung passende Server- und Clientnamen enthält und schickt das dort gefundene Passwort. Das war's! Und so kann man das machen. Ich nehme eine <emphasis
+>pppd</emphasis
+>-Version von 2.2.0 an und eine Standardinstallation der Konfigurationsdateien unter <literal
+>/etc/ppp</literal
+>.</para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<screen
+><userinput
+>BENUTZERNAME  SERVERNAME   PASSWORT</userinput
+></screen>
+
+<para
+></para>
+
+<screen
+><userinput
+>booger  glob  foobar</userinput
+></screen>
+
+<note
+> <para
+>der Datei hinzu und speichere sie. Hinweis: ich kann jeden Namen für den Server nehmen, solange ich den gleichen Namen bei den <emphasis
+>pppd</emphasis
+>-Argumenten angebe, wie wir später sehen werden. Ich habe das mit 'glob' abgekürzt. Dieser Name ist nur dazu da, um das richtige Passwort zu finden.</para
+> </note>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+>Das ist auch schon alles. Sie sollten jetzt in der Lage sein, Ihre eigene Verbindung zu einem Server mit PAP-Authentifizierung einzustellen. CHAP ist nur wenig anders. Schlagen Sie im <ulink url="http://"
+>Linux Network Administrators' Guide</ulink
+> für das Dateiformat von <literal
+>chap-secrets</literal
+> und den zu benutzenden <emphasis
+>pppd</emphasis
+>-Parametern nach. Der Rest sollte einfach sein, aber&hellip; Ihr persönliches Vorgehen, sie wissen schon.</para>
+
+</sect1>
+</chapter>
+

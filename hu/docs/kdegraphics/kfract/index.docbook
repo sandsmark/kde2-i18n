@@ -1,0 +1,659 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kfract;">
+ <!ENTITY % Hungarian "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+ 
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>A &kfract; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Uwe</firstname
+> <surname
+>Thiem</surname
+> <affiliation
+> <address
+><email
+>uwe@uwix.alt.na</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>1999</year
+> <year
+>2001</year>
+<holder
+>Uwe Thiem, Pamela Roberts</holder>
+</copyright>
+<!-- Translators: put here the copyright notice of the translation -->
+<!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook
+     and in the FDL itself on how to use it. -->
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-07</date>
+<releaseinfo
+>01.03.00</releaseinfo>
+
+<abstract>
+<para
+>A &kfract; fraktálok létrehozására és megjelenítésére alkalmas.</para>
+<para
+>Ez a dokumentum a &kfract; 1.3-as verziójának leírását tartalmazza.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>grafika</keyword>
+<keyword
+>fraktál</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+
+<screenshot
+> <screeninfo
+>KFract</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kfract.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+>A &kfract; egy <ulink url="http://hypertextbook.com/chaos/"
+> fraktálok</ulink
+> generálására alkalmas program. Egyelőre csak Mandelbrot- és Julia-halmazok megjelenítésére képes, tehát nem tud annyit, mint az Xfractint, sebessége pedig elmarad a <ulink url="http://spanky.triumf.ca/www/fractint/fractint.html"
+> fractint</ulink
+>-étől, viszont azoknál sokkal könnyebben használható.</para>
+
+<para
+>Elérhető vagyok az alábbi címen:</para>
+<para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para>
+
+</chapter>
+
+<chapter id="using-kfract">
+<title
+>A KFract kezelése</title>
+
+<sect1 id="mouse-functions">
+<title
+>Az egér használata</title>
+
+<para
+>Nagyításhoz tartsa lenyomva a bal egérgombot és jelölje ki azt a téglalapot, amelynek tartalmát ki szeretné nagyítani. A téglalap középpontja lesz az új kép középpontja, az oldalarány pedig úgy módosul, hogy illeszkedjen az ablak méretéhez.</para>
+
+<para
+>Ugyanezt az eredményt kapja, ha a középső egérgombbal oda kattint, ahová az új kép középpontjának kerülnie kell. </para>
+
+<para
+>Kicsinyítéshez kattintson a jobb egérgombbal.</para>
+
+</sect1>
+
+<sect1 id="the-file-menu">
+<title
+>A <guimenu
+>Fájl</guimenu
+> menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+>A <accel
+>p</accel
+>araméterek betöltése...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Betölti</action
+> a &kfract; paraméterfájlját.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+>A paraméterek <accel
+>m</accel
+>entése...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Elmenti az aktuális kép paramétereit.</action
+> A fájlnév kiterjesztése <literal role="extension"
+>.fct</literal
+> legyen (például <filename
+>julia1.fct</filename
+>). A fájl tartalma később visszatölthető a kép újragenerálásához. A fájl egy egyszerű <acronym
+>ASCII</acronym
+> szövegfájl, átvihető bármelyik más &kde;-t futtató gépre, akkor is, ha az más architektúrájú.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+>A kép <accel
+>m</accel
+>entése...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>A kép fájlba mentése.</action
+> Az elmentett kép formátuma a fájlnévben megadott kiterjesztésnek fog megfelelni, például <filename
+>mandel.png</filename
+> név esetén a kép <literal role="extension"
+>png</literal
+> formátumú lesz.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>ilépés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Itt lehet kilépni a &kfract;-ból.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-view-menu">
+<title
+>A <guimenu
+>Nézet</guimenu
+> menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Na<accel
+>g</accel
+>yítás</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Nagyítás.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Ki<accel
+>c</accel
+>sinyítés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Kicsinyítés.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>agyítási tényező...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Itt lehet megadni a nagyításnál és kicsinyítésnél használt szorzófaktort, de ez a funkció még nem működik.</para
+> </listitem
+> </varlistentry
+> </variablelist
+></para>
+
+</sect1>
+
+
+<sect1 id="the-options-menu">
+<title
+>A <guimenu
+>Beállítások</guimenu
+> menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>andelbrot...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>A generált fraktál Mandelbrot-típusú lesz, a megadott generálási és megjelenítési paraméterekkel.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>J</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>J</accel
+>ulia...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>A generált fraktál Julia-típusú lesz, a megadott generálási és megjelenítési paraméterekkel.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>terációszám...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Itt lehet megadni az iteráció mélységét.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-settings-menu">
+<title
+>A <guimenu
+>Beállítások</guimenu
+> menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>A billentyűparancsok b<accel
+>e</accel
+>állítása...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Itt lehet módosítani a programban használt billentyűparancsokat (pl. a fraktáltípus váltásához, a kép mentéséhez).</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+
+<sect1 id="the-help-menu">
+<title
+>A <guimenu
+>Segítség</guimenu
+> menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>artalom</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Megjeleníti ezt a dokumentumot.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>Hiba<accel
+>b</accel
+>ejelentés...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Hibabejelentő üzenetet küld a KDE karbantartóinak</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>A fraktálgenerátor <accel
+>n</accel
+>évjegye</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Egy tájékoztató ablakot nyit meg, benne a program és a program szerzőjének néhány jellemző adatával.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>A <accel
+>K</accel
+>DE névjegye</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Egy tájékoztató ablakot nyit meg, benne a KDE projekt néhány jellemzőjével.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-toolbar">
+<title
+>Az <interface
+>Eszköztár</interface
+></title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>A beállítások megnyitása</term
+> <listitem
+> <para
+>Egyenértékű a <emphasis
+><guimenu
+>Fájl</guimenu
+>-&gt;<guimenuitem
+>Paraméterek betöltése</guimenuitem
+></emphasis
+> menüponttal.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Nagyítás</term
+> <listitem
+> <para
+>Egyenértékű a <emphasis
+><guimenu
+>Nézet</guimenu
+>-&gt;<guimenuitem
+>Nagyítási tényező... </guimenuitem
+></emphasis
+> menüponttal.</para
+></listitem
+></varlistentry
+> <varlistentry
+> <term
+>A kép mentése</term
+> <listitem
+> <para
+>Egyenértékű a <emphasis
+><guimenu
+>Fájl</guimenu
+>-&gt;<guimenuitem
+>A kép elmentése...</guimenuitem
+></emphasis
+> menüponttal.</para
+></listitem
+></varlistentry
+> </variablelist
+> </para>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Köszönetnyilvánítások és a licencegyezmény</title>
+
+<para
+>&kfract;</para>
+
+<para
+>Program copyright: 1999-2001.</para>
+<itemizedlist
+> <listitem
+><para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+> Documentation copyright: 1999-2001.</para>
+<itemizedlist
+> <listitem
+><para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Pamela Roberts <email
+>pam.roberts@btinternet.com</email
+> (a dokumentáció karbantartója) </para
+></listitem
+> </itemizedlist>
+
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

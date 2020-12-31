@@ -1,0 +1,2148 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE"
+> 
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Handbok &kicker;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> <affiliation
+> <address
+><email
+>ddoerflinger@web.de</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@telia.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Dirk Doerflinger</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-06-24</date>
+<releaseinfo
+>1.10.00</releaseinfo>
+
+<abstract>
+<para
+> &kicker; är &kde;:s programstartspanel och kan också hantera några användbara miniprogram och utökningar. Den återfinns oftast längst ner på skrivbordet. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Kicker</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>panel</keyword>
+<keyword
+>program</keyword>
+<keyword
+>starta</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+
+
+<para
+> &kicker; är programstartspanelen i K skrivbordsmiljön. Förutom <guimenu
+>K</guimenu
+>-menyn där man kan startar program, kan &kicker; också hantera dockade miniprogram som skrivbordsväxlaren, aktivitetsfältet eller klockan, och utökningar som underpaneler. </para>
+
+<para
+> &kicker; återfinns oftast längst ner på skrivbordet, men den kan också flyttas till vilken annan skärmkant som helst. Rapportera alla problem eller önskan om nya funktioner till &kde;:s e-postlistor. </para>
+
+</chapter>
+
+<chapter id="using-kicker">
+<title
+>Att använda panelen</title>
+
+<para
+> Det här är vad du ser efter &kde; just har installerats. Om du använder en lägre upplösning, kanske inte vissa av ikonerna syns direkt. För att ta hand om de här lägre upplösningarna, är skärmbilden nedan uppdelad i två hälfter. </para>
+
+<screenshot
+> <screeninfo
+>Här är en skärmbild av vänstra sidan av panelen</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="screenshot_left.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Skärmbild vänster</phrase
+> </textobject
+> <caption
+> <para
+> Här är en skärmbild av vänstra sidan av panelen </para
+> </caption
+> </mediaobject
+> </screenshot>
+
+<screenshot
+> <screeninfo
+>och här är högersidan</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="screenshot_right.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Skärmbild höger</phrase
+> </textobject
+> <caption
+> <para
+> och här är högersidan </para
+> </caption
+> </mediaobject
+> </screenshot>
+
+<para
+> Det här är förstås bara ett sätt som panelen skulle kunna se ut på skärmen. Det finns många andra tillgängliga inställningar. </para>
+
+<sect1 id="newbie">
+<title
+>En snabbtur för nya &kde;-användare</title>
+
+<para
+> Om du har erfarenhet av den här sättet att starta program, kan du strunta i det här kapitlet och fortsätta med <link linkend="basics"
+>Grundläggande panelanvändning</link
+>. </para>
+
+<para
+> Den huvudsakliga användningen av panelen är förstås att starta program. Man gör detta genom att klicka på ikoner, antingen i panelen eller i <guimenu
+>K</guimenu
+>-menyn. Men panelen visar ytterligare några saker, låt oss se efter. </para>
+
+<para
+> Om man tittar på skärmbilderna ovanför, finns det från vänster till höger: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenu
+>K</guimenu
+>-menyn</term
+> <listitem
+> <para
+> Den används för att starta program och en del andra användbara saker. Se <link linkend="k-menu"
+><guimenu
+>K</guimenu
+>-menyn</link
+> för mer information. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ikoner för programstart</term
+> <listitem
+> <para
+> Här finns några ikoner för program som ofta används. De kan flyttas eller tas bort och andra kan läggas till. En del av dem har en särskild betydelse, som du kan läsa mer om i <link linkend="basics"
+>Grundläggande panelanvändning</link
+>. Om musen hålls över en ikon utan att klicka visas namnet och beskrivningen för det programmet, om du har valt detta i <link linkend="configuring"
+>Inställningar</link
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Skrivbordsväxlaren</term
+> <listitem
+> <para
+> Den här visar en liten bild av de virtuella skrivborden. Genom att klicka på en del av den aktiveras det skrivbordet. Se <link linkend="applets"
+>Miniprogram</link
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Aktivitetsfältet</term
+> <listitem
+> <para
+> Alla program som kör visas som knappar i aktivitetsfältet. Genom att klicka på en programknapp visas det här programmet överst. Om det redan var överst, blir det minimerat. Som alltid,  finns mer information i <link linkend="applets"
+>Miniprogram</link
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Systembrickan</term
+> <listitem
+> <para
+> Systembrickan kan innehålla vissa program som i det här fallet klippbordsverktyget &klipper;. Det finns också fler användbara program för systembrickan. Du kan klicka på programmen med antingen <mousebutton
+>vänster</mousebutton
+> eller <mousebutton
+>höger</mousebutton
+> musknapp och se vad som händer. Systembrickan innehåller också två små knappar. Den med hänglåset låser din skärm om du någonsin lämnar &kde; och inte vill att någon annan ske se eller använda det, den andra loggar ut från &kde; och X-servern. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Klocka</term
+> <listitem
+> <para
+> Miniprogrammet klocka är förstås en liten användbar klocka. Den kan ha olika utseenden, ta en titt i avsnittet <link linkend="applets"
+>Miniprogram</link
+> för mer information. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Göm</guibutton
+>-knappen</term
+> <listitem
+> <para
+> Den här knappen, som också kan ställas in att visas på högra sidan, gör att man kan gömma panelen, för att ha mer utrymme på skärmen. När panelen är gömd, syns bara <guibutton
+>Göm</guibutton
+>-knappen för att kunna visa panelen igen. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Det här var bara en beskrivning av panelen efter första gången den startats. Den kan ställas in på många olika sätt. Stilar och fler miniprogram kan läggas till. Det finns till och med en del utökningar som det externa aktivitetsfältet man kan lägga till. Se <link linkend="basics"
+> Grundläggande panelanvändning</link
+>, <link linkend="applets"
+>Miniprogram</link
+> och <link linkend="extensions"
+>Utökningar</link
+> för mer information. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="basics">
+
+<title
+>Grundläggande panelanvändning</title>
+
+<sect1 id="general-usage">
+<title
+>Allmän användning</title>
+       
+<para
+> Som tidigare nämnts, finns det många saker som kan läggas till i panelen. Det här avsnittet ger all information om att starta program, bläddra i kataloger och lägga till vissa miniprogram och utökningar. Mycket kan göras från den <guimenu
+>sammanhangsberoende menyn</guimenu
+> eller från <guisubmenu
+>Anpassa panel</guisubmenu
+> i <guimenu
+>K</guimenu
+>-menyn. </para>
+  
+<sect2 id="adding-apps">
+<title
+>Lägga till program</title>
+
+<para
+> Det finns tre sätt att lägga till ett program i panelen: </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Drag och släpp</term
+> <listitem
+> <para
+> Dra helt enkelt vilken fil som helst från &konqueror; till panelen, och där är den. Det här fungerar också från <guimenu
+>K</guimenu
+>-menyn med vilken post som helst. Du kan ändra egenskaperna såsom kommandoradsargument eller ikonen genom att klicka med <mousebutton
+>höger</mousebutton
+> musknapp och välja <guimenuitem
+>Inställningar</guimenuitem
+> från den sammanhangsberoende menyn. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Använda den sammanhangsberoende menyn för att lägga till &kde;-program</term
+> <listitem
+> <para
+> Klicka med <mousebutton
+>höger</mousebutton
+> musknapp på en tom yta i panelen, och välj <guisubmenu
+>Lägg till</guisubmenu
+> och sedan <guisubmenu
+>Knapp</guisubmenu
+>. Där kan du välja ett program som läggs till på platsen du klickade. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Använda den sammanhangsberoende menyn för att lägga till ett program utanför KDE</term
+> <listitem
+> <para
+> Program utanför KDE är program som inte är skrivna för &kde;, t.ex. <application
+>xosview</application
+> eller <application
+>xemacs</application
+>. </para
+> <para
+> Klicka med <mousebutton
+>höger</mousebutton
+> musknapp på en tom yta i panelen och välj <guisubmenu
+>Lägg till</guisubmenu
+> och sedan <guimenuitem
+>Program utanför KDE</guimenuitem
+>. Välj programmet du vill lägga till. I fönstret som dyker upp kan du lägga till <guilabel
+>Valfria kommandoradsargument</guilabel
+>, och välja ikonen som visas i panelen, genom att trycka på <guiicon
+>kugghjulet</guiicon
+>. Om du inte väljer en ikon, kommer programmet att använda det förvalda kugghjulet. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Program kan flyttas eller tas bort med höger musknapp: klicka och välj <guimenuitem
+>Flytta</guimenuitem
+> eller <guimenuitem
+>Ta bort</guimenuitem
+>. Du kan också flytta en ikon genom att klicka med mittenknappen, om du har en sådan. </para>
+
+</sect2>
+
+<sect2 id="adding-folders">
+<title
+>Att lägga till kataloger</title>
+
+<para
+> Kataloger kan läggas till genom att helt enkelt dra en katalog till en tom yta i panelen. Snabbnavigeringsknappar kan också läggas till från den sammanhangsberoende menyn eller <guimenu
+>K</guimenu
+>-menyn. </para>
+
+<para
+> Det finns två olika sätt att hantera en katalog i panelen, man väljer mellan dem i menyn som visas när man släpper katalogen. Om menyn inte anges, läggs katalogen till som en webbadress för filhanteraren. </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Lägg till som webbadress för filhanteraren</term
+> <listitem
+> <para
+>Genom att välja det här skapas en länk till den valda katalogen. Genom att klicka på <guiicon
+>katalog</guiicon
+>ikonen öppnas &konqueror; och visar innehållet i katalogen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Lägg till som snabbläddrare</term
+> <listitem
+> <para
+>Om du lägger till en katalog på det här sättet, visas den som en undermny i panelen. Den här undermenyn innehåller <guimenuitem
+>Öppna i filhanteraren</guimenuitem
+>, som gör samma sak som en webbadress i filhanteraren, och <guimenuitem
+>Öppna i terminal</guimenuitem
+>, som startar en terminal med den här katalogen som arbetskatalog. Dessutom visar undermenyn innehållet i katalogen. Underkataloger visas som nya submenyer, som i snabbnavigeringen själv. Maximalt antal visade poster kan väljas i <link linkend="configuring"
+>Inställningsdialogrutan</link
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Båda sorters kataloger kan flyttas eller tas bort genom att högerklicka och välja <guimenuitem
+>Flytta</guimenuitem
+> eller <guimenuitem
+>Ta bort</guimenuitem
+>. Du kan också flytta en ikon genom att klicka med mittenknappen, om du har en. </para>
+
+<para
+> Webbadresser för filhanteraren kan också anpassas från den sammanhangsberoende menyn, precis som alla andra kataloger överallt i &kde;. </para>
+
+</sect2>
+
+<sect2 id="adding-special-icons">
+<title
+>Speciella ikoner</title>
+
+<para
+> Vissa ikoner i panelen har en speciell betydelse. De läggs till genom att välja dem från undermenyn <guisubmenu
+>Lägg till</guisubmenu
+> i den sammanhangsberoende menyn. </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Ikonen för <guimenu
+>K</guimenu
+>-menyn</term
+> <listitem
+> <para
+> <guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="k_menu_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+> <guiicon
+>K-menyikonen</guiicon
+> är en av de mest nödvändiga ikonerna i panelen. Som du kan gissa, öppnar den <guimenu
+>K</guimenu
+>-menyn, som du kan lära dig mer om i <link linkend="k-menu"
+>K-menyn</link
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fönsterlistan</term
+> <listitem
+> <para
+> <guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="windowlist_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+> Genom att klicka på den här <guiicon
+>ikonen</guiicon
+> visas <guimenu
+>Fönsterlistan</guimenu
+>. Dess första alternativ, <guimenuitem
+>Ordna fönstren</guimenuitem
+>, försöker flytta fönstren på ditt aktiva skrivbord så att så mycket som möjligt blir synligt. </para
+> <para
+> <guimenuitem
+>Lägg fönstren i rad</guimenuitem
+> placerar alla fönster på det aktiva skrivbordet över varandra, med det senaste överst och de andra sorterade i den ordning de sist användes.</para
+> <para
+>Under de här alternativen finns en lista av alla program som kör för närvarande, grupperade enligt de skrivbord som de körs på. Genom att klicka på namnet på ett skrivbord byter man till det, och genom att klicka på ett program aktiveras det också. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Bokmärkesikonen</term
+> <listitem
+> <para
+> <guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="bookmarks_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+> <guiicon
+>Bokmärkesikonen</guiicon
+> ger snabb tillgång till dina bokmärken. De visas på samma sätt som om du klickar på <guimenu
+>bokmärkesmenyn</guimenu
+> i &konqueror;. Genom att klicka på ett bokmärke i menyn startar &konqueror; med webbadressen som det bokmärket anger. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ikonen för senaste dokument</term
+> <listitem
+> <para
+> <guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="recent_docs_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+> Den här menyn visar de senast använda dokumenten (fungerar bara för &kde;-program för närvarande). Genom att klicka på valet <guimenuitem
+>Töm historiken</guimenuitem
+> tas dessa bort, vilket kan vara användbart av privatskäl. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ikonen för visa skrivbord</term
+> <listitem
+> <para
+> <guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="desktop_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+> <guiicon
+>Visa skrivbordsikonen</guiicon
+> låter dig snabbt komma åt allt du har på ditt skrivbord genom att minimera alla program som är öppna för närvarande. Genom att klicka på den en gång gör den att skrivbordet visas. <guiicon
+>Ikonen</guiicon
+> förblir intryckt tills du klickar på den igen, vilket återställer de minimerade programmen, eller tills du aktiverar ett program igen från aktivitetsfältet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ikonen för terminalemuleringsfönster</term
+> <listitem
+> <para
+> <guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="terminals_icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+> Den här ikonen ger tillgång till några ofta använda terminalsorter: genom att klicka på den startas en normal terminal, medan att hålla nere vänster musknapp ger samma möjligheter som &konsole; ger när man klickar på <guibutton
+>Arkiv</guibutton
+>. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="removing-icons">
+<title
+>Att ta bort alla sorters ikoner</title>
+
+<para
+> Genom att klicka med högerknappen på vilken ikon som helst, vare sig det är ett program, en katalog eller en specialikon, och sedan välja <guimenuitem
+>Ta bort</guimenuitem
+> från menyn som visas tas ikonen bort från panelen. </para>
+
+<note
+> <para
+> Observera att ta bort en ikon från panelen, kommer inte att ta bort programmet på disk! </para
+> </note>
+
+</sect2>
+
+<sect2 id="adding-applets">
+<title
+>Lägga till miniprogram</title>
+
+<para
+> Panelen levereras med ett antal miniprogram som aktivitetsfältet eller miniskrivbordsväxlaren. De här kan läggas till antingen med undermenyn <guisubmenu
+>Anpassa panel</guisubmenu
+> i <guimenu
+>K</guimenu
+>-menyn eller från den sammanhangsberoende menyn genom att välja <guisubmenu
+>Lägg till</guisubmenu
+> och sedan <guisubmenu
+>Miniprogram</guisubmenu
+>. </para>
+
+<para
+> Miniprogram kan flyttas genom att dra i deras handtag medan vänster musknapp hålls nere, med mittenknappen eller genom att välja <guimenuitem
+>Flytta</guimenuitem
+> från den sammanhangsberoende menyn. </para>
+
+<para
+> Du kan lära dig mer om miniprogram i avsnittet <link linkend="applets"
+>Miniprogram</link
+>. </para>
+
+</sect2>
+<sect2 id="removing-applets">
+<title
+>Ta bort miniprogram</title>
+<para
+> Miniprogram kan tas bort genom att välja <guimenuitem
+>Ta bort</guimenuitem
+> från den sammanhangsberoende menyn, som visas när högerknappen klickas på miniprogrammets handtag (i vänster- eller överkant på programmet) eller för vissa miniprogram varsomhelst i programmet. </para>
+
+</sect2>
+
+<sect2 id="adding-extensions">
+<title
+>Lägga till utökningar</title>
+
+<para
+> Det finns också en möjlighet att lägga till externa utökningar av panelen, som det externa aktivitetsfältet, programdockan för WindowMaker dockningsprogram, <application
+>Kasbar</application
+>, ett ikonifierat aktivitetsfält, och till och med underpaneler som beter sig som nya versioner av panelen. </para>
+
+<para
+> Alla utökningar kan flyttas till vilken kant av skärmen som helst genom att dra dem med vänsterknappen på det lilla gömhandtaget till vänster eller överst på utökningen. De här gömhandtagen kan också användas för att gömma utökningen. Underpanelen kan också dras genom att klicka med vänster musknapp på en tom yta i den. </para>
+
+<para
+> Du kan läsa mer om utökningar i avsnittet <link linkend="extensions"
+>Utökningar</link
+>. </para>
+
+</sect2>
+
+<sect2 id="removing-extensions">
+<title
+>Ta bort utökningar</title>
+
+<para
+> Du kan ta bort utökningar genom att klicka på <guimenuitem
+>Ta bort</guimenuitem
+> i deras sammanhangsberoende meny, som vanligtvis finns i deras gömhandtag. </para>
+</sect2>
+
+</sect1>
+
+<sect1 id="configuring-apps">
+<title
+>Anpassa programknappar</title>
+
+<para
+> Varje <guiicon
+>programikon</guiicon
+> har egenskaper som man kan ställa in med den sammanhangsberoende menyn. För det mesta har program och kataloger samma egenskaper som i &konqueror;. Bara programmen som finns i <guimenu
+>K</guimenu
+>-menyn (för erfarna användare: de som har en <literal role="extension"
+>*.desktop </literal
+> i <filename class="directory"
+>applnk</filename
+> katalogen) har en särskild sorts inställningsdialogruta. </para>
+
+<sect2 id="general-tab">
+<title
+>Fliken <guilabel
+>Allmänt</guilabel
+> </title>
+
+<para
+> Du kan se en del statistik om programlänken här. Du kan också välja en ikon genom att klicka på <guibutton
+>ikonknappen</guibutton
+> och ändra filnamnet på länkfilen. Det här kan vara användbart om du vill att ikonen i panelen ska bete sig annorlunda än den motsvarande ikonen i <guimenu
+>K</guimenu
+>-menyn. </para>
+
+</sect2>
+
+<sect2 id="permissions-tab">
+<title
+>Fliken <guilabel
+>Skydd</guilabel
+></title>
+
+<para
+> Här kan du ange rättigheterna för länkfilen. Var god se manualerna eller handböckerna för ditt operativsystem för mer information om rättigheter. </para>
+
+</sect2>
+
+<sect2 id="execute-tab">
+<title
+>Fliken <guilabel
+>Kör</guilabel
+></title>
+
+<para
+> Du kan ange programmets beteende när det körs på den här sidan. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Kommando</guilabel
+></term
+> <listitem
+> <para
+> För det mesta finns bara namnet på binärfilen som ska startas när ikonen klickas. Du kan leta efter ett annat program att starta genom att klicka på knappen <guibutton
+>Bläddra</guibutton
+> och/eller lägga till särskilda kommandoradsargument till programmet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Panelinbäddning</guilabel
+></term
+> <listitem
+> <para
+> Tyvärr är den här funktionen inte implementerad ännu ;-( </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kör i terminal</guilabel
+></term
+> <listitem
+> <para
+> Om den här rutan markeras, körs programmet i ett terminalfönster. Du kan också ange särskilda terminalalternativ. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kör som en annan användare</guilabel
+></term
+> <listitem
+> <para
+> Genom att markera det här alternativet startas programmet med de rättigheter som användaren du skrev in i fältet <guilabel
+> Användare</guilabel
+> har. Du kommer att bli tillfrågad om användarens lösenord när programmet startas. Det här alternativet kan vara mycket användbart om du vill starta vissa program som systemadministratör. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="application-tab">
+<title
+>Fliken <guilabel
+>Program</guilabel
+></title>
+
+<para
+> Om du anger ett namn och en kommentar, visas de som verktygstips på startikonerna med stilen <quote
+>Namn - Kommentar</quote
+>. </para>
+
+<para
+> I sektionen med <guilabel
+>Filtyper</guilabel
+> kan du välja vilka filtyper som hanteras av det här programmet. Var god se &konqueror;s handbok för mer om detta. </para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="configuring">
+<title
+>Att anpassa panelen</title>
+
+<para
+> Det här avsnittet beskriver hur panelen kan anpassas. Det beskriver bara inställningarna för själva panelen. Inställning av miniprogram beskrivs i ett senare <link linkend="applets"
+>avsnitt</link
+>. </para>
+
+<para
+> Du kan ändra inställningarna antingen genom att klicka på <guimenuitem
+>Inställningar</guimenuitem
+> i den sammanhangsberoende menyn, i undermenyn <guisubmenu
+>Anpassa panel</guisubmenu
+> i <guimenu
+>K</guimenu
+>-menyn, eller i inställningscentralen i modulen <guilabel
+>Utseende &amp; känsla</guilabel
+>. </para>
+
+<note
+> <para
+> Observera att inställningarna under flikarna <guilabel
+>Position</guilabel
+> och <guilabel
+>Utseende &amp; Känsla</guilabel
+> påverkar bara huvudpanelen, medan beteendet hos utökningar ställs in under fliken <guilabel
+>Utökningar</guilabel
+>. </para
+> </note>
+
+
+<sect1 id="panel">
+<title
+>Panelsektionen</title>
+
+<sect2 id="panel-general">
+<title
+><guilabel
+>Position</guilabel
+></title>
+
+<para
+> Under fliken <guilabel
+>Position</guilabel
+> kan du anpassa en del grundläggande funktioner i &kde;:s panel (dvs. funktionalitet du normalt finner i andra panelprogram också, vi kommer till de mer intressanta funktionerna senare). </para>
+
+<para
+> I delen <guilabel
+>Panelplats</guilabel
+> kan du välja vilken skärmkant som panelen ska ligga vid. Observera att det tillgängliga utrymmet används mer effektivt om panelen är horisontell, dvs ligger vid överkant eller nederkant av skärmen. Om du vill leka med olika inställningar kan du ändra panelens plats ännu enklare genom att dra panelen från en kant till en annan. </para>
+
+<para
+> Panelens stil kan vara extra liten, liten, mellan eller stor. Beroende på vilka miniprogram du använder kan du se att vissa miniprogram fungerar olika bra beroende på panelstorleken. </para>
+
+<para
+> Vissa personer vill inte att panelen ska uppta hela bredden eller höjden på skärmen. Skjutreglaget <guilabel
+>Procent av skrivbordets bredd/höjd som ska användas</guilabel
+> ändrar det här beteendet. Om du minskar procenttalet, visas panelen antingen justerad åt vänster eller uppåt på skärmen, beroende på dess plats. Att markera rutan <guilabel
+>Expandera för att passa nödvändig storlek</guilabel
+> försäkrar att panelen är åtminstone så stor som behövs för att visa alla ikoner och miniprogram. </para>
+
+
+<para
+> Beroende på din skärmupplösning kan du märka att panelen tar bort för mycket av ditt dyrbara skärmutrymme. Panelen erbjuder en automatisk gömfunktion, för att spara skärmutrymme. När den här funktionen är aktiverad, göms panelen när muspekaren inte har flyttats över den efter en anpassningsbar tidsperiod. Om du flyttar musen till panelens skärmkant visas den igen. Markera <guilabel
+>Aktivera göm automatiskt </guilabel
+> under <guilabel
+>Göm automatiskt</guilabel
+> för att aktivera den här funktionen. Med <guilabel
+>Fördröjning i sekunder</guilabel
+> kan du ställa in tidsperioden som panelen väntar innan den gömmer sig. Rutan <guilabel
+>Visa panel vid byte av skrivbord</guilabel
+> försäkrar att panelen syns på skrivbordet som väljs. Annars, om det finns för många miniprogram och ikoner i panelen, visas två små rullningsknappar för att rulla hela panelen. </para>
+
+<para
+> Om <guilabel
+>Visa verktygstips</guilabel
+> är markerad, visas små beskrivningar av ikonerna när muspekaren hålls över en ikon några sekunder. </para>
+
+</sect2>
+
+<sect2 id="panel-looknfeel">
+<title
+><guilabel
+>Utseende &amp; Känsla</guilabel
+></title>
+
+<para
+> Med fliken <guilabel
+>Utseende &amp; känsla</guilabel
+> kan du ställa in panelens övergripande utseende. </para>
+
+<para
+> När panelens gömknappar är aktiverade ser du knappar på båda sidorna om panelen, med pilar som pekar mot skärmkanterna. Om du klickar på en av de här knapparna glider panelen iväg i den riktningen. Därefter ser du bara en knapp i det hörnet, som visar panelen igen. Markera motsvarande rutor om du vill att gömknapparna ska visas på någon sida av panelen. Med skjutreglaget kan du ändra knapparnas bredd. </para>
+
+<para
+> Med <guilabel
+>Manuell gömselanimering</guilabel
+> (för gömknapparna) och <guilabel
+>Automatisk gömselanimering</guilabel
+> (för automatisk gömfunktion) kan du ställa in om panelen mjukt glider iväg eller bara försvinner. Du kan aktivera eller stänga av båda animeringarna med <guilabel
+>Aktivera</guilabel
+> och du kan ändra hastigheten på animeringen med skjutreglagen. </para>
+
+<para
+> <guilabel
+>Bakgrundsbild</guilabel
+> är en bild som används för att rita panelens bakgrund, precis som du kan använda en bild som skrivbordsunderlägg. Markera <guilabel
+>Aktivera bakgrundsbild</guilabel
+> för att aktivera den här funktionen. Du kan ange en bildfil i textrutan nedanför eller välja en genom att klicka på knappen <guibutton
+> Bläddra</guibutton
+>. Du kommer att se en förhandsvisning av den valda bilden i rutan till höger. </para>
+
+</sect2>
+
+<sect2 id="panel-menus">
+<title
+>Menyer</title>
+
+<para
+> Under fliken <guilabel
+>Menyer</guilabel
+> kan du ställa in panelens menybeteende. Det här påverkar K-menyn som du ofta använder för att starta program, bläddrarmenyerna som du kan använda för att komma åt kataloger, och andra menyer liksom menyn för senaste dokument. </para>
+
+<para
+> Under <guilabel
+>K-meny layout</guilabel
+> finner du några alternativ för att ställa in <guimenu
+>K</guimenu
+>-menyns funktionalitet. <guilabel
+>Visa undermenyn &quot;Bokmärken&quot;</guilabel
+> och <guilabel
+>Visa undermenyn &quot;Senaste dokument&quot;</guilabel
+> aktiverar undermenyer som visar dig <application
+>Konqueror</application
+>s bokmärken och de senaste dokumenten som du öppnat med &kde;-program. Alternativet <guilabel
+>Visa undermenyn &quot;Snabbläddraren&quot;</guilabel
+> aktiverar en bläddrarmeny. </para>
+
+<para
+> <guilabel
+>Slå ihop olika menyplatser</guilabel
+> visar alla program i samma katalog, oavsett var de motsvarande konfigurationsfilerna lagras. Om det här alternativet aktiveras kommer till exempel program synliga i hela systemet liksom dina egna synas direkt i din <guilabel
+>Program</guilabel
+>meny. Om du stänger av det här alternativet kommer det att finnas en programmeny för hela systemet och en undermeny som innehåller bara dina personliga poster. </para>
+
+<para
+> Menycachen är en funktion som gör att panelens menyer visas snabbare på skärmen: istället för att läsa menyinformationen från disk varje gång du använder en meny, kommer panelen ihåg menyval efter första gången de läses. Beroende på hur mycket minne som finns på ditt system, kan du dock vilja rensa den här cachen efter ett tag. Markera <guilabel
+>Rensa menycache</guilabel
+> om du vill att cachen ska rensas efter ett tag. Du kan ställa in tiden som cachen rensas efter med skjutreglaget nedanför. </para>
+
+<para
+> Under <guilabel
+>Bläddrarmenyer</guilabel
+> kan du ställa in om panelens bläddrarmenyer visar gömda filer eller inte (gömda filer på Unix-system är de vars filnamn börjar med en punkt) liksom hur många filer som maximalt visas i en bläddrarmeny. Det senare alternativet kan vara särskilt användbart om du har ganska låg skärmupplösning, eftersom bläddrarmenyerna annars snabbt fyller din skärm om du bläddrar i kataloger som innehåller många filer. </para>
+
+<para
+> Sektionen snabbstart i K-menyn ger snabb tillgång till program som du har använt ofta eller nyligen. Under <guilabel
+>Sektionen &quot;Snabbstart&quot; innehåller</guilabel
+> kan du välja om sektionen visar de senaste eller oftast använda programmen. Med <guilabel
+>Maximalt antal &quot;Snabbstart&quot;-poster </guilabel
+> kan du ställa in hur många program snabbstart kommer ihåg. </para>
+
+</sect2>
+
+<sect2 id="panel-buttons">
+<title
+>Utseende &amp; känsla</title>
+
+<para
+> &kde;:s panel stöder så kallade <quote
+>mönstrade knappar</quote
+>. Detta betyder att knapparna på panelen ritas med anpassningsbara bilder. För att aktivera bakgrundsmönster för knappar, markera rutan <guilabel
+>Aktivera bakgrundsmönster</guilabel
+> under fliken <guilabel
+>Utseende &amp; känsla</guilabel
+>. Därefter kan du ställa in mönster för olika sorters knappar. </para>
+
+<para
+> För varje sorts panelknapp finns det en ram som erbjuder alternativet <guilabel
+>Aktiverad</guilabel
+> för att aktivera eller stänga av mönstret. Om mönster är aktiverade för en viss sorts knapp, kan du välja ett mönster i kombinationsrutan nedanför och rutan till höger visar en förhandsvisning av det valda mönstret. </para>
+
+<para
+> De olika sorters knappar är: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Bakgrundsmönster för K-menyn</guilabel
+></term
+> <listitem
+> <para
+> Ikonen för <guiicon
+>K-menyn</guiicon
+> visas med ett mönster. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bakgrundsmönster för snabbläddraren</guilabel
+></term
+> <listitem
+> <para
+> Ikonerna för <guiicon
+>Snabbläddrare</guiicon
+> visas med mönster. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bakgrundsmönster för programstartare</guilabel
+></term
+> <listitem
+> <para
+> Ikonerna som startar program visas med mönster. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <guilabel
+>Bakgrundsmönster för startare av gamla program</guilabel
+> </term
+> <listitem
+> <para
+> Ikonerna för program utanför KDE visas med mönster. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bakgrundsmönster för fönsterlistan</guilabel
+></term
+> <listitem
+> <para
+> Ikonen för <guiicon
+>Fönsterlistan</guiicon
+> visas med ett mönster. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bakgrundsmönster för skrivbordsåtkomst</guilabel
+></term
+> <listitem
+> <para
+> Ikonen för <guiicon
+>Visa skrivbord</guiicon
+> visas med ett mönster. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="panel-applets">
+<title
+>Miniprogram</title>
+
+<para
+> Miniprogram är små insticksprogram som utökar panelens funktionalitet. &kde; levereras med en del miniprogram, men de kan tillhandahållas av tredje part också.</para>
+
+<para
+> Panelminiprogram kan startas på två olika sätt: internt eller externt. Det föredragna sättet att ladda miniprogram är det interna sättet, men det kan bli problem med stabiliteten eller säkerheten om du använder dåligt skrivna miniprogram från tredje part. För att komma runt dessa problem så kan miniprogram markeras som 'pålitliga'. Du kan anpassa panelen så att den behandlar pålitliga och opålitliga miniprogram olika. Dina alternativ är: </para>
+
+<itemizedlist
+> <listitem
+> <para
+> <guilabel
+>Ladda endast pålitliga miniprogram internt</guilabel
+>: Alla miniprogram utom de som markeras som <quote
+>pålitliga</quote
+> laddas med hjälp av ett externt omgärdande program. </para
+> </listitem
+> <listitem
+> <para
+> <guilabel
+>Ladda uppstartsinställda miniprogram internt</guilabel
+>: De miniprogram som visas vid &kde;:s uppstart kommer att laddas internt, övriga kommer att laddas med hjälp av ett externt omgärdande program.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Ladda alla miniprogram internt</guilabel
+>: laddar alla miniprogram internt, oavsett om de är pålitliga eller inte. </para
+> </listitem
+> </itemizedlist>
+
+<para
+> Vi rekommenderar att du använder ett av de två första alternativen och att du bara markerar de miniprogram som följer med &kde;:s baspaket som pålitliga, av säkerhets- och stabilitetsskäl. </para>
+
+<para
+> För att markera miniprogram som <quote
+>pålitliga</quote
+> eller <quote
+>opålitliga</quote
+> kan du flytta dem från en av de visada listrutorna till den andra. Pröva bara att välja ett miniprogram i listan med pålitliga program och klicka på knappen <guibutton
+>&gt;&gt;</guibutton
+>. Det här flyttar det valda programmet till den andra listan, medan att klicka på knappen <guibutton
+>&lt;&lt;</guibutton
+> flyttar det valda programmet från listan på tillgängliga miniprogram till listan med pålitliga. </para>
+
+</sect2>
+
+<sect2 id="panel-extensions">
+<title
+>Utökningar</title>
+<para
+> Under den här fliken kan man ändra beteende på <xref linkend="extensions"/>. Välj helt enkelt en av utökningarna (t.ex. underpanel) från listrutan till vänster och justera dess inställningar. De här liknar mycket inställningarna under flikarna <xref linkend="panel-general"/> och <xref linkend="panel-looknfeel"/>. </para>
+
+<para
+> Gruppen <guilabel
+>Panelplats</guilabel
+> anger platsen för den valda utökningen. Om <guilabel
+>Aktivera göm automatiskt</guilabel
+> är markerad, göms utökningen automatiskt efter tiden i sekunder som ställs in med skjutreglaget <guilabel
+>Fördröjning i sekunder</guilabel
+>. Markeras <guilabel
+>Visa panel vid byte av skrivbord</guilabel
+> så dyker utökningen upp efter ett byte av skrivbord. </para>
+
+<para
+> Du kan ändra vilka gömknappar som den valda utökningen ska ha med rutorna i gruppen <guilabel
+>Gömknappar</guilabel
+>. Skjutreglaget <guilabel
+>Storlek på gömknappar</guilabel
+> ställer in storleken på gömknapparna som visas. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="taskbar-settings">
+<title
+>Aktivitetsfältsektionen</title>
+
+<para
+> Den här sektionen ändrar inställningar för aktivitetsfältet. Ändringarna påverkar det externa aktivitetsfältet och dessutom aktivitetsfältet i panelen, eller i underpaneler. </para>
+
+
+<variablelist
+> <varlistentry
+> <term
+>Visa alla fönster</term
+> <listitem
+> <para
+> Om den här rutan är markerad, visar aktivitetsfältet alla program som kör på alla skrivbord. Annars visas bara program på det aktuella skrivbordet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Visa knappen fönsterlista</term
+> <listitem
+> <para
+>Genom att markera den här rutan visas den lilla knappen med <guibutton
+>fönsterlistan</guibutton
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Gruppera liknande aktiviteter</term
+> <listitem
+> <para
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="taskbar_group.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Det här är en ny funktion som lagts till i &kde; version 2.2. Om alternativet <guilabel
+>Gruppera liknande aktiviteter</guilabel
+> är markerat, grupperas flera instanser av samma program i en knapp i aktivitetsfältet. </para
+> <para
+> Genom att klicka med vänster musknapp visas en meny som liknar den i bilden ovanför och en instans av programmet kan väljas. Om knappen klickas med höger musknapp visas samma meny men med aktivitetsfältets sammanhangsberoende meny under varje program. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Sortera aktiviteter efter virtuellt skrivbord</term
+> <listitem
+> <para
+> Markeras den här rutan sorteras alla <guibutton
+>aktivitetsfältsknappar</guibutton
+> i en grupp för varje skrivbord, annars sorteras de i den ordning de startas. Det här påverkar inte grupperade aktiviteter om de är spridda över mer än ett skrivbord. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Visa programikoner</term
+> <listitem
+> <para
+> Om den här rutan är markerad, har varje <guibutton
+>knapp i aktivitetsfältet</guibutton
+> ikonen för programmet som kör intill namnet. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="k-menu">
+<title
+><guimenu
+>K</guimenu
+>-menyn</title>
+
+<para
+> <guimenu
+>K</guimenu
+>-menyn är en av de centrala elementen i panelen. </para>
+
+<para
+> Det finns fem huvudgrupper i <guimenu
+>K</guimenu
+>-menyn som nu beskrivs nerifrån och upp. </para>
+
+<sect1 id="kde-group">
+<title
+><acronym
+>KDE</acronym
+>-gruppen</title>
+
+<para
+> Den här gruppen är till för de gemensamma sakerna för &kde; i <guimenu
+>K</guimenu
+>-menyn. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Logga ut</guimenuitem
+></term
+> <listitem
+> <para
+> Det här alternativet används för att avsluta &kde;-sessionen. Det stänger också av X-Windows. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Lås skärmen</guimenuitem
+></term
+> <listitem
+> <para
+> Med det här valet kan du låsa skärmen om du inte vill att någon annan ska kunna se ditt skrivbord. Om du har anget en skärmsläckare, visas den när skärmen låses, annars blir skärmen svart. Om du trycker på någon tangent, blir du tillfrågad om ditt användarlösenord. Det här är oberoende av skärmsläckarens lösenordsinställning. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guisubmenu
+>Anpassa panel</guisubmenu
+></term
+> <listitem
+> <para
+> I den här undermenyn kan du ändra panelens inställningar, som beskrivs i avsnittet <link linkend="configuring"
+>Anpassa panelen</link
+>, lägga till saker i panelen (se <link linkend="basics"
+>Grundläggande panelanvändning</link
+>) och starta <application
+>Menyeditorn</application
+>. Du kan också nå <guisubmenu
+>Hjälp</guisubmenu
+>menyn, men eftersom du läser det här har du troligen redan hittat detta själv. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="run-command">
+<title
+>Kör kommando</title>
+
+<para
+> Det här tar fram en liten med kraftfull programstartsdialog. </para>
+
+<para
+> I normalfallet skriver du bara in ett kommando och trycker på returtangenten eller klickar på <guibutton
+>Kör</guibutton
+>, men knappen <guibutton
+>Alternativ</guibutton
+> finns också som visar några startalternativ för kommandofönstret. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Kör i terminal</guilabel
+></term
+> <listitem
+> <para
+> Genom att markera den här rutan startas programmet i en terminal. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kör som en annan användare</guilabel
+></term
+> <listitem
+> <para
+> Om den här rutan är markerad kan du ange en användare i textfältet <guilabel
+>användarnamn</guilabel
+> med vars rättigheter programmet ska köras. Om du anger en annan användare, måste du ange lösenord i rutan nedanför. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kör med en annan prioritet</guilabel
+></term
+> <listitem
+> <para
+> Markera det här alternativet för att köra med en annan prioritet. En högre prioritet talar om för operativsystemet att det ska ge mer körtid till programmet. Du kan använda skjutreglaget för att ändra prioriteten. Om du vill ge programmet en högre prioritet än den förvalda (mittenläget), måste du ange lösenordet för root nedanför. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Schemaläggare</guilabel
+></term
+> <listitem
+> <para
+> Schemaläggaren är den del av operativsystemet som bestämmer vilka processer som ska köra och vilka som måste vänta. För det mesta kör ett program med normal schemaläggning, vilket betyder att det använder körtiden som det får av operativsystemet, men du kan också ändra den till <guilabel
+>Realtid</guilabel
+>. Det här betyder att programmet får all körtid tills det inte begär mer. Du måste ange lösenordet för root för att kunna använda <guilabel
+>Realtid</guilabel
+>. </para
+> <warning
+> <para
+> Det här kan vara farligt. Om programmet hänger sig och inte kan sluta använda processorn, kan hela systemet hänga sig. </para
+> </warning
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="browsers">
+<title
+>Bläddrare</title>
+
+<para
+> Den här gruppen innehåller några mycket användbara bläddrare: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guisubmenu
+>Snabbnavigering</guisubmenu
+></term
+> <listitem
+> <para
+> Den här undermenyn innehåller snabbläddrare för tre mycket användbara kataloger: hem-, rot- och systeminställningskatalogerna. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guisubmenu
+>Senaste dokument</guisubmenu
+></term
+> <listitem
+> <para
+> Den här menyn visar de senast använda dokumenten (fungerar bara för &kde;-program för närvarande). Genom att klicka på valet <guimenuitem
+>Töm historiken</guimenuitem
+> tas dessa bort, vilket kan vara användbart av privatskäl. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guisubmenu
+>Bokmärken</guisubmenu
+></term
+> <listitem
+> <para
+> Den här undermenyn visar dina personliga bokmärken precis som i &konqueror;. Se &konqueror;s handbok för mer hjälp om detta. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="application-group">
+<title
+>Programgruppen</title>
+
+<para
+> Undermenyerna för att starta program finns i den här gruppen. Du kan använda menyeditorn för att lägga till, ta bort eller flytta posterna. </para>
+</sect1>
+
+<sect1 id="most-recently-group">
+<title
+>Senast använda program</title>
+
+<para
+> Den här gruppen innehåller antingen de senast använda eller de mest använda programmen. Se avsnittet <link linkend="panel-menus"
+>Menyinställningar</link
+> för mer om detta. </para>
+</sect1>
+
+</chapter>
+
+<chapter id="applets">
+<title
+>Miniprogram</title>
+
+<para
+> Miniprogram är små program som kör inne i panelen. Nästan allting förutom <guiicon
+>Starta program</guiicon
+> knappen är miniprogram. De kan läggas till från den sammanhangsberoende menyn eller från undermenyn <guisubmenu
+>Anpassa panel</guisubmenu
+> genom att välja <guisubmenu
+>Lägg till</guisubmenu
+> och <guisubmenu
+>Miniprogram</guisubmenu
+>. </para>
+
+<sect1 id="taskbar-applet">
+<title
+>Miniprogrammet aktivitetsfält</title>
+
+<para
+> Aktivitetsfältet visar knappar för alla program som kör. Programmet som har fokus visas som en intryckt knapp. Om ett program är minimerat, blir titeln i aktivitetsfältet grå. </para>
+
+<tip
+> <para
+> Om du klickar på knappen för det aktiva programmet, kommer det att minimeras. Det här betyder också att om du klickar två gånger på ett inaktivt program, kommer det också att minimeras. </para
+> </tip>
+
+<para
+> Ett klick med högerknappen visar standardprogrammenyn. Bara valet <guimenuitem
+>Till aktuellt skrivbord</guimenuitem
+> skiljer sig: om du har ställt in aktivitetsfältet att visa program på alla skrivbord, kan du flytta det här programmet till det aktuella skrivbordet. </para>
+
+<para
+> Det finns också en liten ikon till vänster eller överst i aktivitetsfältet, som visar en meny. Den här ikonen kallas <guibutton
+>fönsterlistan</guibutton
+>. Menyns första val, <guimenuitem
+>Ordna fönstren</guimenuitem
+>, försöker flytta fönstrena på ditt aktiva skrivbord på ett sådan sätt att så många som möjligt syns. <guimenuitem
+>Lägg fönstren i rad</guimenuitem
+> placerar alla fönster på det aktiva skrivbordet över varandra, med det senaste överst och de andra sorterade i den ordning de sist användes. </para>
+
+<para
+> Under de här alternativen finns en lista av alla program som kör för närvarande, grupperade enligt de skrivbord som de körs på. Genom att klicka på namnet på ett skrivbord byter man till det, och genom att klicka på ett program aktiveras det också. </para>
+
+<sect2 id="configure-taskbar-applet">
+<title
+>Anpassa aktivitetsfältet</title>
+
+<para
+> Du kan anpassa aktivitetsfältet genom att klicka med höger musknapp på det lilla förflyttningshandtaget. </para>
+<para
+> Var god titta på <xref linkend="taskbar-settings"/> för detaljer om aktivitetsfältets inställningar. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="pager-applet">
+<title
+>Miniprogrammet skrivbordsväxlare</title>
+
+<para
+> Det här lilla miniprogrammet visar en förhandsgranskning av skrivborden och låter dig också klicka med vänster musknapp på det skrivbord du vill använda. </para>
+
+<para
+> Det finns också en mycket användbar sammanhangsberoende meny. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Förhandsgranskning</guimenuitem
+></term
+> <listitem
+> <para
+> Det här alternativet låter miniskrivbordsväxlaren se ut som en jätteliten förhandsgranskning av skrivborden med symboliska rektanglar för programmen som kör. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Nummer</guimenuitem
+></term
+> <listitem
+> <para
+> Om det här alternativet väljs, visar skrivbordsväxlaren numret på skrivbordet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Namn</guimenuitem
+></term
+> <listitem
+> <para
+> Det här låter skrivbordsväxlaren visa namnen på skrivborden, som kan anges i inställningarna eller från <application
+>inställningscentralen</application
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Aktivera förhandsgranskning av skrivbord</guimenuitem
+></term
+> <listitem
+> <para
+> Om det här alternativet är markerat, visas en liten knapp som innehåller en större förhandsgranskning av de befintliga skrivborden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Inställningar</guimenuitem
+></term
+> <listitem
+> <para
+> Här kan du ange antalet skrivbord du vill ha och deras namn. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="clock-applet">
+<title
+>Miniprogrammet klocka</title>
+
+<para
+> Som du kanske redan har gissat, visar miniprogrammet en liten klocka som finns i panelen. </para>
+
+<para
+> Ett klick med vänsterknappen på klockan visar en liten almanacka. Du kan använda de <guibutton
+>enkla pilarna</guibutton
+> för att byta månad eller de <guibutton
+>dubbla pilarna</guibutton
+> för att byta år. Det här påverkar inte dina datuminställningar, det är bara för information. </para>
+
+<para
+> Det finns en del saker man kan göra med klockan. Allt det här kan göras från den sammanhangsberoende menyn. </para>
+
+<sect2 id="clock-type">
+<title
+><guisubmenu
+>Typ</guisubmenu
+></title>
+
+<para
+> Det finns fyra sätt som klockan kan se ut på: </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Ren</term
+> <listitem
+> <para
+> Det här låter klockan se ut som en enkel text , som visar tiden i ren textform. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Digital</term
+> <listitem
+> <para
+> Det här låter klockan se ut som en digital klocka, som visar tiden med det välkända sjusegmentsformatet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Analog</term
+> <listitem
+> <para
+> Om det här väljs, visas klockan som en gammaldags analog klocka. </para
+> <note
+> <para
+>Det här är kanske bara användbart om panelen är inställd för normal eller stor storlek. </para
+> </note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Inexakt</term
+> <listitem
+> <para
+> Det här är en mycket oortodox sorts tidsvisning. Prova den, den är verkligt rolig! </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="clock-preferences">
+<title
+><guimenuitem
+>Inställningar</guimenuitem
+></title>
+
+<para
+> Här kan du ställa in några allmänna alternativ för miniprogrammet. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Position</guilabel
+></term
+> <listitem
+> <para
+> I inställningen av <guilabel
+>Klocktyp</guilabel
+> kan du välja mellan olika sorters klockor som i den sammanhangsberoende menyn. </para
+> <para
+> <guilabel
+>Datum</guilabel
+>delen låter dig välja teckensnitt och färg på datumet som visas när det aktiveras för en viss sorts klocka. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fliken <guilabel
+>Ren klocka</guilabel
+></term
+> <listitem
+> <para
+>I <guilabel
+>Inställnings</guilabel
+>delen kan du markera om du vill visa datum och/eller sekunder. I <guilabel
+>Utseende</guilabel
+>delen kan du välja om du vill ha det vanliga &kde;-utseendet eller dina egna färger och teckensnitt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fliken <guilabel
+>Digital klocka</guilabel
+></term
+> <listitem
+> <para
+>I <guilabel
+>Inställnings</guilabel
+>delen kan du markera om du vill visa datum, sekunder och/eller blinkande punkter. I <guilabel
+>Utseende</guilabel
+>delen kan du välja om du vill ha det vanliga LCD-utseendet eller dina egna färger. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fliken <guilabel
+>Analog klocka</guilabel
+></term
+> <listitem
+> <para
+> I <guilabel
+>Inställnings</guilabel
+>delen kan du markera om du vill visa datum och/eller sekunder. I <guilabel
+>Utseende</guilabel
+>delen kan du välja om du vill ha det vanliga LCD-utseendet eller dina egna färger. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fliken <guilabel
+>Inexakt klocka</guilabel
+></term
+> <listitem
+> <para
+> I <guilabel
+>Inställnings</guilabel
+>delen kan du markera om du vill visa datum. Det finns också ett skjutreglage för att ställa in <guilabel
+>Inexakthet</guilabel
+>. Det här kan inte beskrivas i dokumentet, utan experimentera själv. I <guilabel
+>Utseende</guilabel
+>delen kan du välja färger och teckensnitt för den inexakta klockan. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="adjust-time">
+<title
+><guimenuitem
+>Justera datum &amp; tid</guimenuitem
+></title>
+
+<para
+> Det här alternativet startar modulen <guilabel
+>Datum &amp; tid</guilabel
+> i inställningscentralen.</para>
+
+<note
+> <para
+> Du behöver systemadminstratörens lösenord för att justera datum och tid. </para
+> </note>
+
+</sect2>
+
+<sect2 id="date-format">
+<title
+><guimenuitem
+>Datum &amp; tidsformat</guimenuitem
+></title>
+
+<para
+> Det här startar modulen i Land &amp; språk i inställningscentralen, där du kan ställa in ditt format. Det krävs inga speciella rättigheter för detta. </para>
+
+</sect2>
+
+<sect2 id="copy-date">
+<title
+><guisubmenu
+>Kopiera</guisubmenu
+></title>
+
+<para
+> Om du behöver klistra in dagens datum och/eller tid i ett annat program (t.ex. i en texteditor), kan du kopiera det till klippbordet med den här funktionen. Efter du har valt ett av de tillgängliga formaten, placeras dagens datum och/eller tid på klippbordet med det valda formatet. </para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="launcher-applet">
+<title
+>Miniprogrammet snabbstartare</title>
+
+<para
+> Det här är en komprimerad programstartare. Den är mycket användbar särskilt om panelen har ställts in till normal eller stor storlek. Du kan lägga till program med drag och släpp, eller från den sammanhangsberoende menyn. Den här menyn används också för att ta bort ett program. </para>
+</sect1>
+
+<sect1 id="systemtray-applet">
+<title
+>Miniprogrammet systembricka</title>
+
+<para
+> Systembrickan används för att docka vissa speciella program, som t.ex. klippbordsverktyget &klipper; eller tekokaren. Det finns också två gemensamma knappar: <guibutton
+>Hänglåset</guibutton
+> används för att låsa skärmen om du någonsin vill lämna &kde; och inte vill att någon annan ske se det, och <guibutton
+>avstängningsknappen</guibutton
+> för att stänga av &kde;-sessionen. </para>
+
+</sect1>
+
+<sect1 id="run-applet">
+<title
+>Miniprogrammet programstartare</title>
+
+<para
+> Det här miniprogrammet tillhandahåller en enkel kommandorad inbäddad i panelen. Inget mer och inget mindre. </para>
+
+</sect1>
+
+<sect1 id="naughty-applet">
+<title
+>Miniprogrammet fånga bortsprungna processer</title>
+
+<para
+> Det här miniprogrammet visar en lyckligt ansikte som blir surt när någon process använder för mycket systemresurser. Om ett program använder för mycket resurser, visas en meddelanderuta som frågar dig om hur du vill hantera det programmet. </para>
+
+<para
+> Genom att klicka med vänster musknapp visas en inställningsdialog. Här kan du ställa in <guilabel
+>Uppdateringsintervall</guilabel
+>, som anges i sekunder, och <guilabel
+>CPU lasttröskel</guilabel
+>. För närvarande finns det inga riktiga råd för att ställa in det här, utan du får experimentera lite grand. De här inställningarna kommer troligen ändras i framtida utgåvor. Det finns också en sektion <guilabel
+>Program att ignorera</guilabel
+> där du kan lägga till program som naturligt använder mycket resurser, t.ex. kompilatorer eller 3D-bildgeneratorer. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="extensions">
+<title
+>Utökningar</title>
+
+<para
+> Det finns också några funktioner som kör utanför panelen, utökningar. De läggs till från undermenyn <guisubmenu
+>Anpassa panel</guisubmenu
+> i <guimenu
+>K</guimenu
+>-menyn eller från den sammanhangsberoende menyn genom att välja <guisubmenu
+>Lägg till</guisubmenu
+> och sedan <guisubmenu
+>Utökning</guisubmenu
+>. Du kan flytta dem till vilken skärmkant som helst genom att dra dem med den lilla <guibutton
+>gömknappen</guibutton
+> vid deras kant, eller ta bort dem genom att högerklicka på samma knapp och välja <guimenuitem
+>Ta bort</guimenuitem
+>. Om en av knapparna klickas med vänster musknapp, göms eller visas utökningen, precis som för huvudpanelen. </para>
+
+<para
+> Stilen på utökningarna kan anpassas under <xref linkend="panel-extensions"/> i panelens inställningar. </para>
+
+
+<sect1 id="external-taskbar-extension">
+<title
+>Utökningen externt aktivitetsfält</title>
+
+<para
+> Det externa aktivitetsfältet är precis som miniprogrammet aktivitetsfält, med den enda skillnaden att det tillhandahåller sin egen panel. Se avsnittet <link linkend="taskbar-applet"
+>Miniprogrammet aktivitetsfält</link
+> för hjälp om detta. </para>
+
+</sect1>
+
+<sect1 id="child-panel-extension">
+<title
+>Underpanelutökningen</title>
+
+<para
+> Det här är en panel precis som &kicker; själv, där du kan lägga till alla saker som &kicker; kan hantera. På detta sätt kan du ha hur många paneler som helst. Skapa bara en underpanel och lägg till program och miniprogram i den. </para>
+
+</sect1>
+
+<sect1 id="kasbar-extension">
+<title
+><application
+>KasBar</application
+>-utökningen</title>
+
+<para
+> <application
+>KasBar</application
+> är en ikon som ersätter aktivitetsfältet. Den visar alltid ikonerna för alla program som kör på alla skrivbord, och de kan väljas genom att klicka med vänsterknappen. Det aktiva fönstret är markerat, minimerade fönster visar en liten triangel som pekar nedåt instället för fyrkanten i nederkanten på ikonerna. En triangel som pekar åt höger indikerar att programmet har rullats upp. </para>
+</sect1>
+
+<sect1 id="dock-application-bar-extension">
+<title
+>Utökningen programdocka</title>
+
+<para
+> Programdocka är ett externt fält som låter WindowMaker-program dockas. Bara kör ditt dockningsbara WindowMaker-program: om programdocka kör, så dockas de automatiskt. </para>
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Kommandoreferens</title>
+
+<sect1 id="keybinding">
+<title
+>Panelen</title>
+
+<para
+> Det finns bara en förvald snabbtangent i panelen: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><keycombo action="simul"
+>&Alt;<keycap
+>F1</keycap
+></keycombo
+></term
+> <listitem
+> <para
+> Öppnar <guimenu
+>K</guimenu
+>-menyn </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="faq">
+<title
+>Vanliga frågor</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+> Hur kan jag lägga till program, miniprogram eller något annat till panelen? </para>
+</question>
+<answer>
+<para
+> Klicka med höger musknapp på någon tom yta i panelen, och välj <guisubmenu
+>Lägg till</guisubmenu
+>. Du kan välja vad du vill lägga till från undermenyn som visas. Se <link linkend="basics"
+>Grundläggande panelanvändning</link
+> för mer om detta. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Kan jag ha ett externt aktivitetsfält precis som i &kde; 1? </para>
+</question>
+<answer>
+<para
+> Ja, du kan bara klicka med högerknappen på en tom yta i panelen, och sedan välja <guisubmenu
+>Lägg till</guisubmenu
+>, <guisubmenu
+>Utökning</guisubmenu
+> och <guimenuitem
+>Externt aktivitetsfält</guimenuitem
+>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Hur kan jag flytta panelen till en annan skärmkant? </para>
+</question>
+
+<answer>
+<para
+> Dra den helt enkelt till vilken skärmkant som helst genom att hålla nere vänster musknapp på någon tom yta i panelen. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Hur kan jag flytta utökningar till en annan skärmkant? </para>
+</question>
+
+<answer>
+<para
+> Dra den helt enkelt genom att hålla nere vänster musknapp på de små <guibutton
+>handtagen</guibutton
+> till vänster eller längst upp på utökningen. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Jag vill att aktivitetsfältet ska visa alla program som jag kör, oberoende av vilket skrivbord de finns på. Är det möjligt? </para>
+</question>
+<answer>
+<para
+> Ja, klicka med höger musknapp på aktivitetsfältets lilla <guibutton
+>handtag</guibutton
+>, välj sedan <guimenuitem
+>Inställningar</guimenuitem
+> och markera <guilabel
+>Visa alla fönster</guilabel
+> i dialogrutan som visas. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Hur kan jag komma åt <guimenu
+>K</guimenu
+>-menyn utan att använda musen? </para>
+</question>
+<answer>
+<para
+> Tryck helt enkelt <keycombo action="simul"
+>&Alt;<keycap
+>F1</keycap
+></keycombo
+> så visas den. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Finns det ett sätt att lägga till en meny som innehåller alla skrivbordsikoner till panelen? </para>
+</question>
+<answer>
+<para
+> Starta bara &konqueror;, gå till ditt hembibliotek och dra ikonen <guiicon
+>Desktop</guiicon
+> till någon tom yta i panelen, välj därefter <guimenuitem
+>Lägg till som snabbläddrare</guimenuitem
+> i menyn som visas. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Hur kan jag ändra färg och stil på panelen? </para>
+</question>
+<answer>
+<para
+> Du kan ändra panelens färger med den globala färgmodulen i <application
+>inställningscentralen</application
+> eller du kan ändra stil på själva panelen, se <link linkend="panel-buttons"
+> Utseende &amp; känsla</link
+> för mer om detta. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Varför visar klockan fel tid? </para>
+</question>
+<answer>
+<para
+> På vissa &RedHat; system, visar klockan i panelen alltid <acronym
+>GMT</acronym
+>-tid. Det här beror på ett fel i systeminställningarna, och är inte direkt relaterat till &kicker;. För att lösa problemet skapa bara den här symboliska länken: <userinput
+><command
+>ln</command
+> <option
+>-s</option
+> <filename
+>/usr/share/zoneinfo</filename
+> <filename
+>/usr/lib/zoneinfo</filename
+></userinput
+>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Är det möjligt att ändra <guiicon
+>K</guiicon
+>-knappen i panelen till en annan bild? </para>
+</question>
+<answer>
+<para
+> Leta rätt på <filename
+>$HOME/.kde/share/apps/kicker/pics/go.png</filename
+> och <filename
+>$HOME/.kde/share/apps/kicker/pics/mini/go.png</filename
+> och byt ut dem. Glöm inte att bilderna du byter med får bara ha ett bildlager, annars kommer du inte att se någonting. Skapa katalogerna om de inte redan finns. Starta sedan om &kicker;. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Varför fungerar inte min <guisubmenu
+>Inställnings</guisubmenu
+>meny? </para>
+</question>
+<answer>
+<para
+> Dina menyalternativ kan vara ihopblandade av någon anledning. Kör helt enkelt <command
+>kbuildsycoca</command
+> på kommandoraden. </para>
+</answer>
+</qandaentry>
+</qandaset>
+
+&reporting.bugs;
+<!-- &updating.documentation; -->
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Tack till och licens</title>
+
+<para
+> &kicker; </para>
+
+<para
+> Program Copyright 1999-2000 KDE-gruppen <ulink url="http://www.kde.org"
+> (www.kde.org)</ulink
+>. </para>
+
+<itemizedlist
+> <listitem
+> <para
+> Matthias Elter<email
+>elter@kde.org</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Matthias Ettrich<email
+>ettrich@kde.org</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Wilco Greven<email
+>greven@kde.org</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Rik Hemsley<email
+>rik@kde.org</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Daniel M. Duley<email
+>mosfet@kde.org</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Preston Brown<email
+>pbrown@kde.org</email
+> </para
+> </listitem
+> </itemizedlist>
+
+<para
+> Dokumentation Copyright 2001 Dirk Doerflinger <email
+>ddoerflinger@web.de</email
+> </para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underBSDLicense;        <!-- BSD License -->
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kapp">
+<title
+>Hur man skaffar &kicker;</title>
+
+<para
+> &kicker; är en del av &kde;-projektet <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kicker; finns i kdebase-paketet på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, KDE-projektets huvudsakliga FTP-plats. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Krav</title>
+
+<para
+> För att använda &kicker; med lyckat resultat behöver du &kde; 2.1. I själva verket är det inte särskilt vettigt att köra &kicker; utan att ha hela &kde;. </para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilering och installation</title>
+
+<para
+> För att kompilera och installera &kicker; på ditt system, skriv följande i baskatalogen i distributionen av kdebase: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+> Eftersom &kicker; använder <command
+>autoconf</command
+> och <command
+>automake</command
+> bör du inte ha några problem med att kompilera det. Skulle du stöta på problem, var snäll rapportera dem till  &kde;:s e-postlistor. </para>
+
+</sect1>
+
+<sect1 id="configuration">
+<title
+>Konfiguration</title>
+
+<para
+> Var god se filen <filename
+>INSTALL</filename
+> i kdebase-katalogen för mer information om konfiguration. </para>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-intent-step:0
+sgml-indent-data:nil
+End:
+-->
+
+

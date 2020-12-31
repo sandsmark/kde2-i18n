@@ -1,0 +1,108 @@
+function check_xml() 
+{
+  if test -f $trans_doc; then
+   case $trans_doc in
+     */api/index.docbook) ;;
+     */index.docbook)
+       if ! meinproc --check --stdout $trans_doc > /dev/null 2>&1; then
+          echo "REMOVING $trans_doc"
+          rm -f $trans_doc
+       fi
+       ;;
+     *) ;;
+   esac
+  fi
+}
+
+modules="kdelibs kdebase kdegames kdegraphics kdeutils kdenetwork kdemultimedia kdeadmin kdesdk kdetoys koffice kdenonbeta kdepim kdeaddons"
+
+all_files=""
+
+for m in $modules; do
+   if test -d ../../../$m/doc; then
+     files=`( cd ../../.. && find $m/doc -name "*.docbook")`
+     all_files="$all_files $files"
+     mkdir -p $m
+     for i in $files; do
+	case $i in
+	  *_original.docbook)
+		continue
+		;;
+	esac
+	# if ! checkXML ../../../$i; then exit 1; fi
+	j=`echo $i | sed -e "s#$m/doc/##" | sed -e 's#.docbook$##' | sed -e 's#/index$##' | sed -e "s#/#_#g"`
+	test -n "$VERBOSE" && echo xml2pot $i $j
+	# xml2pot ../../../$i > $m/$j.pot.new
+	if test -s $m/$j.pot.new; then
+	   msgmerge -o $m/$j.pot.new -i $m/$j.pot.new $m/$j.pot.new 2> /dev/null
+	   if ! cmp -s $m/$j.pot.new $m/$j.pot; then
+		mv $m/$j.pot.new $m/$j.pot
+	   else
+		rm $m/$j.pot.new
+	   fi
+	fi
+	translations=`ls -1 ../../*/messages/docs/$m/$j.po 2>/dev/null`
+	for t in $translations;	do
+		output=`msgmerge -o $t.new $t $m/$j.pot 2>&1`
+		p=`echo $i | sed -e "s#$m/doc/##"`
+		bd=`dirname $t`
+		trans_doc="$bd/../../../docs/$m/$p"
+
+		if test ! -f $t.new; then 
+			echo $output
+		fi
+		perl ../../msgsplit.pl < $t.new > $t.new2
+		mv $t.new2 $t.new
+	        if test -f $t.new && ! cmp -s $t.new $t; then
+                	mv $t.new $t
+        	else
+			rm -f $t.new
+        	fi
+		result=`msgfmt -o /dev/null --statistics $t 2>&1`
+		if test ! "$?" = "0" || echo $result | grep -q untranslated; then
+		   check_xml;
+	           continue
+		fi
+		if echo $result | grep -q fuzzy; then
+		   check_xml;
+	           continue
+		fi
+		test -n "$VERBOSE" && echo po2xml ../../../$i $t
+		if ! po2xml ../../../$i $t > temp.xml; then
+  			echo po2xml ../../../$i $t
+			exit 1
+		fi
+		
+		language=`cat $bd/../language `
+		if test -n "$language"; then 
+		   sed -e "s,<!ENTITY % English,<!ENTITY % $language," temp.xml > temp.xml.new
+		   mv temp.xml.new temp.xml
+		fi
+                
+		dir=`dirname $trans_doc`
+		lang=`echo $dir | sed -e "s#.*/\([^/]*\)/messages.*#\1#"`
+		if ! test -d $dir/CVS; then
+			mkdir -p $dir
+			mv temp.xml $trans_doc
+			echo Makefile > $dir/.cvsignore
+			echo Makefile.in >> $dir/.cvsignore
+			echo > $dir/Makefile.am
+			echo "KDE_LANG=$lang" >> $dir/Makefile.am
+			echo "KDE_DOCS=AUTO" >> $dir/Makefile.am
+			idir=`(cd $dir && pwd | sed -e 's#.*/\([^/]*\)$#\1#')`
+			(cd $dir/..  && cvs add $idir)
+			(cd $dir && cvs add Makefile.am .cvsignore index.docbook)
+		else
+			if ! cmp -s temp.xml $trans_doc; then
+				:
+				mv temp.xml $trans_doc
+			else
+				rm temp.xml
+			fi
+		fi
+	        check_xml;
+	done
+     done
+   fi
+done
+

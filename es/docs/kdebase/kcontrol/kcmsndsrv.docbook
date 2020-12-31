@@ -1,0 +1,275 @@
+<sect1 id="sndserver">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+<othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>de Vicente</surname
+> <affiliation
+><address
+><email
+>pvicentea@nexo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit>
+</authorgroup>
+
+<date
+>2001-07-24</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>servidor de sonido</keyword>
+<keyword
+>sonido</keyword>
+<keyword
+>aRts</keyword>
+</keywordset>
+</sect1info>
+
+<title
+>Servidor de sonido</title>
+
+<para
+>Este módulo de contrl se utiliza para configurar las opciones del servidor de sonido &arts; (el servidor de sonido de &kde;).</para>
+
+<sect2 id="sndserver-general">
+<title
+>General</title>
+
+<para
+>La opción superior, etiquetada <guilabel
+>Iniciar servidor de sonido al inicio de KDE</guilabel
+>, activa (o desactiva) el <application
+>servidor de sonido aRts</application
+>. </para>
+
+<para
+>El resto del panel consiste en tres opciones para el <application
+>servidor de sonido aRts</application
+>.</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Activar transparencia de red</term
+> <listitem
+> <para
+>Si esta opción está activada, entonces las solicitudes de sonido procedentes de la red, serán respondidas por el servidor de sonido. Si esta opción está desactivada, el servidor de sonido sólo responderá peticiones del ordenador local.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Intercambiar información de seguridad y referencia a través de X11</guilabel
+></term
+> <listitem
+><para
+>Si ha activado la transparencia de red, esta copión le permitirá intercambiar información de seguridad y referencia. En caso de duda, y si tiene la transparencia de red, debería seleccionar esta opción.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ejecutar el servidor de sonidos con prioridad de tiempo real</guilabel
+></term
+> <listitem
+><para
+>Activando esta opción le dará al servidor de sonido prioridad por encima de otras aplicaciones, lo que ayudará a aliviar cualquier problema entregando sonido ininterrumpido.</para
+> <note
+><para
+>Esta opción requiere permisos que usted no tiene como usuario normal.</para
+> <para
+>Esta opción depende del soporte de tiempo real de su sistema que puede no estar disponible.</para
+> <para
+>Si no tiene los suficientes permisos, o su sistema no tiene el soporte necesario de tiempo real, activar esta opción no le generará ningún problema.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Autosuspender si inactivo</guilabel
+></term
+> <listitem
+> <para
+>Normalmente &arts; bloqueda la tarjeta de sonido, de modo que otras aplicaciones no puedan usarla.Si activa esta opción, entonces si &arts; ha estado inactivo durante el tiempo que usted haya configurado, se autosuspenderá, permitiendo a cualquier aplicación el acceso al hardware del sonido.Si &arts; recibe otra petición, se pondrá en marcha, y continuará normalmente. Activar esta opción puede ocasionar un pequeño retardo cuando inicie una aplicación &arts;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Mostrar mensajes usando</guilabel
+></term
+> <listitem
+> <para
+>La aplicación que se usará para mostrar mensajes del servidor de &arts;. El valor predeterminado es <application
+>artsmessage</application
+> y esto probablemente no debería cambiarse a no ser que haya leido cuidadosamente la documentación de &arts;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Muestra de mensajes</guilabel
+></term
+> <listitem
+> <para
+>Puede seleccionar el nivel de detalle de los mensajes procedentes de &arts;. Puede seleccionar ver sólo mensajes de error. Los mensajes de depuración son muy útiles para los desarrolladores (probablemente sólo querrá este nivel si es un desarrollador o algo se lo ha solicitado). O puede elegir ver mensajes informativos generales cuando &arts; está haciendo algo como autosuspenderse. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Al fondo de esta página hay un botón que le permite <guibutton
+>Probar sonido</guibutton
+>.</para>
+
+</sect2>
+
+<sect2 id="sndserver-soundio">
+<title
+>E/S de sonido</title>
+
+<para
+>La primera opción que usted puede configurar en el panel <guilabel
+>E/S de sonido</guilabel
+> es el <guilabel
+>Método de E/S de sonido</guilabel
+>. Le dice a arts que sistema de sonido utilizar para la entrada y salida de sonido. Sus posibles elecciones son <acronym
+>ALSA</acronym
+> (Advanced &Linux; Sound Architecture), <acronym
+>OSS</acronym
+> (Open Sound System), sin soporte audio y autodetectar. En la mayor parte de los casos <quote
+>Autodetectar</quote
+> será la elección preferible para usted.</para>
+
+<para
+>Otras opciones son:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Activar operación full duplex</guilabel
+></term
+> <listitem
+><para
+>Esta opción le permite al servidor de sonido reproducir y registrar sonido al mismo tiempo. Esta opción debería estar activada si usted utiliza aplicaciones (como por ejemplo teléfonos de Internet) que requieren registro y reproducción simultánea.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Utilizar el dispositivo de sonido habitual:</guilabel
+></term
+> <listitem
+> <para
+>Normalmente el servidor de sonido utiliza por omisión el dispositivo denominado <filename class="devicefile"
+>/dev/dsp</filename
+> para la salida de sonido. Esto debería funcionar en la mayor parte de los casos.  Una excepción es si usa devfs, entonces debería utilizar en su lugar <filename class="devicefile"
+>/dev/sound/dsp</filename
+>. Otras alternativas son <filename class="devicefile"
+>/dev/dsp0</filename
+> o <filename class="devicefile"
+>/dev/dsp1</filename
+> si usted tiene una tarjeta de sonido que soporte múltiples salidas o si dispone de múltiples tarjetas de sonido.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Utilizar la velocidad de muestreo habitual</guilabel
+></term
+> <listitem
+> <para
+>Normalmente, el servidor de sonido utiliza por omisión una tasa de muestreo de 44100 Hz (calidad <acronym
+>CD</acronym
+>), soportada en la mayor parte de los casos por el hardware.Si utiliza cierto tipo de tarjetas de sonido Yamaha, puede que necesite fijar este valor a 48000 Hz, si utiliza tarjetas SoundBlaster antiguas, como SoundBlaster Pro, puede que tenga que cambiar este valor a 22050 Hz. Todos los otros valores también son posibles, y tienen sentido en ciertos contextos (&pej; equipos profesionales de estudio).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Otras opciones personalizadas</guilabel
+></term
+> <listitem
+><para
+>Hay algunas opciones ofrecidas por &arts; que pueden no estar disponibles en este módulo de control, de modo que usted puede añadir opciones de línea de comando aquí y que se pasarán directamente a <application
+>artsd</application
+>. Las opciones se añadirán al fina, de modo que que en caso de duda, prevalezcan sobre las hechas en el <acronym
+>GUI</acronym
+>. Para ver las posibilidades, abra una ventana de &konsole; e introduzca <userinput
+><command
+>artsd</command
+> <option
+>-h</option
+></userinput
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Tamaño del buffer de audio (tiempo de respuesta)</guilabel
+></term
+> <listitem
+><para
+>Este botón deslizante determina cuan rápido puede utilizar el servidor de sonido los recursos de su ordenador. Cuanto más rápida la respuesta, más alta será la carga sobre la <acronym
+>CPU</acronym
+>.</para
+> <tip
+><para
+>Es recomendable iniciar el servidor de sonido con 250 ms, y usar &kde; durante un rato. Si advierte que el sonido no funciona correctamente, aumente la respuesta una paso cada vez hasta que desaparezcan los problemas.</para
+></tip
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="sndserver-author">
+<title
+>Sección de autores</title>
+
+<para
+>Sección escrita por Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+
+<para
+>Actualizado por Jost Schenck <email
+>jost@schenck.de</email
+></para>
+
+<para
+>Traducido por Pablo de Vicente <email
+>pvicentea@nexo.es</email
+></para>
+</sect2>
+</sect1>
+
+
+

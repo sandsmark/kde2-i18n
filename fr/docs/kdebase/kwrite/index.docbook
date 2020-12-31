@@ -1,0 +1,479 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kwrite "<application>kwrite</application>">
+ <!ENTITY % addindex "IGNORE">
+]>
+<book lang="fr">
+<bookinfo>
+<title>Manuel utilisateur de KWrite</title>
+<authorgroup>
+<author>
+<firstname>Cristian</firstname>
+<surname>Tibirna</surname>
+<affiliation><address><email>tibirna@kde.org</email></address></affiliation>
+</author>
+</authorgroup>
+<date>25/01/1999</date>
+<releaseinfo>0.98.00</releaseinfo>
+<abstract>
+<para>Ce manuel se réfère à la version 0.98 de KWrite</para>
+</abstract>
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KWrite</keyword>
+<keyword>éditeur de texte</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>KWrite est un éditeur de textes pour l'environnement KDE. Il peut
+devenir un outil très efficace lorsqu'il est utilisé avec kfm pour
+la navigation parmi des fichiers sources de n'importe quel langage.
+KWrite peut aussi servir à la rédaction de petits documents au
+format texte simple.
+KWrite est un éditeur de textes et il peut être considéré comme une alternative
+sérieuse aux éditeurs plus puissants tels que XEmacs ou Emacs. La fonctionnalité
+la plus importante de KWrite est la surbrillance (coloration syntaxique) reconnaissant
+plusieurs langages de programmation : C/C++, Java, Python, Perl, Bash, Modula 2,
+HTML, Ada.</para>
+
+<sect1 id="nouveauts">
+<title>Nouveautés</title>
+
+<para><itemizedlist>
+<listitem>
+<para>Supporte Python et Perl</para>
+</listitem>
+<listitem>
+<para> plein, plein d'autres</para>
+</listitem>
+</itemizedlist>
+</para>
+
+<para>J'espère que cet éditeur va vous plaire,</para>
+
+<para><literal>Jochen Wilhelmy</literal></para>
+
+<para><ulink url="mailto:digisnap@cs.tu-berlin.de">digisnap@cs.tu-berlin.de</ulink></para>
+</sect1>
+</chapter>
+
+<chapter id="installation">
+<title>Installation</title>
+
+<sect1 id="comment-obtenir-kwrite">
+<title>Comment obtenir KWrite</title>
+
+<para>KWrite est une application du projet KDE <ulink url="http://www.kde.org">http://www.kde.org</ulink>.Vous pourrez
+trouver KWrite à l'adresse <ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, le site ftp
+principal du projet KDE.</para>
+</sect1>
+
+<sect1 id="conditions-pralables">
+<title>Conditions préalables</title>
+
+<para>Pour pouvoir compiler KWrite vous aurez besoin des dernières versions de <literal> libkdecore</literal>
+et <literal> libkfm</literal>. Toutes les bibliothèques nécessaires ainsi que KWrite sont disponibles à
+l'adresse <ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
+</sect1>
+
+<sect1 id="compilation-et-installation">
+<title>Compilation et installation</title>
+
+<para>Pour compiler et installer KWrite sur votre système, tapez les lignes suivantes après vous
+être placé dans le répertoire racine du paquetage KWrite.</para>
+
+<para><screen>% ./configure
+% make
+% make install
+</screen>
+</para>
+
+<para>Puisque que KWrite utilise <literal>autoconf</literal>, vous n'aurez pas de problème pour le compiler.
+Si toutefois, vous rencontrez quelques difficultés, faites-en part dans les listes de discussion <emphasis>KDE</emphasis>.</para>
+</sect1>
+</chapter>
+
+<chapter id="prsentation-gnrale">
+<title>Présentation générale</title>
+
+<para>KWrite est très simple à utiliser. Je suis sûr que si vous n'avez jamais utilisé d'éditeur
+de textes, vous n'aurez pas de problème avec KWrite.</para>
+
+<sect1 id="glisser-dposer">
+<title>Glisser-déposer</title>
+
+<para>KWrite utilise le mécanisme "glisser-déposer" de KDE. Vous pouvez donc faire glisser
+des fichiers du bureau, d'une fenêtre kfm ou d'un site ftp distant que vous voyer dans
+une fenêtre kfm dans la fenêtre de KWrite.</para>
+</sect1>
+
+<sect1 id="edition-de-fichiers-sur-linternet">
+<title>Edition de fichiers sur l'Internet</title>
+
+<para>Vous pouvez ouvrir et enregistrer des fichiers de façon transparente sur
+l'Internet. Essayer la commande suivante à partir de la ligne de commande
+pour illuster cette fonctionnalité.</para>
+
+<para><screen>% kwrite ftp://ftp.kde.org/pub/kde/Welcome.msg
+</screen>
+</para>
+</sect1>
+
+<sect1 id="impression">
+<title>Impression</title>
+
+<para>KWrite ne supporte pas encore l'impression.</para>
+</sect1>
+
+<sect1 id="raccourcis-clavier">
+<title>Raccourcis clavier</title>
+
+<para>KWrite reconnaît les raccourcis clavier suivants :</para>
+
+<para><itemizedlist>
+<listitem>
+<para><literal>Insert</literal> Bascule entre les modes Insertion et Remplacement</para>
+</listitem>
+<listitem>
+<para><literal>Flèche vers la gauche</literal> Déplace le curseur d'un caractère vers la gauche</para>
+</listitem>
+<listitem>
+<para><literal>Flèche vers la droite</literal> Déplace le curseur d'un caractère vers la droite</para>
+</listitem>
+<listitem>
+<para><literal>Flèche vers le haut</literal> Déplace le curseur d'une ligne vers le haut</para>
+</listitem>
+<listitem>
+<para><literal>Flèche vers le bas</literal> Déplace le curseur d'une ligne vers le bas</para>
+</listitem>
+<listitem>
+<para><literal>Page Up</literal> Déplace le curseur d'une page vers le haut</para>
+</listitem>
+<listitem>
+<para><literal>Page Down</literal> Déplace le curseur d'une page vers le bas</para>
+</listitem>
+<listitem>
+<para><literal>Backspace</literal> Supprime le caractère à gauche du curseur</para>
+</listitem>
+<listitem>
+<para><literal>Home</literal> Place le curseur sur le premier caractère de la ligne</para>
+</listitem>
+<listitem>
+<para><literal>End</literal> Place le curseur à la fin de la ligne</para>
+</listitem>
+<listitem>
+<para><literal>Delete</literal> Supprime le caractère à droite du curseur</para>
+</listitem>
+<listitem>
+<para><literal>Shift - Flèche vers la gauche</literal> Marque un caractère vers la gauche</para>
+</listitem>
+<listitem>
+<para><literal>Shift - Flèche vers la droite</literal> Marque un caractère vers la droite</para>
+</listitem>
+<listitem>
+<para><literal>Alt-S</literal> Créé une nouvelle marque</para>
+</listitem>
+<listitem>
+<para><literal>Alt-C</literal> Efface une marque</para>
+</listitem>
+<listitem>
+<para><literal>F1</literal> Affiche l'aide</para>
+</listitem>
+<listitem>
+<para><literal>F3</literal> Cherche à nouveau</para>
+</listitem>
+<listitem>
+<para><literal>F5</literal> Active/désactive la sélection verticale</para>
+</listitem>
+<listitem>
+<para><literal>Control-C</literal> Copie le texte sélectionné dans le presse-papiers</para>
+</listitem>
+<listitem>
+<para><literal>Control-F</literal> Cherche une chaîne de caractères</para>
+</listitem>
+<listitem>
+<para><literal>Control-G</literal> Place le curseur à une ligne donnée</para>
+</listitem>
+<listitem>
+<para><literal>Control-I</literal> Indente (déplace de plusieurs caractères vers la droite) les lignes sélectionnées</para>
+</listitem>
+<listitem>
+<para><literal>Control-K</literal> Efface la ligne courante</para>
+</listitem>
+<listitem>
+<para><literal>Control-N</literal> Créé un nouveau document (le document en cours d'édition sera enregistré)</para>
+</listitem>
+<listitem>
+<para><literal>Control-R</literal> Remplace le texte sélectionné</para>
+</listitem>
+<listitem>
+<para><literal>Control-U</literal> Désindente (déplace de plusieurs caractères vers la gauche) les lignes sélectionnées</para>
+</listitem>
+<listitem>
+<para><literal>Control-V</literal> Insère le texte du presse-papiers sur la ligne courante</para>
+</listitem>
+<listitem>
+<para><literal>Control-X</literal> Coupe le texte sélectionné et le copie dans le presse-papiers</para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+</chapter>
+
+<chapter id="les-menus">
+<title>Les menus</title>
+
+<sect1 id="fichier">
+<title>Fichier</title>
+
+<sect2 id="nouveau...">
+<title>Nouveau...</title>
+
+<para>Créé un nouveau document dans l'éditeur.</para>
+</sect2>
+
+<sect2 id="ouvrir...">
+<title>Ouvrir...</title>
+
+<para>Permet à l'utilisateur d'ouvrir un document.</para>
+</sect2>
+
+<sect2 id="insrer...">
+<title>Insérer...</title>
+
+<para>Permet à l'utilisateur d'insérer un nouveau document dans le document édité.</para>
+</sect2>
+
+<sect2 id="rcemment-ouvert">
+<title>Récemment ouvert</title>
+
+<para>Une petite liste des documents ouverts récemment.</para>
+</sect2>
+
+<sect2 id="enregistrer">
+<title>Enregistrer</title>
+
+<para>Enregistre le document en cours d'édition.</para>
+</sect2>
+
+<sect2 id="enregistrer-sous...">
+<title>Enregistrer sous...</title>
+
+<para>Permet à l'utilisateur d'enregistrer le document en cours d'édition dans un nouveau fichier.</para>
+</sect2>
+
+<sect2 id="fermer">
+<title>Fermer</title>
+
+<para>Ferme la fenêtre de l'éditeur. Dans le cas où la fenêtre fermée serait la dernière
+de l'application, KWrite s'arrêtera.</para>
+</sect2>
+
+<sect2 id="nouvelle-fentre">
+<title>Nouvelle fenêtre</title>
+
+<para>Ouvre une nouvelle fenêtre d'édition KWrite.</para>
+</sect2>
+
+<sect2 id="nouvelle-vue">
+<title>Nouvelle vue</title>
+
+<para>Ouvre une nouvelle fenêtre d'édition contenant le même document.</para>
+</sect2>
+</sect1>
+
+<sect1 id="edition">
+<title>Edition</title>
+
+<sect2 id="couper">
+<title>Couper</title>
+
+<para>Efface et place le texte sélectionné dans le presse-papiers.</para>
+</sect2>
+
+<sect2 id="copier">
+<title>Copier</title>
+
+<para>Copie le texte sélectionné dans le presse-papiers.</para>
+</sect2>
+
+<sect2 id="coller">
+<title>Coller</title>
+
+<para>Insert le contenu du presse-papiers à l'endroit où se trouve le curseur.</para>
+</sect2>
+
+<sect2 id="chercher...">
+<title>Chercher...</title>
+
+<para>Ouvre la boîte de dialogue permettant la recherche.</para>
+</sect2>
+
+<sect2 id="remplacer...">
+<title>Remplacer...</title>
+
+<para>Ouvre la boîte de dialogue permettant le remplacement.</para>
+</sect2>
+
+<sect2 id="chercher-de-nouveau">
+<title>Chercher de nouveau</title>
+
+<para>Recommence la dernière opération de recherche, si une telle opération a déjà
+été effectuée.</para>
+</sect2>
+
+<sect2 id="aller-la-ligne...">
+<title>Aller à la ligne...</title>
+
+<para>Ouvre la boîte de dialogue permettant de se rendre à une ligne donnée.</para>
+</sect2>
+
+<sect2 id="annuler">
+<title>Annuler</title>
+
+<para>Annule la dernière modification.</para>
+</sect2>
+
+<sect2 id="refaire">
+<title>Refaire</title>
+
+<para>Rétablit la dernière modification annulée.</para>
+</sect2>
+
+<sect2 id="indenter">
+<title>Indenter</title>
+
+<para>Augmente l'indentation d'un paragraphe.</para>
+</sect2>
+
+<sect2 id="dsindenter">
+<title>Désindenter</title>
+
+<para>Diminue l'indentation d'un paragraphe.</para>
+</sect2>
+
+<sect2 id="slectionner-tout">
+<title>Sélectionner tout</title>
+
+<para>Sélectionne tout le document édité.</para>
+</sect2>
+
+<sect2 id="dselectionner-tout">
+<title>Désélectionner tout</title>
+
+<para>Déselectionne tout ce qui est sélectionné.</para>
+</sect2>
+
+<sect2 id="inverser-la-slection">
+<title>Inverser la sélection</title>
+
+<para>Déselectionne tout ce qui était sélectionné et sélectionne ce qui ne l'était pas.</para>
+</sect2>
+</sect1>
+
+<sect1 id="signets">
+<title>Signets</title>
+
+<para></para>
+
+</sect1>
+
+<sect1 id="options">
+<title>Options</title>
+
+<sect2 id="activer-la-surbrillance">
+<title>Activer la surbrillance</title>
+
+<para>Permet à l'utilisateur de choisir le type de surbrillance que l'éditeur utilise pour afficher le texte.
+Cette information n'est pas enregistrée avec le document.</para>
+</sect2>
+
+<sect2 id="par-dfaut...">
+<title>Par défaut...</title>
+
+<para>Permet à l'utilisateur de définir et d'enregistrer un ensemble de paramètres : police de caractères,
+couleur des caractères, couleur de fond pour chaque type de surbrillance défini.</para>
+</sect2>
+
+<sect2 id="surbrillance...">
+<title>Surbrillance...</title>
+
+<para>Permet à l'utilisateur de personnaliser en détail les règles de surbillance qu'il souhaite utiliser
+(en précisant le type d'association MIME pour chaque définition de surbrillance).</para>
+</sect2>
+
+<sect2 id="couleurs...">
+<title>Couleurs...</title>
+
+<para>Permet à l'utilisateur de choisir les couleurs utilisées dans la zone d'affichage
+du texte de KWrite.</para>
+</sect2>
+
+<sect2 id="slections-verticales">
+<title>Sélections verticales</title>
+
+<para>Active/désactive la sélection verticale.</para>
+</sect2>
+
+<sect2 id="afficher-la-barre-doutils">
+<title>Afficher la barre d'outils</title>
+
+<para></para>
+
+</sect2>
+
+<sect2 id="afficher-la-barre-dtat">
+<title>Afficher la barre d'état</title>
+
+<para></para>
+
+</sect2>
+
+<sect2 id="enregistrer-les-options">
+<title>Enregistrer les options</title>
+
+<para>Enregistre les modifications de configuration.</para>
+</sect2>
+</sect1>
+
+<sect1 id="aide">
+<title>Aide</title>
+
+<sect2 id="contenu">
+<title>Contenu</title>
+
+<para>Appelle le système d'aide de KDE pour afficher la documentation de KWrite.</para>
+</sect2>
+
+<sect2 id="a-propos-de-kwrite...">
+<title>A propos de KWrite...</title>
+
+<para>Affiche des informations générales concernant KWrite.</para>
+</sect2>
+
+<sect2 id="a-propos-de-kde...">
+<title>A propos de KDE...</title>
+
+<para>Affiche des informations générales concernant KDE.</para>
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="questions-et-rponses">
+<title>Questions et réponses</title>
+
+<para></para>
+
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+sgml-general-insert-case: lower
+End:
+-->
+

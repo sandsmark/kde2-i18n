@@ -1,0 +1,1125 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&khexedit;">
+  <!ENTITY % Hungarian "INCLUDE" > <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+<book lang="&language;">
+
+<bookinfo>
+<title>&khexedit; kézikönyv</title>
+
+<authorgroup>
+<author>
+<firstname>Jonathan</firstname>
+<surname>Singer</surname>
+<affiliation>
+<address><email>jsinger@leeta.net</email></address>
+</affiliation>
+</author>
+
+<othercredit role="developer">
+<firstname>Espen</firstname>
+<surname>Sand</surname>
+<affiliation>
+<address><email>espensa@online.no</email></address>
+</affiliation>
+<contrib>Fejlesztő</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation>
+<address><email>vampyr@atconnex.net</email></address>
+</affiliation>
+<contrib>Ellenőrzés</contrib>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Árpád</firstname>
+<surname>Bíró</surname>
+<affiliation>
+<address><email>biro_arpad@hotmail.com</email></address>
+</affiliation>
+<contrib>Fordítás</contrib>
+</othercredit>
+</authorgroup>
+
+<copyright>
+<year>1999-2000</year>
+<holder>Jonathan Singer</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>14/12/2000</date>
+<releaseinfo>0.08.05</releaseinfo>
+
+<abstract><para>A &khexedit; egy hexadecimális szerkesztő a KDE környezethez.</para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>Kapp</keyword>
+<keyword>szerkesztés</keyword>
+<keyword>szerkesztő</keyword>
+<keyword>bináris</keyword>
+<keyword>hexadecimális</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Bevezetés</title>
+
+<para>A &khexedit; a bináris fájlok nyers adatainak szerkesztésére készült.
+Tartalmaz keresés-, csere- és könyvjelzőfunkciókat, nagy számú konfigurációs opciót,
+"Húzd-és-ejtsd"-támogatást és egyéb erőteljes lehetőségeket.</para>
+
+</chapter>
+
+<chapter id="starting-khexedit">
+<title>A &khexedit; elindítása</title>
+<para>Gépeljen <userinput><command>khexedit</command></userinput> -et a parancssorban,
+vagy válassza ki a <guimenu>KDE-menüben</guimenu> a
+<guisubmenu>Segédprogramok</guisubmenu> csoportból a
+<guimenuitem>Hexadecimális szerkesztő</guimenuitem> bejegyzést.</para>
+
+<para>A szabványos &Qt; illetve KDE parancssori opciók használhatók,
+a listázásuk a
+<userinput><command>khexedit</command> <option>--help</option></userinput>
+paranccsal lehetséges.</para>
+
+<para>További parancssori opciók:</para>
+
+<para><option>fájl</option> - a megadott fájl megnyitása</para>
+<para><option>--offset <replaceable>&lt;pozíció&gt;</replaceable></option> -
+a <replaceable>&lt;pozíció&gt;</replaceable> pozícióra való ugrás
+a megnyitott fájlban.</para>
+
+</chapter>
+
+<chapter id="nutshell">
+<title>A &khexedit; dióhéjban</title>
+
+<para>A &khexedit; főablaka a következő részekből áll: menüsáv, eszköztár,
+pozíció-oszlop, adatszerkesztőablak, szövegmező, keresési sáv, konverziós terület
+és állapotsor.</para>
+
+<screenshot>
+<screeninfo>&khexedit;-képernyő</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="khexedit1.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>&khexedit;-képernyő</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para>Egy dokumentum megnyitása után az abban található bájtok hexadecimális
+formában kerülnek megjelenítésre az adatszerkesztőablakban.
+Az adatok szerkeszthetők, kivághatók, másolhatók, beilleszthetők illetve
+húzással mozgathatók, hasonlóan ahhoz, ahogyan szövegszerkesztőkben szokásos.
+Az aktuális pozíciót kurzor jelöli.
+Az <keycap>Insert</keycap> gomb lenyomásával lehet váltani a szövegbevitel üzemmódjai
+közt; a két lehetőség: felülírási illetve beszúrási üzemmód.
+Az adatok megjeleníthetők oktális, bináris és decimális értékekként is,
+ehhez a <guimenu>Nézet</guimenu> menüben választandó ki a kívánt formátum.</para>
+
+<para>A bal oldalon található pozíció-oszlop jelzi egy adott bájt fájlbeli
+pozícióját. A jobb oldalon található szövegmező a fájl tartalmát
+<acronym>ASCII</acronym> kódolás szerint jeleníti meg.
+Az adatszerkesztőablakbeli kurzorpozíció és az ott végrehajtott szerkesztések
+a szövegmezőben is megjelennek. A szövegmező is szerkeszthető, és az ott
+végzett módosítások tükröződni fognak az adatszerkesztőablakban.</para>
+
+<para>A keresési sáv használatával rá lehet keresni egy adott értékre
+- hexadecimális, decimális, oktális, bináris vagy szöveges formátumban.</para>
+
+<para>A konverziós területen a kurzorpozíción található bájt értéke látható
+különböző ábrázolási formátumok szerint.
+Megjelenik továbbá az összes szabványos adattípus szerinti érték a kurzortól
+kezdődően számítva.</para>
+
+<para>Több dokumentum is nyitva lehet egyszerre, de csak egy lehet aktív.
+A <guimenu>Dokumentumok</guimenu> menüben lehet kiválasztani, melyik legyen aktív.</para>
+
+</chapter>
+
+<chapter id="menu-commands">
+<title>Menüparancsok</title>
+
+<para>Megjegyzés: a legtöbb menüparancshoz tartozik billentyűparancs.</para>
+
+<sect1 id="file-menu">
+<title><guimenu>Fájl</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>N</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>Ú<accel>j</accel></guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Új fájl megnyitása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem><accel>M</accel>egnyitás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Létező fájl megnyitása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>I</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>Beszú<accel>r</accel>ás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Létező fájl beszúrása az aktuális dokumentumba.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guisubmenu>Leg<accel>u</accel>tóbbi megnyitása</guisubmenu>
+</menuchoice></term>
+<listitem><para><action>Választás a legutóbb megnyitott fájlok listájáról.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem><accel>V</accel>isszaállítás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A szerkesztés alatt álló dokumentum visszaállítása
+a legutóbb elmentett állapotba.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>S</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>M<accel>e</accel>ntés</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Dokumentum elmentése.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>Mentés más<accel>k</accel>ént</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Dokumentum elmentése új néven.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>W</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem><accel>B</accel>ezárás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Aktuális dokumentum bezárása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>P</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem><accel>N</accel>yomtatás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Aktuális dokumentum nyomtatása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>E<accel>x</accel>portálás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A kiválasztott dokumentum vagy annak egy részének
+exportálása.</action></para>
+<para>Megnyit egy párbeszédablakot, amely a következő opciókat tartalmazza:</para>
+<variablelist>
+<varlistentry>
+<term><guilabel>Formátum</guilabel></term>
+<listitem><para>A következő lehetőségek vannak: egyszerű szöveg,
+<acronym>HTML</acronym> táblázatok, Rich text formátum (rtf),
+C tömb. <acronym>HTML</acronym> táblázatok illetve C tömb esetén
+a <guilabel>Beállítások</guilabel> lapon állíthatók be a részletesebb
+opciók.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Cél</guilabel></term>
+<listitem><para>A fájl, amelybe az adatok exportálandók.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Exportálási tartomány</guilabel></term>
+<listitem><para>Itt megadható, hogy mely adatok legyenek exportálva: a teljes dokumentum,
+a kijelölt rész vagy egy bizonyos, két pozícióval megadott tartomány.</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem></varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>A művelet me<accel>g</accel>szakítása</guimenuitem>
+</menuchoice></term>
+<listitem><para>Az aktuális művelet leállítása.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>J<accel>o</accel>gosultságok</guimenuitem>
+</menuchoice></term>
+<listitem><para>Írási jogosultságok beállítása:</para>
+<variablelist>
+
+<varlistentry>
+<term><guilabel>csak olvasható</guilabel></term>
+<listitem><para>Bejelölése esetén a megjelenített fájl módosítása nem
+lehetséges.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>az átméretezés engedélyezése</guilabel></term>
+<listitem><para>Kikapcsolása esetén az egyes bájtok szerkeszthetők, viszont
+a bájtok darabszáma (a fájl mérete) nem változtatható.</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>Új <accel>a</accel>blak</guimenuitem>
+</menuchoice></term>
+<listitem><para>Egy további &khexedit;-ablak <action>megnyitása</action>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>Az ablak be<accel>z</accel>árása</guimenuitem>
+</menuchoice></term>
+<listitem><para>Az aktuális &khexedit;-ablak <action>bezárása</action>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>Ki<accel>l</accel>épés</guimenuitem>
+</menuchoice></term>
+<listitem><para>Az összes &khexedit;-ablak bezárása.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="edit-menu">
+<title><guimenu>Szerkesztés</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>Visszavo<accel>n</accel>ás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A legutóbbi művelet visszavonása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>Z</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>Újra végre<accel>h</accel>ajtás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A legutóbb visszavont művelet ismételt végrehajtása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>X</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>Ki<accel>v</accel>ágás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A kijelölt bájtok törlése és a vágólapra való
+elhelyezése.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem><accel>M</accel>ásolás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A kijelölt bájtok másolása a vágólapra.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>V</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem><accel>B</accel>eillesztés</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A vágólapon levő bájtok beszúrása
+a dokumentumba.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guisubmenu>Spe<accel>c</accel>iális</guisubmenu>
+</menuchoice></term>
+<listitem><para>Variációk <guimenuitem>Másolás</guimenuitem>ra és
+<guimenuitem>Beillesztés</guimenuitem>re:</para>
+<itemizedlist>
+<listitem><para><guimenuitem>Másolás s<accel>z</accel>övegként</guimenuitem>: A kijelölt
+bájtok <acronym>ASCII</acronym> karakterekként való másolása</para></listitem>
+<listitem><para><guimenuitem>Beillesztés új <accel>f</accel>ájlba</guimenuitem></para></listitem>
+<listitem><para><guimenuitem>Beillesztés új <accel>a</accel>blakba</guimenuitem></para></listitem>
+</itemizedlist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>A</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>Min<accel>d</accel>en kijelölése</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A teljes dokumentum kijelölése.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>Kijelölé<accel>s</accel> visszavonása</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A teljes dokumentum kijelöletlenné tétele.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>F</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>K<accel>e</accel>resés</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Megadott minta keresése a dokumentumban.</action>
+Hexadecimális, decimális, oktális, bináris és szöveges minták kereshetők.</para>
+<para>A párbeszédablakban található opciók lehetővé teszik a kezdőpont,
+az irány és a keresési tartomány megadását.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>F3</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem><accel>K</accel>övetkező keresése</guimenuitem>
+</menuchoice></term>
+<listitem><para>A <guimenuitem>Keresés</guimenuitem>i minta
+következő előfordulásának <action>keresése</action>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Shift</keycap><keycap>F3</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>Az e<accel>l</accel>őző keresése</guimenuitem>
+</menuchoice></term>
+<listitem><para>A <guimenuitem>Keresés</guimenuitem>i minta
+előző előfordulásának <action>keresése</action>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>R</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>Cse<accel>r</accel>e</guimenuitem>
+</menuchoice></term>
+<listitem><para>A keresési minta <action>cserélése</action> egy másik
+mintára.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>G</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>Megadott fájlp<accel>o</accel>zícióra lépés</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A kurzor mozgatása egy adott pozícióra.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Ins</keycap></keycombo>
+</shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu>
+<guimenuitem>M<accel>i</accel>nta beszúrása</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Megadott bájtsorozat beszúrása.</action></para>
+<para>A párbeszédablakban található opciók lehetővé teszik a minta hosszának és
+formátumának (hexadecimális, decimális, oktális, bináris vagy szöveg)
+továbbá a beszúrási pontnak a megadását.</para>
+<para>Ha <guilabel>A minta ismétlése</guilabel> opció be van jelölve, akkor
+a megadott minta folytatólagosan beszúrásra kerül addig, amíg el nem éri
+a <guilabel>Méret</guilabel> mezőben megadott hosszt.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="view-menu">
+<title><guimenu>Nézet</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu><guimenuitem><accel>H</accel>exadecimális</guimenuitem>
+<guimenu><accel>N</accel>ézet</guimenu><guimenuitem><accel>D</accel>ecimális</guimenuitem>
+<guimenu><accel>N</accel>ézet</guimenu><guimenuitem><accel>O</accel>ktális</guimenuitem>
+<guimenu><accel>N</accel>ézet</guimenu><guimenuitem><accel>B</accel>ináris</guimenuitem>
+<guimenu><accel>N</accel>ézet</guimenu><guimenuitem><accel>S</accel>zöveg</guimenuitem>
+</menuchoice></term>
+<listitem><para>Ezen öt menüpont használatával <action>kiválasztható az adatszerkesztőablakban
+megjelenő adatok formátuma</action>: hexadecimális, decimális, oktális, bináris illetve szöveg.
+Szöveges formátum esetén a plusz szövegmező nem kerül megjelenítésre.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Az eltolásoszlop <accel>m</accel>egjelenítése</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A pozíciókat megjelenítő oszlop megjelenítésének
+be- illetve kikapcsolása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>A szöv<accel>e</accel>gmező megjelenítése</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A szövegmező megjelenítésének be- illetve
+kikapcsolása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>A pozí<accel>c</accel>ió decimális alakban</guimenuitem>
+</menuchoice></term>
+<listitem><para>Ha be van jelölve, akkor <action>az összes pozíció decimális
+számként van megjelenítve és értelmezve</action>, nem pedig hexadecimálisként.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Nag<accel>y</accel>betűs adat</guimenuitem>
+</menuchoice></term>
+<listitem><para>Bejelölése esetén <action>az adatok közt szereplő hexadecimális számjegyek
+nagybetűs formában lesznek megjelenítve</action>.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Nagybetűs <accel>f</accel>ájlpozíció</guimenuitem>
+</menuchoice></term>
+<listitem><para>Bejelölése esetén <action>a pozíciók közt szereplő hexadecimális
+számjegyek nagybetűs formában lesznek megjelenítve</action>.</para></listitem>
+</varlistentry>
+
+<varlistentry id="view-encoding">
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guisubmenu>Dok<accel>u</accel>mentumkódolás</guisubmenu>
+</menuchoice></term>
+<listitem><para>A szövegmezőben használandó kódolás kiválasztása.
+Választható például az <acronym>EBCDIC</acronym> vagy a 7-bites
+<acronym>ASCII</acronym>. További kódolások definiálhatók
+(még nincs megvalósítva).</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="bookmarks">
+<title><guimenu>Könyvjelzők</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>B</keycap></keycombo>
+</shortcut>
+<guimenu>Könyv<accel>j</accel>elzők</guimenu>
+<guimenuitem>Hozzá<accel>a</accel>dás a könyvjelzőkhöz</guimenuitem>
+</menuchoice></term>
+<listitem><para>Egy dokumentumbeli pozíció megjelölése könyvjelzővel.</para>
+<para>Egy dokumentumhoz több könyvjelző is tartozhat. Minden dokumentumnak saját
+könyvjelzői vannak, amelyek a <guimenu>Könyvjelzők</guimenu> menü alján jelennek meg.
+Egy könyvjelzővel megjelölt pozícióra ugrani a megfelelő bejegyzés kiválasztásával
+lehet.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>E</keycap></keycombo>
+</shortcut>
+<guimenu>Könyv<accel>j</accel>elzők</guimenu>
+<guimenuitem>Könyvjelző <accel>f</accel>elülírása</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Létező könyvjelző átállítása az aktuális kurzorpozícióra.</action>
+A megjelenő könyvjelzőlistából választandó ki a felülírandó könyvjelző.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>U</keycap></keycombo>
+</shortcut>
+<guimenu>Könyv<accel>j</accel>elzők</guimenu>
+<guimenuitem>Könyvjelző <accel>e</accel>ltávolítása</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Létező könyvjelző eltávolítása.</action>
+Az elérhető könyvjelzők listájából választható ki az eltávolítandó.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Könyv<accel>j</accel>elzők</guimenu>
+<guimenuitem>Az összes eltá<accel>v</accel>olítása</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Könyvjelzőlista törlése.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Alt</keycap><keycap>Le</keycap></keycombo>
+</shortcut>
+<guimenu>Könyv<accel>j</accel>elzők</guimenu>
+<guimenuitem>Ugrás a következő kö<accel>n</accel>yvjelzőre</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A kurzor mozgatása a következő könyvjelzőre.</action></para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Alt</keycap><keycap>Fel</keycap></keycombo>
+</shortcut>
+<guimenu>Könyv<accel>j</accel>elzők</guimenu>
+<guimenuitem>Ugrás az előző kön<accel>y</accel>vjelzőre</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A kurzor mozgatása az előző könyvjelzőre.</action></para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="tools-menu">
+<title><guimenu>Eszközök</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>E</accel>szközök</guimenu>
+<guimenuitem>Karakt<accel>e</accel>rláncok kinyerése</guimenuitem>
+</menuchoice></term>
+<listitem><para><acronym>ASCII</acronym> karakterláncok (stringek) keresése
+az adatok közt. Megadható a minimális karakterlánc-hossz, a nagybetűérzékenység
+és egy minta.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>E</accel>szközök</guimenu>
+<guimenuitem><accel>B</accel>ináris szűrő</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Bináris művelet végrehajtása az adatokon.</action>
+A művelet (ÉS, VAGY, ROTATE, ...) és az operandus a párbeszédablakban adható meg.
+A párbeszédablakban levő választógombok lehetővé teszik a művelet hatókörének
+a kijelölt bájtokra vagy a kurzor előtti illetve utáni területre való
+korlátozását.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>E</accel>szközök</guimenu>
+<guimenuitem><accel>K</accel>araktertábla</guimenuitem>
+</menuchoice></term>
+<listitem><para>Értékeket és azok <acronym>ASCII</acronym>-megfelelőit
+tartalmazó lista megnyitása, majd igény esetén <action>a kiválasztott érték
+beszúrása a kurzornál</action>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>E</accel>szközök</guimenu>
+<guimenuitem>K<accel>o</accel>nverzió</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A megjelenő mezők valamelyikébe írt érték
+konvertálása hexadecimális, decimális, oktális, bináris és szöveges formátumba.</action>
+Egy, a párbeszédablakban levő gomb segítségével a dokumentum aktuális pozícióján
+(a kurzorpozíción) szereplő érték is megadható.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>E</accel>szközök</guimenu>
+<guimenuitem><accel>S</accel>tatisztika</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A különböző értékek előfordulási gyakoriságának
+megjelenítése a dokumentumra vonatkozóan.</action></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="document-menu">
+<title><guimenu>Dokumentumok</guimenu> menü</title>
+
+<para>A megnyitott állapotban levő dokumentumok listája található itt.
+Valamelyik bejegyzést kiválasztva az annak megfelelő dokumentum aktívvá válik.</para>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title><guimenu>Beállítások</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>Az eszköz<accel>t</accel>ár megjelenítése</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A menüsor alatt levő eszköztár megjelenítésének
+be- illetve kikapcsolása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>Az áll<accel>a</accel>potsor megjelenítése</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Az állapotsor megjelenítésének be- illetve
+kikapcsolása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>A tel<accel>j</accel>es elérési út mutatása</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A teljes fájl-útvonal címsorban való megjelenítésének
+be- illetve kikapcsolása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guisubmenu>Dokumentum<accel>f</accel>ülek</guisubmenu>
+</menuchoice></term>
+<listitem><para>A dokumentumfülek megjelenítési módjának módosítása az összes jelenlegi
+dokumentumra vonatkozóan.
+A fülek megjeleníthetők a szerkesztőablak felett illetve alatt, továbbá lehetnek rejtettek is.
+A fülek egy jól használható - és a Dokumentumok menünél egyszerűbb - módszert kínálnak
+a dokumentumok közt való váltásra.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guisubmenu>Konverziós <accel>m</accel>ező</guisubmenu>
+</menuchoice></term>
+<listitem><para><action>Az értékkonverziós mező megjelenésének befolyásolása.</action>
+Beágyazható a főablakba, lebegő ablakká tehető illetve elrejthető.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>Ke<accel>r</accel>esősor</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Az értékkeresősor megjelenítési módjának beállítása.</action>
+Megjeleníthető a szerkesztőablak alatt illetve felett, továbbá elrejtés is
+lehetséges.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>A beállítá<accel>s</accel>ok mentése</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Az opciók jelenlegi állapotának mentése.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>A(z) KHexEdit b<accel>e</accel>állítása</guimenuitem>
+</menuchoice></term>
+<listitem><para>Beállítások módosítása:</para>
+<variablelist>
+<varlistentry>
+<term><guilabel>Elrendezés</guilabel></term>
+<listitem><para>Sor- és oszlopméret (bájtban); ezek a különböző módokhoz külön
+beállíthatók. Egyéb opciók: rögzített számú bájt soronként (nagy sorhossz használata
+esetére; jelentése: a sorhossz mindenképpen a megadott számú bájt legyen, akkor is,
+ha emiatt gördítősáv szükséges),
+a sorvégi oszlop rögzített méretű (nagy sorhossz használata esetére;
+jelentése: ha a sorhossz túl nagy és emiatt automatikusan csökkentésre kerül,
+akkor a jobb szélső oszlop is a megadott méretű legyen),
+rácsvonalak a sorok és oszlopok közt, mezőelválasztók szélessége, helykihagyás
+és margók.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Kurzor</guilabel></term>
+<listitem><para>Villogási sebesség és a kurzor alakja. A kurzor viselkedése akkor,
+amikor a fókusz elkerül az ablakról.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Betűtípus</guilabel></term>
+<listitem><para>Betűtípus-név, betűstílus és betűméret. A nem nyomtatható
+karakterek helyett használandó karakter a szövegmezőben való
+megjelenítéshez.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Színek</guilabel></term>
+<listitem><para>A &khexedit; összes színe beállítható, beleértve a páratlan
+és páros számú sorok és oszlopok eltérő színezését, a könyvjelzőket, az
+elválasztókat és a rácsvonalakat. Az egyetlen kivétel a kijelölési szín,
+amely a KDE vezérlőközpontban beállított értéket használja.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Fájlok</guilabel></term>
+<listitem><para>A legutóbbi dokumentum illetve dokumentumok megnyitása
+indításkor. Kurzorpozíció visszaállítása. Írásvédelem bekapcsolása alapértelmezésben.
+Mentéskor biztonsági másolat készítése. A <quote>legutóbbi dokumentumok</quote>
+listájának mentése kilépéskor. A párbeszédablak lehetővé teszi a
+<quote>legutóbbi dokumentumok</quote> listájának törlését is.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Egyebek</guilabel></term>
+<listitem><para>Kijelöléskor automatikus másolás a vágólapra. Indítás beszúrási
+módban (nem pedig felülírási módban). Megerősítés szükségessége a keresésnek
+a dokumentum elejétől illetve végétől való folytatásához. Bináris mód esetén a
+kurzornak a legközelebbi bájtra való léptetése mozgatáskor.
+Hangjelzés gépelési hiba illetve végzetes hiba esetén. Könyvjelzők megjelenítése a
+pozíció-oszlopban illetve a szerkesztőmezőkben.
+Figyelmeztetés adása, ha a nyomtatandó lapok száma meghalad egy bizonyos értéket.
+Visszavonások maximális száma.</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="help-menu">
+<title><guimenu>Segítség</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>F1</keycap></keycombo>
+</shortcut>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem><accel>T</accel>artalom</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Jelen dokumentum megnyitása.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo>
+</shortcut>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>Mi e<accel>z</accel>?</guimenuitem>
+</menuchoice></term>
+<listitem><para>Egy adott objektummal kapcsolatos információszerzés lehetséges
+ennek kiválasztása után az objektumra való kattintással.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem><accel>H</accel>ibabejelentés</guimenuitem>
+</menuchoice></term>
+<listitem><para>Egy jól használható párbeszédablak a &khexedit; programban
+talált hibák bejelentéséhez.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>A(z) KHexEdit <accel>n</accel>évjegye</guimenuitem>
+</menuchoice></term>
+<listitem><para>Információ a &khexedit; programmal kapcsolatosan.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>A <accel>K</accel>DE névjegye</guimenuitem>
+</menuchoice></term>
+<listitem><para>Információ a KDE projekttel kapcsolatosan.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="toolbar"><title>Eszköztár</title>
+<para>Az eszköztár a következő parancsokhoz tartalmaz ikonokat:</para>
+
+<note><para>(A <guiicon>Dokumentum húzása</guiicon> és az
+<guiicon>Írásvédelem ki/be</guiicon> kivételével az összes
+a megfelelő menüparanccsal azonosan viselkedik.)</para></note>
+
+<itemizedlist>
+<listitem><para><guiicon>Dokumentum húzása</guiicon> - a gombra való kattintás
+után a dokumentum egy szövegszerkesztőbe vagy egy másik &khexedit;-ablakba húzható.</para></listitem>
+<listitem><para><guiicon>Új</guiicon></para></listitem>
+<listitem><para><guiicon>Megnyitás</guiicon></para></listitem>
+<listitem><para><guiicon>Visszaállítás</guiicon></para></listitem>
+<listitem><para><guiicon>Mentés</guiicon></para></listitem>
+<listitem><para><guiicon>Nyomtatás</guiicon></para></listitem>
+<listitem><para><guiicon>Keresés</guiicon></para></listitem>
+<listitem><para><guiicon>Következő keresése</guiicon></para></listitem>
+<listitem><para><guiicon>Az előző keresése</guiicon></para></listitem>
+<listitem><para><guiicon>Kivágás</guiicon></para></listitem>
+<listitem><para><guiicon>Másolás</guiicon></para></listitem>
+<listitem><para><guiicon>Beillesztés</guiicon></para></listitem>
+<listitem><para><guiicon>Visszavonás</guiicon></para></listitem>
+<listitem><para><guiicon>Újra végrehajtás</guiicon></para></listitem>
+<listitem><para><guiicon>A művelet megszakítása</guiicon></para></listitem>
+<listitem><para><guiicon>Segítség</guiicon></para></listitem>
+</itemizedlist>
+
+<para>...és végül, az eszköztár jobb oldalán...</para>
+<para><guiicon>Írásvédelem ki/be</guiicon> - átkapcsolás a csak-olvasható és
+az írható-olvasható üzemmódok közt.</para>
+
+<sect2 id="searchbar">
+<title>Keresési sáv</title>
+
+<para>A keresési sáv egy bizonyos értéknek a dokumentumban való keresésére szolgál.
+Írjon be egy értéket a mezőbe, válassza ki a kívánt ábrázolási módot
+(hexadecimális, decimális, oktális, bináris vagy szöveg) és nyomja le a
+<guibutton>Keresés</guibutton> gombot. Jelölje be a
+<guilabel>Visszafelé</guilabel> opciót, ha visszafelé szeretne keresni a kurzorpozíciótól
+kezdődően. Ahhoz, hogy a keresés ne tegyen különbséget a kis- és a nagybetűk közt,
+jelölje be a <guilabel>Nem nagybetűérzékeny</guilabel> opciót.
+A keresési sáv elrejtéséhez kattintson a sáv jobb oldalán levő gombra (<guiicon>X</guiicon>);
+a visszaállításhoz pedig használja a <guimenu>Beállítások</guimenu> menü
+<guimenuitem>Keresősor</guimenuitem> funkcióját.</para>
+
+</sect2>
+
+<sect2 id="conversion-field">
+<title>Konverziós terület</title>
+
+<para>A konverziós területen az aktuális bájt értéke látható különböző adattípusok szerint.
+8-bites típusok esetén a kurzornál található bájt értéke kerül megjelenítésre,
+hosszabb típusok esetén pedig az ugyanezen bájton kezdődő megfelelő érték.
+A jobb szélső oszlop az aktuális bájt értékét jeleníti meg különböző kódolások szerint.
+A konverziós terület opciói:</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>"Little endian" bájtsorrend</guilabel></term>
+<listitem><para>Bejelölése esetén a több-bájtos típusok szerinti értékek
+"little endian" módszer szerint kerülnek kiszámításra. Ez az ábrázolási módszer
+például az x86 és az Alpha processzorokra jellemző. Ezen módszer szerint
+az első bájt jelöli az ábrázolt érték legkisebb értékű részét: 0a 4e = 0x4e0a =
+19978. Ha nincs bejelölve az opció, akkor a több-bájtos típusok szerinti értékek
+"big endian" módszer alapján kerülnek kiszámításra. Ez a kódolás például a PowerPC és
+a Sparc processzorokra jellemző. Ebben az esetben: 0a 4e = 0x0a4e = 2638.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Az előjel nélküli számok hexadecimálisként mutatása</guilabel></term>
+<listitem><para>Bejelölése esetén az előjel nélküli típusok hexadecimális formátumban
+lesznek megjelenítve (nem pedig decimálisban).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>A folyam (stream) hossza</guilabel></term>
+<listitem><para>Meghatározza, hogy a felette levő mezőkben megjelenő értékek
+hány bit alapján legyenek kiszámítva.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="status-bar">
+<title>Állapotsor</title>
+
+<para>Az állapotsor a következő információkat jeleníti meg:</para>
+
+<variablelist>
+<varlistentry>
+<term>Kódolás</term>
+<!-- fix this -->
+<listitem><para>Ha nincs kijelölés, akkor az aktuális kódolást jeleníti meg.
+(További információ: <link linkend="view-encoding"><menuchoice> <guimenu>Nézet</guimenu>
+<guimenuitem>Dokumentumkódolás</guimenuitem> </menuchoice></link>.)
+Ha van kijelölés, akkor a kijelölés kezdőpontja és mérete kerül itt
+megjelenítésre.</para></listitem> </varlistentry>
+
+<varlistentry>
+<term>Fájl módosítva</term>
+<listitem><para>Egy <computeroutput>!</computeroutput> jelzi, ha az aktuális fájl
+módosításra került.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Beszúrás/Felülírás</term>
+<listitem><para>Jelzi, hogy a begépelt értékek a kurzorpozícióhoz történő
+beszúrásra kerülnek (<guilabel>INS</guilabel>), vagy felülírják a meglevő adatokat
+a kurzorpozíciótól kezdődően (<guilabel>OVR</guilabel>).
+Használja az <keycap>Insert</keycap> billentyűt a két mód közt való váltásra.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Méret</term>
+<listitem><para>Megjeleníti az aktuális dokumentum teljes méretét.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Pozíció</term>
+<listitem><para>Jelzi a kurzor dokumentumon belüli pozícióját.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Megjelenítési mód</term>
+<listitem><para>Jelzi az adatszerkesztőablak által használt megjelenítési formátumot:
+hexadecimális, decimális, oktális, bináris vagy szöveg. Az üzemmódok közt a
+Nézet menü segítségével lehet váltani.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Írásvédelem</term>
+<listitem><para>Jelzi, hogy a dokumentum szerkeszthető-e (<guilabel>OÍ</guilabel>)
+vagy csak olvasás engedélyezett (<guilabel>O</guilabel>).
+A két üzemmód közt az eszköztár jobb szélén levő gombbal lehet váltani, illetve
+a <guimenu>Fájl</guimenu> menü <guimenuitem>Jogosultságok</guimenuitem>
+funkciójával.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title>Készítők és licenc</title>
+
+<para>
+&khexedit;
+</para>
+
+<para>Program copyright 1999-2000 Espen Sand
+<email>espensa@online.no</email></para>
+
+<para>A fejlesztéshez hozzájárultak:</para>
+
+<itemizedlist>
+<listitem><para>Leon Lessing <email>leon@irlabs.com</email></para></listitem>
+<listitem><para>Craig Graham
+<email>c_graham@hinge.mistral.co.uk</email></para></listitem>
+<listitem><para>Dima Rogozin
+<email>dima@mercury.co.il</email></para></listitem>
+<listitem><para>Edward Livingstone-Blade
+<email>sbcs@bigfoot.com</email></para></listitem>
+</itemizedlist>
+
+<para>Dokumentáció copyright 2000 Jonathan Singer
+<email>jsinger@leeta.net</email></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title>Lefordítás és telepítés</title>
+
+<para>A &khexedit; a kdeutils csomag része; a lefordítása illetve
+telepítése a csomag főkönyvtárában található információk alapján
+végzendő.
+A kdeutils új verziói a következő címen szerezhetők meg:
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde</ulink>.
+A &khexedit; lefordítása és telepítése a következőképpen végezhető:</para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>cd</command> <filename>kdeutils/khexedit</filename></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>su</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command> <option>install</option></userinput>
+</screen>
+
+</appendix>
+
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

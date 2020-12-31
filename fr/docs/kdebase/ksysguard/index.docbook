@@ -1,0 +1,611 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ksysguard;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Le manuel de &ksysguard;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Chris</firstname
+> <surname
+>Schlaeger</surname
+> <affiliation
+> <address
+><email
+>cs@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Chris</firstname>
+<surname
+>Schlaeger</surname>
+<affiliation>
+<address
+><email
+>cs@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Développeur</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Relecteur</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Philippe</firstname
+><surname
+>Guilbert</surname
+><affiliation
+><address
+><email
+>guilbertph@wanadoo.fr</email
+></address
+></affiliation
+><contrib
+>Traduction française</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Chris Schlaeger</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract
+><para
+>&ksysguard; est une application de gestion de tâches avec fonctionnalités réseau et une application de surveillance système avec les fonctionnalités supplémentaires de <application
+>top</application
+></para
+></abstract
+> 
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KSysGuard</keyword>
+<keyword
+>Surveillance de processus</keyword>
+<keyword
+>top</keyword>
+<keyword
+>ps</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<para
+>&ksysguard; prend en charge la gestion des tâches et la surveillance des performances de KDE. Il présente une architecture client-serveur qui permet la surveillance aussi bien d'un hôte local que d'un hôte distant. L'interface graphique utilise ce qu'on appelle des mesures pour retrouver l'information qu'elle affiche. Une mesure peut retourner des valeurs simples ou plus complexes comme des tables. Pour chaque type d'information, un ou plusieurs modes d'affichage sont proposés. Les modes d'affichage sont organisés en feuilles de données qui peuvent être enregistrées et appelées indépendamment les unes des autres. &ksysguard; n'est donc pas seulement un gestionnaire de tâches, c'est aussi un outil de contrôle très puissant pour de large batteries de serveurs.</para>
+
+</chapter>
+
+
+<chapter id="usingtheksysguard">
+<title
+>Utilisation de &ksysguard;</title>
+
+<sect1 id="gettingstarted">
+<title
+>Démarrage</title>
+
+<para
+>&ksysguard; peut être lancé à partir du menu de démarrage, en utilisant l'entrée <guimenuitem
+>Surveillance du système</guimenuitem
+> dans le menu <guimenu
+>Système</guimenu
+>. Sinon, vous pouvez lancer le programme en saisissant <command
+>ksysguard</command
+> dans un terminal.</para>
+
+<para
+>La fenêtre principale de &ksysguard; se compose d'une barre de menus, d'une barre d'outils optionnels, d'une barre de statuts, de la liste des mesures et de l'espace de travail. Lorsque vous lancerez le programme pour la première fois, vous observerez que votre machine apparaît en tant que <guilabel
+>localhost</guilabel
+> dans la liste des mesures et qu'il y a 2 pages disponibles dans l'espace de travail. C'est la configuration par défaut.</para>
+
+<para
+>Cette configuration par défaut est suffisante pour permettre à un utilisateur inexpérimenté de gérer n'importe quel système. Un utilisateur expérimenté ou l'administrateur système d'un large parc d'ordinateurs a des besoins différents. Afin de répondre aux besoins d'un large public, &ksysguard; est extrêmement flexible.</para>
+</sect1>
+
+<sect1 id="the-sensor-browser">
+<title
+>La liste des mesures</title>
+
+<para
+>La liste des mesures affiche les hôtes répertoriés et leurs mesures sous forme d'arborescence. Cliquez sur les poignées de l'arborescence pour ouvrir ou fermer une sous-arborescence.  Chaque mesure surveille une certaine valeur du système.</para>
+
+<sect2 id="connectingtootherhosts">
+<title
+>Connexion à d'autres hôtes</title>
+
+<para
+>Pour se connecter à un nouvel hôte, utiliser <guimenuitem
+>Se connecter à l'hôte</guimenuitem
+> dans le menu <guimenu
+>Fichier</guimenu
+>. Une boîte de dialogue apparaît alors afin de vous permettre de saisir le nom de l'hôte auquel vous souhaitez vous connecter. Au-dessous du nom, vous pouvez choisir la méthode de connexion. Par défaut, il s'agit de <application
+>ssh</application
+>, le shell sécurisé. Le shell distant <application
+>rsh</application
+> peut également être utilisé. Cliquez sur <guibutton
+>OK</guibutton
+> pour établir la connexion. Peu après, le nouvel hôte apparaît dans la liste et vous pouvez parcourir la liste de ses mesures.</para>
+
+<para
+>Pour établir une connexion, un programme dénommé <application
+>ksysguardd</application
+> est lancé sur le nouvel hôte. Ce programme doit être installé sur la machine et doit être référencé dans le <envar
+>PATH</envar
+>. Malheureusement, ssh n'édite pas votre fichier <filename
+>.profile</filename
+>, votre configuration actuelle du <envar
+>PATH</envar
+> ne sera donc pas disponible. Il utilise à la place un <envar
+>PATH</envar
+> par défaut, comme <parameter
+>/bin:/usr/bin</parameter
+>. Comme KDE n'est sans doute pas installé dans ces dossiers, vous aurez besoin de créer et de mettre à jour un fichier dans votre dossier home. Ce fichier se nomme <filename
+>environment</filename
+> et doit être placé dans un dossier caché appelé <filename
+>.ssh</filename
+>. Voir la page du manuel sur <application
+>ssh</application
+> pour plus de détails. Le fichier doit contenir une ligne qui ressemble à celle qui suit&nbsp;:</para>
+
+<screen>
+<userinput
+>PATH=/bin:/usr/bin:/opt/kde2/bin</userinput>
+</screen>
+
+<para
+>en supposant que <application
+>ksysguardd</application
+> puisse être trouvé dans <filename
+>/opt/kde2/bin/ksysguardd</filename
+>.</para>
+
+<note
+><para
+>Pour les experts&nbsp;: <application
+>ksysguardd</application
+> est un tout petit programme qui ne dépend que de libc. Il peut ainsi être utilisé sur des machines où KDE n'a pas été installé en totalité,comme par exemple des serveurs. Si vous choisissez l'option de commande personnalisée dans la fenêtre de connexion à un nouvel hôte, vous devrez spécifier la commande complète pour démarrer <application
+>ksysguardd</application
+>.</para
+></note>
+
+<tip
+><para
+>Si vous utilisez <application
+>ssh</application
+>, vous devez vous assurer que votre identity.pub est installé sur la machine distante et que la clef d'hôte de la machine distante est déjà enregistrée sur votre machine. La manière la plus simple de vérifier est de saisir <command
+>ssh <option
+>remotehost ksysguardd</option
+></command
+> dans un terminal. Si vous lisez <application
+>ksysguardd</application
+>, vous pouvez alors saisir <userinput
+>quit</userinput
+> et tout est en ordre.</para
+></tip>
+</sect2>
+
+<sect2 id="disconnecting-hosts">
+<title
+>Se déconnecter de l'hôte</title>
+
+<para
+>Pour se déconnecter d'un hôte, sélectionnez les hôtes dans la liste des mesures et choisissez <guimenuitem
+>Se déconnecter de l'hôte</guimenuitem
+> dans le menu <guimenu
+>Fichier</guimenu
+>. Au cas où vous auriez encore des mesures en cours, les cadres de l'affichage apparaîtront grisés et les données ne seront plus mises à jour.</para>
+</sect2>
+</sect1>
+
+<sect1 id="the-workspace">
+<title
+>L'espace de travail</title>
+
+<para
+>L'espace de travail est organisé en feuilles de données. Sélectionnez <guimenuitem
+>Nouveau</guimenuitem
+> dans le menu <guimenu
+>Fichier</guimenu
+> pour créer une nouvelle feuille de données. Une boîte de dialogue apparaîtra alors dans laquelle vous pourrez indiquer le nom et la dimension de la feuille de données. Pour supprimer une feuille de données, sélectionnez <guimenuitem
+>Fermer</guimenuitem
+> dans le menu <guimenu
+>Fichier</guimenu
+>. Toutes les modifications seront enregistrées dans le fichier de la feuille de données. Si la feuille de données n'a jamais été enregistrée, on vous demandera de lui donner un nom. Les feuilles de données sont composées de cellules présentées sous forme de grille.</para>
+
+<para
+>Chaque cellule peut afficher une ou plusieurs mesures. Vous pouvez remplir une cellule en glissant-déposant une mesure à partir de la liste des mesures dans une cellule. Dans les cas où il y a plus d'un mode d'affichage disponible pour le type de mesure sélectionné, une fenêtre de dialogue apparaît. Vous pouvez alors sélectionner le mode d'affichage que vous préférez utiliser. Certains modes d'affichage peuvent montrer plus d'une mesure. Ajoutez des mesures supplémentaires à un mode d'affichage en glissant-déposant ces mesures à partir de la liste des mesures dans l'affichage existant.</para>
+
+<para
+>Les affichages peuvent être configurés en cliquant dessus avec le bouton droit de la souris. Une fenêtre de dialogue apparaît, dans laquelle vous pouvez choisir soit de modifier les propriétés de l'affichage sélectionné, soit de le supprimer de la feuille de données.</para>
+
+<sect2 id="signal-plotter">
+<title
+>Traceur</title>
+
+<para
+>Le traceur affiche les niveaux d'une ou plusieurs mesures sur la durée. Dans les cas où plusieurs mesures sont affichées en même temps, les niveaux sont affichées de différentes couleurs. Si l'affichage est suffisamment grand, une grille sera affichée afin de montrer la valeur des niveaux tracés. Si vous paramétrez les valeurs maximum et minimum sur 0 dans la boîte de dialogue des propriétés, le traceur fonctionnera en mode automatique. Sinon, ce sont les valeurs spécifiées qui seront utilisées.</para>
+</sect2>
+
+<sect2 id="multimeter">
+<title
+>Multimètre</title>
+
+<para
+>Le multimètre affiche les niveaux de mesure sous forme de multimètre numérique. Dans la boîte de dialogue des propriétés, vous pouvez spécifier les valeurs maximum et minimum. Dans les cas où la limite est dépassée, l'affichage apparaît en rouge et un message d'alarme est affiché.</para>
+</sect2>
+
+<sect2 id="process-controller">
+<title
+>Contrôleur de processus</title>
+
+<para
+>Le contrôleur de processus vous donne une liste des processus de votre système. La liste peut être triée par colonne. Il suffit de cliquer sur l'en-tête de la colonne choisie avec le bouton gauche de la souris.  </para>
+
+<para
+>La liste affiche les informations suivantes pour tout processus. Veuillez noter que toutes ces propriétés ne sont pas disponibles sur tous les systèmes d'exploitation.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PID</guilabel
+></term
+> <listitem
+><para
+>L'<abbrev
+>ID</abbrev
+> du processus. Un chiffre unique pour chaque processus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nom</guilabel
+></term
+> <listitem
+><para
+>Le nom de l'exécutable qui a lancé le processus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>UID</guilabel
+></term
+> <listitem
+><para
+>Le login de l'utilisateur qui a lancé le processus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>CPU</guilabel
+></term
+> <listitem
+> <para
+>La charge du processeur liée au processus (exprimée en pourcentage).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Temps</guilabel
+></term
+> <listitem
+><para
+>Le cumul du temps total d'exécution du processus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nice</guilabel
+></term
+> <listitem
+><para
+>L'indice de priorité du processus. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Statut</guilabel
+></term
+> <listitem
+><para
+>L'état du processus. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>VmSize</guilabel
+></term
+> <listitem
+><para
+>L'espace total de mémoire (en Kilo-octets) utilisé par le processus. Cela inclut la mémoire partagée.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>VmRss</guilabel
+></term
+> <listitem
+><para
+>L'espace total de mémoire physique (en kilo-octets) utilisé par le processus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>VmLib</guilabel
+></term
+> <listitem
+><para
+>L'espace total de mémoire (en kilo-octets) que le processus partage avec d'autres processus.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Sous le tableau, vous trouverez quatre boutons que nous allons décrire de gauche à droite.</para>
+
+<sect3 id="thetreeview">
+<title
+>L'<guibutton
+>Arborescence</guibutton
+></title>
+
+<para
+>L'arborescence est destinée à montrer les rapports entre les processus exécutés. Un processus qui est exécuté par un autre processus est appelé l'enfant de ce dernier processus. Une arborescence est une manière élégante de montrer les rapports parent-enfant entre les processus. Le processus <emphasis
+>init</emphasis
+> est leur ancêtre à tous.</para>
+
+<para
+>Si vous ne vous intéressez pas aux enfants d'un processus particulier, cliquez sur la petite case à gauche du parent et la sous-arborescence disparaîtra. Un autre clic sur cette même case déploiera à nouveau la sous-arborescence.</para>
+
+</sect3>
+
+<sect3 id="theprocessfilter">
+<title
+>Le filtre de processus </title>
+
+<para
+>Le filtre de processus peut être utilisé pour réduire le nombre de processus affichés dans le tableau. Vous pouvez filtrer les processus qui ne vous intéressent pas. Vous pouvez afficher tous les processus, seulement les processus système, les processus utilisateurs ou bien vos propres processus.</para>
+
+</sect3>
+
+<sect3 id="thepausebutton">
+<title
+>La case à cocher <guibutton
+>Pause</guibutton
+></title>
+
+<para
+>Cochez la case <guibutton
+>pause</guibutton
+>, si vous voulez interrompre la mise à jour automatique de la liste des processus.</para>
+</sect3>
+
+<sect3 id="therefreshbutton">
+<title
+>Le bouton <guibutton
+>Rafraîchir</guibutton
+> </title>
+
+<para
+>Ce bouton peut être utilisé pour forcer une mise à jour immédiate de la liste des processus.</para>
+
+</sect3>
+
+<sect3 id="thekillbutton">
+<title
+>Le bouton <guibutton
+>Tuer</guibutton
+> </title>
+
+<para
+>Si vous avez sélectionné un ou plusieurs processus, vous pouvez les tuer en appuyant sur le bouton Tuer. Un signal SIGKIL est envoyé aux processus, ce qui les force à se terminer immédiatement. Si ces applications possèdent des données non enregistrées, ces données sont perdues. Il faut donc utiliser ce bouton avec précaution.</para>
+
+</sect3>
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>Remerciements et licences</title>
+
+<para
+>&ksysguard; est développé et maintenu par Chris Schlüger<email
+>cs@kde.org</email
+>. &ksysguard; est une réécriture de <application
+>KTop</application
+>, le gestionnaire de tâches pour KDE 1.x. Plusieurs autres personnes ont travaillé sur <application
+>KTop</application
+>&nbsp;:</para>
+
+<itemizedlist
+> <listitem
+><para
+> A. Sanda <email
+>alex@darkstar.ping.at</email
+></para
+></listitem
+> <listitem
+><para
+> Ralf Mueller <email
+>ralf@bj-ig.de</email
+></para
+></listitem
+> <listitem
+><para
+> Bernd Johannes Wuebben <email
+>wuebben@math.cornell.edu</email
+></para
+></listitem
+> <listitem
+><para
+> Nicolas Leclercq <email
+>nicknet@planete.net</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Le portage sur des plateformes autres que Linux a été réalisé par&nbsp;:</para>
+
+<itemizedlist
+> <listitem
+><para
+> FreeBSD&nbsp;: Hans Petter Bieker &lt;zerium@traad.lavvu.no&gt;</para
+></listitem
+> </itemizedlist>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="howtoobtainksysguard">
+<title
+>Comment obtenir &ksysguard;</title>
+
+<para
+>&ksysguard; fait partie du projet KDE <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>.  &ksysguard; peut être trouvé sur <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, le site ftp principal du projet KDE.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Configuration requise</title>
+
+<para
+>Pour réussir à compiler &ksysguard;, vous avez besoin de KDE 2.0 et de Qt 2.2.x.  Toutes les librairies requises ainsi que &ksysguard; lui-même peuvent être trouvés à l'adresse suivante&nbsp;: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.  </para>
+
+<para
+>L'interface graphique est disponible sur toutes les plateformes supportant KDE. Cette interface est pour le moment disponible pour différentes déclinaisons d'UNIX&nbsp;:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Linux 2.x</term
+> <listitem
+><para
+> Pour faire fonctionner &ksysguard; il est nécessaire de compiler le noyau Linux avec le système de fichiers <filename
+>/proc</filename
+> activé. C'est la configuration par défaut la plus courante et la plupart des distributions Linux la possède.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>FreeBSD</term
+> <listitem
+><para
+>Le programme &ksysguard; doit faire partie du groupe kmem et son bit "setgid" doit être activé.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Le support pour d'autres plateformes est en préparation. Votre aide serait grandement appréciée.</para>
+
+</sect1>
+
+<sect1 id="compilationandinstallation">
+<title
+>Compilation et installation</title>
+
+<para
+>Afin de compiler et d'installer &ksysguard; sur votre système, saisissez les commandes suivantes dans le dossier de base de la distribution de kdeutils&nbsp;:</para>
+<screen>
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen>
+
+<para
+>Si vous deviez rencontrer des difficultés, rapportez-les sur les listes de diffusion de KDE.</para>
+
+</sect1>
+
+</appendix>
+
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

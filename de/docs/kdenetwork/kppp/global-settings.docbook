@@ -1,0 +1,482 @@
+<chapter id="global-settings">
+<title
+></title>
+
+<para
+></para>
+
+<sect1 id="global-accounts">
+<title
+></title>
+
+<screenshot
+> <screeninfo
+></screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kppp-config.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+></phrase
+> </textobject
+> <caption
+><para
+></para
+> </caption
+> </mediaobject
+> </screenshot>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+</sect1>
+
+<sect1 id="global-device">
+<title
+></title>
+
+<screenshot
+> <screeninfo
+></screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kppp-device-tab.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+></phrase
+> </textobject
+> <caption
+><para
+></para
+> </caption
+> </mediaobject
+> </screenshot>
+
+<para
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Modemgerät</guilabel
+></term
+> <listitem
+> <para
+>Wählen Sie das passende Gerät für Ihre Hardware. Hier sind einige Beispiele:</para
+> <variablelist
+> <varlistentry
+> <term
+><filename
+></filename
+></term
+> <listitem
+> <para
+><emphasis
+>/dev/ttyS0</emphasis
+> - DOS oder Windows Benutzer kennen dies als COM1, COM2 ist /dev/ttyS1 und so weiter. Diese Geräte werden hauptsächlich unter Linux benutzt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><filename
+></filename
+></term
+> <listitem
+> <para
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><filename
+></filename
+></term
+> <listitem
+> <para
+><emphasis
+>/dev/ttyI0</emphasis
+> - unter Linux gehört dieses zu internen ISDN-Karten. Diese Geräte emulieren ein gewöhnliches Hayes-kompatibles Modem. /dev/ttyI0 ist die erste, /dev/ttyI1 die zweite ISDN-Karte usw. Diese Geräte sind nur in der Linux Version vorhanden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><filename class="symlink"
+></filename
+></term
+> <listitem
+> <para
+><emphasis
+>/dev/modem</emphasis
+> - viele Linuxdistributionen erstellen einen symbolischen Link vom realen Modemgerät zu /dev/modem. <emphasis
+>Sie sollten es vermeiden, diesen Link zu benutzen.</emphasis
+> Verwenden Sie besser /dev/ttySx (x ist eine Zahl).</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Flusskontrolle</guilabel
+></term
+> <listitem
+> <para
+>Wählen Sie aus Hardware- (CRTSCTS), Software- (XON/XOFF) und keiner Flusskontrolle. Die empfohlene Einstellung ist Hardware-Flusskontrolle.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zeilenende</guilabel
+></term
+> <listitem
+> <para
+>Wählen Sie die richtige ``Enter''-Zeichenfolge für Ihr Modem. Die meisten Modems nutzen ``CR/LF''. Trotzdem benötigen manche Modems eine andere Einstellung. Falls bei Ihnen Probleme beim Ablauf eine Skripts auftreten: Spielen Sie mit diesem Parameter herum.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Geschwindigkeit</guilabel
+></term
+> <listitem
+><para
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term id="lock-files"
+><guilabel
+>Sperrdatei verwenden</guilabel
+></term
+> <listitem
+> <para
+>Aktivieren Sie diese Option, wenn Kppp eine Sperrdatei erstellen soll. Unter Linux wird diese Datei in <literal
+>/var/lock</literal
+> erstellt. Programme wie <emphasis
+>mgetty</emphasis
+> bestehen auf der Existenz solcher Sperrdateien und <emphasis
+>Kppp</emphasis
+> arbeitet nicht mit <emphasis
+>mgetty</emphasis
+>, wenn die Sperrdatei nicht verwendet wird. Stellen Sie sicher, dass Sie nicht die Option ``lock'' bei <emphasis
+>pppd</emphasis
+> nutzen, falls <emphasis
+>Kppp</emphasis
+> die Modemsperrung übernimmt, da die Option ``lock'' <emphasis
+>pppd</emphasis
+> dazu bringt, selbst das Modemgerät sperren zu wollen. Da <emphasis
+>Kppp</emphasis
+> dann bereits das Modem gesperrt hat, scheitert <emphasis
+>pppd</emphasis
+> und <emphasis
+>Kppp</emphasis
+> wird sich mit ``pppd died unexpectedly'' melden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Modem-Wartezeit</guilabel
+></term
+> <listitem
+> <para
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="global-modem">
+<title
+></title>
+
+<screenshot
+> <screeninfo
+></screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kppp-modem-tab.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+></phrase
+> </textobject
+> <caption
+><para
+></para
+> </caption
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+></guilabel
+></term
+> <listitem
+> <para
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Modemprofile</guilabel
+></term
+> <listitem
+> <para
+></para
+> </listitem
+> </varlistentry
+> <varlistentry id="modem-commands"
+> <term
+><guibutton
+>Modembefehle</guibutton
+></term
+> <listitem
+> <para
+>Damit kommen Sie in einen Dialog, den Sie mit den passenden Modembefehlen für Ihr Modem ausfüllen müssen. Falls Sie ein Hayes-kompatibles Modem besitzen, müssen Sie wahrscheinlich die Standardeinstellungen nicht ändern. Ich empfehle Ihnen aber trotzdem den Abschnitt über Hayes-Befehle im Anhang dieser Dokumentation zu lesen. Die dort gebotenen Informationen sollten auch von Hilfe sein für den Fall, dass Sie auf Probleme bei der Einstellung einer stabilen Verbindung zu Ihrem ISP stoßen. Die zwei Einstellungen "Pre-Init Verzögerung" und "Post-Init Verzögerung" könnten von besonderem Interesse sein, wenn Sie Modem lock-ups testen. Diese Optionen veranlassen <emphasis
+>Kppp</emphasis
+> dazu, vor und nach dem Senden des Init-Strings kurz anzuhalten. Die "Pre-Init-Verzögerung" wird durch Senden eines CR abgeschlossen, wenn nicht als Verzögerungsintervall 0 eingestellt wurde.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Modemabfrage</guibutton
+></term
+> <listitem
+> <para
+>Auf Betätigung des <emphasis
+>Modemabfrage</emphasis
+>-Knopfs hin befragt <emphasis
+>Kppp</emphasis
+> Ihr Modem nach seiner Identifikation. Bei Erfolg wird die Antwort Ihres Modems in einem Dialog dargestellt. Das kann, abhängig von Ihrem Modem, mehr oder weniger informativ sein.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Terminal</guibutton
+></term
+> <listitem
+> <para
+>Durch Betätigung des <emphasis
+>Terminal</emphasis
+>-Knopfs wird ein Miniterminal gestartet. Sie können das Miniterminal benutzen, um Ihr Modem zu testen, und mit dem Anmeldeprotokoll für eine PPP-Verbindung mit Ihrem ISP zu experimentieren. Sie benötigen nicht länger ein Terminalprogramm wie <emphasis
+>Minicom</emphasis
+> oder <emphasis
+>Seyon</emphasis
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="global-graph">
+<title
+></title>
+
+<screenshot
+> <screeninfo
+></screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kppp-graph-tab.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+></phrase
+> </textobject
+> <caption
+><para
+></para
+> </caption
+> </mediaobject
+> </screenshot>
+
+<para
+></para>
+
+</sect1>
+
+<sect1 id="global-misc">
+<title
+></title>
+
+<screenshot
+> <screeninfo
+></screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kppp-misc-tab.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+></phrase
+> </textobject
+> <caption
+><para
+></para
+> </caption
+> </mediaobject
+> </screenshot>
+
+<para
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>% pppd --version</guilabel
+></term
+> <listitem
+> <para
+>+ua</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>pppd-Wartezeit</guilabel
+></term
+> <listitem
+> <para
+><emphasis
+>Kppp</emphasis
+> wartet diese Zeit nach dem Ablauf des Skripts und dem Start von <emphasis
+>pppd</emphasis
+>, bis <emphasis
+>pppd</emphasis
+> eine gültige PPP-Verbindung aufgebaut hat, bevor es aufgibt und <emphasis
+>pppd</emphasis
+> beendet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+></guilabel
+></term
+> <listitem
+> <para
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Automatische Neuwahl nach Trennung</guilabel
+></term
+> <listitem
+> <para
+>Diese Auswahl bewirkt, dass <emphasis
+>Kppp</emphasis
+> versucht, sich erneut zu verbinden, falls Sie unabsichtlich getrennt werden während Sie online sind.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zeige Verbindungsdauer im Fenstertitel</guilabel
+></term
+> <listitem
+> <para
+>Damit zeigt <emphasis
+>Kppp</emphasis
+> die Verbindungszeit im Titel des <emphasis
+>Kppp</emphasis
+>-Fensters während Sie online sind an.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Trennen bei Schließen des X-Servers</guilabel
+></term
+> <listitem
+> <para
+>Die Aktivierung dieser Option bewirkt, dass <emphasis
+>Kppp</emphasis
+> die PPP-Verbindung beendet, das Modem auflegen lässt und die Gebührenzählung in ordentlicher Weise beendet, wenn der <emphasis
+>X-Server</emphasis
+> beendet wird. Das ist nützlich, falls sie immer wieder vergessen, <emphasis
+>Kppp</emphasis
+> vor Beenden des <emphasis
+>X-Servers</emphasis
+> zu schließen, oder falls Sie sich einfach keine Sorgen über das Trennen Ihrer Verbindung machen möchten. Falls Sie nicht möchten, dass <emphasis
+>Kppp</emphasis
+> das Modem bei Beenden des <emphasis
+>X-Servers</emphasis
+> auflegen lässt, sollten Sie diese Option nicht aktivieren. Denken Sie aber daran, dass Sie bei eingeschalteter Gebührenzählung einen nicht beendeten Gebühreneintrag in Ihrer Gebührenabrechnung haben werden, wenn der <emphasis
+>X-Server</emphasis
+> sich und damit<emphasis
+>Kppp</emphasis
+> beendet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Automatische Neuwahl nach Trennung</guilabel
+></term
+> <listitem
+> <para
+>+ua</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Minimiere Fenster nach dem Verbinden</guilabel
+></term
+> <listitem
+> <para
+>Das <emphasis
+>Kppp</emphasis
+>-Fenster wird nach dem Aufbau einer Verbindung minimiert. Die verstrichene Verbindungszeit wird in der Programmleiste angezeigt.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="global-about">
+<title
+></title>
+
+<para
+></para>
+
+</sect1>
+
+</chapter>
+

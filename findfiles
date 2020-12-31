@@ -1,0 +1,35 @@
+#! /usr/local/bin/bash
+
+if test -z "$1"; then
+  echo "call: $0 <filename>"
+  exit
+fi
+
+filelist=$1
+
+ml="kdeadmin kdebase kdegames kdegraphics kdelibs kdemultimedia kdenetwork kdenonbeta kdesdk kdesupport kdetoys kdeutils koffice kde-i18n kdepim kdeaddons kdeartwork"
+
+for dir in $ml; do 
+  if test -d $dir; then
+    MODULES="$MODULES $dir"
+  fi
+done
+find $MODULES -name ".directory" -print > $filelist
+find $MODULES -name "*.kdelnk" -print >> $filelist
+find $MODULES -name "*.desktop" -print >> $filelist
+find $MODULES -name "*.kimap" -print >> $filelist
+find $MODULES -name "*.themerc" -print >> $filelist
+find $MODULES -name "*.kcsrc" -print >> $filelist
+find kdebase/konqueror -name "directory.*" -print >> $filelist
+find kdebase/kdesktop -name "directory.*" -print >> $filelist 
+find kdebase/drkonqi -name "*rc" -print >> $filelist
+find $MODULES -name "eventsrc" -print >> $filelist
+find kdelibs/kimgio -name *.kimgio -print >> $filelist
+find kdemultimedia/noatun -name *.plugin -print >> $filelist
+find kdetoys/amor/data -name *rc -print >> $filelist
+find kdelibs/kdeprint -name *.print -print >> $filelist
+find kdebase -name *.kksrc -print >> $filelist
+
+sortedfile=`tempfile`
+sort -u $filelist > $sortedfile && mv $sortedfile $filelist
+

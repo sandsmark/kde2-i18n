@@ -1,0 +1,1016 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kreversi;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Danish "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>&kreversi; håndbog</title>
+
+<authorgroup>
+
+<author
+> <firstname
+>Clay</firstname
+> <surname
+>Pradarits</surname
+> <affiliation
+> <address
+><email
+>gasky@winfire.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Mario</firstname>
+<surname
+>Weilguni</surname>
+<affiliation>
+<address
+><email
+>mweilguni@sime.com</email
+></address
+></affiliation>
+<contrib
+>Udvikler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<contrib
+>Tester</contrib>
+<affiliation
+><address
+><email>
+vampyr@atconnex.net
+</email
+></address
+></affiliation>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+
+</authorgroup>
+
+<date
+>2000-12-16</date>
+<releaseinfo
+>1.02.01</releaseinfo>
+
+<abstract
+><para
+>&kreversi; er et simpelt enkeltspiller strategispil.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>spil</keyword>
+<keyword
+>KReversi</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Indledning</title>
+
+<sect1 id="what-is-kreversi">
+<title
+>Hvad er &kreversi;?</title>
+
+<para
+>&kreversi; er et simpelt enkeltspiller strategispil spillet mod computeren. Spillefeltet er et 8 gange 8 kvadratisk bræt delt op i 64 felter. Spilbrikken der bruges er en farvet sten - en side er rød, den anden blå. Hvis en brik fanges af modspilleren, vendes brikken og får denne spillers farve. En vinder erklæres når én spiller har flere brikker end den anden og der ikke er flere mulige træk.</para>
+
+</sect1>
+
+<sect1 id="object-of-the-game">
+<title
+>Spillets formål</title>
+
+<para
+>Spillets formål er at kontrollere flertallet af felterne på brættet.</para>
+
+</sect1>
+</chapter>
+
+
+
+<chapter id="Playing">
+<title
+>Spillet</title>
+
+<sect1 id="basics"
+>                 
+<title
+>Det grundlæggende</title>
+
+<para
+>Et træk består i at omringe din modstanders brik(ker), og så vende de omringede brikker så de får din farve. Et træk udføres ved at placere musemarkøren på et felt og så klikke med &LMB;.</para
+> 
+
+<para
+>At omringe betyder at placere en brik på brættet, så din modstanders række(r) af brik(ker) har en af dine brikker for hver ende. En række kan bestå af én eller flere brikker.</para>
+
+<para
+>Når spillet starter har hver spiller to brikker autmatisk placerede i de midterste fire felter i følgende mønster:</para>
+
+<screenshot
+> <screeninfo
+>&kreversi; åbningsposition</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kreversi1.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>&kreversi; åbningsposition</phrase
+></textobject
+> <caption
+><para
+>Brætudlægning</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Menulinien</interface
+></term
+> <listitem
+><para
+><interface
+>Menulinien</interface
+> indeholder fire valg af drop-ned menuer. De er <link linkend="file-menu"
+>Fil</link
+>, <link linkend="game-menu"
+>Spil</link
+>, <link linkend="settings-menu"
+>Opsætning</link
+>, og <link linkend="help-menu"
+>Hjælp</link
+>. &LMB; klik eller <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+> på det understregede bogstav</keycap
+></keycombo
+> for at vise drop-ned menuen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Værktøjslinien</interface
+></term
+> <listitem
+><para
+>Giver spilleren ikongenveje for de mest almindelige handlinger. Disse er <guiicon
+>Hold op med at tænke</guiicon
+>, <guiicon
+>Fortryd træk</guiicon
+>, <guiicon
+>Formindsk brættet</guiicon
+>, <guiicon
+>Gør brættet større</guiicon
+>, <guiicon
+>Få vink</guiicon
+> og <guiicon
+>Få hjælp</guiicon
+>. Placér musemarkøren over en af disse ikoner og &LMB; klik for at aktivere det.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Spillebræt</interface
+></term
+> <listitem
+><para
+>Spillebrættet består af et 8 gange 8 kvadratisk bræt delt op i 64 felter.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Statuslinien</interface
+></term
+> <listitem
+><para
+>Statuslinien indeholder nyttig information såsom hvis tur det er, hvilken farve der repræsenter hver spiller og antal felter som hver spiller kontrollerer på brættet.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="Rules">
+<title
+>Regler</title>
+
+<para
+>Blå trækker altid først.</para>
+
+<para
+>Hvis det er din tur og du ikke kan omringe mindst en af modstanderens brikker, så mister du din tur, og din modstander trækker igen. Hvis du har et muligt træk, har du ikke lov til at lade være med at trække.</para>
+
+<para
+>En brik kan omringe et vilkårligt antal brikker i en eller flere rækker, i alle retninger samtidigt - vandret lodret eller diagonalt. En række er defineret som en eller flere brikker i en kontinuert lige linie. </para>
+
+<para
+>Du må ikke hoppe over en brik af din egen farve for at omringe en modstanders brik.</para>
+
+<para
+>Brikker kan kun omringes som et direkte resultat af et træk, og må falde i den direkte linie af den brik der puttes ned på brættet.</para>
+
+<para
+>Alle brikker der omringes i et træk skal vendes, også selvom det er til spillerens fordel ikke at vende dem.</para>
+
+<para
+>Når en brik er placeret på et felt, kan den aldrig flyttes til et andet felt senere i spillet.</para>
+
+<para
+>Når det ikke længere er muligt for nogen spiller at trække, så er spillet forbi. Brikkerne tælkles op, og den der har flest erklæres som vinder.</para>
+
+<note
+><para
+>Det er muligt for et spil at være forbi før alle 64 felter er fyldte.</para
+></note>
+
+</sect1>
+
+<sect1 id="tips">
+<title
+>Vink</title>
+
+<para
+>Prøv at komme så tæt på kanten som muligt. Sådanne brikker kan ikke omringes af din modstander.</para>
+
+<para
+>Undgå at placere brikker på et af de tre nabofelter til et hjørne, med mindre du er helt sikker på at din modstander ikke kan placere en brik på selve hjørnet.</para>
+
+<para
+>Sommetider er det en fordel at lade din modstander få nogle brikker.</para>
+
+<para
+>Prøv at putte dine brikker på felter der forhindrer din modstander i at trække.</para>
+
+<para
+>Prøv at tvinge din modstander til at putte en brik på et nabofelt af et hjørne.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="user-interface">
+<title
+>Brugergrænseflade</title>
+
+<sect1 id="file-menu">
+<title
+><guimenu
+>Fil</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+><accel
+>N</accel
+>yt spil</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Starter et nyt spil.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>L</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndlæs spil</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Indlæser et gemt spil.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+><accel
+>G</accel
+>em spil</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Gemmer det aktuelle spil.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Afslutter</action
+> &kreversi;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="game-menu">
+<title
+><guimenu
+>Spil</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>pil</guimenu
+><guimenuitem
+>Få <accel
+>v</accel
+>ink</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Computeren vil give en hjælp til dit næste træk.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>Esc</keycap
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+><guimenuitem
+><accel
+>H</accel
+>old op med at tænke</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Standser computerens dybe søgning, og du vælger computerens næste træk.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>ortsæt</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Fortsætter spil.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>U</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+><guimenuitem
+><accel
+>F</accel
+>ortryd træk</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Fjerner dit sidste såvelsom computerens sidste træk fra brættet.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>pil</guimenu
+><guimenuitem
+>Byt Si<accel
+>d</accel
+>er</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Giver dig den modsatte farve.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>pil</guimenu
+><guimenuitem
+>Top<accel
+>r</accel
+>esultater...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Et nyt vindue kommer frem med en liste af de ti bedste resultater.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+><guimenu
+>Opsætnings</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>1-7</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guisubmenu
+>Evner</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Sætter sværhedsgraden </action
+> fra <guimenuitem
+>1</guimenuitem
+>, som er nemmest, til <guimenuitem
+>7</guimenuitem
+>, som er sværest. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+><guimenuitem
+><accel
+>F</accel
+>ormindsk bræt</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Reducerer brættet med tyve procent.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+><guimenuitem
+><accel
+>F</accel
+>orstør bræt</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Forøger brættets størrelse med tyve procent.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guisubmenu
+>Sæt størrelse</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Tillader dig at formindske eller forstørre spillebrættet.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vælg <accel
+>b</accel
+>aggrundsfarve... </guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Tillader dig at ændre baggrundsfarven.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guisubmenu
+>Vælg baggrundsbillede</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Tillader dig at vælge et baggrundsbillede.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>råskala</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Sætter farveopsætningen til gråskala.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>nimeringer</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Animerer brikkerne når de flippes rundt.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guisubmenu
+>Animeringshastighed</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Tillader dig at sætte animeringshastigheden,</action
+> med <guimenuitem
+>1</guimenuitem
+> som den hurtigste og <guimenuitem
+>10</guimenuitem
+> som den langsomste.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help-menu">
+<title
+><guimenu
+>Hjælpe</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndhold</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser hjælpedokumentationen </action
+> for &kreversi; (dette dokument.)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Hvad er <accel
+>d</accel
+>ette</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Når musemarkøren placeres over et punkt og &LMB; der klikkes vil <action
+>et hjælpe vindue åbnes der forklarer punktets funktion.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>H</accel
+>elp</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>apportér problem</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Rapporterer et problem til forfatteren.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>m KReversi</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser forfatter og version information.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser information om KDE versionen.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Medvirkende og licens</title>
+
+<para
+>Program ophavsret 1998-2000 Mario Weilguni</para>
+<para
+>Mats Luthman - Designer af flyttemaskinen.</para>
+
+<para
+>Oprindelig dokumentation af Mario Weilguni</para>
+<para
+>Redigeret af Robert Williams</para>
+
+<para
+>Dokumentation omskrevet og opdateret for KDE 2.0 af Clay Pradarits <email
+>gasky@winfire.com</email
+></para>
+
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+&underFDL;
+&underGPL;
+</chapter>
+
+<appendix id="Installation">
+<title
+>Installation</title>
+
+<para
+>&kreversi; er en del af KDE projektet <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kreversi; findes i kdegames pakken på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, som er hoved ftp-stedet for KDE projektet. </para>
+
+<sect1 id="compilation-and-installation">
+<title
+>Kompilering og installation</title>
+
+<para
+>For at kompilere og installere &kreversi; på dit system, skriv følgende i basismappen for KDE distributionen:</para>
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput
+></screen>
+
+<para
+>Da &kreversi; bruger <application
+>autoconf</application
+> og <application
+>automake</application
+> skulle du ikke have problemer med at kompilere den. Skulle du løbe ind i problemer, så rapportér dem venligst til KDE post listerne.</para>
+ 
+</sect1>
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+
+
+
+
+
+
+
+

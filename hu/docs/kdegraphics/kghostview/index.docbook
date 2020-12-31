@@ -1,0 +1,1237 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kghostview;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE"
+><!-- change language only here -->
+]>
+<book lang="&language;">
+
+<bookinfo>
+<title
+>A &kghostview; kézikönyve</title>
+<authorgroup>
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Pamela Roberts</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-07</date>
+<releaseinfo
+>0.12.00</releaseinfo>
+
+<abstract>
+<para
+>Ez a dokumentum a &kghostview; 0.12-es verziójának leírását tartalmazza.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Linux</keyword>
+<keyword
+>PostScript</keyword>
+<keyword
+>Ghostview</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Bevezetés</title>
+
+<para
+> A &kghostview; &PostScript; (<literal role="extension"
+>.ps</literal
+>, <literal role="extension"
+>.eps</literal
+>) és Portable Document Format (<literal role="extension"
+>.pdf</literal
+>) fájlok megjelenítésére és kinyomtatására alkalmas. Lényegében egy grafikus előtétprogram Tim Theisen <application
+>Ghostview</application
+> nevű alkalmazásához, mely egy megjelenítőprogram <trademark
+>Adobe</trademark
+> &PostScript; nyelvű dokumentumokhoz. A &PostScript; egy elterjedt oldalleíró nyelv &UNIX;-alapú nyomtatórendszerekhez. A &kghostview; elsődleges célja a nyomtatandó dokumentumok előképének kirajzolása és a dokumentumok megjelenítése olvasáshoz. </para>
+
+<para
+> A &kghostview; együtt tud működni a <application
+>Ghostscript</application
+> legtöbb új verziójával. Érdemes a lehető legújabb verziót használni, hogy a sebesség optimális legyen. </para>
+
+<para
+> Ha a dokumentum nem tesz eleget az <trademark class="registered"
+>Adobe</trademark
+> dokumentumszerkezeti előírásainak, akkor a program csökkentett funkcionalitással működik. Ha például hiányzik a tartalomjegyzék, akkor a dokumentumban nem lehet mozogni és oldalakat sem lehet kijelölni. </para>
+
+</chapter>
+
+
+<chapter id="fundamentals">
+<title
+>Az alapvető tudnivalók</title>
+
+<para
+> Ebben a részben ismertetjük a &kghostview; ablak főbb részeit, az eszköztár gombjait és az oldallista használatát. </para>
+
+<para
+> Egy &kghostview; példányban egyszerre csak egy dokumentum nyitható meg. Az ablak címsorában mindig megjelenik az aktuális dokumentum neve. </para>
+
+<para
+> Az eszköztár és a dokumentumban való navigálást segítő mezők elrejthetők a <link linkend="settings"
+>Beállítások</link
+> menüben, hogy nagyobb képernyőterület maradjon a dokumentum megjelenítéséhez. </para>
+
+<para
+> A középső részen látszik a dokumentum aktuális oldala. Ha az oldal túl nagy ahhoz, hogy kényelmesen elférjen az ablakban, automatikusan gördítősávok jelennek meg a széleken, bár ezt le lehet tiltani a <guimenu
+>Beállítások</guimenu
+> menüben. </para>
+
+<para
+> Egy oldalon belül a <keysym
+>felfelé</keysym
+> és <keysym
+>lefelé</keysym
+> nyilakkal lehet mozogni.</para
+> <para
+>Az eszköztár <guibutton
+>Következő oldal</guibutton
+> és <guibutton
+>Előző oldal</guibutton
+> gombjaival lehet a dokumentum oldalai között váltani. Ha a bal egérgombbal rákattint az oldallista egy elemére, az lesz az aktuális oldal. </para>
+
+<para
+> Ha az oldal nem jeleníthető meg egészen, mert túl magas, akkor a <guibutton
+>Görgetés felfelé</guibutton
+> és a <guibutton
+>Görgetés lefelé</guibutton
+> gombokkal lehet a dokumentum teljes hosszában mozogni. </para>
+
+<para
+> Ha bejelölte a megfelelő opciót a <guimenu
+>Beállítások</guimenu
+> menüben, akkor az oldallista megjelenik az ablak bal oldalán. A lista két oszlopból áll: az első a kijelöltséget mutatja (piros zászló = kijelöltség), a másodikban az oldalszám áll. Az oldallista segítségével könnyen rá lehet ugrani bármelyik oldalra, és ki lehet jelölni a nyomtatandó oldalakat. </para>
+
+<para
+> Az <quote
+>oldaljelölés</quote
+>; bebillentéséhez nyomja meg a <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>M</keycap
+></keycombo
+>-et vagy kattintson a középső egérgombbal az oldal számára. A jelölés eltávolításához, átbillentéséhez használja a jobb gombbal a listán belül bárhol előhívható felbukkanó menüt, vagy a menüsorból az <link linkend="pagemarks"
+>Oldalkijelölések</link
+> menüt. </para>
+
+</chapter>
+
+<chapter id="primary-menu-items">
+<title
+>A menük</title>
+
+<sect1 id="menufile">
+<title
+>A <guimenu
+>Fájl</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>egnyitás...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megnyit</action
+> egy dokumentumot. Ha van nyitott fájl, az automatikusan bezáródik.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+>Legutóbbi me<accel
+>g</accel
+>nyitása</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megnyit</action
+> egy dokumentumot a legutóbb használt fájlok listájából. Ha van nyitott fájl, az automatikusan bezáródik.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+>Mentés má<accel
+>s</accel
+>ként...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Elmenti</action
+> az aktuális fájl tartalmát.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>yomtatás...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kinyomtatja</action
+> az aktuális dokumentumot. A nyomtatási párbeszédablakban megadható, hogy csak a kijelölt oldalakat vagy az összeset kell-e nyomtatni.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+>Dokumentum<accel
+>j</accel
+>ellemzők...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megjeleníti</action
+> a dokumentum néhány fontos adatát.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>ilépés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Bezárja</action
+> a programot.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="view">
+<title
+>A <guimenu
+>Nézet</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Új<accel
+>r</accel
+>a megjelenítés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Újrarajzolja</action
+> az aktuális oldalt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Igazítás az <accel
+>o</accel
+>ldalszélességhez</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Olyan nagyítási tényezőt választ ki</action
+>, amellyel az oldal pontosan kitölti a rendelkezésre álló ablakszélességet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>ájolás</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megváltoztatja a lapok tájolását</action
+>. A választási lehetőségek: <guimenuitem
+>automatikus</guimenuitem
+>, <guimenuitem
+>álló</guimenuitem
+>, <guimenuitem
+>fekvő</guimenuitem
+>, <guimenuitem
+>fejjel lefelé</guimenuitem
+> és <guimenuitem
+>fekvő (balra)</guimenuitem
+> (ez olyan, mint a <guimenuitem
+>fekvő</guimenuitem
+>, csak másik irányba).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Papír<accel
+>m</accel
+>éret</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Úgy <action
+>alakítja át a nézetet</action
+>, mintha más lenne a papírméret (a méretarány nem változik). Általában érdemes az <guimenuitem
+>automatikus</guimenuitem
+>t választani.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; &Shift;<keycap
+>+</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Nag<accel
+>y</accel
+>ítás</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megnöveli a nagyítási tényezőt</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Ki<accel
+>c</accel
+>sinyítés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lecsökkenti a nagyítási tényezőt</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Page Up</keycap
+> </shortcut
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Az <accel
+>e</accel
+>lőző oldal</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>A dokumentum <action
+>előző oldalára</action
+> lép.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Page Down</keycap
+> </shortcut
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>A <accel
+>k</accel
+>övetkező oldal</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>A dokumentum <action
+>következő oldalára</action
+> lép.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Home</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Első oldal</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>A dokumentum <action
+>első oldalára lép</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>End</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Utolsó oldal</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>A dokumentum <action
+>utolsó oldalára lép</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+> <keycap
+>Space</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+>Görgetés felfelé</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lefelé lehet vele mozogni</action
+> a dokumentumban.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>N</accel
+>ézet</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>grás egy oldalra...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Itt lehet kiválasztani</action
+>, hogy melyik legyen az aktuális oldal.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="pagemarks">
+<title
+>Az <guimenu
+>Oldalkijelölések</guimenu
+> menü</title>
+
+<note
+> <para
+> Ez a menü úgy is előhívható, hogy a jobb egérgombbal az oldallistára kattint. </para
+> </note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>M</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>O</accel
+>ldalkijelölések</guimenu
+> <guimenuitem
+>Az aktuális oldal kijelölése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kijelöli az aktuális oldalt</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ldalkijelölések</guimenu
+> <guimenuitem
+>Az össze<accel
+>s</accel
+> oldal kijelölése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kijelöli a dokumentum összes oldalát</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ldalkijelölések</guimenu
+> <guimenuitem
+>A <accel
+>p</accel
+>áros oldalak kijelölése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kijelöli az összes páros</action
+> sorszámú oldalt a dokumentumban. <guimenuitem
+>A páratlan oldalak kijelölése</guimenuitem
+> és <guimenuitem
+>Az oldalkijelölések átbillentése</guimenuitem
+> menüponttal együtt könnyen megoldható a kétoldalas nyomtatás egyoldalas nyomtató esetén.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ldalkijelölések</guimenu
+> <guimenuitem
+>A páratlan <accel
+>o</accel
+>ldalak kijelölése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kijelöli az összes páratlan</action
+> sorszámú oldalt a dokumentumban.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ldalkijelölések</guimenu
+> <guimenuitem
+>Az ol<accel
+>d</accel
+>alkijelölések átbillentése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Átállítja az oldalkijelöltséget minden oldalon</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ldalkijelölések</guimenu
+> <guimenuitem
+>Az oldalkijelölések <accel
+>t</accel
+>örlése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Törli a kijelölést a dokumentum mindegyik oldaláról</action
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings">
+<title
+>A <guimenu
+>Beállítások</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Az eszköztár m<accel
+>e</accel
+>gjelenítése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ki-be kapcsolja az eszköztárat</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Az áll<accel
+>a</accel
+>potsor megjelenítése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ki-be kapcsolja az állapotsort</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>A gördítősá<accel
+>v</accel
+>ok megjelenítése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ki-be kapcsolja a függőleges és vízszintes gördítősávokat</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>igyelőfájl</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Ha bejelöli ezt, akkor a dokumentumnézet <action
+>automatikusan felfrissül</action
+>, ha a dokumentum megváltozik a lemezen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Az oldal<accel
+>l</accel
+>ista megjelenítése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ki-be kapcsolja az oldallistát</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Az oldalnevek megjelenítése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Ha ez be van jelölve, akkor <action
+>az aktuális oldal neve (ha van) megjelenik az állapotsorban.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>A &kghostview; beállí<accel
+>t</accel
+>ásai...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Előhívja a &kghostview; <link linkend="config-dialog"
+><action
+>beállítóablakát</action
+></link
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+>A <guimenu
+>Segítség</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>artalom</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megjeleníti ezt a dokumentumot</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>Hiba<accel
+>b</accel
+>ejelentés...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>A megjelenő űrlapot kitöltve könnyen bejelenthetők a programban talált hibák</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>A &kghostview; né<accel
+>v</accel
+>jegye</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megjeleníti a program verziószámát, a szerzők nevét, a licencegyezményt</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>A <accel
+>K</accel
+>DE névjegye</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megjelenít néhány adatot a KDE-ről</action
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="config-dialog">
+<title
+>Beállítások</title>
+
+<para
+> A beállítások párbeszédablaka a <menuchoice
+><guimenu
+>Beállítások</guimenu
+><guimenuitem
+>A &kghostview; beállításai...</guimenuitem
+></menuchoice
+> menüponttal hívható elő. Két lapot tartalmaz: az <guilabel
+>Általános beállítások</guilabel
+> és <guilabel
+>A Ghostscript beállításai</guilabel
+> nevűt. </para>
+
+<sect1 id="general-settings">
+<title
+>Általános beállítások</title>
+
+<para
+> Ha bejelöli az <guilabel
+>Élsimítás</guilabel
+> opciót, akkor a szövegek finomabb élekkel jelennek meg, de ez az eljárás nagy memóriaigényű és lassabb szövegmegjelenítést eredményez. A <application
+>Ghostscript</application
+> régebbi változatai egyáltalán nem támogatták az élsimítást. </para>
+
+<para
+> A <guilabel
+>Platform-betűtípusok</guilabel
+> opciót akkor jelölje be, ha az operációs rendszer betűtípusait szeretné használni a <application
+>Ghostscript</application
+> betűtípusai helyett. </para>
+
+<para
+> Akkor jelölje be az <guilabel
+>Üzenetek</guilabel
+> opciót, ha értesítést szeretne kapni a <application
+>Ghostscript</application
+> értelmező hibajelzéseiről. </para>
+
+<para
+> Itt lehet megadni, hogy a &kghostview; <guilabel
+>fekete-fehér</guilabel
+>, <guilabel
+>szürkeárnyalatos</guilabel
+> vagy <guilabel
+>színes</guilabel
+> <guilabel
+>képmegjelenítést</guilabel
+> használjon. </para>
+
+<para
+> Ha a <application
+>Ghostscript</application
+> létrehozta egy oldal képét, akkor azt el kell tárolni valahová, hogy a megjelenítő modul fel tudja használni. A tárolás módja lehet <guilabel
+>Pixmap</guilabel
+>-ként a memóriában vagy <guilabel
+>A másolat tárolása</guilabel
+>. Az X verziószámától és beállításaitól függ, hogy a kettő közül melyik gyorsabb. Néhány X változat nem támogatja <guilabel
+>A másolat tárolása</guilabel
+> opciót. </para>
+
+</sect1>
+
+<sect1 id="ghostscript-config">
+<title
+>A <application
+>Ghostscript</application
+> beállításai</title>
+
+<para
+> Ebben a párbeszédablakban meg lehet adni a <application
+>Ghostscript</application
+> <guilabel
+>értelmező</guilabel
+> nevét, az <guilabel
+>Élsimításkor használt argumentumokat</guilabel
+> és <guilabel
+>Az élsimítás nélküli argumentumokat</guilabel
+>. Az alapértelmezéseket általában nem érdemes megváltoztatni. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Köszönetnyilvánítások és a licencegyezmény</title>
+
+<para
+> &kghostview; </para>
+
+<itemizedlist
+> <title
+>Program Copyright:</title
+> <listitem
+><para
+>Mark Donohoe (a program első verziójának szerzője), 1998. </para
+></listitem
+> <listitem
+><para
+>David Sweet (<email
+>dsweet@kde.org</email
+>) - Karbantartó, 1999-2000. </para
+></listitem
+> <listitem
+><para
+>Wilco Greven (<email
+>greven@kde.org</email
+>) - Az aktuális karbantartó (2000-2001.) </para
+></listitem
+> </itemizedlist>
+
+
+<itemizedlist
+> <title
+>Hozzájárultak még</title
+> <listitem
+><para
+>David Faure (a keretprogram)</para
+> </listitem
+> <listitem
+><para
+>Daniel Duley (átalakítás a Kparts-hoz)</para
+> </listitem
+> <listitem
+><para
+>Espen Sand (párbeszédablakok)</para
+> </listitem
+> </itemizedlist>
+
+<para
+> Documentation copyright: Pamela Roberts (<email
+>pam.roberts@btinternet.com</email
+>), 2001. </para>
+
+
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+
+&underGPL;        	 <!-- GPL License -->
+
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+
+<para
+> A &kghostview; a &kde; 2 projekt része, melyről sok információ található itt: <ulink url="http://www.kde.org"
+> http://www.kde.org</ulink
+>. </para>
+
+<para
+> A &kghostview; használatához szükség van a <application
+>Ghostscript</application
+> alkalmazásra és a &kde; 2 programkönyvtárakra. A <application
+>Ghostscript</application
+> honlapja: <ulink url="http://www.cs.wisc.edu/~ghost/"
+> http://www.cs.wisc.edu/~ghost/</ulink
+></para>
+
+<para
+> A legtöbb disztribúcióban megtalálható a &kghostview;, de ha valami miatt szükség lenne az eredeti forráskódra, az megtalálható a kdegraphics csomagban itt: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, a KDE projekt központi FTP-kiszolgálóján. </para>
+
+<para
+> A &kghostview; legfrissebb verziószáma mindig megtudható itt: <ulink url="http://apps.kde.com"
+>http://apps.kde.com</ulink
+>. </para>
+
+<para
+> A program lefordításához és telepítéséhez az alábbi parancsokat kell kiadni rendszergazdaként a &kghostview; forráscsomag alapkönyvtárában: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+> A &kghostview; fordítási szkriptjei az <command
+>autoconf</command
+> és az <command
+>automake</command
+> segítségével készültek, kézi beállítást nem igényelnek. A felmerült problémák leírását küldje el a &kde; levelezőlistákra. </para>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

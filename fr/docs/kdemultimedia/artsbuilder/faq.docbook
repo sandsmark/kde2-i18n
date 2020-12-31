@@ -1,0 +1,377 @@
+<!-- <?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd">
+To validate or process this file as a standalone document, uncomment
+this prolog. Be sure to comment it out again when you are done -->
+<chapter id="faq">
+<title>Questions et réponses</title>
+
+<para> Cette section répond aux questions les plus fréquemment posées à propos de &arts;. </para>
+
+<sect1 id="faq-general">
+<title>Généralités</title>
+
+<qandaset id="faqlist">
+<qandaentry>
+<question>
+<para> &kde; reconnaît-il ma carte son&nbsp;?  </para>
+</question>
+
+<answer>
+<para> &kde; utilise &arts; pour le son, et &arts; utilise les pilotes sonores du noyau de &Linux;, soit <acronym>OSS</acronym>, soit <acronym>ALSA</acronym> (en utilisant l'émulation <acronym>OSS</acronym>). Si votre carte son est reconnue par <acronym>ALSA</acronym> ou <acronym>OSS</acronym> et correctement configurée (&cad; que les autres applications &Linux; l'utilisent sans problème), ça marchera. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Le son est-il géré sur d'autres plates-formes que &Linux;&nbsp;? </para>
+</question>
+
+<answer>
+<para> Il n'y a pour l'instant que la gestion des pilotes pour <acronym>OSS</acronym> (ou compatible) sur d'autres plates-formes (&pex; FreeBSD). Vous êtes encouragés à contribuer en ajoutant la gestion du son pour d'autres plates-formes. Le code source correspondant est <filename>kdelibs/arts/flow/audiosubsys.cc</filename>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Je ne peux pas lire de fichiers <literal role="extension">wav</literal> avec &artsd;&nbsp;! </para>
+</question>
+
+<answer>
+<para> Vérifiez que &artsd; est lié à <filename>libaudiofile</filename> (<userinput><command>ldd</command><option>artsd</option></userinput>). Si ce n'est pas le cas, téléchargez kdesupport, recompilez tout et ça devrait marcher. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> J'entends  un son lorsque je me connecte en <systemitem class="username">root</systemitem> mais les autres utilisateurs n'ont pas le son&nbsp;!  </para>
+</question>
+
+<answer>
+<para> Les permission du fichier <filename class="devicefile">/dev/dsp</filename> déterminent quels utilisateurs ont accès au son. Pour permettre à tout le monde de l'utiliser, faites ceci&nbsp;:  </para>
+
+<procedure> <step> <para> Connectez-vous en <systemitem class="username">root</systemitem> </para> </step> <step> <para> ouvrez une fenêtre &konqueror; </para> </step> <step> <para> allez dans le dossier <filename class="directory">/dev</filename> </para> </step> <step> <para> cliquez sur le fichier <filename>dsp</filename> avec le bouton <mousebutton>droit</mousebutton> de la souris, et choisissez propriétés. </para> </step> <step> <para> cliquez sur l'onglet <guilabel>Permissions</guilabel> </para> </step> <step> <para> cochez les cases <guilabel>Lecture</guilabel> et <guilabel>Écriture</guilabel> dans toutes les sections. </para> </step> <step> <para> cliquez sur <guibutton>OK</guibutton> </para> </step> </procedure>
+
+<para> Vous pouvez obtenir le même effet dans un terminal en utilisant la commande <userinput><command>chmod</command> <option>666</option> <parameter>/dev/dsp</parameter></userinput>. </para>
+
+<para> Pour restreindre l'accès au son à certains utilisateurs, vous pouvez utiliser les permissions de groupe. Avec certaines distributions &Linux;, par exemple Debian/Potato, <filename class="devicefile">/dev/dsp</filename> appartient déjà au groupe <systemitem class="groupname">audio</systemitem>,donc vous devez juste ajouter les utilisateurs à ce groupe. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Ça fonctionne pour &artsd;, mais pour les autres applications comme &kmix;, &kmid;, &kscd;,&etc;&nbsp;? </para>
+</question>
+<answer>
+
+<para> Il y a d'autres périphériques qui fournissent des fonctionnalités auxquelles accèdent des applications multimédia. Vous pouvez les traiter de la même manière, soit en les rendant accessibles à tout le monde, soit en utilisant des groupes pour contrôler les accès. Voici une liste, qui est vraisemblablement incomplète (s'il y a plusieurs périphériques de la forme <filename class="devicefile">midi0</filename>, <filename class="devicefile">midi1</filename>, ..., seule la version avec le zéro est listée ici)&nbsp;: </para>
+
+<itemizedlist> <listitem> <para> <filename class="devicefile">/dev/admmidi0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/adsp0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/amidi0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/amixer0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/audio</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/audio0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/cdrom</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/dmfm0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/dmmidi0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/dsp</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/dsp0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/midi0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/midi0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/midi00</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/midi00</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/mixer</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/mixer0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/mpu401data</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/mpu401stat</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/music</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/rmidi0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/rtc</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/sequencer</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/smpte0</filename> </para> </listitem> <listitem> <para> <filename class="devicefile">/dev/sndstat</filename> </para> </listitem> </itemizedlist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>Que puis-je faire si artsd ne démarre pas ou plante en cours de fonctionnement&nbsp;?</para>
+</question>
+
+<answer>
+<para> Tout d'abord, essayez d'utiliser les réglages par défaut du &kcontrol; (ou si vous démarrez manuellement, ne donnez pas d'options supplémentaires outre <userinput><option>-F</option><parameter>10</parameter> <option>-S</option><parameter>4096</parameter></userinput> pour les temps de réponse). Tout particulièrement, <emphasis>full duplex est susceptible de ne pas fonctionner</emphasis> avec divers pilotes, donc essayez de le désactiver. </para>
+
+<para> Une bonne façon de vous rendre compte pourquoi &artsd; ne démarre pas (ou plante en cours de fonctionnement) est de démarrer manuellement. Ouvrez une fenêtre &konsole;, et saisissez&nbsp;: </para>
+
+<screen width="40"><prompt>%</prompt> <userinput><command>artsd</command> <option>-F</option><parameter>10</parameter> <option>-S</option><parameter>4096</parameter>></userinput></screen>
+
+<para> Vous pouvez aussi ajouter l'option <option>-l0</option>, qui affichera plus d'informations sur ce qu'il se passe, comme ceci&nbsp;: </para>
+<screen width="40"><prompt>%</prompt> <userinput><command>artsd</command> <option>-l0</option> <option>-F</option><parameter>10</parameter> <option>-S</option><parameter>4096</parameter></userinput></screen>
+
+<para> En faisant ceci, vous obtiendrez sûrement des informations utiles. S'il plante en faisant ceci ou cela, vous pouvez refaire ceci et cela et voir <quote>comment</quote> il plante. Si vous voulez faire un rapport de bogue, générer un <quote>backtrace</quote> avec <command>gdb</command> et/ou un <command>strace</command> peut aider à régler le problème. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>Puis-je relocaliser &arts; (déplacer les fichiers compilés dans un autre dossier)&nbsp;?</para>
+</question>
+
+<answer>
+<para> Vous ne pouvez pas modifier le dossier de &arts; de manière parfaite. Le problème est que la localisation de &artsd; est compilée dans &artswrapper; pour des raisons de sécurité. Vous pouvez cependant utiliser le fichier <filename>.mcoprc</filename> (entrées TraderPath/ExtensionPath) pour qu'un &artsd; déplacé puisse au moins trouver ses composants. Voyez le <link linkend="the-mcoprc-file">chapitre à propos du fichier <filename>.mcoprc</filename></link> pour plus de détails. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para></para>
+</question>
+
+<answer>
+<para>  </para>
+
+<para>  </para>
+<para>  </para>
+</answer>
+</qandaentry>
+<qandaentry>
+<question>
+<para>Quelles applications fonctionnent avec &arts;&nbsp;?</para>
+</question>
+<answer>
+
+<para> Évidemment, toutes les applications fournies avec &kde; sont compatibles avec &arts;. Ceci inclut&nbsp;: </para>
+
+<itemizedlist> <listitem><para>&noatun;</para></listitem> <listitem><para>&artsbuilder;</para></listitem> <listitem><para>&aktion;</para></listitem> <listitem><para>&kmid;</para></listitem> <listitem><para>&kmidi;</para></listitem> <listitem><para>&kmix;</para></listitem> <listitem><para>&kscd;</para></listitem> <listitem><para>Des jeux &kde; tels que &kpoker; et &ktuberling;</para></listitem> </itemizedlist>
+
+<para> Certaines applications non inclues dans la distribution de &kde; (&pex; contenues dans kdenonbeta) gèrent aussi &arts;, comme&nbsp;: </para>
+
+<itemizedlist> <listitem><para>&brahms;</para></listitem> <listitem><para><application>Kaboodle</application></para></listitem> <listitem><para><application>Kdao</application></para></listitem> </itemizedlist>
+
+<para> Les application non-&kde; suivantes devraient fonctionner avec &arts;&nbsp;: </para>
+
+<itemizedlist> <listitem><para><application>xmms</application> (avec le module externe &arts;)</para></listitem> <listitem><para>Real Networks <application>RealPlayer</application> 8.0 (fonctionne avec &artsdsp;; le support natif de &arts; est en cours d'étude)</para></listitem> </itemizedlist>
+
+<para> Les applications suivantes <emphasis>ne fonctionnent pas</emphasis> avec &arts;&nbsp;: </para>
+
+<itemizedlist> <listitem><para>aucune</para></listitem> </itemizedlist>
+
+<para> Voyez aussi les réponses aux questions dans la faq <link linkend="faq-non-arts">applications non-&arts;</link>. </para>
+
+<para> Cette section est incomplète - si vous avez plus d'informations sur les applications reconnues ou non, prévenez l'auteur afin de les inclure ici. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+
+</sect1>
+
+<sect1 id="faq-non-arts">
+<title>Applications non-&arts;</title>
+
+<qandaset>
+
+<qandaentry>
+<question>
+<para> Dès que &kde; fonctionne, les autres applications ne peuvent plus accéder au périphérique son&nbsp;! </para>
+</question>
+<answer>
+<para> Lorsque le serveur sonore de &arts; est utilisé par &kde;, il utilise le périphérique sonore. Si le serveur ne fait rien pendant 60 secondes, il est suspendu automatiquement et libère le périphérique. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Vous dites qu'il est suspendu après 60 secondes, mais ça ne marche pas chez moi&nbsp;! </para>
+</question>
+<answer>
+<para> Si vous démarrez artsd depuis le centre de configuration de KDE, la suspension automatique est réglée par défaut à 60 secondes. Si vous démarrez artsd depuis la ligne de commande, vous devrez utiliser l'option -s pour spécifier le temps de suspension automatique, sinon elle sera désactivée par défaut. </para>
+<para> Actuellement, il n'est pas suspendu si le mode full duplex est activé. Désactivez-le depuis le &kcontrol;. Il est conseillé généralement de désactiver le mode full duplex si vous utilisez &arts; pour lire de l'audio et pas pour enregistrer. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Comment exécuter de vieilles applications qui ne reconnaissent pas &arts;&nbsp;? </para>
+</question>
+
+<answer>
+<para> Exécutez-les avec &artsdsp;. Par exemple, si vous aviez écrit en temps normal&nbsp;: </para>
+
+<screen><prompt>&percnt;</prompt> <userinput><command>mpg123</command> <option>foo.mp3</option></userinput></screen>
+
+<para>utilisez plutôt&nbsp;:</para>
+
+<screen><prompt>&percnt;</prompt> <userinput><command>artsdsp</command> <option>mpg123 foo.mp3</option></userinput></screen>
+
+<para> Ceci redirigera la sortie son vers &arts;. Cette méthode ne nécessite pas de modifications de l'application. Ce n'est pas très élégant, et ne gère pas toutes les caractéristiques de la carte son donc il est possible que ça ne fonctionne pas pour certaines applications. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Je ne peux exécuter &artsdsp; avec aucune application, il plante à tous les coups&nbsp;! </para>
+</question>
+<answer>
+<para> Vous avez besoin d'une version récente des librairies glibc&nbsp;;&artsdsp; ne fonctionnera pas de manière sûre sur certaines vieilles distributions de &Linux;. Par exemple, avec une Debian 2.1 (basée sur glibc 2.0), ça ne fonctionnera pas, tandis que ça fonctionnera avec une Debian2.2 (basée sur glibc 2.1.3). </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Y a-t-il des limitations théoriques avec certaines applications qui m'empêcheraient de les utiliser avec &artsdsp;&nbsp;? </para>
+</question>
+<answer>
+<para> Non, utiliser &artsdsp; peut entraîner des temps de latence et une augmentation légère de l'utilisation du <acronym>CPU</acronym> par rapport à l'utilisation directe des <acronym>API</acronym> de &arts;. À part ça, si ça ne fonctionne pas pour une application, il faut considérer ça comme un bogue dans &artsdsp;. La technique utilisée par &artsdsp; devrait, si elle est implantée correctement, permettre à <emphasis>toute</emphasis> application de fonctionner avec (y compris les grosses applications comme <application>Quake</application> 3). </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Que puis-je faire si une application ne fonctionne pas avec &artsdsp;&nbsp;? </para>
+</question>
+<answer>
+<para> Vous pouvez attendre que &artsd; se suspende automatiquement, ou utiliser la commande <userinput><command>artsshell</command><option>suspend</option></userinput> pour demander au serveur de se suspendre.Vous ne pourrez le suspendre que si plus aucune application reconnaissant &arts;ne l'utilise, et ensuite plus aucune de ces applications ne pourra le réutiliser lorsqu'il sera suspendu. </para>
+
+<para> Si le serveur est occupé, un moyen un peu rude, mais efficace de s'en débarrasser est&nbsp;: </para>
+
+
+<screen><prompt>&percnt;</prompt> <userinput><command>killall</command> <option>artsd</option> ; <command>killall</command> <option>artswrapper</option></userinput>
+<lineannotation>Maintenant démarrons notre application.</lineannotation>
+<prompt>&percnt;</prompt> <userinput><command>kcminit</command> <option>arts</option></userinput>
+</screen>
+
+<para> Une fois que vous avez tué le serveur, toute application reconnaissant &arts; et en fonctionnement est alors susceptible de planter. </para>
+</answer>
+</qandaentry>
+<qandaentry>
+<question>
+<para> Et les applications écrite pour &kde; 1&nbsp;? </para>
+</question>
+<answer>
+<para> Si vous exécutez des applications &kde; 1, qui qui envoient les signaux audio vers le serveur audio de &kde; 1, vous devrez exécuter <application>kaudioserver</application> pour les faire fonctionner. Vous pouvez démarrer <application>kaudioserver</application> de la même façon que les applications non-&arts;&nbsp;: </para>
+
+<screen>
+<prompt>&percnt;</prompt> <userinput><command>artsdsp</command> <option>kaudioserver</option></userinput>
+</screen>
+
+<para> kaudioserver doit être installé (depuis les sources de &kde; 1) - il appartient à &kde; 1.x, pas &kde; 2. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Et les applications utilisant le <quote>enlightened sound daemon</quote>, <acronym>ESD</acronym>&nbsp;? </para>
+</question>
+<answer>
+<para> La méthode est similaire à celle pour <application>kaudioserver</application>. De telles applications nécessitent que le serveur esd fonctionne. Vous pouvez le démarrer via &artsdsp;,et chaque application utilisant <acronym>ESD</acronym> devrait fonctionner correctement, comme ceci&nbsp;: </para>
+<screen>
+<prompt>&percnt;</prompt> <userinput><command>artsdsp</command> <option>esd</option></userinput>
+</screen>
+</answer>
+</qandaentry>
+
+</qandaset>
+
+</sect1>
+
+<sect1 id="faq-latency">
+<title>Temps de latence</title>
+
+<qandaset>
+
+<qandaentry>
+<question>
+<para> J'entends parfois de courtes pauses lorsque j'écoute de la musique. C'est un bogue&nbsp;? </para>
+</question>
+<answer>
+<para> Ce n'est probablement pas un bogue, mais dû au fait que le noyau de &Linux; n'est pas adapté à l'ordonnancement temps-réel. Il y a des situations où &arts; ne pourra pas continuer à jouer. Vous pouvez cependant activer les droits temps-réel (via &kcontrol;), et utiliser un temps de réponse important (comme<guilabel>250ms</guilabel> ou <guilabel> le plus grand possible</guilabel>),ce qui devrait améliorer la situation. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Quel est l'effet du réglage du temps de réponse&nbsp;? </para>
+</question>
+<answer>
+<para> Le texte d'aide pour ce réglage dans le &kcontrol; peut être trompeur. Une valeur faible signifie que &arts; aura moins de temps pour réponde à un événement extérieur (&cad; le temps qui sépare le moment ou une fenêtre est fermée,et le moment ou un son est joué par &artsd;). Plus de ressources <acronym>CPU</acronym> seront aussi utilisées, ce qui peut entraîner des interruptions brèves du son.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Est-ce que je peux faire autre chose pour éviter ces interruptions&nbsp;? </para>
+</question>
+<answer>
+<para> Pour les utilisateurs de lecteurs <acronym>IDE</acronym>, vous pouvez utiliser la commande <command>hdparm</command> pour placer votre lecteur <acronym>IDE</acronym> en mode <acronym>DMA</acronym>. Attention, ça ne fonctionne pas avec tous les matériels, et peut vous obliger à redémarrer la machine, ou plus rare, peut entraîner des pertes de données. Lisez la documentation sur la commande <command>hdparm</command> pour de plus amples informations. J'ai utilisé avec succès la commande suivante&nbsp;:  </para>
+
+<screen>
+<prompt>&percnt;</prompt> <userinput><command>hdparm</command> <option>-c1</option> <option>-d1</option> <option>-k1</option> <option>-K1</option> <parameter>/dev/hda</parameter></userinput>
+</screen>
+
+<para> Vous devez lancer ceci après chaque démarrage, donc placez-le dans un script de démarrage de votre système (la façon de procéder dépend de votre distribution, sur une Debian &Linux;, la commande est souvent ajoutée dans <filename>/etc/rc.boot</filename>). </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para> Pourquoi &artsd; consomme-t-il autant de temps <acronym>CPU</acronym>&nbsp;? </para>
+</question>
+<answer>
+<para> Vérifiez le réglage du temps de réponse. Cependant, la version actuelle n'est pas encore vraiment optimisée. Ça devrait s'améliorer, mais jusque là, aucune estimation sur la vitesse de &artsd; ne peut vraiment être faite. </para>
+</answer>
+</qandaentry>
+</qandaset>
+
+</sect1>
+
+<sect1 id="faq-network">
+<title>Transparence réseau</title>
+
+<qandaset>
+
+<qandaentry>
+<question>
+<para> De quoi ai-je besoin pour utiliser la transparence réseau&nbsp;? </para>
+</question>
+<answer>
+<para> Activez-la à partir de <guilabel>Serveur de son</guilabel> dans le &kcontrol;(<guilabel>Échanger les informations de sécurité  et de référence sur le serveur X11</guilabel> et <guilabel>Activer la transparence réseau</guilabel>). Copiez ensuite votre fichier <filename>.mcoprc</filename> sur toutes les machines à partir desquelles vous voulez utiliser la transparence réseau. Connectez-vous à nouveau. Assurez-vous que les hôtes mis en jeu se connaissent bien entre eux (&cad; qu'ils ont des noms résolvables ou qu'ils sont dans <filename>/etc/hosts</filename>). </para>
+
+<para> Ce devrait être tout ce que vous avez à faire. Cependant, si ça ne fonctionne toujours pas, il y a quelques détails supplémentaires. Le processus du serveur de son de &arts;, &artsd;, ne doit être exécuté que sur un hôte, celui contenant la carte son qui va être utilisée. Ce processus peut être démarré automatiquement à la connexion à &kde; (vous configurez ceci dans le &kcontrol;), ou manuellement en utilisant quelque chose comme&nbsp;: </para>
+
+<screen>
+<prompt>&percnt;</prompt> <userinput><command>artsd</command> <option>-n</option> <option>-F</option> <parameter>5</parameter> <option>-S</option> <parameter>8192</parameter></userinput>
+</screen>
+
+<para> Le paramètre <option>-n</option> correspond à la transparence réseau, et les autres paramètres configurent le temps de réponse. </para>
+
+<para> Votre fichier <filename>.mcoprc</filename> devrait contenir l'entrée&nbsp;: </para>
+
+<screen>
+<userinput>GlobalComm=Arts::X11GlobalComm</userinput>
+</screen>
+
+<para> sur toutes les machines mises en jeu, afin de faire fonctionner la transparence réseau. C'est ce qui est activé par le réglage <guilabel>Échanger les informations de sécurité  et de référence sur le serveur X11</guilabel> du centre de configuration de &kde;. </para>
+
+<para> Enfin, dans toutes les versions de &kde; de la série 2.0.x, un bogue apparaît si vous n'avez pas de nom de domaine. Les clients de &artsd; essaient de trouver où se connecter via la combinaison <systemitem class="systemname"><replaceable>hostname</replaceable>.<replaceable>domainname</replaceable></systemitem> Si votre nom de domaine est vide, ils essaieront de se connecter à <systemitem class="systemname"><replaceable>hostname</replaceable></systemitem>. (notez le point supplémentaire). Il est possible de contourner ce problème en ajoutant une entrée à <filename>/etc/hosts</filename> (&cad; <userinput>orion.</userinput> si votre nom d'hôte est <systemitem class="systemname">orion</systemitem>). </para>
+</answer>
+</qandaentry>
+
+
+<qandaentry>
+<question>
+<para> Comment déboguer la transparence réseau si ça ne fonctionne pas&nbsp;? </para>
+</question>
+<answer>
+<para> Si vous avez le code source de &kde;, allez dans <filename class="directory">kdelibs/arts/examples</filename>, et exécutez <userinput><command>make</command> <option>check</option></userinput> pour compiler certains programmes, dont <application>referenceinfo</application>. Exécutez ensuite </para>
+
+<screen>
+<prompt>&percnt;</prompt> <userinput><command>./referenceinfo</command> <option>global:Arts&lowbar;SimpleSoundServer</option></userinput>
+</screen>
+
+<para> La sortie indiquera le nom d'hôte et le port en cours d'utilisation par &arts;. Par exemple, <computeroutput>tcp:orion:1698</computeroutput> signifierait que tout client essayant d'utiliser la transparence réseau devrait savoir comment atteindre l'hôte <systemitem class="systemname">orion</systemitem>. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+
+</sect1>
+<sect1 id="faq-other">
+<title>Divers</title>
+
+<qandaset>
+
+<qandaentry>
+<question>
+<para> Je ne peux pas utiliser &artsbuilder;. Il plante chaque fois que j'exécute un module&nbsp;! </para>
+</question>
+<answer>
+<para> La cause la plus probable est que vous utilisez de vieilles structures ou de vieux modules qui ne sont pas reconnus pas la version pour &kde; 2. Malheureusement, la documentation disponible sur internet se réfère à &arts;-0.3.4.1 qui est une ancienne version. Le plantage le plus souvent rencontré est l'apparition du message d'erreur <errorname>[artsd] Synth_PLAY:audio subsystem is already used.</errorname> dans &artsbuilder; lorsqu'une structure est exécutée. </para>
+
+<para> Utilisez un module Synth_AMAN_PLAY plutôt qu'un module Synth_PLAY et le problème disparaîtra. Voyez aussi l'aide de &artsbuilder; en appuyant sur <keycap>F1</keycap> depuis &artsbuilder;). </para>
+
+<para> Les versions récentes de &artsbuilder; (&kde; 2.1 beta1 et suivantes) sont livrées avec plusieurs exemples. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+
+</sect1>
+</chapter>
+

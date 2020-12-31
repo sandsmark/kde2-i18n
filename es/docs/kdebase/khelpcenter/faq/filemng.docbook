@@ -1,0 +1,243 @@
+<!--
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+-->
+
+<chapter id="filemanager">
+<title
+>El administrador de archivos</title>
+
+<para
+>El administrador de archivos predefinido de &kde; es &konqueror;.  La página web de &konqueror; está en <ulink url="http://www.konqueror.org"
+>http://www.konqueror.org</ulink
+> donde se puede encontrar un <acronym
+>FAQ</acronym
+> específicamente para &konqueror;.</para>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>¿Cómo utilizo &konqueror; como navegador web con proxy?</para>
+</question>
+<answer>
+<para
+>&konqueror; puede ser usado a través de proxies &HTTP; y &FTP;.  Usted puede cambiar el servidor proxy en &konqueror; seleccionando <menuchoice
+><guimenu
+>Opciones</guimenu
+><guisubmenu
+>Configurar &konqueror;...</guisubmenu
+></menuchoice
+> en el menú &konqueror; y vaya a la pestaña <guilabel
+>Proxies</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Cómo puedo cambiar la apariencia de un directorio en &konqueror;?</para>
+</question>
+<answer>
+<para
+>Al mostrar un directorio, &konqueror; busca un archivo oculto llamado <filename
+>.directory</filename
+> dentro del directorio.  Usted mismo puede crear un archivo con este nombre para modificar la forma en que el directorio es mostrado.  Este es simplemente un archivo <filename
+>.desktop</filename
+>.  Por ejemplo:</para>
+<screen>
+[Desktop Entry]
+Type=Directory
+Icon=trashcan_full
+EmptyIcon=trashcan_empty
+Name=Trash
+Name[af]=GEMORS
+...
+Name[no_NY]=Papirkorg
+...
+Comment=Contains removed files
+
+</screen
+><para
+>Este es el archivo utilizado para describir al directorio Trash (Basura).  Cambia el ícono usado para mostrar  el directorio y configura el nombre (mostrado) del directorio según el idioma local</para>
+<para
+>Para los directorios que conforman al menú <guimenu
+>K</guimenu
+>,también se puede usar &kmenuedit; para cambiar su apariencia.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Cómo puedo realizar transferencias no anónimas de servidores &FTP; con &konqueror;?</para>
+</question>
+<answer>
+<para
+>Normalmente, al introducir una &URL; como <userinput
+>ftp://<replaceable
+>ftp.algunsitio.com</replaceable
+></userinput
+>, &konqueror; intentará realizar una conexión anónima con el servidor &FTP;.  Si usted desea conectarse como un determinado usuario, introduzca una &URL; como <userinput
+>ftp://<replaceable
+>username@ftp.algunsitio.com</replaceable
+></userinput
+> en su lugar. &konqueror; le preguntará su contraseña y se conectará al servidor.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Para qué son las opciones <option
+>%i</option
+> y <option
+>%m</option
+> en la línea Ejecutar?</para>
+</question>
+<answer>
+<para
+>Estas opciones se usan por todos los programas para &kde; (ya que están implementadas en <classname
+>KApplication</classname
+> y todos los buenos programas para &kde; crean un objeto <classname
+>KApplication</classname
+> antes de mirar siquiera los argumentos en la línea de comandos).</para>
+<para
+>Un comando estándar para un programa para &kde; aparece así: <command
+>cualquiera <option
+>... %i %m -caption "%c"</option
+></command
+>.Es confuso, pero ha sido diseñado de forma que puedan integrarse los programas heredados, no diseñados para &kde;, de la forma más transparente posible.   Al ejecutar esto &konqueror; extiende el comando a <command
+>cualquiera <option
+>-icon algo.xpm -miniicon algo_pequeño.xpm -caption "Cualquiera"</option
+></command
+>.  Tanto el ícono normal como el ícono pequeño, así como "Cualquiera" son propiedades definidas en el archivo <filename
+>.desktop</filename
+>.  Si los íconos no están definidos, predeterminadamente se usará el nombre del ejecutable, "cualquiera".</para>
+<para
+>De esta manera un usuario puede cambiar estas cosas en &kmenuedit; para sus propios programas.  La opción <option
+>-caption</option
+> es importante, ya que ningún usuario aceptaría que el ítem de menú <guimenuitem
+>Editor</guimenuitem
+> iniciara algo llamado <guilabel
+>kedit-0.9pl4-build47</guilabel
+>.  En vez de eso, el usuario espera ver una ventana con el nombre <guilabel
+>Editor</guilabel
+>.  Además, estos nombres están localizados, es decir, un usuario norteamericano lanzará el programa <guimenuitem
+>CD-Player</guimenuitem
+> y tendrá una ventana llamada <guilabel
+>CD-Player</guilabel
+> mientras que un usuario alemán lanzará el programa <guimenuitem
+>CD-Spieler</guimenuitem
+> y tendrá una ventana llamada <guilabel
+>CD-Spieler</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Cómo especifico el directorio de arranque para &konqueror;?</para>
+</question>
+<answer>
+<para
+>Pulse con el botón <mousebutton
+>derecho</mousebutton
+> del ratón en el ícono de &konqueror; y seleccione <guimenuitem
+>Propiedades...</guimenuitem
+>.  Por debajo de la pestaña <guilabel
+>Ejecutar</guilabel
+> seguramente encontrará una línea parecida a ésta: <command
+>kfmclient openProfile filemanagement</command
+> simplemente añada <filename class="directory"
+>file:/donde/usted/quiera</filename
+> con el directorio en el cual desea que arranque &konqueror;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="nsbookmark">
+<para
+>¿Cómo puedo importar marcadores de &Netscape;?</para>
+</question>
+<answer>
+<para
+>No hay necesidad de importar nada.  Los marcadores de &Netscape; están disponibles de forma automática dentro del menú <guimenu
+>Marcadores</guimenu
+> en &konqueror; sin que sea necesaria ninguna configuración de su parte. Si usted lo desea el <application
+>Editor de marcadores</application
+> puede convertir los marcadores de &Netscape; al formato utilizado por &konqueror;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Cómo puedo hacerle creer a un sitio web que &konqueror; es &Netscape; u otro navegador?</para>
+</question>
+<answer>
+<para
+>Lance el <application
+>Centro de Control de &kde;</application
+> y seleccione <menuchoice
+><guimenu
+>Navegación en Web</guimenu
+> <guimenuitem
+>Agente de Usuario</guimenuitem
+></menuchoice
+>.Añada el agente de usuario según corresponda.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Cómo puedo configurar &konqueror; para ejecutar applets &Java;?</para>
+</question>
+<answer>
+<para
+>Seleccione <menuchoice
+><guimenu
+>Opciones</guimenu
+><guisubmenu
+>Configure &konqueror;</guisubmenu
+><guimenuitem
+>&konqueror; Browser</guimenuitem
+></menuchoice
+> from &konqueror;'s menubar. Note that you have to be viewing a web page for the <guimenu
+>Settings</guimenu
+> menu not to be greyed out. If it doesn't work please check the <ulink url="http://www.konqueror.org/konq-java.html"
+>Konqueror + Java HOWTO</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Por qué &konqueror; no puede mostrar imágenes &GIF;?</para>
+</question>
+<answer>
+<para
+>Porque el soporte para &GIF; no está activado en &Qt;.  Por favor remítase a <xref linkend="gif"/> para más detalles.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Cómo cambio el nombre de un archivo?</para>
+</question>
+<answer>
+<para
+>Pulse con el botón derecho del ratón en el archivo y seleccione <guimenuitem
+>Renombrar...</guimenuitem
+>o pulse una sóla vez sobre un archivo ya abierto.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

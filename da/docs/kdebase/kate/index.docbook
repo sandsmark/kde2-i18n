@@ -1,0 +1,1357 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kate;"
+><!-- replace kapp here -->
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Danish "INCLUDE"
+><!-- change language only here -->
+<!-- Do not define any other entities; instead, use the entities
+from kde-genent.entities and $LANG/user.entities. -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book lang="&language;">
+<title
+>&kate; håndbog</title>
+
+<bookinfo>
+<authorgroup
+>   
+<author
+> <firstname
+>Seth</firstname
+> <surname
+>Rothberg</surname
+> <affiliation
+> <address
+><email
+>sethmr@bellatlantic.net</email
+></address
+> </affiliation
+> </author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+
+<copyright>
+<year
+>2000</year>
+<year
+>2001</year>
+<holder
+>Seth M. Rothberg</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!-- Date and version information of the documentation
+Don't forget to include this last date and this last revision number, we
+need them for translation coordination !
+Please respect the format of the date (DD/MM/YYYY) and of the version
+(V.MM.LL), it could be used by automation scripts.
+Do NOT change these in the translation. -->
+
+<date
+>2001-05-30</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kate; er en tekstredigering for programmører for KDE 2.2 og derover.</para>
+
+<para
+>Denne håndbog dokumenterer &kate; Version 1.0</para>
+</abstract>
+
+<!-- This is a set of Keywords for indexing by search engines.
+Please at least include KDE, the KDE package it is in, the name
+of your application, and a few relevant keywords. -->
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>Kate</keyword>
+<keyword
+>tekst</keyword>
+<keyword
+>redigering</keyword>
+<keyword
+>programmør</keyword>
+<keyword
+>programmering</keyword>
+<keyword
+>projekter</keyword>
+<keyword
+>MDI</keyword>
+<keyword
+>Multi</keyword>
+<keyword
+>Dokument</keyword>
+<keyword
+>Brugerflade</keyword>
+<keyword
+>terminal</keyword>
+<keyword
+>konsol</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Indledning</title>
+
+<para
+> Velkommen til &kate;, en tekstredigering for programmører for &kde; version 2.2 og derover. Nogle af &kate;'s mange egenskaber inkluderer indstillelig syntaks fremhævning for sprog rangerende fra C og C++ til <acronym
+>HTML</acronym
+> til bash skripter, evnen til at oprette og vedligeholde projekter, en flerdokument brugerflade (<acronym
+>MDI</acronym
+>), og en selv-indeholdt terminal emulator. </para>
+
+<para
+> Men &kate; er mere end en programmør redigering. Dens evne til at åbne adskillige filer på en gang gør den ideel til at redigere &UNIX;'s mange indstillingsfiler. Dette dokument blev skrevet med &kate;. </para>
+</chapter>
+
+<chapter id="fundamentals">
+<title
+>Det fundamentale</title>
+
+<para
+> Hvis du nogensinde har brugt tekstredigering, vil du ikke finde det svært at bruge &kate;. I de næste to sektioner, <link linkend="starting-kate"
+>Start &kate; </link
+> og <link linkend="working-with-kate"
+>Arbejd med &kate;</link
+> vil vi vise dig alt du behøver for at komme hurtigt i gang. </para>
+
+<sect1 id="starting-kate">
+<title
+>Start &kate;</title>
+
+<para
+> Du kan starte &kate; fra <guimenu
+>K menuen</guimenu
+> eller fra kommandolinien. </para>
+
+<sect2 id="starting-from-the-menu">
+<title
+>Fra menuen</title>
+<para
+> Åbne <acronym
+>KDE</acronym
+> programmenuen ved at klikke på den <guiicon
+>store K</guiicon
+> ikon på værktøjslinien for neden til venstre på din skærm. Dette vil få <guimenu
+>program menuen</guimenu
+> frem. Flyt din markør op i menuen til <guimenu
+>Tekstredigering</guimenu
+> menupunktet. En liste af tilgængelige programmer vil vise sig. Vælg <guimenuitem
+>&kate;</guimenuitem
+>. </para>
+
+<para
+> Med mindre du indstiller &kate; til ikke at gøre det, vil den indlæse den sidste fil du har redigeret. Se <link linkend="configure"
+>Indstilling af &kate;</link
+> for at lære hvordan man slår denne egenskab til og fra. </para>
+
+</sect2>
+
+<sect2 id="starting-from-the-command-line">
+<title
+>Fra kommandolinien</title>
+
+<para
+> Du kan starte &kate; ved at skrive dens navn på kommandolinien. Hvis du giver den et filnavn, som i eksemplet nedenfor, vil den åbne eller oprette den fil. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate </command
+><option
+><replaceable
+>minfil.txt</replaceable
+></option
+></userinput>
+</screen
+> </informalexample>
+
+<para
+> Hvis du har en aktiv forbindelse, og tilladelse dertil, kan du gøre brug af &kde;'s netværks gennemsigtighed til at åbne filer på internettet. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate </command
+><option
+><replaceable
+>ftp://ftp.kde.org/pub/kde/README_FIRST</replaceable
+></option
+></userinput>
+</screen
+> </informalexample>
+
+<sect3 id="command-line-options">
+<title
+>Kommando linie indstillinger</title>
+<para
+>&kate; accepterer følgende tilvalg på kommandolinien:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help</option
+></userinput
+></term
+> <listitem
+> <para
+> Giver en liste af de mest basale tilvalg, der er tilgængelige fra kommandolinien. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-qt</option
+></userinput
+></term
+> <listitem
+> <para
+> Dette er en liste af de tilvalg, der er tilgængelige for den måde &kate; interagerer med &Qt;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-kde</option
+></userinput
+></term
+> <listitem
+> <para
+> Dette er en liste af de tilvalg, der er tilgængelige for den måde &kate; interagerer med &kde;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-all</option
+></userinput
+></term
+> <listitem
+> <para
+> Dette er en liste af kommandolinie tilvalg. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--author</option
+></userinput
+></term
+> <listitem
+> <para
+> Viser &kate;'s forfatter i terminalvinduet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--version</option
+></userinput
+></term
+> <listitem
+> <para
+> Giver en liste af version information for &Qt;, &kde;, og &kate;. Også tilgængelig gennem <userinput
+><command
+>kate</command
+> <option
+>-V</option
+></userinput
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--licence</option
+></userinput
+></term
+> <listitem
+> <para
+> Viser licens information. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+</sect2>
+
+<sect2 id="drag-and-drop">
+<title
+>Træk og slip</title>
+<para
+> &kate; bruger &kde;'s Træk og slip protokol. Filer kan trækkes og slippes på &kate; fra skrivebordet, &konqueror; eller et fjernt ftp-sted åbnet i et af &konqueror;'s vinduer. </para>
+</sect2>
+</sect1>
+
+<sect1 id="working-with-kate">
+<title
+>Arbejde med &kate;</title>
+<para
+> <link linkend="quick-start"
+>Hurtigstart</link
+> vil vise dig hvordan man kan skifte mellem fire simple valg, der vil lade dig indstille nogen af &kate;'s mere kraftfulde egenskaber med det samme. <link linkend="keystroke-commands"
+> Tastekommandoer</link
+> udlægger nogle af standard tastegenvejene for dem der ikke kan, eller ikke ønsker at bruge en mus. </para>
+
+<sect2 id="quick-start">
+<title
+>Hurtigstart</title>
+
+<para
+> Denne sektion beskriver nogle af punkterne i <guimenu
+>Opsætnings</guimenu
+> menuen, så du hurtigt kan indstille &kate; til at arbejde på den måde du ønsker det. </para>
+
+<para
+> Når du starter &kate; den første gang, vil du se to vinduer med hvide baggrunde. Oven over de to vinduer er en værktøjslinie med de sædvanligt betegnede ikoner. Og ovenover det en menulinie. </para>
+
+<para
+> Det venstre vindue er en dokbar sidebjælke. Den kombinerer filliste og filvælger vinduerne. Skift mellem de to ved at klikke på fanebladene ved toppen af vinduet. </para>
+
+<para
+> Hvis du har startet &kate; med en fil, vil det højre vindue vise filen du redigerer og fillisten i sidebjælken vil vise navnet på filen. Brug filvælger vinduet til at åbne filer. </para>
+
+<para
+> Du kan slå filliste og filvælger vinduet til og fra i <guimenu
+>Opsætnings</guimenu
+>menuen. Denne menu byder dit første glimt af &kate;'s kraft og fleksibilitet. I denne sektion vil vi kigge på  fire punkter: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Vis <accel
+>V</accel
+>ærktøjslinie</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Slår værktøjslinien til og fra. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenuitem
+>Vis filliste</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Slår fillisten til og fra. Hvis filliste/filvælger vinduet ikke er åbent, vil  &kate; starte sidebjælken som et adskilt, ikke-dokket vindue.  For at dokke vinduet, grib de to tynde parallelle linier over fanebladene ved at klikke på dem med din venstre museknap og holde knappen nede. Træk vinduet ind i &kate;'s redigerings vindue og giv slip med venstre museknap når du har placeret filliste/filvælger vinduet som du vil have det. </para
+> <tip
+> <para
+> Hvis du har fået rigtigt fat på de to parallelle linier, vil din mus blive til to krydsede pile, mens du trækker. </para
+> </tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Vis filvælger</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Slår filvælgeren til og fra. Dette menupunkt er det samme som <guimenuitem
+>Vis filliste</guimenuitem
+> med en forskel. At slå den til starter vinduet med filvælgeren for oven. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Vis <accel
+>K</accel
+>onsol</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Slår en konsolemulator til og fra for neden af &kate;'s vindue. Det giver dig med andre ord en kommandolinie indeni programmet. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="keystroke-commands">
+<title
+>Tastatur kommandoer</title>
+
+<para
+> Mange af &kate;'s tastatur kommandoer (genveje) kan indstilles gennem <link linkend="settings"
+>Opsætnings</link
+>menu. Som standard respekterer &kate; følgende tastebindinger. </para>
+
+<informaltable>
+<tgroup cols="2">
+<tbody
+> <row
+><entry
+><para
+><keycap
+>Indsæt</keycap
+></para
+></entry
+> <entry
+><para
+> Skift mellem Indsæt og Overskriv tilstand. I indsætningstilstand vil programmet tilføje alle nye tegn der skrives og skubbe tidligere skreven data til højre for tekstmarkøren. Overskriv tilstand får indgivelse af hvert tegn til at eliminere det tegn, der er lige til højre for tekstmarkøren.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Venstre pil</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Flyt markøren et tegn til venstre </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Højre pil</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyt markøren et tegn til højre </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Pil op</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyt markøren en linie op </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Pil nedad</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyt markøren en linie ned </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Side op</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyt markøren en side op </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Side ned</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Flyt markøren en side ned </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Tilbagetast</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Slet tegnet til venstre for markøren </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Hjem</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyt markøren til begyndelsen af linien </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>End</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyt markøren til slutningen af linien </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Slet</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Slet tegnet til højre for markøren (eller vilkårlig valgt tekst)</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Venstre pil</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Markér tekst et tegn til venstre </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Højre pil</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Markér tekst et tegn til højre </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Hjælp</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="whats-this"
+>Hvad er dette?</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find"
+> Find</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F3</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find-again"
+> Find igen</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>B</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Sæt et bogmærke</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Kopiér den markerede tekst til klippebordet. </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> <link linkend="new"
+>Nyt</link
+> dokument</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="print"
+>Udskriv</link
+> </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Afslut - luk den aktive kopi af programmet </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>R</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="replace"
+> Erstat</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Gem din fil.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Indsæt.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Slet den markerede tekst og kopiér den til klippebordet. </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="undo"
+>Fortryd</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="redo"
+>Omgør</link
+></para
+></entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-entries">
+<title
+>Menuindgange</title>
+<sect1 id="file-menu">
+<title
+><guimenu
+>Fil</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <anchor id="new"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>y</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Denne kommando <action
+>starter et nyt dokument</action
+> i redigerings vinduet. I <guibutton
+>Fillisten</guibutton
+> til venstre vil den nye fil hedde <emphasis
+>Uden navn</emphasis
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>Å</accel
+>bn</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Denne kommando vil ikke <action
+>åbne en fil</action
+>. Den starter &kde;'s åbn fil dialogboks som så venter på at du skal vælge den fil der skal åbnes. </para
+> <para
+> Åbn fil dialogboksen virker ligesom en simpel version af &konqueror;. Brug din venstre museknap til at klikke på et filnavn for at vælge den. Dobbeltklik på et filnavn for at åbne denne fil. Når du har valgt et filnavn, kan du også trykke på <guibutton
+>O.k.</guibutton
+> knappen for at åbne filen. </para
+> <tip
+> <para
+> Vælg flere filer ved at holde <keycap
+>Ctrl</keycap
+> eller  <keycap
+>Shift</keycap
+> tasten nede samtidig med den venstre museknap. <keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><mousebutton
+>Venstre</mousebutton
+> </keycombo
+> klik vælger en fil af gangen. <keycombo action="simul"
+> <keycap
+>Shift</keycap
+><mousebutton
+>Venstre</mousebutton
+> </keycombo
+> klik vælger et sammenhængende sæt filer. </para
+> </tip
+> <para
+> Klik på et mappenavn i filvælger vinduet åbner denne mappe og viser dens indhold. Klik på et filnavn giver en miniaturevisning af filen i forhåndsvisningsvinduet til højre for filsystem vinduet. </para
+> <para
+> Brug knapperne og comboboksen på værktøjslinien over filvælger vinduet til at bevæge dig igennem filsystemet eller til at justere egenskaberne af den åbne fildialog boks. </para
+> <para
+> Nedenfor filvælger vinduet er Sted comboboksen. Skriv navnet på den fil du ønsker at redigere her. Hvis du klikker på pilen til højren for dropned boksen, kan du vælge blandt nyligt brugte filer. Åbn adskillige filer på én gang ved at citere hvert filnavn. </para
+> <para
+> Nedenfor Sted comboboksen er Filter comboboksen. Indtast fil masker her for at filtrere hvilke slags filer der vises i vælgervinduet. For eksempel, ved at skrive filteret <literal role="extension"
+>*.txt</literal
+> og trykke på <keycap
+>Enter</keycap
+> vil man begrænse visningen til filer med en  <literal role="extension"
+>.txt</literal
+> endelse. Filter combo indeholder en liste af dine mest nyligt brugte filtre. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-recent"/> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Åbn <accel
+>N</accel
+>ylige</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Denne kommando tillader dig at <action
+>åbne en fil</action
+> fra en undermenu der indeholder en liste af nyligt redigerede filer. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>em</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Denne kommando <action
+>gemmer din fil</action
+>. Brug den ofte. Hvis filens er <emphasis
+>Uden navn</emphasis
+> så bliver <guimenuitem
+>Gem</guimenuitem
+> til <guimenuitem
+>Gem som</guimenuitem
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-as"/> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Gem <accel
+>S</accel
+>om</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Giv navn til og omdøb filer</action
+> med denne kommando. Den starter gem fil dialogboksen. Denne dialog virker helt ligesom åbn fil dialogboksen gør. Du kan bruge den til at navigere gennem dit filsystem, forhåndsvise eksisterende filer, eller filtrere din filvisning med filmasker. </para
+> <para
+> Skriv det navn du ønsker at give filen du gemmer i  Sted comboboksen og tryk på <guibutton
+>O.k.</guibutton
+> knappen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-all"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Gem a<accel
+>l</accel
+>le</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Denne kommando <action
+>gemmer alle åbne filer</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="reload"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>enindlæs</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Genindlæser den aktive fil fra disk</action
+>. Denne kommando er nyttig hvis et andet program eller en anden proces har ændret filen mens du har den åben i &kate; </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-with"/> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Å<accel
+>b</accel
+>n med</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Denne kommando starter Åbn med dialog boksen som tillader dig at <action
+>vælge et andet program til at åbne den aktive fil</action
+>. Din fil vil stadig være åben i &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="print"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>dskriv</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Udskriv den aktive fil</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>uk</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Luk den aktive fil</action
+> med denne kommando. Hvis du har lavet ugemte ændringer, vil du blive spurgt om du vil gemme filen før &kate; lukker den. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close-all"/> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>uk alle</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Denne kommando <action
+>lukker alle de filer du har åbne</action
+> i &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="new-window"/> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Nyt <accel
+>V</accel
+>indue</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Åbner en anden udgave af &kate;</action
+>. Den nye udgave vil være identisk med din tidligere udgave. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="quit"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Denne kommando <action
+>lukker &kate;</action
+> og alle de filer du var ved at redigere. Hvis du har lavet ugemte ændringer til nogen af filerne du var ved at redigere, vil du blive spurgt om du vil gemme dem. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="configuring-kate">
+<title
+>Indstilling af Kate</title>
+<para
+> <anchor id="settings"/> <anchor id="configure"/> <anchor id="whats-this"/> <anchor id="find"/> <anchor id="find-again"/> <anchor id="replace"/> <anchor id="undo"/> <anchor id="redo"/> Dette kapitel vil vise dig alle muligheder for at indstille &kate;. </para>
+</chapter>
+
+<chapter id="credits">
+
+<!-- Include credits for the programmers, documentation writers, and
+contributors here. The license for your software should then be included
+below the credits with a reference to the appropriate license file
+included in the KDE distribution. -->
+
+<title
+>Medvirkende og licens</title>
+
+<para
+> &kate; Ophavsret 2000, 2001, Christoph Cullmann. </para>
+
+<!-- To save you some work, here's Kate's author list (I could mark it -->
+<!-- up too if you want, I just didn't want to interfere too much :) -->
+
+<!-- 
+Kate was written by
+Christoph Cullmann <cullmann@kde.org>
+Anders Lund <anders@alweb.dk>
+Joseph Wenninger <jowenn@bigfoot.com>
+Michael Bartl <michael.bartl1@chello.at>
+Phlip <phlip_cpp@my-deja.com>
+Waldo Bastian <bastian@kde.org>
+Matt Newell <newellm@proaxis.com>
+Michael McCallum <gholam@xtra.co.nz>
+Jochen Wilhemly <digisnap@cs.tu-berlin.de>
+Michael Koch <koch@kde.org>
+Christian Gebauer <gebauer@bigfoot.com>
+Simon Hausmann <hausmann@kde.org>
+Glen Parker <glenebob@nwlink.com>
+Scott Manson <sdmanson@alltel.net>
+John Firebaugh <jfire@uclink.berkeley.edu>
+-->
+
+<para
+> Dokumentation ophavsret 2000,2001 Seth Rothberg, <email
+>sethmr@bellatlantic.net</email
+> </para>
+
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underGPL;               <!-- GPL License -->
+
+</chapter>
+
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-namecase-general: t
+sgml-namecase-entity: nil
+sgml-general-insert-case: lower
+sgml-minimize-attributes: nil
+sgml-omittag: nil
+End:
+-->
+
+
+

@@ -1,0 +1,1356 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kabalone;">
+  <!ENTITY % Italian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Manuale di &kabalone;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Josef</firstname
+> <surname
+>Weidendorfer</surname
+> </author>
+<author
+> <firstname
+>Philip</firstname
+> <surname
+>Rodrigues</surname
+> <affiliation
+> <address
+><email
+>phil.rod@ntlworld.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>lauri@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Revisore</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Andrea</firstname
+><surname
+>Celli</surname
+><affiliation
+><address
+><email
+>a.celli@caltanet.it</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione e dell'interfaccia grafica</contrib
+></othercredit>
+
+</authorgroup>
+
+<date
+>2001-05-29</date>
+<releaseinfo
+>1.06.00</releaseinfo>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Philip Rodrigues</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract
+><para
+>&kabalone; �un semplice gioco di strategia che si gioca in due su un tavoliere speciale.</para
+> </abstract>
+
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>gioco</keyword>
+<keyword
+>abalone</keyword>
+<keyword
+>linux</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduzione</title>
+
+<para
+>&kabalone; �un semplice gioco di strategia che si gioca in due su un tavoliere speciale. Ci sono delle biglie rosse o gialle a seconda del giocatore. Si parte da una disposizione in cui ogni giocatore ha14 biglie e si continua a giocare finch�uno dei giocatori non ha spinto 6 biglie dell'avversario fuori dal tavoliere.</para>
+
+<para
+>Il programma originale fu sviluppato nel 1993 per DOS in puro Xlib. Per &kde; �stato riscritto quasi completamente.</para>
+
+<note
+><para
+> L'idea del gioco non �mia. Si tratta di un vero gioco da tavola, commercializzato (credo) da una ditta tedesca specializzata in giochi.</para
+></note>
+
+</chapter>
+
+<chapter id="rules-of-the-game">
+<title
+>Regole del gioco</title>
+
+<para
+>Il rosso muove sempre per primo.</para>
+
+<para
+>Sono permessi due tipi di mossa:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Normale</term
+> <listitem
+><para
+>Puoi muovere uno, due o tre delle tue biglie, purch�allineate, in una delle 6 direzioni. Sono permessi anche spostamenti laterali.</para
+> <para
+>Premi col tasto sinistro del mouse sulla prima biglia che vuoi muovere (ndt: quella che spinger�le altre). La biglia verr�evidenziata. Ora trascina il mouse nella direzione voluta. Se la mossa �valida, il cursore diventer�una freccia puntata in quel verso e tutte le biglie da muovere saranno evidenziate. Se questo �il movimento voluto, rilascia il tasto del mouse.</para
+> <para
+>Gli spostamenti laterali si ottengono in un altro modo. Per spostare due biglie adiacenti, fai clic tra di esse e trascinale. Per tre biglie, devi premere il tasto <mousebutton
+>centrale</mousebutton
+> del mouse sulla biglia di mezzo. Se lo spostamento laterale �possibile per quelle biglie, esse verranno evidenziate. Altrimenti cambier�colore solo la biglia centrale e tu potrai effettuare una mossa normale. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Spinte</term
+> <listitem
+><para
+>Puoi spingere al pi due biglie dell'avversario poste di fronte alle tue,purch�il numero delle tue biglie in movimento sia superiore a quello delle biglie avversarie da spingere. Questo significa che con tre biglie tue puoi spingere una o due biglie avversarie, mentre con due biglie una sola.</para
+> <para
+>Le spinte importanti sono quelle che spingono una biglia avversaria fuori dal tavoliere. Se sei riuscito a spingere fuori dal tavoliere sei biglie avversarie hai vinto la partita. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Se ancora non hai capito come funziona &kabalone; non preoccuparti. Osserva una partita in cui il computer gioca contro se stesso. Dopo aver lanciato &kabalone;, scegli <menuchoice
+><guimenu
+>Impostazioni</guimenu
+><guisubmenu
+>Il computer gioca come</guisubmenu
+><guimenuitem
+>Entrambi</guimenuitem
+></menuchoice
+> e avvia una nuova partita. </para>
+
+</chapter>
+
+<chapter id="network-play">
+<title
+>Partite in rete</title>
+<sect1 id="general-network-play">
+<title
+>Generalit�sulle partite in rete</title>
+
+<para
+> &kabalone; supporta il gioco tramite un network. Ci permette a due persone di giocare l'una contro l'altra da due diversi computers, o ad una persona di osservare una partita in corso su un altro computer.Per usare le funzioni di rete in &kabalone; bisogna impostarlo, in modalit�network scegliendo <menuchoice
+><guimenu
+>Partita</guimenu
+><guimenuitem
+>Partita in rete</guimenuitem
+></menuchoice
+>.</para>
+
+
+<para
+> Tutte le istanze di &kabalone; che sono attive e sono impostate in modalit�network, trasmettono da l'una all'altra gli spostamenti delle biglie.</para>
+
+<para
+>Per trasmettersi le nuove posizioni i programmi &kabalone; devono dialogare tra di loro. Se stanno girando sulla stessa macchina non serve nulla (tranne che passare in modalit�network). Se girano su computer diversi, dovrai specificare l'altra macchina dalla linea di comando, usando l'opzione <option
+>-h</option
+> in questo modo:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+> <option
+>-h</option
+> <replaceable
+>Un_nome_di_macchina</replaceable
+></userinput>
+</screen>
+
+<note
+><para
+> Per i pi esperti: &kabalone;, quando �in modalit�Network, ascolta su un socket <acronym
+>TCP</acronym
+> in attesa che l'altro programma Abalone invii comandi di spostamento . Si pu specificare il numero della porta con l'opzione <option
+>-p</option
+> nella linea di comando. Questo �necessario solo se vuoi giocare due diverse partite di Abalone in rete.</para
+></note>
+
+<sect2 id="network-examples">
+<title
+>Esempi</title>
+
+<itemizedlist
+> <listitem
+> <para
+>Chris su <systemitem class="systemname"
+>macchina1</systemitem
+> e Mary su <systemitem class="systemname"
+>macchina2 </systemitem
+>vogliono giocare l'uno contro l'altra: Mary semplicemente avvia &kabalone;, sceglie <guimenuitem
+>Nessuno</guimenuitem
+> in <menuchoice
+><guimenu
+>Impostazioni</guimenu
+><guisubmenu
+>Il computer gioca come</guisubmenu
+></menuchoice
+> e passa in modalit�Network. Chris avvia &kabalone; con <screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+> <option
+>-h</option
+> <parameter
+><replaceable
+>macchina2</replaceable
+></parameter
+></userinput>
+</screen
+> e poi agisce come Mary. Ora, uno dei due pu avviare la partita e muovere il rosso. Appena la disposizione delle biglie �modificata in un programma, automaticamente cambia anche nell'altro.</para
+> </listitem
+> <listitem
+> <para
+>John vuole osservare la partita: deve fare le stesse operazioni di Chris, ma non dovr�fare nessuna mossa.</para
+> </listitem
+> <listitem
+> <para
+>Si possono giocare due diverse partite in rete tra due macchine <systemitem class="systemname"
+>m1</systemitem
+> and <systemitem class="systemname"
+>m2</systemitem
+>. Per mantenerle distinte sceglieremo la porta 12345 per una delle due. Su <systemitem class="systemname"
+>m1</systemitem
+> partiremo come al solito: <screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+></userinput>
+</screen
+> per avviare la prima partita, e (in modo meno usuale): <screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+> <option
+>-p</option
+> <parameter
+><replaceable
+>12345</replaceable
+></parameter
+></userinput>
+</screen
+> per la seconda. Su <systemitem class="systemname"
+>m2</systemitem
+> avvieremo la prima partita con: <screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+> <option
+>-h</option
+> <parameter
+><replaceable
+>m1</replaceable
+></parameter
+></userinput>
+</screen
+> e la seconda con: <screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+> <option
+>-h</option
+> <parameter
+> <replaceable
+>m1:12345</replaceable
+></parameter
+></userinput>
+</screen
+> (I due-punti separano l'host dalla porta come in un &URL;).</para
+> </listitem
+> </itemizedlist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="advanced-options">
+<title
+>Opzioni avanzate</title>
+
+<sect1 id="modify-mode">
+<title
+>Modalit�di modifica</title>
+
+<para
+> Si pu modificare la disposizione sul tavoliere scegliendo <menuchoice
+><guimenu
+>Modifica</guimenu
+><guimenuitem
+>Modifica</guimenuitem
+></menuchoice
+> per porre &kabalone; in modalit�modifica. Si potranno aggiungere biglie rosse o gialle, o rimuoverne. La barra di stato mostrer�il numero di biglie rosse e gialle, il numero della mossa, il giocatore a cui tocca la prossima mossa, e se la disposizione �valida. Un punto esclamativo indica che non �valida, una V che lo � </para>
+
+<important
+> <para
+> Se la disposizione �inammissibile e si torna alla normale modalit�di gioco, non si potr�giocare! Si possono usare solo disposizioni ammissibili come punto di partenza per una partita. </para
+> </important>
+
+<para
+><action
+>Torna indietro</action
+> e <action
+>Avanti</action
+> si limitano a ridurre ed aumentare il numero progressivo della mossa, ma non spostano nessuna biglia.</para>
+
+<sect2 id="modify-mode-usage">
+<title
+>Utilizzo</title>
+
+<para
+>Premendo il tasto <mousebutton
+>sinistro</mousebutton
+> or <mousebutton
+>destro</mousebutton
+> del mouse su una posizione vuota od occupata da una biglia gialla ti poni in modalit�<quote
+>Aggiungi biglie rosse</quote
+>; premendo il tasto <mousebutton
+>centrale</mousebutton
+> su una posizione vuota od occupata da una biglia gialla ti poni in modalit�<quote
+>Aggiungi biglie gialle</quote
+>. Infine, premendo il tasto <mousebutton
+>sinistro</mousebutton
+> o <mousebutton
+>destro</mousebutton
+> del mouse su una biglia rossa, o quello <mousebutton
+>centrale</mousebutton
+> su una gialla, ti poni in modalit�<quote
+>Distruggi biglie</quote
+>. Ogni biglia su cui il mouse passer�con il tasto premuto sar�distrutta. </para>
+
+<para
+>Per uscire dalla modalit�Modifica e tornare in modalit�Gioco, basta disattivare <guimenuitem
+>Modifica</guimenuitem
+> nel menu <guimenu
+>Modifica</guimenu
+>.</para>
+
+<sect3 id="clipboard-features">
+<title
+>Utilizzo del clipboard</title>
+
+<para
+>L'attuale tavoliere di &kabalone; pu essere copiato nel clipboard usando il comando <guimenuitem
+>Copia</guimenuitem
+> nel menu <guimenu
+>Modifica</guimenu
+>, e poi recuperato usando <guimenuitem
+>Incolla</guimenuitem
+>. In questo modo puoi copiare la disposizione di una partita di &kabalone; in un'altra. Basta premere <guimenuitem
+>Copia</guimenuitem
+> in un programma e <guimenuitem
+>Incolla</guimenuitem
+> nell'altro. Per �meglio farlo in modalit�Network (vedi sopra). Un altro utilizzo �quello di salvare la disposizione in un file di testo (usando <guimenuitem
+>Copia</guimenuitem
+> e un editor a tua scelta) e recuperala in seguito selezionandola nell'editor e incollandola in &kabalone;.</para>
+</sect3>
+</sect2>
+</sect1>
+
+<sect1 id="computer-level">
+<title
+>Abilit�del computer</title>
+<para
+>Il computer pu giocare a quattro differenti livelli di abilit�</para>
+<itemizedlist
+> <listitem
+><para
+><guimenuitem
+>Facile</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+>Normale</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+>Difficile</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+>Sfida</guimenuitem
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+>Pi alto �il livello impostato, pi tempo il computer impiegher�per calcolare una mossa. Tu puoi interrompere questo calcolo premendo il tasto <keycap
+>S</keycap
+>.</para>
+
+</sect1>
+
+<sect1 id="spying">
+<title
+>Spiare</title>
+
+<para
+> Lo <quote
+>spionaggio</quote
+> pu essere attivato o disattivato tramite l'opzione <guimenuitem
+>Spia</guimenuitem
+> del menu <guimenu
+>Impostazioni</guimenu
+>. Se �il tuo turno, puoi vedere nella barra di stato la valutazione che il computer d�della mossa che vuoi fare.Se tocca al computer, puoi vedere (barra di stato e biglie evidenziate) la valutazione della mossa che esso considera al momento la migliore. Ovviamente questa cambier�durante il calcolo della mossa da farsi.</para>
+</sect1>
+
+<sect1 id="computer-plays">
+<title
+>Scelta del colore per il computer</title>
+
+<para
+> Puoi far giocare il computer come rosso o giallo o in entrambi i ruoli. Scegli una di queste opzioni prima di avviare una partita. Naturalmente puoi farlo anche a partita in corso, se vuoi scambiare le parti. Per giocare contro un'altra persona scegli <guimenuitem
+>Nessuno</guimenuitem
+>. Questo �molto utile in modalit�network.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Utilizzo dei menu</title>
+
+<para
+>Le mosse sono state spiegate in  <link linkend="rules-of-the-game"
+>Regole del gioco</link
+>. I pulsanti nella barra degli strumenti hanno la stessa funzionalit�delle corrispondenti voci nei menu <guimenu
+>Partita</guimenu
+> o <guimenu
+>Modifica</guimenu
+>.</para>
+
+<sect1 id ="the-game-menu">
+<title
+>Il menu <guimenu
+>Partita</guimenu
+></title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>artita</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>uova</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Avvia una nuova partita</action
+> anche se ce ne �una in corso.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>artita</guimenu
+> <guimenuitem
+>Ferma calcolo mo<accel
+>s</accel
+>sa</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Quando il computer sta pensando, viene interrotta una ricerca pi approfondita ed esso gioca la migliore mossa che ha trovato fino a quel momento.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>PgSu</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>artita</guimenu
+><guimenuitem
+>Torna <accel
+>i</accel
+>ndietro</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Annulla la tua mossa precedente. In realt�vengono cancellate due (!) mosse: la tua e quella dell'avversario. Cos�tocca ancora a te. Vengono memorizzate 100 mosse; quindi non esitare a tornare indietro fino all'inizio del gioco (�pi veloce se usi il tasto <keycap
+>F2</keycap
+>). Quando sei in modalit�modifica (vedi <menuchoice
+><guimenu
+>Modifica</guimenu
+><guimenuitem
+>Modifica</guimenuitem
+></menuchoice
+> pi avanti), viene scalato il numero che indica la mossa.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>PgGi</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>artita</guimenu
+><guimenuitem
+><accel
+>A</accel
+>vanti</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Utile solo in modalit�modifica: incrementa il numero che individua questa disposizione.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>artita</guimenu
+><guimenuitem
+><accel
+>S</accel
+>uggerimento</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Viene mostrato un suggerimento per la tua prossima mossa. E' disponibile solo se stai giocando a livello normale o superiore, sei almeno alla seconda mossa e non ne hai appena annullata una.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>artita</guimenu
+><guimenuitem
+><accel
+>P</accel
+>artita in rete</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Se questa opzione �impostata, il programma sar�in modalit�Network. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>artita</guimenu
+><guimenuitem
+><accel
+>E</accel
+>sci</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+><action
+>Esce</action
+>da &kabalone;.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="the-edit-menu">
+<title
+>Il menu <guimenu
+>Modifica</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Modifica</guimenu
+><guimenuitem
+><accel
+>C</accel
+>opia</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Copia una rappresentazione del tavoliere di &kabalone; sul clipboard</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Modifica</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ncolla</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Interpreta il contenuto del clipboard di X considerandolo una rappresentazione ASCII di una disposizione dei pezzi a &kabalone; e la copia sul tavoliere. Una valida rappresentazione ASCII pu essere generata con <guimenuitem
+>Copia</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Ins</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>M</accel
+>odifica</guimenu
+><guimenuitem
+><accel
+>M</accel
+>odifica</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Fa passare &kabalone; in modalit�modifica.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>M</accel
+>odifica</guimenu
+><guimenuitem
+><accel
+>S</accel
+>alva disposizione</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Salva la disposizione attuale per poterla recuperare in futuro con <menuchoice
+><guimenu
+>Modifica</guimenu
+> <guimenuitem
+>Ripristina disposizione</guimenuitem
+> </menuchoice
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>M</accel
+>odifica</guimenu
+><guimenuitem
+><accel
+>R</accel
+>ipristina disposizione</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Ripristina la disposizione delle biglie memorizzata nel file di configurazione di &kabalone; tramite <guimenu
+>Modifica</guimenu
+> <guimenuitem
+>Salva disposizione </guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="the-settings-menu">
+<title
+>Il menu <guimenu
+>Impostazioni</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl; <keycap
+>M</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+> <guimenuitem
+>Mostra la barra dei <accel
+>m</accel
+>enu</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Mostra o nasconde la barra dei menu di &kabalone;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+><guimenuitem
+> Mostra la barra degli str<accel
+>u</accel
+>menti</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Mostra o nasconde la barra degli strumenti di &kabalone;</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+><guimenuitem
+>Mostra la barra di st<accel
+>a</accel
+>to</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Mostra o nasconde la barra di stato di &kabalone; alla base della finestra.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+><guimenuitem
+>Salva le imp<accel
+>o</accel
+>stazioni</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Salva le impostazioni attuali, rendendole quelle predefinite per &kabalone;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+><guimenuitem
+>Configura le associazioni dei <accel
+>t</accel
+>asti...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Carica, per personalizzare quelle da usare in &kabalone;, la classica finestra di &kde; per la configurazione delle associazioni tra tasti e azioni.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+><guimenuitem
+>Configura la <accel
+>b</accel
+>arra degli strumenti...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Carica, per personalizzare quella di &kabalone;, la classica finestra di &kde; di configurazione della barra degli strumenti.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+><guisubmenu
+><accel
+>L</accel
+>ivello</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+> Imposta il livello a cui giocher�il computer. Pu essere scelto tra: <itemizedlist
+> <listitem
+><para
+><guimenuitem
+><accel
+>F</accel
+>acile</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+><accel
+>N</accel
+>ormale</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+><accel
+>D</accel
+>ifficile</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+><accel
+>S</accel
+>fida</guimenuitem
+></para
+> </listitem
+> </itemizedlist
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+><guisubmenu
+>Il <accel
+>C</accel
+>omputer gioca come</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+> Scegli il colore per il computer. Pu essere scelto tra: <itemizedlist
+> <listitem
+> <para
+><guimenuitem
+><accel
+>R</accel
+>osso</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>G</accel
+>iallo</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>E</accel
+>ntrambi</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>N</accel
+>essuno</guimenuitem
+></para
+> </listitem
+> </itemizedlist
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+><guimenuitem
+><accel
+>M</accel
+>uovi piano</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Con questa opzione attivata le mosse del computer saranno mostrate facendo lampeggiare ed evidenziando le biglie da muovere. Se non vuoi attendere a causa di questa animazione, disattiva questa opzione. Sar�mostrata solo una rapida evidenziazione.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>mpostazioni</guimenu
+><guimenuitem
+><accel
+>R</accel
+>esa grafica biglie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Se questa opzione �abilitata, le biglie saranno disegnate in tempo reale tramite un semplice ray tracer, quando necessario (&eg; quando si ridimensiona la finestra).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Impostazioni</guimenu
+><guimenuitem
+>Spia</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Se attivato, permette di <quote
+>spiare</quote
+> le mosse del computer.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>Il menu <guimenuitem
+>Aiuto</guimenuitem
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>iuto</guimenu
+><guimenuitem
+><accel
+>C</accel
+>ontenuti</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Avvia il sitema di guide &kde; a partire dalle pagine dedicate a &kabalone; (questo documento).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Ai<accel
+>u</accel
+>to</guimenu
+><guimenuitem
+>Che <accel
+>c</accel
+>os'�</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Trasforma il cursore del mouse in una freccia con un punto interrogativo. Facencdo clic con questa freccia su una voce di &kabalone;, si aprir�una finestra con una spiegazione (se disponibile per la particolare voce) delle funzionalit�d essa associate.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Ai<accel
+>u</accel
+>to</guimenu
+> <guimenuitem
+>Segnala un <accel
+>b</accel
+>ug</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Riferisce agli autori di &kabalone; un bug o un miglioramento desiderato.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Ai<accel
+>u</accel
+>to</guimenu
+> <guimenuitem
+>Informazioni <accel
+>s</accel
+>u KAbalone</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Mostra informazioni sulla versione e sugli autori.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Ai<accel
+>u</accel
+>to</guimenu
+> <guimenuitem
+>Informazioni su <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Mostra la versione di &kde; ed altre informazioni basilari.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+
+<chapter id="commandline-options">
+<title
+>Opzioni da linea di comando</title>
+
+<cmdsynopsis>
+<command
+>kabalone</command>
+<group>
+<option
+>-p</option>
+<replaceable
+>MyPortNumber</replaceable>
+</group>
+<group>
+<option
+>-h</option>
+<replaceable
+>host:port</replaceable>
+</group>
+</cmdsynopsis>
+
+<para
+>Con <option
+>-p</option
+> viene specificato il numero della porta su cui sar�in ascolto il socket TCP quando si �in modalit�network.</para>
+
+<para
+>Con <option
+>-h</option
+> viene specificato un processo &kabalone; remoto (con un numero di porta opzionale, se non si usa la porta standard sulla macchina remota) con cui comunicare quando si �in modalit�network. Si pu specificare pi di un processo remoto.</para>
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>Crediti &amp; Licenze</title>
+
+<para
+>&kabalone;</para>
+
+<para
+>Copyright 1997-2000 sul programma: Josef Weidendorfer <email
+>weidendo@informatik.tu-muenchen.de</email
+></para>
+
+<para
+>Documentazione originale: Robert Williams <email
+>rwilliams@kde.org</email
+> e Josef Weidendorfer</para>
+
+<para
+>Aggiornamento della documentazione per &kde; 2.0: Philip Rodrigues <email
+>philip.rodrigues@libertysurf.co.uk</email
+></para>
+
+<para
+>Traduzioni italiane curate dal Team di traduzione di KDE. Questo documento &egrave; stato tradotto da Andrea Celli <email
+>a.celli@caltanet.it</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installazione</title>
+<sect1 id="getting-kabalone">
+<title
+>Come procurarsi &kabalone;</title>
+<para
+> &kabalone; fa parte del progetto &kde; (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>). &kabalone; si trova nel pacchetto kdegames a <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, che �il principale sito &FTP; del progetto &kde;. </para>
+
+<para
+> Tutte le librerie richieste possono essere reperite anche nel <ulink url="ftp://ftp.kde.org"
+> sito &FTP; di &kde;</ulink
+>. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Compilazione e Installazione</title>
+
+<para
+> Per compilare ed installare &kabalone; sul tuo sistema, dovrai posizionarti nella directory di &kabalone; della tua copia dei kdegames ed immettere questi comandi: </para>
+
+<screen width="40"
+> 
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput
+> 
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>Poich�&kabalone; utilizza <application
+>autoconf</application
+> e <application
+>automake</application
+> non dovrebbero sorgere problemi nel compilarlo. Se ne dovessero capitare, per favore riferiscili all'autore all'indirizzo <email
+>weidendo@informatik.tu-muenchen.de</email
+></para>
+
+</sect1>
+
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-general-insert-case:lower
+sgml-namecase-general:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+

@@ -1,0 +1,656 @@
+<sect1 id="window-behavior">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Stanislav</firstname
+> <surname
+>Višňovský</surname
+> <affiliation
+> <address
+><email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></address
+> </affiliation
+><contrib
+>Preklad</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-07-22</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>akcie</keyword>
+<keyword
+>umiestnenie okien</keyword>
+<keyword
+>veľkosť okien</keyword>
+</keywordset>
+</sect1info>
+
+<title
+>Spôsob režimu okna</title>
+
+<para
+> V hornej časti tohto modulu sú tri záložky: <guilabel
+>Fokus</guilabel
+>, <guilabel
+>Akcie</guilabel
+> a <guilabel
+>Pokročilé</guilabel
+>. V záložke <guilabel
+>Fokus</guilabel
+> nastavíte spôsob prepínania aktivácie okien. Záložka <guilabel
+>Akcie</guilabel
+> obsahuje nastavenie reakcie okien na klikanie myšou. Možnosti v <guilabel
+>Pokročilé</guilabel
+> ovládajú umiestňovanie okien, ich presun a zmenu veľkosťi. </para>
+
+<note
+> <para
+> Toto nastavenie je určené iba pre správcu okien &kwin;. Ak používate iného správcu okien, prečítajte si jeho dokumentáciu ako ho nastaviť. </para
+> </note>
+
+<sect2 id="action-focus">
+<title
+>Fokus</title>
+
+<para
+> <quote
+>Fokus</quote
+> označuje okno, s ktorým používateľ momentálne pracuje. Okno s fokusom je obvykle označené ako <quote
+>aktívne okno</quote
+>. </para>
+
+<sect3 id="action-focus-focuspolicy">
+<title
+>Spôsob aktivácie</title>
+
+<para
+> Existujú štyri metódy, ako &kde; môže určiť, ktoré okno má momentálne fokus: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Kliknúť pre aktiváciu</guilabel
+></term
+> <listitem
+> <para
+> S touto voľbou aktivujete okno kliknutím myši do okna. </para
+> <para
+> Všetky ostatné možnosti v tejto časti sa na túto metódu nevzťahujú. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Okno pod myšou je aktívne</guilabel
+></term
+> <listitem
+> <para
+> Aby okno zmenilo fokus, jednoducho umiestnite nad okno kurzor myši. Ak sa potom kurzor myši posunie mimo okna nad plochu bez okien, poslednému oknu fokus zostane. </para
+> <para
+> V iných správcoch okien sa takéto chovanie niekedy označuje ako <quote
+>Sloppy focus follows mouse</quote
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktivovanie pod myšou</guilabel
+></term
+> <listitem
+> <para
+> Okno pod kurzorom myši má fokus. Ak ale kurzor ukazuje na plochu bez okien, žiadne okno nie je aktívne. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Iba okno pod myšou je aktívne</guilabel
+></term
+> <listitem
+> <para
+>Podobné ako <guilabel
+>Aktivovanie pod myšou</guilabel
+>, ale ešte striktnejšie dodržuje pravidlá. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Po výbere politiky aktivácie môžete nastaviť ešte dve možnosti. </para>
+
+<para
+> Zapnutím voľby <guilabel
+>Auto zdvihnúť</guilabel
+> bude &kde; okná presúvať dopredu v prípade, že myš je nad oknom po danú dobu. To sa hodí pri politike <guilabel
+>Okno pod myšou je aktívne</guilabel
+>. Môžete určiť dobu čakania pomocou textového políčka alebo posuvníka. </para>
+
+<tip
+> <para
+> Príliš krátka doba spôsobí rýchle prepínanie okien, čo môže byť dosť otravné. Väčšina používateľov nastavuje obvykle hodnoty 100-300 ms. Reakcia je dostatočná, ale môžete posúvať kurzor myši okolo rohov okna bez toho, aby sa ostatné okná posúvali dopredu. </para
+> </tip>
+
+<para
+> Ak nepoužijete voľbu <guilabel
+>Auto zdvihnúť</guilabel
+>, určite použite voľbu <guilabel
+>Klik zdvíha</guilabel
+>. Asi sa vám nebude páčiť chovanie okien v prípade, že obidve možnosti <guilabel
+>Auto zdvihnúť</guilabel
+> a <guilabel
+>Klik zdvíha</guilabel
+> budú vypnuté. </para>
+</sect3>
+
+<sect3 id="action-focus-keyboard">
+<title
+>Klávesnica</title>
+
+<para
+> V časti <guilabel
+>Klávesnica</guilabel
+> môžete nastaviť, ako sa bude medzi aplikáciami a plochami prepínať klávesovými skratkami <keycombo action="simul"
+> &Alt;<keycap
+>Tab</keycap
+></keycombo
+> alebo <keycombo action="simul"
+> &Ctrl;<keycap
+>Tab</keycap
+></keycombo
+>. </para>
+
+<para
+> Prepínanie aplikácií pomocou <keycombo action="simul"
+>&Alt; <keycap
+>Tab</keycap
+></keycombo
+>, čiže držaním &Alt; a opakovaným stláčaním klávesu <keycap
+>Tab</keycap
+> sa môže používať v móde &kde; alebo v móde <acronym
+>CDE</acronym
+>. V móde &kde; uvidíte v strede obrazovky okno s aktuálne vybranou aplikáciu počas držania &Alt;. V móde <acronym
+>CDE</acronym
+> sa žiadne okno nezobrazuje. </para>
+
+<para
+> Nakoniec je tu možnosť, či sa má <guilabel
+>Prepínať okná na všetkých plochách</guilabel
+>. Ak túto voľbu zapnete, prepínanie okien pomocou <keycombo action="simul"
+> &Alt;<keycap
+>Tab</keycap
+></keycombo
+> bude zobrazovať všetky okná na všetkých plochách a po prepnutí vás aj presunie na správnu plochu. Ak je táto voľba vypnutá, pomocou <keycombo action="simul"
+> &Alt;<keycap
+>Tab</keycap
+></keycombo
+> môžete prechádzať iba medzi oknami na aktuálnej ploche a na prepínanie plôch musíte použiť <keycombo action="simul"
+>&Ctrl;<keycap
+>Tab</keycap
+></keycombo
+>. </para>
+
+</sect3>
+</sect2>
+
+<sect2 id="action-actions">
+<title
+>Akcie</title>
+
+<!-- The same functionality is in kcmmousebeh, so this is mainly copied from
+kcmmousebeh.docbook, only the introduction sentence and the ids have been
+adapted. -->
+
+<para
+> V tomto paneli môžete nastaviť, čo sa stane pri kliknutí v okne. Je rozdelený na 4 časti. </para>
+
+<sect3 id="action-actions-sec1">
+<title
+><guilabel
+>Dvojklik na titulku okna</guilabel
+></title>
+
+<para
+> Táto časť obsahuje jeden rozbaľovací zoznam. Môžete si vybrať buď <guilabel
+>Zabaliť</guilabel
+> alebo <guilabel
+>Maximalizovať</guilabel
+>. </para>
+
+<para
+> Ak vyberiete <guilabel
+>Maximalizovať</guilabel
+>, &kde; bude pri dvojitom kliknutí na titulok okna okno maximalizovať. <guilabel
+>Zabaliť</guilabel
+> namiesto toho okno zmenší iba na jeho titulok. Dvojitým kliknutím na takto zabalené okno ho zase obnovíte do pôvodnej veľkosti. </para>
+
+<tip
+> <para
+> Okná sa môžu rozbaľovať aj automaticky pri ukázaní kurzorom myši na titulok, stačí použiť voľbu <guilabel
+>Povoliť Automatické rozbaľovanie</guilabel
+> v záložke <guilabel
+>Pokročilé</guilabel
+>. To je výborný spôsob získania miesta na ploche v momente, keď prenášate pomocou schránky dáta medzi veľa oknami. </para
+> </tip>
+
+</sect3>
+
+<sect3 id="action-actions-sec2">
+<title
+><guilabel
+>Titulok a rám</guilabel
+></title>
+
+<para
+> V tejto časti môžete určiť, čo sa stane pri jednoduchom kliknutí na titulok alebo rám okna. Všimnite si, že môžete určiť rôzne akcie pri kliknutí na aktívne a neaktívne okno. </para>
+
+<para
+> Pre každú kombináciu tlačidiel myši a aktívneho/neaktívneho okna si môžete vybrať to najvhodnejšie chovanie. Na výber sú tieto akcie: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Aktivovať</guilabel
+></term
+> <listitem
+> <para
+> Aktivuje okno. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Znížiť</guilabel
+></term
+> <listitem
+> <para
+> Posunie okno až dozadu, takže vám okno nebude zavadzať. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nič</guilabel
+></term
+> <listitem
+> <para
+> Presne to, čo je napísané. Nič sa nestane. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Menu operácií</guilabel
+></term
+> <listitem
+> <para
+> Zobrazí malé podmenu, kde si môžete vybrať príkazy pre okno (maximalizovať, minimalizovať, zavrieť, atď). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zdvihnúť</guilabel
+></term
+> <listitem
+> <para
+> Presunie okno nad všetky ostatné okná na ploche. Všetky okná, ktoré ho predtým zakrývali sa skryjú <quote
+>pod</quote
+> toto okno. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Prepínať zdvihnúť/znížiť</term
+> <listitem
+> <para
+> Toto posunie dopredu okno, ktoré nie je navrchu a posunie dozadu okná, ktoré navrchu už sú. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+
+<sect3 id="action-actions-sec3">
+<title
+><guilabel
+>Neaktívne vnútorné okno</guilabel
+></title>
+
+<para
+> Toto je časť modulu, kde sa nastavuje, čo sta stane pri kliknutí na neaktívne okno, a to pre všetky tri tlačidlá myši. </para>
+
+<para
+> Máte tieto možnosti: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Aktivovať, zdvihnúť a podať kliknutie</guilabel
+></term
+> <listitem
+> <para
+> Kliknutím sa okno stane aktívne, presunie sa dopredu na vrchol a kliknutie myši sa predá do okna aplikácie. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktivovať a podať kliknutie</guilabel
+></term
+> <listitem
+> <para
+> Kliknutím sa okno stane aktívne a kliknutie myši sa predá do okna aplikácie. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktivovať</guilabel
+></term
+> <listitem
+> <para
+> Toto jednoducho zaktivuje okno. Kliknutie myši sa aplikácii okna nepredá. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktivovať a zdvihnúť</guilabel
+></term
+> <listitem
+> <para
+> Okno sa aktivuje a posunie dopredu na vrchol. Kliknutie myši sa nepredá aplikácii okna. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="action-actions-sec4">
+<title
+><guilabel
+>Vnútorné okno, titulok a rám</guilabel
+></title>
+
+<para
+> Táto spodná časť záložky určuje ďalšie akcie, pri stlačení &Alt; a kliknutí do okna. </para>
+
+<para
+> Znovu si môžete vybrať rôzne akcie, ktoré chcete, aby sa stali pri kliknutí <mousebutton
+>ľavým</mousebutton
+>, <mousebutton
+>stredným</mousebutton
+> a <mousebutton
+>pravým</mousebutton
+> tlačidlom myši. </para>
+
+<para
+>Sú to:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Znížiť</guilabel
+></term
+> <listitem
+> <para
+> Posunie okno až dozadu, takže vám okno nebude zavadzať. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Presunúť</guilabel
+></term
+> <listitem
+> <para
+> Umožňuje ťahať vybrané okno po ploche. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nič</guilabel
+></term
+> <listitem
+> <para
+> Presne to, čo je napísané. Nič sa nestane. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zdvihnúť</guilabel
+></term
+> <listitem
+> <para
+> Presunie okno nad všetky ostatné okná na ploche. Všetky okná, ktoré ho predtým zakrývali sa skryjú <quote
+>pod</quote
+> toto okno. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zmeniť veľkosť</guilabel
+></term
+> <listitem
+> <para
+> Umožňuje zmeniť veľkosť vybraného okna. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Prepínať zdvihnúť/znížiť</guilabel
+></term
+> <listitem
+> <para
+> Toto posunie dopredu okno, ktoré nie je navrchu a posunie dozadu okná, ktoré navrchu už sú. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="action-advanced">
+<title
+>Pokročilé</title>
+
+<para
+> V záložke <guilabel
+>Pokročilé</guilabel
+> môžete podrobne nastaviť chovanie okien. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Zobrazovať obsah v presúvaných oknách</guilabel
+></term
+> <listitem
+> <para
+> Ak je táto voľba použitá, &kde; bude obnovovať obsah okna počas jeho presunu. </para
+> <para
+> Ak voľbu nepoužijete, &kde; zobrazí iba obdĺžnik, ktorý presúvate. Keď pustíte tlačidlo myši, &kde; obnoví obsah okna. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zobrazovať obsah v zväčšujúcich sa oknách</guilabel
+></term
+> <listitem
+> <para
+> Ak je táto voľba použitá, &kde; bude meniť obsah okna počas zmeny jeho veľkosti. Ak voľbu nepoužijete, &kde; bude počas zmeny veľkosti zobrazovať iba obdĺžnik a obsah okna sa prekreslí až v momente, keď pustíte tlačidlo myši. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<tip
+> <para
+> Obidve možnosti, <guilabel
+>Zobrazovať obsah v presúvaných oknách</guilabel
+> a <guilabel
+>Zobrazovať obsah vo zväčšujúcich sa oknách</guilabel
+> vyžadujú oveľa viac výkonu procesora ak sú zapnuté. Ak máte pocit, že váš počítač nereaguje dosť rýchlo počas presunu alebo zmeny veľkosti okna, vypnutím týchto volieb by mohlo pomôcť. </para
+> </tip>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Animovať minimalizáciu a obnovenie</guilabel
+></term
+> <listitem
+> <para
+> Ak je táto voľba zapnutá, pri minimalizácii a obnove okna sa bude kresliť animácia, takže dostanete vizuálne ukázané, aká akcia prebieha. Ak je voľba vypnutá, minimalizované okná sa jednoducho stratia a obnovované okna sa zase jednoducho objavia. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Povoliť presun a zmenu veľkosti maximalizovaných okien</guilabel
+></term
+> <listitem
+> <para
+> Ak zapnuté, okraje maximalizovaných okien zostanú aktívne a môžete ich použiť na zmenu veľkosti okna alebo jeho presun. Ak je toto vypnuté, maximalizované okná budú <quote
+>pevne uchytené na okrajoch obrazovky</quote
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Umiestnenie</guilabel
+></term
+> <listitem
+> <para
+> Politika umiestňovania určuje, kde sa na ploche zobrazí nové okno. Momentálne sú podporované tri politiky: <guilabel
+>Elegantne</guilabel
+>, ktorá sa snaží o minimálne prekrývanie okien, <guilabel
+>Kaskádovito</guilabel
+>, kde budú okná umiestnené do kaskády, a <guilabel
+>Náhodne</guilabel
+>, ak sa má použiť náhodné umiestňovanie. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Zabalenie</title
+> <varlistentry
+> <term
+><guilabel
+>Animovať</guilabel
+></term
+> <listitem
+> <para
+>Ak je voľba použitá, zabalenie okna okrem jeho titulku bude animované.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Povoliť Automatické rozbaľovanie</guilabel
+></term
+> <listitem
+> <para
+> Ak je táto voľba zapnutá, zabalené okno sa automaticky rozbalí, keď na jeho titulok nejakú dobu ukazovať kurzor myši. Pomocou posuvníka môžete nastaviť dobu čakania pred rozbalením. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Čarovné okraje</title
+> <varlistentry
+> <term
+><guilabel
+>Zóna priťahovania okrajov</guilabel
+></term
+> <listitem
+> <para
+>Čarovné okraje umožňujú <quote
+>pritiahnuť</quote
+> okna na okrajoch obrazovky a k sebe navzájom. Toto nastavenie určuje, ako blízko v bodoch musí byť okno od okraja obrazovky, aby bolo pritiahnuté po pustení tlačidla myši.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zóna priťahovania okien</guilabel
+></term
+> <listitem
+> <para
+>Podobne ako s okrajmi, toto nastavenie určuje, ako blízko v bodoch musí byť okraj existujúceho okna, aby sa okno k tomuto okraju pritiahlo a zarovnalo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Pritiahnuť okná iba pri prekrývaní</guilabel
+></term
+> <listitem
+> <para
+>Toto nastavenie mení predchádzajúcu voľbu tak, že iba okná, ktoré sa pri pustení prekrývali a ich okraje sú v čarovnej zóne, budú automaticky pritiahnuté. Ak toto zapnete a nastavíte čarovnú zónu dosť veľkú, prekrývajúce okná sa budú snažiť o to, aby sa neprekrývali. Môže vás to ale dosť rušiť, takže si to najprv vyskúšajte.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="action-author">
+<title
+>Autor kapitoly</title>
+
+<para
+>Táto kapitola bola napísaná: </para>
+<para
+>Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+<para
+>Jost Schenck <email
+>jost@schenck.de</email
+></para>
+<para
+>Preklad dokumentácie Stanislav Višňovský <email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></para>
+
+</sect2>
+</sect1>
+
+

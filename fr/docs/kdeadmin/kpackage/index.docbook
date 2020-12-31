@@ -1,0 +1,284 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kpackage;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE" > <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title>Manuel de &kpackage;</title>
+<authorgroup>
+<author> <firstname>Toivo</firstname> <surname>Pedaste</surname> <affiliation> <address><email>toivo@ucs.uwa.edu.au</email></address> </affiliation> </author>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation>
+<address><email>lauri@kde.org</email></address>
+</affiliation>
+<contrib>Relecteur</contrib>
+</othercredit>
+<othercredit role="translator"><firstname>Gérard</firstname><surname>Delafond</surname><affiliation><address><email>g.delafond@medsyn.fr</email></address></affiliation><contrib>Traduction française</contrib></othercredit>
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Toivo Pedaste</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2001-01-04</date>
+<releaseinfo>2.01.00</releaseinfo>
+
+<abstract><para>&kpackage; est une interface graphique aux gestionnaires de paquetages <acronym>RPM</acronym>, Debian, Slackware et BSD.</para></abstract>
+
+<keywordset>
+<keyword>kpackage</keyword>
+<keyword>paquetage</keyword>
+<keyword>gestionnaire de paquetages</keyword>
+<keyword>RPM</keyword>
+<keyword>deb</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>&kpackage; est une interface graphique aux gestionnaires de paquetages <acronym>RPM</acronym>, Debian, Slackware et BSD. Il est semblable en partie à <application>GLINT</application>. &kpackage; fait partie de l'environnement de bureau K et, par conséquent, est conçu pour s'intégrer au gestionnaire de fichiers de &kde;. </para>
+
+</chapter>
+
+<chapter id="onscreen-fundamentals">
+
+<title>Généralités sur la fenêtre principale</title>
+
+<para>&kpackage; est constitué de deux zones. La zone de gauche affiche une arborescence des paquetages installés et disponibles, la zone de droite affiche des informations sur les paquetages.</para>
+
+<sect1 id="drag-and-drop">
+<title>Glisser - déposer</title>
+
+<para>&kpackage; utilise le protocole de glisser-déposer de &kde;. Cela veut dire que vous pouvez tirer des paquetages vers &kpackage; pour les ouvrir. En relâchant un fichier sur le dialogue <guilabel>Rechercher un fichier</guilabel>, vous lancerez une recherche du paquetage qui contient ce fichier.</para>
+
+</sect1>
+
+<sect1 id="the-package-tree-panel">
+<title>La zone d'affichage arborescente des paquetages</title>
+
+<para>Quand &kpackage; démarre normalement (c'est à dire qu'il n'a pas été appelé par glisser-déposer et n'a pas reçu de paramètre), il affiche deux zones, avec l'arborescence des paquetages à gauche. Cette arborescence montre les paquetages installés et en option les paquetages nouveaux et mis à jour en plus.</para>
+      
+<para>Les onglets en haut de la zone sélectionnent si l'affichage doit comporter les paquetages <guilabel>installés</guilabel>, <guilabel>mis à jour</guilabel>, <guilabel>disponibles</guilabel> ou tous les paquetages</para>
+      
+<para>L'arborescence des paquetages affiche le nom du paquetage, la taille du paquetage, et (dans le cas d'un paquetage disponible qui mettrait à jour un paquetage installé) la version du paquetage déjà installé.</para>
+
+<para>La sélection d'un paquetage dans l'arborescence affiche les informations le concernant dans le panneau de droite et permet&nbsp;:</para>
+
+<itemizedlist> <listitem> <para>L'affichage des informations d'état sur le fichier</para> </listitem> <listitem> <para>La visualisation de quels fichiers sont inclus dans un paquetage installé, la sélection d'un fichier dans la liste l'ouvrant en utilisant le gestionnaire de fichiers</para> </listitem> <listitem> <para>La vérification des fichiers dans un paquetage, les fichiers qui existent sont marqués d'une coche, les autres d'une croix.</para> </listitem> <listitem> <para>La désinstallation d'un paquetage installé</para> </listitem> <listitem> <para>L'installation d'un paquetage disponible</para> </listitem> </itemizedlist>
+
+<para>Un simple paquetage est sélectionné en cliquant sur le nom. Un clic sur le point dans la colonne <guilabel>Marqué</guilabel> marque le paquetage avec une puce, un second clic le démarque, alors que <keycombo action="simul"><keycap>Maj</keycap><mousebutton>bouton gauche</mousebutton></keycombo> peut servir à sélectionner une plage de fichiers.</para>
+      
+</sect1>
+
+<sect1 id="integrating-available-packages-in-the-tree">
+<title>Intégration des paquetages disponibles dans l'arborescence</title>
+
+<para>Accès aux paquetages disponibles est configuré par les entrées du menu <guimenu>Configurer kpackage</guimenu> pour chaque type de paquetage sous le menu <guimenu>Configuration</guimenu>.</para>
+
+<para>Pour les paquetages <acronym>RPM</acronym>, &kpackage; peut lire un dossier contenant des paquetages et les ajouter à l'arborescence comme paquetages nouveaux ou mis à jour. Il est possible d'examiner ou d'installer ces paquetages depuis l'arborescence. Par défaut, les informations sur ces paquetages sont extraites dans le format standard des noms de fichiers et ainsi il est nécessaire d'utiliser le bouton <guibutton>Examiner</guibutton> pour voir sa description complète, bien qu'il soit possible de positionner une option de telle manière que pour les dossiers locaux, chaque fichier de paquetage soit lu, ce qui est plus lent, mais donne une description complète.</para>
+
+<para>Pour les paquetages Debian qui sont gérés par <command>dpkg</command>, il y a trois manières d'accéder aux paquetages disponibles, qui peuvent être sélectionnées dans trois types différents de panneaux de configuration d'emplacement. </para>
+
+<itemizedlist> <listitem> <para>Spécifier l'emplacement de l'arborescence des paquetages Debian et sélectionner la distribution et l'architecture. &kpackage; cherchera dans les emplacements standards les fichiers de paquetages qui décrivent les paquetages disponibles, ces paquetages sont ajoutés à l'arborescence et peuvent être examinés ou installés</para> </listitem> <listitem> <para>Spécifier l'emplacement de la distribution Debian avec les fichiers de paquetages pour les parties de la distribution qui ont un intérêt. Si le programme <command>dselect</command> est utilisé, le fichier <filename>/var/lib/dpkg/available</filename> peut être utilisé comme un fichier de paquetages qui décrit la distribution que <command>dselect</command> utilise.</para> </listitem> <listitem><para>Les dossiers de paquetages peuvent être gérés de la même manière que les paquetages <acronym>RPM</acronym>.</para></listitem> </itemizedlist>
+
+<para>Pour les paquetages Debian qui sont gérés par APT, l'emplacement du référentiel des paquetages désinstallés se règle dans le fichier <filename>/etc/apt/sources.list</filename>, le menu <guimenu>Emplacement</guimenu> peut encore être utilisé pour les dossiers contenant les paquetages Debian. Ces paquetages sont cherchés et mis en cache par <application>apt</application> lui-même, pas par &kpackage; </para>
+
+<para>Pour les paquetages Slackware, il y a peu d'informations stockées sur les paquetages installés, mais il est possible d'utiliser un fichier <filename>PACKAGES.TXT</filename> comme source d'informations sur les paquetages installés. Le fichier <filename>PACKAGE.TXT</filename> est l'équivalent d'un fichier de paquetages Debian et les distributions Slackware sont structurées avec une arborescence qui contient les paquetages <literal role="extension">.tgz</literal> et un fichier <filename>PACKAGES.TXT</filename> qui décrit les paquetages.</para>
+
+<para>Comme avec les distributions Debian, les paquetages dans une distribution Slackware peuvent être intégrés dans l'arborescence. Malheureusement, les paquetages Slackware ne comportent pas d'information de version, ainsi il est impossible de dire quels paquetages sont plus nouveaux que les installés.</para>
+
+<para>Pour les paquetages <acronym>BSD</acronym>, &kpackage; comprendra un dossier de paquetages de distribution qui contient un fichier <filename>INDEX</filename> (qui décrit tous les paquetages) et contient aussi un dossier <filename>Tous</filename> (contenant tous les fichiers de paquetages). </para>
+
+<para>Pour les dossiers distants et les fichiers de paquetages (c'est à dire ceux cherchés par &FTP;), &kpackage; utilise un cache, les paquetages étant mis en cache dans <filename>~/.kpackage</filename> et les dossiers dans <filename>~/.kpackage/dir</filename></para>
+
+<note><para>Pour que la manipulation des dossiers distants (&FTP;) fonctionne, il peut être nécessaire de ne pas avoir le <guilabel>FTP Proxy</guilabel> positionné dans la configuration du navigateur.</para></note>
+
+</sect1>
+
+<sect1 id="package-information-panel">
+<title>Panneau d'information sur les paquetages</title>
+
+<para>Le panneau de droite a des onglets pour afficher deux types différents d'informations sur les paquetages </para>
+
+<itemizedlist> <listitem> <para>L'onglet <guilabel>Propriétés</guilabel>, qui affiche les informations sur le paquetage sélectionné. Dans les informations de dépendances, il y a des hyperliens vers les paquetages listés&nbsp;; les paquetages installés sont en polices standards, les non installés sont en italique.</para> </listitem> <listitem> <para>L'onglet <guilabel>Liste des fichiers</guilabel> affiche les fichiers du paquetage et, pour les paquetages installés, affiche l'état des fichiers.</para> </listitem> </itemizedlist>
+
+</sect1>
+
+<sect1 id="root-access">
+<title>Accès root</title>
+
+<para>&kpackage; a besoin d'un accès <systemitem class="username">root</systemitem> pour installer et désinstaller les paquetages. Ceci peut se faire en lançant &kpackage; en tant que <systemitem class="username">root</systemitem> ou en utilisant &kdesu;.</para>
+
+<para>Autrement, si &kpackage; est lancé comme utilisateur normal, il essayera de lancer les programmes d'installation/désinstallation comme root en ouvrant un pseudoterminal utilisant soit <command>su</command>, soit <command>ssh</command> pour faire ceci et si besoin, il ouvrira une fenêtre de terminal où l'on peut saisir le mot de passe <systemitem class="username">root</systemitem>. Pour que ceci fonctionne, l'invite de root a la terminaison <prompt>#</prompt>.</para>
+
+<para>Ceci ne fonctionne pas pour les paquetages<acronym>RPM</acronym>, du fait qu'ils sont gérés intérieurement par &kpackage;. </para>
+
+</sect1>
+
+<sect1 id="installing-packages">
+<title>Installation des paquetages</title>
+
+<para>Pour installer un paquetage, vous pouvez</para>
+<itemizedlist> <listitem> <para>localiser le paquetage que vous voulez installer dans &konqueror;, le tirer et le déposer sur une copie en marche de &kpackage;</para> </listitem> <listitem> <para>cliquer sur un fichier de paquetage dans &konqueror; pour lancer une nouvelle copie de &kpackage;</para> </listitem> <listitem> <para>utiliser l'item de menu <guimenu>Ouvrir</guimenu> dans &kpackage;</para> </listitem> <listitem> <para>sélectionner un paquetage disponible dans l'arborescence des paquetages</para> </listitem> </itemizedlist>
+
+<para>Pour un paquetage sélectionné, utiliser les boutons dans le panneau de droite. Le bouton <guibutton>Rechercher</guibutton> cherchera un paquetage dans une source distante et affichera les informations détaillées. Le bouton <guibutton>Installer</guibutton> ouvre une fenêtre d'installation. </para>
+
+<para>Pour les paquetages marqués, utilisez le bouton dans le panneau de gauche. Le bouton <guibutton>Installer ces paquetages</guibutton>fait surgir une fenêtre d'installation.</para>
+
+<para>La fenêtre d'installation liste les paquetages à installer et permet la configuration d'options d'installation. Le panneau de droite est une fenêtre de terminal intégrée dans laquelle les programmes d'installation sont lancés, pour pouvoir agir avec les programmes d'installation interactifs </para>
+
+<para>Les paquetages <acronym>RPM</acronym> sont manipulés assez différemment des autres types de paquetages, car l'installation se fait directement par &kpackage;, le panneau de droite étant utilisé pour les messages d'erreur. </para>
+
+</sect1>
+
+<sect1 id="uninstalling-packages">
+<title>Désinstallation des paquetages</title>
+
+<para>Un paquetage sélectionné peut être désinstallé en utilisant le bouton <guibutton>Désinstaller</guibutton> dans la zone de droite, ce qui ouvre une fenêtre avec les options de désinstallation. Le bouton <guibutton>Désinstaller</guibutton> dans la fenêtre provoque la désinstallation des paquetages à désinstaller, et le panneau de droite fournit une fenêtre de terminal intégrée pour les programmes de désinstallation.</para>
+
+<para>Les paquetages marqués peuvent être désinstallés en utilisant le bouton <guibutton>Désinstaller ces paquetages</guibutton> dans le panneau de gauche.</para>
+
+</sect1>
+
+</chapter>
+<chapter id="menus">
+
+<title>Menus</title>
+
+<para>Ceci décrit les menus de &kpackage;. </para>
+
+<sect1 id="file-menu">
+<title>Menu <guimenu>Fichier</guimenu></title>
+
+<para>Les items du menu <guimenu>Fichier</guimenu> sont&nbsp;:</para>
+
+<variablelist> <varlistentry> <term><menuchoice><shortcut><keycombo action="simul"> &Ctrl;<keycap>O</keycap></keycombo></shortcut> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem><accel>O</accel>uvrir</guimenuitem></menuchoice></term> <listitem><para>Ouvre un sélecteur de fichiers pour les fichiers locaux et &FTP;</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu><accel>F</accel>ichier</guimenu> <guimenuitem><accel>R</accel>écemment ouverts</guimenuitem></menuchoice></term> <listitem><para>Une liste des fichiers de paquetages les plus récemment ouverts</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><shortcut><keycombo action="simul"> &Ctrl;<keycap>F</keycap></keycombo></shortcut> <guimenu><accel>F</accel>ichier</guimenu><guimenuitem>Rechercher un <accel>P</accel>aquetage</guimenuitem></menuchoice></term> <listitem><para>Chercher dans la liste des paquetages installés lequel contient la chaîne saisie </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu><accel>F</accel>ichier</guimenu> <guimenuitem>Rechercher un <accel>F</accel>ichier</guimenuitem></menuchoice></term> <listitem><para>Produit une liste de paquetages qui contiennent le nom du fichier saisi. La sélection d'une ligne affichera les informations sur ce paquetage. Le comportement est légèrement différent pour <acronym>RPM</acronym> (où vous devez écrire le nom exact du fichier) et <abbrev>DEB</abbrev> (où vous pouvez saisir une expression rationnelle).</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><shortcut><keycap>F5</keycap></shortcut> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem>Rec<accel>h</accel>arger</guimenuitem></menuchoice></term> <listitem><para>Relit les données des paquetages et en reconstruit l'arborescence</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><shortcut><keycombo action="simul"> &Ctrl;<keycap>Q</keycap></keycombo></shortcut> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem><accel>Q</accel>uitter</guimenuitem></menuchoice></term> <listitem><para>Ferme &kpackage; </para></listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="packages-menu">
+<title>Menu <guimenu>Paquetages</guimenu></title>
+
+<para>Les items du menu <guimenu>Paquetages</guimenu> sont&nbsp;:</para>
+
+<variablelist> <varlistentry> <term><menuchoice><guimenu><accel>P</accel>aquetages</guimenu> <guimenuitem><accel>P</accel>récédent</guimenuitem></menuchoice></term> <listitem><para>Bouton de retour arrière pour la navigation en utilisant les liens dans les entrées de <guilabel>Propriétés</guilabel> du panneau de droite.</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu><accel>P</accel>aquetages</guimenu> <guimenuitem><accel>S</accel>uivant</guimenuitem></menuchoice></term> <listitem><para>Bouton de réavancement pour la navigation en utilisant les liens dans les entrées de <guilabel>Propriétés</guilabel> du panneau de droite.</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu><accel>P</accel>aquetages</guimenu> <guimenuitem><accel>D</accel>évelopper l'arborescence</guimenuitem></menuchoice></term> <listitem><para>Développe complètement l'arborescence des paquetages</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu><accel>P</accel>aquetages</guimenu> <guimenuitem>Re<accel>f</accel>ermer l'arborescence</guimenuitem> </menuchoice></term> <listitem><para>Replie l'arborescence des paquetages de manière à ne montrer que la structure de l'arborescence.</para></listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>P</accel>aquetages</guimenu> <guimenuitem><accel>E</accel>ffacer la sélection</guimenuitem> </menuchoice></term> <listitem><para>Démarque tous les paquetages</para></listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="cache-menu">
+<title>Menu <guimenu>Cache</guimenu></title>
+
+<para>Les items du menu <guimenu>Cache</guimenu> sont&nbsp;: </para>
+<variablelist> <varlistentry> <term><menuchoice><guimenu><accel>C</accel>ache</guimenu> <guimenuitem>Vider le <accel>c</accel>ache pour les dossiers de paquetage</guimenuitem></menuchoice></term> <listitem><para>Supprime les copies en cache des dossiers de paquetages distants et des fichiers de paquetages</para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>ache</guimenu><guimenuitem> Vider le cache pour les<accel>P</accel>aquetages</guimenuitem> </menuchoice></term> <listitem><para>Supprime les copies en cache des fichiers de paquetages distants qui ont été cherchés</para> </listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="special-menu">
+<title>Menu <guimenu>Spécial</guimenu></title>
+
+<para>Le menu <guimenu>Spécial</guimenu> contient des actions relatives à des types de paquetages spécifiques&nbsp;:</para>
+
+<variablelist> <varlistentry> <term><menuchoice> <guimenu><accel>S</accel>pécial</guimenu><guimenuitem> Deb <accel>A</accel>pt</guimenuitem> </menuchoice></term> <listitem> <variablelist> <varlistentry> <term><guilabel>Actualiser</guilabel></term> <listitem><para>Met à jour les index de <command>apt</command> du référentiel des paquetages.</para></listitem> </varlistentry> <varlistentry> <term><guilabel>Mise à jour</guilabel></term> <listitem><para>Mettre à jour l'installation de Debian vers la dernière version de tous les paquetages</para></listitem> </varlistentry> <varlistentry> <term><guilabel>Réparations</guilabel></term> <listitem><para><command>apt</command> est très strict à propos des dépendances et tente de corriger les problèmes de dépendance</para></listitem> </varlistentry> </variablelist> </listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title>Menu <guimenu>configuration</guimenu></title>
+
+<para>Les items du menu <guimenu>Configuration</guimenu> sont&nbsp;:</para>
+
+<variablelist> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu><guimenuitem>Afficher la barre d'<accel>o</accel>utils</guimenuitem> </menuchoice></term> <listitem><para>Afficher ou non la barre d'outils</para></listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu><guimenuitem>Enregistrer la confi<accel>g</accel>uration</guimenuitem></menuchoice></term> <listitem><para>Enregistrer les options immédiatement</para></listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu><guimenuitem>Raccourcis cla<accel>v</accel>ier...</guimenuitem></menuchoice></term> <listitem><para>La boîte de dialogue standard de &kde; pour configurer les raccourcis clavier</para></listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu><guimenuitem>Barres d'ou<accel>t</accel>ils</guimenuitem></menuchoice></term> <listitem><para>La boîte de dialogue standard de &kde; pour configurer les barres d'outils</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu><accel>C</accel>onfiguration</guimenu> <guimenuitem>Configurer <accel>k</accel>Package</guimenuitem></menuchoice></term> <listitem> <variablelist> <varlistentry> <term><guilabel>Types</guilabel></term> <listitem><para>Quels types de paquetages manipuler &nbsp; Debian utilisant DPKG et Debian utilisant APT sont listés séparément. Ce n'est pas une bonne idée de les activer en même temps.</para></listitem> </varlistentry> <varlistentry> <term><guilabel>Dossier de cache</guilabel></term> <listitem><para>S'il faut mettre en cache les dossiers distants (&FTP;) et les fichiers de paquetages.</para></listitem> </varlistentry> <varlistentry> <term><guilabel>Cache de paquetages</guilabel></term> <listitem><para>S'il faut mettre en cache les fichiers de paquetages distants qui ont été cherchés </para></listitem> </varlistentry> <varlistentry> <term><guilabel>divers</guilabel></term> <listitem> <variablelist> <varlistentry> <term><guilabel>Utiliser SSH pour les commandes nécessitant des privilèges</guilabel></term> <listitem><para>Utiliser <command>ssh</command> au lieu de <command>su</command> pour lancer les commandes avec privilèges</para> </listitem> </varlistentry> <varlistentry> <term><guilabel>Vérifier la liste des fichiers</guilabel></term> <listitem><para>Si positionné, la liste des fichiers dans le paquetage est vérifiée pour voir s'ils sont vraiment installés</para> </listitem> </varlistentry> <varlistentry> <term><guilabel>Lire les informations de tous les paquetages locaux</guilabel></term> <listitem><para>Si positionné, tous les fichiers d'un dossier (local) de paquetages sont lus au lieu de simplement utiliser les noms des fichiers. C'est plus lent, mais montre plus d'informations.</para></listitem> </varlistentry> </variablelist> </listitem> </varlistentry> </variablelist> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu> <guisubmenu>Emplacement des paquetages disponibles</guisubmenu></menuchoice></term> <listitem> <variablelist> <varlistentry> <term><guimenuitem>Emplacement des RPM</guimenuitem></term> <listitem><para>Ceci permet de préciser l'emplacement des dossiers de paquetages (soit locaux, soit &FTP;), chaque ligne incluant une entrée où l'&URL; ou le nom du dossier peut être saisi, un bouton <guibutton>...</guibutton> qui ouvre un sélecteur de fichiers et une case à cocher <guilabel>Activer</guilabel> qui détermine si le dossier donné sur la ligne doit être utilisé ou non. La case à cocher <guilabel>Sous-dossiers</guilabel> indique s'il faut descendre récursivement dans les sous-dossiers. Les onglets multiples sont juste là par commodité.</para></listitem> </varlistentry> <varlistentry> <term> Zone BSD</term> <listitem><para>Le premier panneau donne l'emplacement de l'arborescence des ports dans le système de fichiers </para> <para>L'autre panneau permet de spécifier l'emplacement des dossiers de paquetages, c'est à dire ceux qui contiennent des fichiers <filename>INDEX</filename></para></listitem> </varlistentry> <varlistentry> <term>Emplacement DEB</term> <listitem><para>Il y a trois types différents de panneaux</para> <itemizedlist> <listitem><para>Les trois premiers onglets ont une entrée pour l'emplacement de l'arborescence de la distribution Debian, une boîte combo pour le nom de la distribution et une boîte combo pour l'architecture</para></listitem> <listitem><para>Les deux onglets suivants permettent la spécification de l'arborescence Debian et l'emplacement des fichiers de paquetages dans cette distribution.</para></listitem> <listitem><para> Les trois derniers panneaux spécifient les dossiers de la même manière que pour RPM.</para></listitem> </itemizedlist> </listitem> </varlistentry> <varlistentry> <term>Emplacement SLACK</term> <listitem><para>Pour les paquetages Slackware, il y a trois types de panneaux</para> <itemizedlist> <listitem><para>Le premier panneau est l'emplacement d'un fichier <filename>PACKAGES.TXT</filename> qui est utilisé pour fournir les informations sur les paquetages installés</para></listitem> <listitem><para>Les quatre panneaux suivants peuvent être utilisés pour spécifier l'emplacement de distributions avec l'arborescence de dossiers contenant les fichiers <literal role="extension">.tgz</literal> et l'emplacement du fichier <filename>PACKAGES.TXT</filename> correspondant</para></listitem> <listitem><para>Les deux derniers panneaux sont pour les dossiers qui n'ont <emphasis>pas</emphasis> de fichier<filename>PACKAGES.TXT</filename> correspondant</para></listitem> </itemizedlist> </listitem> </varlistentry> </variablelist> </listitem> </varlistentry> </variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title>Menu <guimenu>Aide</guimenu></title>
+
+<para>Les items du menu <guimenu>Aide</guimenu> sont&nbsp;: </para>
+
+<variablelist> <varlistentry> <term><menuchoice> <shortcut><keycap>F1</keycap></shortcut><guimenu><accel>A</accel>ide</guimenu><guimenuitem>Conten<accel>u</accel></guimenuitem> </menuchoice></term> <listitem><para>Ouvre le fichier d'aide pour &kpackage; (ce document)</para></listitem> </varlistentry> <varlistentry> <term><menuchoice> <shortcut><keycombo action="simul"><keycap>Maj</keycap><keycap>F1</keycap> </keycombo></shortcut> <guimenu><accel>A</accel>ide</guimenu><guimenuitem><accel>Q</accel>u'est-ce que c'est&nbsp;?</guimenuitem></menuchoice></term> <listitem><para>Transforme le curseur en point d'interrogation (?), vous permettant de cliquer sur une icône ou autre item dans la fenêtre de &kpackage; et de recevoir un petit paragraphe d'aide sur l'item sélectionné.</para></listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ide</guimenu><guimenuitem><accel>R</accel>apport de bogue</guimenuitem> </menuchoice></term> <listitem><para>Ouvre une boîte de dialogue vous permettant de rapporter un bogue, ou entrer un item dans la <quote>liste des souhaits</quote> (wish list) pour une fonctionnalité que vous voudriez voir dans une prochaine version de &kpackage;</para></listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ide</guimenu><guimenuitem>À <accel>p</accel>ropos de KPackage</guimenuitem></menuchoice></term> <listitem><para>Affiche la version et les informations de contribution concernant &kpackage;</para></listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ide</guimenu><guimenuitem>À propos de <accel>K</accel>DE</guimenuitem></menuchoice></term> <listitem><para>Affiche la version et les informations de contribution concernant &kde;</para></listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="toolbar">
+<title>Barre d'outils</title>
+
+<itemizedlist> <listitem><para><guiicon>Ouvrir</guiicon></para></listitem> <listitem><para><guiicon>Précédent (historique)</guiicon></para></listitem> <listitem><para><guiicon>Suivant</guiicon></para></listitem> <listitem><para><guiicon>Développer l'arborescence</guiicon></para></listitem> <listitem><para><guiicon>Refermer l'arborescence</guiicon></para></listitem> <listitem><para><guiicon>Rechercher un paquetage</guiicon></para></listitem> <listitem><para><guiicon>Rechercher un fichier</guiicon></para></listitem> <listitem><para><guiicon>Recharger</guiicon></para></listitem> <listitem><para><guiicon>Quitter</guiicon></para></listitem> </itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title>Remerciements et licences</title>
+
+<para> &kpackage; </para>
+<para>Program copyright 1999-2000 Damyan Pepper, Toivo Pedaste</para>
+
+<para>Documentation copyright 2000 Toivo Pedaste <email>toivo@ucs.uwa.edu.au</email></para>
+<para>Traduction française par Gérard Delafond<email>gerard@delafond.org</email></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="how-to-obtain-kpackage">
+<title>Comment obtenir &kpackage;</title>
+
+<para>&kpackage; fait maintenant partie de l'arborescence <acronym>CVS</acronym> de &kde;, dans le paquetage kdeadmin.</para>
+
+<para>Pour les informations sur la manière de l'obtenir et le compiler, voyez <ulink url="http://www.kde.org/install-source.html"> http://www.kde.org/install-source.html</ulink></para>
+
+<para>Il y a d'autres informations sur la compilation sur <ulink url="http://www.kde.org/compilationfaq.html"> http://www.kde.org/compilationfaq.html</ulink></para>
+
+<para>Il y a une page web à <ulink url="http://www.general.uwa.edu.au/u/toivo/kpackage"> http://www.general.uwa.edu.au/u/toivo/kpackage</ulink></para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Configuration nécessaire</title>
+
+<para>Pour installer &kpackage;, vous avez besoin de&nbsp;:</para>
+
+<itemizedlist> <listitem><para>&Qt;2.x et &kde; 2.2 </para></listitem> </itemizedlist>
+
+<para>Pour lister les paquetages Debian, aucun autre logiciel n'est nécessaire, mais pour installer et désinstaller les paquetages, vous avez besoin de&nbsp;:</para>
+
+<itemizedlist> <listitem><para>le gestionnaire de paquetages <command>dpkg</command> ou</para></listitem> <listitem><para> <command>apt-get</command> et <command>apt-cache</command></para></listitem> </itemizedlist>
+
+<para>Pour les paquetages <acronym>BSD</acronym>, vous avez besoin des programmes de gestion des paquetages&nbsp;: </para>
+
+<itemizedlist> <listitem><para><command>pkg_info</command></para></listitem> <listitem><para><command>pkg_add</command></para></listitem> <listitem><para><command>pkg_delete</command></para></listitem> </itemizedlist>
+
+<para>Pour les paquetages Slackware, vous avez besoin de&nbsp;: </para>
+
+<itemizedlist> <listitem><para><application>installpkg</application> </para></listitem> <listitem><para><application>removepkg</application></para></listitem> </itemizedlist>
+
+<para>Pour gérer les paquetages Redhat, vous avez besoin de&nbsp;</para>
+<itemizedlist> <listitem><para><acronym>RPM</acronym> et RPM-DEVEL: 3.0 ou 4.0</para></listitem> <listitem><para>les mêmes bibliothèques que pour compiler <acronym>RPM</acronym>. Ce sont&nbsp;:</para> <itemizedlist> <listitem><para><filename>libdb</filename> - la bibliothèque de base de données de Berkeley </para></listitem> <listitem><para>les bibliothèques de compactage <filename>libz</filename> et <filename>libz-dev</filename> </para></listitem> <listitem><para><acronym>RPM</acronym> nécessite la routine<application>gettext</application> qui se trouve dans la <filename>libc6</filename> ou dans <filename>libintl</filename></para></listitem> <listitem><para><acronym>RPM</acronym> 3.0 peut nécessiter le paquetage <filename>popt</filename></para></listitem> </itemizedlist> </listitem> </itemizedlist>
+
+<para>Pour que &kpackage; fonctionne correctement avec les paquetages <acronym>RPM</acronym>, la base de données de <acronym>RPM</acronym> doit être initialisée. Si la commande <userinput><command>rpm</command> <option>-qa</option></userinput> renvoie une erreur comme <computeroutput>incapable d'ouvrir...</computeroutput>, essayez <userinput><command>rpm</command><option>--rebuilddb</option></userinput>.</para>
+
+</sect1>
+
+</appendix>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

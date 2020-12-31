@@ -1,0 +1,1354 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kabalone;">
+  <!ENTITY % Portuguese "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>O Manual do &kabalone;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Josef</firstname
+> <surname
+>Weidendorfer</surname
+> </author>
+<author
+> <firstname
+>Philip</firstname
+> <surname
+>Rodrigues</surname
+> <affiliation
+> <address
+><email
+>phil.rod@ntlworld.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>lauri@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Revisor</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>jncp@rnl.ist.utl.pt</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit>
+
+</authorgroup>
+
+<date
+>2001-05-29</date>
+<releaseinfo
+>1.06.00</releaseinfo>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Philip Rodrigues</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract
+><para
+>O &kabalone; é um jogo simples de estratégia em tabuleiro que é jogado por duas pessoas.</para
+> </abstract>
+
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>jogo</keyword>
+<keyword
+>abalone</keyword>
+<keyword
+>linux</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+
+<para
+>O &kabalone; é um jogo simples de estratégia em tabuleiro que é jogado por duas pessoas. Existem peças vermelhas e amarelas para cada jogador. A partir do início em que cada jogador tem 14 peças, são realizados movimentos até que um jogador tenha empurrado para fora do tabuleiro 6 peças no adversário.</para>
+
+<para
+>O programa original foi desenvolvido em 1993 para o DOS e para o Xlib puro. Para o &kde; houve uma grande reescrita.</para>
+
+<note
+><para
+> A ideia do jogo não é minha. É um jogo de tabuleiro real vendido por uma empresa de produção de jogos alemã (penso eu).</para
+></note>
+
+</chapter>
+
+<chapter id="rules-of-the-game">
+<title
+>Regras do Jogo</title>
+
+<para
+>O vermelho joga sempre primeiro.</para>
+
+<para
+>São permitidos dois tipos de movimentos:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Normal</term
+> <listitem
+><para
+>Podem ser movidas uma, duas ou três peças tuas em fila numa das 6 direcções. Também são permitidos movimentos laterais.</para
+> <para
+>Carrega no botão esquerdo do rato na primeira peça que queres mexer. A peça ficará realçada. Agora arrasta o rato na direcção desejada. Se o movimento for válido, o cursor irá mudar para uma seta nessa direcção e todas as peças do movimento ficarão realçadas. Se este for o movimento que queres fazer, larga o botão do rato.</para
+> <para
+>Os movimentos laterais são feitos de outra maneira: para duas peças adjacentes carrega entre elas e arrasta-as; para três peças carrega no botão <mousebutton
+>do meio</mousebutton
+> na peça do meio - se for permitido um movimento lateral para as peças elas ficarão realçadas. Caso contrário só a do meio ficará realçada e farás um moviemento normal. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Empurrar</term
+> <listitem
+><para
+>Podes empurrar um máximo de duas peças do adversário à frente das tuas peças desde que o número de peças que movas seja maior do que as do opositor que empurras. Isto significa que três peças tuas podem empurrar uma ou duas peças do adversário, assim como com duas só podes empurrar uma.</para
+> <para
+>Os movimentos de empurrão especiais são aquelas em que empurras uma peça do adversário para fora do tabuleiro. Se empurrares seis peças do adversário para fora ganhaste. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Se continuas a não saber como é o &kabalone;, vê um jogo em que o computador jogue dos dois lados. Depois de executares o &kabalone;, selecciona <menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Joga o computador</guisubmenu
+><guimenuitem
+>Ambos</guimenuitem
+></menuchoice
+> e inicia um novo jogo. </para>
+
+</chapter>
+
+<chapter id="network-play">
+<title
+>Jogo em Rede</title>
+<sect1 id="general-network-play">
+<title
+>Jogo Normal em Rede</title>
+
+<para
+> O &kabalone; pode ser jogado através da rede. Isto permite a duas pessoas jogarem uma contra a outra em computadores diferentes, ou a uma pessoa observar o jogo de outro &kabalone;. Para usar a opção de rede do &kabalone;, este deve estar definido para Modo Rede seleccionando <menuchoice
+><guimenu
+>Jogo</guimenu
+><guimenuitem
+>Rede</guimenuitem
+></menuchoice
+>.</para>
+
+
+<para
+> Todos os programas do &kabalone; que estejam em modo Rede difundem as posições alteradas aos outros.</para>
+
+<para
+>Para trocarem as posições, os programas do &kabalone; devem-se avisar uns aos outros. Se estiverem na mesma máquina, não é necessário nada (à parte de estarem em Modo Rede). Se estiverem a correr em computadores diferente tens de especificar a outra máquina na linha de comandos com a opção <option
+>-h</option
+>, tal como se segue:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+> <option
+>-h</option
+> <parameter
+><replaceable
+>NomeDaMáquina</replaceable
+></parameter
+></userinput>
+</screen>
+
+<note
+><para
+> Para os curiosos: o &kabalone;, quando está em Modo Rede, fica à espera num 'socket' de <acronym
+>TCP</acronym
+> pelas mudanças de posição dos outros programas do &kabalone;. Podes especificar o número do porto com a opção da linha de comandos <option
+>-p</option
+>. Precisas disto se quiseres jogar dois jogos de &kabalone; em rede diferentes.</para
+></note>
+
+<sect2 id="network-examples">
+<title
+>Exemplos</title>
+
+<itemizedlist
+> <listitem
+> <para
+>O Carlos na <systemitem class="systemname"
+>maquina1</systemitem
+> e a Maria na <systemitem class="systemname"
+>maquina2</systemitem
+> querem jogar um contra o outro: a Maria apenas inicia o &kabalone;, altera em <menuchoice
+><guimenu
+>Opções</guimenu
+><guisubmenu
+>Joga o computador</guisubmenu
+></menuchoice
+> para <guimenuitem
+>Nenhum</guimenuitem
+> e muda para Modo Rede. O Carlos inicia o &kabalone; com <screen width="40"
+><prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+> <option
+>-h</option
+> <parameter
+><replaceable
+>maquina2</replaceable
+></parameter
+></userinput>
+</screen
+> e depois faz o mesmo que a Maria. Agora um dos dois pode iniciar o jogo e mexer as peças vermelhas. Cada vez que a posição é alterada num programa, altera automaticamente no outro também.</para
+> </listitem
+> <listitem
+> <para
+>O João quer observar o jogo: ele faz o mesmo que o Carlos, mas ele próprio não joga.</para
+> </listitem
+> <listitem
+> <para
+>Dois jogos em rede do &kabalone; irão correr entre as máquinas <systemitem class="systemname"
+>m1</systemitem
+> e a <systemitem class="systemname"
+>m2</systemitem
+>. Para distinguir os jogos, usamos o porto 12345 numa delas. Na <systemitem class="systemname"
+>m1</systemitem
+> iniciamos como de costume: <screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+></userinput>
+</screen
+> para o primeiro jogo, e (não como de costume): <screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+> <option
+>-p</option
+> <parameter
+><replaceable
+>12345</replaceable
+></parameter
+></userinput>
+</screen
+> para o segundo. Na <systemitem class="systemname"
+>m2</systemitem
+> iniciamos o primeiro jogo com: <screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command>
+<option
+>-h</option
+> <parameter
+><replaceable
+>m1</replaceable
+></parameter
+></userinput>
+</screen
+> e o segundo com: <screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>kabalone</command
+> <option
+>-h</option
+> <parameter
+><replaceable
+>m1:12345</replaceable
+></parameter
+></userinput>
+</screen
+> (Os dois pontos separam a máquina e o porto como num &URL;).</para
+> </listitem
+> </itemizedlist>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="advanced-options">
+<title
+>Opções Avançadas</title>
+
+<sect1 id="modify-mode">
+<title
+>Modo de Modificação</title>
+
+<para
+> Podes editar as posições actuais do tabuleiro seleccionando <menuchoice
+><guimenu
+>Editar</guimenu
+><guimenuitem
+>Modificar</guimenuitem
+></menuchoice
+> para pôr o  &kabalone; em modo de modificação. Podes adicionar peças vermelhas ou amarelas ou retirá-las. A linha de estado mostra o número de peças amarelas e vermelhas, o número do movimento, quem deve jogar a seguir e se a posição é válida: um ponto de exclamação significa que não, um símbolo para assinalar significa que sim. </para>
+
+<important
+> <para
+> Se a posição é inválida e mudares para o modo de jogo, não poderás jogar! Só se podem usar posições válidas para o início de um jogo. </para
+> </important>
+
+<para
+>As opções de <action
+>Retirar</action
+> e <action
+>Frente</action
+> simplesmente incrementam e decrementam o número do movimento, mas não alteram nenhumas peças.</para>
+
+<sect2 id="modify-mode-usage">
+<title
+>Utilização</title>
+
+<para
+>Carregando no botão <mousebutton
+>esquerdo</mousebutton
+> ou <mousebutton
+>direito</mousebutton
+> do rato num campo vazio ou amarelo tu entras em modo de <quote
+>adição de peças vermelhas</quote
+>; se carregares com o botão <mousebutton
+>do meio</mousebutton
+> num campo vermelho ou vazio, entras em modo de <quote
+>adição de peças amarelas</quote
+>. Finalmente, se carregares com o botão <mousebutton
+>esquerdo</mousebutton
+> ou o <mousebutton
+>direito</mousebutton
+> numa peça vermelha, ou com o botão <mousebutton
+>do meio</mousebutton
+> numa peça amarela, entras no modo de <quote
+>remoção de peças</quote
+>. Qualquer peça sobre a qual o rato passe com o botão carregado será apagada. </para>
+
+<para
+>Para sair do modo de modificação e entrar no modo de jogo, basta desligares a opção <guimenuitem
+>Modificar</guimenuitem
+> no menu <guimenu
+>Editar</guimenu
+>.</para>
+
+<sect3 id="clipboard-features">
+<title
+>Usar a Área de Transferência</title>
+
+<para
+>O tabuleiro actual do &kabalone; pode ser copiado para a área de transferência usando o comando <guimenuitem
+>Copiar</guimenuitem
+> no menu <guimenu
+>Editar</guimenu
+> e pode ser colado através da opção <guimenuitem
+>Colar</guimenuitem
+>. Desta maneira podes copiar as posições do tabuleiro dum programa do &kabalone; para outro carregando em <guimenuitem
+>Copiar</guimenuitem
+> num programa e em <guimenuitem
+>Colar</guimenuitem
+> no outro, mas isto é mais fácil com o Modo de Rede (ver acima). Outra utilização é a gravação das posições num ficheiro de texto (usando o <guimenuitem
+>Copiar</guimenuitem
+> e um editor à tua escolha) e obter uma posição posteriormente seleccionando-a no editor e colando-a no &kabalone;.</para>
+</sect3>
+</sect2>
+</sect1>
+
+<sect1 id="computer-level">
+<title
+>Nível do Computador</title>
+<para
+>O computador pode jogar em quatro níveis diferentes, nomeadamente:</para>
+<itemizedlist
+> <listitem
+><para
+><guimenuitem
+>Fácil</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+>Normal</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+>Difícil</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+>Desafio</guimenuitem
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+>Quanto mais difícil o nível, mais tempo o computador leva a procurar um movimento. Podes interromper a pesquisa carregando na tecla <keycap
+>S</keycap
+>.</para>
+
+</sect1>
+
+<sect1 id="spying">
+<title
+>Espiar</title>
+
+<para
+> A opção de <quote
+>Espiar</quote
+> pode ser ligada e desligada no menu <guimenu
+>Configuração</guimenu
+> e a opção <guimenuitem
+>Espiar</guimenuitem
+>. Se for a tua vez, podes ver a classificação da jogada que queres fazer na barra de estado. Se for a vez do computador podes ver (na barra de estado e nas peças realçadas) o movimento que ele pensa ser o melhor a jogar. Claro que isto muda à medida que ele pesquisa.</para>
+</sect1>
+
+<sect1 id="computer-plays">
+<title
+>Seleccionar qual a cor com que o computador joga</title>
+
+<para
+> Podes fazer com que o computador jogue com as peças vermelhas, amarelas ou com ambas. Escolhe de entre estas opções antes de começares um novo jogo. Claro que isto funciona se quiseres mudar de lado também. Escolhe <guimenuitem
+>Nenhum</guimenuitem
+> para jogar contra outra pessoa. Isto é bastante útil no modo de rede.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Referência do Menu</title>
+
+<para
+>O movimento das peças é explicado nas <link linkend="rules-of-the-game"
+>Regras do Jogo</link
+>. Os botões na barra de ferramentas têm o mesmo significado que as opções dos menus <guimenu
+>Jogo</guimenu
+> ou <guimenu
+>Editar</guimenu
+>.</para>
+
+<sect1 id ="the-game-menu">
+<title
+>O Menu <guimenu
+>Jogo</guimenu
+></title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>ogo</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ovo</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Inicia um novo jogo</action
+> mesmo que já esteja um a decorrer.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>ogo</guimenu
+> <guimenuitem
+>Parar Pesqui<accel
+>s</accel
+>a</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Quando o computador está a pensar, a sua pesquisa em profundidade é interrompida e ele joga o melhor movimento que encontrou até à altura.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>PgUp</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>ogo</guimenu
+><guimenuitem
+><accel
+>R</accel
+>etirar</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Volta atrás na tua jogada anterior. São permitidas as anulações de dois (!) movimentos: o do adversário e o teu último movimento. Por isso é a tua vez de novo. São recordados 100 movimentos; por isso, não hesites em voltar atrás nas jogadas até ao início do jogo (mais rápido se carregares em <keycap
+>F2</keycap
+>). Se estiveres em modo de modificação (ver <menuchoice
+><guimenu
+>Editar</guimenu
+><guimenuitem
+>Modificar</guimenuitem
+></menuchoice
+> em baixo), decrementa o número do movimento desta posição.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>PgDown</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>ogo</guimenu
+><guimenuitem
+><accel
+>F</accel
+>rente</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Só é útil no modo de modificação. Incrementa o número do movimento desta posição.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>ogo</guimenu
+><guimenuitem
+><accel
+>D</accel
+>ica</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> É mostrada uma sugestão para o teu próximo movimento. Só é possível se estiveres a jogar no nível normal ou superior, o número do movimento for o 2 e não tiveres anulado o teu movimento.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>ogo</guimenu
+><guimenuitem
+><accel
+>J</accel
+>ogo em Rede</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Se esta opção estiver ligada, a aplicação fica em modo de rede. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>ogo</guimenu
+><guimenuitem
+><accel
+>S</accel
+>air</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+><action
+>Sai</action
+> do &kabalone;.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="the-edit-menu">
+<title
+>O Menu <guimenu
+>Editar</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Copiar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Copia uma representação do tabuleiro do &kabalone; para a Área de Transferência</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Colar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Interpreta o conteúdo da área de transferência do X como uma representação em ASCII dum tabuleiro do &kabalone;, e copia-o para o tabuleiro actual. Gera-se uma representação em ASCII através do <guimenuitem
+>Copiar</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Ins</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+><accel
+>M</accel
+>odificar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Muda o &kabalone; para o modo de modificação.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+>Gravar Po<accel
+>s</accel
+>ição</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Grava a posição actual para ser obtida posteriormente através da opção <menuchoice
+><guimenu
+>Editar</guimenu
+> <guimenuitem
+>Carregar Posição</guimenuitem
+> </menuchoice
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+>Carrega<accel
+>r</accel
+> Posição</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Recupera o estado do tabuleiro guardado no ficheiro de configuração do &kabalone; através de <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Gravar Posição</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="the-settings-menu">
+<title
+>O Menu <guimenu
+>Configuração</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+>&Ctrl; <keycap
+>M</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+><accel
+>C</accel
+>onfiguração</guimenu
+> <guimenuitem
+>Mostrar <accel
+>M</accel
+>enu</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Mostra ou esconde a barra de menu do &kabalone;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguração</guimenu
+><guimenuitem
+>Mostrar Barra de Ferramen<accel
+>t</accel
+>as</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Mostra ou esconde a barra de ferramentas do &kabalone;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguração</guimenu
+><guimenuitem
+>Mostrar Linha de E<accel
+>s</accel
+>tado</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Mostra ou esconde a barra de estado na base do ecrã.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguração</guimenu
+><guimenuitem
+>Gravar a <accel
+>C</accel
+>onfiguração</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Guarda a configuração actual para a tornar por omissão para o &kabalone;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguração</guimenu
+><guimenuitem
+>Configurar <accel
+>T</accel
+>eclas</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Traz a janela de configuração de teclas normal do &kde; para configurares os atalhos de teclado usados pelo &kabalone;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguração</guimenu
+><guimenuitem
+>Configurar <accel
+>B</accel
+>arras de Ferramentas...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Mostra a janela de configuração das barras de ferramentas normal do &kde; para personalizares a barra de ferramentas do &kabalone;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguração</guimenu
+><guisubmenu
+>Níve<accel
+>l</accel
+></guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+> Selecciona o nível com que o computador joga. Pode ser um dos seguintes: <itemizedlist
+> <listitem
+><para
+><guimenuitem
+><accel
+>F</accel
+>ácil</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+><accel
+>N</accel
+>ormal</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+><accel
+>D</accel
+>ifícil</guimenuitem
+></para
+> </listitem
+> <listitem
+><para
+><guimenuitem
+>Desa<accel
+>f</accel
+>io</guimenuitem
+></para
+> </listitem
+> </itemizedlist
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguração</guimenu
+><guisubmenu
+>Joga o <accel
+>c</accel
+>omputador</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+> Escolhe com que cores o computador joga. Pode ser uma das seguintes: <itemizedlist
+> <listitem
+> <para
+><guimenuitem
+>Ve<accel
+>r</accel
+>melho</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>A</accel
+>marelo</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Am<accel
+>b</accel
+>os</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>N</accel
+>enhum</guimenuitem
+></para
+> </listitem
+> </itemizedlist
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>ettings</guimenu
+><guimenuitem
+><accel
+>M</accel
+>ove Slow</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Quando esta opção está seleccionada é desenhado o movimento da jogada do computador, piscando e realçando as peças usadas na jogada. Desliga esta opção se não quiseres esperar por esta animação. Nesse caso só um realce rápido é efectuado.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguração</guimenu
+><guimenuitem
+>Desenha<accel
+>r</accel
+> Bolas</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Se estiver seleccionada, as peças são desenhadas 'online' por um 'ray-tracer' interno simples quando necessário (p.ex. ao redimensionar a janela).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Configuração</guimenu
+><guimenuitem
+>Espiar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> Se estiver seleccionada, permite <quote
+>espiar</quote
+> o adversário.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>O Menu <guimenuitem
+>Ajuda</guimenuitem
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>juda</guimenu
+><guimenuitem
+><accel
+>C</accel
+>onteúdo</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Isto invoca o sistema de ajuda do &kde; com a página de ajuda do &kabalone; (este documento).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>juda</guimenu
+><guimenuitem
+>O que é is<accel
+>t</accel
+>o?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Isto muda o cursor do rato para uma combinação duma seta com um ponto de interrogação. Se carregares nos itens do &kabalone; com esta seta irás abrir uma janela de ajuda (se existir para esse item em particular) a explicar a função do item.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>A</accel
+>juda</guimenu
+> <guimenuitem
+>Comunicar E<accel
+>r</accel
+>ro</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Comunica um erro ou um pedido aos autores do &kabalone;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>juda</guimenu
+><guimenuitem
+><accel
+>A</accel
+>cerca do KAbalone</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Isto irá mostrar a informação da versão e do autor</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>juda</guimenu
+><guimenuitem
+>Acerca do <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Isto mostra a versão do &kde; e outras informações básicas.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+
+<chapter id="commandline-options">
+<title
+>Opções da linha de comandos</title>
+
+<cmdsynopsis>
+<command
+>kabalone</command>
+<group>
+<option
+>-p</option>
+<replaceable
+>MyPortNumber</replaceable>
+</group>
+<group>
+<option
+>-h</option>
+<replaceable
+>host:port</replaceable>
+</group>
+</cmdsynopsis>
+
+<para
+>Com o <option
+>-p</option
+> especificas o número do porto onde irás receber ligações de TCP para o modo de rede.</para>
+
+<para
+>Com o <option
+>-h</option
+> especificas um processo remoto do &kabalone; (com um número de porto opcional, se não usares o porto por omissão da máquina remota) para comunicar com ela no modo de rede. Podes especificar vários processos remotos.</para>
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>Créditos &amp; Licenças</title>
+
+<para
+>&kabalone;</para>
+
+<para
+>Programa copyright 1997-2000 Josef Weidendorfer <email
+>weidendo@informatik.tu-muenchen.de</email
+></para>
+
+<para
+>Documentação Original de Robert Williams <email
+>rwilliams@kde.org</email
+> e Josef Weidendorfer</para>
+
+<para
+>Documentação actualizada para o &kde; 2.0 por Philip Rodrigues <email
+>philip.rodrigues@libertysurf.co.uk</email
+></para>
+
+<para
+>Tradução por José Pires <email
+>jncp@rnl.ist.utl.pt</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Instalação</title>
+<sect1 id="getting-kabalone">
+<title
+>Como obter o &kabalone;</title>
+<para
+> O &kabalone; faz parte do projecto do &kde;  <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. O &kabalone; pode ser encontrado no pacote kdegames em <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, o 'site' principal de &FTP; do projecto do &kde;. </para>
+
+<para
+> Todas as bibliotecas necessárias também podem ser encontradas no <ulink url="ftp://ftp.kde.org"
+>'site' &FTP; principal do &kde;</ulink
+>. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Compilação e Instalação</title>
+
+<para
+> De modo a compilares e instalares o &kabalone; no teu sistema, escreve o seguinte na directoria do &kabalone; na distribuição do kdegames: </para>
+
+<screen width="40"
+> 
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput
+> 
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>Dado que o &kabalone; usa o <application
+>autoconf</application
+> e o <application
+>automake</application
+> não deves ter problemas a compilá-lo. Se os tiveres comunica-os ao autor em <email
+>weidendo@informatik.tu-muenchen.de</email
+></para>
+
+</sect1>
+
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag:t
+sgml-shorttag:t
+sgml-general-insert-case:lower
+sgml-namecase-general:t
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+
+

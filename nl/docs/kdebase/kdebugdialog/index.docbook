@@ -1,0 +1,110 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kdebugdialog "<application
+>KDebugDialog</application
+>">
+  <!ENTITY kappname "&kdebugdialog;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Het &kdebugdialog; handboek</title>
+
+<authorgroup>
+<author
+> <firstname
+>David</firstname
+> <surname
+>Faure</surname
+> <affiliation
+> <address
+><email
+>faure@kde.org</email
+></address
+> </affiliation
+> </author>
+&Niels.Reedijk;
+</authorgroup>
+
+<date
+>2001-02-13</date>
+<releaseinfo
+>0.03.00</releaseinfo>
+
+<abstract>
+<para
+>Dit document beschrijft &kdebugdialog;.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KDebugdialog</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Wat is KDebugDialog</title>
+
+<para
+>Het is een dialoogvenster voor het beheren van diagnostische berichten tijdens het uitvoeren van een programma. </para>
+
+<para
+>Als u gewoon "kdebugdialog" opstart, zal u een lijst van "gebieden" zien die in- of uitgeschakeld kunnen worden. Een kdDebug(area) roep in de code zal alleen iets in de debuguitvoer tonen als het gebied ingeschakeld is. </para>
+
+<note
+><para
+> Let er op dat kdWarning, kdError en kdFatal altijd verschijnen, ze worden niet beheerd door deze instelling. </para
+></note>
+
+<para
+>Als u "kdebugdialog --fullmode" start, kan u apart voor elk ernstigheidsniveau instellen wat er gedaan moet worden met de diagnostische berichten van dat niveau, en dit voor elk debuggebied.  </para>
+
+<para
+> In de volledige modus zijn de volgende instellingen beschikbaar: <itemizedlist
+> <listitem
+> <para
+>Uitvoer naar: In dit keuzeveld kan u kiezen waar de berichten naar uitgevoerd moeten worden. De keuzes zijn: "Bestand", "Berichtveld", "Shell" (wat stderr betekent) en "syslog". Stuur geen fatale berichten naar de syslog tenzij u zelf de systeemadministrator bent. De standaard is "Berichtveld".</para
+> </listitem
+> <listitem
+> <para
+>Bestandsnaam: Dit is alleen nuttig als u "Bestand" als de uitvoer gekozen heeft en als u de naam van het bestand aangeeft (wat relatief aan de huidige map gezien wordt). De standaard is kdebug.dbg.</para
+> </listitem
+> <listitem
+> <para
+>Debug-gebied: De gebieden die alleen uitgevoerd moeten worden. Elk bericht dat hier niet gegeven wordt, zal gewoonweg niet uitgevoerd worden (tenzij dit veld leeg blijft wat de standaard is en wat betekent dat alle berichten uitgevoerd moeten worden). U kan verscheidene gebieden invoeren, gescheiden door komma's, en u kan ook gebiedbereiken met de syntaxis start-einde gebruiken. Een geldige ingang kan zijn: 117,214-289,356-359,221. Gebruik alstublieft geen spaties.</para
+> </listitem
+> </itemizedlist
+> </para>
+
+<para
+>Daarnaast, kan u ook het keuzeveld "Afbreken bij fatale fouten" inschakelen. In dit geval, als een diagnostisch bericht met het niveau "KDEBUG_FATAL" uitgevoerd wordt, breekt het programma af met een SIGABRT na het uitvoeren van het bericht. </para>
+
+<para
+>Als u dit dialoogvenster met Ok sluit, worden uw ingangen onmiddelijk toegepast en opgeslagen in kdebugrc. Wanneer u op annuleren klikt, zullen uw ingangen vergeten worden en de oude zullen hersteld worden. </para>
+
+<para
+>Met dank aan Kalle Dalheimer voor de originele versie van kdebugdialog </para>
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-general-insert-case: lower
+sgml-shorttag: t
+End:
+-->
+
+

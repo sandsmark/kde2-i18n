@@ -1,0 +1,1081 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kedit;">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Hungarian "INCLUDE">
+ 
+ 
+
+]>
+<book lang="&language;">
+<bookinfo>
+<title>&kedit; kézikönyv</title>
+<authorgroup>
+
+<author><firstname>Thad</firstname><surname>McGinnis</surname>
+<affiliation>
+<address><email>ctmcginnis@compuserve.com</email></address>
+</affiliation>
+</author>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+<contrib>Ellenőrzés</contrib>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Árpád</firstname>
+<surname>Bíró</surname>
+<affiliation><address><email>biro_arpad@hotmail.com</email></address></affiliation>
+<contrib>Fordítás</contrib>
+</othercredit>
+</authorgroup>
+
+<date>14/12/2000</date>
+<releaseinfo>1.03.00</releaseinfo>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<abstract><para>Jelen kézikönyv a &kedit; program 1.3-as verzióját ismerteti.
+A &kedit; egy egyszerű szövegszerkesztő a KDE-hez.</para> </abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KEdit</keyword>
+<keyword>szövegszerkesztő</keyword>
+</keywordset>
+
+<copyright>
+<year>2000</year>
+<holder>Thad McGinnis</holder>
+</copyright>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Bevezetés</title>
+
+<para>A &kedit; a KDE alapértelmezett szövegszerkesztője. Ez egy kisméretű
+szerkesztő, amely használható például a <application>Konqueror</application>-ral
+a szöveges illetve konfigurációs fájlok böngészésére. Kisméretű szöveges
+dokumentumok készítésére szintén jól használható a &kedit;.
+Nem programozói szövegszerkesztőnek készült, és főleg nem arra, hogy
+helyettesítse a komolyabb szerkesztőket, mint például a <application>KWrite</application>,
+az <application>XEmacs</application> vagy az <application>Emacs</application>.
+A &kedit; funkcionalitása szándékosan meg fog maradni viszonylag
+korlátozottnak, hogy biztosítva legyen a program gyors indíthatósága.</para>
+
+</chapter>
+
+<chapter id="on-screen-fundamentals">
+<title>Alapok</title>
+
+<para>A &kedit; nagyon egyszerűen használható. Ha Ön valaha is használt már
+szövegszerkesztőt, akkor biztosan nem lesznek problémái a programmal.</para>
+
+<sect1 id="drag-and-drop">
+<title>Húzd-és-ejtsd</title>
+<para>A &kedit; felhasználja a KDE "Húzd-és-ejtsd" funkcionalitását.
+Ez azt jelenti, hogy a &kedit;-be húzással át lehet vinni fájlokat
+a Munkaasztalról, a <application>Konqueror</application>-ból
+vagy egy <application>Konqueror</application>-ablakban megnyitott távoli
+FTP-helyről.</para>
+</sect1>
+
+<sect1 id="command-line-options">
+<title>Parancssori opciók</title>
+<para>Bár a &kedit; valószínűleg leggyakrabban a KDE programmenüből vagy
+egy munkaasztali ikon segítségével van elindítva, egy terminálablak
+parancssorából is elindítható. Ez utóbbi esetben használható néhány hasznos
+opció.</para>
+
+<sect2 id="specify-a-file">
+<title>Fájl megadása</title>
+<para>Egy bizonyos fájl útvonalának és nevének megadása esetén a &kedit;
+indításkor megnyitja (illetve létrehozza) az adott fájlt. Ez a következőképpen
+néz ki:</para>
+
+<informalexample>
+<screen> <prompt>%</prompt> <command>kedit <replaceable>/home/myhome/docs/myfile.txt</replaceable></command> </screen>
+</informalexample>
+
+</sect2>
+
+<sect2 id="editing-files-on-the-internet">
+<title>Interneten levő fájl megadása</title>
+
+<para>A fenti módszerrel az Interneten levő fájlok megnyitása is lehetséges
+(ha a felhasználónak aktív kapcsolata van az adott időpontban).
+Erre egy példa:</para>
+
+<informalexample>
+<screen> <prompt>%</prompt> <command>kedit <replaceable>ftp://ftp.kde.org/pub/kde/Welcome.msg</replaceable></command> </screen>
+</informalexample>
+
+</sect2>
+
+<sect2>
+<title>Egyéb parancssori opciók</title>
+
+<para>A következő parancssori opciók információt adnak a programmal kapcsolatban:</para>
+
+<variablelist>
+<varlistentry>
+<term><command>kedit  <option>--help</option></command></term>
+<listitem><para>A legalapvetőbb parancssori opciók listázása.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><command>kedit  <option>--help-qt</option></command></term>
+<listitem>
+<para>A &kedit; és a Qt közti kapcsolatot szabályzó opciók listázása.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><command>kedit  <option>--help-kde</option></command></term>
+<listitem><para>A &kedit; és a KDE közti kapcsolatot szabályzó opciók listázása.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><command>kedit  <option>--help-all</option></command></term>
+<listitem><para>Az összes parancssori opció listázása.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><command>kedit  <option>--author</option></command></term>
+<listitem><para>A &kedit; szerzőinek listázása.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><command>kedit  <option>--version</option></command>
+</term>
+<listitem><para>Verzió-információ a Qt-vel, a KDE-vel és a &kedit;-tel kapcsolatban.
+A <command>kedit  <option>-V</option></command> paranccsal is elérhető ugyanez.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="keybindings">
+<title>Billentyűparancsok</title>
+
+<para>A billentyűparancsok (gyorsbillentyűk) nagy része átkonfigurálható a
+<link linkend="settings">Beállítások</link> menü segítségével.
+Alapértelmezés szerint a &kedit;-ben a következő billentyűparancsok
+használhatók:</para>
+
+<informaltable pgwide="1">
+<tgroup cols="2">
+<thead>
+<row>
+<entry>Billentyűparancs</entry>
+<entry>Funkció</entry>
+</row>
+</thead>
+<tbody>
+<row>
+<entry><keycap>Insert</keycap></entry>
+<entry><action>Váltás a "beszúrás" illetve "felülírás" üzemmódok közt.</action></entry>
+</row>
+<row>
+<entry><keycap>Balra</keycap></entry>
+<entry><action>A kurzor mozgatása egy karakterrel balra.</action></entry>
+</row>
+<row>
+<entry><keycap>Jobbra</keycap></entry>
+<entry><action>A kurzor mozgatása egy karakterrel jobbra.</action></entry>
+</row>
+<row>
+<entry><keycap>Fel</keycap></entry>
+<entry><action>A kurzor mozgatása egy sorral felfelé.</action></entry>
+</row>
+<row>
+<entry><keycap>Le</keycap></entry>
+<entry><action>A kurzor mozgatása egy sorral lefelé.</action></entry>
+</row>
+<row>
+<entry><keycap>Page Up</keycap></entry>
+<entry><action>A kurzor mozgatása egy lappal felfelé.</action></entry>
+</row>
+<row>
+<entry><keycap>Page Down</keycap></entry>
+<entry><action>A kurzor mozgatása egy lappal lefelé.</action></entry>
+</row>
+<row>
+<entry><keycap>Backspace</keycap></entry>
+<entry><action>A kurzortól balra levő karakter törlése.</action></entry>
+</row>
+<row>
+<entry><keycap>Home</keycap></entry>
+<entry><action>A kurzor mozgatása a sor elejére.</action></entry>
+</row>
+<row>
+<entry><keycap>End</keycap></entry>
+<entry><action>A kurzor mozgatása a sor végére.</action></entry>
+</row>
+<row>
+<entry><keycap>Delete</keycap></entry>
+<entry><action>A kurzortól jobbra levő karakter törlése.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Shift</keycap><keycap>Balra</keycap></keycombo></entry>
+<entry><action>A kurzortól balra levő karakter kijelölése.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Shift</keycap><keycap>Jobbra</keycap></keycombo></entry>
+<entry><action>A kurzortól jobbra levő karakter kijelölése.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></entry>
+<entry><action>A teljes dokumentum kijelölése.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>B</keycap></keycombo></entry>
+<entry><action>A kurzor mozgatása egy karakterrel balra.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo></entry>
+<entry><action>A kijelölt szöveg másolása a vágólapra.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>D</keycap></keycombo></entry>
+<entry><action>A kurzortól jobbra levő karakter törlése.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>E</keycap></keycombo></entry>
+<entry><action>A kurzor mozgatása a sor végére.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo></entry>
+<entry><action>Keresés.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></entry>
+<entry><action>A kurzortól balra levő karakter törlése.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>K</keycap></keycombo></entry>
+<entry><action>Törlés a sor végéig a törölt karaktereknek a kill-pufferbe való helyezésével.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></entry>
+<entry><action>Új dokumentum létrehozása.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></entry>
+<entry><action>Nyomtatás.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo></entry>
+<entry><action>A vágólapon levő szöveg beillesztése a szerkesztett szövegbe
+az aktuális szövegkurzor-pozíciótól kezdődően.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>X</keycap></keycombo></entry>
+<entry><action>A kijelölt szöveg kivágása és vágólapra történő másolása.</action></entry>
+</row>
+<row>
+<entry><keycombo><keycap>Ctrl</keycap><keycap>Y</keycap></keycombo></entry>
+<entry><action>A kill-puffer tartalmának beillesztése az aktuális kurzorpozícióhoz.</action></entry>
+</row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+
+</chapter>
+
+<chapter id="the-menu-entries">
+<title>A menüpontok</title>
+
+<sect1 id="file">
+<title>A <guimenu>Fájl</guimenu> menü</title>
+
+<variablelist>
+
+<varlistentry>
+<term><anchor id="new"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut>
+<guimenu><accel>F</accel>ájl</guimenu><guimenuitem>Ú<accel>j</accel></guimenuitem></menuchoice></term>
+
+<listitem><para><action>Új dokumentumot kezd a szerkesztő egy új példányában.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="open"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo></shortcut>
+<guimenu><accel>F</accel>ájl</guimenu><guimenuitem><accel>M</accel>egnyitás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Ez a parancs egy fájlt nyit meg.</action> A fájl
+egy párbeszédablakban választható ki; a kiválasztáskor lehetőség van a
+fájlrendszerben való navigálásra.</para>
+
+<para>Ez a párbeszédablak egyfajta kisméretű fájlkezelőként funkcionál.
+Az ablak középső részén egy fájllista található; egy abban szereplő könyvtárba
+a megfelelő könyvtárnévre való kattintással lehet belépni, ami
+után azon könyvtár tartalma jelenik meg a fájllistában.
+A fájllista alatt levő "Elérési út" mezőben adható meg közvetlenül
+a fájl helye illetve neve. A mező jobb oldalán levő nyíllal előhozható
+a legutóbb megadott helyek listája.</para>
+
+<para>Ez alatt egy szűrő található, amelybe szintén lehet közvetlenül is írni,
+továbbá lehet a (legutóbb használt szűrőket tartalmazó) legördülő listából
+is választani. A fájllistában csak azok a fájlok jelennek meg, amelyek
+megfelelnek az ezen mezőben megadott szűrőfeltételnek.
+Ha például a szűrő "<filename>*.txt</filename>", akkor csak a ".txt"-re végződő
+nevű fájlok szerepelnek a fájllistában.</para>
+
+<para>A párbeszédablak felső részén levő eszköztárban található egy balra mutató
+és egy jobbra mutató nyíl, amelyek lehetővé teszik a korábban kiválasztott könyvtárak
+közti előre-hátra való lépkedést. A felfelé mutató nyíllal pedig a könyvtárfában lehet
+felfelé mozogni. A házat ábrázoló nyomógombbal a felhasználó saját könyvtárába lehet lépni,
+a két egymás felé ívelő nyilat ábrázoló gombbal pedig az aktuális fájllista
+frissíthető. Az e mellett található zászlóval könyvjelzőt lehet létrehozni
+az aktuális könyvtárra, illetve egy korábban létrehozott könyvjelzőre lehet ugrani.
+<!--A villáskulcsot ábrázoló nyomógomb a párbeszédablak néhány
+alapvető beállításának módosítását teszi lehetővé.-->
+Az eszköztáron található utolsó nyomógombbal pedig új könyvtár hozható létre.
+Az eszköztárban található még egy legördülő lista, amelyben a gyakran
+látogatott könyvtárak szerepelnek.</para></listitem>
+
+</varlistentry>
+
+<varlistentry>
+
+<term><anchor id="open-recent"/><menuchoice>
+
+<guimenu><accel>F</accel>ájl</guimenu><guimenuitem>Leg<accel>u</accel>tóbbi
+megnyitása</guimenuitem></menuchoice>
+
+</term>
+
+<listitem><para><action>A legutóbb elmentett dokumentumokat lehet elérni
+ezzel a funkcióval.</action>
+A menüpontra kattintva előjön egy lista a legutóbbi dokumentum-elmentésekhez
+használt fájlnevekkel. Egy fájlnévre kattintva a &kedit; megnyitja az
+adott fájlt - feltéve, hogy a fájl még létezik ugyanazon a helyen.
+</para></listitem> </varlistentry>
+
+
+<varlistentry>
+<term><anchor id="save"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></shortcut>
+<guimenu><accel>F</accel>ájl</guimenu><guimenuitem>M<accel>e</accel>ntés</guimenuitem></menuchoice></term>
+<listitem><para><action>Aktuális dokumentum elmentése.</action>
+Ha már volt mentve a dokumentum,
+akkor kérdezés nélkül felülíródik a korábbi fájl.</para>
+<note><para>A szerkesztő beállítható úgy, hogy mentéskor készítsen <link
+linkend="backuppref">biztonsági másolatot</link>.</para></note>
+
+<para>Ha egy újonnan létrehozott
+dokumentum első mentéséről van szó, akkor a "Mentés másként" párbeszédablak
+fog megjelenni (erről bővebb információ lentebb).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="save-as"/><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu><guimenuitem>Mentés más<accel>k</accel>ént</guimenuitem></menuchoice></term>
+<listitem>
+<para><action>Dokumentum elmentése új fájlnévvel.</action>
+A fájlnév megadása az előzőekben (a <link linkend="open">Megnyitás</link>-nál)
+ismertetett párbeszédablakban történik.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="close"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo></shortcut>
+<guimenu><accel>F</accel>ájl</guimenu><guimenuitem><accel>B</accel>ezárás</guimenuitem></menuchoice></term>
+<listitem><para><action>Bezárja a szerkesztőablakot.</action> Ha több
+&kedit;-példány fut, akkor a többi példány nem lesz lezárva.</para> </listitem>
+</varlistentry>
+<varlistentry>
+<term><anchor id="print"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>P</keycap></keycombo></shortcut>
+<guimenu><accel>F</accel>ájl</guimenu><guimenuitem><accel>N</accel>yomtatás</guimenuitem></menuchoice></term>
+<listitem><para><action>Megjelenít egy egyszerű párbeszédablakot, amelynek segítségével megadható,
+hogy mit, hová és hogyan kell nyomtatni, majd elvégezhető a nyomtatás.</action> A felhasználó választhat
+a szabványos <command>lpr</command> parancs és egy saját megadású parancs közt, továbbá
+megadhatja, hogy a teljes dokumentum kerüljön kinyomtatásra vagy annak egy része.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="mail"/><menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu><guimenuitem>Elküldés le<accel>v</accel>élben</guimenuitem></menuchoice></term>
+<listitem><para><action>A jelenlegi dokumentum elküldése e-mail formájában.</action>
+Egy küldési párbeszédablakot hoz fel, ahol a felhasználó megadhatja az üzenet
+címzettjét és az üzenet tárgyát.</para>
+<note><para>Javasolt a <link linkend="mailpref">levélküldési</link> parancs
+ellenőrzése, szükség esetén pedig módosítása (<guimenuitem>A(z) KEdit beállítása</guimenuitem>
+menüpont a <guimenu>Beállítások</guimenu> menüben).</para></note></listitem>
+</varlistentry>
+<varlistentry>
+<term><anchor id="quit"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo></shortcut>
+<guimenu><accel>F</accel>ájl</guimenu><guimenuitem>Ki<accel>l</accel>épés</guimenuitem></menuchoice></term>
+<listitem>
+<para><action>Bezárja a szerkesztőt.</action></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="edit">
+
+<title>A <guimenu>Szerkesztés</guimenu> menü</title>
+<variablelist>
+<varlistentry>
+<term><anchor id="undo"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo></shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem>Visszavo<accel>n</accel>ás</guimenuitem></menuchoice></term>
+<listitem><para><action>A legutóbbi felhasználói tevékenység illetve művelet
+visszavonása.</action></para></listitem>
+</varlistentry>
+<varlistentry>
+<term><anchor id="redo"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>Shift</keycap><keycap>Z</keycap></keycombo></shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem>Újra végre<accel>h</accel>ajtás</guimenuitem></menuchoice></term>
+<listitem><para><action>Visszavonja</action> a legutóbbi, a <guimenuitem>Visszavonás</guimenuitem>
+funkció által végzett módosítást, ha létezik olyan.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="cut"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>X</keycap></keycombo></shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem>Ki<accel>v</accel>ágás</guimenuitem></menuchoice></term>
+<listitem>
+<para><action>Törli az aktuális kijelölést és a vágólapra helyezi azt.</action>
+A vágólap egy, a KDE által biztosított funkció, amely a felhasználó számára "láthatatlanul"
+működve lehetőséget kínál az alkalmazások közti adatátvitelre.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="copy"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo></shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem><accel>M</accel>ásolás</guimenuitem></menuchoice></term>
+<listitem><para><action>A kijelölt szöveg másolása a vágólapra</action>,
+lehetővé téve ezáltal annak a szövegnek más helyekre való beillesztését.
+A vágólap egy, a KDE által biztosított funkció, amely a felhasználó számára
+"láthatatlanul" működve lehetőséget kínál az alkalmazások közti adatátvitelre.</para> </listitem>
+</varlistentry>
+<varlistentry>
+<term><anchor id="paste"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo></shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem><accel>B</accel>eillesztés</guimenuitem></menuchoice></term>
+<listitem><para><action>Beilleszti a vágólap tartalmát az aktuális kurzorpozícióhoz.</action>
+A vágólap egy, a KDE által biztosított funkció, amely a felhasználó számára "láthatatlanul"
+működve lehetőséget kínál az alkalmazások közti adatátvitelre.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="select-all"/><menuchoice>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem>Min<accel>d</accel>en kijelölése</guimenuitem></menuchoice></term>
+<listitem><para><action>Az egész dokumentum kijelölése.</action>
+Hasznos lehet például a teljes dokumentumnak
+egy másik alkalmazásba való másolására.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><anchor id="find"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>F</keycap></keycombo></shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem>K<accel>e</accel>resés</guimenuitem></menuchoice></term>
+<listitem><para><action>Megnyit egy keresési párbeszédablakot</action>,
+amelynek használatával keresési művelet végezhető.
+A párbeszédablakban a keresési minta a <guilabel>Keresés</guilabel>
+mezőben adható meg. Két további opció található a párbeszédablakban; ezek a keresést
+hivatottak hatékonyabbá tenni. A <guilabel>Nagybetűérzékeny</guilabel> opció
+bejelölése esetén csak az fog találatnak minősülni, ahol a dokumentumban levő
+karakterek pontosan megegyeznek (kis- és nagybetűket tekintve is) a keresési
+mintában levőkkel. A <guilabel>Keresés visszafelé</guilabel> opció pedig
+"felfelé" történő keresést ír elő.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="find-again"/><menuchoice>
+<shortcut><keycombo><keycap>F3</keycap></keycombo></shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem><accel>K</accel>övetkező keresése</guimenuitem></menuchoice></term>
+<listitem>
+<para><action>Megismétli a legutóbbi keresési műveletet (ha volt olyan) anélkül,
+hogy a keresési párbeszédablakot megnyitná.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="replace"/><menuchoice>
+<shortcut><keycombo><keycap>Ctrl</keycap><keycap>R</keycap></keycombo></shortcut>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem>Cse<accel>r</accel>e</guimenuitem></menuchoice></term>
+<listitem>
+<para><action>A "Csere" párbeszédablak megnyitása.</action>
+A párbeszédablak hasonló a fentebb említett keresési párbeszédablakhoz, de
+tartalmaz még egy <guilabel>Cserélje erre</guilabel> mezőt is.
+Ebben a párbeszédablakban megadható a keresendő szöveg és azon szöveg, amire
+azt cserélni kell. Két plusz nyomógombot is tartalmaz a párbeszédablak.
+A <guilabel>Csere</guilabel> gomb lehetővé teszi a szövegek egyenként történő
+cserélését; ez akkor hasznos, ha nem cserélendő le az összes előfordulás.
+A <guilabel>Cserélje mindet</guilabel> nyomógomb óvatosan használandó, mivel
+azonnal lecseréli a keresett szöveg összes előfordulását.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="insertfile"/>
+<menuchoice>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem><accel>F</accel>ájl beszúrása</guimenuitem></menuchoice></term>
+<listitem>
+<para>Megnyitja a
+<link linkend="open"><menuchoice><guimenu>Fájl</guimenu><guimenuitem>Megnyitás</guimenuitem></menuchoice></link>
+párbeszédablakot, amellyel a felhasználó <action>belehelyezhet egy teljes fájlt az aktuális
+dokumentumba</action>. A fájl tartalma a szövegkurzor helyétől kezdődően lesz beszúrva.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="insertdate"/>
+<menuchoice>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem>A dát<accel>u</accel>m beszúrása</guimenuitem></menuchoice></term>
+<listitem>
+<para><action>Beilleszti az aktuális dátumot a szövegkurzor pozíciójától kezdődően.</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="cleanspaces"/>
+<menuchoice>
+<guimenu>S<accel>z</accel>erkesztés</guimenu><guimenuitem>A s<accel>z</accel>óközök normalizálása</guimenuitem></menuchoice></term>
+<listitem>
+<para>Eltávolítja a kijelölésből (ha olyan nincs, akkor a teljes dokumentumból)
+a plusz szóközöket és bizonyos "carriage return" karaktereket (bekezdés végét jelző
+karakter, amely az <keycap>Enter</keycap> billentyű lenyomásával helyezhető a szövegbe).
+<action>Ahol egymás mellett 2 vagy több szóköz fordul elő, ott ezekből 1 szóköz lesz,
+a szomszédos bekezdések összevonásra kerülnek, a többszörös üres sorokból pedig
+1 üres sor lesz.</action></para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="Go">
+<title>Az <guimenu>Ugrás</guimenu> menü</title>
+<variablelist><varlistentry>
+<term><anchor id="go-to-line"/><menuchoice>
+<guimenu>U<accel>g</accel>rás</guimenu><guimenuitem>Ugrás egy <accel>s</accel>orra</guimenuitem></menuchoice></term>
+<listitem><para><action>Megnyitja az "Ugrás egy sorra" párbeszédablakot</action>,
+amelynek segítségével a kurzor a dokumentum egy bizonyos sorszámú sorára pozícionálható.
+A sorszám megadható közvetlenül a szövegmezőben vagy a szövegmező mellett levő nyilak
+használatával. A felfelé mutató nyíl növeli a sorszámot, a lefelé mutató pedig
+csökkenti.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="tools">
+<title>Az <guimenu>Eszközök</guimenu> menü</title>
+<variablelist>
+<varlistentry>
+<term><anchor id="Spelling..."/><menuchoice>
+<guimenu><accel>E</accel>szközök</guimenu><guimenuitem>Helye<accel>s</accel>írás</guimenuitem></menuchoice></term>
+
+<listitem><para><action>Elindítja a helyesírás-ellenőrző programot, amely
+a helyesírási hibák kiszűrésére szolgál.</action>
+A menüpontra rákattintva elindul az ellenőrző, és megjelenik egy párbeszédablak,
+amellyel az ellenőrzés folyamata irányítható. A párbeszédablakban
+3 szövegmező található egymás alatt, a felirataik tőlük balra láthatók.
+Fentről kezdve ezek a következők:</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Hibásan írt szó</guilabel></term>
+<listitem><para>Amikor a helyesírás-ellenőrző olyan szót talál, amely
+nincsen benne a szótárában, akkor itt jeleníti meg az illető szót.
+A szótár egy olyan fájl, amely helyesen írt szavakat tartalmaz;
+ehhez hasonlítja az ellenőrző a dokumentumban levő szavakat.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Csere</guilabel></term>
+<listitem><para>Ha az ellenőrző szótárában van a vizsgált szóhoz hasonló szó, akkor az első ilyen
+lesz itt megjelenítve. A felhasználó elfogadhatja a javaslatot, begépelheti a
+saját javítását, vagy választhat egy másik javaslatot a következő szövegmezőből.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Javaslatok</guilabel></term>
+<listitem><para>Ebben a szövegmezőben az ellenőrző több lehetséges szót
+adhat meg, amelyekkel a vizsgált szó helyettesíthető. A javaslatok valamelyikére
+kattintva az adott szó a fentebb levő <guilabel>Csere</guilabel> mezőbe kerül.</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>A párbeszédablakban 8 nyomógomb található; ezek használatával
+irányítható az ellenőrzési folyamat. Ezek a következők:</para>
+
+<variablelist>
+<varlistentry>
+<term><guibutton>Csere</guibutton></term>
+<listitem><para>A gomb használatával a dokumentum vizsgált szava helyettesíthető
+a <guilabel>Csere</guilabel> mezőben szereplő szóval.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Cserélje mindet</guibutton></term>
+<listitem><para>Ennek hatására a <guilabel>Hibásan írt szó</guilabel> összes,
+a dokumentumban előforduló példánya helyettesítve lesz a megadott szóval,
+nem csak a jelenlegi példány.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Kihagyás</guibutton></term>
+<listitem><para>A gomb lenyomása esetén az ellenőrző továbblép anélkül, hogy
+bármiféle változtatást végezne.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Mindegyik kihagyása</guibutton></term>
+<listitem><para>Ennek hatására az ellenőrző semmit sem fog tenni a jelenlegi
+<guilabel>Hibásan írt szó</guilabel>val, és át fogja ugrani ezen szó összes
+további előfordulását is.</para> <note><para>Ez csak az ellenőrző aktuális futására
+vonatkozik. Ha később ismét futtatva lesz az ellenőrző, akkor ismét meg fog állni az
+illető szón.</para></note></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Hozzáadás</guibutton></term>
+<listitem><para>A gomb lenyomására a <guilabel>Hibásan írt szó</guilabel> mezőben
+szereplő szó bekerül az ellenőrző szótárába. Ez azt jelenti, hogy a jövőben helyesnek
+fogja jelezni az adott szót az ellenőrző.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Segítség</guibutton></term>
+<listitem><para>Elindítja a KDE segítségrendszert, megjelenítve a &kedit;
+dokumentációját (jelen dokumentum).</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Állj</guibutton></term>
+<listitem><para>Leállítja a helyesírás-ellenőrzési folyamatot.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guibutton>Mégsem</guibutton></term>
+<listitem><para>Leállítja a helyesírás-ellenőrzési folyamatot.</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>A párbeszédablak alján látható egy vízszintes sáv, amely a
+helyesírás-ellenőrzési folyamat előrehaladását jelzi.
+Ahogy az ellenőrzés halad, a sávon ez kijelzésre kerül balról jobbra haladva,
+ezáltal grafikusan jelezve, hogy hol tart az ellenőrzés.</para>
+<note><para>A helyesírás-ellenőrzési folyamat előrehaladását az ellenőrzés közben
+a szerkesztő állapotsora is jelzi numerikus formában. Az <link
+linkend="show-statusbar">állapotsor</link> egy vízszintes sáv, amely a
+szerkesztőablak alján látható, a szövegterületen kívül.</para></note></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings">
+<title>A <guimenu>Beállítások</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><anchor id="show-toolbar"/><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu><guimenuitem>Az eszköz<accel>t</accel>ár megjelenítése</guimenuitem></menuchoice></term>
+<listitem><para><action>Amikor ez az opció be van jelölve, a program egy mozgatható eszköztárat
+jelenít meg, amely nyomógombokat tartalmaz a gyakran használatos tevékenységekhez.</action>
+Az eszköztár általában a szerkesztő ablakának felső részén található, a menü alatt.
+Amikor az opció nincs bejelölve, akkor ez az eszköztár nem látható.
+Az eszköztár elrejtése illetve megjelenítése a fogantyújára való kattintással
+is lehetséges; a mozgatása pedig a fogantyúra való kattintás
+után (az egérgombot lenyomva tartva) az egérrel végezhető.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="show-statusbar"/><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu><guimenuitem>Az áll<accel>a</accel>potsor megjelenítése</guimenuitem></menuchoice></term>
+<listitem><para><action>Amikor ez az opció be van jelölve, akkor a program információkat
+jelenít meg az aktuális dokumentum állapotával kapcsolatosan a szerkesztő ablakának alján.
+Amikor nincs bejelölve, akkor nincsen ilyen információs sor.</action> </para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="save-options"/><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu><guimenuitem>A <accel>b</accel>eállítások mentése</guimenuitem></menuchoice></term>
+<listitem><para><action>Elmenti a jelenlegi szerkesztőbeállításokat, így azok a jövőbeli
+dokumentumokra is érvényesek lesznek.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="configure-keybindings"/><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu><guimenuitem>A billentyű<accel>p</accel>arancsok beállítása</guimenuitem></menuchoice></term>
+<listitem><para>Megnyit egy párbeszédablakot, ahol módosíthatók a
+<link linkend="keybindings">billentyűparancsok</link>.
+Az elérhető parancsok egy, a párbeszédablak felső részén levő mezőben láthatók.
+Lentebb 3 rádiógomb található. A felhasználó a következő lehetőségek közül
+választhat: "nincs", "alapértelmezett" és "egyéni".</para>
+<note><para>(Megjegyzés: egy rádiógomb-csoportban csak egy érték választható ki,
+hasonlóan ahhoz, ahogyan egy autórádió gombjaival egyszerre csak egy rádióadó
+választható ki. Továbbá az "alapértelmezett" opció csak abban az esetben választható
+ki, ha az adott parancshoz létezik alapértelmezett billentyűparancs.)</para></note>
+<para>"Egyéni" billentyűparancs esetén a párbeszédablak alján levő 3 választógomb
+és 1 nyomógomb aktiválódik. A felhasználó ezután a választógombok és a
+billentyűválasztó nyomógomb segítségével kijelölhet egy billentyűkombinációt
+a kérdéses parancshoz.
+Például, ha "A KDE névjegye" parancs van kiválasztva a parancsokat megjelenítő
+mezőben, a felhasználó pedig bejelöli a "Ctrl" és az "Alt"
+opciókat, majd rákattint a billentyűválasztó nyomógombra,
+azután lenyomja a K billentyűt a billentyűzeten, akkor
+ezek után a KEdit használata közben ha bármikor lenyomja a K
+billentyűt a Ctrl és az Alt billentyűk
+nyomva tartása mellett, akkor meg fog jelenni "A KDE névjegye" ablak.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="configure-toolbars"/><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu><guimenuitem>Az esz<accel>k</accel>öztárak beállítása</guimenuitem></menuchoice></term>
+<listitem><para><action>Megnyit egy párbeszédablakot, ahol módosíthatók az
+eszköztár-tulajdonságok.</action> A felhasználó kiválaszthatja, hogy mely nyomógombok
+jelenjenek meg az eszköztárban. A bal oldalon levő mezőben található az eszköztárra
+helyezhető parancsok listája, a jobb oldalon levő mezőben pedig a jelenleg az
+eszköztáron levő parancsok szerepelnek. A parancsok manipulálása a két említett mező
+közti 4 nyílgombbal végezhető. A jobbra mutató nyíllal egy, a bal oldali mezőben
+kiválasztott parancs áthelyezhető a jobb oldali mezőbe, ezzel az eszköztárra
+téve a megfelelő parancsot. A balra mutató nyíl ennek az ellenkezőjét végzi,
+eltávolítva a jobb oldalon kiválasztott parancsot az eszköztárról.
+A felfelé és a lefelé mutató nyíl a jobb oldalon kiválasztott parancs pozícióját
+változtatja, módosítva ezzel azon parancs eszköztárbeli helyét.
+Magukon az eszköztárakon további tulajdonságok állíthatók be,
+ezek a következők: a gombokkal együtt szöveg is legyen-e megjelenítve, és ha igen, akkor hol;
+gombméret (ikonméret); az eszköztár elhelyezkedése (fent, bal oldalon, jobb oldalon, lent,
+illetve "minimális"). A "minimális" opció hatására az eszköztár be lesz csukva.
+Becsukott állapotban az eszköztár fogantyújára való kattintással lehet újra kinyitni
+az adott eszköztárat, majd egy ismételt kattintással újra lezárható.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="preferences"/><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu><guimenuitem>A(z) KEdit b<accel>e</accel>állítása</guimenuitem></menuchoice></term>
+<listitem>
+<para>Megnyit egy párbeszédablakot, ahol különféle
+<link linkend="pref-dialog">beállítások</link> változtathatók meg.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title>A <guimenuitem>Segítség</guimenuitem> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><anchor id="contents"/><menuchoice>
+<shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut>
+<guimenu><accel>S</accel>egítség</guimenu><guimenuitem><accel>T</accel>artalom</guimenuitem></menuchoice></term>
+<listitem><para>Megjeleníti a &kedit; dokumentációs lapjait (jelen dokumentumot)
+a &kde; segítségrendszerrel.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="whats-this"/><menuchoice>
+<shortcut><keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
+<guimenu><accel>S</accel>egítség</guimenu><guimenuitem>Mi e<accel>z</accel>?</guimenuitem></menuchoice></term>
+<listitem><para><action>Az egérkurzor formáját egy nyíl-kérdőjel kombinációvá alakítja.</action>
+Ezután a &kedit;-en belül valamely elemre kattintva az adott elem funkcióját ismertető
+információ jelenik meg (ha van róla információ).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-kedit"/><menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu><guimenuitem>A(z) KEdit <accel>n</accel>évjegye</guimenuitem></menuchoice></term>
+<listitem><para><action>Verzió- és szerzőinformációt jelenít meg.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-kde"/><menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu><guimenuitem>A <accel>K</accel>DE névjegye</guimenuitem></menuchoice></term>
+<listitem><para><action>Megjeleníti a KDE verzióját és egyéb alapvető
+információkat.</action></para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+</chapter>
+
+<chapter id="pref-dialog">
+<title>A Beállítás párbeszédablak</title>
+
+<para>A menüből a <menuchoice><guimenu>Beállítások</guimenu><guimenuitem>A(z) KEdit beállítása</guimenuitem></menuchoice>
+menüpontot választva megjelenik a "Beállítás" párbeszédablak,
+amely különféle beállítások megváltoztatására használható.
+A bal oldalon levő függőleges listából választható ki, hogy melyik kategóriába
+tartozó beállításokat kívánja módosítani a felhasználó.
+A párbeszédablak alján 5 nyomógomb található; ezekkel vezérelhető a beállítás
+folyamata. A <guilabel>Segítség</guilabel> nyomógombbal elindítható a segítségrendszer.
+Az <guilabel>Alapértékek</guilabel> gombbal az opciók az alapértelmezett
+értékekre állíthatók. Az <guibutton>OK</guibutton> gomb a jelenlegi beállításoknak a
+párbeszédablak lezárása mellett történő elfogadására használható.
+Az <guibutton>Alkalmazás</guibutton> nyomógombbal a párbeszédablak lezárása nélkül lehet
+érvényesíteni az aktuális beállításokat. A <guibutton>Mégsem</guibutton> gombbal pedig
+megszakítható a beállítási folyamat.
+A kategóriák (<guilabel>Betűtípus</guilabel>, <guilabel>Szín</guilabel>,
+<guilabel>Helyesírás</guilabel> és <guilabel>Egyebek</guilabel>) az alábbiakban
+kerülnek részletezésre.</para>
+
+<sect1 id="preffont">
+<title>Betűtípus</title>
+
+<para>A beállítási párbeszédablak ezzel a kategóriával nyílik meg (sorrendben ez az
+első kategória). A felhasználó itt 4 értéket módosíthat, a módosítások hatását
+pedig a párbeszédablak alsó részében levő mintaszövegen láthatja.
+A beállítható értékek a következők:</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Karakterkészlet</guilabel></term>
+<listitem><para>Ez a legördülő lista a párbeszédablak jobb oldalának középső részén
+található. Ha a felhasználó gépén több karakterkészlet érhető el, akkor itt
+ki lehet választani, hogy ezek közül melyik legyen használva a szerkesztőbeli
+szöveghez.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Betűtípus</guilabel></term>
+<listitem><para>Itt név alapján kiválasztható a kívánt betűtípus.
+Az egyes betűtípusok kinézete a párbeszédablak alján levő mintaszövegben
+tekinthető meg.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Betűstílus</guilabel></term>
+<listitem>
+<para>Ebben a - középső - listában lehet választani a 4 alapvető betűstílus közül:
+"normál", "dőlt", "félkövér" illetve "félkövér, dőlt".
+A kiválasztott stílus szerinti kinézet a párbeszédablak alján levő mintaszövegben
+tekinthető meg.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Méret</guilabel></term>
+<listitem> <para>Ebben a - jobb oldalon levő - listában lehet a betűméretet
+módosítani. Minél nagyobb szám van itt megadva, annál nagyobb lesz a betűméret.
+A párbeszédablak alsó részében levő mintaszövegen látható lesz a méretmódosítás
+eredménye.</para> </listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+<sect1 id="prefcolors">
+<title>Szín</title>
+
+<para>Ebben a kategóriában <link
+linkend="pref-color-settings">kettő színbeállítás</link> található, ezek leírása
+lentebb olvasható.
+Az egyes színek a 2 széles gomb segítségével módosíthatók. A jelenlegi
+beállításnak megfelelő színek a gombokon láthatók. Egy gombra kattintva
+megjelenik egy színbeállító párbeszédablak, amellyel módosítható a megfelelő
+színbeállítás.</para>
+
+<para>A színbeállító párbeszédablak könnyen használható grafikus
+módszert biztosít a színek kiválasztásához. Az ablak bal felső részében
+egy téglalap alakú területen egy színskála látható.
+Ettől jobbra egy függőleges oszlop található, amely a szín-intenzitás beállítására
+szolgál. A legsötétebb árnyalat az oszlop alsó részén, a legvilágosabb pedig a
+felső részén található. A felhasználó az említett két területre való kattintással
+választhat ki egy színt. A színskálára való kattintás kiválaszt egy bizonyos
+színkeveréket (a vörös, a zöld és a kék színből összeállított keveréket), a
+függőleges oszlop megfelelő részére való kattintás pedig kijelöli az intenzitási
+értéket. A különböző színtulajdonságok numerikus formában láthatók a színskála
+alatt levő szövegmezőkben. Amikor a felhasználó megváltoztatja a színt,
+akkor az itt szereplő számok annak megfelelően változnak.
+A megjelenített numerikus értékek az alapszínek (vörös, zöld és kék) arányát,
+az árnyalatot és a telítettséget adják meg.
+A kívánt szín megadható ezen értékek közvetlen módosításával is.
+Az ablak alsó részének közepén található egy négyzet alakú mező, amely a
+pillanatnyilag megadott színt jeleníti meg. Ettől jobbra egy
+<guilabel>HTML</guilabel> feliratú szövegmező található, amely megjeleníti
+az illető szín <abbrev>HTML</abbrev>-kódját. Ezen kódnak főként weblapok
+esetén van jelentősége.</para>
+
+<para>A színbeállító párbeszédablak a fentieken kívül lehetőséget nyújt egy,
+a képernyő bármely részén látható szín kiválasztására. A "csepegtetőt"
+ábrázoló nyomógombra (amely a párbeszédablak jobb oldalán található) kattintva
+az egérkurzor kereszt formát vesz fel. Az ez után következő (a képernyőnek egy
+megfelelő színű pontján történő) kattintás hatására a kereszt által kijelölt
+szín kerül kiválasztásra.</para>
+
+<para>Ezeken felül arra is lehetősége van a felhasználónak, hogy egy személyes
+palettára (<guilabel>Egyéni színek</guilabel>) tegyen bizonyos színeket. Erre a
+<guibutton>Hozzáadás az egyéni színekhez</guibutton> feliratú nyomógomb szolgál,
+amely a színmegjelenítő négyzet felett található.
+Ezzel az aktuális szín hozzáadható az egyéni palettához.
+Az egyéni paletta illetve bármilyen más elérhető paletta a párbeszédablak
+felső részének jobb oldalán (a paletta felett) található legördülő lista
+használatával jeleníthető meg.
+Az egyénileg definiált színek mellett a felhasználó számára hozzáférhető
+több, előre elkészített paletta.</para>
+
+<variablelist>
+
+<varlistentry id="pref-color-settings">
+
+<term><guilabel>Előtérszín</guilabel></term>
+<listitem><para>Itt a felhasználó megadhatja a &kedit;-ben használandó
+szövegszínt.</para></listitem> </varlistentry>
+
+<varlistentry>
+<term><guilabel>Háttérszín</guilabel></term>
+<listitem><para>Itt a felhasználó megadhatja a &kedit; általános
+háttérszínét.</para></listitem> </varlistentry>
+
+</variablelist>
+</sect1>
+
+<sect1 id="prefspellchecker">
+<title>Helyesírás</title>
+
+<para>A helyesírás-ellenőrző olyan program, amely a helyesírási
+hibákat hivatott kiszűrni. A beállítási párbeszédablak
+ezen része lehetővé teszi az ezzel kapcsolatos beállítások módosítását.</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>A szótárban nem szereplő szótő-toldalék párok létrehozása</guilabel></term>
+<listitem><para>Az opció bejelölése
+lehetővé teszi a helyesírás-ellenőrző számára, hogy bizonyos, a szótárban
+nem szereplő szótő-toldalék illetve előtag-szótő kombinációkat helyesként
+regisztráljon.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Az egybeírt szavak helyesírási hibaként kezelése</guilabel></term>
+<listitem><para>Ha az opció be van jelölve,
+akkor a helyesírás-ellenőrző nem tekinti helyesnek az olyan szavakat,
+amelyek több, helyesen írt szó összetételei (több szó egybeírva).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Szótár</guilabel></term>
+<listitem><para>A telepítéstől függően több nyelvhez is elérhető lehet
+helyesírási szótár. Ez a legördülő lista lehetővé teszi a helyesírás-ellenőrző
+által használandó nyelv kiválasztását.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Kódolás</guilabel></term>
+<listitem><para>A különböző kódrendszerek arra szolgálnak, hogy bizonyos kódokat
+hozzárendeljenek bizonyos karakterekhez illetve szimbólumokhoz.
+Ha a felhasználó tudja, hogy mely kódrendszert használja, akkor ez a
+legördülő lista lehetővé teszi annak a megadását. Ez ahhoz szükséges,
+hogy a helyesírás-ellenőrző helyesen lássa el a funkcióját.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Kliens</guilabel></term>
+<listitem><para>Mivel a &kedit; nem tartalmaz saját helyesírás-ellenőrzőt,
+ezért külső programot kell erre a célra használni. A felhasználó itt adhatja meg,
+hogy melyik helyesírás-ellenőrzőt kívánja használni.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="prefmisc">
+<title>Egyebek</title>
+<para>Ez a kategória több különböző beállítást tartalmaz, amelyek részletes ismertetése
+az alábbiakban olvasható.</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Sortördelés</guilabel></term>
+<listitem><para>A sortördelés azt jelenti, hogy a szerkesztő
+automatikusan új sort kezd, a kurzort pedig ezen új sor elejére
+állítja. A párbeszédablak felső részén levő legördülő lista a következő 3
+sortördelési lehetőséget biztosítja:</para>
+
+<variablelist>
+<varlistentry>
+<term>a sortördelés kikapcsolása</term>
+<listitem><para>Ezt kiválasztva a szerkesztő semmiféle tördelést nem fog végezni.
+Ekkor a felhasználónak kell új sorokat kezdeni (az <keycap>Enter</keycap>
+billentyűvel).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>a szerkesztő méretétől függ</term>
+<listitem><para>Ennek hatására a szerkesztő automatikusan az aktuális szélességhez
+állítja a sorok hosszát. Más szavakkal: minél szélesebb a szerkesztő ablaka, annál
+hosszabbak lesznek a sorok; illetve minél keskenyebb az ablak, annál rövidebbek
+lesznek azok.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>megadott oszlopnál</term>
+<listitem><para>Ezt kiválasztva aktívvá válik az alatta levő,
+<guilabel>A tördelés oszlopszáma</guilabel> feliratú szövegmező.
+Az utóbbiban a felhasználó megadhatja az egy sorra vonatkozó maximális
+karakterszámot.</para>  <note><para>Minden karakter, beleértve a szóközöket is,
+egy oszlopnyi helyet foglal el.</para></note></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term id="backuppref"><guilabel>Biztonsági másolat készítése mentéskor</guilabel></term>
+<listitem><para>Ez az opció azt határozza meg, hogy a szerkesztő minden
+<command>mentés</command> előtt nevezze át a jelenlegi dokumentum legutóbb elmentett
+verzióját. A szerkesztő ezt úgy végzi el, hogy az eredeti (korábbi) fájl
+nevének végéhez hozzáfűz egy "hullámvonal" (<keycap>~</keycap>) karaktert.
+Ezáltal a felhasználónak lehetősége nyílik arra, hogy visszaállítson egy korábbi
+verziót, ha esetleg tévedésből "rámentett" arra valamit.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term id="mailpref"><guilabel>Levélküldési parancs</guilabel></term>
+<listitem><para>Ebben a szövegmezőben az a parancs adható meg, amelyet a
+<link linkend="mail"><menuchoice><guimenu>Fájl</guimenu><guimenuitem>Elküldés levélben</guimenuitem></menuchoice></link>
+funkció fog használni az aktuális dokumentum elküldésére.
+A szerkesztő alapértelmezés szerint a parancssori <application>mail</application>
+programot használja levélküldésre. Ha a felhasználó ettől eltérő programot szeretne
+használni, akkor meg kell néznie az adott program dokumentációjában, hogy hogyan lehet
+azt a programot paranccsal meghívni levélküldés céljából.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title>Készítők és licenc</title>
+
+<para>&kedit; Copyright 2000, Bernd Johannes Wuebben
+<email>wuebben@math.cornell.edu</email></para>
+
+<para>Dokumentáció Copyright 2000, Thad McGinnis
+<email>ctmcginnis@compuserve.com</email></para>
+
+<para>A &kedit; kézikönyv jelen verziója a Bernd Johannes Wuebben
+<email>wuebben@math.cornell.edu</email> által készített eredeti verzión alapul.</para>
+&underFDL;
+&underGPL;
+</chapter>
+
+<appendix id="installation">
+<title>Telepítés</title>
+<para>A &kedit; a kdeutils csomag része. A KDE telepítésével és
+lefordításával kapcsolatban a következő címen szerezhető információ:
+<ulink url="http://www.kde.org">www.kde.org</ulink>.</para>
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+
+

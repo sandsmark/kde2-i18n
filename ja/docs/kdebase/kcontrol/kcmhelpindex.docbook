@@ -1,0 +1,148 @@
+<sect1 id="help-index">
+<sect1info>
+<authorgroup>
+<author>
+<firstname>Mike</firstname>
+<surname>McBride</surname>
+</author>
+<author>
+<firstname>Jost</firstname>
+<surname>Schenck</surname>
+</author>
+</authorgroup>
+<date>02/10/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KControl</keyword>
+<keyword>Help Index</keyword>
+<keyword>Index</keyword>
+</keywordset>
+</sect1info>
+<title>ヘルプ インデックス</title>
+<sect2 id="help-index-intro">
+<title>はじめに</title>
+<para>
+KDE 2.0 にはアプリケーションやコンポーネントに関する沢山のドキュメントが付いて来ます。
+この中から知りたい情報を見つけ出すのは大変時間のかかる作業になるかもしれません。
+これを解消すべく、KDEは<application>ht://dig</application>というプログラムを使った全文検索を提供しています。
+これはWEBページの検索エンジンと全く同じように動きます。
+KDEヘルプセンターの"<guilabel>検索</guilabel>"タブをクリックして、
+検索したい語を入力してから<guibutton>検索</guibutton>ボタンをクリックして下さい。
+</para>
+<para>
+しかしながら、この機能を使うには<application>ht://dig</application>がインストールされていて、
+KDEがこれを使用するように設定されていなければなりません。
+このコントロールモジュールは後者の設定作業を支援するものです。
+<application>ht://dig</application>をまだインストールしていないのなら、
+そしてあなたのオペレーティングシステムに同梱されていないなら、
+御自分で入手して頂く必要があります。
+入手とインストール方法については<ulink url="http://www.htdig.org">the ht://dig homepage</ulink> 
+を参照して下さい。
+</para>
+</sect2>
+<sect2 id="help-index-use">
+<title>使い方</title>
+<para>
+ここにはKDEで、全文検索エンジンを使えるようにする為の２つの重要な設定があります。:</para>
+<itemizedlist>
+<listitem>
+<para>
+KDEが全文検索に使用する<application>ht://dig</application>プログラムの場所</para>
+</listitem>
+<listitem>
+<para>
+検索すべき場所</para>
+</listitem>
+</itemizedlist>
+<sect3 id="help-index-use-progs">
+<title><application>ht://dig</application> プログラム</title>
+<para>
+KDEは３つのプログラム(<application>ht://dig</application>: <command>htdig</command>,
+<command>htsearch</command> 及び <command>htmerge</command>)を使用します。
+各プログラムについて、そのプログラム名を含むフルパス名を指定する必要があります。
+例えば：<filename class=directory>/usr/bin/htdig</filename>のように。
+</para>
+<para>
+これらのプログラムがどこにインストールされているかは、
+オペレーティングシステムやディストリビューションによって異るでしょう。
+下記の推測は、試してみる価値があります:
+</para>
+<itemizedlist>
+<listitem>
+<para>
+<command>htdig</command> と<command>htmerge</command> は
+しばしば、<filename class=directory>/usr/bin/</filename> や、
+<filename class=directory>/usr/local/www/htdig/bin/</filename>に置かれています。
+</para>
+</listitem>
+<listitem>
+<para>
+<command>htsearch</command>は、大抵は、
+<filename class=directory>cgi-bin</filename>
+と言う名前のサブディレクトリに置かれています。
+例えば<filename class=directory>/usr/local/httpd/cgi-bin/</filename>等です。
+</para>
+</listitem>
+</itemizedlist>
+<tip>
+<para>
+インストールされている場所(例えば、<command>htdig</command>の)を
+探すには、コンソールで<command>whereis htdig</command> とすることがでいます。
+<command>whereis</command>コマンドは指定されたコマンドを標準のパスディレクトリ
+から探し出します。
+ただし、<filename class=directory>cgi-bin</filename>のようなディレクトリは、通常、
+標準のパスには含まれません。
+</para>
+</tip>
+</sect3>
+<sect3 id="help-index-use-scope">
+<title>検索スコープと検索パス</title>
+<para>
+このセクションでは、どのヘルプリソースが(検索エンジンが利用できるよう)インデックス化
+されるべきかを選択します。
+</para>
+<para>
+<guilabel>スコープ</guilabel>フレームでは、あたがインデックス化したいと思う
+標準的なリソースを選択できます。
+それらは、KDEヘルプファイル、<command>man</command> 及び
+<command>info</command> です。
+幾つかのリソースについては、使用不可になっているかもしれません。
+これはそれらのサポートは未実装な場合です。
+</para>
+<para>
+KDEヘルプセンターの全文検索エンジンを使いたい、あなたの追加文書があるかもしれません。
+例えば、<filename>/home/jdoe/docs/selfhtml</filename>にインストールされた
+<abbrev>HTML</abbrev> ファイル等です。
+追加の検索パスに、このパスを追加すると、このドキュメントもKDEのヘルプセンターの
+全文検索の対象となります。<guibutton>追加</guibutton>ボタンをクリックすると
+ファイルダイアログが立ち上がり、追加の検索ディレクトリをたずねます。
+そこで<filename>/home/jdoe/docs/selfhtml</filename>を指定し、
+<guibutton>はい</guibutton>ボタンをクリックして下さい。
+追加のパスを削除するには、パスを選択して<guibutton>削除</guibutton>をクリックします。
+</para>
+<important>
+<para>
+スコープや追加検索パスの設定変更は<guibutton>インデックス生成 ...</guibutton>
+をクリックして実行しないと反映されません。
+</para>
+</important>
+</sect3>
+<sect3 id="help-index-language">
+<title>言語の選択</title>
+<para>
+<guilabel>言語の設定</guilabel>と名付けられたコンボボックスから、
+ヘルプファイルの言語を選択できます。
+</para>
+</sect3>
+</sect2>
+<sect2 id="help-index-author">
+<title>著者</title>
+<para>
+このセクションはJost Schenck <email>jost@schenck.de</email>によって書かれ</para>
+<para>
+Mike McBride <email>mmcbride@ematic.com</email>
+によってマイナーアップデートがなされた。
+</para>
+</sect2>
+</sect1>

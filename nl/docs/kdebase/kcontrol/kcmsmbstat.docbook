@@ -1,0 +1,291 @@
+<sect1 id="sambastatus">
+<sect1info>
+
+<authorgroup
+><author
+><firstname
+>Alexander</firstname
+><surname
+>Neundorf</surname
+></author>
+&Niels.Reedijk;
+</authorgroup
+> 
+
+<date
+>2001-07-22</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Samba</keyword>
+<keyword
+>systeeminformatie</keyword>
+</keywordset>
+</sect1info>
+<title
+>Samba status informatie</title>
+
+<para
+>De Samba en <acronym
+>NFS</acronym
+> Status Monitor is een front end voor de applicaties <command
+>smbstatus</command
+> en <command
+>showmount</command
+>. Smbstatus rapporteert de huidige Samba verbindingen en is onderdeel van het Samba pakket dat het <acronym
+>SMB</acronym
+> (Session Message Block) protocol implementeert, ook wel NetBIOS of LanManager protocol genoemd.</para>
+
+<para
+>Dit protocol kan worden gebruikt om printers te delen of schijven te delen op een netwerk met onder meer de verschillende smaken van &Microsoft; &Windows;.</para>
+
+<para
+><command
+>showmount</command
+> is onderdeel van het <acronym
+>NFS</acronym
+> software pakket. <acronym
+>NFS</acronym
+> staat voor Network File System en is de traditionele &UNIX; manier om mappen over het netwerk te delen. In dit geval wordt de uitvoer van <command
+>showmount</command
+> <option
+>-een lokale host</option
+> geanalyseerd. Op sommige systemen zit showmount in <filename class="directory"
+>/usr/sbin</filename
+> (deze map zit meestal alleen in het pad van root), controleer daarom of showmount in uw <envar
+>PATH</envar
+> zit.</para>
+
+<sect2 id="smb-exports">
+<title
+>Exports</title>
+
+<para
+>Op dit tabblad kunt een grote lijst met huidige actieve verbindingen met Samba shares en de <acronym
+>NFS</acronym
+> exports van uw machine. De eerste kolom toont of de verbinding een Samba (<acronym
+>SMB</acronym
+>) share of een <acronym
+>NFS</acronym
+> export is. De tweede kolom bevat de naam van de share of export, de derde kolom de naam de host die deze share benaderd. De laatste kolom heeft alleen betrekking op Samba shares.</para>
+
+<para
+>De vierde kolom bevat de gebruikers-id de user die deze share benadert. Merk op dat niet gelijk hoeft te zijn aan de &UNIX; gebruikers-id van deze gebruiker. Het zelfde geldt voor de volgende kolom die het groeps-id van de gebruiker weergeeft.</para>
+
+<para
+>Elke verbinding die naar een van uw shares wordt gemaakt wordt behandeld door een enkel proces (<command
+>smbd</command
+>), de volgende kolom toont het proces-<abbrev
+>ID</abbrev
+> (<acronym
+>pid</acronym
+>) van dit <command
+>smbd</command
+> proces. Als u dit proces doodt dan zal de verbinding van die gebruiker worden verbroken. Als de gebruiker onder &Windows; werkt dan zal zodra er een proces word gedood er meteen een proces worden aangemaakt zodat hij er weinig van zal merken.</para>
+
+<para
+>De laatste kolom toont hoeveel bestanden deze gebruiker op dit moment open heeft. Hier kunt u zien alleen hoeveel bestanden hij er nu <emphasis
+>open</emphasis
+> heeft, niet hoeveel bestanden hij heeft gekopieerd or al eerder heet geopend, &etc;.</para>
+
+</sect2>
+
+<sect2 id="smb-imports">
+<title
+>Imports</title>
+
+<para
+> Hier kunt u zien welke Samba- en <acronym
+>NFS</acronym
+>-shares van andere hosts in uw bestandsysteem zijn gemount. De eertse kolom toont of het een Samba- of <acronym
+>NFS</acronym
+>-share betreft, de tweede kolom toont de naam van de share en de derde kolom toont waar deze is gemount.</para>
+
+<para
+>Omdat Samba-shares alleen kunnen worden gemount door &Linux;, zult u deze niet zien op andere <acronym
+>OS</acronym
+>-en. De gemounte <acronym
+>NFS</acronym
+>-shares zult u moeten kunnen zien onder &Linux; (dit is getest) en u zult ze ook moeten zien onder &Solaris; (dit is niet getest).</para>
+
+</sect2>
+
+<sect2 id="smb-log"
+> 
+<title
+>Log</title
+> 
+
+<para
+>Dit tabblad presenteert de inhoud van uw lokale samba logbestand op een nette manier. Als u deze pagina opent dan zal de lijst leeg zijn. U moet op de knop <guibutton
+>Bijwerken</guibutton
+> klikken om het logbestand in te lezen en om de resultaten te tonen. Controler of het samba logbestand zich op uw systeem ook echt op de locatie bevindt die u in het tekstveld heeft opgegeven. Als het zich ergens anders bevindt verbeter het dan. Nadat u de bestandsnaam heeft gewijzigd druk u nogmaals op de <guibutton
+>Bijwerken</guibutton
+> knop.</para>
+
+<para
+>Samba logt zijn activiteiten aan de hand van een log niveau (zie het bestand <filename
+>smb.conf</filename
+>). Als loglevel = 1, dan zal samba alleen een ingang in het logbestand schrijven wanneer iemand een verbinding met uw host maakt en wanneer deze verbinding wordt verbroken. Als loglevel = 2, dan zal samba tevens een ingang naar het logbestand schrijven wanneer iemand een bestand opent of weer sluit. Als het loglevel nog hoger wordt dan wordt er nog meer weggeschreven naar het logbestand.</para>
+
+<para
+>Als u bent geïnteresseerd in wie uw machine benaderd en welke bestanden er worden gebruikt dan moet u het loglevel op 2 zetten en regelmatig een nieuw samba logbestand aanmaken omdat anders uw logbestand te groot kan worden. Dit betekent meestal dat u een <command
+>cron</command
+> taak aanmaakt die een keer per week het logbestand inpakt en bijvoorbeeld in een andere map plaatst, of naar uzelf e-mailt.</para>
+
+<para
+>Met de vier selectievakken onder de grote lijst kunt u bepalen welke gebeurtenissen er in het lijstveld worden getoond. U moet op de <guibutton
+>Bijwerken</guibutton
+> knop drukken om het resultaat te zien. Als het log niveau van uw samba installatie te laag ligt dan kan het zijn dat u niet alles te zien krijgt.</para>
+
+<para
+>Door op de kolomtitelbalk te klikken kunt u de lijst sorteren volgens deze kolom in opgaande of aflopende volgorde.</para>
+
+</sect2>
+
+
+<sect2 id="smb-statistics">
+<title
+>Statistieken</title>
+
+<para
+>Op dit tabblad kunt u de inhoud van het derde tabblad filteren op bepaalde inhoud.</para>
+
+<para
+>Stel dat het <guilabel
+>Gebeurtenis</guilabel
+> veld (niet degene in de lijst) is ingesteld op <userinput
+>Verbindingen</userinput
+>,<guilabel
+>Dienst/Bestand</guilabel
+> is ingesteld op <userinput
+>*</userinput
+>, <guilabel
+>Host/Gebruiker</guilabel
+> op <userinput
+>*</userinput
+>, <guilabel
+>Extra dienstinformatie tonen</guilabel
+> is gedeactiveerd en <guilabel
+>Extra hostinformatie tonen</guilabel
+> is ook gedeactiveerd.</para>
+
+<para
+>Als u nu op <guibutton
+>Bijwerken</guibutton
+> klikt dan zult u zien hoe vaak een verbinding was geopend op share <literal
+>*</literal
+> (elke share) van host <literal
+>*</literal
+> (elke host). Nu activeert u <guilabel
+>Extra hostinformatie tonen</guilabel
+> en daarna nogmaals op de knop <guibutton
+>Bijwerken</guibutton
+>. Nu zult u zien dat voor elke host die aan de joker <literal
+>*</literal
+> voldoet, hoeveel verbindingen er door die host zijn geopend.</para>
+
+<para
+>Druk nu op de knop <guibutton
+>Leegmaken</guibutton
+>.</para>
+
+<para
+>Zet nu het <guilabel
+>Gebeurtenis</guilabel
+> veld op Bestandstoegang, selecteer <guilabel
+>Extra dienstinformatie tonen</guilabel
+> en druk weer op de knop <guibutton
+>Bijwerken</guibutton
+></para>
+
+<para
+>Nu zult u zien hoe vaak elk bestand is benaderd. Als u <guilabel
+>Extra hostinformatie tonen</guilabel
+> ook selecteert dan zult u zien hoe vaak elke gebruiker elk bestand heeft geopend.</para>
+
+<para
+>In de invoervelden <guilabel
+>Dienst/Bestand</guilabel
+> en <guilabel
+>Host/Gebruiker</guilabel
+> kunt u de jokers <literal
+>*</literal
+> en <literal
+>?</literal
+> op dezelfde manier gebruiken als op de commando regel. Reguliere expressies worden niet ondersteunt.</para>
+
+<para
+>Door op een kolomtitelbalk te klikken kunt u de lijst sorteren volgens deze kolom. Op deze manier kunt u zien welk bestand het vaakst werd geopend of welke gebruiker de meeste bestanden heeft geopend, enzovoort.</para>
+
+</sect2>
+
+
+<sect2 id="smb-stat-author">
+<title
+>Auteurssectie</title>
+
+<para
+>Module copyright 2000: Michael Glauche en A. Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para>
+
+<para
+>Origineel geschreven door: Michael Glauche</para>
+
+<para
+>Op dit moment onderhouden door: A. Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para>
+
+<itemizedlist
+> <title
+>Met dank aan:</title
+> <listitem
+><para
+>Conversie naar een kcontrol applet:</para
+> <para
+>Matthias Hoelzer <email
+>hoelzer@physik.uni-wurzburg.de</email
+></para
+></listitem
+> <listitem
+><para
+>Gebruik van KProces in plaats van popen en meer fout controles:</para
+> <para
+>David Faure <email
+>David.Faure@insa-lyon.fr</email
+></para
+></listitem
+> <listitem
+><para
+>Conversie naar een kcmodule, tabbladen 2,3 en 4 toegevoegd, fout verholpen:</para
+> <para
+>Alexander Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Documentatie copyright 2000 Alexander Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para>
+
+<para
+>Documentatie vertaald naar docbook door Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+
+&meld.fouten;&vertaling.niels;
+
+</sect2>
+</sect1>
+
+

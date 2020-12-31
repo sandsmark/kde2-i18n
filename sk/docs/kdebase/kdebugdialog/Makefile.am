@@ -1,0 +1,3 @@
+
+KDE_LANG=sk
+KDE_DOCS=AUTO

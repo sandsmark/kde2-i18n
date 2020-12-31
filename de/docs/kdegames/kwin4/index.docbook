@@ -1,0 +1,709 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kwin4;">
+<!ENTITY % German "INCLUDE"
+> 
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Vier gewinnt</title>
+
+<authorgroup>
+<author
+> <firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+> <address
+><email
+>martin@heni-online.de</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+></firstname>
+<surname
+></surname>
+<contrib
+>Korrektur</contrib>
+<affiliation
+><address
+><email
+></email
+></address
+></affiliation>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Maren</firstname
+><surname
+>Pakura</surname
+><affiliation
+><address
+><email
+>maren@kde.org</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+
+</authorgroup>
+
+<date
+>2001-06-23</date>
+<releaseinfo
+>0.09.01</releaseinfo>
+
+<abstract>
+<para
+> Dieses Dokument beschreibt &kwin4; Version 0.9.1</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>Spiel</keyword>
+<keyword
+>Brett</keyword>
+<keyword
+>Brettspiel</keyword>
+<keyword
+>Vier gewinnt</keyword>
+<keyword
+>vier</keyword>
+<keyword
+>Vier in einer Reihe</keyword>
+<keyword
+>win4</keyword>
+<keyword
+>kwin4</keyword>
+<keyword
+>Vier verbinden</keyword>
+<keyword
+>4 verbinden</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="overview">
+<title
+>Übersicht</title>
+
+<para
+> Vier gewinnt ist ein Spiel für zwei Spieler. </para>
+
+<para
+> Jeder Spieler wird durch eine Farbe repräsentiert (rot oder gelb). Ziel des Spiels ist es vier Steine in einer Reihen zu haben. Diese Reihe kann senkrecht, waagerecht oder diagonal sein. Das kann dadurch erreicht werden, dass die Steine nacheinander in die sieben mögliche Spalten gesteckt werden. </para>
+
+<para
+> Ein Stein beginnt eine Spalte von unten zu füllen. Das heißt: Er wird runterfallen, bis er am Boden liegt oder auf einem anderen Stein. Nachdem ein Stein gesetzt wurde, ist der andere Spieler dran. </para>
+
+<para
+> Das wird nun wiederholt, bis das Spiel vorüber ist. Das Spiel ist beendet, wenn ein Spieler vier Steine senkrecht, waagerecht oder diagonal in einer Reihe hat oder kein weiterer Zug mehr möglich ist, da das Spielfeld voll ist. </para>
+
+</chapter>
+
+<chapter id="rules">
+<title
+>Spielregeln</title>
+
+<para
+> Das Spielfeld ist in drei Bereiche eingeteilt. </para>
+
+<para
+> Das <firstterm
+>Spielfeld</firstterm
+> besteht aus 7x6 Feldern, die von unten herauf gefüllt werden. Die Felder werden entsprechend der Farbe des Spielers, der den Zug ausführte gefärbt. Oben in jeder Spalte erscheint ein bunter Pfeil, der anzeigt, wo der letzte Spielstein gesetzt wurde. </para>
+
+<para
+> Die <firstterm
+>Statusanzeige</firstterm
+> gibt an, welcher Spieler beginnt und wer mit welcher Farbe spielt (Spieler , Computer, Netzwerkspiel). Weiterhin zeigt es die Spielstärke, mit welcher der Computer spielt, die Anzahl der gemachten Züge sowie die Chance, die sich der Computer für den Sieg ausrechnet. Dieses Chance wird vom Computer nur berechnet, wenn sein Gegner einen Zug macht. Ein positiver Wert bedeutet, der Spieler hat einen Vorteil, eine negative, dass der Computer glaubt besser zu stehen. </para>
+
+<para
+> Die <firstterm
+>Tabellenanzeige</firstterm
+> zeigt die Anzahl der gewonnenen (G), verlorenen (V) und unentschiedenen (V) Spiele von beiden Spielern. Außerdem wird die Anzahl der abgebrochenen (A) und die der Spiele insgesamt angezeigt. </para>
+
+</chapter>
+
+<chapter id="remote-connections">
+<title
+>Netzwerkspiele</title>
+
+<para
+> Es ist möglich, das Spiel über ein Netzwerk mit einem anderen Rechner spielen. Dafür müssen beide Spieler auf den Computern einen Spieler als Netzwerkspieler auswählen. Wer welche Seite wählt, ist egal, es ist sogar möglich, dass beide die selbe Seite wählen. Das Programm dreht das Spielfeld dann automatisch um. </para>
+
+<para
+> Einer der Computer ist Netzwerkserver, der andere Client. Nur der Server kann ein Spiel starten und seine Spieldaten werden zum Clienten übertragen. Man kann das Programm zwingen, Netzwerkserver zu werden, indem man im Netzwerkdialog den Hostnamen freilässt. Dieser Dialog wird gezeigt, wenn man ein Netzwerkspiel neu startet. Im Falle des Clients trägt man den Namen des anderen Computers ein. Die auch abgefragte Portnummer kann man im Allgemeinen so eingestellt lassen. </para>
+
+<para
+> Wenn eine Netzwerkverbindung aufgebaut wird, dann werden Sie nach dem entfernten Rechner und der Portnummer gefragt. Die Portnummer brauchen Sie nicht zu ändern, aber wenn Sie wissenwas Sie tun, ersetzen Sie sie durch eine andere, die in beiden Spielen natürlich gleich sein muss. Der Hostname sollte der Name des anderen Rechners sein, mit dem Sie die Verbindung aufbauen wollen. Nur einer der beiden Spieler muss den Hostnamen angeben, der andere muss nicht, kann aber. </para>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Menüs</title>
+
+<sect1 id="game-menu">
+<title
+>Datei-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Strg;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>eues Spiel</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Startet ein neues Spiel. In einem Netzwerkspiel, kann dieses nur der Netzwerkserver. Der Netzwerk-Client wird automatisch vom Server gestartet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+>Spiel B<accel
+>e</accel
+>nden</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Beendet ein Spiel. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>tatistik anzeigen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Zeigt die Spiel-Spielstatistik und kann hier zurückgesetz werden. Diese wird normalerweise beim Programmende gespeichert und zeigt, wieviele Punkte er erzielt hat und wieviele Spiele ein Spieler gewonnen hat. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Strg;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+><accel
+>H</accel
+>inweis</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Der Computer wird den bestmöglichen Zug berechnen und ihn durch einen kleinen Kreis auf dem Spielfeld markieren. Wie gut dieser ist, hängt von der Spielstärke ab, mit welcher der Computer spielt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Strg;<keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+>Nachricht <accel
+>s</accel
+>enden</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> In einem Netzwerkspiel kann hiermit eine kurze Nachricht an den anderen Spieler geschickt werden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Strg;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Beendet das Programm. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="edit-menu">
+<title
+>Bearbeiten-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Strg;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>ückgängig</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Macht den letzten Zug rückgängig. Wenn der vorherige Zug vom Computer ausgeführt wurde, so werden zwei Züge rückgängig gemacht, so dass Sie wieder an der Reihe sind. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Strg;<keycap
+>Umschalt</keycap
+><keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Wieder<accel
+>h</accel
+>erstellen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Stellt den rückgängig gemachten Zug wieder her. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="view-menu">
+<title
+>Ansicht-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>tatusleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Blendet die Statusleiste ein/aus. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="option-menu">
+<title
+>Einstellungen-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guisubmenu
+>Startspieler</guisubmenu
+> </menuchoice
+></term
+> <listitem
+> <para
+> Entscheidet, welche Farbe den ersten Zug im Spiel ausführt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guisubmenu
+>Gelber Spieler gespielt von</guisubmenu
+> </menuchoice
+></term
+> <listitem
+> <para
+> Wählen Sie, welcher Spieler gelb spielt. Es kann entweder<guimenuitem
+>Spieler</guimenuitem
+> sein, ein lokaler Spieler, der die Maus als Eingabegerät benutzt, oder <guimenuitem
+>Computer</guimenuitem
+> sein, dann spielt der Computer diesen Spieler, oder <guimenuitem
+>Netzwerk</guimenuitem
+>sein, dann wird eine Netzwerkverbindung zu einem anderen Computer aufgebaut. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guisubmenu
+>Roter Spieler gespielt von</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Das gleiche für <guimenuitem
+>Gelber Spieler gespielt von</guimenuitem
+>, aber für den Rot Spieler. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+><guisubmenu
+>S<accel
+>p</accel
+>ielstufe </guisubmenu
+> </menuchoice
+></term
+> <listitem
+> <para
+> Bestimmt das Können des Computergegners. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>amen ändern...</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+> Ändert die Namen der Spieler. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guimenuitem
+>Netzwerkserver</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Wenn dieser Menüeintrag ausgewählt wurde, dann verhält sich Ihr Computer wie ein Spiele-Netzwerkserver. Das ist natürlich nur von Interesse, wenn Sie ein Netzwerkspiel spielen. Nur der Computer, der Server ist, kann ein Spiel neu starten oder ein gestartetes Spiel zum Client übertagen. Wenn beide Server sein wollen oder keiner, entscheidet der Zufall. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Optionen</accel
+></guimenu
+> <guimenuitem
+><accel
+>A</accel
+>nimationen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Schaltet die Animationen an oder aus. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help">
+<title
+>Das <guimenuitem
+>Hilfe</guimenuitem
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+><guimenuitem
+><accel
+>I</accel
+>nhalt</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Startet das &kde;-Hilfesystem mit der &kwin4;-Hilfeseite (dieses Dokument). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie Probleme oder Wünsche</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Wenn Sie einen Fehler bemerkt haben oder eine Idee zur Verbesserung des Spiels beitragen wollen, können Sie mit diesem Menüpunkt eine offizielle Meldung an das &kde;-Team schicken. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Ü<accel
+>b</accel
+>er KWin4</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Diese zeigt Version und Autoren-Information an. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Über <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Gibt Versionsnummer und grundlegende Informationen zu &kde; aus. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+> &kwin4; </para>
+<para
+> Programm Copyright 1995-2001 Martin Heni <email
+>martin@heni-online.de</email
+> </para>
+<para
+> Dokumentation Copyright 2001 Martin Heni <email
+>martin@heni-online.de</email
+> </para>
+
+<para
+>Deutsche Übersetzung von Maren Pakura <email
+>maren@kde.org</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kwin4">
+<title
+>Woher Sie &kwin4; erhalten?</title>
+
+<para
+> &kwin4; gehört zum Paket kdegames und ist auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+> ftp://ftp.kde.org/pub/kde/</ulink
+>, der KDE-Haupt-FTP-Seite des KDE-Projekts zu finden. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen</title>
+
+<para
+> Sie benötigen mindestens KDE 2.0, um &kwin4; erfolgreich kompilieren zu können. </para>
+
+<para
+> Alle benötigten Bibliotheken und selbst &kwin4; können auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+> gefunden werden.</para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilierung und Installation</title>
+
+<para
+> Um &kwin4; auf ihrem System zu kompilieren und zu installieren, schreiben Sie Folgendes in das Hauptverzeichnis im kdegames-Verzeichnis:  </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>cd kdegames</userinput>
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+> Da &kwin4; <application
+>autoconf</application
+> und <application
+>automake</application
+> benutzt, sollten Sie keine Probleme haben, es zu kompilieren. </para>
+
+</sect1>
+</appendix>
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

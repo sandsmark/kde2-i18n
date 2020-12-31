@@ -1,0 +1,87 @@
+function check_xml() 
+{
+  if test -f $trans_doc; then
+   case $trans_doc in
+     */api/index.docbook) ;;
+     */index.docbook)
+       if ! meinproc --check --stdout $trans_doc > /dev/null; then
+	checkXML $trans_doc
+          echo "REMOVING $trans_doc"
+          rm -f $trans_doc
+       fi
+       ;;
+     *) ;;
+   esac
+  fi
+}
+
+modules="kdelibs kdebase kdegames kdegraphics kdeutils kdenetwork kdemultimedia kdeadmin kdesdk kdetoys koffice kdenonbeta kdepim kdeaddons"
+
+subdir=$1
+selection=$2
+if test -z "$selection"; then
+   selection=*
+fi
+
+for m in $modules; do
+   if test -d ../$m/doc; then
+     files=`( cd .. && find $m/doc -name "*.docbook")`
+     for i in $files; do
+	case $i in
+	  *_original.docbook)
+		continue
+		;;
+          *$selection*)
+		;;
+	  *)
+ 	    continue;;
+	esac
+	j=`echo $i | sed -e "s#$m/doc/##" | sed -e 's#.docbook$##' | sed -e 's#/index$##' | sed -e "s#/#_#g"`
+	translations=`ls -1 $subdir/messages/docs/$m/$j.po 2>/dev/null`
+	for t in $translations;	do
+		bd=`dirname $t`
+		p=`echo $i | sed -e "s#$m/doc/##"`
+		trans_doc="$bd/../../../docs/$m/$p"
+		dir=`dirname $trans_doc`
+		result=`msgfmt -o /dev/null --statistics $t 2>&1`
+		if test ! "$?" = "0" || echo $result | grep -q untranslated; then
+		   echo "$t: $result"
+	           continue
+		fi
+		if echo $result | grep -q fuzzy; then
+	  	   echo "$t: $result" 
+	           continue
+		fi
+		echo po2xml ../$i $t
+		po2xml ../$i $t > temp.xml
+		language=`cat $bd/../language `
+		if test -n "$language"; then 
+		   sed -e "s,<!ENTITY % English,<!ENTITY % $language," temp.xml > temp.xml.new
+		   mv temp.xml.new temp.xml
+		fi
+		lang=$subdir
+		if ! test -d $dir/CVS; then
+			mkdir -p $dir
+			mv temp.xml $trans_doc
+			echo Makefile > $dir/.cvsignore
+			echo Makefile.in >> $dir/.cvsignore
+			echo > $dir/Makefile.am
+			echo "KDE_LANG=$lang" >> $dir/Makefile.am
+			echo "KDE_DOCS=AUTO" >> $dir/Makefile.am
+			idir=`(cd $dir && pwd | sed -e 's#.*/\([^/]*\)$#\1#')`
+			(cd $dir/..  && cvs add $idir)
+			(cd $dir && cvs add Makefile.am .cvsignore index.docbook)
+		else
+			if ! cmp -s temp.xml $trans_doc; then
+				:
+				mv temp.xml $trans_doc
+			else
+				rm temp.xml
+			fi
+		fi
+		check_xml;
+	done
+     done
+   fi
+done
+

@@ -1,0 +1,574 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kdf;">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &kdf;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+> <address
+><email
+>jsinger@leeta.net</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Michael</firstname
+> <surname
+>Kropfberger</surname
+> <affiliation
+><address
+><email
+>michael.kropfberger@gmx.net</email
+></address
+></affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<contrib
+>Gegengelesen von</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Gregor</firstname
+><surname
+>Zumstein</surname
+><affiliation
+><address
+><email
+>zumstein@ssd.ethz.ch</email
+></address
+></affiliation
+><contrib
+>Übersetzung von</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Jonathan Singer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-06</date>
+<releaseinfo
+>0.00.50</releaseinfo>
+
+<abstract
+><para
+>&kdf; zeigt Informationen über die verfügbaren Plattenbereiche (Partitionen).</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdf</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>Festplatte</keyword>
+<keyword
+>Geräte</keyword>
+<keyword
+>mount</keyword>
+<keyword
+>unmount</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+>&kdf; zeigt die verfügbaren Plattenbereiche an (Partitionen auf Festplatten, Disketten, CD-ROMs <abbrev
+>usw.</abbrev
+>). Zu jedem Bereich wird die Gesamtgröße, der freie Bereich, das Dateisystem und der Ort der Einbindung ins Dateisystem (Mount-Punkt) angezeigt. Mit &kdf; können auch (sofern die Berechtigung vorhanden ist) Laufwerke gemountet/-unmountet und der Dateimanager mit der Anzeige für dieses Laufwerk geöffnet werden.</para>
+
+<para
+>&kdf; hat Ähnlichkeiten mit dem Modul Laufwerke aus dem Kontrollzentrum, braucht aber weniger Platz auf dem Bildschirm und ist deshalb nützlich, wann immer ein Laufwerksfenster geöffnet sein soll.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title
+>Wie benutze ich &kdf;</title>
+
+<sect1 id="starting-kdf">
+<title
+>Starten von &kdf;</title
+> 
+
+<para
+>Um das Programm zu starten, tippt man <userinput
+><command
+>kdf</command
+></userinput
+> auf der Befehlszeile oder wählt "<guimenuitem
+>KDiskFree</guimenuitem
+>" aus dem K-Untermenü <guisubmenu
+>System</guisubmenu
+>. Die Standard Qt- und KDE-Befehlszeilenparameter sind verfügbar und können mit dem Befehl <command
+>kdf<option
+>--help</option
+></command
+> angezeigt werden.</para>
+
+</sect1>
+
+<sect1 id="main-window">
+<title
+>Das Hauptfenster</title>
+
+<para
+>Das Hauptfenster von &kdf; zeigt die verfügbaren Partitionen an.</para>
+
+<para
+>Standardmäßig werden die folgenden Informationen angezeigt:</para>
+<screenshot
+> <screeninfo
+>&kdf; Anzeige</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kdf.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>&kdf; Anzeige</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<itemizedlist
+> <listitem
+><para
+>Ein Symbol, das den Gerätetyp angibt</para
+></listitem
+> <listitem
+><para
+>Gerätename</para
+></listitem
+> <listitem
+><para
+>Der Dateisystemtyp</para
+></listitem
+> <listitem
+><para
+>Die Gesamtgröße</para
+></listitem
+> <listitem
+><para
+>Der Mount-Punkt</para
+></listitem
+> <listitem
+><para
+>Der freie Speicher</para
+></listitem
+> <listitem
+><para
+>Die Belegung der Partition in Prozent und als Auslastungsgraph</para
+></listitem
+> </itemizedlist>
+
+<para
+>In der Abbildung oben werden vier Geräte gezeigt: zwei ext2-formatierte Festplatten-Partitionen, eine davon als Dateisystembasis (<filename class="directory"
+>/</filename
+>) und eineunter <filename class="directory"
+>/old</filename
+>, eine eingebundene ISO9660-&CD-ROM;und ein nicht eingebundenes Diskettenlaufwerk.</para>
+
+<para
+>Ein <mousebutton
+>Druck mit der linken Maustaste</mousebutton
+> auf die Beschreibung einer Spalte sortiert die Anzeige nach diesem Kriterium. Ein weiterer Druck kehrt die Sortierrichtung um.</para>
+
+<para
+>Klicken Sie in der Informationszeile, um ein Menü zu öffnen. Wenn die Partition noch nicht eingebunden ist, besteht die Möglichkeit, diese jetzt zu mounten. Wenn eine Partition bereits eingebunden ist, so kann sie hier unmountet werden. Der Menüpunkt <guimenuitem
+> Dateimanager öffnen</guimenuitem
+> öffnet ein neues Fenster, in dem die Dateien auf dieser Partition angezeigt werden. Welcher Dateimanager geöffnet werden soll, kann im Dialog <guimenuitem
+>KDiskFree einrichten</guimenuitem
+> bestimmt werden.</para>
+
+</sect1>
+
+<sect1 id="the-menus">
+<title
+>Die Menüzeile von &kdf;</title>
+
+<sect2>
+<title
+>Das <guimenu
+>Datei</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>ktualisieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt sofort den aktuellen Zustand der Partitionen an.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>eenden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schließt</action
+> das &kdf;-Fenster.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Das Optionen-Menü und der Einrichten-Dialog</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guimenuitem
+>KDiskFree ein<accel
+>r</accel
+>ichten</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Öffnet den Einrichten-Dialog</action
+></para
+> <screenshot
+> <screeninfo
+>&kdf; einrichten Anzeige</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kdf_config.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>&kdf; einrichten Anzeige</phrase
+> </textobject
+> </mediaobject
+> </screenshot
+> <para
+>Dieser Dialog besteht aus zwei Teilen, <guilabel
+>Allgemeine Einstellungen</guilabel
+> und <guilabel
+>Mount-Befehle</guilabel
+>:</para
+> <variablelist
+> <varlistentry
+> <term
+>Allgemeine Einstellungen</term
+> <listitem
+><para
+>Um eine Information anzuzeigen bzw. auszublenden, klickt man auf die Wörter <guilabel
+>sichtbar</guilabel
+> bzw. <guilabel
+>ausgeblendet</guilabel
+>.</para
+> <para
+>Die <guilabel
+>Aktualisierungshäufigkeit</guilabel
+> wird durch Verschieben des entsprechenden Balkens geändert. Der Wert links von dem Schiebebalken gibt an, nach wie vielen Sekunden eine Aktualisierung der Anzeige durchgeführt wird.</para
+> <para
+>Im Eingabefeld <guimenuitem
+>Dateimanager</guimenuitem
+> kann ein Befehl festgelegt werden für den Fall, dass der Menüpunkt <guimenuitem
+>Dateimanager öffnen</guimenuitem
+> aus dem Popup-Menü gewählt wird.</para
+> <para
+>In einem ersten Ankreuzfeld kann angegeben werden, ob der Dateimanager automatisch beim Mounten einer Partition geöffnet werden soll. Im zweiten kann eingestellt werden, dass sich ein Warnfenster öffnet, wenn der freie Speicher eine kritische Größe unterschreitet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Mount-Befehle</guilabel
+></term
+> <listitem
+><para
+>Hier werden die Befehle zum <command
+>Mounten</command
+> und <command
+>Unmounten</command
+> für jede einzelne Partition und das Symbol für den Partitionstyp festgelegt. Informationen über die mount und umount-Befehle finden sich in der man-Page zu mount (<command
+>man <option
+>mount</option
+></command
+> auf der Befehlszeile eingeben).</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2>
+<title
+>Das Hilfe-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nhalt</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Öffnet dieses Dokument.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Umschalt</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Was ist <accel
+>d</accel
+>as?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Wird danach auf ein Fensterelement gezeigt, dann werden diese erläutert (noch nicht verfügbar).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie Probleme oder Wünsche</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Ein Dialog, um Fehler in &kdf; mitzuteilen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Ü<accel
+>b</accel
+>er KDiskFree</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Zeigt Informationen über &kdf; an.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Über <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Zeigt Informationen über das KDE-Projekt an.</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Danksagung und Lizenz</title>
+
+<para
+>&kdf;</para>
+
+<para
+>Copyright 1998-2000 Michael Kropfberger <email
+>mkropfbe@edu.uni-klu.ac.at</email
+></para>
+
+<para
+>Copyright für die Dokumentation 2000 Jonathan Singer <email
+>jsinger@leeta.net</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-and-installing-kdf">
+<title
+>Wo man &kdf; erhält und wie man es installiert</title>
+
+<para
+>&kdf; ist Teil des KDE-Projektes (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>) und sollte kompiliert werden, wie es im Hauptverzeichnis des Pakets kdeutils beschrieben ist. Neue Versionen von &kdf; finden sich im Paket kdeutils auf der Seite <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>. </para>
+
+<para
+>Um &kdf; zu kompilieren und installieren muss Folgendes im obersten Verzeichnis des kdeutils-Pakets eingegeben werden:</para>
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+> <command
+>./configure</command
+> </userinput>
+<prompt
+>%</prompt
+> <userinput
+> <command
+>make</command
+> </userinput>
+<prompt
+>%</prompt
+> <userinput
+> <command
+>su</command
+> </userinput>
+<prompt
+>%</prompt
+> <userinput
+> <command
+>make install</command
+> </userinput>
+</screen>
+
+</sect1>
+
+</appendix>
+
+
+
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

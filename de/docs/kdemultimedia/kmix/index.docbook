@@ -1,0 +1,532 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmix;">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &kmix;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Matt</firstname
+> <surname
+>Johnston</surname
+> <affiliation
+> <address
+><email
+>mattj@flashmail.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Stefan</firstname>
+<surname
+>Schimanski</surname>
+<affiliation
+><address
+><email
+>1Stein@gmx.de</email
+></address
+></affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Korrektur</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Gregor</firstname
+><surname
+>Zumstein</surname
+><affiliation
+><address
+><email
+>zumstein@ssd.ethz.ch</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+><affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+><contrib
+>Überarbeitung der Übersetzung</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>1999</year
+><year
+>2000</year>
+<holder
+>Matt Johnston &amp; Christian Esken</holder>
+</copyright>
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-09-11</date>
+<releaseinfo
+>1.03.00</releaseinfo>
+
+<abstract
+><para
+>&kmix; ist eine Anwendung, die es Ihnen erlaubt, die Lautstärkeeinstellungen Ihrer Soundkarte zu verändern.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KMix</keyword>
+<keyword
+>kdemultimedia</keyword>
+<keyword
+>Sound</keyword>
+<keyword
+>Mixer</keyword>
+<keyword
+>Lautstärkeregelung</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+>&kmix; ist das Mixer-Programm von KDE. Obwohl es klein ist, besitzt es alle nötigen Fähigkeiten. Für alle Geräte gibt es einen separaten Regler.</para>
+
+<para
+>&kmix; unterstützt verschiedene Betriebssysteme und Sound-Treiber. Version 1.9 arbeitet mit:</para>
+
+<itemizedlist
+> <listitem
+><para
+> Alle Open Sound System (OSS) Plattformen. Explizit getestet sind Linux, FreeBSD, NetBSD und BSDI.</para
+></listitem
+> <listitem
+><para
+> Rechner mit Solaris.</para
+></listitem
+> <listitem
+><para
+> Rechner mit IRIX.</para
+></listitem
+> <listitem
+><para
+> Rechner mit dem ALSA Soundkartentreiber.</para
+></listitem
+> <listitem
+><para
+> Rechner mit HP-UX.</para
+></listitem
+> </itemizedlist>
+
+</chapter>
+
+<chapter id="working-with-kmix">
+<title
+>Arbeiten mit &kmix;</title>
+
+<para
+>Die Benutzung von &kmix; ist einfach. Jedes Mixer-Gerät, das Ihre Soundkarte besitzt, wird durch einen Lautstärkeregler dargestellt. Mono-Geräte haben nur einen Regler, Stereo-Geräte deren zwei. Sie können die beiden Stereoregler miteinander zu einem einzigen Regler verbinden. Zusätzlich gibt es einen Schieberegler am unteren Rand des &kmix;-Fensters für die Lautstärkeverteilung auf linken und rechten Audioausgang.</para>
+
+<sect1 id="volume-sliders">
+<title
+>Lautstärkeregler</title>
+
+<para
+>Jeder Lautstärkeregler hat ein Kontextmenü, das Sie durch Klicken mit der rechten Maustaste auf den Regler oder das oberhalb stehende Gerätesymbol aktivieren können. Das Menü hat bis zu drei Einträge, wobei jeweils nur die für das Gerät passenden angezeigt werden.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Stumm</guilabel
+></term
+> <listitem
+><para
+>Das Gerät stummschalten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kanäle trennen</guilabel
+></term
+> <listitem
+><para
+>Einen oder zwei Lautstärkeregler für das Gerät anzeigen. Das gilt nur für Stereogeräte. Der rechte Regler kontrolliert die Lautstärke rechts und der linke Regler die Lautstärke links.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aufnahmequelle festlegen</guilabel
+></term
+> <listitem
+><para
+>Dieses Geräte als Aufnahmequelle festlegen. Diesen Menüeintrag gibt es nur bei Aufnahmegeräten. Sie können stattdessen auch auf den roten Knopf unterhalb des Lautstärkereglers klicken (falls dieser vorhanden ist).</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="panning-slider">
+<title
+>Verteilung der Lautstärke auf links und rechts</title>
+
+<para
+>Mit diesem Regler können Sie die Verteilung der Lautstärke zwischen linkem und rechtem Lautsprecher einstellen. Dieser Regler betrifft alle Stereogeräte gleichermaßen (Mono-Geräte werden ignoriert). Standard ist die Mittelstellung. Wenn Sie den Regler nach links ziehen, vermindert dies die Lautstärke des rechten Lautsprechers und umgekehrt.</para
+> 
+
+</sect1>
+
+<sect1 id="configuration-options">
+<title
+>Einstellungen</title>
+
+<para
+>Falls &kmix; an die Kontrollleiste angedockt ist, können Sie den Einstellungsdialog aufrufen, indem Sie mit der rechten Maustaste auf das Symbol von &kmix; klicken. Folgende Einstellungen sind möglich:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>An Kontrollleiste andocken</guilabel
+></term
+> <listitem
+><para
+>Minimieren zu einem Symbol in der Kontrollleiste.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Fenster nach Druck auf Schließen-Knopf nur ausblenden</guilabel
+></term
+> <listitem
+><para
+>Der Schließen-Knopf minimiert &kmix; lediglich, anstatt es zu schließen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Skalenstriche anzeigen</guilabel
+></term
+> <listitem
+><para
+>Kurze Striche anzeigen, um die Position der Regler zu markieren.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bezeichnungen anzeigen</guilabel
+></term
+> <listitem
+><para
+>Zeigt die Bezeichnungen der Soundgeräte an. Auch wenn Sie dieses Ankreuzfeld nicht markiert haben, wird die Bezeichnung angezeigt, wenn Sie mit dem Mauszeiger über dem Symbol verweilen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+
+</chapter>
+
+<chapter id="control-panel">
+<title
+>Einstellungen im <application
+>Kontrollzentrum</application
+></title>
+
+<sect1 id="config-opt">
+<title
+>Einstellungen</title>
+
+<para
+>Im Abschnitt <guimenuitem
+>Mixer</guimenuitem
+> unter <guimenu
+>Klänge</guimenu
+> im <application
+>Kontrollzentrum</application
+> können Sie verschiedene Einstellungen für &kmix; vornehmen.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Aktuelle Lautstärke-Einstellungen speichern</guilabel
+></term
+> <listitem
+><para
+>Speichert die aktuellen Lautstärke-Einstellungen zum späteren Laden ab.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Lautstärke-Einstellungen laden</guilabel
+></term
+> <listitem
+><para
+>Lädt die vorher gespeicherten Klangeinstellungen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Lautstärke-Einstellungen beim Anmelden laden</guilabel
+></term
+> <listitem
+><para
+>Lädt die vorherigen Lautstärke-Einstellungen beim Start von KDE automatisch.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Maximale Anzahl getesteter Mixer</guilabel
+></term
+> <listitem
+><para
+>Diese Einstellung legt fest, nach wie vielen Soundkarten &kmix; beim Start sucht. Setzen Sie hier einen niedrigen Wert ein, um die Startzeit von &kmix; zu verringern.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Maximale Anzahl getesteter Geräte pro Mixer</guilabel
+></term
+> <listitem
+><para
+>Hier wird die maximale Anzahl der Geräte festgelegt, nach denen &kmix; für jede Soundkarte sucht. Setzen Sie auch hier einen niedrigen Wert ein, um die Startzeit von &kmix; zu verringern.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kmix">
+<title
+>Wie erhalte ich &kmix;?</title>
+
+<para
+>&kmix; ist ein Teil des KDE-Projektes auf <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kmix; gehört zum Paket kdemultimedia auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, der Hauptseite des KDE-Projektes. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen</title>
+
+<para
+>&kmix; ist nur dann sinnvoll zu benutzen, wenn Sie eine Soundkarte in Ihrem System installiert haben. &kmix; unterstützt verschiedene Soundkarten und Sound-Treiber:</para>
+
+<itemizedlist
+> <listitem
+><para
+> Alle Open Sound System (OSS) Plattformen. Explizit getestet sind Linux, FreeBSD, NetBSD und BSDI.</para
+></listitem
+> <listitem
+><para
+> Rechner mit Solaris.</para
+></listitem
+> <listitem
+><para
+> Rechner mit IRIX.</para
+></listitem
+> <listitem
+><para
+> Rechner mit dem ALSA Soundkartentreiber.</para
+></listitem
+> <listitem
+><para
+> Rechner mit HP-UX.</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilierung und Installation</title>
+
+<para
+>Um &kmix; auf Ihrem System zu kompilieren und installieren, tippen Sie folgendes im obersten Verzeichnis der kdemultimedia-Distribution:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen>
+
+<para
+>Da &kmix; <application
+>autoconf</application
+> und <application
+>automake</application
+> benutzt, sollten Sie keine Probleme bei der Kompilierung haben. Treffen Sie trotzdem auf Probleme, melden Sie diese bitte in einer der KDE Mailinglisten.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>&kmix;</para>
+
+<para
+>Programm Copyright 2000 Stefan Schimanski <email
+>1Stein@gmx.de</email
+></para>
+
+<para
+>Mitwirkende:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Christian Esken <email
+>esken@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Stefan Schimanski <email
+>1Stein@gmx.de</email
+></para
+></listitem
+> <listitem
+><para
+>Paul Kendall <email
+>paul@orion.co.nz</email
+> - SGI-Portierung</para
+></listitem
+> <listitem
+><para
+>Sebestyen Zoltan <email
+>szoli@digo.inf.elte.hu</email
+> - FreeBSD-Anpassungen</para
+></listitem
+> <listitem
+><para
+>Faraut Jean-Louis <email
+>jlf@essi.fr</email
+> - Solaris-Anpassungen</para
+></listitem
+> <listitem
+><para
+>Nick Lopez <email
+>kimo_sabe@usa.net</email
+> - ALSA-Portierung</para
+></listitem
+> <listitem
+><para
+>Helge Deller <email
+>deller@gmx.de</email
+> - HP-UX-Portierung</para
+></listitem
+> <listitem
+><para
+>Lennart Augustsson <email
+>augustss@cs.chalmers.se</email
+> - *BSD-Anpassungen</para
+></listitem
+> </itemizedlist>
+
+<para
+>Dokumentation Copyright 2000 Matt Johnston <email
+>mattj@flashmail.com</email
+></para>
+
+<para
+>Basierend auf der Dokumentation von Christian Esken <email
+>esken@kde.org</email
+></para>
+<para
+>Übersetzung Gregor Zumstein <email
+>zumstein@ssd.ethz.ch</email
+></para
+><para
+>Überarbeitung der Übersetzung Frank Schütte <email
+>F.Schuette@t-online.de</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

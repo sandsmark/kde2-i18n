@@ -1,0 +1,368 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kfract;">
+ <!ENTITY % French "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+ 
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+> Le manuel de &kfract;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Uwe</firstname
+> <surname
+>Thiem</surname
+> <affiliation
+> <address
+><email
+>uwe@uwix.alt.na</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>L'équipe française de KDE</firstname
+><surname
+></surname
+><affiliation
+><address
+><email
+></email
+></address
+></affiliation
+><contrib
+>Traduction française</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>1999-06-13</date>
+<releaseinfo
+>0.01.02</releaseinfo>
+
+<copyright>
+<year
+>1999</year>
+<holder
+>Uwe Thiem</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Ce manuel décrit la version 0.1.2 de KFract</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>graphics</keyword>
+<keyword
+>fractal</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<screenshot
+> <screeninfo
+>KFract</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kfract.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Kfract est un générateur de fractales. À ce stade de développement, il ne gère que les définitions mandelbrot et julia, rien d'aussi fantaisiste que Xfractint. Il est loin de devenir aussi rapide que Xfractint mais il est plus facile à utiliser.</para>
+
+<para
+>Le code est brouillon et reflète mon niveau d'apprentissage de KDE et QT. Pour autant, ça fonctionne. ;-)</para>
+
+<para
+>Vous pouvez me contacter à cette adresse&nbsp;: </para>
+
+<para
+>Uwe Thiem <ulink url="mailto:uwe@uwix.alt.na"
+>&lt;uwe@uwix.alt.na&gt;</ulink
+></para>
+</chapter>
+
+<chapter id="OnscreenFundamentals">
+<title
+>Utilisation de l'interface</title>
+
+<sect1 id="mouse-functions">
+<title
+>Utilisation de la souris</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>Bouton gauche</term
+> <listitem
+> <para
+>Le bouton gauche de la souris vous permet de dessiner un rectangle. Le contenu de ce dernier définit la prochaine image. Le centre du rectangle sera le centre de la prochaine image. Le rapport X/Y sera ajusté à la taille de la fenêtre.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Bouton central</term
+> <listitem
+> <para
+>Le bouton central de la souris vous permet de zoomer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Bouton droit</term
+> <listitem
+> <para
+>Le bouton droit de la souris vous permet de dézoomer.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-file-menu">
+<title
+>Le menu fichier</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>Charger les paramètres...</term
+> <listitem
+> <para
+>Charge des paramètres générés par KFract et calcule l'image.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Enregistrer les paramètres...</term
+> <listitem
+> <para
+>Enregistre les paramètres de l'image courante. Ce fichier pourra être chargé plus tard pour recalculer l'image. Il s'agit d'un fichier texte au format ASCII pouvant être transféré entre différentes machines ou architectures sur lesquelles l'environnement de bureau KDE est installé.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Enregister l'image...</term
+> <listitem
+> <para
+>Enregistre l'image courante au format BMP. Désolé, pas de support du format GIF pour le moment.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Quitter</term
+> <listitem
+> <para
+>Eh bien..., ceci vous permet de quitter KFract.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-types-menu">
+<title
+>Le menu types</title>
+
+<para
+>Chaque entrée vous permet de basculer vers un type d'affichage de fractales. Pour le moment, sont implantées&nbsp;: <variablelist
+> <varlistentry
+> <term
+>Mandelbrot</term
+> <listitem
+> <para
+>Bascule vers le type mandelbrot. Les paramètres (tels itération maximale, coordonnées, largeur, ...) peuvent être modifiés.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Julia</term
+> <listitem
+> <para
+>Bascule vers le type julia. Les paramètres (tels itération maximale, coordonnées, largeur, ...) peuvent être modifiés.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-options-menu">
+<title
+>Menu options</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>Maximum d'itérations</term
+> <listitem
+> <para
+>Taille maximale de l'itération.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Modèle de couleurs</term
+> <listitem
+> <para
+>Vous pouvez ici basculer entre deux modèles de couleurs différents.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Permutation circulaire des couleurs</term
+> <listitem
+> <para
+>Non encore implémenté</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Facteur de zoom</term
+> <listitem
+> <para
+>Permet de paramétrer le facteur de zoomage et de dézoomage.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-help-menu">
+<title
+>Le menu aide</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>Aide</term
+> <listitem
+> <para
+>Affiche cette page d'aide. ;-)</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>À propos</term
+> <listitem
+> <para
+>Affiche une fenêtre contenant quelques informations à propos de ce programme et de son auteur.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-toolbar">
+<title
+>La barre d'outils</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>Ouvrir</term
+> <listitem
+> <para
+>Identique à <emphasis
+>Fichier-&gt;Charger les paramètres</emphasis
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Enregistrer les paramètres</term
+> <listitem
+> <para
+>Identique à <emphasis
+>Fichier-&gt;Enregistrer les paramètres</emphasis
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Enregistrer l'image</term
+> <listitem
+> <para
+>Identique à <emphasis
+>Fichier-&gt;Enregistrer l'image</emphasis
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Zoom avant</term
+> <listitem
+> <para
+>Zoom comme lorsque vous utilisez le bouton central de la souris à l'exception près que le centre de l'image actuelle deviendra le centre de la nouvelle image.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Zoom arrière</term
+> <listitem
+> <para
+>Dézoome comme lorsque vous utilisez le bouton droit de la souris à l'exception près que le centre de l'image actuelle deviendra le centre de la nouvelle image.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Par défaut pour ce type</term
+> <listitem
+> <para
+>Redéfinit tous les paramètres du type sélectionné à leur valeur par défaut et recalcule l'image. Les paramètres ne dépendant pas du type sélectionné (tel le modèle de couleurs) ne seront pas modifiés. Si vous êtes perdu, cliquez sur le bouton annuler.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Remerciements et licence</title>
+
+<para
+>&kfract;</para>
+
+<para
+>Programme et Documentation copyright 1999 Uwe Thiem <email
+>uwe@uwix.alt.na</email
+></para>
+<para
+>Traduction française par l'équipe française de KDE</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

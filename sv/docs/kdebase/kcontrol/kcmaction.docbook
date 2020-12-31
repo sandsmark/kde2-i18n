@@ -1,0 +1,656 @@
+<sect1 id="window-behavior">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@telia.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-07-22</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Kcontrol</keyword>
+<keyword
+>händelser</keyword>
+<keyword
+>fönsterplacering</keyword>
+<keyword
+>fönsterstorlek</keyword>
+</keywordset>
+</sect1info>
+
+<title
+>Fönsterbeteende</title>
+
+<para
+> I övre delen av den här inställningsmodulen kan du se tre flikar: <guilabel
+>Fokus</guilabel
+>, <guilabel
+>Händelser</guilabel
+> och <guilabel
+>Avancerat</guilabel
+>. Under fliken <guilabel
+>Fokus</guilabel
+> kan du anpassa hur fönster får och mister fokus, dvs. blir aktiva eller inaktiva. Med <guilabel
+>Händelser</guilabel
+> kan du anpassa hur fönster reagerar på musklick. <guilabel
+>Avancerat</guilabel
+> är alternativ angående fönsterplacering, förflyttning och storleksändring. </para>
+
+<note
+> <para
+> Observera att inställningarna i den här modulen inte har någon effekt om du inte använder &kde;:s egen fönsterhanterare, &kwin;. Om du använder en annan fönsterhanterare, titta i dokumentationen för den om hur fönsterbeteendet kan anpassas. </para
+> </note>
+
+<sect2 id="action-focus">
+<title
+>Fokus</title>
+
+<para
+> Skrivbordets <quote
+>fokus</quote
+> syftar på det fönster som användaren för närvarande arbetar i. Fönstret med fokus kallas ofta det <quote
+>aktiva fönstret</quote
+>. </para>
+
+<sect3 id="action-focus-focuspolicy">
+<title
+>Fokuspolicy</title>
+
+<para
+> Det finns fyra metoder &kde; kan använda för att avgöra aktuellt fokus: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Klicka för fokus</guilabel
+></term
+> <listitem
+> <para
+> Med det här alternativet, klickar du helt enkelt på fönstret för att göra det aktivt. </para
+> <para
+> När det här alternativet är valt, har inget av de övriga alternativen under den här fliken någon effekt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Fokus följer musen</guilabel
+></term
+> <listitem
+> <para
+> Placera helt enkelt muspekaren över fönstret för att ändra fönstrets fokus. Om muspekaren därefter flyttas till ett område på skrivbordet utan ett annat fönster, behåller det senaste fönstret fokus. </para
+> <para
+> Det här kallas ibland <quote
+>Fokus följer musen slarvigt</quote
+> i andra fönsterhanterare. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Fokus under musen</guilabel
+></term
+> <listitem
+> <para
+> Fönstret under musen har fokus. Inget fönster är dock aktivt om muspekaren är i ett område på skrivbordet som inte har några fönster. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Fokus strikt under musen</guilabel
+></term
+> <listitem
+> <para
+>Liknar <guilabel
+>Fokus under musen</guilabel
+>, men är ännu striktare i tolkningen. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> När du väl har bestämt fokuspolicyn, finns det två ytterligare alternativ som du kan bestämma. </para>
+
+<para
+> Att markera <guilabel
+>Autohöjning</guilabel
+>, gör att &kde; kan flytta ett fönster överst om muspekaren finns över det fönstret under en angiven tidsperiod. Detta är mycket användbart tillsammans med <guilabel
+>Fokus följer musen</guilabel
+>. Du kan avgöra fördröjningen genom att använda skjutreglaget och nummerinmatningsrutan. </para>
+
+<tip
+> <para
+> Att göra fördröjningen för kort orsakar snabba upprepade ändringar av fönster, som kan vara verkligt distraherande. De flesta tycker att en fördröjning på 100-300 ms är bra. Detta ger ett snabbt gensvar, men låter dig glida över hörn på fönster på väg till ditt mål utan att detta fönster påverkas. </para
+> </tip>
+
+<para
+> Om du inte använder <guilabel
+>Autohöjning</guilabel
+>, försäkra dig då att <guilabel
+>Höj vid klick</guilabel
+> är markerad. Du blir inte nöjd om både <guilabel
+>Autohöjning</guilabel
+> och <guilabel
+>Höj vid klick</guilabel
+> är inaktiverade. </para>
+</sect3>
+
+<sect3 id="action-focus-keyboard">
+<title
+>Tangentbord</title>
+
+<para
+> Under <guilabel
+>Tangentbord</guilabel
+> kan du ställa in hur byte mellan program eller skrivbord med <keycombo action="simul"
+> &Alt;<keycap
+>Tab</keycap
+></keycombo
+> eller <keycombo action="simul"
+> &Ctrl;<keycap
+>Tab</keycap
+></keycombo
+> görs. </para>
+
+<para
+> Att byta program med <keycombo action="simul"
+>&Alt; <keycap
+>Tab</keycap
+></keycombo
+>, dvs. hålla nere &Alt; medan upprepade gånger trycka på <keycap
+>Tab</keycap
+>-tangenten, kan användas i &kde;-läge eller i <acronym
+>CDE</acronym
+>-läge: i &kde;-läge ser du en ruta mitt på skärmen som visar det valda programmet medan du fortfarande håller nere &Alt;-tangenten. I <acronym
+>CDE</acronym
+>-läge får du ingen synlig bekräftelse. </para>
+
+<para
+> Slutligen finns det ett alternativ som du kan välja för att <guilabel
+>Stega igenom fönster på alla skrivbord</guilabel
+> eller inte. Om det här är aktiverat, visas alla fönster på alla skrivbord när du byter fönster med <keycombo action="simul"
+> &Alt;<keycap
+>Tab</keycap
+></keycombo
+>, och skrivbordet för det fönster du väljer visas. Annars kan bara fönster på ditt nuvarande skrivbord väljas med <keycombo action="simul"
+> &Alt;<keycap
+>Tab</keycap
+></keycombo
+>, och du måste själv använda <keycombo action="simul"
+>&Ctrl;<keycap
+>Tab</keycap
+></keycombo
+> för att byta till andra skrivbord. </para>
+
+</sect3>
+</sect2>
+
+<sect2 id="action-actions">
+<title
+>Händelser</title>
+
+<!-- The same functionality is in kcmmousebeh, so this is mainly copied from
+kcmmousebeh.docbook, only the introduction sentence and the ids have been
+adapted. -->
+
+<para
+> Under den här fliken kan du ställa in vad som händer med fönster vid musklick. Fliken är uppdelad i fyra delar. </para>
+
+<sect3 id="action-actions-sec1">
+<title
+><guilabel
+>Dubbelklick på namnlist</guilabel
+></title>
+
+<para
+> Den här delen innehåller en enda kombinationsruta. Du kan antingen välja <guilabel
+>Rulla upp</guilabel
+>, eller <guilabel
+>Maximera</guilabel
+>. </para>
+
+<para
+> Med <guilabel
+>Maximera</guilabel
+> valt, maximerar &kde; fönstret så fort du dubbelklickar på namnlisten. <guilabel
+>Rulla upp</guilabel
+>, å andra sidan, gör att fönstret reduceras till bara namnlisten. Fönstret återställs till sin normala storlek genom att dubbelklicka igen. </para>
+
+<tip
+> <para
+> Du kan få fönster att automatiskt visas igen om du bara placerar musen över deras namnlist. Markera bara rutan <guilabel
+>Aktivera över </guilabel
+> under fliken <guilabel
+>Avancerat</guilabel
+> i den här modulen. Det här är ett utmärkt sätt att återta skrivbordsutrymme om du t.ex. klipper och klistrar mellan många fönster. </para
+> </tip>
+
+</sect3>
+
+<sect3 id="action-actions-sec2">
+<title
+><guilabel
+>Namnlist och ram</guilabel
+></title>
+
+<para
+> Den här delen låter dig avgöra vad som ska hända när du enkelklickar i en namnlist eller fönsterram. Observera att du kan associera olika åtgärder med samma klick beroende på om fönstret är aktivt eller inte. </para>
+
+<para
+> Du kan välja det lämpligaste valet för varje kombination av musknappar och aktiv/inaktiv. Åtgärderna är följande: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Aktiv</guilabel
+></term
+> <listitem
+> <para
+> Aktivera det här fönstret. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Sänk</guilabel
+></term
+> <listitem
+> <para
+> Flyttar det här fönstret underst på skärmen. Det här får fönstret ur vägen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ingenting</guilabel
+></term
+> <listitem
+> <para
+> Precis vad det anger. Ingenting händer. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Visa fönstermeny</guilabel
+></term
+> <listitem
+> <para
+> Visar en liten meny där du kan välja fönsterrelaterade kommandon (dvs. maximera, minimera, stäng etc.). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Höj</guilabel
+></term
+> <listitem
+> <para
+> Flyttar det här fönstret överst på skärmen. Alla andra fönster som detta överlappar, döljs <quote
+>under</quote
+> det. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Höj / Sänk</term
+> <listitem
+> <para
+> Det här höjer fönster som inte är överst, och sänker fönster som redan är överst. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+
+<sect3 id="action-actions-sec3">
+<title
+><guilabel
+>Inne i inaktivt fönster</guilabel
+></title>
+
+<para
+> Den här delen av modulen låter dig ställa in vad som händer när du klickar på inaktiva fönster med någon av de tre musknapparna. </para>
+
+<para
+> Du kan välja på följande: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Aktivera, höj och skicka vidare musklickningen</guilabel
+></term
+> <listitem
+> <para
+> Det här aktiverar det klickade fönstret, flyttar det överst på skärmen, och skickar ett musklick till programmet i fönstret. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktivera och skicka vidare musklickningen</guilabel
+></term
+> <listitem
+> <para
+> Det här aktiverar det klickade fönstret och skickar ett musklick till programmet i fönstret. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktiv</guilabel
+></term
+> <listitem
+> <para
+> Det här aktiverar bara helt enkelt det klickade fönstret. Musklicket skickas inte vidare till programmet i fönstret. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktivera och höj</guilabel
+></term
+> <listitem
+> <para
+> Det här aktiverar det klickade fönstret och flyttar det överst på skärmen. Musklicket skickas inte vidare till programmet i fönstret. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="action-actions-sec4">
+<title
+><guilabel
+>Inne i fönster, namnlist och ram</guilabel
+></title>
+
+<para
+> Den understa delen låter dig ställa in ytterligare åtgärder, när &Alt;-tangenten är nere och musen klickas på ett fönster. </para>
+
+<para
+> Återigen kan du välja olika åtgärder för <mousebutton
+>Vänster </mousebutton
+>-, <mousebutton
+>Mitten</mousebutton
+>- och <mousebutton
+>Höger</mousebutton
+>klick. </para>
+
+<para
+>Du kan välja:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Sänk</guilabel
+></term
+> <listitem
+> <para
+> Flyttar det här fönstret underst på skärmen. Det här får fönstret ur vägen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Flytta</guilabel
+></term
+> <listitem
+> <para
+> Låter dig dra runt det valda fönstret på skrivbordet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ingenting</guilabel
+></term
+> <listitem
+> <para
+> Precis vad det anger. Ingenting händer. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Höj</guilabel
+></term
+> <listitem
+> <para
+> Flyttar det här fönstret överst på skärmen. Alla andra fönster som detta överlappar, döljs <quote
+>under</quote
+> det. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ändra storlek</guilabel
+></term
+> <listitem
+> <para
+> Låter dig ändra storlek på det valda fönstret. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Höj / Sänk</guilabel
+></term
+> <listitem
+> <para
+> Det här höjer fönster som inte är överst, och sänker fönster som redan är överst. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="action-advanced">
+<title
+>Avancerat</title>
+
+<para
+> Under fliken <guilabel
+>Avancerat</guilabel
+> kan du göra mer avancerad finjustering av fönsterbeteendet. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Visa innehåll i fönster som flyttas</guilabel
+></term
+> <listitem
+> <para
+> &kde; fortsätter uppdatera innehållet i fönster medan du flyttar runt det på skärmen, när det här är markerat. </para
+> <para
+> När det här är avstängt, visar &kde; en rektangel som flyttas med musen. &kde; återställer innehållet i fönstret när musknappen släpps. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Visa fönsterinnehåll då fönstrets storlek ändras</guilabel
+></term
+> <listitem
+> <para
+> När det här är markerat, ändrar &kde; innehållet i fönstret medan du ändrar storleken. När det här är avstängt, visar &kde; en rektangel medan du ändrar storleken, och när musknappen släpps ändras storleken på innehållet i fönstret och visas igen. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<tip
+> <para
+> Både <guilabel
+>Visa innehåll i fönster som flyttas </guilabel
+> och <guilabel
+>Visa fönsterinnehåll då fönstrets storlek ändras</guilabel
+>, använder väsentligt mycket mer processorresurser när de är aktiverade än annars. Om du märker att din dator inte ger så snabbt gensvar som du skulle vilja när du flyttar fönster eller ändrar storlek på dem, förbättras &kde;:s gensvar genom att stänga av en eller båda av funktionerna. </para
+> </tip>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Animera minimera och återställ</guilabel
+></term
+> <listitem
+> <para
+> En animering visas när ett fönster minimeras eller maximeras, för att ge dig synligt gensvar om vad som hände, när det här är aktiverat. Om det är inaktiverat, försvinner bara ett fönster som minimeras, och ett återställt fönster dyker helt plötsligt upp. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Tillåt förflyttning och storleksändring av maximerade fönster</guilabel
+></term
+> <listitem
+> <para
+> Kanterna på maximerade fönster förblir aktiva, så att du fortfarande kan flytta runt dem eller ändra storlek, när det här är aktiverat. Om det är avstängt, är maximerade fönster <quote
+>fixerade vid skärmkanterna</quote
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Placering</guilabel
+></term
+> <listitem
+> <para
+> Placeringspolicyn avgör var ett nytt fönster dyker upp på skrivbordet. För närvarande finns det tre olika: <guilabel
+>Smart</guilabel
+> försöker åstadkomma minimal överlappning av fönster, <guilabel
+>Kaskad</guilabel
+> lägger fönstren i en kaskad och <guilabel
+>Slumpmässig</guilabel
+> använder en slumpmässig position. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Rulla upp</title
+> <varlistentry
+> <term
+><guilabel
+>Animera</guilabel
+></term
+> <listitem
+> <para
+>Om det här är aktiverat så animeras att rulla upp ett fönster så att bara namnlisten syns.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Rulla upp över</guilabel
+></term
+> <listitem
+> <para
+> Ett upprullat fönster visas igen automatiskt när muspekaren har funnits över namnlisten en viss tid. Använd skjutreglaget för att ställa in fördröjningen. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Magiska kanter</title
+> <varlistentry
+> <term
+><guilabel
+>Kantbindningszon</guilabel
+></term
+> <listitem
+> <para
+>De magiska kanterna låter dig <quote
+>binda</quote
+> fönster till kanten på skärmen, och till varandra. Den här inställningen avgör hur nära kanten på skärmen i bildpunkter du ska flytta ett fönster, för att det ska bindas till kanten när du släpper musen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Fönsterbindningszon</guilabel
+></term
+> <listitem
+> <para
+>Som för kanterna, avgör den här inställningen hur nära du ska dra ett fönster till kanten på ett befintligt fönster, för att det ska bindas och linjeras upp, kant mot kant, med det befintliga fönstret.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bind fönster bara när de överlappar</guilabel
+></term
+> <listitem
+> <para
+>Den här inställningen ändrar den föregående, så att bara fönster som du har släppt när de överlappar ett annat fönster, och med kanten inom den magiska zonen, binds kant mot kant.  Om du aktiverar det här, kan du sätta den magiska zonen ganska stor, och överlappande fönster försöker lägga sig sida vid sida. Det här kan verka ganska förvirrande, så prova det ett tag.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="action-author">
+<title
+>Avsnittsförfattare</title>
+
+<para
+>Det här avsnittet är skrivet av: </para>
+<para
+>Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+<para
+>Jost Schenck <email
+>jost@schenck.de</email
+></para>
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@telia.com</email
+> 2001-07-23</para>
+
+</sect2>
+</sect1>
+
+

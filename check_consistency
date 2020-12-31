@@ -1,0 +1,149 @@
+#!/usr/bin/perl -w
+#
+# Author: Petter Reinholdtsen <pere@td.org.uit.no>
+# Date:   2001-08-04
+# Source: http://www.student.uit.no/~pere/linux/
+#
+# Check .po files for consistency.  Write two files msg-all and
+# msg-inconsistent.
+#
+# Usage: $0 <po-files>
+
+#use strict;
+use Getopt::Std;
+
+getopt('a');
+
+my ($pofile, %translation, @problem, %msgstrs, %files);
+
+my $showfile = 1;
+
+for $pofile ( @ARGV ) {
+  open(POFILE, "<$pofile") || next;
+
+  my ($next, $msgid, $msgstr);
+
+  while (1) {
+    $_ = $next || <POFILE>;
+    last unless $_;
+    $next = "";
+
+    chomp;
+
+    s/^\#.+$//; # Remove comments
+
+    next if (/^\s*$/);
+
+    if (/^msgid (\".+)/) {
+      $msgid = $1;
+      while (<POFILE>) {
+        chomp;
+        unless (/^\"/) {
+          $next = $_;
+          last;
+        }
+        $msgid .= $_;
+        $msgid =~ s/\"\"//;
+      }
+
+      $msgstr = "";
+      next;
+    }
+
+    if (/^msgstr (\".+)/) {
+      $msgstr = $1;
+      while (<POFILE>) {
+        chomp;
+        unless (/^\"/) {
+          $next = $_;
+          last;
+        }
+        $msgstr .= $_;
+        $msgstr =~ s/\"\"//;
+      }
+
+      add_translation($pofile, $msgid, $msgstr);
+
+      $msgid = "";
+      $msgstr = "";
+    }
+
+  }
+  close(POFILE);
+}
+
+sub add_translation {
+  my ($pofile, $msgid, $msgstr) = @_;
+#  print " Translation: $msgid = $msgstr\n";
+  $msgstr = $1;
+  $msgstrs{"$msgid\t$msgstr"}++;
+  $files{"$msgid\t$msgstr"} = $pofile;
+  if ( !defined($translation{$msgid}) ) {
+    push(@{$translation{$msgid}}, $msgstr);
+  } else {
+    if ( ! in_array($msgstr, $translation{$msgid}) ) {
+      push(@{$translation{$msgid}}, $msgstr);
+      push(@problem, $msgid) unless grep($msgid, @problem);
+    }
+  }
+  $msgid = "";
+}
+
+sub in_array ($$) {
+  my ($str, $aref) = @_;
+  my $test;
+  for $test (@$aref) {
+    return 1 if ($test eq $str);
+  }
+  return 0;
+}
+
+sub output_transl {
+  my ($fp, $msgid) = @_;
+  print $fp "\nmsgid $msgid\n";
+  my $msgstr;
+  for $msgstr (sort @{$translation{$msgid}}) {
+    print $fp "msgstr $msgstr # (" . $msgstrs{"$msgid\t$msgstr"}. ") " or die;
+    print $fp "[" . $files{"$msgid\t$msgstr"} . "]" or die if $showfile;
+    print $fp "\n" or die;
+  }
+}
+
+output();
+
+# Remove leading space and '&' before comparing
+sub kde_magic_sort {
+  my $aa = $a;
+  my $bb = $b;
+
+  $aa =~ s/\&|^\s+//;
+  $bb =~ s/\&|^\s+//;
+  return lc($aa) cmp lc($bb);
+}
+
+sub output {
+  my ($msgid);
+  my ($count, $icount) = (0,0);
+  if ($opt_a) {
+      open (ALL, ">msg-all");
+      print "Creating msg-all\n";
+  }
+  open (INCONS, ">msg-inconsistent");
+  print "Creating msg-inconsistent\n";
+  for $msgid (sort kde_magic_sort keys %translation ) {
+      if ($opt_a) {
+          output_transl(ALL, $msgid);
+      }
+      $count++;
+      if ( 1 < scalar(@{$translation{$msgid}}) ) {
+          $icount++;
+          output_transl(INCONS, $msgid);
+      }
+  }
+  print ALL "\n#Total # of messages: $count\n" if ($opt_a);
+  print INCONS "\n#Total inconsistent: $icount of $count (",
+      int(100*$icount/$count), "%)\n";
+
+  close(INCONS);
+  close(ALL)  if ($opt_a);
+}

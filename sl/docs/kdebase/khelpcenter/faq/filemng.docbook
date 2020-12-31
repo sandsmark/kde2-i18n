@@ -1,0 +1,343 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="filemanager">
+<title
+>Datotečni upravljalnik</title>
+
+<para
+>Datotečni upravljalnik v &kde; 1.x je &kfm; medtem ko je v &kde; 2 &konqueror;. &konqueror;jeva domača stran se nahaja na <ulink url="http://www.konqueror.org"
+>http://www.konqueror.org</ulink
+>, kjer lahko najdete &konqueror; specifičen <acronym
+>FAQ</acronym
+>.</para>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Kako lahko uporabim &konqueror; kot spletni brskalnik s posrednikom (proxy)?</para>
+</question>
+<answer>
+<para
+>&konqueror; lahko uporabljate s &HTTP; in &FTP; posredniki. Da v &konqueror;ju nastavite posrednika, morate iz &konqueror;jevega menuja le izbrati <menuchoice
+><guimenu
+>Nastavitve</guimenu
+><guisubmenu
+>Prikroji &konqueror;...</guisubmenu
+></menuchoice
+> ter odpreti zavihek <guilabel
+>Posredniki</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako spremenim izgled imenika v &kfm; in &konqueror;?</para>
+</question>
+<answer>
+<para
+>Ko prikazujeta imenik tako &kfm; kot &konqueror; poiščeta znotraj njega skrito datoteko imenovano <filename
+>.directory</filename
+>. Takšno datoteko lahko ustvarite sami in tako določite način prikaza imenika. Datoteka je preprosto datoteka tipa kdelnk (ali pa <filename
+>.desktop</filename
+> za &kde; 2). Na primer:</para>
+<screen>
+# KDE Config File
+[KDE Desktop Entry]
+Name=Settings
+Name[de]=Einstellungen
+Name[pl]=Ustawienia
+Name[sl]=Nastavitve
+MiniIcon=kcontrol.xpm
+SortOrder=Desktop,Input_Devices,KWM,Network,Information,Sound
+Icon=kcontrol.xpm
+</screen>
+<para
+>To je datoteka, ki se uporablja za opis imenika Settings. Spremeni ikono, ki se uporablja za prikaz imenika, postavi (prikazano) ime imenika v jezik, ki je trenutno izbran in popravi vrstni red v katerem so prikazani podimeniki.</para>
+<para
+>Pri imenikih, ki sestavljajo menu <guimenu
+>K</guimenu
+> lahko uporabite za spremembo izgleda tudi &kmenuedit;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako lahko izvedem ne-anonimne prenose &FTP; z &kfm; in &konqueror;?</para>
+</question>
+<answer>
+<para
+>Običajno se bosta, če vnesete &URL; kot je <userinput
+>ftp://<replaceable
+>ftp.somehost.com</replaceable
+></userinput
+>, &kfm; in &konqueror; poskušala prijaviti na &FTP; strežnik kot anonymous. Če se želite prijaviti kot določen uporabnik, potem vnesite &URL; v obliki <userinput
+>ftp://<replaceable
+>username@ftp.somehost.com</replaceable
+></userinput
+> &kfm; in &konqueror; vas bosta vprašala za vaše geslo in se prijavila na strežnik.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kaj povzroča napako <errorname
+>KFM cannot connect to "localhost"</errorname
+>?</para>
+</question>
+<answer>
+<para
+>V večini primerov je to nepravilno nastavljen zaprtozančni usmernik na vašem sistemu.</para>
+<variablelist
+> <varlistentry
+><term
+>Kako preverite, ali so težave</term
+> <listitem
+> <para
+>Preverite, če <command
+>ping localhost</command
+> vrne podoben izpis:</para
+> <screen
+><computeroutput>
+PING localhost (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.3 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.2 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.2 ms 
+...
+</computeroutput
+></screen
+> <para
+>Če ne, potem vaš zaprtozančni vmesnik (angl. loopback interface) ali usmernik nista pravilno nastavljena.</para
+> <para
+>Izpis ukaza <command
+>/sbin/route</command
+> bi moral vsebovati vrstice, podobne naslednjim:</para
+> <screen
+><computeroutput>
+Destination     Gateway         Genmask         Flags MSS    Window Use Ifac
+loopback        *               255.0.0.0       U     3584   0       13 lo
+</computeroutput
+></screen
+> <para
+>Pomembna polja so Destination, Gateway, Genmask in Iface. Gornje pomeni, da je sistem nastavljen pravilno, tako da preusmeri ves zaprtozančni promet skozi vmesnik loopback (lo).</para
+> <para
+>Izpis ukaza <command
+>/sbin/ifconfig</command
+> bi moral vsebovati naslednje vrstice:</para
+> <screen
+><computeroutput>
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Bcast:127.255.255.255  Mask:255.0.0.0
+          UP BROADCAST LOOPBACK RUNNING  MTU:3584  Metric:1
+</computeroutput
+></screen
+> <para
+>To nakazuje, da je loopback vmesnik postavljen in deluje.</para
+> <para
+>Vaša datoteka <filename
+>/etc/hosts</filename
+> bi morala vsebovati sledečo vrstico:</para
+> <screen>
+127.0.0.1       localhost
+</screen
+> <para
+>To poskrbi za to, da je gostiteljsko ime "localhost" povezano z vašim sistemskim naslovom loopback (127.0.0.1).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+><term
+>Popravljanje teh težav</term
+> <listitem
+> <para
+>Izvedite <command
+>/sbin/ifconfig <option
+>lo 127.0.0.1</option
+></command
+>, ki mu naj sledi <command
+>/sbin/route <option
+>add -net 127.0.0.0</option
+></command
+>. Oba ukaza bi morala biti v zdravem sistemu izvedena za vas ob zagonu računalnika. Če se to ne zgodi, preverite zagonske datoteke omrežja v <filename class="directory"
+>/etc/rc.d</filename
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+><term
+>Če <emphasis
+>še vedno</emphasis
+> ne dela</term
+> <listitem
+> <para
+>Če ničesar od tega ni delovalo, potem prosim pošljite celotno sporočilo <ulink url="http://bugs.kde.org"
+>&kde; sistemu za spremljanje hroščev</ulink
+>. Ne pozabite omeniti, da ste preverili vse te stvari.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kaj pomenijo <option
+>%i</option
+> in <option
+>%m</option
+> v vrstici Execute ?</para>
+</question>
+<answer>
+<para
+>Uporabljajo jih vsi programi &kde; (izvedeni so namreč v <classname
+>KApplication</classname
+> in vsi dobri &kde; programi ustvarijo objekt <classname
+>KApplication</classname
+> preden pogledajo, ali je bilo podanih v ukazni vrstici kaj parametrov).</para>
+<para
+>Običajna vrstica za programe &kde; izgleda neko tako: <command
+>foo <option
+>... %i %m -caption \"%c\"</option
+></command
+>. Precej zmedeno, vendar pa je bilo vse zasnovano tako, zato da lahko integrira stare, ne-&kde; programe s kar najmanj težavami. &kfm; in &konqueror; bosta ob izvajanju gornje vrstice ukaz razširila v <command
+>foo <option
+>-icon something.xpm -miniicon something_mini.xpm -caption \"The Foo\"</option
+></command
+>. Tako ikona kot mini ikona kot tudi "The Foo" so lastnosti, definirane v datoteki <filename
+>.desktop</filename
+>. Če ikone niso definirane, so preprosto privzete za ime "foo".</para>
+<para
+>Na ta način lahko uporabnik v &kmenuedit; spremeni te stvari za svoj program. <option
+>-caption</option
+> je pomemben, saj noben uporabnik ne bo sprejel tega, da izbira <guimenuitem
+>Editor</guimenuitem
+> požene nekaj po imenu <guilabel
+>kedit-0.9pl4-build47</guilabel
+>. Pričakuje namreč okno z imenom <guilabel
+>Editor</guilabel
+>. Poleg tega so ta imena lokalizirana, ameriški uporabnik požene <abbrev
+>npr.</abbrev
+> <guimenuitem
+>CD-Player</guimenuitem
+> in dobi okno z imenom <guilabel
+>CD-Player</guilabel
+> medtem ko slovenski uporabnik požene <guimenuitem
+>Predvajalnik CD</guimenuitem
+> in dobi okno imenovano <guilabel
+>Predvajalnik CD</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako določim zagonski imenik za &kfm; in &konqueror;?</para>
+</question>
+<answer>
+<para
+>Kliknite z <mousebutton
+>desnim</mousebutton
+> gumbom na ikono &kfm; (ali &konqueror;) in izberite <guimenuitem
+>Properties</guimenuitem
+>. Pod vezjo <guilabel
+>Execute</guilabel
+> boste verjetno našli nekaj takega kot <command
+>kfmclient folder %u file:/root</command
+>; spremenite <filename class="directory"
+>/root</filename
+> na karkoli želite, da bo &kfm; (ali &konqueror;) odprl ob zagonu.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="nsbookmark">
+<para
+>Kako lahko uvozim &Netscape;ove zaznamke?</para>
+</question>
+<answer>
+<para
+>Ni vam treba ničesar uvažati! &Netscape;ovi zaznamki so samodejno dosegljivi v &konqueror;ju v menuju <guimenu
+>Zaznamki</guimenu
+>, ne da bi morali sami kaj nastaviti.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako lahko prevaram spletno stran, da bo verjela, da je &konqueror; &Netscape; ali kateri izmed drugih brskalnikov?</para>
+</question>
+<answer>
+<para
+>Poženite <application
+>Nadzorno središče &kde;</application
+> in izberite <menuchoice
+><guimenu
+>Brskanje po spletu</guimenu
+><guimenuitem
+>Uporabniški agent</guimenuitem
+></menuchoice
+>. Dodajte želenega agenta.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako prilagodim &konqueror;, da poganja &Java; applets?</para>
+</question>
+<answer>
+<para
+>Izberite <menuchoice
+><guimenu
+>Nastavitve</guimenu
+><guisubmenu
+>Prikroji &konqueror;</guisubmenu
+><guimenuitem
+>Brskalnik &konqueror;</guimenuitem
+></menuchoice
+> iz &konqueror;jeve menujske vrstice. Upoštevajte, da si morate ogledati spletno stran, sicer bo menu <guimenu
+>Nastavitve</guimenu
+> siv (neaktiven). Če ne deluje, prosim preverite <ulink url="http://www.konqueror.org/konq-java.html"
+>Konqueror + Java HOWTO</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Zakaj &konqueror; ne izriše slik vrste &GIF;?</para>
+</question>
+<answer>
+<para
+>Zato, ker niste omogočili podpore &GIF; v &Qt;. Poglejte prosim v <xref linkend="gif"/> za več podrobnosti.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako preimenujem datoteke?</para>
+</question>
+<answer>
+<para
+>Simply right click on the file and select <guimenuitem
+>Preimenuj</guimenuitem
+>.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

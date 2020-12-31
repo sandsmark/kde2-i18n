@@ -1,0 +1,833 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmenuedit;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+
+<title
+>A &kmenuedit; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Milos</firstname
+> <surname
+>Prudek</surname
+> <affiliation
+><address
+><email
+>milos.prudek@worldonline.cz</email
+> </address
+></affiliation
+> </author>
+
+<othercredit role="reviewer"
+>
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Lektor</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Milos Prudek</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>0.00.01</releaseinfo>
+
+<abstract
+><para
+>A &kmenuedit; egy szerkesztőprogram a &kde; menü módosításához. </para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KDE menüszerkesztő</keyword>
+<keyword
+>kmenuedit</keyword>
+<keyword
+>alkalmazás</keyword>
+<keyword
+>program</keyword>
+<keyword
+>menü</keyword>
+<keyword
+>panel</keyword>
+
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+
+<para
+>A &kmenuedit; egy szerkesztőprogram a &kde; menü módosításához.</para>
+
+<para
+>A &kmenuedit; elindításához kattintson a jobb egérgombbal <inlinemediaobject
+><imageobject
+><imagedata fileref="i_k_button.png" format="PNG"/></imageobject
+></inlinemediaobject
+> a <guiicon
+>K</guiicon
+> menü gombjára, vagy válassza a <guimenuitem
+>Menüszerkesztő</guimenuitem
+> menüpontot a főmenü <guisubmenu
+>Rendszer</guisubmenu
+> nevű almenüjéből.</para>
+
+<para
+>A &kmenuedit; segítségével:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Megtekinthető és megváltoztatható a K menü tartalma</para
+></listitem
+> <listitem
+><para
+>Használhatók a <guimenuitem
+>Kivágás</guimenuitem
+>, <guimenuitem
+>Másolás</guimenuitem
+>, <guimenuitem
+>Beillesztés</guimenuitem
+> menüpontok a menüelemekkel</para
+></listitem
+> <listitem
+><para
+>Új almenük létrehozhatók, a meglévők törölhetők</para
+></listitem
+> </itemizedlist>
+
+<sect1 id="kmenuedit-revhistory">
+<title
+>A &kmenuedit; eddigi változatai</title>
+
+<itemizedlist
+> <listitem
+><para
+>0.0.1 - a mostani változat</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="using-kmenuedit">
+<title
+>A &kmenuedit; kezelése</title>
+
+<para
+>A bal oldali részen látható a <guimenu
+>Főmenü</guimenu
+> struktúrája. Ha rákattint egy menüelemre a bal oldalon, akkor a jobb oldalon megjelennek annak tulajdonságai.</para>
+
+<para
+>A jobb oldalon az információ két külön lapon jelenik meg: az <guilabel
+>Általános</guilabel
+> és a <guilabel
+>Speciális</guilabel
+> lapon.</para
+> 
+
+<sect1 id="details-general">
+<title
+>Általános jellemzők</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Név</guilabel
+></term
+> <listitem
+><para
+>Ez a név fog látszani a <guimenu
+>Főmenüben</guimenu
+>. Természetesen nem kell megegyeznie a programfájl nevével. Ha a programfájl neve <command
+>mc</command
+>, akkor a név lehet például "<application
+>Midnight Commander</application
+>".</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Megjegyzés</guilabel
+></term
+> <listitem
+><para
+>A program funkciójának rövid leírása kerülhet ide, akár üresen is hagyható.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Parancs</guilabel
+></term
+> <listitem
+><para
+>Itt kell megadni a programfájl nevét. Ellenőrizze, hogy van-e jogosultsága a program futtatásához.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Típus</guilabel
+></term
+> <listitem
+><para
+>A program típusát lehet röviden leírni, hasonlóan a Megjegyzés mezőhöz. Nem kötelező kitölteni.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Munkakönyvtár</guilabel
+></term
+> <listitem
+><para
+>Itt lehet megadni a program munkakönyvtárát. Induláskor a program számára ez lesz az aktuális könyvtár. Természetesen nem kell megegyeznie a programfájl könyvtárával.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ikonlista</guilabel
+></term
+> <listitem
+><para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="icon_sets.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Az ikonra kattintva megjelenik a programhoz rendelhető ikonok listája. Válasszon egyet közülük.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Parancsértelmezőben indítás</guilabel
+></term
+> <listitem
+><para
+>Jelölje be ezt az opciót, ha a programot parancsértelmezőben szeretné futtatni. Általában <link linkend="gloss-console-application"
+>karakteres módú alkalmazásoknál</link
+> kell bejelölni.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>A parancsértelmező paraméterei</guilabel
+></term
+> <listitem
+><para
+>A parancsértelmező parancssori paramétereit itt lehet megadni.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Futtatás más nevében</guilabel
+></term
+> <listitem
+><para
+>Ha nem a saját, hanem egy más felhasználó nevében szeretné indítani a programot, jelölje be ezt az opciót, és írja be a felhasználónevet a <guilabel
+>Felhasználónév</guilabel
+> mezőbe.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1
+> 
+
+<sect1 id="details-advanced">
+<title
+>Speciális jellemzők</title>
+
+<para
+>Az itt megadott billentyűkombinációval is el lehet indítani a programot.</para>
+
+<procedure
+> <step
+><para
+>Kattintson a <guibutton
+>Módosítás</guibutton
+> gombra.</para
+></step
+> <step
+><para
+>Válassza az <guilabel
+>Egyéni billentyű</guilabel
+> lehetőséget.</para
+></step
+> <step
+><para
+>A <guilabel
+>Shift</guilabel
+>, <guilabel
+>Ctrl</guilabel
+> és <guilabel
+>Alt</guilabel
+> opciókat a kívánt parancsnak megfelelően kell bejelölni.</para
+></step
+> <step
+><para
+>Kattintson az <guilabel
+>Alt</guilabel
+> választónégyzettől jobbra látható üres gombra és nyomja meg a programhoz rendelni kívánt billentyűt.</para
+></step
+> <step
+><para
+>Kattintson az <guibutton
+>OK</guibutton
+> gombra.</para
+></step
+> </procedure>
+
+</sect1
+> 
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>A menük</title>
+
+<variablelist
+> <varlistentry id="file-new-item"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_new_item.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+>Új ele<accel
+>m</accel
+></guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Létrehoz egy új menüpontot.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="file-new-submenu"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_new_submenu.png" format="PNG"/></imageobject
+></inlinemediaobject
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+>Új <accel
+>a</accel
+>lmenü</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Létrehoz egy új almenüágat.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="file-quit"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>ájl</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>ilépés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Bezárja a programot.</para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-cut"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_cut.png" format="PNG"/></imageobject
+></inlinemediaobject
+> S<accel
+>z</accel
+>erkesztés</guimenu
+> <guimenuitem
+>Ki<accel
+>v</accel
+>ágás</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Az aktuális menüelemet a vágólapra mozgatja</action
+>. Egy menüelem átmozgatásakor először helyezze azt a vágólapra ezzel a paranccsal, lépjen át az új helyre a bal oldali panelen, majd használja a <guimenuitem
+>Beillesztés</guimenuitem
+> parancsot az új menüelem létrehozásához.</para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-copy"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_copy.png" format="PNG"/></imageobject
+></inlinemediaobject
+> S<accel
+>z</accel
+>erkesztés</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>ásolás</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Az aktuális menüelemet a vágólapra másolja</action
+>. Ezután az elem bárhová beszúrható a <guimenuitem
+>Beillesztés</guimenuitem
+> paranccsal. Egy kimásolt elemet akárhányszor be lehet illeszteni.</para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-paste"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_paste.png" format="PNG"/></imageobject
+></inlinemediaobject
+> S<accel
+>z</accel
+>erkesztés</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>eillesztés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Beilleszti a vágólapon található menüelemet</action
+> a <guimenu
+>Főmenü</guimenu
+> aktuális helyére. Egy menüelem vágólapra helyezéséhez a <guimenuitem
+>Kivágás</guimenuitem
+> és a <guimenuitem
+>Másolás</guimenuitem
+> parancs használható.</para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-delete"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_delete.png" format="PNG"/></imageobject
+></inlinemediaobject
+> S<accel
+>z</accel
+>erkesztés</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>örlés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Törli a kijelölt menüelemet.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="help-contents"
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>artalom</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Válassza a <menuchoice
+><guimenu
+>Segítség</guimenu
+> <guimenuitem
+>Tartalom</guimenuitem
+> </menuchoice
+> menüpontot vagy kattintson a Tartalom ikonra a <action
+>dokumentáció megjelenítéséhez</action
+> (most Ön éppen azt olvassa).</para
+></listitem
+> </varlistentry
+> <varlistentry id="help-report-bug"
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>Hiba<accel
+>b</accel
+>ejelentés...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Ezzel a menüponttal lehet a programban felfedezett hibákat a legkényelmesebben bejelenteni. <action
+>Megnyit egy űrlapot</action
+>, melyben meg lehet adni a hiba néhány jellemzőjét, például a <guilabel
+>Súlyosságát</guilabel
+>. Kérjük, hogy a felfedezett hibákat jelentse be minél pontosabban, így Ön is hozzájárulhat a &kde; tökéletesítéséhez.</para
+> <para
+>A szerzők szívesen fogadják a program továbbfejlesztésére tett eredeti ötleteket is. A bejelentés típusának válassza a <guilabel
+>Kívánság</guilabel
+>ot, és írja le a javaslatát. Örömmel fogadunk minden megvalósítható ötletet!</para
+></listitem
+> </varlistentry
+> <varlistentry id="help-about-kmenuedit"
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>A <accel
+>M</accel
+>enüszerkesztő névjegye</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Ezzel a menüponttal lehet megjeleníteni a program legfontosabb adatait, például a szerzők nevét, a program verziószámát, stb.</para
+></listitem
+> </varlistentry
+> <varlistentry id="help-about-kde"
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>A <accel
+>K</accel
+>DE névjegye</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Megjelenít néhány jellemző adatot a &kde; projektről.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<glossary id="glossary">
+<title
+>Kifejezésgyűjtemény</title
+> 
+
+<glossentry id="gloss-terminal-emulator"
+> <glossterm
+>Parancsértelmező (terminálemulátor)</glossterm
+> <glossdef
+> <para
+>A Unix parancsértelmező grafikus környezetben működni képes változata, más néven "parancssoros ablak". Használatához legalább nagy vonalakban ismerni kell a kiadható parancsok szintaktikáját.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-applet"
+> <glossterm
+>Kisalkalmazás</glossterm
+> <glossdef
+><para
+>Olyan, kis memória- és képernyőterület-igényű program, mely ennek ellenére hasznos információkat tud nyújtani, vagy gyors hozzáférést biztosít valamilyen erőforráshoz. Ilyen például az <application
+>Óra</application
+> kisalkalmazás, mely mindig az aktuális időt és dátumot mutatja, (sőt még egy naptár is előhívható belőle), vagy a <application
+>Rendszerfigyelő</application
+>, mely folyamatosan mutatja a gép erőforrásainak kihasználtságát.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-legacy-application"
+> <glossterm
+>Hagyományos (X11-alapú) alkalmazás</glossterm
+> <glossdef
+> <para
+>Olyan X-alapú program, mely nem támogatja a &kde; kibővített szolgáltatásait. Ezek a programok általában kifogástalanul futtathatók a &kde;-ben, de nem kapnak automatikusan értesítést a &kde;-ből való kijelentkezés előtt. Ezért ne felejtse el kijelentkezés előtt elmenteni az ilyen programok által megnyitott dokumentumokat. </para
+> <para
+>Az ilyen programok egy része nem támogatja a vágólapon keresztüli adatcserét a &kde;-alapú alkalmazásokkal. Ilyen például a Netscape 4.x-es böngészőprogram is. <footnote
+><para
+>Egyes <ulink url="http://www.gnome.org"
+>GNOME</ulink
+>-alkalmazások bizonyos mértékig képesek együttműködni a &kde; alá írt programokkal.</para
+></footnote
+>.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-console-application"
+> <glossterm
+>Karakteres módú alkalmazás</glossterm
+> <glossdef
+> <para
+>Karakteres módú, a hagyományos Unix-környezetben futó alkalmazás. Ezek a programok is futtathatók a KDE-ben egy parancsértelmező segítségével, például a <application
+>Konsole</application
+>-ban. A programok nem kapnak automatikusan értesítést a &kde;-ből történő kilépéskor, ezért kijelentkezés előtt ne felejtse el bezárni az ilyen programok által megnyitott dokumentumokat.</para
+> <para
+>A karakteres módú alkalmazások közös vágólapot használhatnak a &kde;-alkalmazásokkal. Ha kijelöl az egérrel egy szövegrészt a parancsértelmezőben, és átvált valamelyik &kde;-alkalmazásra, akkor a <keycombo
+><keycap
+>Ctrl</keycap
+> <keycap
+>V</keycap
+></keycombo
+> megnyomásával beilleszthető a szöveg. Ha a &kde;-alkalmazásból szeretne szöveget átvinni a karakteres módúba, akkor először jelölje ki a szöveget az egérrel, nyomja meg a <keycombo
+><keycap
+>Ctrl</keycap
+> <keycap
+>C</keycap
+></keycombo
+>-t, váltson át a másik programra és kattintson a kívánt helyen a középső egérgombbal.<footnote
+><para
+>Ha az egérnek nincs középső gombja, kattintson egyszerre a <mousebutton
+>bal</mousebutton
+> és a <mousebutton
+>jobb</mousebutton
+> gombbal. Ez csak akkor működik, ha engedélyezte a "középső egérgomb emulációját" az operációs rendszerben.</para
+></footnote
+>.</para
+> </glossdef
+> </glossentry>
+
+</glossary>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Köszönetnyilvánítások és a licencegyezmény</title>
+
+<para
+> &kmenuedit; </para>
+<para
+>Program copyright: a KDE fejlesztőcsapat, 2000.</para>
+<para
+>Hozzájárultak még:</para>
+<itemizedlist
+> <listitem
+><para
+>Matthias Ettrich (<email
+>ettrich@kde.org</email
+>)</para
+> </listitem
+> <listitem
+><para
+>Daniel M. Duley (<email
+>mosfet@kde.org</email
+>)</para
+> </listitem
+> <listitem
+><para
+>Matthias Elter (<email
+>elter@kde.org</email
+>)</para
+> </listitem
+> <listitem
+><para
+>Preston Brown (<email
+>pbrown@kde.org</email
+>)</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Documentation copyright: Milos Prudek, 2000.</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+
+<sect1 id="getting-kmenuedit">
+<title
+>A &kmenuedit; megszerzése</title>
+
+<para
+> A &kmenuedit; a &kde; projekt (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>) része, a kdebase csomagban található, mely letölthető innen: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, a &kde; projekt központi FTP-kiszolgálójáról. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Lefordítás és telepítés</title>
+
+<para
+>A program lefordításához és telepítéséhez az alábbi parancsokat kell kiadni a kdebase forráscsomag alapkönyvtárában:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>A &kmenuedit; fordítási szkriptjei az <application
+>autoconf</application
+> és az <application
+>automake</application
+> segítségével készültek, kézi beállítást nem igényelnek. A felmerült problémák leírását küldje el a &kde; levelezőlistákra.</para>
+
+</sect1>
+
+</appendix>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

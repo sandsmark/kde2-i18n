@@ -1,0 +1,355 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kdf "<application>Kdf</application>">
+  <!ENTITY kappname "&kdf;">
+  <!ENTITY % Hungarian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>A &kdf; kézikönyve</title>
+
+<authorgroup>
+<author>
+<firstname>Jonathan</firstname>
+<surname>Singer</surname>
+<affiliation>
+<address><email>jsinger@leeta.net</email></address>
+</affiliation>
+</author>
+
+<author>
+<firstname>Michael</firstname>
+<surname>Kropfberger</surname>
+<affiliation><address><email>michael.kropfberger@gmx.net</email></address></affiliation>
+</author>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<contrib>lektor</contrib>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>tszanto@mol.hu</email></address></affiliation>
+<contrib>fordító</contrib>
+</othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Jonathan Singer</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>14/11/2000</date>
+<releaseinfo>0.00.10</releaseinfo>
+
+<abstract><para>A &kdf; megjeleníti a rendelkezésre álló fájleszközöket legfontosabb jellemzőikkel
+együtt.</para>
+
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdf</keyword>
+<keyword>kdeutils</keyword>
+<keyword>lemezek</keyword>
+<keyword>eszközök</keyword>
+<keyword>mount</keyword>
+<keyword>unmount</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Bevezetés</title>
+
+<para>A &kdf; segítségével meg lehet tekinteni a fájleszközöket (lemezpartíciókat, floppy-
+és &CD;-meghajtókat, <abbrev>stb.</abbrev>) a kapacitásra, a szabad helyre, a típusra 
+és a csatlakoztatási (mount) pontra vonatkozó információkkal együtt. Mód van az eszközök csatlakoztatására (mount) és
+leválasztására (unmount), ill. a tartalom megtekintésére a fájlkezelővel.</para>
+
+<para>A &kdf; hasonló a Vezérlőközpont régi Szabad lemezkapacitás
+(<application>kcmdf</application>) beállítómoduljához, de kisebb képernyőterületen elfér, ezért
+akár folyamatosan is nyitva lehet tartani.</para>
+
+</chapter>
+
+<chapter id="installation">
+<title>Telepítés</title>
+
+<sect1 id="getting-and-installing-kdf">
+<title>A &kdf; megszerzése és telepítése</title>
+
+<para>A &kdf; a KDE projekt
+(<ulink url="http://www.kde.org">http://www.kde.org</ulink>) része, fordítását és telepítését
+a csomag főkönyvtárában található leírás alapján kell elvégezni.  A
+&kdf; legutóbbi változata a kdeutils csomagban található, mely letölthető az
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink> címről, a
+KDE projekt központi FTP-kiszolgálójáról. </para>
+
+<para>A kdf telepítéséhez szükséges lépések:</para>
+<screen width="40">
+<prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>su</command></userinput>
+<prompt>%</prompt> <userinput><command>make install</command></userinput>
+</screen>
+
+</sect1>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title>A &kdf; használata</title>
+
+<sect1 id="starting-kdf">
+<title>A &kdf; elindítása</title> 
+
+<para>Adja ki a <userinput><command>kdf</command></userinput> parancsot egy parancsértelmezőben
+vagy válassza a <guimenuitem>Szabad lemezkapacitás</guimenuitem> bejegyzést a <guisubmenu>Rendszer
+</guisubmenu> menüben, a <guimenu>KDE</guimenu> menü alatt. A standard &Qt;
+és KDE parancssori paraméterek használhatók, teljes listájuk megtekintéséhez adja ki a
+<userinput><command>kdf</command> <option>--help</option></userinput>
+parancsot.</para>
+
+</sect1>
+
+<sect1 id="main-window">
+<title>A főablak</title>
+
+<para>A &kdf; főablakában fel vannak sorolva a rendszer fájleszközei.</para>
+
+<para>Az eszközök alábbi jellemzőit lehet megtekinteni:</para>
+<screenshot>
+<screeninfo>A &kdf; főképernyője</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>A &kdf; főablaka</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<itemizedlist>
+<listitem><para>egy, az eszköz típusát mutató ikon</para></listitem>
+<listitem><para>az eszköz neve</para></listitem>
+<listitem><para>a fájlrendszer formátuma</para></listitem>
+<listitem><para>teljes méret</para></listitem>
+<listitem><para>csatlakoztatási (mount) pont</para></listitem>
+<listitem><para>szabad lemezkapacitás</para></listitem>
+<listitem><para>a szabad hely aránya százalékban és grafikus
+formában</para></listitem>
+</itemizedlist>
+
+<para>A fenti képen négy eszköz látszik: két ext2 fájlrendszerű merevlemezes
+partíció, az egyik a gyökérkönyvtárhoz (<filename
+class="directory">/</filename>), a másik az <filename
+class="directory">/old</filename> könyvtárhoz csatlakoztatva, egy iso9660 rendszerű &CD-ROM; és egy nem csatlakoztatott
+floppy meghajtó.</para>
+
+<para>Ha a <mousebutton>bal</mousebutton> egérgombbal rákattint egy oszlop fejlécére,
+akkor az eszközök a kiválasztott oszlop értékei szerint lesznek sorbarendezve. A második
+<mousebutton>bal</mousebutton> kattintás hatására a rendezés csökkenő sorrendű lesz.</para>
+
+<para>A <mousebutton>jobb</mousebutton> egérgombbal rákattintva egy sorra előhívható egy felbukkanó menü. Ha az eszköz még
+nincs csatlakoztatva (mountolva), akkor <guimenuitem>Az eszköz csatlakoztatása</guimenuitem>
+menüpont kiválasztható. Ha az eszköz már csatlakoztatva van, akkor leválasztásához (unmount) válassza
+<guimenuitem>Az eszköz leválasztása</guimenuitem> menüpontot. Ha a <guimenuitem>Fájlkezelő
+megnyitása</guimenuitem> menüpontra kattint, akkor a megnyíló fájlkezelőben megtekintheti az eszközön
+található fájlokat.</para>
+
+</sect1>
+
+<sect1 id="the-menus">
+<title>A &kdf; menüsora</title>
+
+<sect2>
+<title>A <guimenu>Fájl</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>F<accel>r</accel>issítés</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A pillanatnyi állapotnak megfelelően frissíti a kijelzett
+adatokat</action></para></listitem>
+</varlistentry>
+<varlistentry>
+
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem><accel>K</accel>ilépés</guimenuitem>
+</menuchoice></term>
+<listitem><para>A &kdf; <action>bezárása</action></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>A <guimenu>Beállítások</guimenu> menü és párbeszédablak</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem><accel>T</accel>estreszabás</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Megnyitja a program beállítóablakát</action></para>
+<screenshot>
+<screeninfo>A &kdf; beállítóablaka</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="kdf_config.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>A &kdf; beállítóablaka</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<para>A párbeszédablak két részből áll, az <guilabel>Általános beállítások</guilabel> és a
+<guilabel>Csatlakoztatási (mount) parancsok</guilabel> lapból.</para>
+<variablelist>
+<varlistentry>
+<term>Általános beállítások</term>
+<listitem><para>Kattintson a <guilabel>látható</guilabel> vagy
+<guilabel>rejtett</guilabel> szóra egy adatmező tartalmának megjelenítéséhez vagy elrejtéséhez.</para>
+<para>A <guilabel>Frissítési gyakoriság</guilabel> értékét a csúszkával lehet módosítani. A
+bal oldali szöveges mezőben az az időtartam látható (másodpercben), amely a 
+&kdf; automatikus állapotfrissítései között telik el.</para>
+<para>A Fájlkezelő beállításnál azt a parancsot lehet megadni, amely akkor hajtódik végre,
+ha a <guimenuitem>Fájlkezelő megnyitása</guimenuitem> menübejegyzést választja a
+felbukkanó menüben.</para>
+<para>A következő két opció közül az első azt szabályozza, hogy egy eszköz csatlakoztatásakor
+elinduljon-e automatikusan a fájlkezelő. A másik bekapcsolása esetén pedig
+figyelmeztető üzenet jelenik meg, ha egy eszközön a szabad hely mennyisége a kritikus szint alá esik.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Csatlakoztatási (mount) parancsok</guilabel></term>
+<listitem><para>Itt lehet eszközönként megadni a csatlakoztatási és leválasztási (mount és unmount)
+parancsokat, valamint a jelképező ikont. A parancsok megadásához
+segítséget találhat a <application>mount</application> man oldalán (hajtsa vége ezt:
+<userinput><command>man</command> <option>mount</option></userinput> egy
+parancsértelmezőben).</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2>
+<title>A <guimenu>Segítség</guimenu> menü</title>
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut><keycap>F1</keycap></shortcut>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem><accel>T</accel>artalom</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Megnyitja ezt a dokumentumot</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>Mi <accel>e</accel>z?</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>Válassza ki ezt a menüpontot, majd kattintson egy tetszőleges elemre
+annak leírásához</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>Hiba<accel>b</accel>ejelentés...</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>A &kdf; hibáiról lehet jelentést küldeni a program
+szerzőinek</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>A KDiskFree <accel>n</accel>évjegye...</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>A program verziójáról és szerzőiről szolgáltat információkat</action>
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>A <accel>K</accel>DE névjegye...</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>A KDE projektről tartalmaz néhány sornyi
+információt.</action></para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title>Köszönetnyilvánítás és licencegyezmény</title>
+
+<para>&kdf;</para>
+
+<para>Program copyright Michael Kropfberger
+<email>mkropfbe@edu.uni-klu.ac.at</email>, 1998-2000.</para>
+
+<para>Documentation copyright Jonathan Singer
+<email>jsinger@leeta.net</email>, 2000.</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

@@ -1,0 +1,1051 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ark;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>El manual de &ark;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Matt</firstname
+> <surname
+>Johnston</surname
+> <affiliation
+> <address
+><email
+>mattj@flashmail.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Revisor</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Mario</firstname
+><surname
+>Teijeiro Otero</surname
+><affiliation
+><address
+><email
+>mteijeiro@escomposlinux.org</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Matt Johnston</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>1.90.00</releaseinfo>
+
+<abstract
+><para
+>Este manual describe &ark; versión 1.9 </para
+> 
+<para
+>&ark; es un admistrador de archivos para KDE</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>gzip</keyword>
+<keyword
+>gunzip</keyword>
+<keyword
+>tar</keyword>
+<keyword
+>archivar</keyword>
+<keyword
+>zip</keyword>
+<keyword
+>compresión</keyword>
+<keyword
+>lha</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>ark</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+
+<para
+>&ark; es un programa para manejar varios formatos de archivos dentro del entorno de KDE. Los archivos pueden ser vistos, extraídos, creados y modificados desde dentro de &ark;.El programa puede manejar varios formatos tales como tar, gzip, bzip2, zip y lha (si los programas de línea de comandos apropiados están instalados). &ark; trabaja perfectamente con <application
+>Konqueror</application
+> en el entorno de KDE para manejar archivos.</para>
+
+<sect1 id="ark-revhistory">
+<title
+>Hisotorial de las revisiones de la documentación de &ark;</title>
+
+<itemizedlist
+> <listitem
+><para
+>0.05.00 - Documentación original de &ark; - Robert Palmbos</para
+></listitem
+> <listitem
+><para
+>0.05.00 - Documentación para KDE2 - Matt Johnston</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+</chapter>
+
+
+<chapter id="using-ark">
+<title
+>Usando ark</title>
+
+<sect1 id="ark-open">
+<title
+>Abriendo archivos</title>
+
+<para
+>Para abrir un archivo en &ark;, elige <guimenuitem
+>Open</guimenuitem
+> desde el menú <guimenu
+>File</guimenu
+>. Puedes incluso abrir un archivo comprimido arrastrándolo y soltándolo dentro de la aplicación. <application
+>Konqueror</application
+>. Los archivos comprimidos deberías estar asociados con &ark;, así que puedes, mediante un click del botón derecho sobre el fichero en <application
+>Konqueror</application
+> y seleccionar <guimenuitem
+>Archivador</guimenuitem
+> para abrirlo.</para>
+
+
+</sect1>
+<sect1 id="ark-work-files">
+<title
+>Trabajando con ficheros</title>
+
+<para
+>Una vez que un archivo está abirto, tu puedes realizar varias operaciones sobre los ficheros que residen dentro de él. Mediante un click <mousebutton
+>derecho</mousebutton
+> sobre el fichero dento del archivo, o seleccionando un fichero y usando el menú <guimenu
+>Operaciones</guimenu
+>, puedes elegir que quieres hacer.</para>
+
+<itemizedlist
+> <listitem
+><para
+><guimenuitem
+>Ver</guimenuitem
+> abrirá el fichero en el programa visor por defecto </para
+></listitem
+> <listitem
+><para
+><guimenuitem
+>Abrir con...</guimenuitem
+> te permite abrir el fichero en el programa que elijas.</para
+></listitem
+> <listitem
+><para
+><guimenuitem
+>Editar con...</guimenuitem
+> abrirá el fichero en un programa que elijas. La diferencia entre este y el <guimenuitem
+>Abrir con...</guimenuitem
+> es que cualquier cambio que se realize serán salvados al fichero en el archivo.</para
+></listitem
+> <listitem
+><para
+><guimenuitem
+>Suprimier</guimenuitem
+> eliminará el/los fichero/s seleccionados en el archivo.</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+<sect1 id="ark-extract">
+<title
+>Extrayendo archivos</title>
+
+<para
+>Una vez que un archivos es abierto con &ark;, puede ser extraído. Para extraer ficheros desde un archivo, puedes seleccionar <guimenuitem
+>Extraer...</guimenuitem
+> desde <guimenu
+>Operaciones</guimenu
+> o mediante un click <mousebutton
+>derecho</mousebutton
+> sobre el fichero. El diálogo de extracción te permite selecionar donde se extraerá los ficheros. Puedes incluso seleccionar que ficheros quieres extraer:</para>
+
+<itemizedlist
+> <listitem
+><para
+>"<guimenuitem
+>Más reciente</guimenuitem
+>" extrae los ficheros que más recientemente se seleccionaron. Si múltiples fichero están seleccionados, sólamente el seleccionado más recientemente será extraído.</para
+></listitem
+> <listitem
+><para
+>"<guimenuitem
+>Todos</guimenuitem
+>" extrae el contenido completo del archivo.</para
+></listitem
+> <listitem
+><para
+>"<guimenuitem
+>Archivos seleccionados</guimenuitem
+>" extrae todos los ficheros que están seleccionados.</para
+></listitem
+> <listitem
+><para
+>"<guimenuitem
+>Plantilla</guimenuitem
+>" te permite especificar qué ficheros serán extraídos, correspondiendo a ciertas plantillas, <abbrev
+>p.e.</abbrev
+><filename
+>*.txt</filename
+> o <filename
+>*.jpg</filename
+>. Resaltar que sólo se puede usar una plantilla al mismo tiempo.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Puedes especificar el directorio parar extraer ficheros en el cuadro de texto "<guilabel
+>Extraer a: </guilabel
+>". Si quieres cambiar el directorio por defecto, en la ventana del programa principal, elige <guimenuitem
+>Directorios...</guimenuitem
+> en el menú <guimenu
+>Opciones</guimenu
+>. Bajo la pestaña "Avanzada", puedes elegir algunas opciones específicas dependiendo del formato del archivo.</para>
+
+</sect1>
+<sect1 id="ark-create">
+<title
+>Creando archivos y añadiendo ficheros</title>
+
+<para
+>Para crear un nuevo archivo en &ark;, elige <guimenuitem
+>Nuevo</guimenuitem
+> desde el menú <guimenu
+>Archivo</guimenu
+>.</para>
+
+<para
+>Puedes entonces escribir el nombre del archivo, con la apropiada extensión ( <filename
+>tar.gz</filename
+>, <filename
+>zip</filename
+>, <filename
+>bz2</filename
+> <abbrev
+>etc</abbrev
+>). Para añadir ficheros al archivo, elige <guimenuitem
+>Añadir fichero...</guimenuitem
+> desde el menú <guimenu
+>Operaciones</guimenu
+>. Si quieres añadir un directorio entero a un archivo, eligue <guimenuitem
+>Añadir directorio...</guimenuitem
+> desde el menú <guimenu
+>Operaciones</guimenu
+>.</para>
+
+<para
+>Una manera alternativa para añadir ficheros a un archivo es soltar un fichero desde <application
+>Konqueror</application
+> o desde el escritorio en la ventana principal de &ark;, y entonces será añadido al archivo actual de trabajo.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Referencia de comandos</title>
+
+<sect1 id="filemenu">
+<title
+>El menú <guimenu
+>Archivo</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>n</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>uevo</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Crea un nuevo archivo</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>o</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>brir</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Abre un archivo</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guisubmenu
+>Abrir <accel
+>r</accel
+>eciente</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Muestra una lista de archivos recientes para elgegir uno de ellos.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+>Gu <accel
+>a</accel
+>rdar como...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Permite guardar el archivo actual bajo un nuevo nombre de fichero.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+> <accel
+>N</accel
+>ueva ventana</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Abre una nueva ventana &ark;</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>ecargar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Carga el archivo actual otra vez desde el disco. Esto refrescará la vista de &ark; si otro programa ha hecho cambios en el archivo.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>C</accel
+>errar archivo</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Cierra el archivo actual</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>alir</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Cierra &ark;</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+<sect1 id="editmenu">
+<title
+>El menú <guimenu
+>Editar</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>eleccionar...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Te permite seleccionar ficheros según sus nombres de fichero </action
+> Por ejemplo, podrías usar <filename
+>*.txt</filename
+> para seleccionar todos los ficheros txt. Notar que no puedes usar más que un filtro al mismo tiemo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+>Seleccionar <accel
+>t</accel
+>odo</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Selecciona todos los ficheros en el archivo</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>eseleccionar todos </guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Deselecciona todos los ficheros en el archivo</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nvertir selección</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Invierte la selección de los ficheros. Los ficheros seleccionados pasan a estar deseleccionados y los ficheros deseleccionados pasan a estar seleccionados.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>er respuesta del intérprete</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Muestra la <guilabel
+>Salida del intérpetre</guilabel
+>, el cual <action
+>te muestra la salida de los comandos más recientes</action
+> ejecutados por &ark;. Esto a menudo es útil si tienes probles y quieres solucionarlos.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="actionmenu">
+<title
+>El menú <guimenu
+>Operaciones</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>peraciones</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>nadir archivo...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Muestra el cuadro de diálogo <guilabel
+>Añadir ficheros</guilabel
+>, dónde puedes seleccionar ficheros. Mantén presionado  <keycap
+>Ctrl</keycap
+> y haz click para seleccionar múltiples ficheros. Para subir un directorio, haz click <mousebutton
+>derecho</mousebutton
+> en el cuadro de directorio, y puedes elegir "<guimenuitem
+>Directorio padre</guimenuitem
+>"(esto probablemente será mejorado pronto). La pestaña <guilabel
+>Avanzado</guilabel
+> tiene opciones que son específicas al tipo de archivo con el que estás trabajando.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>peraciones</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>ñadir directorio...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Muestra el cuadro de diálogo "<guilabel
+>Añadir directorio</guilabel
+>, donde puedes elegir un <action
+>directorio a añadir</action
+>. Elige un directorio y elige <guibutton
+>Abir</guibutton
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>peraciones</guimenu
+> <guimenuitem
+>Sup<accel
+>r</accel
+>imir</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Borra el fichero que está seleccionado en el archivo.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>peraciones</guimenu
+> <guimenuitem
+><accel
+>E</accel
+>xtraer</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Muestra el cuadro de diálogo <guilabel
+>Extraer</guilabel
+>, el cual te permite <action
+>seleccionar dónde extraerás los ficheros </action
+>. Puedes incluso seleccionar que ficheros extraer:</para
+> <itemizedlist
+> <listitem
+><para
+>"<guilabel
+>Más reciente</guilabel
+> extrae los más recientemente ficheros seleccionados. Si están seleccionados múltiples ficheros, sólo el más recientemente seleccionado será extraído.</para
+></listitem
+> <listitem
+><para
+>"<guilabel
+>Todo</guilabel
+>" extrae el contenido entero del archivo.</para
+></listitem
+> <listitem
+><para
+>"<guilabel
+>Archivos seleccionados</guilabel
+> extrae todos los ficheros que están seleccionados.</para
+></listitem
+> <listitem
+><para
+>"<guilabel
+>Plantilla</guilabel
+>" te permite especificar qué ficheros serán extraídos, que corresponden a ciertas plantillas, <abbrev
+>p.e.</abbrev
+> <filename
+>*.txt</filename
+> o <filename
+>*.jpg</filename
+>. Notar que sólamente puedes usar una única plantilla a la vez.</para
+></listitem
+> </itemizedlist
+> <para
+>Puedes especificar el directorio para extraer los ficheros en el cuadro de texto <guilabel
+>Extraer en:</guilabel
+>. Si quieres cambiar el directorio por defecto, en la ventana del programa principal, elige <guimenuitem
+> Directorios...</guimenuitem
+> en el menú <guimenu
+>Opciones</guimenu
+>. Bajo la pestaña "<guilabel
+>Avanzado</guilabel
+>", puedes elegir algunas opciones específicas dependiendo del formato del archivo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>peraciones</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>er</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Abre el fichero que está seleccionado en el programa visor asociado. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>peraciones</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>brir con...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+> Abre el fichero seleccionado en un programa que eligas</action
+>. El cuadro de diálogo "<guilabel
+>Abrir con..."</guilabel
+> te permite elegir el programa que quieres usar. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>peraciones</guimenu
+> <guimenuitem
+>Editar <accel
+>c</accel
+>on..</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Abre el fichero seleccionado en un programa que elijas</action
+>. Cualquier cambio que se haga en el editor el programa editor, será reflejado en el archivo, por lo tanto será actualizado. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settingsmenu">
+<title
+>El menú <guimenu
+>Opciones</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>pciones</guimenu
+> <guimenuitem
+>Mostra barra de <accel
+>h</accel
+>erramientas</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Conmuta si la barra de herramientas está siendo mostrada. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>pciones</guimenu
+> <guimenuitem
+>Mostar barra de <accel
+>e</accel
+>stado</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Conmuta si la barra de estado está siendo mostrada. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>pciones</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>uardar opciones</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Guarda las opciones de configuración actuales a disco</action
+>. Esto significa que serán "recordadas" la próxima vez que uses &ark;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>pciones</guimenu
+> <guimenuitem
+>Configurar asociaciones de <accel
+>t</accel
+>eclas...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Muestra el cuadro de diálogo "<guilabel
+>Asociación de teclas</guilabel
+>. Esto <action
+> te permite elegir teclas de acceso rápido para varios items de menú.</action
+> Para cambiar una tecla de acceso rápido, selecciona una acción de la lista, y entonces elige qué tecla usar. Haciendo click en botón inferior derecho, te permite elegir qué tecla específica usar. Presiona la nueva tecla. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>pciones</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>irectorios...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Esto muestra el cuadro de diálogo <guilabel
+>Directorios</guilabel
+>, así que puedes <action
+>elegir el directorio por defecto </action
+>. El " <guilabel
+>Último directorio inicial</guilabel
+>" es el último directorio usado para esta opción en particular. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Créditos y licencia</title>
+
+<para
+> &ark; tiene Copyright 1997-2000, Varios desarrolladores de  ark </para>
+<para
+>Autores:</para>
+<itemizedlist
+> <listitem
+><para
+>Robert Palmbos <email
+>palm9744@kettering.edu</email
+></para
+></listitem
+> <listitem
+><para
+>Francois-Xavier Duranceau <email
+>duranceau@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Corel Corporation (autor: Emily Ezust) <email
+>emilye@corel.com</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Copyright 2000 Matt Johnston documentación <email
+>mattj@flashmail.com</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Instalación</title>
+
+<sect1 id="getting-ark">
+<title
+>Cómo obtener &ark;</title>
+
+<para
+>&ark; es parte del proyecto KDE <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &ark; puede ser encontrado en el paquete kdeutils en <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+> el principal sitio ftp del proyecto KDE. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Requirimientos</title>
+
+<para
+>Con el fin de un uso satisfactorio de &ark;, necistas KDE 2.0. <abbrev
+>GNU</abbrev
+> <application
+>Tar</application
+> v1.12 y un reciente <application
+>gzip</application
+> son necesitados por &ark;. Para manejar otros formatos de fichero, necesitas los programas de línea de comandos apropiada, tales como <application
+>zip</application
+>, <application
+>unzip</application
+>,<application
+>ar</application
+> y <application
+> lha</application
+>. </para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Compilación e instalación</title>
+
+<para
+>Con el fin de compilar e instalar &ark; en tu sistema, escribe lo siguiente en el directorio base de la distribución de kdeutils:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+>Ya que &ark; usa <application
+>autoconf</application
+> y <application
+>automake </application
+> no deberías tener problema para compilarlo. Si tuvieras problemas, por favor, infórmalos en las listas de correos de KDE.</para>
+
+</sect1>
+
+</appendix>
+
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

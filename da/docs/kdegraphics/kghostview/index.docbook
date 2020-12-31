@@ -1,0 +1,1237 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kghostview;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Danish "INCLUDE"
+><!-- change language only here -->
+]>
+<book lang="&language;">
+
+<bookinfo>
+<title
+>&kghostview; håndbog</title>
+<authorgroup>
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+</authorgroup>
+
+
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Pamela Roberts</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-07</date>
+<releaseinfo
+>0.12.00</releaseinfo>
+
+<abstract>
+<para
+>Dette dokument beskriver &kghostview; version 0.12.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>linux</keyword>
+<keyword
+>postskript</keyword>
+<keyword
+>ghostivew</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Indledning</title>
+
+<para
+> &kghostview; viser og udskriver &PostScript; (<literal role="extension"
+>.ps</literal
+>, <literal role="extension"
+>.eps</literal
+>) og Portabel Dokument Format (<literal role="extension"
+>.pdf</literal
+>) filer. Det er en forende til Tim Theisen's <application
+>Ghostview</application
+> program der bruges til at se dokumenter lavet i <trademark
+>Adobe</trademark
+>'s &PostScript; sidebeskrivelses sprog. &PostScript; er hoved sidebeskrivelsessproget for udskrift på &UNIX; systemer og dette program bruges til at forhåndsvise materiale beregnet til udskrift og til at læse dokumenter på nettet. </para>
+
+<para
+> Man kan bruge &kghostview; med alle nylige versioner af <application
+>Ghostscript</application
+>. Nyere versioner tilbyder meget forbedret ydelse som man kan have fordel af ved brug af  &kghostview;. </para>
+
+<para
+> Hvis et dokument ikke indretter sig efter <trademark class="registered"
+>Adobe</trademark
+> dokument struktur konventioner er fremviserens funktionalitet begrænset. Hvis der for eksempel ikke er en indholdsfortegnelse, er det ikke muligt at springe rundt i dokument og det er ikke muligt at markere sider. </para>
+
+</chapter>
+
+
+<chapter id="fundamentals">
+<title
+>Grundlæggende ting</title>
+
+<para
+> Denne sektion beskriver hvad man ser i hoved &kghostview; vinduet, handlingerne knyttet til værktøjsliniens knapper og hvordan man skal bruge sidelisten. </para>
+
+<para
+> Man kan åbne flere udgaver af &kghostview; til at se flere dokumenter. Titellinien for oven i et vindue viser dig navnet på dokumentet i dette vindue. </para>
+
+<para
+> Bemærk at værktøjslinien og tekstfelterne der hjælper dig at navigere gennem et dokument kan skjules med <link linkend="settings"
+>Opsætning</link
+> menuindstillinger for at give mere plads på skærmen til indholdsområdet. </para>
+
+<para
+> Indholdsområdet viser en side fra det aktuelle dokument. Hvis siden er for stor til at passe indenfor vinduet, så vil rullebjælker  automatisk blive tilføjet til siderne af visningen. Disse kan dog deaktiveres i <guimenu
+>Opsætnings</guimenu
+>menuen. </para>
+
+<para
+> Man kan også rulle op og ned på en side med <keysym
+>Pil op</keysym
+> og <keysym
+>Pil ned</keysym
+> tasterne.</para
+> <para
+><guibutton
+>Næste side</guibutton
+> og <guibutton
+>Forrige side</guibutton
+> Værktøjslinie knapperne gør hvad de siger, eller du kan gå direkte til en vilkårlig side med et &LMB; klik på sidelisten. </para>
+
+<para
+> Hvis siden er for høj til at blive vist fuldstændigt indenfor vinduet kan <guibutton
+>Læs op i dokument</guibutton
+> og <guibutton
+>Læs ned i dokument</guibutton
+> knapperne bruges til at rulle op og ned gennem hele dokumentet. </para>
+
+<para
+> Hvis det er valgt i <guimenu
+>Opsætnings</guimenu
+>menuen vil en sideliste blive viste langs venstre side af sidevisningen. Denne liste har to søjler: den første kan indeholde et flag der betyder at siden er blevet markeret og den anden indeholder sidetallet. Du kan også bruge denne sideliste til at navigere gennem dokumentet eller til at vælge sider til udskrift. </para>
+
+<para
+> Man kan slå <quote
+>side markeret</quote
+>; flaget til og fra for den aktuelt viste side med <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>M</keycap
+></keycombo
+> eller for en vilkårlig side med &MMB; klik på sidelisten. Man kan også rydde eller ændre sine sidemarkeringer ved brug af drop-ned menuen der aktiveres med &RMB; klik hvorsomhelst i sidelisteområdet eller ved at vælge <link linkend="pagemarks"
+>Sidemarkeringer</link
+>menuen. </para>
+
+</chapter>
+
+<chapter id="primary-menu-items">
+<title
+>Menulinie</title>
+
+<sect1 id="menufile">
+<title
+><guimenu
+>Fil</guimenu
+>menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>Å</accel
+>bn...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Åbn</action
+> en fil. Hvis en fil netop er ved at blive vist vil den blive lukket.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Åbn <accel
+>n</accel
+>ylige</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Åbn</action
+> en fil valgt fra en drop-ned liste af nyligt åbne filer. Hvis en fil aktuelt vises vil den blive lukket.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Gem <accel
+>s</accel
+>om...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gem</action
+> den aktuelt åbne fil.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>dskriv...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Udskriv</action
+> det aktuelt viste dokument. Udskrift dialogboksen vil lade dig vælge om du vil udskrive alle eller udvalgte (markerede) sider.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Dokument <accel
+>i</accel
+>nfo...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vis</action
+> nogen basal information om dokumentet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Luk</action
+> &kghostview; ned.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="view">
+<title
+><guimenu
+>Visnings</guimenu
+>menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>is igen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser</action
+> den aktuelle side af dokumentet igen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>ilpas sidebredde</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skalér</action
+> visningen så en sidebredde passer nøjagtigt hen over hoved visningsområdet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>rientering</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ændr orienteringen</action
+> af den viste side. Man kan vælge mellem <guimenuitem
+>Auto</guimenuitem
+>, <guimenuitem
+>Portræt</guimenuitem
+>, <guimenuitem
+>Landskab</guimenuitem
+>, <guimenuitem
+>På hovedet</guimenuitem
+> og <guimenuitem
+>Havskab</guimenuitem
+> der er som <guimenuitem
+>Landskab</guimenuitem
+> men med den anden side opad.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>Papir<accel
+>s</accel
+>tørrelse</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Lader dig se et dokument som om det er udskrevet på forskellige <action
+>papirstørrelser</action
+> uden at ændre skalaen. Man bør normalt vælge <guimenuitem
+>Auto</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; &Shift;<keycap
+>+</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>For<accel
+>s</accel
+>tør</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Forøger</action
+> forstørrelsen af dokumentvisningen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>iew</guimenu
+> <guimenuitem
+>For<accel
+>m</accel
+>indsk</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Formindsker</action
+> forstørrelsen af dokumentvisningen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Side op</keycap
+> </shortcut
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>orrige side</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Vis <action
+>forrige side</action
+> af dokumentet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Side ned</keycap
+> </shortcut
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>æste side</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Vis <action
+>næste side</action
+> af dokumentet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Hjem</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>Gå til start</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gå til begyndelsen</action
+> af dokumentet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>End</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>Gå til slutning</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Går til slutningen</action
+> af dokumentet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+> <keycap
+>Mellemrum</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>Læs opad i dokument</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Rul baglæns</action
+> gennem dokumentet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>å til side...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Vælg</action
+> dokumentsiden der skal vises.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="pagemarks">
+<title
+><guimenu
+>Sidemarkeringer</guimenu
+>menu</title>
+
+<note
+> <para
+> Man kan også få denne menu med &RMB; ved at klikke hvorsomhelst i sideliste området. </para
+> </note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>M</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>idemarkeringer</guimenu
+> <guimenuitem
+>Markér aktuel side</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slå sidemarkeringsflaget til/fra</action
+> for aktuel side.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>idemarkeringer</guimenu
+> <guimenuitem
+>Markér <accel
+>a</accel
+>lle sider</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Sæt sidemarkeringsflaget</action
+> for alle sider i dokumentet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>idemarkeringer</guimenu
+> <guimenuitem
+>Markér <accel
+>l</accel
+>ige sider</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Sæt sidemarkeringsflaget</action
+> for alle lige nummererede sider i dokumentet. Brugt i sammenhæng med <guimenuitem
+>Markér ulige sider</guimenuitem
+> eller <guimenuitem
+>Skift sidemarkeringer</guimenuitem
+> giver dette en behagelig måde at udskrive et dokument dobbeltsidet på en enkeltsidet printer</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>idemarkeringer</guimenu
+> <guimenuitem
+>Markér <accel
+>u</accel
+>lige sider</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Set the page marked flag</action
+> for all odd numbered pages in the document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>idemarkeringer</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>kift sidemarkeringer</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skift sidemarkeringsflagene</action
+> for alle sider i dokumentet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>idemarkeringer</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>jern sidemarkeringer</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ryd sidemarkeringsflagene</action
+> for alle sider i dokumentet.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings">
+<title
+><guimenu
+>Opsætnings</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>v</accel
+>ærktøjslinie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slå værktøjslinie</action
+> til/fra.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis st<accel
+>a</accel
+>tuslinie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slå statuslinie</action
+> til/fra.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>r</accel
+>ullebjælker</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slå de vandrette og lodrette rullebjælker</action
+> til og fra.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>e fil</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Hvis dette er valgt vil fremvisningen <action
+>automatisk opdatere</action
+> hvis dokumentfilen ændres.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>s</accel
+>ideliste</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slå sideliste</action
+> til/fra.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis sidenavne</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Hvis dette er valgt vil <action
+>navnet (hvis der er et navn) på den aktuelle side blive vist i statuslinien.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndstil &kghostview;...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Får &kghostview; <link linkend="config-dialog"
+><action
+>indstillingsdialog</action
+> boks frem</link
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+><guimenu
+>Hjælpe</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndhold</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Se denne håndbog</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>apportér problem...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Brug dette til at <action
+>rapportere problemer du måtte finde ved &kghostview;</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>m &kghostview;</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Brug dette til at <action
+>se versionsnummer for &kghostview; så vel som kort information om programforfatterne, ophavsret og licensaftale</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Til at se <action
+>kort information om K skrivebordsmiljøet</action
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="config-dialog">
+<title
+>Indstilling</title>
+
+<para
+> Indstillings dialogboksen fås frem med <menuchoice
+><guimenu
+>Opsætning</guimenu
+><guimenuitem
+>Indstil &kghostview;...</guimenuitem
+></menuchoice
+> valget. Den har to sider; <guilabel
+>Generel opsætning</guilabel
+> og <guilabel
+>Ghostscript indstilling</guilabel
+> </para>
+
+<sect1 id="general-settings">
+<title
+>Generel opsætning</title>
+
+<para
+> Man kan vælge <emphasis
+>Antialias</emphasis
+> for at få glat fremvist tekst. Det er dog hukommelsesintensivt at udføre antialias og langsommere end almindelig fremvisning af skrifttyper. Tidlige versioner af <application
+>Ghostscript</application
+> kunne ikke lave antialias. </para>
+
+<para
+> Vælg <emphasis
+>Platform skrifttyper</emphasis
+> hvis du ønsker at bruge indfødte system skrifttyper i stedet for dem der kommer med <application
+>Ghostscript</application
+>. </para>
+
+<para
+> Slå <emphasis
+>Beskeder</emphasis
+> til hvis du ønsker at blive informeret om al uddata eller fejlbeskeder genereret af din <application
+>Ghostscript</application
+> fortolker. </para>
+
+<para
+> Du kan vælge om &kghostview; bruger en <guilabel
+>Monokrom</guilabel
+>, <guilabel
+> Gråskala</guilabel
+> eller <guilabel
+>Farve</guilabel
+> <guilabel
+>Palette</guilabel
+> til fremvisningen. </para>
+
+<para
+> Når indholdet af en dokumentside er blevet oversat af <application
+>Ghostscript</application
+> skal den gemmes et sted for fremviserens brug. Man kan vælge at gøre dette som et <guilabel
+>Pixmap</guilabel
+>billede i hukommelsen eller i en <guilabel
+>Backing store</guilabel
+>. Afhængig af din X-server kan en metode være hurtigere end den anden, men husk at nogle X-servere ikke virker med <guilabel
+>Backing store</guilabel
+> indstillingen. </para>
+
+</sect1>
+
+<sect1 id="ghostscript-config">
+<title
+><application
+>Ghostscript</application
+> indstilling</title>
+
+<para
+> I denne dialogbokssidepage kan du sætte navnet på <application
+>Ghostscript</application
+><guilabel
+>fortolkeren</guilabel
+> og <guilabel
+>Non-antialias argumenter</guilabel
+> og <guilabel
+>Antialias argumenter</guilabel
+> der gives videre til den. Standard opsætningen er formodentlig passende for de fleste systemer. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Medvirkende og licens</title>
+
+<para
+> &kghostview; </para>
+
+<itemizedlist
+> <title
+>Program ophavsret:</title
+> <listitem
+><para
+>Mark Donohoe (oprindelig forfatter) 1998 </para
+></listitem
+> <listitem
+><para
+>David Sweet <email
+>dsweet@kde.org</email
+> vedligeholder 1999-2000 </para
+></listitem
+> <listitem
+><para
+>Wilco Greven <email
+>greven@kde.org</email
+> Nuværende vedligeholder 2000-2001 </para
+></listitem
+> </itemizedlist>
+
+
+<itemizedlist
+> <title
+>Bidragere</title
+> <listitem
+><para
+>David Faure (basis for skal)</para
+> </listitem
+> <listitem
+><para
+>Daniel Duley (overførsel til Kparts)</para
+> </listitem
+> <listitem
+><para
+>Espen Sand (dialogbokse)</para
+> </listitem
+> </itemizedlist>
+
+<para
+> Dokumentation ophavsret 2001 Pamela Roberts <email
+>pam.roberts@btinternet.com</email
+> </para>
+
+
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+
+&underGPL;        	 <!-- GPL License -->
+
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<para
+> &kghostview; er en del af  &kde; 2 projektet, hvis detaljer kan findes på <ulink url="http://www.kde.org"
+> http://www.kde.org</ulink
+>. </para>
+
+<para
+> For at bruge &kghostview;, skal man have <application
+>Ghostscript</application
+> programmet så vel som &kde; 2 installeret på sin maskine. <application
+>Ghostscript</application
+>'s hjemmeside er på <ulink url="http://www.cs.wisc.edu/~ghost/"
+> http://www.cs.wisc.edu/~ghost/</ulink
+></para>
+
+<para
+> De fleste distributioner inkluderer &kghostview;, men hvis du hellere vil klare dig selv kan kildekoden findes i Kdegraphics pakken på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, hoved ftp-stedet for KDE projektet. </para>
+
+<para
+> For at se om senere udgaver af &kghostview; er blevet udgivet kan man kigge på <ulink url="http://apps.kde.com"
+>http://apps.kde.com</ulink
+>. </para>
+
+<para
+> For at kompilere installere &kghostview; på dit system, skal du som root skrive følgende i mappen hvor du gemte &kghostview;'s kildekode: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+> Da &kghostview; bruger <command
+>autoconf</command
+> og <command
+>automake</command
+> burde du ikke have problemer med at kompilere den. Men hvis du løber ind i problemer så rapportér dem venligst på &kde; e-postlister. </para>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kdebugdialog "<application
+>KDebugDialog</application
+>">
+  <!ENTITY kappname "&kdebugdialog;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Priročnik za &kdebugdialog;</title>
+
+<authorgroup>
+<author
+> <firstname
+>David</firstname
+> <surname
+>Faure</surname
+> <affiliation
+> <address
+><email
+>faure@kde.org</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Andrej</firstname
+><surname
+>Vernekar</surname
+><affiliation
+><address
+><email
+>andrej.vernekar@kiss.uni-lj.si</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-02-13</date>
+<releaseinfo
+>0.03.00</releaseinfo>
+
+<abstract>
+<para
+>Ta dokument opisuje &kdebugdialog;.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KDebugdialog</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Kaj je KDebugDialog</title>
+
+<para
+>Je pogovorno okno za upravljanje diagnostičnih sporočil med delovanjem </para>
+
+<para
+>Če preprosto poženete "kdebugdialog", boste videli seznam "podočij", ki jih lahko onemogočite ali pa omogočite. Klic kdDebug v kodi bo pokazal nekaj v izisu razhroščevanja le, če je področje omogočeno. </para>
+
+<note
+><para
+> Upoštevajte, da se kdWarning , kdeError in kdFatal vedno pojavijo in nanje ta nastavitev NE vpliva. </para
+></note>
+
+<para
+>Če poženete "kdebugdialog --fullmode", lahko neodvisno za vsak nivo resnosti določite, kaj naj bo storjeno z diagnostičnimi sporočili tega nivoja in to za vsako razhroščevalno območje. </para>
+
+<para
+> Dostopne so naslednje nastavitve: <itemizedlist
+> <listitem
+> <para
+>Izhod: v tem oknu lahko izberete, kje naj se izpišejo sporočila. Možnosti so: "Datoteka", "Sporočilno okno", "Lupina" (pomeni stderr) in syslog. Prosim, ne usmerjajte pogubnih sporočil v syslog razen če niste sami administrator. Privzeto je "Sporočilno okno".</para
+> </listitem
+> <listitem
+> <para
+>Datoteka: To ima pomen le, če ste izbrali "Datoteka" kot izhod in določi ime te datoteke (ki se interpretira relativno glede na trenutni imenik). Privzeto je to kdebug.dbg.</para
+> </listitem
+> <listitem
+> <para
+>Področje: Področja, ki naj bodo izpisana. Vsako sporočilo ki ni omenjeno tukaj preprosto ne bo izpisano (razen če to polje ostane prazno, kar je privzeto in pomeni, da bodo izpisana vsa sporočila). Vnesete lahko več z vejicami ločenih področij in uporabljate območja s sintakso začetek-konec. Veljaven vnos bi tako bil: 117,214-289,356-359,221. Prosim ne uporabljajte presledkov.</para
+> </listitem
+> </itemizedlist
+> </para>
+
+<para
+>Poleg tega lahko odkljukate "Abort on fatal errors". V tem primeru se program po izpisu sporočila konča z SIGABRT, če je izpisano diagnostično sporočilo z nivojem "KDEBUG_FATAL". </para>
+
+<para
+>Ko zaprete okno z V redu, postanejo vaši vnosi takoj veljavni in so shranjeni v kdebugrc. Če pritisnete Prekliči so vaši vnosi razveljavljeni in vzpostavljeni prejšnji. </para>
+
+<para
+>Zahvale Kalleju Dalheimerju za originalno različico kdebugdialoga. </para>
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-general-insert-case: lower
+sgml-shorttag: t
+End:
+-->
+
+

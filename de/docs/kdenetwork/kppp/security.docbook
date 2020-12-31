@@ -1,0 +1,96 @@
+<chapter id="security">
+<title
+><emphasis
+>Kppp</emphasis
+> und die Sicherheit</title>
+
+<para
+>Dieses Kapitel ist hauptsächlich für Administratoren(root), Leute mit hohen Sicherheitsansprüchen oder einfach technisch Interessierte. Es ist nicht notwendig, dieses Kapitel zu lesen, wenn Sie nur Linux für sich zu Hause laufen lassen (obwohl Sie vielleicht etwas Neues lernen könnten, wenn Sie es lesen).</para>
+
+<sect1 id="security-restricting-access">
+<title
+>Den Zugang zu <emphasis
+>Kppp</emphasis
+> beschränken</title>
+
+<para
+>Ein Systemadministrator möchte vielleicht Zugang zu <emphasis
+>Kppp</emphasis
+> auf diejenigen beschränken, denen es erlaubt ist, es zu benutzen. Es gibt zwei Wege, dies zu tun:</para>
+
+<sect2 id="security-group-permissions">
+<title
+>Den Zugang zu <emphasis
+>Kppp</emphasis
+> beschränken</title>
+
+<para
+></para>
+
+<screen>
+</screen>
+
+<para
+></para>
+
+</sect2>
+
+<sect2 id="security-kppps-way">
+<title
+>Den Zugang zu <emphasis
+>Kppp</emphasis
+> beschränken</title>
+
+<para
+></para>
+
+<screen>
+
+</screen>
+
+<para
+></para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="security-why-suid">
+<title
+><emphasis
+>Kppp</emphasis
+> hat das SUID Bit gesetzt. Wo bleibt die Sicherheit?</title>
+
+<para
+>Es ist realistisch gesehen nicht möglich, ein Wählprogramm ohne gesetztes SUID Bit zu schreiben, das sicher und dabei für unerfahrene Benutzer einfach zu benutzen ist. <emphasis
+>Kppp</emphasis
+> geht das Sicherheitsproblem mit folgender Strategie an:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Gleich nach dem Programmstart startet <emphasis
+>Kppp</emphasis
+> einen neuen Prozess.</para
+> </listitem
+> <listitem
+> <para
+>Der Masterprozess (der die GUI, Benutzerinteraktion u.ä. verwaltet) legt den SUID-Status danach ab und läuft dann mit den normalen Benutzerprivilegien.</para
+> </listitem
+> <listitem
+> <para
+>Der Slaveprozess behält seine Privilegien bei und kümmert sich um alles, für das man root-Rechte benötigt. Um diesen Teil sicher zu machen, werden hier keine Funktionen der KDE/QT-Bibliotheken aufgerufen, sondern nur einfache Funktionen der C-Bibliothek. Der Quellcode für diesen Prozess ist kurz (etwa 500 Zeilen) und gut dokumentiert. Dadurch ist es einfach, Sicherheitslöcher zu entdecken.</para
+> </listitem
+> <listitem
+> <para
+>Master- und Slaveprozess kommunizieren mit standard UNIX IPC.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Vielen Dank an Harri Porten für das Schreiben dieses exzellenten Stück Quellcodes. Ich dachte, es sei unmöglich - er schrieb es in einer Woche.</para>
+
+</sect1>
+
+</chapter>
+

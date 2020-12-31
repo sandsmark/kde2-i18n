@@ -1,0 +1,3 @@
+
+KDE_LANG=no_NY
+KDE_DOCS=AUTO

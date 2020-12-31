@@ -1,0 +1,6296 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmail;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Danish "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>&kmail; håndbog</title>
+
+<!-- note from daniel.naber@t-online.de, 2001-05-05: I'm working on this
+"by hand" (using nedit) so please don't mix up the formatting too much. -->
+
+<!-- TODO: 
+* is it "message", "mail" or "email" ??? 
+* what is section / tab / ... ?
+* better markup instead of 'quote'
+-->
+
+<authorgroup>
+<author
+> <firstname
+>Daniel</firstname
+> <surname
+>Naber</surname
+> <affiliation
+><address
+> <email
+>daniel.naber@t-online.de</email
+> </address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>David</firstname
+> <surname
+>Rugge</surname
+> <affiliation
+><address
+> <email
+>davidrugge@mindspring.com</email
+> </address
+></affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit
+>  
+
+</authorgroup>
+
+<date
+>2001-09-02</date>
+<releaseinfo
+>1.03.00</releaseinfo>
+
+<copyright>
+<year
+>1999</year>
+<year
+>2000</year>
+<year
+>2001</year>
+<holder
+>David Rugge</holder>
+</copyright>
+
+<abstract>
+	
+<para
+>&kmail; er &kde;'s kraftige og brugervenlige e-post klient.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Post</keyword>
+<keyword
+>e-post</keyword>
+<keyword
+>Klient</keyword>
+<keyword
+>POP3</keyword>
+<keyword
+>IMAP</keyword>
+<keyword
+>PGP</keyword>
+<keyword
+>GnuPG</keyword>
+<keyword
+>GPG</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="intro">
+<title
+>Indledning</title>
+
+<para
+>&kmail;-holdet byder dig velkommen til &kmail;, et brugervenligt e-post program for K skrivebordsmiljøet. Vores mål er at lave et e-post program der er smukt og intuitivt uden at ofre kraft. </para>
+
+<para
+>Hvis du aldrig har sat en e-post klient op på et &UNIX; system før, vil vi foreslå at du gennemlæser <link linkend="getting-started"
+>Hvordan kommer vi i gang</link
+> sektionen først så din opsætning går glat.</para>
+
+<para
+>Da de fleste alligevel ikke læser dokumentationen, er her en samling af de mest nyttige vink:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Du behøver ikke at bruge musen for at bruge &kmail;. Alt skulle være muligt med tasterne. &kmail; støtter alle standard taster som <keycap
+>Tab</keycap
+> (skift mellem paneler). Tricket er: <keycap
+>Venstre pil</keycap
+>/<keycap
+>Højre pil</keycap
+> springer altid mellem det tidligere og det næste brev, men hvis du holder &Ctrl;, nede kan du bruge <keycap
+>Venstre pil</keycap
+>/<keycap
+>Højre pil</keycap
+> til at navigere i mappepanelet og <keycap
+>Pil op</keycap
+>/<keycap
+>Pil ned</keycap
+> til at navigere i overskriftspanelet. Brug  <keycombo action="simul"
+>&Ctrl;<keycap
+>Mellemrum</keycap
+></keycombo
+> til at vælge den folder du bevægede dig hen til.</para
+> </listitem
+> <listitem
+> <para
+>I <guilabel
+>Brevskriveren</guilabel
+> kan du vælge tekst og trække den rundt med musen.</para
+> </listitem
+> <listitem
+> <para
+>Selvom man godt kan stole på &kmail; bør man alligevel lave sikkerhedskopier af sine breve, &ie; ved blot at kopiere filerne <filename class="directory"
+>~/Mail</filename
+> til et sikkert sted.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>&kmail;'s hjemmeside er på <ulink url="http://kmail.kde.org"
+>http://kmail.kde.org</ulink
+>, et arkiv af udvikler e-post lister er på <ulink url="http://lists.kde.org/?l=kde-kmail&amp;r=1&amp;w=2"
+>lists.kde.org</ulink
+>.</para>
+
+<para
+>Rapportér venligst problemer i &kmail; ved brug af <menuchoice
+><guimenu
+>Hjælp</guimenu
+><guimenuitem
+>Rapportér problem...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Vi håber du vil nyde &kmail;!</para>
+
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Sådan kommer vi i gang</title>
+
+<para
+>Dette er en kort introduktion til &kmail; og dens brug, så du kan begynde at bruge den med det samme. For en mere dybtgående information se <link linkend="using-kmail"
+>Brug af &kmail;</link
+> sektionen. Bemærk at &kmail;'s installationen er beskrevet i <link linkend="installation"
+>appendikset</link
+>.</para>
+
+<para
+>Start af &kmail; første gang, opretter en mappe der hedder <filename class="directory"
+>Mail</filename
+> der indeholder startfilerne (<filename
+>inbox</filename
+>, <filename
+>outbox</filename
+>, <filename
+>sent-mail</filename
+>, <filename
+>trash</filename
+> og <filename
+>drafts</filename
+>) i din hjemmemappe. Brug <menuchoice
+> <guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Indstil &kmail;...</guimenuitem
+> </menuchoice
+> til at indtaste noget begyndelses information så &kmail; kan hente og sende dine breve rigtigt.</para>
+
+<para
+>Indstillingsvinduet består af seks sektioner: <guilabel
+>Identitet</guilabel
+>, <guilabel
+>Netværk</guilabel
+>, <guilabel
+>Udseende</guilabel
+>, <guilabel
+>Brevskriver</guilabel
+>, <guilabel
+>Mime hoveddele</guilabel
+>, <guilabel
+>Sikkerhed</guilabel
+>, og <guilabel
+>Diverse</guilabel
+>.</para>
+
+<para
+>For at begynde at sende og modtage breve, må du ændre indstillingerne i <guilabel
+>Identitet</guilabel
+> og <guilabel
+>Netværk</guilabel
+> fanebladene.</para>
+
+<sect1 id="setting-your-identity">
+<title
+>Sætte din identitet</title>
+
+<para
+>Indstillingen i <guilabel
+>Identitet</guilabel
+> fanebladet er ret ligetil. Udfyld <guilabel
+>Navn</guilabel
+> feltet med dit fulde navn (&eg; <userinput
+>Per Smed</userinput
+>) og <guilabel
+>Organisation</guilabel
+> feltet (frivilligt) med passende information. Dernæst skal feltet <guilabel
+>E-post adresse</guilabel
+> og <guilabel
+>Reply-To Address</guilabel
+> feltet (frivilligt) udfyldes med din e-post adresse. Hvis du bruger <application
+>PGP</application
+> eller <application
+>GnuPG</application
+> må du sætte en identitet i <guilabel
+>PGP Brugeridentitet</guilabel
+> feltet.</para>
+
+<para
+>Du kan, hvis du vil sætte placeringen af din underskriftsfil i <guilabel
+>Underskriftsfil</guilabel
+> feltet. Hvis du ønsker en tilfældigt  skiftende underskrift, kan du angive et program og afkrydse <guilabel
+>Filen er et program</guilabel
+> boksen.</para>
+
+<para
+>Hvis du tilføjer en ny identitet, vil en <guilabel
+>Tilføj transport.</guilabel
+> knap komme frem (denne knap findes ikke for <guilabel
+>Standard</guilabel
+> identiteten). Den tillader dig at indstille en måde at sende breve for en bestemt identitet, &eg; vil du måske bruge en anden <acronym
+>SMTP</acronym
+> server for en af dine identiteter.</para>
+
+</sect1>
+
+<sect1 id="setting-up-your-account">
+<title
+>Indstilling af din konto</title>
+
+<para
+><guilabel
+>Netværk</guilabel
+> fanebladet indeholder de indstillinger der fortæller &kmail; hvordan e-post skal sendes og modtages. Mange af disse indstillinger kan variere meget, afhængig af dit systems opsætning og den slags netværk hvor din e-post server er. Hvis du ikke ved hvilke indstillinger du skal vælge eller hvad du skal skrive i et felt, så må du spørge din Internet udbyder (<acronym
+>ISP</acronym
+>) eller Systemadministrator.</para>
+
+<sect2 id="sending-mail">
+<title
+>Sende post</title>
+
+<para
+><guilabel
+>Sender post</guilabel
+> sektionen giver to valgmuligheder for at sende breve: <guilabel
+>sendmail</guilabel
+> og <guilabel
+>SMTP</guilabel
+>. <application
+>Sendmail</application
+> har ry for at være svær at sætte op, så hvis du ikke allerede har en fungerende <application
+>sendmail</application
+> opsætning, så vælg <guilabel
+>SMTP</guilabel
+> og udfyld <guilabel
+>Server</guilabel
+> feltet med navn og domæne på din e-post server. Du vil formodentlig blive nødt til at ændre  <guilabel
+>Port</guilabel
+> indstilling (standard er <userinput
+>25</userinput
+>).</para>
+        
+<para
+>Hvis du ønsker at bruge &Sendmail; og du bruger en opringningsforbindelse, så følg instruktionerne for opsætning af  sendmail for en opringningsforbindelse i <link linkend="faq"
+>&FAQ;</link
+> sektionen.</para>
+
+<para
+>Måden der sendes breve på indstillet her, vil blive brugt for din standard identitet og for alle andre identiteter som ikke har deres egen måde at sende breve. Du kan bruge forskellige måder at sende breve for forskellige identiteter, ved at tilføje dem med <guilabel
+>Tilføj transport...</guilabel
+> knappen i <guilabel
+>Identitet</guilabel
+> sektionen.</para>
+
+</sect2>
+
+<sect2 id="properties">
+<title
+>Egenskaber</title>
+
+<para
+><guilabel
+>Egenskaber</guilabel
+> sektionen lader dig indstille hvordan og hvornår breve bliver sendt.</para>
+        
+<para
+><guilabel
+>Standard sendemetode</guilabel
+> lader dig definere hvornår et brev bliver sendt. Hvis <guilabel
+>Send nu</guilabel
+> er valgt, vil brevet blive sendt til e-post serveren med det samme, mens <guilabel
+>Send senere</guilabel
+> vil få brevet til at stå i kø i udbakken for at blive sendt med <menuchoice
+><guimenu
+>Fil</guimenu
+><guimenuitem
+>Send breve i køen</guimenuitem
+></menuchoice
+> kommandoen eller automatisk når du tjekker din post, afhængig af indstillingerne i <guilabel
+>Diverse</guilabel
+> fanebladet.</para>
+
+<para
+><guilabel
+>Brev egenskab</guilabel
+> lader dig vælge hvordan dit brev skal indkodes når det sendes. <guilabel
+>Tillad 8-bit</guilabel
+> betyder at &kmail; vil sende dit brev i 8 bit <acronym
+>ASCII</acronym
+>, hvilket betyder at alle tegn såsom tegn med accent vil blive sendt som de er. Hvis <guilabel
+>MIME kompliant (Quoted Printable)</guilabel
+> er valgt, så vil tegn blive indkodet ved brug af standard &MIME; indkodninger, som er nemmere at overføre til andre postsystemer end 8-bit <acronym
+>ASCII</acronym
+>. Normalt behøver du ikke ændre standarden. </para>
+        
+<para
+>Med <guilabel
+>Prækommando</guilabel
+> kan du angive en kommando som vil blive udført før dine breve bliver sendt.</para>
+        
+<para
+><guilabel
+>Bekræft før der sendes</guilabel
+> aktiverer en dialog der spørger hver gang du klikker på <guilabel
+>Send nu</guilabel
+>, om du virkelig ønsker at sende din e-post.</para>
+
+</sect2>
+
+<sect2 id="receiving-mail">
+<title
+>Indkommende post</title>
+
+<para
+>For at sætte en konto op, så du kan modtage e-post skal du trykke på <guibutton
+>Tilføj...</guibutton
+> knappen i <guilabel
+>Indkommende  post</guilabel
+> sektionen. Du vil så blive spurgt om typen af kontoen. De fleste skal vælge <guilabel
+>Pop3</guilabel
+> eller <guilabel
+>IMAP</guilabel
+>.</para>
+        
+<para
+>Efter du har trykket på <guibutton
+>O.k.</guibutton
+>, vil du blive præsenteret for <guilabel
+>Tilføj konto</guilabel
+> vinduet. Udfyld først <guilabel
+>Navne</guilabel
+> feltet for at give din konto et navn. Du kan vælge hvad som helst du har lyst til. <guilabel
+>Logpå</guilabel
+>, <guilabel
+>Kodeord</guilabel
+>, og <guilabel
+>Vært</guilabel
+> skal udfyldes med passende information fra din <acronym
+>ISP</acronym
+> eller systemadministrator. Du skulle ikke have brug for at ændre <guilabel
+>Port</guilabel
+> indstillingen (standard for POP3 er <userinput
+>110</userinput
+>, standard for <acronym
+>IMAP</acronym
+> er <userinput
+>143</userinput
+>).</para>
+        
+<sect3 id="receiving-mail-imap">
+<title
+>Valg der kun er relevante for <acronym
+>IMAP</acronym
+></title>
+
+<para
+>Hvis du bruger <acronym
+>IMAP</acronym
+>, kan du, hvis du vil, angive en sti i <guilabel
+>Præfix til mapper</guilabel
+> feltet. Dette fortæller &kmail; hvor den kan finde dine mapper på serveren. Hvis du også har en skalkonto på serveren og post bliver opbevaret i din hjemmemappe, kan det muligvis være nyttigt at gemme post i en undermappe <filename class="directory"
+>/Mail/</filename
+>. Brug dette som en værdi i <guilabel
+>Præfix til mapper</guilabel
+> feltet så &kmail; ikke sammenblander postkasse filer og andre filer. Bemærk at selv med en skråstreg som første tegn, bliver denne sti fortolket relativt til din hjemmemappe. Hvis du ikke er interesseret i denne egenskab, så efterlad simpelthen feltet blankt.</para>
+
+<para
+>Hvis du afkrydser <guilabel
+>Fjern slettede breve automatisk</guilabel
+> så vil &kmail; slette de e-breve du slettede fra serveren, så snart du forlader en mappe. Ellers bliver e-brevene kun markerede som slettede, og det er op til dig at komprimere mapperne manuelt ved at bruge menupunktet <guimenuitem
+>Komprimér alle mapper</guimenuitem
+>.</para>
+          
+<para
+>Hvis du afkrydser <guilabel
+>Vis skjulte mapper</guilabel
+>, vil mapper hvis navn starter med en prik også blive vist.</para>
+
+</sect3>
+
+<sect3 id="receiving-mail-pop3">
+<title
+>Valg der kun er relevante for POP3</title>
+
+<para
+>Vælg <guilabel
+>Slet post på serveren</guilabel
+> hvis du ikke ønsker at efterlade dine breve på serveren efter du hjemhentede dem.</para>
+
+<para
+>Vælg <guilabel
+>Ekskludér fra &quot;Tjek post&quot;</guilabel
+> hvis du ikke ønsker at tjekke denne konto hver gang du bruger <menuchoice
+><guimenu
+>Tjek post</guimenu
+></menuchoice
+>. Du kan stadig kigge efter nye breve på denne konto med <menuchoice
+><guimenu
+>Fil</guimenu
+><guimenuitem
+>Tjek post i</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Vælg <guilabel
+>Kig efter post med visse intervaller</guilabel
+> hvis du ønsker at &kmail; skal kigge efter nye breve automatisk. Intervallet kan angives nedenfor under <guilabel
+>Tjek interval (minutter)</guilabel
+>.</para>
+
+<para
+><guilabel
+>Indbakke</guilabel
+> er standard mappen for indkommende post. Hvis du ønsker at ændre dette af en eller anden grund, så kan du gøre det med <guilabel
+>Målmappe</guilabel
+>. Men det du formodentlig ønsker er et <link linkend="filters"
+>filter</link
+>, som ikke har noget at gøre med dette valg.</para>
+
+<para
+>Med <guilabel
+>Prækommando</guilabel
+> kan du angive et program som &kmail; kører før posten hentes. Angiv venligst hele stien og bemærk at &kmail; ikke vil fortsætte før programmet afslutter.</para>
+
+</sect3>
+
+<sect3 id="receiving-mail-imap-pop3">
+<title
+>Tilvalg for både <acronym
+>IMAP</acronym
+> og POP3</title>
+
+<para
+>Hvis du vælger <guilabel
+>Gem POP kodeord i indstillingsfilen</guilabel
+> henh. <guilabel
+>Gem IMAP kodeord i indstillingsfilen</guilabel
+> så vil &kmail; huske dit kodeord så du ikke bliver nødt til at skrive det hver gang du starter &kmail; og henter e-post.</para>
+
+<warning
+><para
+>Du skal være klar over, at vi ikke rigtigt kan kryptere kodeord, så folk der har adgang til dine indstillingsfiler (&eg; systemadministratorer) kan nemt få dit kodeord, hvis du vælger dette.</para
+></warning>
+
+<para
+>&kmail; understøtter indkryptering  via <guilabel
+>SSL</guilabel
+> og <guilabel
+>TLS</guilabel
+> (<guilabel
+>TLS</guilabel
+> bør være den foretrukne, hvis den er tilstede).</para>
+
+<para
+>For POP3 understøtter &kmail; <guilabel
+>Ryd tekst</guilabel
+>, <guilabel
+>PLAIN</guilabel
+>, <guilabel
+>CRAM-MD5</guilabel
+> og <guilabel
+>APOP</guilabel
+> godkendelse. <guilabel
+>APOP</guilabel
+> og <guilabel
+>CRAM-MD5</guilabel
+> er sikre i sig selv. Alle de andre muligheder er kun sikre brugt sammen med <guilabel
+>SSL</guilabel
+> eller <guilabel
+>TLS</guilabel
+>. Du bør kun bruge <guilabel
+>Ryd tekst</guilabel
+> hvis din server ikke understøtter nogen af de andre godkendelsesmetoder. Derudover er <guilabel
+>Anonym</guilabel
+> understøttet for <acronym
+>IMAP</acronym
+>.</para>
+
+<para
+>Du er nu parat til at sende og modtage e-post!  For <acronym
+>IMAP</acronym
+>, klik på <guilabel
+>+</guilabel
+> tegnet i mappetræet i  &kmail;'s hovedvindue. &kmail; forbinder så til din server og viser de mapper den finder. For POP3 brug <menuchoice
+><guimenu
+>Fil</guimenu
+> <guimenuitem
+>Tjek post</guimenuitem
+></menuchoice
+>.</para>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="testing-your-setup">
+<title
+>Testning af opsætning</title>
+
+<para
+>Først bør du sende et brev til dig selv for at teste din opsætning. Tryk på <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>, for at sende et brev, og vælg <guiicon
+>Nyt brev</guiicon
+> ikonen  (tomt ark papir) eller vælg <menuchoice
+><guimenu
+>Brev</guimenu
+><guimenuitem
+>Nyt brev...</guimenuitem
+></menuchoice
+> menupunktet. <guilabel
+>Brevskriver</guilabel
+>vinduet vil komme frem. Udfyld <guilabel
+>Til:</guilabel
+> feltet med din egen e-post adresse og skriv noget i <guilabel
+>Emne</guilabel
+> feltet. Send brevet ved at vælge <menuchoice
+><guimenu
+>Brev</guimenu
+> <guimenuitem
+>Send nu</guimenuitem
+></menuchoice
+>.</para>
+      
+<para
+>For at tjekke din e-post skal du vælge <menuchoice
+><guimenu
+>Fil</guimenu
+><guimenuitem
+>Tjek post</guimenuitem
+></menuchoice
+>. I det nedre højre hjørne af hovedvinduet vil en fremskridtsbjælke vise hvor mange breve, der bliver hjemhentede. Hvis du modtager det brev du lige sendte så tillykke! Hvis du imidlertid får en fejlbesked mens du tester din opsætning, så sørg for at din netværksforbindelse er i orden og tjek din opsætning igen ved at vælge <menuchoice
+><guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Indstil &kmail;...</guimenuitem
+></menuchoice
+></para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="using-kmail">
+<title
+>Brug af &kmail;</title>
+
+<sect1 id="the-mail-reader-window">
+<title
+>Hovedvinduet</title>
+
+<para
+>Hovedvinduet er det vindue der viser sig når &kmail; bliver startet. Det er opdelt i tre dele:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Mappepanelet (venstre del)</term
+> <listitem
+> <para
+>Denne side indeholder en liste af dine brevmapper (andre e-post programmer kalder dem postbokse). Hvis der er et tal ved siden af mappenavnet viser det, at mappen indeholder ulæst post. For vælge en folder skal man simpelthen klikke på den. Brevene, der er indeholdt i mappen, vil nu komme frem for oven. Antallet af ulæste breve og antallet af breve i alt i den valgte mappe vises i statuslinien, Mapperne kan vises i en kort visning, som kun optager en lille del af venstre side af skærmen, og i en lang visning, som optager hele venstre side af skærmen, men som kan vise flere mapper. Du kan skifte mellem de to visninger under <guilabel
+>Udseende</guilabel
+>/<guilabel
+>Udlægning</guilabel
+> i <guilabel
+>Indstil &kmail;...</guilabel
+> dialogen. Se også <link linkend="folders"
+>Mapper sektionen</link
+> hvis du vil vide mere om at bruge mapper.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Hovedpanelet (øverste højre del)</term
+> <listitem
+> <para
+>Denne del giver overskriftsinformation (beskedstatus markeringer, afsender, emne, dato, og hvis man vil størrelse og score) for breve i den aktuelt valgte mappe. Klik på overskriften vil vælge dette brev og vise det nedenunder. Du kan også vælge en serie af breve, ved at holde &Shift; tasten nede, og klikke på et andet brev. De to breve du netop klikkede på vil blive markerede, sammen med alle brevene mellem dem. Ved at holde &Ctrl; tasten nede, kan du vælge vilkårlige breve uden at vælge dem imellem. Du kan sortere brevene ved at klikke på samme søjle mere end en gang, sorteringsrækkefølgen vil skifte imellem stigende og aftagende. Hvis du klikker på <guilabel
+>Emne</guilabel
+> søjlen kan du skifte mellem at sortere <guilabel
+>Emnet</guilabel
+> stigende og aftagende og <guilabel
+>Status</guilabel
+> stigende og aftagende. Tilsvarende hvis du klikker på <guilabel
+>Dato</guilabel
+> søjlen kan du skifte mellem at sortere <guilabel
+>Dato</guilabel
+> stigende og aftagende og <guilabel
+>Dato (ankomstrækkefølge)</guilabel
+> stigende og aftagende.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Brevpanelet (nederste højre del)</term
+> <listitem
+> <para
+>Denne del viser overskriften og brevkroppen for det brev der netop er valgt. Bilag ses i den nederste del af brevet. Du kan rulle gennem brevsiden side efter side ved at bruge <keycap
+>Side op</keycap
+> og <keycap
+>Side ned</keycap
+> tasterne, eller linie efter linie ved at bruge <keycap
+>pil op</keycap
+> og <keycap
+>pil ned</keycap
+> tasterne. Du kan også bruge følgende tastegenveje til at gå gennem dine breve uden at skulle bruge musen:</para
+> <informaltable
+> <tgroup cols="2"
+> <thead
+> <row
+> <entry
+>Tastaturgenvej</entry
+> <entry
+>Handling</entry
+> </row
+> </thead
+> <tbody
+> <row
+> <entry
+><keycap
+>Mellemrum</keycap
+></entry
+> <entry
+>Rul ned gennem det aktuelle brev, eller gå til næste ulæste brev, hvis du allerede er helt nede.</entry
+> </row
+> <row
+> <entry
+><keycap
+>Høje pil</keycap
+> eller <keycap
+>N</keycap
+></entry
+> <entry
+>Næste brev i aktuelle mappe</entry
+> </row
+> <row
+> <entry
+><keycap
+>Venstre pil</keycap
+> taste eller <keycap
+>P</keycap
+></entry
+> <entry
+>Forrige brev i nuværende mappe</entry
+> </row
+> <row
+> <entry
+><keycap
+>+</keycap
+></entry
+> <entry
+>Næste ulæste brev i nuværende mappe</entry
+> </row
+> <row
+> <entry
+><keycap
+>-</keycap
+></entry
+> <entry
+>Forrige ulæste brev i nuværende mappe</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry
+> <entry
+>Gå til næste mappe med ulæste breve</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry
+> <entry
+>Gå til forrige mappe med ulæste breve</entry
+> </row
+> </tbody
+> </tgroup
+> </informaltable
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Breve kan have et (ikke flere) blandt adskillige statusflag, som kan ændres fra <menuchoice
+><guimenu
+>Brev</guimenu
+><guimenuitem
+>Sæt status</guimenuitem
+></menuchoice
+> undermenuen. Statusflagene bliver beskrevet nedenfor:</para>
+
+<!-- TODO: I think it's worth adding inline images here, at some -->
+<!-- point. LW. -->
+
+<informaltable>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Status</entry
+> <entry
+>Symbol</entry
+> <entry
+>betyder</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><guimenuitem
+>Ny</guimenuitem
+></entry
+> <entry
+>Rød prik</entry
+> <entry
+>Brevet er modtaget første gang og er ulæst.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Ulæst</guimenuitem
+></entry
+> <entry
+>Grøn prik</entry
+> <entry
+>Brevet er allerede hentet fra serveren mindst en gang, men er endnu ikke blevet læst.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Læs</guimenuitem
+></entry
+> <entry
+>Streg</entry
+> <entry
+>Brevet er blevet læst</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Svaret</guimenuitem
+></entry
+> <entry
+>Blå drej-tilbage pil</entry
+> <entry
+>Et svar er blevet skrevet til dette brev.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>I kø</guimenuitem
+></entry
+> <entry
+>Konvolut</entry
+> <entry
+>Brevet er sat i kø i udbakken for at blive sendt senere.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Sendt</guimenuitem
+></entry
+> <entry
+>Konvolut i vinkel</entry
+> <entry
+>Brevet er blevet sendt.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Markeret med flag</guimenuitem
+></entry
+> <entry
+>Flag</entry
+> <entry
+>Denne status bliver ikke sat automatisk af &kmail;. Du kan bruge den frit til at markere breve på en måde som er af betydning for dig.</entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="the-composer-window">
+<title
+>Brevskriver vindue</title>
+
+<para
+><guilabel
+>Brevskriver</guilabel
+> vinduet bruges til at skrive nye breve. Det kan startes fra <menuchoice
+><guimenu
+>Brev</guimenu
+></menuchoice
+> menuen eller fra <guiicon
+>dokument</guiicon
+> ikonen på <guilabel
+>E-post læser</guilabel
+>vinduets knaplinie. Hvis du ikke har sat placeringen af din underskriftfil og du har <guilabel
+>Brug en underskrift fra fil</guilabel
+> afkrydset under <guilabel
+>Brevskriver</guilabel
+> fanebladet i <guilabel
+>Indstil &kmail;...</guilabel
+> dialogen, så vil du blive spurgt om placeringen af din underskriftfil før <guilabel
+>Brevskriver</guilabel
+> vinduet åbner.</para>
+
+<sect2 id="composing-a-message">
+<title
+>Skrive et brev</title>
+
+<para
+>For at skrive dit brev, skal du udfylde passende felter i <guilabel
+>Brevskriver</guilabel
+> vinduet. Der er en del genveje til at hjælpe med at skrive dine breve. <guiicon
+>...</guiicon
+> knapperne ved siden af <guilabel
+>Til:</guilabel
+>, <guilabel
+>Cc:</guilabel
+>, og <guilabel
+>Bcc:</guilabel
+> felterne får adressebogen frem så du kan vælge adresse derfra.</para>
+
+<para
+>Når du begynder at skrive en adresse i <guilabel
+>Til:</guilabel
+>/<guilabel
+>Cc:</guilabel
+>/<guilabel
+>Bcc:</guilabel
+> felterne, kommer en pop-op frem der tilbyder passende adresser der er blevet brugt for nylig, og passende adresser fra din adressebog. Bemærk at denne auto-fuldstændiggørelse er versalfølsom, så hvis du skriver <guilabel
+>per</guilabel
+>, vil <guilabel
+>Per Smed &lt;smed@soroe.dk&gt;</guilabel
+> ikke komme frem automatisk. Hvis du ikke kan lide den automatiske pop-op, kan du deaktivere den ved at klikke med højre museknap på feltet, og vælge en anden fuldstændiggørelses metode.</para>
+
+<para
+>Når du ønsker at have mere end en modtager i et af felterne skal du bruge et komma til at adskille adresserne fra hinanden. Du bliver måske nød til at angive fuldt kvalificeret adresse  (&ie; <userinput
+>bruger@domaene.dk</userinput
+>) selv for lokale brugere.</para>
+
+<para
+>Du kan bruge <menuchoice
+><guimenu
+>Visning</guimenu
+></menuchoice
+> menuen til at afgøre hvordan dine overskrifter skal se ud. Når du er færdig med dit brev, så tryk på <guiicon
+>Send</guiicon
+> knappen (konvolutten) for at sende brevet eller at sætte det i kø. Hvis du ikke ønsker at sende brevet endnu, så vælg <menuchoice
+><guimenu
+>Brev</guimenu
+><guimenuitem
+> Gem i kladdemappe</guimenuitem
+></menuchoice
+>. </para
+> 
+
+</sect2>
+
+<sect2 id="attachments">
+<title
+>Bilag</title>
+
+<para
+>Du kan vedlægge bilag til dit brev ved brug af en af metoderne nedenfor:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Klik på <guiicon
+>papirklips</guiicon
+> knappen og vælg filen du ønsker at vedlægge.</para
+> </listitem
+> <listitem
+> <para
+>Træk en fil fra skrivebordet eller en anden mappe til <guilabel
+>Brevskriver</guilabel
+> vinduet.</para
+> </listitem
+> <listitem
+> <para
+>Vælg en af mulighederne i <menuchoice
+><guimenu
+>Vedlæg</guimenu
+></menuchoice
+> menuen.</para
+> </listitem
+> </itemizedlist>
+
+<para
+><guilabel
+>Brevdel egenskaber</guilabel
+> dialogen vil komme frem for at bede om oplysninger angående dit bilag. &MIME;-type og <guilabel
+>Navne</guilabel
+> felterne bliver automatisk udfyldt med passende værdier. Sommetider er &MIME;-type værdien måske forkert. Du kan så skrive en vilkårlig &MIME;-type eller vælge fra listen af almindelige &MIME;-typer. Du kan også vælge en indkodningsmetode for din fil fra listen af indkodningsvalg (sædvanligvis virker standard værdien fint).</para>
+
+<para
+>Når en fil er vedlagt dit brev, viser den sig i bilag-vinduet for neden i <guilabel
+>Brevskriver</guilabel
+> vinduet. Du kan fjerne, gemme eller få oplysninger om et bilag ved at vælge dets navn i dette vindue, og vælge <menuchoice
+><guimenuitem
+>Fjern</guimenuitem
+></menuchoice
+>, <menuchoice
+><guimenuitem
+>Gem...</guimenuitem
+></menuchoice
+>, eller <menuchoice
+><guimenuitem
+>Egenskaber...</guimenuitem
+></menuchoice
+> fra <menuchoice
+><guimenu
+>Vedlæg</guimenu
+></menuchoice
+> menuen. </para>
+
+<para
+><application
+>PGP</application
+>/<application
+>GnuPG</application
+> nøgler kan også vedlægges dit brev ved at bruge passende tilvalg i <menuchoice
+><guimenu
+>Vedlæg</guimenu
+></menuchoice
+> menuen. <acronym
+>PGP</acronym
+> nøgle-bilag behandles ligesom fil-bilag.</para>
+
+<!-- copied from below -->
+<warning
+><para
+>Du kan kryptere breve, der bliver sendt med &kmail;, men det betyder ikke at bilag bliver krypterede. Du må kryptere dine bilag manuelt, ved brug af en skal-kommando eller et andet værktøj, før du vedlægger dem.</para
+></warning>
+<!-- / copied from below -->
+
+</sect2>
+
+<sect2 id="checking-the-spelling-of-your-message">
+<title
+>Stavekontrol for dit brev.</title>
+
+<para
+>For at kontrollere stavningen i dit brev skal du vælge <menuchoice
+><guimenu
+>Redigér</guimenu
+> <guimenuitem
+>Stavning...</guimenuitem
+></menuchoice
+>. &kmail; bruger &kspell; til stavekontrol, som er  &kde;'s forende til <application
+>ispell</application
+> eller <application
+>aspell</application
+> stavekontrollen. Bemærk at du måske bliver nødt til at indstille stavekontrollen ved brug af <menuchoice
+><guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Stavekontrol...</guimenuitem
+></menuchoice
+>.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="folders">
+<title
+>Brevmapper</title>
+
+<para
+>Brevmapper bruges til at organisere e-post brevene. Som standard bliver alle mapperne opbevaret i mappen <filename class="directory"
+>Mail</filename
+>, som oprettes i din hjemmemappe. Når du starter &kmail; bliver <guilabel
+>indbakke</guilabel
+>, <guilabel
+>udbakke</guilabel
+>, <guilabel
+>sendt-post</guilabel
+>, <guilabel
+>affald</guilabel
+> og <guilabel
+>kladder</guilabel
+> mapperne oprettet. Disse mapper har hver for sig særlige funktioner:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>indbakke:</guilabel
+></term
+> <listitem
+> <para
+>Hvor &kmail; som standard putter nye breve når du beder den om at tjekke din post. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>udbakke:</guilabel
+></term
+> <listitem
+> <para
+>Hvor breve puttes mens de venter på at blive sendt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>sendt-post:</guilabel
+></term
+> <listitem
+> <para
+>Indeholder kopier af alle breve, som du har sendt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>affald:</guilabel
+></term
+> <listitem
+> <para
+>Indeholder breve som du har slettet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>kladder:</guilabel
+></term
+> <listitem
+> <para
+>Indeholder breve som du er begyndt på at redigere, men ikke er blevet færdig med.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Du vil måske finde at standardmapperne dækker dine behov. Før eller siden vil du dog sikkert få brug for flere mapper til at hjælpe dig med at organisere dine breve. For at oprette en ny mappe skal du vælge <menuchoice
+><guimenu
+>Mappe</guimenu
+><guimenuitem
+>Opret...</guimenuitem
+></menuchoice
+> Et vindue vil så spørge dig om navnet på mappen. Hvis du ikke ønsker det skal være en mappe i topniveauet, kan du vælge den mappe under hvilken den skal være. Hvis du nogensinde har brug for at ændre indstillinger for en mappe, skal du blot vælge mappen du ønsker at ændre i mappevinduet og vælge <menuchoice
+><guimenu
+>Mappe</guimenu
+><guimenuitem
+>Egenskaber...</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>For at flytte breve fra en mappe til an anden, skal man vælge de breve man vil flytte og trykke på <keycap
+>M</keycap
+> tasten eller vælge <menuchoice
+><guimenu
+>Brev</guimenu
+><guimenuitem
+>Flyt til</guimenuitem
+></menuchoice
+>. En liste af mapper vil så komme frem. Vælg den mappe fra listen som du ønsker at flytte brevene til. Breve kan også flyttes ved at trække dem fra overskriftsvinduet til mappevinduet.</para>
+
+<para
+>Hvis du ønsker at rydde alle brevene i en mappe, skal du vælge <menuchoice
+><guimenu
+>Mappe</guimenu
+><guimenuitem
+>Tøm</guimenuitem
+></menuchoice
+>. Alle brevene i den valgte mappe vil så blive flyttet til affaldsmappen. Hvis den valgte mappe er <guilabel
+>affald</guilabel
+> mappen, vil brevene blive slettede permanent.</para>
+
+</sect1>
+
+<sect1 id="the-address-book">
+<title
+>Adressebogen</title>
+
+<para
+>En adressebog lader dig gemme alle dine almindeligt brugte adresser. Du kan kalde adressebogen frem fra <menuchoice
+><guimenu
+>Fil</guimenu
+></menuchoice
+> menuen, adressebogs knappen i hovedvinduet eller <guiicon
+>adressebog</guiicon
+> knappen i <guilabel
+>Brevskriver</guilabel
+> vinduet.</para>
+
+<para
+>Du kan vælge mellem forskellige typer adressebøger i <guilabel
+>Udseende</guilabel
+>/<guilabel
+>Adressebog</guilabel
+> sektionen i &kmail;'s <guilabel
+>Indstil &kmail;...</guilabel
+> dialogen.</para>
+
+<para
+>Standard adressebogen er &kaddressbook;, som har <ulink url="help:/kaddressbook"
+>sin egen dokumentation</ulink
+>.</para>
+
+<sect2 id="the-address-book-simple">
+<title
+>&kmail;'s enkle <quote
+>traditionelle</quote
+> adressebog</title>
+
+<para
+>For at tilføje adresse til adressebogen, skal man skrive adressen i den nedre sektion af vinduet og trykke på <guibutton
+>Tilføj</guibutton
+> knappen. Adressen vil så komme frem for oven i listen (næste gang du bruger adressebogen, vil den have sin rigtige plads i alfabetisk rækkefølge). For at fjerne en adresse, skal man vælge den fra listen og trykke på <guibutton
+>Fjern</guibutton
+> knappen. </para>
+
+<para
+>Adresser kan også tilføjes adressebogen fra <guilabel
+>E-post læse</guilabel
+> vinduet, ved at klikke med højre museknap på en e-post adresse i <guilabel
+>Til:</guilabel
+> eller <guilabel
+>Fra:</guilabel
+> felterne og vælge <guilabel
+>Tilføj til adressebog</guilabel
+>.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="filters">
+<title
+>Filtre</title>
+<anchor id="filters-id"/>
+
+<para
+>Efter at have brugt &kmail; et stykke tid, vil du måske finde at du har besvær med at sortere de nye breve i din indbakke når de ankommer. Filtre tillader dig at udføre visse handlinger automatisk på indkommende breve, og at udføre visse handlinger manuelt på valgte breve i en mappe.</para>
+
+<para
+>Filtre består af et søgemønster, hvis regler bruges som kriterium til at afgøre om dette filter skal anvendes på et givet brev, og en liste af handlinger, som beskriver hvad der skal gøres med eller ved brevet, hvis søgemønstret passer. Læs mere om søgemønstre og filterhandlinger i de følgende undersektioner.</para>
+
+<caution
+><para
+> Filtre betragtes en af gangen, begyndende med det første filter i listen. Det første hvis mønster passer med et givet brev udføres. Du kan bede om også at få anvendt de øvrige filtre, men standard er at standse behandlingen ved det første passende filter. </para
+></caution>
+
+<para
+>Sædvanligvis anvendes filtre på indkommende breve, men de kan også anvendes på et brev eller en gruppe af breve. For selektivt at filtrere breve, skal man vælge brevene man ønsker at filtrere og skrive <keycombo action="simul"
+>&Ctrl;<keycap
+>J</keycap
+></keycombo
+> eller vælge <menuchoice
+><guimenu
+>Brev</guimenu
+><guimenuitem
+>Anvend filtre</guimenuitem
+></menuchoice
+>. Dette vil anvende alle dine filtre på disse breve, der findes ingen måde kun at anvende visse filtre på brevene, bortset fra indkommende og udgående breve.</para>
+
+<sect2 id="filter-quick">
+<title
+>Hurtig filteroprettelse</title>
+
+<para
+>Der findes to metoder til at oprette et filter: Den hurtige metode er at bruge <menuchoice
+><guimenu
+>Brev</guimenu
+><guimenuitem
+>Opret filter</guimenuitem
+></menuchoice
+>. Dette vil kalde filterdialogen frem og præsentere dig for et nyt filter, som allerede har den første regel for søgemønster og den første handling (som <quote
+>flyt til mappe</quote
+>) sat. I de fleste tilfælde skal du ikke gøre andet end at vælge mappen som brevet skal flyttes til. Men du kan selvfølgelig redigere filteret som du har lyst.</para>
+
+<para
+>Det interessante ved denne metode er, at oprettelse af et filter på e-post lister vil prøve virkelig hårdt på at finde en overskriftsdel, der entydigt identificere post fra denne liste. Hvis du lykkes, vil det gættede navn på listen blive vist i <menuchoice
+><guimenu
+>Brev</guimenu
+><guisubmenu
+>Opret filter</guisubmenu
+><guimenuitem
+>Filtrér på E-post liste...</guimenuitem
+></menuchoice
+> menuindgangen.</para>
+
+<tip
+><para
+>I de fleste tilfælde virker dette meget fint, dog skal du sommetider slette dele af overskriften som det er sandsynligt vil blive ændret igen. Sædvanligvis virker det bedst blot at beholde liste-adressen.</para
+></tip>
+
+<para
+>Den anden metode er at konstruere et filter manuelt fra begyndelsen ved at kalde filterdialogen frem gennem <menuchoice
+><guimenu
+>Opsætning</guimenu
+><guimenuitem
+>Indstil filtre...</guimenuitem
+></menuchoice
+>. Filterdialogen bliver beskrevet i detaljer i den følgende undersektion.</para>
+</sect2>
+
+<sect2 id="filter-dialog">
+<title
+>Filterdialogen</title>
+<anchor id="filter-dialog-id"/>
+
+<para
+>Denne dialog lader dig håndtere og redigere din liste af filtre.</para>
+
+<para
+>Du kommer til den enten via <menuchoice
+><guimenu
+>Brev</guimenu
+><guisubmenu
+>Opret filter</guisubmenu
+></menuchoice
+> eller <menuchoice
+><guimenu
+>Opsætning</guimenu
+><guimenuitem
+>Filterregler...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Hvis du vil ud af denne dialog uden at bruge ændringerne, så klik på <guibutton
+>Annullér</guibutton
+> eller &Esc;.</para>
+
+<para
+>Dialogen er opdelt i fire hovedafdelinger:</para>
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Tilgængelige filtre</guilabel
+></term
+> <listitem
+><para
+>Denne gruppe indeholder listen af filtre og handlingsknapper til at ændre filtrene, nemlig at oprette nye filtre, at flytte dem op eller ned på listen eller at slette og omdøbe dem. Hvis du vælger et filter fra listen, vises dets egenskaber i højre side af dialogen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Filterkriterier</guilabel
+></term
+> <listitem
+><para
+>I denne gruppe kan du redigere mønstret som breve skal passe med for at filtret anvendes på dem. Her kan du vælge om alle definerede regler skal passe eller om det er nok at en af reglerne passer. Se <link linkend="filter-criteria"
+>Søgemønstre</link
+> nedenfor for en detaljeret beskrivelse af hver søgeregeltype.</para
+> <para
+> Du kan klikke på <guibutton
+>Mere</guibutton
+> for få flere (oprindeligt tomme) regler, hvis du ønsker at definere mere komplekse mønstre og på <guibutton
+>Færre</guibutton
+> for at fjerne den sidste regel. <guibutton
+>Ryd</guibutton
+> rydder mønstret, &ie; det fjerner alle undtagen to regler fra skærmen, og det nulstiller disse to.</para
+> <para
+>Ugyldige eller tomme regler bliver ikke evaluerede. De bliver rent faktisk fjernet internt. Om en regel anses for at være ugyldig afhænger af hvilken type regel det er, men som en tommelfingerregel kan du regne med at regler betragtes som ugyldige hvis domænet (den første komboboks i hver række) eller søgestrengen (linien der redigeres for enden af hver række) er tom. Det vil sige at du faktisk kun behøver at tømme en af disse to felter for i virkeligheden at slette en regel.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Filterhandlinger</guilabel
+></term
+> <listitem
+><para
+>I denne gruppe kan du redigere listen af handlinger som de anvendes på alle breve der passer med det definerede søgemønster. Se <link linkend="filter-action"
+>Filterhandlinger</link
+> nedenfor for en detaljeret beskrivelse af hver type.</para
+> <para
+> Du kan klikke på <guibutton
+>Mere</guibutton
+> for at få en ny tom handling hvis du ønsker at definere mere end en handling og på <guibutton
+>Færre</guibutton
+> for at fjerne den sidste handling. <guibutton
+>Ryd</guibutton
+> rydder listen, &ie; den fjerner alle undtagen en handling og nulstiller denne.</para
+> <para
+>Ugyldige eller tomme handlinger udføres ikke. Rent faktisk fjernes de internt. Om en handling betragtes som gyldigt afhænger af typen af handling, men som en tommelfingerregel kan du regne med at handlinger opfattes som tomme hvis ingen typer er valgt eller - i tilfælde af handlinger der kræver en tekstparameter (dvs en som skal indgives i en linieredigering) - parameteren er tom. Det vil sige, for i virkeligheden at slette en bestemt handling behøver du blot at fjerne dens type, &ie; vælge det sidste (tomme) punkt i type komboboksen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Avancerede indstillinger</guilabel
+></term
+><listitem
+><para
+> I denne gruppe kan du definere nogle få avancerede indstillinger for filtre, som tillader dig at forfine din filtrering.</para
+> <para
+>Ved at bruge komboboksen, kan du skifte mellem anvendelsesområdet for det tilsvarende filter. Det <guilabel
+>indkommende</guilabel
+> valg viser at det vil blive betragtet for indkommende post (&ie; ved <guimenuitem
+>Tjek post</guimenuitem
+>), mens det <guilabel
+>udgående</guilabel
+> valg viser det samme for udgående post (&ie; ved <guimenuitem
+>Send</guimenuitem
+>).</para
+> <note
+><para
+>Bemærk at det for øjeblikket ikke er muligt at definere et filter der ikke betragtes for manuel filtrering. Dette er en kendt begrænsning. </para
+></note
+></listitem
+> </varlistentry
+> </variablelist>
+
+<note
+><para
+>Filtre får automatisk navn, med mindre du eksplicit omdøber dem ved brug af <guibutton
+>Omdøb...</guibutton
+> knappen. Dialogen antager at den skal fortsætte med automatisk navngivning af filtret så længe filternavnet begynder med <quote
+>&lt;</quote
+>. </para
+></note>
+
+<para
+>Klik på <guibutton
+>O.k.</guibutton
+> knappen for at anvende alle ændringer og lukke dialogen og på <guibutton
+>Anvend</guibutton
+> for at anvende alle ændringer men lade dialogen være åben, og <guibutton
+>Annullér</guibutton
+> for at lukke dialogen uden at anvende nogen ændringer.</para>
+
+<note
+> <para
+>Hvis du anvender filterændringer, via <guibutton
+>O.k.</guibutton
+> eller <guibutton
+>Anvend</guibutton
+>, er det kun gyldige filtre der rent faktisk kopieres til den indre filterhåndtering.</para
+> <para
+>Et filter betragtes som ugyldigt hvis</para
+> <orderedlist
+> <listitem
+><para
+>søgemønstret kun indeholder tomme regler eller</para
+></listitem
+> <listitem
+><para
+>handlingslisten er tom.</para
+></listitem
+> </orderedlist
+> <para
+>Tilsvarende bliver tomme regler og handlinger fjernet fra henholdsvis mønster- og handlingslisten, før filtret gemmes.</para
+> </note>
+
+</sect2>
+
+<sect2 id="filter-criteria">
+<title
+>Søgemønstre</title>
+
+<para
+>Den mest almindelige brug af filtre er at filtrere på senderen af brevene. Dette kan gøres ved at vælge <guilabel
+>Fra</guilabel
+>. Et godt gæt på en e-post liste ville være <guilabel
+>&lt;Til eller Cc&gt;</guilabel
+>. Men der er andre kriterier et filter kan søge på.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>&lt;brev&gt;</guilabel
+></term
+> <listitem
+> <para
+>Gennemsøger hele brevet (&ie; hoveddele, brevkrop og bilag hvis der er nogle).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;brevkrop&gt;</guilabel
+></term
+> <listitem
+> <para
+>Søger brevkroppen i brevet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;vilkårlig hoveddel&gt;</guilabel
+></term
+> <listitem
+> <para
+>Søger hoveddelen af brevet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;Til eller Cc&gt;</guilabel
+></term
+> <listitem
+> <para
+>Søger i <quote
+>Til</quote
+> og <quote
+>Cc</quote
+> hovedfelterne af brevet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;størrelse&gt;</guilabel
+></term
+> <listitem
+> <para
+>Sætter øvre og nedre grænser for brevets størrelse.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;alder i dage&gt;</guilabel
+></term
+> <listitem
+> <para
+>Sætter øvre og nedre grænser for brevets alder.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>En vilkårlig anden streng</term
+> <listitem
+> <para
+>Søger hoveddelen der er givet ved denne streng.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="filter-action">
+<title
+>Filterhandling</title>
+
+<para
+>Den mest almindelige brug af filtre er at sortere indkommende breve til visse mapper. Dette kan gøres ved at vælge <guilabel
+>flyt til mappe</guilabel
+>. Her er en liste af alle mulige handlinger:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>flyt til mappe</guilabel
+></term
+> <listitem
+> <para
+>Dette vil flytte brevet til en anden mappe. Du kan for øjeblikket ikke bruge <acronym
+>IMAP</acronym
+> mapper som mål.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>markér som</guilabel
+></term
+> <listitem
+> <para
+>Dette tillader dig at markere brevet som læst eller vigtigt (med flag), men også som videresendt, svaret på &etc;</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>sæt identitet til</guilabel
+></term
+> <listitem
+> <para
+>Dette vil sætte <emphasis
+>din</emphasis
+> identitet hvis du svarer på dette brev.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>sæt overførselsmetode til</guilabel
+></term
+> <listitem
+> <para
+>Dette vil sætte overførselsmetoden (&eg; <acronym
+>SMTP</acronym
+>) hvis du svarer på brevet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>sæt Reply-To til</guilabel
+></term
+> <listitem
+><para
+>Vil ændre <guilabel
+>Reply-To</guilabel
+> feltet i dette brev. Dette kan være nyttigt for e-post lister som automatisk sætter et Reply-To som du ikke kan lide.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>send videre til</guilabel
+></term
+> <listitem
+><para
+>Vil sende brevet videre til en anden e-post adresse.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>omdirigér til</guilabel
+></term
+> <listitem
+><para
+>Vil omdirigere brevet til en anden e-post adresse.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>afvis</guilabel
+></term
+> <listitem
+><para
+>Vil forsøge at sende brevet tilbage til afsenderen som ikke leverbart.</para
+> <caution
+><para
+>Dette virker kun hvis senderens e-post adresse er gyldig. Dette er <emphasis
+>ikke</emphasis
+> tilfældet for det meste skidtpost.</para
+></caution
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bekræft modtagelse</guilabel
+></term
+> <listitem
+><para
+>Vil forsøge at sende et brev til afsenderen der indikerer at brevet, han eller hun sendte, er blevet korrekt modtaget.</para
+> <para
+>Dette tillader dig at vælge hvem der får modtagelseskvitteringer fra dig. Selvom du kan aktivere afsending af modtagelseskvitteringer i <guilabel
+>Indstil &kmail;...</guilabel
+> dialogen (sektion <guilabel
+>Sikkerhed</guilabel
+>) anbefaler vi ikke at sende dem til alle, da det gør sporing af sådanne ting som skidtpost meget nemt for afsenderen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>fjern hoved</guilabel
+></term
+> <listitem
+> <para
+>Vil fjerne <emphasis
+>alle</emphasis
+> hovedfelter med det givne navn fra brevet. Dette er hovedsageligt nyttigt til at fjerne falske <quote
+>Reply-To:</quote
+> hoveddele.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>tilføj hoved</guilabel
+></term
+> <listitem
+> <para
+>Hvis der ikke allerede er et sådant felt til stede, vil det tilføje et nyt felt i hovedet med det givne navn og den givne værdi til brevet. Hvis der allerede er et felt med dette navn, vil det blive overskrevet med den nye (den givne) værdi. Hvis der allerede er flere felter med det givne navn (&eg; <quote
+>Modtaget:</quote
+>), vil en vilkårlig af den blive overskrevet og de andre forblive uændrede. Dette er en kendt begrænsning. Du vil måske ønske at kombinere dette filter med <guilabel
+>fjern hoved</guilabel
+> filteret ovenfor for at være sikker på at ingen andre hoveddele med dette navn er i brevet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>genskriv hoved</guilabel
+></term
+> <listitem
+> <para
+>Vil skanne det givne hovedfelt, ændre dets indhold og skrive det tilbage. Søgestrengen bliver altid fortolket som et versalfølsomt regulært udtryk. Erstatningsstrengen bliver indsat som den er undtagen forekomster af <userinput
+>\n</userinput
+>, <userinput
+>$n</userinput
+> og <userinput
+>${nn}</userinput
+>, hvor <userinput
+>n</userinput
+> er et positivt (et-ciffer, undtagen i tredje form) tal eller <userinput
+>0</userinput
+>. Disse konstruktioner bliver fortolkede som referencer tilbage til delstrenge indfanget i parenteser i søgestrengen.</para
+><para
+>Analoge begrænsninger som i <guilabel
+>tilføj hoveddel</guilabel
+> handlingen gælder også her.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>udfør kommando</guilabel
+></term
+> <listitem
+> <para
+>Dette vil køre et program, men vil ikke ændre brevet. Angiv den fulde sti til programmet du ønsker at køre. &kmail; vil standse indtil programmet vender tilbage. Du kan føde programmet med dele af e-brevet:  <symbol
+>&percnt;0</symbol
+>, <symbol
+>&percnt;1</symbol
+>, &etc; står for filer repræsenterende brevets dele. For almindelig post er <symbol
+>&percnt;0</symbol
+> teksten, <symbol
+>&percnt;1</symbol
+> det første bilag og så videre. Derudover fødes hele brevet til programmets <acronym
+>stdin</acronym
+>.</para
+> <caution
+><para
+>Dette virker for øjeblikket kun hvis brevet har <emphasis
+>mindst et</emphasis
+> bilag. Intet, selv ikke <symbol
+>&percnt;0</symbol
+> vil virke i det generelle tilfælde!</para
+></caution
+> <tip
+><para
+> Du kan indgive vilkårligt komplekse skalkommandoer her, da &kmail; bruger en underskal til at køre kommandolinien. Derfor vil selv denne kommando virke (indenfor sine begrænsninger): <userinput
+><command
+>uudecode</command
+> <option
+>-o</option
+> <parameter
+>$(mktemp kmail-uudecoded.XXXXXX)</parameter
+> &amp;&amp; <command
+>echo</command
+> <parameter
+>$'\a'</parameter
+></userinput
+></para
+></tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>send videre gennem</guilabel
+></term
+> <listitem
+> <para
+>Dette vil føde brevet til et program. Hvis programmet giver uddata vil hele brevet (inklusive hovedet) blive erstattet med denne uddata. Hvis programmet ikke producerer uddata, vi brevet ikke blive ændret. Angiv fuld sti til programmet.</para
+> <caution
+><para
+>Pas på med dette, da det nemt kan give rod i dine breve hvis filterprogrammet blot returnerer sludder eller ekstra linier.</para
+></caution
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="filter-examples">
+<title
+>Filtereksempler</title>
+
+<para
+>Hvis jeg abonnerer på den (generelle) &kde; liste, kan jeg oprette en mappe for listen (Jeg vil kalde den <replaceable
+>KDE-Generel</replaceable
+>) og bruge et filter til automatisk overførsel af nye breve fra min indbakke til min <replaceable
+>KDE-Generel</replaceable
+> mappe, hvis de kommer fra &kde; listen. Dette viser hvordan jeg opretter et sådant filter:</para>
+
+<procedure
+> <title
+>Filtrering af e-post liste</title
+> <step
+> <para
+>Prøv om <menuchoice
+><guimenu
+>Brev</guimenu
+><guisubmenu
+>Opret filter</guisubmenu
+><guimenuitem
+>Filtrér på E-post liste...</guimenuitem
+></menuchoice
+> kan identificere e-post listen (så skulle navnet på listen vise sig i menupunktet). I dette tilfælde virker dette, og jeg bliver præsenteret for et filter der har <quote
+>X-Mailing-List <guilabel
+>lig med</guilabel
+> &lt;kde@lists.netcentral.net&gt;</quote
+> sat. Du vælger nu den ønskede målmappe fra mappe træk-ned menuen i <guilabel
+>Filter handling</guilabel
+> gruppen, og det er det hele.</para
+> <para
+>Hvis dette ikke virker, så prøv at tænke på en entydig måde at identificere brevene du ønsker at filtrere. Den (næsten) entydige egenskab for mine &kde; liste breve er at de altid indeholder <quote
+>kde@lists.netcentral.net</quote
+> i<guilabel
+>Til:</guilabel
+> eller <guilabel
+>Cc:</guilabel
+> feltet. Det er kun næsten entydigt, da det mislykkes for krydspostede breve.</para
+> </step
+> <step
+> <para
+>Vælg <menuchoice
+><guimenu
+>Opsætning</guimenu
+><guimenuitem
+>Filterregler...</guimenuitem
+></menuchoice
+>.</para
+> </step
+> <step
+> <para
+>Tryk på <guibutton
+>Ny</guibutton
+> knappen for at lave et tomt filter. Det vil vise sig som <guilabel
+>&lt;unavngivent&gt;</guilabel
+>.</para
+> </step
+> <step
+> <para
+>I <guilabel
+> Filterkriterier</guilabel
+> området, vælg <guilabel
+>&lt;Til: eller Cc:&gt;</guilabel
+> fra den første træk-ned menu, <guilabel
+>indeholder</guilabel
+> fra den anden træk-ned menu, <userinput
+>kde@lists.netcentral.net</userinput
+> i tekstfeltet.</para
+> </step
+> <step
+> <para
+>Spring ned til handling afdelingen. Vælg <guilabel
+>flyt til mappe</guilabel
+> fra den første træk-ned menu. En ny træk-ned menu der indeholder en liste af mapper vil komme frem. Vælg den mappe du ønsker de filtrerede breve skal overføres til, hvis de passer med de  kriterier, du har valgt. For dette eksempel ville du vælge <guilabel
+>KDE-Generel</guilabel
+> fra træk-ned menuen.</para
+> </step
+> </procedure>
+
+<para
+>Du vil måske finde at du har brug for kraftigere kriterier for at filtrere dine breve rigtigt. For eksempel vil du måske kun filtrere &kde;-liste breve der er skrevet af din ven Claus Hindsgaul &lt;ch@etsted.dk&gt;. Det er her resten af de passende kriterier sektionen kommer i spil:</para>
+
+<procedure
+> <title
+>Udvidelse af filtret</title
+> <step
+> <para
+>Åbn <guilabel
+>Indstil filtre...</guilabel
+> vinduet og vælg det filter du netop lavede.</para
+> </step
+> <step
+> <para
+>Da du ønsker at filtrere alle breve der har <quote
+>kde@lists.netcentral.net</quote
+> i <guilabel
+>Til:</guilabel
+> eller <guilabel
+>Cc:</guilabel
+> feltet <emphasis
+>og</emphasis
+> som er fra Claus, afkryds <guibutton
+>Passer med alle følgende</guibutton
+> radioknappen.</para
+> </step
+> <step
+> <para
+>Gå nu til den anden søgeregel og vælg følgende fra træk-ned menuerne: <guilabel
+>Fra</guilabel
+>, <guilabel
+>indeholder</guilabel
+>. Skriv nu <userinput
+>ch@etsted.dk</userinput
+> i tekstfeltet.</para
+> </step
+> </procedure>
+
+<para
+>Du har nu et filter der overfører alle &kde;-liste breve der er fra ch@etsted.dk.</para>
+</sect2>
+</sect1>
+
+<sect1 id="multiple-accounts">
+<title
+>Flere konti</title>
+
+<para
+>Flere konti bruges til at tjekke for breve fra mere end en e-post adresse og/eller e-post server. Vælg <menuchoice
+><guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Indstil &kmail;...</guimenuitem
+></menuchoice
+> og klik på <guilabel
+>Netværk</guilabel
+> fanebladet for at tilføje til eller ændre din konto opsætning. Se <link linkend="getting-started"
+>Hvordan kommer vi i gang</link
+> sektionen, hvis du vil vide mere om indstillingerne under <guilabel
+>Netværk</guilabel
+> fanebladet.</para>
+
+<para
+>For at tjekke for breve fra en bestemt konto, bruger man  <menuchoice
+><guimenu
+>Fil</guimenu
+><guimenuitem
+>Tjek post  i...</guimenuitem
+></menuchoice
+> undermenuen for at vælge den konto man vil tjekke for post. Man kan også trykke med museknappen på <guiicon
+>Tjek post</guiicon
+> ikonen et stykke tid for at få en liste af konti.</para>
+
+</sect1>
+
+<sect1 id="pgp">
+<!-- This section is from Andreas Gungl, 2000-05-21 -->
+<title
+><application
+>Temmelig god privatlivsbeskyttelse (Pretty Good Privacy)</application
+> (<application
+>PGP</application
+>) / <application
+>GNU Privatlivs beskyttelse</application
+> (<application
+>GnuPG</application
+>)</title>
+
+<para
+>Dette er en kort introduktion til hvordan man skal sætte  &kmail;'s <application
+>PGP</application
+> støtte op. Den vil også give dig nogle vink om brugen af <application
+>PGP</application
+>. Den er skrevet for folk der er begyndere på dette område. Hvis du kender til brugen af <acronym
+>PGP</acronym
+>, kan du springe over de fleste af punkterne. Denne dokumentation (og &kmail;'s brugerflade) taler generelt kun om <quote
+>PGP</quote
+>, men det hele gælder både for <application
+>PGP</application
+> og <application
+>GnuPG</application
+>, selvom visse <application
+>GnuPG</application
+> kommandolinie parametre kan være anderledes.</para>
+
+<para
+>Undersøg venligst også <link linkend="pgp-faq"
+>&FAQ; punktet om <application
+>PGP</application
+></link
+>.</para>
+
+<warning
+><para
+>Du kan kryptere breve, der bliver sendt med &kmail;, men det betyder ikke at bilag bliver krypterede. Du må kryptere dine bilag manuelt, ved brug af en skal-kommando eller et andet værktøj, før du vedlægger dem.</para
+></warning>
+
+<warning
+><para
+>&kmail; afhænger af <application
+>PGP</application
+>'s uddata. Denne uddata er ofte ændret mellem forskellige udgaver af <application
+>PGP</application
+>, så det er vigtigt at du tester om krypteringen virkelig virker med din opsætning, før du begynder på at bruge den for alvor. &kmail; vil måske <emphasis
+>ikke</emphasis
+> advare dig hvis noget går galt. Du må hellere aktivere <guilabel
+>Vis ciffer/signeret tekst efter komposition</guilabel
+>. </para
+></warning>
+
+<para
+>For at sætte støtte for <application
+>PGP</application
+> op i &kmail; og bruge den, er det nødvendigt at have <application
+>PGP</application
+> installeret og sat rigtigt op. Vi kan naturligvis ikke give en fuld introduktion til <application
+>PGP</application
+> her. Vi vil blot nævne de skridt man skal igennem for at få <application
+>PGP</application
+> i gang. For yderligere detaljer bør du kigge på den glimrende <application
+>PGP</application
+> dokumentation eller <ulink url="http://www.gnupg.org/docs.html#guides"
+>GNU Privacy Handbook</ulink
+>.</para
+> 
+
+<para
+>Det er bestemt en god idé at studere denne dokumentation og også at kigge på en introduktion til offentlig nøgle kryptografi (&eg; fra <application
+>PGP</application
+> 6.5.x pakken). Der kan du lære en masse om de grundlæggende begreber, hvilket vil hjælpe dig med at forstå, hvad der foregår. Der er også mange sikkerhedsrelaterede problemer, som du bør kende til, der bliver diskuteret her.</para>
+
+<para
+>Lad os begynde nu.</para>
+
+<sect2 id="pgp-preconditions">
+<title
+>Forudsætninger</title>
+
+<para
+>&kmail; forventer at din <application
+>PGP</application
+> binære hedder <command
+>pgp</command
+>. I tilfælde af <application
+>GnuPG</application
+>, forventer den at den binære hedder <command
+>gpg</command
+>. Hvis dette ikke er tilfældet må du lave en symlænke.</para>
+
+<para
+>Hvis du ikke har gjort det, så må du generere et nøglepar (hemmelig og offentlig nøgle) for din identitet. Du må gøre dette på kommandolinien (brug <userinput
+><command
+>pgp</command
+> <option
+>-kg</option
+></userinput
+>). &kmail; har ingen indre støtte for <application
+>pgp</application
+>'s nøgle generering for øjeblikket. Identiteten (sædvanligvis dit navn fulgt af din e-pst adresse indenfor paranteser, såsom <userinput
+>Per Smed &lt;per@eksempel.dk&gt;</userinput
+>) og dit løsen er vigtigt for samarbejdet mellem &kmail; og <application
+>pgp</application
+>.</para>
+
+</sect2>
+
+<sect2 id="pgp-settings">
+<title
+><application
+>PGP</application
+> Relateret opsætning i &kmail;</title>
+
+<para
+>Indtast din <application
+>PGP</application
+> brugeridentitet i det tilsvarende felt i  <guilabel
+>Identitet</guilabel
+> opsætning. Vælg så <guilabel
+>PGP</guilabel
+> fanebladet på <guilabel
+>Sikkerhed</guilabel
+> opsætningssiden. Der vil du finde følgende valg:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Behold løsen i hukommelsen</guilabel
+></term
+> <listitem
+> <para
+>Når dette tilvalg er slået fra, vil &kmail; bede om dit løsen hver gang du underskriver et brev (før du sender) eller vælger et krypteret brev. Hvis du slår det til, vil &kmail; huske dit løsen indtil du afslutter din &kmail; session. Løsenet gemmes i hukommelsen, og bliver ikke skrevet på den hårde disk.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Indkod altid til dig selv</guilabel
+></term
+> <listitem
+> <para
+>Hvis dette tilvalg er fra, og du ønsker at sende et krypteret brev til nogen, så kan du ikke længere læse brevet efter du har skrevet og krypteret det. Slå dette tilvalg til for at holde sendte krypterede breve læsbare for digselv.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vis ciffer tekst efter komposition</guilabel
+></term
+> <listitem
+> <para
+>Dette vil vise dig resultatet af kryptering og underskrift før brevet bliver sendt. På denne måde kan du stadig annullere afsendingen hvis krypteringen mislykkedes. Det anbefales stærkt at bruge denne mulighed.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Krypteringsværktøj</guilabel
+></term
+> <listitem
+> <para
+>Her kan du vælge om du ønsker at bruge <application
+>PGP</application
+>, <application
+>GnuPG</application
+> eller slet ingen krypteringsprogrammel overhovedet. Programmet du vælger skal selvfølgeligvære installeret på dit system. Det er også vigtigt at vælge den rigtige udgave.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>På <guilabel
+>Brevskriver</guilabel
+> fanebladet kan du også afkrydse <guilabel
+>Underskriv breve automatisk ved brug af PGP</guilabel
+>. Dette betyder at alle dine breve vil blive underskrevet før de bliver sendt. (Så du ikke behøver sætte underskriftsvalget for hvert brev manuelt).</para>
+
+<para
+>Nu kan du underskrive udgående breve. For at lade folk sende krypterede breve til dig og lade dem verificere din underskrift, må du sende dem din offentlige nøgle eller oplægge din offentlige nøgle til en offentlig <application
+>PGP</application
+> nøgleserver, så de kan hente din nøgle derfra. For at sende krypterede breve til andre mennesker eller for at verificere deres underskrevne breve, vil du få brug for deres offentlige nøgler. Du kan gemme dine offentlige nøgler på en offentlig <application
+>PGP</application
+> nøgleserver såsom <ulink url="http://www.cam.ac.uk.pgp.net/pgpnet/"
+>http://www.cam.ac.uk.pgp.net/pgpnet/</ulink
+>.</para>
+
+</sect2>
+
+<sect2 id="pgp-sign-your-messages">
+<title
+>Underskriv dine breve</title>
+
+<para
+>Du skriver dine breve som sædvanligt i <guilabel
+>Brevskriver</guilabel
+> vinduet for &kmail;. Før du sender brevet, afkrydser du knappen med den underliggende ikon på sig, i værktøjslinien i brevskrivervinduet. Så kan du sende brevet. For at underskrive det må &kmail; kende dit <application
+>PGP</application
+> løsen. Hvis du ikke valgte <guilabel
+>Behold løsen i hukommelsen</guilabel
+> i <guilabel
+>Sikkerhed</guilabel
+> opsætningsfanebladet, så vil &kmail; bede dig om det. På den anden side, hvis du allerede har givet løsenet til  &kmail;, vil den underskrive brevet uden yderligere spørgsmål.</para>
+
+</sect2>
+
+<sect2 id="pgp-send-your-public-key">
+<title
+>Send din offentlige nøgle</title>
+
+<para
+>Forbered et brev til den person, du ønsker at sende din offentlige nøgle til. Vælg så i <guilabel
+>Brevskriver</guilabel
+> vinduets menu <menuchoice
+><guimenu
+>Vedlæg</guimenu
+><guimenuitem
+>Vedlæg min offentlige nøgle</guimenuitem
+></menuchoice
+>. Dette vil vedlægge din offentlige nøgle ved e-brevet. Nu kan du sende brevet.</para>
+
+<para
+>Husk at det slet ikke er sikkert, hvis du underskriver brevet for at sørge for at modtageren får den rigtige nøgle. Der kan være et mand- i midten angreb, hvor nogen kan ændre nøglen og underskrive brevet med denne anden nøgle. Det er derfor modtageren skal verificere den vedlagte nøgle ved at tjekke nøglens fingeraftryk mod et, der er modtaget på en sikker måde fra dig. Kig på <application
+>PGP</application
+> dokumentationen for yderligere detaljer.</para>
+
+</sect2>
+
+<sect2 id="pgp-you-got-an-encrypted-message">
+<title
+>Du fik et krypteret brev</title>
+
+<para
+>Alt du behøver at gøre er at vælge brevet i &kmail;. Du vil blive bedt om dit løsen. Så vil &kmail; forsøge at afkryptere brevet og vise den almindelige tekst, hvis brevet er indkodet med din offentlige nøgle. (Hvis ikke vil du ikke være i stand til at læse det).  &kmail; opbevarer brevene krypterede, så ingen kan læse disse breve uden at kende dit løsen.</para>
+
+</sect2>
+
+<sect2 id="pgp-receiving-a-public-key">
+<title
+>Modtagelse af offentlig nøgle</title>
+
+<para
+>Du kan modtage en offentlig nøgle som et bilag eller via http, ftp eller en floppy. Før du kan bruge den til at afkryptere breve fra nøglens ejer, bør du verificere nøglen (tjek dens fingeraftryk eller kigge efter nøgler der stoles på). Derpå kan du tilføje denne nøgle til din offentlige nøglering ved at skrive <userinput
+><command
+>pgp</command
+> <option
+>-ka</option
+> <replaceable
+>filename</replaceable
+></userinput
+> på kommandolinien, hvis du bruger <application
+>PGP</application
+> eller ved at skrive <userinput
+><command
+>gpg</command
+> <option
+>--import</option
+> <replaceable
+>filnavn</replaceable
+></userinput
+> på kommandolinien hvis du bruger <application
+>GnuPG</application
+>. Hvis nøglen ikke er godkendt med en underskrift der stoles på og du bruger <application
+>PGP</application
+>, kan du ikke bruge den med &kmail; til af afkryptere breve, med mindre du har underskrevet den nøgle (brug <userinput
+><command
+>pgp</command
+> <option
+>-ks</option
+> <replaceable
+>identiteten for nøglen</replaceable
+></userinput
+>). Med <application
+>GnuPG</application
+>, på den anden side er det for øjeblikket muligt at afkryptere med nøgler der ikke stoles på.</para>
+
+</sect2>
+
+<sect2 id="pgp-encrypt-your-messages">
+<title
+>Brug andre menneskers offentlige nøgler - Krypter dine breve</title>
+
+<para
+>For at sende et krypteret brev til nogen hvis offentlige nøgle du har, skriver du simpelthen brevet i brevskriver vinduet. Før du sender brevet afkrydser du knappen med låsesymbolet i værktøjslinien af brevskrivervinduet. Send så brevet.</para>
+
+<para
+>&kmail; bruger altid den første nøgle der passer med modtagerens adresse til at afkode brevet. Hvis &kmail; ikke kan finde en passende nøgle, vil den vise en liste der indeholder alle tilgængelige nøgler. Du kan så vælge en passende nøgle fra listen eller fortryde det hele. &kmail; vil muligvis også informere dig om fejl under krypteringsprocessen.</para>
+
+<para
+>Som nævnt ovenfor, vil du ikke være i stand til at læse dine egne krypterede breve, hvis du ikke afkrydser <guilabel
+>Kryptér altid til dig selv</guilabel
+> i opsætningens <guilabel
+>Sikkerhed</guilabel
+> faneblad.</para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="configure">
+<title
+>Indstil &kmail;</title>
+
+<para
+>&kmail;'s opsætningsvindue giver dig en række måder at indstille &kmail;.</para>
+
+<sect1 id="identity-tab">
+<title
+>Identitets fanebladet</title>
+
+<para
+>Identitets fanebladet er beskrevet i <link linkend="getting-started"
+>Hvordan kommer vi i gang</link
+> sektionen.</para>
+
+</sect1>
+
+<sect1 id="network-tab">
+<title
+>Netværks fanebladet</title>
+
+<para
+>Netværks fanebladet er beskrevet i <link linkend="setting-up-your-account"
+>Opsætning af din konto</link
+> sektionen.</para>
+
+</sect1>
+
+<sect1 id="appearance-tab">
+<title
+>Tilsynekomstmærke</title>
+
+<sect2 id="appearance-tab-fonts">
+<title
+>Skrifter</title>
+
+<para
+>Denne sektion tillader dig at ændre type, størrelse og tegnsæt for skrifttyperne.  <guilabel
+>Brevkrop</guilabel
+> sætter skrifttypen både for læse- og brevskrivervinduet. Der er en separat indgang for <guilabel
+>Brevliste - Datofelt</guilabel
+> så du kan vælge en ikke-proportional skrifttype for datofeltet, så det bliver nemmere at læse.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-colors">
+<title
+>Farver</title>
+
+<para
+>Denne sektion tillader dig at ændre farve på teksten. <guilabel
+>Genbrug farver ved dybt citat</guilabel
+> betyder at selv tekst der er citeret mere end tre gange vil blive vist i farve.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-layout">
+<title
+>Layout</title>
+
+<para
+><guilabel
+>Vis lang mappeliste</guilabel
+> lader dig skifte mellem lang og kort mappeliste. Den lange mappeliste viser mapper hele vejen ned i venstre side af &kmail;'s hovedvindue, hvilket lader dig se flere mapper end i den korte visning, men det tager noget af pladsen til at se breve væk. Med <guilabel
+>Vis brevstørrelser</guilabel
+> valgt, vil der være en ekstra søjle i overskriftspanelet, der viser brevenes størrelse i byte. <guilabel
+>Tråd liste af brevhoveder</guilabel
+> vil putte alle brevene i en slags træ, så svar på et brev er nedenfor vedkommende brev.</para>
+
+<para
+>Med <guilabel
+>Brev hovedtrådningsegenskaber</guilabel
+> kan du vælge under hvilke betingelser tråde skal være åbne som standard (&ie; ikke kollapsede). Du kan stadigvæk åbne/lukke tråde ved brug af <guilabel
+>+</guilabel
+>/<guilabel
+>-</guilabel
+> knapperne, hvis du ikke deaktiverer dette her.</para>
+
+<para
+>Med <guilabel
+>Visning af dato</guilabel
+> kan du vælge mellem adskillige datoformater. Det <guilabel
+>Lokaliserede format</guilabel
+> er det du vælger i  &kcontrol;.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-profiles">
+<title
+>Profiler</title>
+
+<para
+>Denne sektion tilbyder adskillige standardopsætninger.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-addressbook">
+<title
+>Adressebog</title>
+
+<para
+>Denne sektion lader dig vælge mellem adskillige adressebøger. Mens <guilabel
+>Traditionel KMail</guilabel
+> er meget enkel og <guilabel
+>&kaddressbook;</guilabel
+> er avanceret - anbefaler vi at bruge &kaddressbook;. Bemærk at du har brug for kdeutils pakken for at bruge <guilabel
+>KAB</guilabel
+>.</para>
+
+<para
+>Mens <guilabel
+>Traditionel KMail</guilabel
+> databasen er uafhængig (&ie; du vil ikke kunne se adresser i <guilabel
+>KAB</guilabel
+>/<guilabel
+>&kaddressbook;</guilabel
+> hvis du kun indtastede dem i <guilabel
+>Traditionel KMail</guilabel
+> adressebogen), vil <guilabel
+>KAB</guilabel
+> og <guilabel
+>&kaddressbook;</guilabel
+> bruge samme database.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-messages-scoring">
+<title
+>Brev scoring</title>
+
+<para
+>I denne sektion kan du håndtere brevregler der definerer et brevs scoring. Hvis mindst en regel er defineret for en mappe, så vil en <guilabel
+>Score</guilabel
+> søjle vise sig i overskriftpanelet for vedkommende mappe. Hver regel har et navn, en liste af mapper hvor den er aktiv, en eller flere betingelser, der bestemmer om regelen passer til et brev, og en eller flere handlinger der udløses hvis en betingelse passer. Dette begreb er meget lignende <link linkend="filters"
+>filtre</link
+>.</para>
+
+<para
+>Den mest nyttige handling er  <guilabel
+>justér scoring</guilabel
+>. Den vil forøge eller formindske scoringen for et brev. Ideen er at vigtige breve har en høj scoring, og du kan så bruge score-søjlen til at sortere dine breve.</para>
+
+<para
+><guilabel
+>vis brev</guilabel
+> handlingen vil vise en dialog når du går ind i en mappe med et passende brev.</para>
+
+<!-- fixme?: date + less than/greater than broken in kmail -->
+<!-- fixme?: "group" wording in program -->
+
+</sect2>
+
+</sect1>
+
+<sect1 id="composer-tab">
+<title
+>Brevskriver fanebladet</title>
+
+<sect2 id="composer-tab-general">
+<title
+>Generelt</title>
+
+<para
+><guilabel
+>Udtryk</guilabel
+> sektionen lader dig definere de automatisk genererede linier der tilføjes til brevsvar, videresendte brev og citeret tekst. Der er særlige &percnt;-betegnede tegn, der vil indsætte visse værdier. Disse vises for oven af <guilabel
+>Udtryk</guilabel
+> sektionen: <symbol
+>%D</symbol
+> for at indsætte datoen, <symbol
+>%S</symbol
+> for at indsætte emnet, <symbol
+>%F</symbol
+> for at indsætte afsenderen, <symbol
+>%%</symbol
+> for at indsætte et procent tegn, <symbol
+>%_</symbol
+> for at indsætte et mellemrum, og <symbol
+>%L</symbol
+> for at indsætte et linieskift. Du kan tilføje svarudtryk i andre sprog end dit standard &kde; sprog, ved brug af <guilabel
+>Sprog</guilabel
+> knappen. Dette virker kun for sprog hvis i18n pakke er installeret.</para>
+
+<para
+><guilabel
+>Indrykning</guilabel
+> feltet indeholder det tegn der vil blive brugt til citeret tekst (du vil formodentlig ønske at bruge standarden).</para>
+
+<para
+><guilabel
+>Vedlæg underskriftsfil automatisk</guilabel
+> lader dig skifte imellem om du automatisk vil inkludere din underskrift som defineret i <link linkend="setting-your-identity"
+>identitets fanebladet</link
+>.</para>
+
+<para
+><guilabel
+>Brug automatiske anførselstegn</guilabel
+> vil ombryde lange linier men vil altid beholde den rigtige citering (&eg; <quote
+>&gt; </quote
+> vil altid være i begyndelsen af linien).</para>
+
+<para
+><guilabel
+>Underskriv breve automatisk med PGP</guilabel
+> lader dig skifte imellem om du automatisk vil underskrive dine breve som standard. Du kan naturligvis stadig afvælge ikonen i brevskrivervinduet for hvert brev, hvis det skulle være nødvendigt.</para>
+
+<para
+><guilabel
+>Linieskift ved søjle</guilabel
+> lader dig slå tekstombrydning til og fra i <guilabel
+>Brevskriver vinduet</guilabel
+> og lader dig sætte søjlen hvor ord bliver ombrudt (du har formodentlig ikke brug for at ændre standard værdien som er <userinput
+>78</userinput
+>).</para>
+
+</sect2>
+
+<sect2 id="composer-tab-editor">
+<title
+>Redigering </title>
+
+<para
+>Hvis du ikke kan lide <guilabel
+>Brevskriveren</guilabel
+> kan du bruge en anden tekstredigering. Bemærk at <guilabel
+>Brevskriver</guilabel
+> vinduet stadig vil blive åbnet, men en ydre tekstredigering vil åbne så snart du skriver blot et tegn i kroppen af brevet. Når du er færdig, gem teksten og gå ud af redigeringen. Teksten vil nu komme frem i <guilabel
+>Brevskriver</guilabel
+> vinduet, hvor du kan senden den.</para>
+
+</sect2>
+
+<sect2 id="composer-tab-subject">
+<title
+>Emne</title>
+
+<para
+>Denne sektion indeholder en liste af præfixer for <quote
+>Svar</quote
+> og <quote
+>Videresend</quote
+>. Hvis du modtager breve der bruger andre end standard præfixer, kan du tilføje dem her, så &kmail; vil genkende dem (på denne måde kan &kmail; ignorere dem hvad angår sortering af breve, eller erstatte dem hvis du synes).</para>
+
+</sect2>
+
+<sect2 id="composer-tab-charset">
+<title
+>Tegnsæt</title>
+
+<para
+>I <guilabel
+>Tilgængelige tegnsæt</guilabel
+> sektionen kan du håndtere de tegnsæt der er tilgængelige for dine egne breve. Tegnsættene i listen findes i brevskriverens <menuchoice
+><guimenu
+>Indstillinger</guimenu
+><guimenuitem
+>Sæt tegnsæt</guimenuitem
+></menuchoice
+> menu.</para>
+
+<para
+><guilabel
+>Standard tegnsæt</guilabel
+> sektionen lader dig vælge et standard tegnsæt for dine egne breve. Hvis du vælger  <guilabel
+>Brug eget standard tegnsæt ved svar eller videresende</guilabel
+>, så vil det oprindelige brevs tegnsæt blive ignoreret, og dit tegnsæt vil blive brugt til at svare og videresende.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="mime-tab">
+<title
+>&MIME;-hoveder faneblad</title>
+<!-- fixme in kmail, too: "headers tab" -->
+
+<para
+><guilabel
+>Opret egne Message-Id hoveder</guilabel
+> sektionen lader dig definere hvordan dine breves  Message-Id felt bliver genereret. Message-Id skal have en endelse der er entydig verden over. Afhængig af din opsætning, er dette måske allerede tilfældet. Du bør sende dig selv et brev og kigge på hoveddelene. Hvis det indeholder et Message-Id der ender med <quote
+>localhost</quote
+> eller en anden streng der ikke er garanteret entydig, så må du vælge <guilabel
+>Opret egne Message-Id hoveder</guilabel
+> og sætte en entydig endelse. Det bedste er at bruge navnet på et domæne, du selv ejer.</para>
+
+<para
+><guilabel
+>Definer brugervalgte mime hoveddele</guilabel
+> sektionen sætter de hoveddele som &kmail; vil bruge til udgående breve. Du kan både opfinde nye felter og overskrive eksisterende. Denne egenskab er kun nyttig for avancerede brugere.</para>
+
+</sect1>
+
+<sect1 id="security-tab">
+<title
+>Sikkerheds fanebladet</title>
+
+<sect2 id="security-tab-general">
+<title
+>Generelt</title>
+
+<para
+><guilabel
+>Foretræk HTML for almindelig tekst</guilabel
+> vil vise <acronym
+>HTML</acronym
+> breve med deres <acronym
+>HTML</acronym
+> formatering og udlægning. Vi anbefaler stærkt at slå dette tilvalg fra, da sikkerhedsproblemer med <acronym
+>HTML</acronym
+> måske vil vise sig. Når dette tilvalg er slået fra, kan du stadig læse <acronym
+>HTML</acronym
+> breve, men kun som almindelig tekst.</para>
+
+<para
+><guilabel
+>Indlæs ydre referencer fra nettet</guilabel
+> vil indlæse ydre billeder, stilark &etc; fra internettet når du kigger på et <acronym
+>HTML</acronym
+> brev. Vi anbefaler stærkt at lade dette tilvalg være slået fra (selvom det ingen virkning har hvis <guilabel
+>Foretræk HTML for almindelig tekst</guilabel
+> allerede er slået fra). Ved at tilføje ydre referencer til deres e-breve, kan folk der sender skidtpost detektere at du har kigget på deres breve. Bemærk at dette tilvalg ingen virkning har på &Java;, Javascript og indstik - disse er deaktiverede alligevel og kan slet ikke aktiveres over hovedet.</para>
+
+<para
+><guilabel
+>Send modtage- og læsebekræftelser automatisk</guilabel
+> vil sende en bekræftelse i form af et nyt brev) til afsenderen af brevet, hvis vedkommende bad om det. Hvis du slår dette fra, vil ingen bekræftelse blive sendt. Vi anbefaler at lade dette være slået fra. Hvis du ønsker at sende bekræftelser til visse mennesker, kan du gøre det ved at bruge <guilabel
+>bekræft levering</guilabel
+> filterhandlingen.</para>
+
+</sect2>
+
+<sect2 id="security-tab-pgp">
+<title
+>PGP</title>
+
+<para
+>For <guilabel
+>PGP</guilabel
+> fanebladet, se <link linkend="pgp-settings"
+><application
+>PGP</application
+> sektionen</link
+>.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="misc-tab">
+<title
+>Diverse fanebladet</title>
+
+<sect2 id="misc-tab-trash-folder">
+<title
+>Affaldsmappe</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Tøm affald ved afslutning</guilabel
+></term
+> <listitem
+> <para
+>Affaldsmappen ryddes for breve når du afslutter &kmail; hvis dette er valgt. Følgende to tilvalg er deaktiverede hvis dette er aktiveret.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Hold affaldsstørrelse under...</guilabel
+></term
+> <listitem
+> <para
+>Slet gamle breve ved afslutning, hvis affaldsmappen er blevet større end denne grænse.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ved afslutning, slet breve i affaldsmappen ændre end...</guilabel
+></term
+> <listitem
+> <para
+>Affaldsmappen ryddes for breve ældre end denne givne alder når du afslutter &kmail;, hvis dette er valgt.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="misc-tab-folders">
+<title
+>Mapper</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Send breve i udbakken ved tjek</guilabel
+></term
+> <listitem
+> <para
+>Alle breve i udbakken vil blive sendt når du tjekker for ny post.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Komprimér mapper ved afslutning</guilabel
+></term
+> <listitem
+> <para
+>Dette vil komprimere mapperne hver gang du afslutter &kmail;. Komprimering af mapper betyder at de breve du slettede vil blive rigtigt fjernede.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bekræft før mapper tømmes</guilabel
+></term
+> <listitem
+> <para
+>At tømme en mappe betyder at indholdet bliver flyttet over til <guilabel
+>affald</guilabel
+> mappen (og kun bliver slettede hvis de allerede er i <guilabel
+>affald</guilabel
+> mappen). Så selvom du normalt ikke vil miste noget post, kan du stadig aktivere en bekræftelsesdialog, der vil spørge dig om du virkelig ønsker at tømme mappen.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="misc-tab-new-mail-notification">
+<title
+>Ny post påmindelse</title>
+
+<para
+>Dette lader dig indstille handlinger for ankomst af ny e-post. Bemærk at automatisk hentning af breve kan indstilles i din kontoopsætning  under <link linkend="receiving-mail"
+>Indkommende post</link
+>.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Menuer og tastaturgenveje</title>
+
+<para
+>Hvert menupunkt diskuteres nedenfor. Når der er en tastaturgenvej der udfører en funktion fra et menupunkt, står det ved siden af menupunktet.</para>
+
+<sect1 id="main-mail-reader-window">
+<title
+>Hovedvinduet</title>
+
+<sect2 id="reader-file-menu">
+<title
+><guimenu
+>Fil</guimenu
+>menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>y e-post klient...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Laver et nyt hovedvindue.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Gem <accel
+>s</accel
+>om...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Gemmer det aktuelt viste brev til en tekstfil, inklusive alle hoveddele og bilag.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>dskriv...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Udskriver det aktuelt viste brev.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Komprimér alle <accel
+>m</accel
+>apper</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Vil komprimere alle mapper, &ie; det vil virkelig flytte og slette brevene på disken, på den måde du har flyttet og slettet dem i &kmail;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Tjek <accel
+>p</accel
+>ost</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Tjekker for nye breve i alle dine konti, undtagen de der har <guilabel
+>Ekskludér fra &quot;Tjek post&quot;</guilabel
+> aktiveret.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guisubmenu
+>Tjek post i</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Undermenu der lader dig tjekke for nye breve fra en bestemt konto.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>end køen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Sender brevene der er i din udbakke.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Adresse<accel
+>b</accel
+>og...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <link linkend="the-address-book"
+>Adressebogen</link
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>mportér...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Starter <application
+>kmailcvt</application
+> (som er en del af kdenetwork). Dette program lader dig importere breve fra adskillige almindeligt kendte e-post klienter til &kmail;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>uk</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Lukker det nuværende hovedvindue og afslutter &kmail; hvis der kun er dette ene vindue.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-edit-menu">
+<title
+><guimenu
+>Redigér</guimenu
+> menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>For<accel
+>tryd</accel
+></guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Fortryd det sidste du gjorde, eller slet handling. Bemærk at du ikke kan fortryde en sletning i affaldsmappen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>opiér tekst</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Kopierer udvalgt tekst til klippebordet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>D</keycap
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>let</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Flytter de valgte breve til affaldsmappen. Hvis de valgte breve allerede er i affaldsmappen, bliver de rigtigt slettede.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>S</keycap
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>øg breve...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner et vindue der lader dig søge efter breve med visse karakteristiske træk, &eg; et bestemt emne. Start søgningen ved at indgive nogle værdier og tryk på <guibutton
+>Søg</guibutton
+>. Klik på et af de resulterende breve, og det ved blive vist i <guilabel
+>læsevinduet</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>ind i brev...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Lader dig søge efter en streng i det aktuelle brev.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>K</keycap
+></shortcut
+><guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>Væl<accel
+>g</accel
+> alle breve</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vælger alle breve i den nuværende mappe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>Udvælg brev <accel
+>t</accel
+>ekst</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Udvælger teksten i det aktuelt viste brev.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+
+<sect2 id="reader-view-menu">
+<title
+><guimenu
+>Visnings</guimenu
+>menu</title>
+
+<!-- LW: This really needs to be broken up to one varlistentry per menu item, fixme -->
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>ort</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>lot</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>tandard</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>ang</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>lt</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ændrer antallet af hoveddele der vises og formatet for dem i <guilabel
+>Brevvinduet</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>Ikon bilag</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>Smarte bilag</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>Bilag i linie</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ændrer den måde bilag vises i <guilabel
+>Brevvinduet</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-folder-menu">
+<title
+><guimenu
+>Mappe</guimenu
+> menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>M<accel
+>a</accel
+>ppe</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>pret...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <guilabel
+>Opret mappe</guilabel
+> dialogen som lader dig oprette en ny mappe. Du kan gøre denne nye mappe til en undermappe hvis du vælger en forældermappe ved brug af <guilabel
+>Fil under</guilabel
+> valget. Hvis du vil bruge denne mappe til en e-post liste vil du måske tilføje e-post liste adressen i  <guilabel
+>Associeret postliste</guilabel
+> fanebladet. Du kan så bruge <menuchoice
+><guimenu
+>Brev</guimenu
+><guimenuitem
+>Svar liste...</guimenuitem
+></menuchoice
+> menupunktet. Dette vil åbne et svar med e-post listens adresse i <guilabel
+>Til:</guilabel
+> feltet (&ie; det vil ignorere <token
+>Reply-To</token
+> fra brevet). Du kan også klikke med den <mousebutton
+>midterste</mousebutton
+> museknap i mappepanelet for at sende til en e-post liste associeret til denne mappe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>M<accel
+>a</accel
+>ppe</guimenu
+> <guimenuitem
+><accel
+>E</accel
+>genskaber...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <guilabel
+>Ændr mappe</guilabel
+> dialogen som lader dig ændre indstillinger for den valgte mappe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>M<accel
+>a</accel
+>ppe</guimenu
+> <guimenuitem
+>K<accel
+>o</accel
+>mprimér</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Komprimerer mappefilen for at reducere dens brug af diskplads. Brug denne kommando hvis dine postkasse synes at være meget større end de burde være. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>M<accel
+>a</accel
+>ppe</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>øm</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Flytter alle breve fra den valgte mappe til affaldsmappen. Hvis den valgte mappe er affaldsmappen bliver brevene rigtigt slettede.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>M<accel
+>a</accel
+>ppe</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>jern</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Fjerner den valgte mappe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>M<accel
+>a</accel
+>ppe</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>oretræk HTML for almindelig tekst</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Dette vil vise <acronym
+>HTML</acronym
+> breve ved hjælp af <acronym
+>HTML</acronym
+> fremvisning. Af sikkerhedsgrunde anbefaler vi kun at aktivere dette for breve man stoler på.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>M<accel
+>a</accel
+>ppe</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>råd breve</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Viser brevene i <guilabel
+>hovedpanelet</guilabel
+> i en trælignende liste, med svar der vises lige under de breve de svare på.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-message-menu">
+<title
+><guimenu
+>Brev</guimenu
+> menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Nyt brev...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <guilabel
+>Brevskriver</guilabel
+> vinduet så du kan skrive et nyt brev. Hvis den aktuelle mappe indeholder en e-post liste og har en <guilabel
+>Postadresse</guilabel
+> defineret, vil denne adresse være standard <guilabel
+>Til:</guilabel
+> adresse.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>N</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>æste</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vælger det næste brev i hovedpanelet. Tastaturgenvejen <keycap
+>Højre pil</keycap
+> udfører også denne handling.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>+</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Næste ulæste</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vælger det næste ulæste brev i hovedpanelet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>orrige</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vælger det forrige brev i hovedpanelet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>-</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Forrige ulæste</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vælger det forrige ulæste brev i hovedpanelet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>R</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>var...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <guilabel
+>Brevskriver</guilabel
+> vinduet med indholdet af det valgte brevs <guilabel
+>Reply-To</guilabel
+> felt i <guilabel
+>Til:</guilabel
+> feltet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>A</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Svar <accel
+>a</accel
+>lle...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <guilabel
+>Brevskriver</guilabel
+> vinduet og kopierer indholdet af det valgte brevs  <guilabel
+>Reply-To:</guilabel
+> og <guilabel
+>Til:</guilabel
+> felter ind i <guilabel
+>Til:</guilabel
+> feltet og <guilabel
+>Cc:</guilabel
+> feltet ind i <guilabel
+>Cc:</guilabel
+> feltet i <guilabel
+>Brevskriver</guilabel
+> vinduet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>L</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Svar <accel
+>l</accel
+>iste...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <guilabel
+>Brevskriver</guilabel
+> med <guilabel
+>Til:</guilabel
+> feltet sat til e-post listens adresse. Dette virke naturligvis kun hvis du har indstillet den aktuelle mappe til at være associeret med en e-post liste. Ellers vil <guilabel
+>Til:</guilabel
+> feltet være tomt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Alt;<keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Svar <accel
+>u</accel
+>den at citere...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <guilabel
+>Brevskriver</guilabel
+> for at svare men citerer ikke teksten i det oprindelige brev.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>F</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>ideresend...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Videresender brevet til en ny modtager. Brevets tekst vil blive kopieret ind i kroppen af det nye brev, med en tekst der markere den videresendte del. Bilag vil også blive videresendt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>F</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>ideresend som bilag</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Videresender brevet til en ny modtager som et bilag. Bilag til det oprindelige brev, vil også blive videresendt som bilag.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>E</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>O<accel
+>m</accel
+>dirigér...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Virker ligesom videresend, bortset fra at brevet forbliver det samme (selv <guilabel
+>Fra</guilabel
+> feltet). Brugeren der omdirigerede brevet bliver tilføjet i specielle hoveddele felter (<literal
+>Redirect-From</literal
+>, <literal
+>Redirect-Date</literal
+>, <literal
+>Redirect-To</literal
+>, &etc;).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fvis...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sender brevet tilbage til afsenderen med en bemærkning om at det ikke kan leveres. Dette er næsten nøjagtigt den samme besked, som den du får når et brev ikke kan ledes videre hvis brugeren ikke findes. Nogle mennesker bruger dette tilvalg til at <quote
+>svare</quote
+> på skidtpost.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Send i<accel
+>g</accel
+>en...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sender brevet igen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guisubmenu
+>Sæt <accel
+>i</accel
+>ndkodning</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Lader dig vælge det tegnsæt der bliver brugt i brevpanelet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>T</keycap
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Redi<accel
+>gér</accel
+></guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Redigerer det valgte brev, hvis det kan redigeres. Kun breve i <guilabel
+>udbakke</guilabel
+> og <guilabel
+>kladder</guilabel
+> mappen kan redigeres.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guisubmenu
+><accel
+>O</accel
+>pret filter</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <link linkend="filter-dialog-id"
+>Filter dialog</link
+> med et nyt filter tilføjet. Dette nye filter er baseret på felterne i det aktuelle brev.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guisubmenu
+>Sæt status</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Tillader dig at ændre status på det valgte brev til et af nedenfor nævnte (mere end en status pr brev er ikke understøttet for øjeblikket):</para
+> <itemizedlist
+> <listitem
+> <para
+><guimenuitem
+>Ny</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Ulæst</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Læs</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Svaret</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>I kø</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Sendt</guimenuitem
+></para
+> </listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guisubmenu
+><accel
+>F</accel
+>lyt til</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Flytter alle de valgte breve til en bestemt mappe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guisubmenu
+><accel
+>K</accel
+>opiér til</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Kopierer alle de valgte breve til en bestemt mappe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>J</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Anvend filtre</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Anvender dine filtre på de valgte breve.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Se kildetekst...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Viser brevet og dets fuldstændige hoved i almindeligt tekstformat i et nyt vindue. Dette kan være nyttigt for at finde ud af hvor et brev kommer fra. Du bør vide at det er nemt at snyde med <literal
+>Fra:</literal
+> hoveddelen af et e-brev, men man kan stadigvæk finde ud af hvilke e-post servere der er blevet brugt, ved at kigge på <literal
+>Modtaget:</literal
+> linierne i hovedet.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+<sect2 id="reader-settings-menu">
+<title
+><guimenu
+>Opsætnings</guimenu
+>menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>v</accel
+>ærktøjslinie</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Hvis dette er aktiveret er værktøjslinien synlig (Værktøjslinien er den med ikonen til at skrive et nyt brev &etc;).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis st<accel
+>a</accel
+>tuslinie</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Hvis dette er aktiveret er statuslinien synlig (Statuslinien er den lille for neden, der viser nyttige korte beskeder og mål for lænker).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Indstil <accel
+>T</accel
+>astebindinger...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner et vindue der lader dig indstille tastaturgenveje for mange menukommandoer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Indstil værktøjs<accel
+>l</accel
+>inie...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner et vindue der lader dig vælge hvilke ikoner der kan ses i værktøjslinien.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndstil KMail...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <link linkend="configure"
+>Indstil</link
+> vinduet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Indstil f<accel
+>i</accel
+>ltre...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner <link linkend="filters"
+>Indstil filtre...</link
+> vinduet.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-help-menu">
+<title
+><guimenu
+>Hjælpe</guimenu
+>menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndhold</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Starter &kde; hjælpesystemet med &kmail;'s hjælpesider vist.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+>Hvad er <accel
+>d</accel
+>ette?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Valg af dette ændrer markøren til en pil med et spørgsmålstegn. Hvis du nu klikker på en komponent af kontrolvinduet, får du en kort, sammenhængsfølsom hjælp om dette punkt. (denne egenskab er desværre ikke implementeret for de fleste dele af &kmail;).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>apportér problem...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner et vindue til at rapportere et problem. Du skal være forbundet til internettet for at kunne sende en problemrapport.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>m KMail</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Viser oplysninger om &kmail; (version, forfattere, licensaftale).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Viser information om &kde;.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+</sect1>
+
+
+<sect1 id="composer-window-menus">
+<title
+>Brevskriver vindue</title>
+
+<sect2 id="composer-file-menu">
+<title
+><guimenu
+>Brev</guimenu
+> menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Return</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>end</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Send brevet med det samme.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>ø</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sæt brevet i kø i udbakken, for at blive sendt senere.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+>Gem i <accel
+>k</accel
+>laddemappe</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Gem brevet i <guilabel
+>kladder</guilabel
+> mappen, så du kan redigere og sende det senere.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndsæt fil...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Indsætter den valgte tekstfil i brevet, startende ved markørens position.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>dskriv...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Udskriver den aktuelle tekst.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>dressebog...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner adressebogen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>y brevskriver...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner et nyt <guilabel
+>Brevskriver</guilabel
+> vindue.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>rev</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>uk</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Lukker dette <guilabel
+>Brevskriver</guilabel
+> vindue.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+
+<sect2 id="composer-edit-menu">
+<title
+><guimenu
+>Redigér</guimenu
+> menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>For<accel
+>tryd</accel
+></guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Fortryd trin ved redigering af dette e-brev.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Shift</keycap
+><keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>Om<accel
+>g</accel
+>ør</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Omgør trin ved redigering af dette e-brev.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>K<accel
+>l</accel
+>ip</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Klip tekst virker som med de fleste tekstbehandlere. Du kan også vælge tekst og trække den til en ny placering.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>opiér</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Kopiering af tekst virker som med normal redigering. Du kan også vælge tekst mens du holder &Ctrl; tasten nede, og trække den til en ny position, for at få den kopieret ikke klippet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndsæt</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Indsæt virker på samme måde som alle andre steder.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>Markér <accel
+>a</accel
+>lt</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vælger al teksten i dit brev.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>ind...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Finder strenge i dit brev.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>E</accel
+>rstat...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Lader dig erstatte strenge i dit brev med andre strenge.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>Ry<accel
+>d</accel
+> mellemrum</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Dette erstatter flere mellemrum med enkelte mellemrum i den aktuelt valgte del af brevet, og i hele brevet hvis der ikke er noget valg.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>tavning...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Bruger &kspell; til at tjekke stavning i brevkroppen. Bemærk at du må indstille &kspell; med <menuchoice
+><guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Stavekontrol...</guimenuitem
+></menuchoice
+> hvis du bruger den første gang.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="composer-view-menu">
+<title
+><guimenu
+>Visnings</guimenu
+>menu</title>
+
+<para
+>Denne menu lader dig skifte mellem at vise hovedfelter og andre tilvalg i dette <guilabel
+>Brevskriver</guilabel
+> vindue.</para>
+
+<para
+>Tilgængelige tilvalg er:</para>
+
+<itemizedlist
+> <listitem
+> <para
+><guimenuitem
+><accel
+>A</accel
+>lle felter</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>I</accel
+>dentiet</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>E</accel
+>-post overførsel</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>F</accel
+>ra</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>S</accel
+>var til</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>T</accel
+>il</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>C</accel
+>c</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>B</accel
+>cc</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>E</accel
+>mne</guimenuitem
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+>Punkter der er synlige for øjeblikket har et mærke vist ved siden af navnet i menuen.</para>
+
+</sect2>
+
+<sect2 id="composer-options-menu">
+<title
+><guimenu
+>Indstillinger</guimenu
+> menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>igtigt</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sætter prioriteten for brevet til Vigtigt. Modtagerens e-post klient må understøtte dette, ellers har det ingen virkning. &kmail; selv understøtter ikke prioriteter for indkommende post.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>ekræft om brevet er modtaget</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Hvis du vælger dette, beder du om en bekræftelses e-post når dit brev er leveret til sit mål. Dette skal også være understøttet på modtagerens side for at virke.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guimenuitem
+>Bekræft <accel
+>l</accel
+>æst</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Hvis du vælger dette, beder du om en bekræftelses e-post når dit brev er hentet hjem og læst af modtageren. Dette skal også være understøttet og aktiveret af modtagerens e-post klient for at virke. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guisubmenu
+>Sæt <accel
+>I</accel
+>ndkodning</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sætter tegnsæt indkodningen for dit brev. Dette vil blive vist i hovedet af den udgående post.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>ekstombrydning</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Slå automatisk tekstombrydning til og fra. Det kan være nyttigt at slå det fra, hvis du ønsker at indsætte lange linier der ikke skal ombrydes.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+
+<sect2 id="composer-attach-menu">
+<title
+><guimenu
+>Vedlæg</guimenu
+> menuen</title>
+
+<para
+>Denne menu lader dig sætte indstillinger for bilag.</para>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>edlæg</guimenu
+> <guimenuitem
+>Vedlæg u<accel
+>n</accel
+>derskrift</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vedlægger din underskrift (<quote
+>fodnote</quote
+>) til enden af brevet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>edlæg</guimenu
+> <guimenuitem
+>Vedlæg <accel
+>o</accel
+>ffentlig nøgle...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vedlægger den tilsvarende <application
+>PGP</application
+>/<application
+>GnuPG</application
+> nøgle til dit brev ved brug af standard indkodning.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>edlæg</guimenu
+> <guimenuitem
+>Vedlæg min <accel
+>o</accel
+>ffentlige nøgle</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vedlægger din <application
+>PGP</application
+>/<application
+>GnuPG</application
+> nøgle til dit brev ved brug af standard indkodning.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>edlæg</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>edlæg...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Vedlægger en fil til brevet ved brug af den indkodning du vælger i dialogen. Dialogen tillader valg af mere end en fil ved brug af &Ctrl; tasten.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>edlæg</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>jern</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Fjerner bilaget der er valgt i Vedlæg-vinduet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>edlæg</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>em...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Gemmer bilaget der er valgt i Vedlæg-vinduet til en fil.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>edlæg</guimenu
+> <guimenuitem
+>Eg<accel
+>e</accel
+>nskaber...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Viser egenskaberne for det bilag der er valgt i Vedlæg-vinduet.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="composer-settings-menu">
+<title
+><guimenu
+>Opsætnings</guimenu
+>menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>v</accel
+>ærktøjslinie</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Hvis dette er aktiveret er værktøjslinien synlig. (Værktøjslinien er den med ikonen til at sende brevet &etc;).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis st<accel
+>a</accel
+>tuslinie</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Hvis dette er aktiveret er statuslinien synlig. (Statuslinien er den lille for neden, der viser nyttige korte beskeder).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Indstil <accel
+>T</accel
+>astebindinger...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner et vindue der lader dig indstille tastaturgenveje for mange menukommandoer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Indstil værktøjs<accel
+>l</accel
+>inie...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Åbner et vindue der lader dig bestemme hvilke ikoner, der skal vises i værktøjslinien.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>tavekontrol...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Tillader dig at indstille &kspell;, &kde;'s stavekontrol.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+<sect2 id="composer-help-menu">
+<title
+><guimenu
+>Hjælpe</guimenu
+>menu</title>
+
+<para
+> Indgangene i denne menu har samme betydning som <link linkend="reader-help-menu"
+>indgangene i e-postlæserens hjælpemenu </link
+>.</para>
+
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Ofte stillede spørgsmål (&FAQ;)</title>
+
+<qandaset id="faq-set">
+
+<qandaentry>
+<question
+><para
+>Mine mapper bliver hele tiden større selvom jeg sletter breve.</para
+></question>
+<answer
+><para
+> For virkelig at slette breve fra disken, skal du komprimere dine mapper ved brug af <menuchoice
+><guimenu
+>Fil</guimenu
+><guimenuitem
+>Komprimér alle mapper</guimenuitem
+></menuchoice
+> (som standard vil dette også ske hver gang du afslutter &kmail;).</para>
+<para
+>Der er imidlertid et kendt problem, der sneg sig ind i &kde; 2.2.0 (&kmail; 1.3) udgaven: sommetider bliver mapper ikke komprimerede hverken manuelt eller automatisk. Her er en nødløsning: redigér <filename
+>~/.kde/share/config/kmailrc</filename
+> filen, søg efter alle forekomster af <quote
+>Consistent=false</quote
+> og erstat dem med <quote
+>Consistent=true</quote
+> (&kmail; må ikke køre mens du gør dette). Dette problem vil blive løst i KDE 2.2.1 som formodentlig vil blive frigivet i  september 2001. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvor kan jeg få en liste af ændringer mellem versioner af &kmail;?</para
+></question>
+<answer>
+<para
+>Velkomstskærmen har en liste med alle de vigtigste forbedringer for denne udgave. Den vises når du starter en ny version af &kmail; første gang. Du kan altid se den igen, ved at vælge rodelementet i mappelisten, &ie; <guilabel
+>Post</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kan jeg indstille hvor mine e-post mapper er?</para
+></question>
+<answer>
+<para
+>Gå ud af &kmail;, lav en sikkerhedskopi af <filename
+>~/.kde/share/config/kmailrc</filename
+>, og åbn den så til redigering og tilføj &eg; <userinput
+>folders=/home/username/.mail</userinput
+> til <quote
+>[General]</quote
+> sektionen. Flyt så alle dine mapper (inklusive de skjulte indeksfiler) til den nye placering. Næste gang du starter &kmail; vil den bruge <filename class="directory"
+>/home/username/.mail</filename
+> i stedet for <filename class="directory"
+>/home/username/Mail</filename
+>. Bemærk at &kmail; vil tabe sine filtre, hvis du flytter e-post mappens placering, men glemmer at flytte eksisterende mapper.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Knappen til at underskrive breve er ikke længere aktiv, den var aktiv for lidt siden.</para
+></question>
+<answer
+><para
+>Indgiv din <guilabel
+>PGP brugeridentitet</guilabel
+> i <guilabel
+>Identitet</guilabel
+> indstillingsdialogen. Uden en <acronym
+>PGP</acronym
+> brugeridentitet kan &kmail; ikke vide hvilken nøgle der skal bruges til at underskrive dine breve med.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Jeg er et af de mennesker, hvis e-breve består af 100 citerede linier og en enkelt jeg selv skriver. Af en eller anden grund (som jeg ikke forstår) irriterer det folk. Kan &kmail; hjælpe mig og gøre alle gladere?</para
+></question>
+<answer
+><para
+>Selvfølgelig. Vælg bare en kort relevant del af det oprindelige brev med musen før du svarer. Kun denne del vil så blive citeret i dit svar.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&kmail; forsvinder/bryder sammen når der hentes post.</para
+></question>
+<answer
+><para
+>Sørg for at du har nok fri diskplads. &kmail; håndterer ikke situationen med en fuld disk særligt elegant for øjeblikket og afslutter simpelthen. Bemærk: &kmail; vil beskytte dine data, breve der ikke kan gemmes til disken bliver efterladt på serveren.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Understøtte &kmail;'s adressebog distributionslister?</para
+></question>
+<answer
+><para
+>Nej. Som en nødløsning kan du tilføje adskillige e-post adresse i en enkelt adresseindgang hvis du bruger den <quote
+>traditionelle</quote
+> &kmail; adressebog.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>For nogle breve er værdien af <guilabel
+>Dato</guilabel
+> feltet forkert, den viser <guilabel
+>Ons Dec 31 17:00:00 1969</guilabel
+>.</para
+></question>
+<answer
+><para
+>Formodentlig er <quote
+>Dato:</quote
+> hoveddelen for disse breve i stykker, måske er det manglende tidszone information. For dette tilfælde har vi tilføjet en nødløsning til mimelib. I &kde; 2.2 er mimelib en del af kdenetwork pakken, men du må sørge for at &kde;'s mimelib bliver brugt og ikke en anden en på dit system.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Min underskrift har to bindestreger over sig. Det gør mig meget ked af det.</para
+></question>
+<answer>
+<para
+>At adskille underskriften fra brødteksten med to bindestrege og et mellemrum er en almindelig og nyttig standard. Hvis du har stærke følelser på dette punkt, vil jeg foreslå at du ændrer &kmail; kildetekst for at fjerne denne linie.</para>
+</answer>
+</qandaentry>
+
+<!-- TODO: kmail can beep, but how to add an icon to the taskbar
+<qandaentry>
+<question
+><para
+>How do I get a notification if new mail arrives?</para
+></question>
+<answer
+><para
+>fixme</para
+></answer>
+</qandaentry>
+-->
+
+<qandaentry>
+<question
+><para
+>&kmail; henter de samme breve igen og igen.</para
+></question>
+<answer
+><para
+>Dette sker hvis du har <guilabel
+>Slet post på serveren</guilabel
+> deaktiveret og din POP3 server ikke understøtter UIDL kommandoen. Der er for øjeblikket ingen nødløsning for dette udover at vælge <guilabel
+>Slet post på serveren</guilabel
+>. En mere detaljeret forklaring bliver givet <ulink url="http://lists.kde.org/?l=kmail&amp;m=99220697415300&amp;w=2"
+>i dette e-post liste brev</ulink
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Understøtter &kmail; <acronym
+>IMAP</acronym
+>?</para
+></question>
+<answer>
+<para
+>Ja, det gør den siden &kde; version 2.2. Den har endnu ikke alle egenskaber, men der skulle være nok til de fleste brugere. Vi kender til disse begrænsninger, så lad venligst være med at indsende problemrapporter om dette.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Er der kendte problemer i &kmail;?</para
+></question>
+<answer>
+<para
+>Du kan finde en liste af indsendte problemer på <ulink url="http://bugs.kde.org/db/pa/lkmail.html"
+>bugs.kde.org</ulink
+>. Bemærk at ikke alle disse problemer er rigtige, alt i alt mener vi at &kmail; nu er et meget godt stykke programmel.</para>
+<para
+><warning
+><para
+>Du bør imidlertid ikke køre &kmail; mens en anden e-post klient allerede har adgang til filerne i <filename class="directory"
+>~/Mail</filename
+>. Hvis du prøver på at gøre dette, vil du måske tabe breve. Bemærk at du bør lave sikkerhedskopier af dine breve under alle omstændigheder.</para
+></warning
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&kmail; viser ikke <acronym
+>HTML</acronym
+> post som <acronym
+>HTML</acronym
+>, jeg kan kun se kildeteksten.</para
+></question>
+<answer
+><para
+>Vælg <menuchoice
+><guimenu
+>Mappe</guimenu
+><guimenuitem
+>Foretræk HTML for almindelig tekst</guimenuitem
+></menuchoice
+>. Af sikkerhedsgrunde bør du kun gøre dette for breve du stoler på. Bemærk at indstik (såsom <trademark class="registered"
+>Macromedia</trademark
+> <application
+>Flash</application
+>), &Java; og Javascript ikke vil blive vist i &kmail; og der er ingen måde at aktivere dem.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kan jeg bruge to forskellige udgaver af &kmail; samtidigt. Kan jeg gå tilbage fra denne udgave af &kmail; til en tidligere?</para
+></question>
+<answer
+><para
+>Du kan kun køre én udgave af &kmail; på én gang. Vi anbefaler også at blive ved en bestemt udgave, og ikke at skifte frem og tilbage mellem forskellige udgaver. Nedgradering til en ældre version kunne give problemer , &eg; idet indeksfil formatet kan være ændret. Opgradering skulle aldrig være et problem.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Understøtter &kmail; uuencodede filer?</para
+></question>
+<answer
+><para
+>Nej. Du kan imidlertid håndtere dem ved brug af et filter, som er beskrevet i <ulink url="http://lists.kde.org/?l=kmail&amp;m=98908576320145&amp;w=2"
+>dette e-brev</ulink
+> til e-post listen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&kmail; brød sammen mens jeg var ved at skrive et brev. Er det brev gået tabt nu?</para
+></question>
+<answer
+><para
+>&kmail; forsøger at gemme dit brev til <filename
+>~/dead.letter</filename
+> i tilfælde af sammenbrud. Næste gang du starter &kmail; skulle brevskriveren komme frem med dit e-brev igen. Hvis den ikke gør det, så prøv at åbne <filename
+>~/dead.letter</filename
+> i en tekstredigering. Hvis den ikke eksisterer var sammenbruddet så slemt at &kmail; ikke kunne gemme din post.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Når jeg forsøger at sætte en mappe til at forstå e-post lister, gør den ikke noget når jeg modtager e-post fra listen.</para
+></question>
+<answer
+><para
+>Associering af en mappe med en e- post liste har intet at gøre med filtrering af e-post listens breve. Du skal tilføje et nyt filter manuelt. Når du har associeret en mappe med en e-postliste, kan du imidlertid bruge <menuchoice
+> <guimenu
+>Brev</guimenu
+><guimenuitem
+>Svar liste...</guimenuitem
+></menuchoice
+> eller <menuchoice
+><guimenu
+>Brev</guimenu
+><guimenuitem
+>Nyt brev...</guimenuitem
+></menuchoice
+> og e-post liste adressen vil blive sat i <guilabel
+>Til:</guilabel
+> feltet. </para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Min SMTP server kræver godkendelse. Understøtter &kmail; dette?</para
+></question>
+<answer
+><para
+>Der er to almindelige teknikker for <acronym
+>SMTP</acronym
+> godkendelse: <quote
+>SMTP efter POP3</quote
+> og <quote
+>SMTP Auth</quote
+>. <quote
+>SMTP Auth</quote
+> er ikke understøttet for øjeblikket. For at bruge <quote
+>SMTP efter POP3</quote
+> må du samle alle dine breve i <guilabel
+>udbakken</guilabel
+> og sende dem lige efter du har hentet ny post.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kan jeg bruge &kmail; og <application
+>procmail</application
+>?</para
+></question>
+<answer
+><para
+>Ja, men det er vigtigt at gøre det på den rigtige måde, ellers vil du måske miste post. For at bruge <application
+>procmail</application
+> og &kmail; skal du sætte &kmail; op så den vil hente ny post fra spoolfilerne hvor <application
+>procmail</application
+> putter din post. Sæt <emphasis
+>ikke</emphasis
+> procmail op til at levere posten til en &kmail; mappe, dette kan ikke fungere.</para>
+          
+<para
+>For hver procmail spoolfil, må du så oprette en konto fra hvilken &kmail; vil hente ny post. Du skal også sørge for at have det rigtige lockfile navn for denne konto. Når du sætter en konto op, vil &kmail; udføre en minimal analyse af din <filename
+>.procmail</filename
+> fil, og vil forsøge at lave en liste over alle spoolfiler den har fundet, og også lockfilerne ved siden af <guilabel
+>procmail låsefil</guilabel
+> punktet. procmail lader brugeren angive låsefiler på tre forskellige måder, så det er ikke muligt at etablere en korrespondence mellem spoolfiler og lockfiler. Så det er virkelig dig, der skal sørge for at angive den rigtige  låsefil for hver spoolfil.</para>
+</answer>
+</qandaentry>
+
+<qandaentry id="pgp-faq">
+<question
+><para
+>Hvad skal jeg gøre, hvis jeg ønsker at bruge <application
+>PGP</application
+>/<application
+>GnuPG</application
+> med &kmail;?</para
+></question>
+
+<answer
+><para
+>&kmail; giver en enkel og nem måde at bruge grænsefladen for basale funktioner i disse programmer. Du bør dog stadig forstå hvordan disse programmer virker og hvad der måske kunne gøre deres brug usikker. Nogle vigtige emner:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Du bør <emphasis
+>virkelig</emphasis
+> teste om kryptering virker før du bruger det. &kmail; er afhængig af <application
+>PGP</application
+>/<application
+>GnuPG</application
+>'s fejlstrenge, som ofte ændres mellem forskellige udgaver.</para
+> </listitem
+> <listitem
+> <para
+>At stole på en fremmed offentlig nøgle uden at tjekke den er ikke en god idé.</para
+> </listitem
+> <listitem
+> <para
+>&kmail; vil ikke kryptere breve med en offentlig nøgle der ikke stoles på (som er usigneret), hvis du bruger <application
+>PGP</application
+>. Hvis du bruger <application
+>GnuPG</application
+> <emphasis
+>vil</emphasis
+> &kmail; kryptere breve med en offentlig nøgle der ikke stoles på.</para
+> </listitem
+> <listitem
+> <para
+>Som de fleste andre e-post klienter, kan &kmail; kryptere dine breve, men <emphasis
+>ikke</emphasis
+> dine bilag. Dem bliver du nødt til at kryptere manuelt før du vedlægger dem.</para
+> </listitem
+> </itemizedlist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvordan skal jeg sætte &kmail; for at bruge (&ie; læse og skrive) breve med ikke-Latin1 tegn?</para
+></question>
+<answer
+><para
+>I <guilabel
+>Udseende</guilabel
+>/<guilabel
+>Skrifttyper</guilabel
+> sektionen af <guilabel
+>Indstil &kmail;...</guilabel
+> dialogen, skal du vælge det rigtige <guilabel
+>Tegnsæt</guilabel
+> for brevlisten og mappelisten. Hvis  <guilabel
+>unicode (iso10646-1)</guilabel
+> er til stede, bør du vælge den. Hvis breve stadig ikke bliver vist rigtigt, kan du altid prøve andre indstillinger fra <menuchoice
+><guimenu
+>Brev</guimenu
+><guimenuitem
+>Sæt indkodning</guimenuitem
+></menuchoice
+> menuen. For at skrive breve gå til <guilabel
+>Brevskriver</guilabel
+>/<guilabel
+>Tegnsæt</guilabel
+> og indstil det standard tegnsæt du ønsker at bruge tildine egne breve.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Stavekontrol genkender ikke ikke-engelske tegn.</para
+></question>
+<answer
+><para
+>Før du kan bruge stavekontrol første gang, må du indstille den. Du kan gøre dette i <guilabel
+>Brevskriver</guilabel
+> vinduets menu under <menuchoice
+><guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Stavekontrol...</guimenuitem
+></menuchoice
+>. Du kan sætte ordbog og tegnsæt der.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvordan bruger jeg mine <application
+>Eudora</application
+>/&Netscape;/<application
+>Outlook</application
+>/... e-post mapper i &kmail;?</para
+></question
+> 
+<answer
+><para
+>Se sektionen <link linkend="importing"
+>Brug af andre postkasse filer med &kmail;</link
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvordan kan jeg bruge e-post mapper der ikke er i <filename class="directory"
+>~/Mail/</filename
+>?</para
+></question>
+
+<answer
+><para
+>Lav simpelthen en symlænke i din <filename class="directory"
+>~/Mail</filename
+> mappe ved brug af <userinput
+><command
+>ln</command
+> <option
+>-s</option
+> <filename
+>/etsted/Post/minpostkassefil</filename
+> <filename class="symlink"
+>~/Mail/fjernpost</filename
+></userinput
+>. Når du starter &kmail; vil du se en ny mappe med navnet <guilabel
+>fjernpost</guilabel
+> der indeholder brevene fra fjernmappen. Hvis du ønsker at tilføje hele den fjerne e-postmappe, så brug <userinput
+><command
+>ln</command
+> <option
+>-s</option
+> <filename
+>/etsted/Post</filename
+> <filename class="symlink"
+>~/Mail/.fjernmappe.directory</filename
+></userinput
+>. I dette tilfælde må du ogsø oprette en ny tom mappe der hedder <filename class="directory"
+>fjernmappe</filename
+> med &kmail;. Mappen <filename class="directory"
+>fjernmappe</filename
+> vil så indeholde alle de fjerne postkasse mapper som undermapper.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kan jeg bruge kryptering med min normale (ikke-<acronym
+>SSL</acronym
+>) <acronym
+>POP3</acronym
+> konto?</para
+></question>
+<answer
+><para
+>Hvis din <acronym
+>POP3</acronym
+> server kører en <application
+>ssh</application
+> dæmon, kan du bruge ssh til at sende din <acronym
+>POP3</acronym
+> forbindelse gennem en tunnel ved brug af følgende kommando: </para>
+
+<para
+><userinput
+><command
+>ssh</command
+> <option
+>-L 110:127.0.0.1:110 bruger@vaert</option
+></userinput
+></para>
+
+<para
+>Ændr din &kmail; indstilling til at hente posten via <acronym
+>POP3</acronym
+> fra <userinput
+>localhost</userinput
+> og så vil ssh lave en tunnel på forbindelsen for dig. Du skal være root for at udføre denne kommando. Alternativt, ændr det første portnummer &ie; den første gang <userinput
+>110</userinput
+>, viser sig til noget over 1024 og indstil &kmail; til at bruge denne port. <note
+><para
+>Hvis ikke-krypterede e-breve allerede er blevet sendt via internettet er den eneste fordel ved at bruge <application
+>ssh</application
+> at dit <emphasis
+>kodeord</emphasis
+> vil blive sendt krypteret til <acronym
+>POP3</acronym
+> serveren.</para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Låser &kmail; de mapper den bruger?</para
+></question>
+<answer
+><para
+>&kmail; låser ikke filerne i <filename class="directory"
+>~/Mail</filename
+>.</para>
+<para
+>For at undgå risikoen for tab af post <emphasis
+>når der bruges en lokal konto</emphasis
+> er det nødvendigt at sørge for at &kmail; bruger samme type lås som din e-post leverings agent.</para>
+
+<para
+>Der er fem forskellige låsemuligheder du kan bruge:</para>
+
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>Mutt dotlock (anbefalet)</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Mutt dotlock priviligeret</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Procmail låsefil</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>FCNTL</guilabel
+> (standard)</para
+></listitem
+> <listitem
+><para
+><guilabel
+>ingen (brug med omhu)</guilabel
+></para
+></listitem
+> </itemizedlist>
+
+<para
+><guilabel
+>Mutt dotlock</guilabel
+> og <guilabel
+>Mutt dotlock priviligeret</guilabel
+> vil begge bruge et lille redskab der kommer med mutt som hedder <command
+>mutt_dotlock</command
+>. <guilabel
+>Mutt dotlock</guilabel
+> kan bruges på samme måde som <guilabel
+>Procmail lockfile</guilabel
+> valget, med samme begrænsninger med hensyn til <filename class="directory"
+>/var/spool/mail/</filename
+> mapper. <guilabel
+>Mutt dotlock privileged</guilabel
+> valget kan imidlertid lave låsefiler i <filename class="directory"
+>/var/spool/mail</filename
+> mappen. <command
+>mutt_dotlock</command
+> er et setgid program og dette valg vil køre i setgid tilstand. Bemærk venligst at disse valg kun virker hvis mutt er installeret på dit system.</para>
+
+<para
+><guilabel
+>Procmail lockfile</guilabel
+> vil bruge et lille redskab der kommer med <application
+>procmail</application
+> der hedder <command
+>lockfile</command
+>. Du kan bruge dette hvis dine e-post mapper er i en mappe hvor du har lov til at skrive. Dette vil ikke virke på din  <filename class="directory"
+>/var/spool/mail/bruger</filename
+> fil i de fleste tilfælde. Det vil lave <filename
+>.lock</filename
+> filer i din konto når &kmail; kigger efter ny post. Bemærk venligst at dette kun virker hvis <application
+>procmail</application
+> er installeret på dit system.</para>
+
+<para
+><guilabel
+>FCNTL</guilabel
+>: standard valget vil bruge <function
+>fcntl()</function
+> systemkaldet.</para>
+
+<para
+>Hvis du ikke ønsker at låse, så er <guilabel
+>ingen</guilabel
+> det valg du ønsker. Der er imidlertid risiko for at miste post når ingen låsemekanisme bruges.</para>
+
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvordan efterlader jeg post på serveren?</para
+></question>
+<answer
+><para
+>Åbn <menuchoice
+><guimenu
+>Opsætning</guimenu
+><guimenuitem
+>Indstil &kmail;...</guimenuitem
+> </menuchoice
+> vinduet. Klik på <guilabel
+>Netværk</guilabel
+> fanebladet. Vælg din konto fra listen af konti og klik på  <guilabel
+>Ændr...</guilabel
+> knappen. Denne dialog indeholder <guilabel
+>Slet post på serveren</guilabel
+> indstillingen, som ikke må være markeret.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvordan indsætter jeg automatisk en tekstfodnote med mine e-breve?</para
+></question>
+<answer
+><para
+>Tekst fodnoten kaldes en underskriftsfil. Vælg <menuchoice
+><guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Indstil &kmail;...</guimenuitem
+></menuchoice
+> Kig i <guilabel
+>Identitet</guilabel
+> fanebaldet efter <guilabel
+>Angiv underskrift nedenfor</guilabel
+> feltet. Vælg radioknappen og skriv din underskrift nedenfor.</para
+></answer
+> 
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvorfor bliver &kmail; ved med at spørge mig hvor min underskriftsfil er?</para
+></question>
+<answer
+><para
+>&kmail; vil spørge dig om placeringen af din underskriftsfil hvis du har afkrydset tilvalget <guilabel
+>Vedlæg underskrift automatisk</guilabel
+> i <guilabel
+>Brevskriver</guilabel
+> fanebladet i <guilabel
+>Indstil &kmail;...</guilabel
+> dialogen, men du har ikke angivet en underskriftsfil i <guilabel
+>Identitet</guilabel
+> fanebladet. Du bør enten angive en underskriftsfil ved at vælge <guilabel
+>Brug underskrift nedenfor</guilabel
+>, eller afvælge <guilabel
+>Vedlæg underskrift automatisk</guilabel
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvordan sætter jeg &Sendmail; op til at virke med &kmail; hvis jeg har en opringningsforbindelse?</para
+></question
+> 
+
+<answer
+><para
+>Først bør du undersøge om din &Linux;/BSD/hvadsomhelst distribution kan gøre dette for dig. Det er sandsynligvis allerede blevet sat op under installationen.</para>
+
+<para
+>Hvis dette ikke er tilfældet, vil du måske ønske at kigge på <ulink url="http://www.linuxdoc.org/HOWTO/mini/Mail-Queue.html"
+>Mail Queue HOWTO</ulink
+> eller på <ulink url="http://www.leg.uct.ac.za/Articles/sendmail_dialup.html"
+>UCT Linux brugergruppe siden om at indstille sendmail for opringnings forbindelser</ulink
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Jeg har set demonstrationer af fjernkontrol opførsel med &kmail;. Er der noget dokumentation om de tilgængelige grænseflader?</para
+></question>
+<answer
+><para
+>Du kan få en liste af funktioner ved at bruge denne kommando i en skal: <userinput
+><command
+>dcop</command
+> <option
+>kmail KMailIface</option
+></userinput
+>. Der er også noget dokumentation i <filename
+>kdenetwork/kmail/kmailIface.h</filename
+> og <filename
+>kdenetwork/kmail/mailcomposerIface.h</filename
+>.</para
+></answer>
+</qandaentry>
+
+</qandaset>
+
+</chapter>
+
+<chapter id="importing">
+<title
+>Brug af andre postkassefiler med &kmail;</title>
+
+<para
+>&kmail; tilbyder et importredskab for visse formater. Du kan få adgang til dette ved at bruge <menuchoice
+><guimenu
+>Fil</guimenu
+><guimenuitem
+>Importér...</guimenuitem
+></menuchoice
+>. Du behøver kun at læse dette kapitel hvis dette redskab ikke virker for dig.</para>
+
+<para
+>Denne sektion er for alle de brugere, der har brug for at flytte e-breve fra deres tidligere e-post klient over til &kmail;. &kmail; gemmer sin post ved brug af <literal
+>mbox</literal
+> formatet, et af de oftest brugte postkasse formater på &UNIX; systemer. Mbox postkasser gemmer brev i én fil, identificerende hvor breve starter og slutter med en <literal
+>From</literal
+> linie (som ikke bør sammenblandes med  <literal
+>From:</literal
+> hoveddelen, der indeholder brevets afsender). For mange &UNIX; e-post programmer, behøver du ikke gøre andet and at flytte dine postkasser til <filename class="directory"
+>~/Mail</filename
+> (eller lave en symbolsk lænke <filename class="symlink"
+>Mail</filename
+> til mappen der indeholder dine postkasser), sørg for at de er skrivbare for brugeren og start &kmail;. Postkasserne skulle nu vise sig rigtigt i &kmail;.</para>
+
+<para
+>Hvis dine gamle postkasser ikke er i mbox format, så se nedenfor for instruktioner til at importere nogle andre almindelige formater. Kig i <ulink url="http://kmail.kde.org/download.html"
+>Hjemhent sektionen af &kmail;'s hjemmeside</ulink
+> hvis dit postkasseformat ikke findes på denne liste.</para>
+
+<warning
+><para
+>Brug ikke en anden e-post klient der har adgang tilfilerne i <filename class="directory"
+>~/Mail</filename
+> mens &kmail; kører eller du vil måske tabe breve. Denne sektion forklarer kun hvordan man importerer postkasser til &kmail; én gang. Den er ikke nyttig hvis du planlægger at bruge flere e-post klienter for dine postkasser i fremtiden.</para
+></warning>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Eudora Lite</application
+>/<application
+>Eudora Pro</application
+></term
+> <listitem
+> <para
+><application
+>Eudora</application
+> bruger mbox formatet til sine postfile. For at bruge dem med &kmail;, skal du sørge for at dine <application
+>Eudora</application
+> postkasser er blevet komprimerede, kopiér så <literal role="extension"
+>.mbx</literal
+> filer (&Windows; <application
+>Eudora</application
+>) eller <application
+>Eudora</application
+> postkassefiler (&Mac; <application
+>Eudora</application
+>) til din <filename class="directory"
+>~/Mail</filename
+> mappe. Du behøver ikke at kopiere <filename
+>index</filename
+> filerne. Når du starter &kmail;, skulle postkasserne vise sig i mappepanelet og brevene skulle være tilgængelige i Hovedpanelet.</para
+> <para
+>Hvis breve ikke viser sig i hovedpanelet, indeholder dine breve måske stadig &Windows; eller &Mac; linefeed tegn. Brug din foretrukne tekstredigering <application
+>recode</application
+> kommandoen eller et skript sprog til at ændre &Windows; eller &Mac; linefeed til &UNIX; linefeed.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>MMDF</term
+> <listitem
+> <para
+>Dette format er tæt nok på mbox formatet, så  &kmail; skulle kunne bruge disse postkasser ved blot at kopiere dem til din <filename class="directory"
+>~/Mail</filename
+> mappe. MMDF postkasser er imidlertid ikke blevet testet med &kmail;, så dine resultater vil måske være variable. Hvis du kan få dette format til at virke med &kmail;, så vær rar og fortæl os om det, så vi kan inkludere mere specifikke instruktioner ved næste udgave af denne dokumentation.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>MH postkasser</term
+> <listitem
+> <para
+>MH postkasser er mapper der indeholder filer svarende til hvert brev i postkassen. Et skalskript til at konvertere  MH postkasser til mbox postkasser, <command
+>mh2kmail</command
+>, er inkluderet med &kmail;, i det mindste i kildetekstudgaven, men det er muligt det ikke er med i indpakkede udgaver. Kørsel af dette skript på en MH mappe, vil konvertere den til en mbox fil. Vi anbefaler stærkt at sikkerhedskopiere dine MH postmapper før du bruger dette skript.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Forte <application
+>Agent</application
+></term
+> <listitem
+> <para
+>I <application
+>Agent</application
+>:</para
+> <procedure
+> <step
+> <para
+>Vælg breve der skal eksporteres</para
+> </step
+> <step
+> <para
+>Vælg <menuchoice
+><guimenu
+>FILE</guimenu
+><guimenuitem
+>SAVE MESSAGES AS</guimenuitem
+></menuchoice
+></para
+> </step
+> <step
+> <para
+>Markér <guilabel
+>UNIX FORMAT</guilabel
+> og <guilabel
+>SAVE RAW</guilabel
+> boksene</para
+> </step
+> <step
+> <para
+>Giv fil en <literal role="extension"
+>.txt</literal
+> endelse og gem.</para
+> </step
+> </procedure
+> <para
+>I &kde;:</para
+> <procedure
+> <step
+> <para
+>Flyt tidligere gemt fil til rigtig <filename class="directory"
+>~/Mail</filename
+> mappe</para
+> </step
+> <step
+> <para
+>Omdøb fil uden <literal role="extension"
+>.txt</literal
+> endelse</para
+> </step
+> </procedure
+> <para
+>Når du åbner &kmail; vil den nye mappe med dertil hørende breve være der.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>&Netscape; e-post</term
+> <listitem
+> <para
+>Kopiér dine &Netscape; e-post filer fra <filename class="directory"
+>~/nsmail/</filename
+> til <filename class="directory"
+>~/Mail</filename
+> og sørg for at de er skrivbare (kun for brugeren naturligvis). Postkasserne vil vise sig i &kmail; næste gang du starter den.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Pegasus post</application
+></term
+> <listitem
+> <para
+><application
+>Pegasus</application
+> for win32 bruger enkelte filer som postmapper ligesom &kmail;. <application
+>Pegasus post</application
+> mappefiler har endelsen  <literal role="extension"
+>.pmm</literal
+> men de er samme format som mbox bortset fra at brevene ikke starter med <literal
+>From</literal
+> hoveddelen, men med et kontroltegn. For at løse dette problem, erstatter man hver forekomst af kontroltegnet med <literal
+>From aaa@aaa Mon Jan 01 00:00:00 1997</literal
+>. Denne <literal
+>From</literal
+> linie skal være den første linie i hvert brev, før <literal
+>Received:</literal
+> og andre hoveddele. Sørg for at bruge en tekstredigering, der kan gemme filerne i &UNIX; format eller opret nye mapper i <application
+>Pegasus</application
+> der er i &UNIX; format og kopiér din post derover i.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Maildir / Outlook Express / xfmail</term
+> <listitem
+> <para
+>Redskaber til at konvertere disse formater er tilgængelige på <ulink url="http://kmail.kde.org/download.html"
+>Hjemhentningssektionen af &kmail;'s hjemmeside</ulink
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Lotus <application
+>Notes</application
+>, BeOS Post filer, <application
+>cc: Mail</application
+>, &etc;...</term
+> <listitem
+> <para
+>Først bør du kigge i <ulink url="http://kmail.kde.org/download.html"
+>Hjemhentningssektionen af &kmail;'s hjemmeside</ulink
+> om der er redskaber til at konvertere post.</para
+> <para
+>Postprogrammer der ikke forekommer her eller på hjemmesiden virker formodentlig ikke med &kmail; da de bruger egne postformater som &kmail; ikke kan forstå. Der sker selvfølgelig ikke noget ved at prøve! Hvis postkassefilerne ser ud til at ligne mbox formatet, så prøv at kopiere postkassefilen (husk indeksfilen behøves ikke) til din <filename
+>~/Mail</filename
+> mappe og se hvad der sker når du starter &kmail;. Hvis du får postkasser fra din favorit e-post klient til at virke med &kmail;, så fortæl os venligst hvordan du gjorde det, så vi kan inkludere det i fremtidige revisioner af denne dokumentation. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+
+<chapter id="credits-and-licenses">
+<title
+>Medvirkende og licens</title>
+
+<para
+>&kmail;: Ophavsret &kmail; udviklerne, 1997-2001</para>
+
+&underGPL;
+&underFDL;
+
+<sect1 id="developers">
+<title
+>Oprindelige udviklere</title>
+<!-- please keep in sync with the authors list on the webpage -->
+
+<itemizedlist
+> <listitem
+> <para
+>Stefan Taferner <email
+>taferner@alpin.or.at</email
+></para
+> </listitem
+> <listitem
+> <para
+>Markus Wuebben <email
+>markus.wuebben@kde.org</email
+></para
+> </listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="team">
+<title
+>Nuværende hold</title>
+
+<itemizedlist
+> <listitem
+><para
+>Waldo Bastian <email
+>bastian@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Andreas Gungl <email
+>a.gungl@gmx.de</email
+></para
+></listitem
+> <listitem
+><para
+>Michael Haeckel <email
+>michael@haeckel.net</email
+></para
+></listitem
+> <listitem
+><para
+>Lars Knoll <email
+>knoll@mpi-hd.mpg.de</email
+></para
+></listitem
+> <listitem
+><para
+>J. Nick Koston <email
+>bdraco@darkorb.net</email
+></para
+></listitem
+> <listitem
+><para
+>Marc Mutz <email
+>mutz@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Daniel Naber <email
+>daniel.naber@t-online.de</email
+></para
+></listitem
+> <listitem
+><para
+>Sven Radej <email
+>radej@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Espen Sand <email
+>espen@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Don Sanders <email
+>sanders@kde.org</email
+> (Aktiv vedligeholder)</para
+></listitem
+> <listitem
+><para
+>George Staikos <email
+>staikos@0wned.org</email
+></para
+></listitem
+> <listitem
+><para
+>Mario Weilguni <email
+>mweilguni@sime.com</email
+></para
+></listitem
+> <listitem
+><para
+>Robert D. Williams <email
+>rwilliams@kde.org</email
+></para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="documentation">
+<title
+>Dokumentation</title>
+
+<para
+>Opdatering for &kmail; 1.2 and 1.3 ved Daniel Naber <email
+>daniel.naber@t-online.de</email
+>, <application
+>PGP</application
+> del ved Andreas Gungl <email
+>a.gungl@gmx.de</email
+>, filter del ved Marc Mutz <email
+>Marc.Mutz@uni-bielefeld.de</email
+>. Andre dele er bidraget af de forskellige &kmail; udviklere.</para>
+
+<para
+>&kmail; 1.0 dokumentation ved David Rugge <email
+>davidrugge@mindspring.com</email
+>. Oprindelig dokumentation ved Markus Wuebben <email
+>markus.wuebben@kde.org</email
+>, Robert Williams <email
+>rwilliams@kde.org</email
+> (Udgiver).</para>
+
+<para
+>Tak til Michael Elkins <email
+>me@cs.hmc.edu</email
+> for hans glimrende beskrivelse af de forskellige  &UNIX; postformater i <application
+>Mutt</application
+> dokumentationen.</para>
+
+<para
+>Tak til følgende der gav råd om hvordan man skal bruge andre e-post klineters postkasser med &kmail;:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Mendel Mobach <email
+>mendel@mobach.nl</email
+> (&Netscape; post)</para
+></listitem
+> <listitem
+><para
+>Ed Shapard <email
+>shapard@bigfoot.com</email
+> (<application
+>Pegasus</application
+> Post)</para
+></listitem
+> <listitem
+><para
+>Ray Muir <email
+>rjmuir@ibm.net</email
+> (Forte <application
+>Agent</application
+>)</para
+></listitem
+> </itemizedlist>
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+</sect1>
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kmail">
+<title
+>Hvordan får man fat på &kmail;</title>
+
+<para
+>&kmail; er en del af &kde; projektet <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kmail; kan findes i kdenetwork pakken på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, hoved &FTP;-stedte for &kde; projektet. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilering og installation</title>
+
+<para
+>For at kompilere og installere &kmail; på dit system, skal du skrive følgende i basismappen for kdenetwork distributionen:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>Da &kmail; bruger <application
+>autoconf</application
+> og <application
+>automake</application
+> skulle du ikke have besvær med at kompilere den. Hvis du løber ind i problemer, så rapportér dem til &kde; e-post listerne.</para>
+
+</sect1>
+
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=0:sw=2:tw=78:noet
+-->
+
+

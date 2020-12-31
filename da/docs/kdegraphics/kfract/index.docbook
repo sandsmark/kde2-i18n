@@ -1,0 +1,659 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kfract;">
+ <!ENTITY % Danish "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+ 
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>&kfract; håndbog</title>
+
+<authorgroup>
+<author
+> <firstname
+>Uwe</firstname
+> <surname
+>Thiem</surname
+> <affiliation
+> <address
+><email
+>uwe@uwix.alt.na</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>1999</year
+> <year
+>2001</year>
+<holder
+>Uwe Thiem, Pamela Roberts</holder>
+</copyright>
+<!-- Translators: put here the copyright notice of the translation -->
+<!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook
+     and in the FDL itself on how to use it. -->
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-07</date>
+<releaseinfo
+>01.03.00</releaseinfo>
+
+<abstract>
+<para
+>&kfract; genererer og viser fraktale billeder.</para>
+<para
+>Denne håndbog beskriver &kfract; Version 1.3</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>grafik</keyword>
+<keyword
+>fraktal</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Indledning</title>
+
+<screenshot
+> <screeninfo
+>KFract</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kfract.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+>&kfract; er en generator af <ulink url="http://hypertextbook.com/chaos/"
+> fractals</ulink
+> fraktaler. Det vil sige for øjeblikket kan den kun klare Mandelbrot mængder og Julia mængder. Ikke noget storslået såsom Xfractint. Og den er langt fra at være  lige så hurtig som <ulink url="http://spanky.triumf.ca/www/fractint/fractint.html"
+> fractint</ulink
+>. Men den er meget nemmere at bruge.</para>
+
+<para
+>Hold dig ikke tilbage fra at kontakte mig:</para>
+<para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para>
+
+</chapter>
+
+<chapter id="using-kfract">
+<title
+>Brug af KFract</title>
+
+<sect1 id="mouse-functions">
+<title
+>Musefunktioner</title>
+
+<para
+>Man kan forstørre ind ved at holde &LMB; nede og tegne et rektangel, der definerer hvilke dele af billedet der skal forstørres ind til. Centret af rektanglet bliver til centret af det nye billede. X/Y forholdet bliver tilpasset tildet nye vindue.</para>
+
+<para
+>Man kan også forstørre ind ved blot at klikke med &MMB; hvor man ønsker centret for det næste billede skal være. </para>
+
+<para
+>Eller man kan forstørre ud ved at klikke med &RMB;.</para>
+
+</sect1>
+
+<sect1 id="the-file-menu">
+<title
+><guimenu
+>Fil</guimenu
+>menuen</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>Å</accel
+>bn param...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Indlæser</action
+> en &kfract; parameterfil.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>em param...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gemmer parametrene for det aktuelle billede. </action
+> Filen skal nævngives med <literal role="extension"
+>.fct</literal
+> endelsen (for eksempel <filename
+>BigJulie.fct</filename
+>) og kan senere indlæses for at genberegne billedet. Det består af an almindelig <acronym
+>ASCII</acronym
+> fil og kan udveksles mellem forskellige maskiner endog mellem forskellige arkitekturer når blot &kde; er installeret.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Gem <accel
+>b</accel
+>illede...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gemmer billedet til en fil.</action
+> Formatet af den gemte fil afgøres af endelsen man giver filnavnet, for eksempel vil <filename
+>mandel.png</filename
+> gemme i <literal role="extension"
+>.png</literal
+> formatet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Ja, her forlader du &kfract;.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-view-menu">
+<title
+><guimenu
+>Vis</guimenu
+>menuen</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>For<accel
+>s</accel
+>tør</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Forstør</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+>For<accel
+>m</accel
+>indsk</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Formindsk.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>orstør...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Denne indstilling lader dig ændre forstørrelses- og formindskelses faktorerne, men det virker uheldigvis ikke for øjeblikket.</para
+> </listitem
+> </varlistentry
+> </variablelist
+></para>
+
+</sect1>
+
+
+<sect1 id="the-options-menu">
+<title
+><guimenu
+>Indstillings</guimenu
+>menuen</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>andelbrot...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Skifter til Mandelbrot mængden og tillader dig at sætte forskellige parametre for beregning og fremvisning.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>J</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guimenuitem
+><accel
+>J</accel
+>ulia...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Skifter til Julia mængden og tillader dig at sætte forskellige parametre for beregning og fremvisning.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>terationer...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Lader dig ændre iterationsdybden.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-settings-menu">
+<title
+><guimenu
+>Opsætnings</guimenu
+>menuen</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Indstil <accel
+>T</accel
+>astebindinger...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Lader dig ændre genvejstasterne der bruges til at skifte mellem Mandlebrot og Julia mængder og til at gemme billedet.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+
+<sect1 id="the-help-menu">
+<title
+><guimenu
+>Hjælpe</guimenu
+>menuen</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndhold</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Se denne håndbog.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>apportér problem...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Brug dette til at indsende en problemrapport til kde.org</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>m KDE Fraktal Generator</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Popper en infoboks op med noget information om dette program og dets forfatter.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Popper en infoboks op med noget information om K skrivebordsmiljøet.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-toolbar">
+<title
+><interface
+>Værktøjslinien</interface
+></title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>Åbn parametre</term
+> <listitem
+> <para
+>Som <emphasis
+><guimenu
+>Fil</guimenu
+>-&gt;<guimenuitem
+>Åbn param</guimenuitem
+></emphasis
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Forstør</term
+> <listitem
+> <para
+>Som <emphasis
+><guimenu
+>Visning</guimenu
+>-&gt;<guimenuitem
+>Forstør... </guimenuitem
+></emphasis
+>.</para
+></listitem
+></varlistentry
+> <varlistentry
+> <term
+>Gem billede...</term
+> <listitem
+> <para
+>Som <emphasis
+><guimenu
+>Fil</guimenu
+>-&gt;<guimenuitem
+>Gem billede... </guimenuitem
+></emphasis
+>.</para
+></listitem
+></varlistentry
+> </variablelist
+> </para>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Medvirkende og licens</title>
+
+<para
+>&kfract;</para>
+
+<para
+>Program ophavsret 1999-2001</para>
+<itemizedlist
+> <listitem
+><para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+> Dokumentation ophavsret 1999-2001</para>
+<itemizedlist
+> <listitem
+><para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Pamela Roberts <email
+>pam.roberts@btinternet.com</email
+> (dokument vedligeholder) </para
+></listitem
+> </itemizedlist>
+
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

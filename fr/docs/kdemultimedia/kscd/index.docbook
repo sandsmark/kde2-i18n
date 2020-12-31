@@ -1,0 +1,1338 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY % French "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Le manuel de &kscd;</title>
+
+<authorgroup>
+
+<author
+> <firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+><address
+><email
+>jsinger@leeta.net</email
+></address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>David</firstname
+> <surname
+>White</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Bernd</firstname>
+<othername
+>Johannes</othername>
+<surname
+>Wuebben</surname>
+<affiliation
+><address
+><email
+>wuebben@kde.org</email
+></address
+></affiliation>
+<contrib
+>Développeur</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname
+>Dirk</firstname>
+<surname
+>Forsterling</surname>
+<affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Développeur</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname
+>Dirk</firstname>
+<surname
+>Foersterling</surname>
+<affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Développeur</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Relecture</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Ludovic</firstname
+><surname
+>Grossard</surname
+><affiliation
+><address
+><email
+>ludovic.grossard@libertysurf.fr</email
+></address
+></affiliation
+><contrib
+>Traduction française</contrib
+></othercredit
+><othercredit role="reviewer"
+><firstname
+>Patrick</firstname
+><surname
+>Chavas</surname
+><affiliation
+><address
+><email
+>pachavas@sun.cpe.fr</email
+></address
+></affiliation
+><contrib
+>Relecture française</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000-2001</year>
+<holder
+>J Singer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+  
+
+<date
+>2001-07-19</date>
+<releaseinfo
+>1.03.02</releaseinfo>
+
+<abstract>
+<para
+>&kscd; est un lecteur de <abbrev
+>CD</abbrev
+> rapide pour les plates-formes UNIX et permettant l'accès à <abbrev
+>CDDB</abbrev
+>. &kscd; signifie <quote
+>The KDE Project's small/simple CD player</quote
+>.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdemultimedia</keyword>
+<keyword
+>kscd</keyword>
+<keyword
+>musique</keyword>
+<keyword
+>CD</keyword>
+<keyword
+>audio</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<para
+>&kscd; est un lecteur de &CD; rapide pour les plates-formes UNIX et permettant l'accès à <acronym
+>CDDB</acronym
+>. &kscd; signifie <quote
+>The KDE Project's small/simple CD player</quote
+>.</para>
+
+<para
+><emphasis
+>Nouveau&nbsp;: </emphasis
+>script Perl <filename
+>workman2cddb.pl</filename
+> fourni pour faciliter l'adaptation des utilisateurs de workman.</para>
+
+<para
+>J'espère que ce lecteur de &CD; vous plaira.</para>
+
+<para
+>Bernd Johannes Wuebben</para>
+
+<para
+><email
+>wuebben@kde.org</email
+></para>
+
+<sect1 id="supported-platforms">
+<title
+>plates-formes reconnues</title>
+
+<para
+>&kscd; fonctionne sur les plates-formes suivantes&nbsp;:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Linux</para
+></listitem
+> <listitem
+><para
+>FreeBSD</para
+></listitem
+> <listitem
+><para
+>NetBSD</para
+></listitem
+> <listitem
+><para
+>BSD386</para
+></listitem
+> <listitem
+><para
+>Sun</para
+></listitem
+> <listitem
+><para
+>Solaris (incluant le support de <acronym
+>cdda</acronym
+>)</para
+></listitem
+> <listitem
+><para
+>&HP-UX;</para
+></listitem
+> <listitem
+><para
+>&SGI; Irix (incluant le support de <abbrev
+>cdda</abbrev
+>)</para
+></listitem
+> <listitem
+><para
+>Sony NEWS</para
+></listitem
+> <listitem
+><para
+>OSF/1</para
+></listitem
+> <listitem
+><para
+>Ultrix</para
+></listitem
+> </itemizedlist>
+
+<para
+>et devrait pouvoir être compilé sur beaucoup d'autres moyennant quelques modifications.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="onscreen-fundamentals">
+<title
+>Commandes principales</title>
+
+<sect1 id="basic-operation">
+<title
+>Opérations de base</title>
+
+<screenshot
+> <screeninfo
+>L'interface de &kscd;</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kscd.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>L'interface de &kscd;</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Vous devriez voir quelque chose de semblable lorsque vous lancez &kscd;. Les éléments de cette fenêtre sont décrits ci-dessous.</para>
+
+<sect2 id="control-panel">
+<title
+>Panneau de commande principal</title>
+
+<screenshot
+> <screeninfo
+>Panneau de commande principal</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd2.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Panneau de commande principal</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> C'est le panneau de contrôle principal de &kscd; Le rôle de ces boutons devrait être familier à quiconque a déjà utilisé un lecteur de &CD;.</para>
+
+<para
+>Le bouton supérieur dans l'image ci-dessus permet de lire ou mettre en pause le &CD;. Le bouton de gauche dans la deuxième ligne arrête la lecture du &CD;. Le bouton de droite dans la deuxième ligne active/désactive la lecture en boucle, le &CD; redémarrant au début lorsque la fin de la dernière piste est atteinte. Les boutons de la troisième ligne permettent de reculer (à gauche) ou avancer (à droite) de 30 secondes. Les boutons dans la quatrième ligne avancent (à droite) ou reculent (à gauche) directement au début de la piste suivante ou précédente. </para>
+</sect2>
+
+<sect2 id="eject">
+<title
+>Bouton d'<guibutton
+>éjection</guibutton
+></title>
+
+<screenshot
+> <screeninfo
+>Bouton d'<guibutton
+>éjection</guibutton
+></screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd2a.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Bouton d'éjection</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Il est possible que le bouton d'éjection sur votre lecteur de &CD-ROM; ne réponde pas si un &CD; audio est déjà dans le lecteur et si &kscd; est lancé. Quelques très anciens lecteurs de &CD-ROM; pourraient ne pas permettre l'éjection par un logiciel. Il se peut aussi que vous deviez fermer manuellement la trappe du lecteur de &CD-ROM; après l'insertion d'un nouveau disque.</para>
+</sect2>
+
+<sect2 id="status-display">
+<title
+>Affichage de l'état</title>
+
+<screenshot
+> <screeninfo
+>Affichage de l'état</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd3.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Affichage de l'état</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>En partant du haut, de la gauche vers la droite, on trouve l'afficheur de temps principal (Voir après pour une description des différents modes d'affichage de temps), l'état du lecteur &CD-ROM;, la durée totale du &CD; audio, la valeur actuelle du volume, et la piste courante ainsi que le nombre total de pistes (cour./max.). Les deux lignes de texte les plus en bas affichent l'artiste et le titre du &CD;, ensuite le titre de la piste, sous réserve que les entrées appropriées existent dans la <acronym
+>CDDB</acronym
+> locale ou réseau (&CD; Data Base.)</para>
+
+</sect2>
+
+<sect2 id="time-display-modes">
+<title
+>Bouton de sélection du mode d'affichage</title>
+
+<screenshot
+> <screeninfo
+>Bouton de sélection du mode d'affichage</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd4.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Bouton de sélection du mode d'affichage</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Ce bouton bascule entre les modes d'affichage de temps disponibles. Par défaut, &kscd; affiche la durée de lecture écoulée de la piste courante si le &CD; est en lecture&nbsp;; sinon, il affiche &ndash;&ndash;:&ndash;&ndash; ou 00:00. En appuyant sur ce bouton, on fait défiler en séquence les modes&nbsp;: durée de lecture restante de la piste, durée de lecture écoulée totale et durée de lecture restante sur le disque.</para>
+</sect2>
+
+<sect2 id="configuration-button">
+<title
+>Bouton de <guibutton
+>configuration</guibutton
+></title>
+
+<screenshot
+> <screeninfo
+>Bouton de configuration</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd5.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Bouton de configuration</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Ce bouton ouvre le panneau de configuration de &kscd;. Il vous permet de configurer &kscd; pour qu'il fonctionne sur votre machine. Voir la section <link linkend="configuring-kscd"
+>Configuration de &kscd;</link
+> pour plus de détails sur la configuration de &kscd;.</para>
+</sect2>
+
+<sect2 id="cddb-button">
+<title
+>Bouton <guibutton
+>CDDB</guibutton
+></title>
+
+<screenshot
+> <screeninfo
+>Bouton <acronym
+>CDDB</acronym
+></screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd6.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Bouton <acronym
+>CDDB</acronym
+></phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Ce bouton ouvre le panneau d'édition des entrées <acronym
+>CDDB</acronym
+> (Compact Disc Data Base). </para>
+
+<para
+>La <acronym
+>CDDB</acronym
+> peut identifier votre &CD; et souvent télécharger la liste des pistes pour ce &CD; ou la charger à partir du système de fichiers. Voir la section <link linkend="cddb-editor"
+>Éditeur de Base de données de &CD;</link
+> pour plus de détails sur l'utilisation de cet outil.</para>
+</sect2>
+
+<sect2 id="information-button">
+<title
+>Bouton d'<guibutton
+>information</guibutton
+></title>
+
+<screenshot
+> <screeninfo
+>Bouton d'information</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd7.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Bouton d'information</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Ce bouton vous aidera dans la recherche sur Internet d'informations sur l'artiste. Vous pourrez découvrir des dates de concert, des informations d'achat et d'autres informations en appuyant sur ce bouton et en choisissant l'option appropriée dans le menu qui apparaît.</para>
+</sect2>
+
+<sect2>
+<title
+>Bouton de fermeture</title>
+
+<screenshot
+> <screeninfo
+>Bouton de fermeture</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd8.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Bouton de fermeture</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Ce bouton ferme &kscd;.</para>
+</sect2>
+
+<sect2>
+<title
+>Glissière de volume</title>
+
+<screenshot
+> <screeninfo
+>Glissière de volume</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd9.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Glissière de volume</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Ce curseur contrôle le volume de la sortie audio du &CD;. Vers la droite, c'est plus fort, vers la gauche, moins fort. Si vous écoutez votre &CD; à travers votre carte son, la table de mixage de la carte son influera aussi sur le volume d'écoute.</para>
+</sect2>
+
+<sect2 id="randomize-button">
+<title
+>Bouton de lecture aléatoire</title>
+
+<screenshot
+> <screeninfo
+>Bouton de lecture aléatoire</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd15.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Bouton de lecture aléatoire</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Ce bouton lance la lecture des pistes du &CD; dans un ordre aléatoire. </para>
+</sect2>
+
+<sect2>
+<title
+>Liste de sélection directe de piste</title>
+
+<screenshot
+> <screeninfo
+>Liste de sélection directe de piste</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd11.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Liste de sélection directe de piste</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+	    
+<para
+>Cette liste déroulante affiche la piste actuelle et vous permet de sélectionner directement la piste que vous souhaitez écouter. </para>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="configuring-kscd">
+<title
+>Configuration de &kscd;</title>
+<sect1 id="configuration-intro">
+<title
+>Fenêtre de configuration principale</title>
+
+<para
+>La fenêtre de configuration de &kscd; est une boîte de dialogue à onglets contenant quatre sections principales. </para>
+
+<itemizedlist
+> <listitem
+><para
+><link linkend="freedb-tab"
+><guilabel
+>freedb</guilabel
+></link
+></para
+></listitem
+> <listitem
+><para
+><link linkend="smtp-options"
+><guilabel
+>Configuration de SMTP</guilabel
+> </link
+></para
+></listitem
+> <listitem
+><para
+><link linkend="kscd-options-tab"
+><guilabel
+>Options de Kscd</guilabel
+></link
+></para
+></listitem
+> <listitem
+><para
+><link linkend="about"
+><guilabel
+>À propos</guilabel
+></link
+></para
+></listitem
+> </itemizedlist>
+</sect1>
+
+<sect1 id="freedb-tab">
+<title
+>L'onglet <guilabel
+>freedb</guilabel
+></title>
+<screenshot
+> <screeninfo
+>L'onglet <guilabel
+>freedb</guilabel
+> de la boîte de dialogue de configuration</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject
+> <textobject
+><phrase
+>L'onglet <guilabel
+>freedb</guilabel
+> de la boîte de dialogue de configuration</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> L'onglet <guilabel
+>freedb</guilabel
+> définit les fonctions <acronym
+>CDDB</acronym
+> de &kscd;.</para>
+
+<para
+>La case à cocher <guilabel
+>Activer la freedb distante</guilabel
+> active ou désactive les recherches de <acronym
+>CDDB</acronym
+> à travers Internet. Vous pouvez régler le temps au bout duquel la recherche est abandonnée en cas d'échec. Pour utiliser un proxy &HTTP;, cochez <guilabel
+>Utiliser un proxy HTTP pour accéder à freedb</guilabel
+> et saisissez une &URL; dans le champ situé en dessous.</para>
+
+<para
+>La zone de texte <guilabel
+>Répertoire de base freedb</guilabel
+> vous permet de choisir le répertoire où vous voulez stocker localement vos entrées <acronym
+>CDDB</acronym
+>.</para>
+
+<para
+>La liste <guilabel
+>Serveur freedb</guilabel
+> affiche une liste de serveurs freedb connus. Sélectionnez une entrée dans la liste et elle apparaîtra dans la zone de texte au-dessus de la liste de sélection. Pressez le bouton <guibutton
+>Actualiser</guibutton
+> pour mettre à jour la liste des serveurs. Appuyez sur le bouton <guibutton
+>Par défaut</guibutton
+> pour saisir la valeur par défaut, <userinput
+>freedb.freedb.org 888 -</userinput
+>, qui vous permettra de rafraîchir la liste avec une liste récente de Serveurs freedb listés sur le site freedb principal <systemitem class="systemname"
+>freedb.freedb.org</systemitem
+>. Cliquez sur le bouton <guibutton
+>-</guibutton
+> pour supprimer l'entrée sélectionnée de la liste.</para>
+
+<para
+>Le champ <guilabel
+>Envoyer les contributions freedb à&nbsp;:</guilabel
+> contient l'adresse électronique pour soumettre des entrées <abbrev
+>CDDB</abbrev
+>. L'adresse par défaut est <email
+>freedb-submit@freedb.org</email
+>. Depuis la version 0.8, les entrées <acronym
+>CDDB</acronym
+> provenant de &kscd; sont acceptées pour inclusion dans la base de données. Cliquez sur le bouton <guibutton
+>-</guibutton
+> pour supprimer l'entrée sélectionnée de la liste. Le bouton <guibutton
+>Par défaut</guibutton
+> restaure tous les réglages par défaut. Le bouton <guibutton
+>Aide</guibutton
+> ouvre la page d'aide de &kscd; (ce document).</para>
+
+<para
+><guibutton
+>OK</guibutton
+> enregistre les réglages par défaut, puis quitte la fenêtre de configuration&nbsp;; <guibutton
+>Annuler</guibutton
+> permet de sortir sans enregistrer les modifications. </para>
+</sect1>
+
+<sect1 id="smtp-options">
+<title
+>L'onglet <guilabel
+>Configuration SMTP</guilabel
+></title
+> 
+
+<screenshot
+> <screeninfo
+>L'onglet Configuration SMTP</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+> L'onglet Configuration <acronym
+>SMTP</acronym
+> permet de configurer une connexion avec un serveur de courrier électronique afin de soumettre de nouvelles entrées <acronym
+>CDDB</acronym
+>. Ceci est utile si votre système n'est pas configuré comme serveur. Cochez <guilabel
+>Activer l'envoi via SMTP</guilabel
+> pour utiliser cette caractéristique. Entrez l'adresse du serveur <acronym
+>SMTP</acronym
+> dans la zone de texte en haut à gauche et le numéro du port (typiquement <userinput
+>25</userinput
+>) dans la zone de texte en haut à droite. Entrez votre adresse électronique dans la zone de texte située en dessous. </para>
+</sect1>
+
+<sect1 id="kscd-options-tab">
+<title
+>L'onglet <guilabel
+>Options du lecteur CD</guilabel
+></title
+> 
+
+<screenshot
+> <screeninfo
+>L'onglet <guilabel
+>Options du lecteur CD</guilabel
+></screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd12.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>L'onglet <guilabel
+>Options du lecteur CD</guilabel
+></phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Les champs <guilabel
+>Couleur des diodes&nbsp;:</guilabel
+> et <guilabel
+>Couleur du fond&nbsp;:</guilabel
+> montrent la couleur sélectionnée pour le texte et l'arrière-plan de l'afficheur d'état. Pressez le bouton <guibutton
+>Changer</guibutton
+> après la zone de couleur pour modifier ces couleurs.</para>
+
+<para
+>Le champ <guilabel
+>Périphérique CDROM</guilabel
+> contient le nom du périphérique &CD-ROM; à utiliser pour lire les CD audio. La valeur par défaut est <filename
+>/dev/cdrom</filename
+>. Les privilèges sur ce périphérique doivent être définis pour permettre l'ouverture en lecture seule du périphérique. La modification des privilèges sur ce fichier de périphérique nécessite, dans la plupart des cas, les droits de super-utilisateur et peut être effectuée à partir d'une ligne de commande ou dans le Mode Super Utilisateur de &konqueror;.</para>
+
+<para
+>Le champ <guilabel
+>Commande de mail&nbsp;</guilabel
+> affiche la commande utilisée pour envoyer de nouvelles entrées <acronym
+>CDDB</acronym
+> à  la base de données. La valeur par défaut est <userinput
+><command
+>mail</command
+> <option
+>-s <replaceable
+>%s</replaceable
+></option
+></userinput
+>. Vous devrez vous assurer que cette commande envoie des courriers à  des systèmes non locaux si vous voulez soumettre des entrées <acronym
+>CDDB</acronym
+>, spécialement si vous accédez à  l'Internet par une connexion avec numérotation (modem). Consultez la documentation de votre distribution Linux pour plus de détails. Quelques distributions Linux qui utilisent sendmail pour délivrer les courriers électroniques nécessitent seulement que vous saisissiez votre hôte de courrier dans le champ <guilabel
+>"Smart" relay host</guilabel
+> du fichier <filename
+>/etc/sendmail.cf</filename
+>. De plus, le site <acronym
+>CDDB</acronym
+> voudra être capable de vous répondre par courier électronique&nbsp;; il pourrait donc être nécessaire d'éditer <filename
+>/etc/sendmail.cf</filename
+> pour vous assurer que l'adresse de retour de la soumission est valide. Adaptez selon vos besoins. Si rien ne fonctionne, utilisez <link linkend="smtp-options"
+>SMTP</link
+> à  la place.</para>
+
+<para
+>La section <guilabel
+>Navigateur WWW</guilabel
+> vous permet de choisir quel navigateur web utiliser pour accéder aux sites web dans les menus du <link linkend="information-button"
+>bouton d'information</link
+>. Vous pouvez choisir, avec les boutons radio, soit &konqueror; soit un navigateur personnalisé . Par défaut, le champ <guilabel
+>Utiliser un navigateur personnalisé</guilabel
+> contient <userinput
+><command
+>kfmclient</command
+> <option
+><replaceable
+>openURL %s</replaceable
+></option
+></userinput
+>.</para>
+
+<para
+>La case à cocher <guilabel
+>Afficher les bulles d'aide</guilabel
+> active ou désactive les bulles d'aide (petites fenêtres qui apparaissent quand la souris reste un court instant sur un contrôle).</para>
+
+<para
+><guilabel
+>Placer sur le tableau de bord</guilabel
+> fait apparaître un contrôle de &kscd; dans le panneau &kicker;.</para>
+
+<para
+><guilabel
+>Lecture dès la fermeture de la trappe</guilabel
+> permet de débuter la lecture du &CD; à la fermeture de la trappe, sans avoir besoin de cliquer sur le bouton <guibutton
+>Lecture</guibutton
+>.</para>
+
+<para
+><guilabel
+>Arrêter la lecture à la sortie</guilabel
+> stoppe la lecture du &CD; lorsque vous quittez &kscd;.</para>
+
+<para
+><guilabel
+>Éjecter à la fin</guilabel
+> éjecte le &CD; lorsque sa lecture se termine.</para>
+
+<para
+><guilabel
+>Lecture aléatoire sans répétition</guilabel
+> signifie que lorsque <link linkend="randomize-button"
+>Lecture aléatoire</link
+> est utilisé, chaque piste n'est lue qu'une fois.</para>
+
+<para
+>Le bouton <guibutton
+>Aide</guibutton
+> ouvre la page d'aide de &kscd;.</para>
+
+<para
+><guibutton
+>OK</guibutton
+> enregistre les réglages par défaut, puis quitte la fenêtre de configuration&nbsp;; <guibutton
+>Annuler</guibutton
+> permet de sortir sans enregistrer les modifications.</para>
+
+</sect1>
+
+<sect1 id="about">
+<title
+>L'onglet <guilabel
+>À propos</guilabel
+> </title>
+
+<para
+> L'onglet <guilabel
+>À propos</guilabel
+> affiche la version de &kscd; que vous utilisez et des informations de copyright. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="cddb-editor">
+<title
+>L'<guilabel
+>éditeur de base de données CDDB</guilabel
+></title>
+
+<screenshot
+> <screeninfo
+>L'éditeur de base de données CDDB</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>L'éditeur de base de données CDDB</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>L'éditeur de base de données de &CD; vous permet de modifier, télécharger, enregistrer, annoter et soumettre des entrées <link linkend="cddb-support"
+><acronym
+>CDDB</acronym
+></link
+> (Compact Disc Data Base).</para>
+
+<para
+>S'il y a une entrée dans votre arborescence <acronym
+>CDDB</acronym
+> locale (voir la <link linkend="freedb-tab"
+>sous-section CDDB</link
+> dans "Configuration de &kscd;") pour le &CD; dans votre lecteur &CD-ROM;, ou si le disque peut être trouvé dans freedb, vous verrez apparaître le nom de l'artiste et le titre du &CD; dans le champ <guilabel
+>Artiste / Titre</guilabel
+> et une liste de pistes avec les titres des chansons dans la liste de sélection <guilabel
+>Piste / Durée / Titre</guilabel
+>. Autrement, vous verrez une liste de pistes et de durées sans titres.</para>
+
+<para
+>Vous pouvez créer une annotation pour le disque entier avec le bouton <guibutton
+>Info suppl.</guibutton
+>, situé après le champ <guilabel
+>Artiste / Titre</guilabel
+>, ou pour la piste sélectionnée dans la liste <guilabel
+>Piste / Temps / Titre</guilabel
+> avec le bouton <guibutton
+>Info suppl.</guibutton
+> adjacent. Si vous sélectionnez une piste dans la liste de sélection <guilabel
+>Piste / Temps / Titre</guilabel
+>, le titre, s'il est présent, apparaîtra dans le champ <guilabel
+>Édition du titre de la piste</guilabel
+> en dessous. Vous pouvez saisir un titre pour la piste dans la zone de texte ou modifier l'entrée pour l'adapter à  vos souhaits. Appuyer sur la touche <keycap
+>Entrée</keycap
+> du clavier et le texte apparaîtra dans la bonne ligne de la liste de sélection.</para>
+
+<para
+>Une fois que le titre de chaque piste a été donné et que le champ <guilabel
+>Artiste / Titre</guilabel
+> a été rempli, vous pouvez appuyer sur le bouton <guibutton
+>Envoyer</guibutton
+> pour envoyer votre contribution par courrier électronique à freedb.</para>
+
+<para
+>Vous devrez choisir une catégorie pour la contribution. La section <guilabel
+>Disc ID</guilabel
+> affiche le code <acronym
+>ID</acronym
+> 32 bit utilisé par freedb pour identifier un compact disc. Au-dessus du code <acronym
+>ID</acronym
+> se trouve la catégorie de l'entrée <guilabel
+>CDDB</guilabel
+>. Ces catégories correspondent à l'arborescence de sous-répertoires du répertoire défini dans le <guilabel
+>Répertoire de base de freedb</guilabel
+> de l'onglet <link linkend="freedb-tab"
+><abbrev
+>CDDB</abbrev
+></link
+> de la fenêtre de configuration de &kscd;.</para>
+
+<para
+>L'affichage <guilabel
+>Durée totale&nbsp;:</guilabel
+> montre la durée de lecture totale du &CD;.</para>
+
+<para
+>L'<guilabel
+>Éditeur de liste de lecture</guilabel
+> vous permet de modifier l'ordre de lecture du disque. Entrez une liste de numéros de piste séparés par une virgule pour définir un nouvel ordre de lecture.</para>
+
+<para
+>Le bouton <guibutton
+>Enregistrer</guibutton
+> écrit sur le disque l'enregistrement affiché. Vous devrez choisir la catégorie sous laquelle vous voulez le sauver. Sélectionnez un répertoire et appuyez sur <guibutton
+>OK</guibutton
+> pour terminer l'enregistrement.</para>
+
+<para
+>Le bouton <guibutton
+>Charger</guibutton
+> vous demandera un emplacement pour rechercher une entrée <acronym
+>CDDB</acronym
+> autre qu'un serveur freedb distant ou que celles présentes dans le système de fichiers. Le bouton <guibutton
+>Fermer</guibutton
+> ferme l'éditeur de base de données sans enregistrer.</para>
+
+</chapter>
+
+<chapter id="using-kscd-in-the-panel">
+<title
+>Utilisation de &kscd; dans le tableau de bord de &kde;</title>
+
+<screenshot
+> <screeninfo
+>Utilisation de &kscd; dans le tableau de bord de &kde;</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd18.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Utilisation de &kscd; dans le tableau de bord de &kde;</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Lorsque <guilabel
+>Placer sur le tableau de bord</guilabel
+> est coché, une petite applet &kscd; est affichée dans le <application
+>tableau de bord de KDE</application
+>. Contrairement à la fenêtre principale de &kscd;, cette applet est disponible sur tous les bureaux. Cliquez avec le bouton <mousebutton
+>droit</mousebutton
+> de la souris sur l'applet pour afficher un menu surgissant permettant de contrôler la lecture du &CD;. Cliquez avec le bouton <mousebutton
+>gauche</mousebutton
+> de la souris pour retrouver la fenêtre principale de &kscd;. Si cette fenêtre principale est minimisée, un clic <mousebutton
+>gauche</mousebutton
+> sur l'applet la restaurera. </para>
+
+<note
+><para
+>Pour être précis, l'applet est affichée dans le <application
+>system tray</application
+> du tableau de bord. Si aucune applet n'apparaît lorsque &kscd; est minimisé, vous avez sans doute enlevé le <quote
+>tray</quote
+>. Pour le remettre, cliquez avec le bouton <mousebutton
+>droit</mousebutton
+> de la souris sur une zone vide du tableau de bord et sélectionnez <menuchoice
+><guisubmenu
+>Ajouter</guisubmenu
+> <guisubmenu
+>Applet</guisubmenu
+> <guimenuitem
+>System Tray</guimenuitem
+></menuchoice
+></para
+></note>
+
+</chapter>
+
+<chapter id="cddb-support">
+<title
+>Support de <acronym
+>CDDB</acronym
+></title>
+
+<para
+>freedb est une base de données réseau distribuée accessible sur Internet, qui contient des informations sur la plupart des &CD; audio en circulation. Si vous avez un accès Internet, vous n'aurez probablement jamais à saisir manuellement les informations sur les pistes de vos &CD; si tout est configuré correctement. Voir la sous-section "<link linkend="freedb-tab"
+>Onglet freedb</link
+>" dans le chapitre "Configuration de &kscd;" pour des instructions sur comment configurer ce service et "<link linkend="cddb-editor"
+>L'éditeur de base de données CDDB</link
+>" pour des instructions sur comment modifier des entrées <acronym
+>CDDB</acronym
+>.</para>
+
+<para
+>L'utilisation de <acronym
+>CDDB</acronym
+> est libre. Les contributions des utilisateurs sont encouragées.</para>
+
+<para
+>Quand vous préparez des entrées pour la <acronym
+>CDDB</acronym
+>, gardez les points suivants à l'esprit&nbsp;:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Utilisez des caractères <quote
+>latin standard</quote
+> dans les entrées. Certains caractères spéciaux sont acceptés mais les contributions utilisant l'alphabet Cyrillique ou Grec ne le sont pas.</para
+></listitem
+> <listitem
+><para
+>Utilisez uniquement un caractère <keysym
+>/</keysym
+> dans le champ <guilabel
+>Artiste / Titre</guilabel
+> dans l'éditeur de base de données de &CD;.</para
+> <para
+>Pour les &CD; classiques, il est courant de mettre le nom du compositeur dans la section Artiste (avant le slash) et le nom de l'interprète dans la section Titre (après le slash).</para
+></listitem
+> <listitem
+><para
+>Si vous envoyez une entrée qui existe déjà dans la base de données, les informations supplémentaires que vous aurez fourni pourront être ajoutées à l'entrée existante.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Par défaut, &kscd; installe les catégories <acronym
+>CDDB</acronym
+> standard dans <filename class="directory"
+>$KDEDIR/share/apps/kscd/cddb</filename
+>. Vous pouvez créer autant de sous-répertoires catégorie que vous le souhaitez. Cependant, lors de l'envoi d'une contribution, seules les catégories officielles <acronym
+>CDDB</acronym
+> seront affichées. L'adresse d'envoi par défaut est <email
+>freedb-submit@freedb.org</email
+>.Pour plus d'informations sur <abbrev
+>freedb</abbrev
+>, consultez sa page web.</para>
+
+<para
+>L'entrée <acronym
+>CDDB</acronym
+> locale pour un &CD; donné est stockée dans le fichier <filename
+><replaceable
+>category name</replaceable
+>/<replaceable
+>disc ID</replaceable
+></filename
+> sous le répertoire de base de <acronym
+>CDDB</acronym
+>. Ces fichiers peuvent être modifiés avec n'importe quel éditeur de texte si vous n'avez rien de mieux à faire pendant votre temps libre.</para>
+
+</chapter>
+
+<chapter id="questions-and-answers">
+<title
+>Questions et réponses</title>
+
+<qandaset>
+<qandaentry>
+<question
+><para
+>J'obtiens cette boîte de dialogue quand je lance &kscd;. Qu'est-ce qui ne va pas&nbsp;?</para>
+<screenshot
+> <screeninfo
+>Boîte de dialogue d'erreur</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd19.png" format ="PNG"/></imageobject
+> <textobject
+><phrase
+>Boîte de dialogue d'erreur</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+</question>
+<answer
+><para
+>Ceci signifie que &kscd; ne réussit pas à accéder à votre lecteur &CD-ROM;. Le nom du périphérique dans le champ <guilabel
+>Périphérique CDROM</guilabel
+> de la <guilabel
+>Configuration de KSCD</guilabel
+> doit faire référence au périphérique bloc associé à votre lecteur &CD-ROM;. Ce sera souvent un lien vers le périphérique <acronym
+>IDE</acronym
+> (<filename
+>/dev/hdx</filename
+>) ou <acronym
+>SCSI</acronym
+> (<filename
+>/dev/sdx</filename
+>) approprié.</para>
+
+<para
+> Le fichier de périphérique appartient normalement à l'utilisateur root du groupe root, et n'autorise pas les utilisateurs normaux à l'ouvrir en lecture, écriture ou exécution directement. Cela n'a <emphasis
+>rien</emphasis
+> à voir avec la commande <application
+>SUID</application
+> <command
+>mount</command
+> (Les programmes Set User <acronym
+>ID</acronym
+> utilisent le <function
+>setuid()</function
+> de la bibliothèque standard Unix pour s'approprier l'identité d'un autre utilisateur) , qui ne pose pas de problème avec les permissions&nbsp;; &kscd; doit être capable d'obtenir un descripteur de fichier en lecture seule faisant référence au périphérique &CD;, pour contrôler le lecteur &CD-ROM; et lire les données bas niveau du disque.</para>
+
+<para
+> Si vous possédez le mot de passe root, vous pouvez résoudre ceci rapidement et facilement. Devenez root et tapez la commande <userinput
+><command
+>chmod </command
+><option
+>a+r</option
+> <filename
+><replaceable
+>/dev/cdrom</replaceable
+></filename
+></userinput
+> pour permettre à tous les utilisateurs de votre système de lire à partir de <filename
+>/dev/cdrom</filename
+>. Si votre lecteur de &CD-ROM; est nommé différemment, modifiez les privilèges de ce périphérique avec la même procédure. Si vous n'avez pas le mot de passe root, demandez gentiment à votre administrateur système de vous donner la permission de lecture pour le périphérique &CD-ROM;.</para>
+
+<para
+>Voir aussi le chapitre <link linkend="configuring-kscd"
+>Configuration de KSCD</link
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry
+> 
+<question
+><para
+>Impossible d'utiliser <acronym
+>CDDB</acronym
+>. Comment obtenir des informations détaillées sur ce qui ne fonctionne pas&nbsp;?</para
+></question
+> 
+<answer
+><para
+>Si vous rencontrez des problèmes avec les fonctionnalités de la <acronym
+>CDDB</acronym
+>, essayez de lancer &kscd; à partir de la ligne de commande avec le paramètre <option
+>-d</option
+> et surveillez la sortie de déboguage.</para
+></answer
+> 
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Remerciements et licence</title>
+
+<para
+>&kscd; Copyright 1997,1998 Bernd Johannes Wuebben <email
+>wuebben@kde.org</email
+>wuebben
+></para>
+
+<para
+>&kscd; contient du code de&nbsp;: </para>
+<itemizedlist
+> <listitem
+><para
+><application
+>workman</application
+> 1.4 beta 3 Copyright (c) Steven Grimm <email
+>koreth@hyperion.com</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Remerciements spéciaux à Ti Kan et Steve Scherf, les inventeurs du concept de la base de données <acronym
+>CDDB</acronym
+>. Visitez <ulink url="http://www.cddb.com/"
+>http://ww.cddb.com</ulink
+> pour de plus amples informations sur <acronym
+>CDDB</acronym
+>.</para>
+
+<para
+>Remerciements tout particulièrement à David White qui a écrit la documentation de &kscd; . Bon travail David&nbsp;!</para>
+
+<para
+>Mise à jour de la documentation pour KDE 2.0, et copyright par Jonathan Singer <email
+>jsinger@leeta.net.</email
+></para>
+<para
+>Traduction de la documentation pour KDE 2.0 par Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+></para
+><para
+>Relecture de la documentation pour KDE 2.0 par Patrick Chavas <email
+>pachavas@sun.cpe.fr</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="how-to-obtain-kscd">
+<title
+>Comment obtenir &kscd;</title>
+
+<para
+>&kscd; fait partie du <ulink url="http://www.kde.org/"
+>Projet KDE</ulink
+>. Il se situe dans le paquetage kdemultimedia à <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, le site ftp principal du projet KDE. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Configuration nécessaire</title>
+
+<para
+>Pour réussir à compiler &kscd;, vous devez posséder une des dernières versions des bibliothèques de KDE, ainsi que la bibliothèque C++ &Qt;. Toutes les bibliothèques nécessaires ainsi que &kscd; peuvent être téléchargés depuis le site &FTP; de KDE <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+
+</sect1
+> 
+
+<sect1 id="compilation-and-installation"
+> 
+<title
+>Compilation et installation</title
+> 
+
+<para
+>Pour compiler et installer &kscd; sur votre système, utilisez la commande suivante, saisie dans le répertoire de base de la distribution de &kscd; &nbsp;:</para>
+	
+<screen width="40">
+<prompt
+>%</prompt
+><userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+><userinput
+><command
+>make</command
+></userinput>
+<lineannotation
+>Puis en root&nbsp;:</lineannotation>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make 
+<option
+>install</option
+></command
+></userinput
+> 
+</screen
+> 
+	
+<para
+>Si possible, informez le mainteneur actuel, Dirk Foersterling, à l'adresse <email
+>milliByte@gmlx.net</email
+> les modifications que vous avez du effectuer pour réussir à compiler KSCD sur votre plate-forme.</para>
+
+</sect1>
+
+</appendix>
+
+
+
+
+
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->

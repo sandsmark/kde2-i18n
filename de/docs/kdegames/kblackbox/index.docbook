@@ -1,0 +1,820 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kblackbox;">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &kblackbox; Handbuch</title>
+    
+<authorgroup>
+<author
+> <firstname
+>Robert</firstname
+> <surname
+>Cimrman</surname
+> <affiliation
+> <address
+><email
+>cimrman3@students.zcu.cz</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Philip</firstname
+> <surname
+>Rodrigues</surname
+> <affiliation
+><address
+><email
+>phil.rod@ntlworld.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Robert</firstname>
+<surname
+>Cimrman</surname>
+<affiliation>
+<address
+><email
+>cimrman3@students.zcu.cz</email
+></address>
+</affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>lauri@kde.org</email
+></address
+></affiliation>
+<contrib
+>Korrektur</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Maren</firstname
+><surname
+>Pakura</surname
+><affiliation
+><address
+><email
+>maren@kde.org</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>1998</year
+><year
+>2000</year>
+<holder
+>Robert Cimrman</holder>
+</copyright>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Philip Rodrigues</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-05-31</date>
+<releaseinfo
+>0.03.00</releaseinfo>
+
+<abstract
+><para
+>&kblackbox; ist ein großartiges Logik-Spiel. Angeregt durch das <application
+>emacs</application
+>-Blackbox.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KBlackBox</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>Blackbox</keyword>
+<keyword
+>Spiel</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="what-is-kblackbox">
+<title
+>Was ist &kblackbox;?</title>
+
+<para
+>&kblackbox; ist ein großartiges Logik-Spiel. Angeregt durch das <application
+>emacs</application
+>-Blackbox. Ein Großteil der Hilfe basiert auf der originalen <application
+>emacs</application
+>-Hilfe. </para>
+
+<para
+>&kblackbox; ist ein Versteckspiel, das auf einer gerasterten Blackbox gespielt wird. Der Gegner (in diesem Fall der Zufallsgenerator) hat Kugeln in dieser Blackbox versteckt. Um die Kugeln zu entdecken, schießt man Lichtstrahlen in die Blackbox und beobachtet ihr austreten. Um so weniger Lichtstrahlen Sie dafür benötigen, um so besser (geringer) ist Ihre Punktzahl.</para>
+
+</chapter>
+
+<chapter id="game-description">
+<title
+>Spielanleitung</title>
+
+<para
+>Im ersten Abschnitt wird das Spielfeld  beschrieben. Der zweite Abschnitt handelt von der Benutzung des Spielfeldes und im letzte Abschnitt werden die Spielregeln erklärt.</para>
+
+<sect1 id="game-board-descritpion">
+<title
+>Spielfeldbeschreibung</title>
+
+<para
+>Es gibt die folgenden Quadrate auf dem Spielfeld: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Schwarze Quadrate</interface
+></term
+> <listitem
+><para
+>Die Blackbox. Hier müssen Sie die Quadrate markieren, in denen Ihrer Meinung nach Kugeln liegen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Grüne Quadrate</interface
+></term
+> <listitem
+><para
+>Das sind die Laser, sie schießen mit Licht, wenn sie angeschaltet werden.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Hellgraue Quadrate</interface
+></term
+> <listitem
+><para
+>Das ist nichts wichtiges, nur eine Grenze.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Blaue Kugeln</interface
+></term
+> <listitem
+><para
+><quote
+>Da liegt eine!</quote
+> -denken Sie. Platzieren Sie eine dort, wo Sie glauben, dass eine Kugel in der Blackbox liegt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Türkise Kugeln</interface
+></term
+> <listitem
+><para
+>Zeigt wo die Kugeln wirklich liegen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Rote Kugeln</interface
+></term
+> <listitem
+><para
+>Kugeln, die an falscher Stelle platziert worden sind, werden rot.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Braune Quadrate</interface
+></term
+> <listitem
+><para
+>Markierungsfarbe</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<note
+><para
+>Die verwendeten Farben dienen nur der Identifizierung der verschiedenen Typen des Spielfeldes in diesem Text. Sie haben <emphasis
+>vielleicht nichts</emphasis
+> mit der wirklichen Farbe im Spielfeld gemeinsam. Einfacher gesagt: Die Blackbox ist in der Mitte, rundherum liegen die Laser und darum der Rand. Wählen Sie die Farben, wie Sie möchten. </para
+></note>
+
+</sect1>
+
+<sect1 id="user-interaction">
+<title
+>Benutzung des Spielfeldes</title>
+
+<para
+>Der Cursor kann in der Box mit den Pfeil-Tasten oder der Maus bewegt werden. Die Laser können mit der <mousebutton
+>linken</mousebutton
+> Maustaste oder der  <keycap
+>Return</keycap
+>- oder <keycap
+>Enter</keycap
+>-Taste angeschaltet werden, ebenso können die Kugeln markiert werden.</para>
+
+<para
+>Sie können auch die Felder markieren, in denen keine Kugel sein kann. Drücken Sie einfach die <mousebutton
+>rechte</mousebutton
+> Maustaste. Das hilft Ihnen oft ein Gebiet zu finden, in dem eine Kugel möglicherweise liegt. Um beliebige Markierungen (braune oder blaue) zu löschen, drücken Sie die <mousebutton
+>linke</mousebutton
+> Maustaste. Braune Markierungen können keine blauen überschreiben. Auf diese Weise können keine blauen Markierungen (vermutete Kugeln) versehentlich gelöscht werden, wenn Sie mit der <mousebutton
+>rechten</mousebutton
+> Maustaste spielen. </para>
+
+<para
+>Wenn Sie glauben, dass die Anordnung der Kugeln, die Sie gesetzt haben, korrekt ist, dann drücken Sie die <mousebutton
+>mittlere</mousebutton
+> Maustaste. Sie werden informiert, ob Sie Recht hatten oder nicht und Sie erhalten Ihre erreichte Punktzahl. Die Punktzahl setzt sich aus den Buchstaben und Nummern zusammen, die um die Blackbox herum stehen und zusätzlich werden fünf Punkte für jede richtig gesetzte Kugel addiert. Haben Sie Kugeln falsch gesetzt, werden sie rot und ihre richtige Position wird durch türkise Kugeln angezeigt.</para>
+
+</sect1>
+
+<sect1 id="game-rules">
+<title
+>Spielregeln</title>
+
+<para
+>Sie müssen alle in der Blackbox versteckten Kugeln finden. Ihre Mittel sind begrenzt - Sie können nur die Laser um die Box herum abfeuern. Es gibt drei mögliche Ergebnisse für jeden Lichtstrahl, den Sie in die Blackbox schicken: </para>
+
+<anchor id="detour"/>
+<variablelist
+> <varlistentry
+> <term
+>Ablenkung</term
+> <listitem
+><para
+>Der Lichtstrahl wird abgelenkt und tritt an einer anderen Stelle aus, als er reingeschickt wurde. Die Ablenkung wird auf dem Spielfeld durch zusammengehörige Zahlenpaare angezeigt - eine an der Eintrittstelle des Lichtstrahls und die andere an der Austrittstelle.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Reflexion</term
+> <listitem
+><para
+>Der Lichtstrahl wird gespiegelt und tritt an der gleichen Stelle aus an der er eingetreten ist. Im Spielfeld werden Reflexionen durch den Buchstaben <guilabel
+>R</guilabel
+> gekennzeichnet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Treffer</term
+> <listitem
+><para
+>Der Lichtstrahl trifft die Kugel direkt und wird absorbiert. Er tritt nicht aus der Blackbox aus. Auf dem Spielfeld wird ein Treffer durch den Buchstaben <guilabel
+>H</guilabel
+> gekennzeichnet. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Die Regeln für die Ableitung der Lichtstrahlen an den Kugeln lässt sich am Besten am Beispiel erklären.</para>
+
+<para
+>Wenn ein Lichtstrahl eine Kugel erreicht, wird er um 90 Grad abgelenkt. Lichtstrahlen können beliebig oft abgelenkt werden. In dem unteren Diagramm stellen die Trennstriche leere Felder dar, der Buchstabe <guilabel
+>O</guilabel
+> stellt eine Kugel dar. Der Ein- und Austrittspunkt eines jeden Lichtstrahls ist durch Nummern gekennzeichnet, wie unter <link linkend="detour"
+>Ablenkung</link
+> beschrieben. Beachten Sie, dass der Ein- und Austrittspunkt eines Lichtstrahls immer austauschbar ist. <guilabel
+>*</guilabel
+> zeigt den Weg an, den der Lichtstrahl genommen hat.</para>
+
+<para
+>Beachten Sie die relative Position der Kugel und die 90 Grad Ablenkung, die sie verursacht.</para>
+
+<screen>
+1                                            
+- * - - - - - -         - - - - - - - -         - - - - - - - -       
+- * - - - - - -         - - - - - - - -         - - - - - - - -       
+1 * * - - - - - -         - - - - - - - -         - O - - - - O -       
+- - O - - - - -         - - O - - - - -         - - * * * * - -
+- - - - - - - -         - - - * * * * * 2     3 * * * - - * - -
+- - - - - - - -         - - - * - - - -         - - - O - * - -      
+- - - - - - - -         - - - * - - - -         - - - - * * - -       
+- - - - - - - -         - - - * - - - -         - - - - * - O -       
+2                         3
+</screen>
+
+<para
+> Wie bereits erwähnt, tritt eine Reflexion genau dann auf, wenn der Lichtstrahl dort austritt, wo er eingetreten ist. Das kann auf verschieden Weise  geschehen: </para>
+
+<screen>
+- - - - - - - -         - - - - - - - -          - - - - - - - -
+- - - - O - - -         - - O - O - - -          - - - - - - - -
+R * * * * - - - -         - - - * - - - -          O - - - - - - -
+- - - - O - - -         - - - * - - - -        R - - - - - - - -
+- - - - - - - -         - - - * - - - -          - - - - - - - -
+- - - - - - - -         - - - * - - - -          - - - - - - - -
+- - - - - - - -       R * * * * - - - -          - - - - - - - -
+- - - - - - - -         - - - - O - - -          - - - - - - - -</screen>
+
+<para
+>Im ersten Beispiel wurde der Lichtstrahl von der oberen Kugel nach unten abgelenkt, dann nach links durch die untere Kugel und nimmt so den ursprünglichen Weg wieder auf. Das zweite Beispiel ist ähnlich. Das dritte Beispiel ist ein wenig ungewöhnlich, aber es kann verstanden werden, wenn sie erkennen, dass der Lichtstrahl nie die Gelegenheit hat in die Blackbox zu gelangen. Anderenfalls könnte der Lichtstrahl auch in die Blackbox eintreten und sofort wieder austreten, da er nach unten abgelenkt wurde.</para>
+
+<para
+>Ein Treffer erscheint, wenn ein Lichtstrahl direkt auf eine Kugel trifft.</para>
+
+<screen>
+- - - - - - - -         - - - - - - - -          - - - - - - - -
+- - - - - - - -         - - - - - - - -          - - - - O - - -
+- - - - - - - -         - - - - O - - -        H * * * * - - - -
+- - - - - - - -       H * * * * O - - -          - - - * - - - -
+- - - - - - - -         - - - - O - - -          - - - O - - - -
+H * * * O - - - -         - - - - - - - -          - - - - - - - -
+- - - - - - - -         - - - - - - - -          - - - - - - - -
+- - - - - - - -         - - - - - - - -          - - - - - - - -</screen>
+
+<para
+>Vergleichen Sie das zweite Beispiel des Treffers mit dem ersten Beispiel der Reflexion.</para>
+
+</sect1>
+</chapter>
+<chapter id="gui-description">
+<title
+><acronym
+>GUI</acronym
+>-Beschreibung</title>
+
+<sect1 id="game-menu">
+<title
+>Das <guimenu
+>Spiel</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>eu</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Startet ein neues Spiel (und verlässt das aktuelle, wenn vorhanden).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>ufgeben</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Zeigt die Positionen der Kugeln.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>ertig</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Überprüft, ob alle Kugeln gesetzt wurden. Wenn ja, dann wird das aktuelle Spiel beendet, die endgültige Punktezahl berechnet und die wirklichen Positionen der Kugeln angezeigt. Die <mousebutton
+>mittlere</mousebutton
+> Maustaste hat die gleiche Funktion. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>röße zurücksetzen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Setzt die Fenstergröße so zurück, dass das Fenster den Inhalt perfekt enthält. Das ist hilfreich, wenn Sie versehentlich die Größe des Fensters verändert haben...</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Beendet &kblackbox;</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Das <guimenu
+>Einstellungen</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guisubmenu
+><accel
+>G</accel
+>röße</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>Legt die Größe des Spielfeldes (der Blackbox) fest. Sie können zwischen <guimenuitem
+>8 x 8</guimenuitem
+>, <guimenuitem
+>10 x 10</guimenuitem
+> und <guimenuitem
+>12 x 12</guimenuitem
+> wählen. Der Standard ist <guimenuitem
+>8 x 8</guimenuitem
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guisubmenu
+><accel
+>K</accel
+>ugeln</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>Legt die Anzahl der Kugeln in der Blackbox fest. Sie können zwischen <guimenuitem
+>4</guimenuitem
+> (dem Standard), <guimenuitem
+>6</guimenuitem
+> oder<guimenuitem
+>8</guimenuitem
+> wählen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>E</accel
+>inführung</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Schaltet den Einführungsmodus ein oder aus. Im Einführungsmodus können Sie sehen, wo die Kugeln gegenwärtig sind. Beachten Sie jedoch, dass Sie ein neues Spiel starten müssen, damit diese Änderung Effekt trägt.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+>Das <guimenuitem
+>Hilfe</guimenuitem
+> Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+>Hilfe</guimenu
+><guimenuitem
+>Inhalt</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Startet das &kde; Hilfesystem mit der &kblackbox; Hilfeseite (dieses Dokument).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Hilfe</guimenu
+><guimenuitem
+>Was ist das?</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Zum Mauszeiger kommt ein Fragezeichen dazu. Wenn Sie damit auf ein Objekt innerhalb des &kblackbox;-Fensters klicken, erscheint ein Hilfefenster mit passenden Informationen (wenn es dazu welche gibt).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie Probleme oder Wünsche...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Erlaubt Ihnen, einen Fehler oder Wunsch zu &kblackbox; den Entwicklern zu melden.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+><guimenuitem
+><accel
+>Ü</accel
+>ber KBlackBox</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Gibt Informationen zu Version und Autoren aus.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Über <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Gibt Versionsnummer und grundlegende Informationen zu &kde; aus.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="toolbar">
+<title
+>Die Werkzeugleiste</title>
+
+<screenshot
+> <screeninfo
+>Die &kblackbox; Werkzeugleiste</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kblackboxtbar.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Die &kblackbox; Werkzeugleiste ermöglicht schellen Zugriff zu den am häufigstengebrauchten &kblackbox;-Funktionen. Die Symbole von links nach rechts sind:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guiicon
+>Beenden</guiicon
+></term
+> <listitem
+><para
+>Beendet &kblackbox;</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Neu</guiicon
+></term
+> <listitem
+><para
+>Startet ein neues Spiel.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Aufgeben</guiicon
+></term
+> <listitem
+><para
+>Zeigt die Positionen der Kugeln.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Fertig</guiicon
+></term
+> <listitem
+><para
+>Überprüft, ob alle Kugeln gesetzt wurden. Wenn ja, dann wird das aktuelle Spiel beendet, die endgültige Punktezahl berechnet und die wirklichen Positionen der Kugeln angezeigt. Die <mousebutton
+>mittlere</mousebutton
+> Maustaste hat die gleiche Funktion. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>&kblackbox;</para>
+
+<para
+>Copyright 1998-2000 Robert Cimrman, <email
+>cimrman3@students.zcu.cz</email
+></para>
+
+<para
+>Diese Dokumentation wurde von Robert Cimrman geschrieben. Lauri Watts <email
+>lauri@kde.org</email
+> hat sie aktualisiert und für KDE 2.0 in Docbock konvertiert.</para>
+
+<para
+> Der aktuelle Betreuer ist Philip Rodrigues <email
+>phil.rod@ntlworld.com</email
+> </para>
+
+<para
+>Deutsche Übersetzung von Maren Pakura<email
+>maren@kde.org</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<para
+> &kblackbox; ist Teil des &kde; Projekts <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kblackbox; können Sie im kdegames-Paket finden auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, der Haupt-&FTP;-Seite des &kde;-Projekts. </para>
+
+<sect1 id="compilation">
+<title
+>Übersetzung und Installation</title>
+
+<para
+> Um &kblackbox; auf ihrem System zu übersetzen und zu installieren, schreiben Sie das folgende in das Hauptverzeichnis in der kdegames-Distribution: </para>
+<screen width="40">
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make install</command>
+</screen>
+
+
+<para
+>Da &kblackbox; <application
+>autoconf</application
+> und <application
+>automake</application
+> benutzt, sollten Sie keine Probleme haben, es zu übersetzen. Treffen Sie trotzdem auf Probleme, melden Sie diese bitte in einer der &kde; Mailinglisten.</para
+> 
+
+</sect1>
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

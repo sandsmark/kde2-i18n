@@ -1,0 +1,683 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kfract;">
+ <!ENTITY % German "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+ 
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &kfract;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Uwe</firstname
+> <surname
+>Thiem</surname
+> <affiliation
+> <address
+><email
+>uwe@uwix.alt.na</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Robert</firstname
+><surname
+>Gogolok</surname
+> <affiliation
+><address
+><email
+>robertgogolok@gmx.de</email
+></address
+></affiliation
+> <contrib
+>Übersetzung des Handbuchs</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Stefan</firstname
+><surname
+>Winter</surname
+> <affiliation
+><address
+><email
+>kickdown@online.de</email
+></address
+></affiliation
+> <contrib
+>Übersetzung der Programmoberfläche</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>1999</year
+> <year
+>2001</year>
+<holder
+>Uwe Thiem, Pamela Roberts</holder>
+</copyright>
+<!-- Translators: put here the copyright notice of the translation -->
+<!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook
+     and in the FDL itself on how to use it. -->
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-07</date>
+<releaseinfo
+>01.03.00</releaseinfo>
+
+<abstract>
+<para
+>&kfract; erzeugt Fraktalbilder und zeigt sie an.</para>
+<para
+>Dieses Handbuch beschreibt &kfract; in Version 1.3</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Graphik</keyword>
+<keyword
+>fraktale</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einführung</title>
+
+<screenshot
+> <screeninfo
+>KFract</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kfract.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+>&kfract; ist ein Generator für <ulink url="http://hypertextbook.com/chaos/"
+> Fraktale</ulink
+>. In dieser frühen Fassung kann er nur Mandelbrot- und Julia-Mengen erzeugen, ist also nicht so aufregend wie XFractint und auch sehr weit davon entfernt, so schnell zu sein wie <ulink url="http://spanky.triumf.ca/www/fractint/fractint.html"
+> fractint</ulink
+>. Jedoch ist er erheblich einfacher zu bedienen.</para>
+
+<para
+>Haben Sie keine Hemmungen, mir zu schreiben:</para>
+<para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para>
+
+</chapter>
+
+<chapter id="using-kfract">
+<title
+>Verwendung des Fraktal-Generators</title>
+
+<sect1 id="mouse-functions">
+<title
+>Mausfunktionen</title>
+
+<para
+>Sie können das Bild vergrößern, indem Sie die <mousebutton
+>linke</mousebutton
+> Maustaste gedrückt halten und ein Rechteck ziehen, um einen Teil des Bildes auszuwählen, das Sie vergrößern wollen.Der Mittelpunkt des Rechteckes wird der Mittelpunkt des neuen Bildes. Das x/y Verhältnis wird angepasst, um in das Fenster zu passen.</para>
+
+<para
+>Sie können das Bild auch vergrößern durch das Klicken der <mousebutton
+>mittleren</mousebutton
+> Maustaste dorthin, wo der Mittelpunkt des neuen Bildes sein soll. </para>
+
+<para
+>Oder Sie können das Bild durch das Klicken der <mousebutton
+>rechten</mousebutton
+> Maustaste verkleinern.</para>
+
+</sect1>
+
+<sect1 id="the-file-menu">
+<title
+>Das <guimenu
+>Datei</guimenu
+> Menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Parameter <accel
+>ö</accel
+>ffnen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lädt</action
+> eine &kfract;-Parameterdatei.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Parameter s<accel
+>p</accel
+>eichern...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert die Parameter des aktuellen Bildes.</action
+> Die Datei sollte mit der Erweiterung <literal role="extension"
+>.fct</literal
+> (zum Beispiel <filename
+>BigJulie.fct</filename
+>) gespeichert werden und kann später geladen werden, um das Bild erneut zu berechnen. Es handelt sich um eine reine <acronym
+>ASCII</acronym
+> Datei, und sie kann zwischen verschiedenen Betriebsystemen ausgetauscht werden, solange &kde; auf diesen installiert ist.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Bild sp<accel
+>e</accel
+>ichern...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert das Bild in eine Datei.</action
+>Das Format der zu speichernden Datei ist bestimmt durch die Erweiterung, die Sie dem Dateinamen geben, zum Beispiel <filename
+>mandel.png</filename
+> speichert es im <literal role="extension"
+>.png</literal
+> Format.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>eenden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Hiermit beenden Sie &kfract;.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-view-menu">
+<title
+>Das <guimenu
+>Ansicht</guimenu
+> Menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Ver <accel
+>g</accel
+>rößern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Vergrößern</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Ver<accel
+>k</accel
+>leinern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Verkleinern</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+><accel
+>Z</accel
+>oom...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Diese Option ermöglicht es Ihnen theoretisch, die Faktoren zum Vergrößern und Verkleinern des Bildes einzustellen, aber praktisch funktioniert diese Option zur Zeit nicht.</para
+> </listitem
+> </varlistentry
+> </variablelist
+></para>
+
+</sect1>
+
+
+<sect1 id="the-options-menu">
+<title
+>Das <guimenu
+>Optionen</guimenu
+> Menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>andelbrot...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Wechselt zu den Mandelbroteinstellungen, wo Sie verschiedene Parameter zur Berechnung und Anzeige einstellen können.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>J</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guimenuitem
+><accel
+>J</accel
+>ulia...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Wechselt zu den Julia-Einstellungen, wo Sie verschiedene Parameter zur Berechnung und Anzeige einstellen können.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guimenuitem
+>Max. <accel
+>W</accel
+>iederholungen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Lässt Sie die Wiederholungsrate ändern.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-settings-menu">
+<title
+>Das <guimenu
+>Einstellungen</guimenu
+>-Menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+> <accel
+>T</accel
+>atenzuordnungen vornehmen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Lässt Sie die Tastenkombinationen ändern, die benutzt werden, um zu den Mandelbrot - und Julia-Einstellungen zu wechseln und ein Bild zu speichern.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+
+<sect1 id="the-help-menu">
+<title
+>Das <guimenu
+>Hilfe</guimenu
+> Menü</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nhalt</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Dieses Handbuch anzeigen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie Probleme oder Wünsche...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Benutzen Sie dies, um einen Fehlerbericht an kde.org zu schicken.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+><accel
+>Ü</accel
+>ber KDE-Fraktal-Generator</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Öffnet ein Infofenster mit einigen Informationen über dieses Programm und seinen Autor.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Über <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Öffnet ein Infofenster mit einigen Informationen über das K Desktop Environment.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-toolbar">
+<title
+>Die <interface
+>Werkzeugleiste</interface
+></title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>Parameter öffnen</term
+> <listitem
+> <para
+>Wie <emphasis
+><guimenu
+>Datei</guimenu
+>-&gt; <guimenuitem
+>Paramter öffnen</guimenuitem
+></emphasis
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Vergrößern</term
+> <listitem
+> <para
+>Wie <emphasis
+><guimenu
+>Ansicht</guimenu
+>-&gt;<guimenuitem
+>Zoom... </guimenuitem
+></emphasis
+>.</para
+></listitem
+></varlistentry
+> <varlistentry
+> <term
+>Bild speichern</term
+> <listitem
+> <para
+>Wie <emphasis
+><guimenu
+>Datei</guimenu
+>-&gt;<guimenuitem
+>Bild speichern... </guimenuitem
+></emphasis
+>.</para
+></listitem
+></varlistentry
+> </variablelist
+> </para>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>&kfract;</para>
+
+<para
+>Copyright für das Programm 1999-2001</para>
+<itemizedlist
+> <listitem
+><para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+> Copyright für die Dokumentation 1999-2001</para>
+<itemizedlist
+> <listitem
+><para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Pamela Roberts <email
+>pam.roberts@btinternet.com</email
+> (Betreuer des Handbuchs) </para
+></listitem
+> </itemizedlist>
+
+<para
+>Übersetzung des Handbuchs: Robert Gogolok <email
+>robertgogolok@gmx.de</email
+></para
+> <para
+>Übersetzung der Programmoberfläche: Stefan Winter <email
+>kickdown@online.de</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

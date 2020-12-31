@@ -1,0 +1,356 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid	""
+msgstr	"Project-Id-Version: PACKAGE VERSION\n"
+	"POT-Creation-Date: 2001-02-09 01:25+0100\n"
+	"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+	"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+	"Language-Team: LANGUAGE <LL@li.org>\n"
+	"MIME-Version: 1.0\n"
+	"Content-Type: text/plain; charset=utf-8\n"
+	"Content-Transfer-Encoding: ENCODING\n"
+
+#: index.docbook:2
+msgid	"Configuring &kppp; for callback"
+msgstr	""
+
+#: index.docbook:4
+msgid	"This chapter is based on material provided by Martin H&auml;fner, "
+	"<email>mh@ap-dec717c.physik.uni-karlsruhe.de</email>"
+msgstr	""
+
+#: index.docbook:8
+msgid	"&UNIX; or &Linux; callback server"
+msgstr	""
+
+#: index.docbook:10
+msgid	"This section introduces &UNIX; (&Linux;) callback, and how &kppp; "
+	"can be configured to connect to a &UNIX; callback server, especially "
+	"to a script based &Linux; <link "
+	"linkend=\"callback-resources\">callback server</link>"
+msgstr	""
+
+#: index.docbook:15
+msgid	"An Introduction to callback"
+msgstr	""
+
+#: index.docbook:17
+msgid	"There are several reasons to consider using callback. Some of these "
+	"are:"
+msgstr	""
+
+#: index.docbook:19
+msgid	"To increase the security of your local network"
+msgstr	""
+
+#: index.docbook:19
+msgid	"To reduce expenses of external co-workers"
+msgstr	""
+
+#: index.docbook:19
+msgid	"To control telephone costs where calls are claimed as business "
+	"expenses"
+msgstr	""
+
+#: index.docbook:32
+msgid	"Think about someone calling the number of your dial in server, and "
+	"then cracking a password. Why bother to maintain a firewall for your "
+	"internet connection, if access to your network is that easy?."
+msgstr	""
+
+#: index.docbook:36
+msgid	"Callback software generally asks for your name, and then hangs up "
+	"the line. It then calls you back, usually at a number that is stored "
+	"<emphasis>on the server</emphasis> in a database. The client then "
+	"picks up the phone line and continues with the dial-in as if nothing "
+	"had happened. The server now requests your username and password, "
+	"knowing that you are who you said you were when you first dialled "
+	"in, or at the least, you are where you said you were. The connection "
+	"is established normally, and the <application>pppd</application> is "
+	"started."
+msgstr	""
+
+#: index.docbook:45
+msgid	"Now the big question is, how to tell the client to pick up the "
+	"phone, when the server calls you back. Do you need a special "
+	"program, such as <application>mgetty</application>? The answer is, "
+	"<emphasis>no</emphasis>, you don't need a special client program. In "
+	"general, any client can be used for callback connections, you could "
+	"even use an ordinary terminal program such as "
+	"<application>minicom</application> to connect."
+msgstr	""
+
+#: index.docbook:52
+msgid	"The only thing you have to do is tell your modem to "
+	"<command>AutoAnswer</command> the phone when a "
+	"<computeroutput>RING</computeroutput> is detected by the modem. This "
+	"is done with the following modem command:"
+msgstr	""
+
+#: index.docbook:57
+msgid	"AT&amp;SO=1"
+msgstr	""
+
+#: index.docbook:61
+msgid	"This tells the modem to pick the phone up after one "
+	"<computeroutput>RING</computeroutput>."
+msgstr	""
+
+#: index.docbook:64
+msgid	"Like a lot of other client programs, &kppp; checks to see if the "
+	"connection is closed by the server, and then stops the current "
+	"session if a <computeroutput>NO CARRIER</computeroutput> is "
+	"detected. This, then, is the real problem when setting up callback. "
+	"<computeroutput>NO CARRIER</computeroutput> will of course be "
+	"detected the moment the callback server hangs up the line. Some "
+	"servers therefore use a special login program. So how do you solve "
+	"this problem? You tell your modem to show <computeroutput>CARRIER "
+	"UP</computeroutput> at all times (which causes no problems if you "
+	"tell the client to hang up the line.) You can do this with the "
+	"following modem command:"
+msgstr	""
+
+#: index.docbook:75
+msgid	"AT&amp;C0"
+msgstr	""
+
+#: index.docbook:79
+msgid	"If you want to test this, you can first use an ordinary terminal "
+	"program such as <application>minicom</application>, and call your "
+	"callback server, to see what hapens."
+msgstr	""
+
+#: index.docbook:86
+msgid	"The &kppp; setup"
+msgstr	""
+
+#: index.docbook:88
+msgid	"So, now that you've seen the theory in action, how do you go about "
+	"setting up &kppp; to handle the connection?"
+msgstr	""
+
+#: index.docbook:91
+msgid	"The procedure is quite straightforward, as follows."
+msgstr	""
+
+#: index.docbook:93
+msgid	"First tell the modem to accept connections, and to not stop the "
+	"negotiation when the callback server hangs up the line for the first "
+	"time. You can add both these options in the "
+	"<guilabel>Modem</guilabel> tab of the &kppp; configuration, by "
+	"adding to the option <guilabel>Dial String</guilabel> the string "
+	"<command>AT&amp;C0S0=1DT</command>"
+msgstr	""
+
+#: index.docbook:93
+msgid	"There are no other changes with configuration for &kppp;. If you "
+	"meet trouble with modem init and reset, check the <link "
+	"linkend=\"callback-troubleshooting\">Troubleshooting</link> section "
+	"for more information."
+msgstr	""
+
+#: index.docbook:93
+msgid	"Think about your server for a moment. Remember that &UNIX;, "
+	"&Windows; and Macintosh operating systems have differing opinions "
+	"about how to end a line in a text file, and therefore, in login "
+	"procedures too. If you are connecting to a &Windows; server, use "
+	"<userinput>CR/LF</userinput>, if you are connecting to a &UNIX; "
+	"server, use <userinput>CR</userinput>, and if you are connecting to "
+	"a Macintosh server, use <userinput>LF</userinput>"
+msgstr	""
+
+#: index.docbook:93
+msgid	"We are assuming for these instructions that you are calling a "
+	"&Linux; callback package which uses ordinary login (not "
+	"<acronym>PAP</acronym> or such)."
+msgstr	""
+
+#: index.docbook:93
+msgid	"Set the <guilabel>Authentication</guilabel> style in the "
+	"<guilabel>Dial</guilabel> tab of the account configuration to "
+	"<guilabel>Script-based</guilabel>"
+msgstr	""
+
+#: index.docbook:93
+msgid	"Now you have to build the login script. Editing of login scripts is "
+	"one of the very cool features of &kppp; You can find it in the "
+	"<guilabel>Login Script</guilabel> tab of the <guilabel>Edit "
+	"Account</guilabel> dialog."
+msgstr	""
+
+#: index.docbook:93
+msgid	"In this example, the user <systemitem>userxyz</systemitem> needs the "
+	"following script to be called. The callback server already knows the "
+	"table of names and their applicable phone numbers, so you select the "
+	"phone number to be used with an alias, for security purposes."
+msgstr	""
+
+#: index.docbook:93
+msgid	"For each line, choose the criteria from the drop down list on the "
+	"left of the diaog, and type in the action in the text box on it's "
+	"right. Choose the <guibutton>Add</guibutton> to add each line to the "
+	"script. You can use <guibutton>Insert</guibutton> to add a line into "
+	"the middle of the script, and <guibutton>Remove</guibutton> to "
+	"delete a line if you made a mistake."
+msgstr	""
+
+#: index.docbook:93
+msgid	"The entire script should look something like this (without the "
+	"comments, shown here starting with a #)"
+msgstr	""
+
+#: index.docbook:93
+msgid	"Expect       ogin:           <lineannotation># remember, we do "
+	"ordinary terminal login</lineannotation>\n"
+	"ID           \"\"              <lineannotation># kppp sends the id "
+	"you configured in\n"
+	"the main dialog</lineannotation>\n"
+	"Expect       for userxyz:    <lineannotation># a list of available "
+	"numbers is\n"
+	"shown, the user should choose one</lineannotation> \n"
+	"Send         userxyz-home    <lineannotation># the user wants to be "
+	"called back\n"
+	"on their home number</lineannotation>\n"
+	"Expect       ogin:           <lineannotation># The callback process "
+	"is now\n"
+	"running, a new connection, and so a new login.</lineannotation>\n"
+	"ID\n"
+	"Expect       assword:        <lineannotation># Now send your "
+	"password</lineannotation>\n"
+	"Expect       &gt;            <lineannotation># Wait for the command "
+	"prompt (the\n"
+	"prompt may vary)</lineannotation>\n"
+	"Send         start_ppp       <lineannotation># this command starts "
+	"the pppd</lineannotation>"
+msgstr	""
+
+#: index.docbook:93
+msgid	"After waiting for the login request, the user sends his ID and waits "
+	"for a list of available phone numbers for that username. Then he "
+	"tells the server which of the numbers offered he would like to be "
+	"called back on. &kppp; can open a dialog for this, if your location "
+	"changes often, &eg; you are a sales representative and move from "
+	"hotel to hotel. Now the server is expecting login and password for "
+	"authentication, but in the meantime, the server hangs up and calls "
+	"the user back. The authentication information is sent, and &kppp; "
+	"waits for a command prompt, and then starts a small script (here "
+	"called <filename>start_ppp</filename> which fires up "
+	"<application>pppd</application> on the server."
+msgstr	""
+
+#: index.docbook:93
+msgid	"The <filename>start_ppp</filename> script might look something like "
+	"the following:"
+msgstr	""
+
+#: index.docbook:93
+msgid	"#!/bin/sh\n"
+	"stty -echo\n"
+	"exec /usr/sbin/pppd -detach silent modem"
+msgstr	""
+
+#: index.docbook:93
+msgid	"Of course, setting up a <acronym>PPP</acronym> server is not within "
+	"the scope of this document. For detailed information, see the "
+	"<application>pppd</application> man pages. An excellent description "
+	"of a callback server can be found at <ulink "
+	"url=\"http://ap-dec717c.physik.uni-karlsruhe.de/~mh/callback\"> "
+	"http://ap-dec717c.physik.uni-karlsruhe.de/~mh/callback</ulink>"
+msgstr	""
+
+#: index.docbook:188
+msgid	"All other configuration issues, such as "
+	"<application>pppd</application> configuration or "
+	"<acronym>IP</acronym> settings work as normal, and no special "
+	"software is required to pick up the line."
+msgstr	""
+
+#: index.docbook:192
+msgid	"&kppp; callback and other programs such as "
+	"<application>mgetty</application> or any other faxgetty can be run "
+	"on the same serial port. There are no problems with the dial in, as "
+	"&kppp; creates a lock file which will tell the getty program that "
+	"another application (in this case, &kppp; of course,) is using the "
+	"line at that time."
+msgstr	""
+
+#: index.docbook:203
+msgid	"Troubleshooting"
+msgstr	""
+
+#: index.docbook:205
+msgid	"There are some known problems with &kppp; in callback mode:"
+msgstr	""
+
+#: index.docbook:207
+msgid	"As you initialize the modem to auto answer, you need to reset the "
+	"modem after your connection is closed. Otherwise, your modem will "
+	"continue to pick up the line for you, which is not a good idea if "
+	"the line in question is your main phone line."
+msgstr	""
+
+#: index.docbook:207
+msgid	"&kppp; has some small problems when sharing a line with another "
+	"program, such as <application>mgetty</application>. If "
+	"<application>mgetty</application> is running on the same modem line, "
+	"&kppp; is not able to initialize the modem correctly."
+msgstr	""
+
+#: index.docbook:207
+msgid	"&kppp; is unable to prompt for certain user input during a scripting "
+	"based login. Unfortunately, when using the example script above, "
+	"&kppp; also asks for the user name the second time the callback "
+	"server requests it. You can get rid of this by hardcoding your "
+	"userid into the login script (not very portable or nice, but it "
+	"works."
+msgstr	""
+
+#: index.docbook:233
+msgid	"Internet Resources for server software"
+msgstr	""
+
+#: index.docbook:235
+msgid	"&Linux; callback server software bundles are available in many "
+	"places."
+msgstr	""
+
+#: index.docbook:238
+msgid	"The well known <application>mgetty</application> is a very powerful "
+	"program, and is also able to handle callback connections. A "
+	"description of how to set up <application>mgetty</application> for "
+	"this purpose is maintained at <ulink "
+	"url=\"http://www.dyer.demon.co.uk/slug/tipscrip.htm\"> "
+	"http://www.dyer.demon.co.uk/slug/tipscrip.htm</ulink>, by Colin "
+	"McKinnon, <email>colin@wew.co.uk</email>."
+msgstr	""
+
+#: index.docbook:245
+msgid	"There is also a ready to use package for &Linux; at <ulink "
+	"url=\"http://www.icce.rug.nl/docs/programs/callback/callback.html\"> "
+	"http://www.icce.rug.nl/docs/programs/callback/callback.html</ulink>. "
+	"This package is maintained by Frank B. Brokken, "
+	"<email>frank@icce.rug.nl</email>. As the setup, although "
+	"straightforward, is not very easy, I have written a short "
+	"introduction for it at <ulink "
+	"url=\"http://ap-dec717c.physik.uni-karlsruhe.de/~mh/callback\">http:/"
+	"/ap-dec717c.physik.uni-karlsruhe.de/~mh/callback/</ulink>, which "
+	"also contains a more general introduction to callback."
+msgstr	""
+
+#: index.docbook:258
+msgid	"&Windows; NT <acronym>RAS</acronym> callback"
+msgstr	""
+
+#: index.docbook:260
+msgid	"&Windows; NT uses a completely different approach than the one "
+	"described above. NT requires an extension to the "
+	"<acronym>PPP</acronym> protocol itself, called "
+	"<acronym>CBCP</acronym> (Call Back Control Protocol). "
+	"<application>pppd</application> has support for this protocol, but "
+	"you must recompile <application>pppd</application>. If anybody has "
+	"experience with successfully connecting to an NT callback server, "
+	"please let us know."
+msgstr	""

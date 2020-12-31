@@ -1,0 +1,657 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kbattleship;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Руководство по программе Морской бой</title>
+
+<authorgroup>
+<author
+> <firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+> <address
+><email
+>molkentin@kde.org</email
+></address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>Nikolas</firstname
+> <surname
+>Zimmermann</surname
+> <affiliation
+> <address
+><email
+>wildfox@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Дмитрий</firstname
+><surname
+>Ильин</surname
+><affiliation
+><address
+><email
+>widgetII@mail.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit>
+
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Daniel Molkentin</holder>
+</copyright>
+<copyright>
+<year
+>2001</year>
+<holder
+>Nikolas Zimmermann</holder>
+</copyright>
+<copyright>
+<year
+>2001</year>
+<holder
+>Kevin Krammer</holder>
+</copyright>
+
+
+<date
+>2001-07-29</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract>
+<para
+> Программа &kbattleship; (Морской бой) - это сетевая версия широко известной игры <quote
+>Battle Ship</quote
+> для &kde;.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>game</keyword>
+<keyword
+>battleship</keyword>
+<keyword
+>Морской бой</keyword>
+<keyword
+>battle</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<sect1 id="features">
+<title
+>Возможности</title>
+<itemizedlist
+> <listitem
+><para
+>Сетевая игра</para
+></listitem
+> <listitem
+><para
+>Компьютерный игрок</para
+></listitem
+> <listitem
+><para
+>Звук</para
+></listitem
+> <listitem
+><para
+>Чат</para
+></listitem
+> <listitem
+><para
+>Статистика</para
+></listitem
+> <listitem
+><para
+>Таблица рекордов</para
+></listitem
+> </itemizedlist>
+
+<tip
+> <para
+> Программа &kbattleship; использует основанный на &XML; сетевой протокол, используя который, можно написать клиентов для любой платформы и на любом языке. Если вы хотите проделать такую работу, используя свой любимый язык программирования, пожалуйста, свяжитесь с нами. Мы будем очень рады. </para
+> </tip>
+</sect1>
+
+</chapter>
+
+<chapter id="using-kbattleship">
+<title
+>Использование программы Морской бой</title>
+
+<para
+> В Морской бой можно играть только с партнером, так как игра Морской бой - сетевая. Первый игрок должен начинать игру, выбрав в меню пункт <menuchoice
+><guimenu
+>Игра</guimenu
+> <guimenuitem
+>Запуск сервера</guimenuitem
+></menuchoice
+> или нажав <keycap
+>F3</keycap
+>.  </para>
+
+<para
+> В открывшемся окне необходимо ввести <guilabel
+>псевдоним</guilabel
+> и <guilabel
+>порт</guilabel
+> сервера. Обычно в качестве псевдонима по умолчанию используется имя текущего пользователя, которое можно заменить любой строкой. Если имеются проблемы с выбором порта сервера, укажите любой свободный порт выше 1024. При этом необходимо будет предупредить другого игрока, что вы используете отличный от стандартного порт, который ему тоже придется указать. </para>
+
+<para
+> Другой игрок должен выбрать пункт меню <menuchoice
+><guimenu
+>Игра</guimenu
+><guimenuitem
+>Соединиться с сервером</guimenuitem
+></menuchoice
+> или нажать <keycap
+>F2</keycap
+>. В появившемся окне снова будет предложен стандартный <guilabel
+>псевдоним</guilabel
+>, который можно заменить на свой.  </para>
+
+<para
+> Важно правильно заполнить поле <guilabel
+>Сервер</guilabel
+>. Здесь вам следует указать имя машины - сервера, на котором игрок начал игру. </para>
+
+<para
+> Можно также сразиться в Морской бой с компьютером. Выберите пункт <guimenuitem
+>Один игрок</guimenuitem
+> из меню <guimenuitem
+>Игра</guimenuitem
+> или нажмите <keycap
+>F4</keycap
+>. </para>
+
+<para
+> После того, как все это будет сделано, можно начинать игру. Просто следуйте инструкциям и подсказкам, которые появляются в строке состояния. На экране вы увидите два поля в клетку, так называемые <quote
+>поля боя</quote
+>. Левое поле боя принадлежит вам, здесь вы можете расположить свои боевые корабли и проводить военные акции против врага. На правом поле находится вражеский флот. Когда ваша очередь стрелять, нужно щелкнуть мышкой по какой-нибудь клетке поля, где предполагается наличие кораблей. </para>
+
+<para
+> Сначала требуется расположить свои корабли. Первым это делает начинающий игру, затем - второй игрок. </para>
+
+<para
+> Размещение производится указанием на то место, куда хотите поместить корабль. Первый имеет длину 4 клеточки, следующий - 3 и т. д. По нажатию <mousebutton
+>левой</mousebutton
+> кнопки мыши корабль устанавливается горизонтально, а по нажатию ее же с клавишей <keycombo
+><keycap
+>Shift</keycap
+></keycombo
+>- вертикально. Нажав только <keycap
+>Shift</keycap
+>, вы повернете корабль на 90 градусов. </para>
+
+<para
+> Теперь вы можете стрелять по вражескому флоту :). Строка состояния показывает, чья очередь сейчас стрелять.  </para>
+
+<para
+> Выигрывает тот, кто первым поразил все вражеские корабли. </para>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Меню</title>
+
+<sect1 id="game-menu">
+<title
+>Меню <guimenu
+>Игра</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F2</keycap
+></shortcut
+> <guimenu
+><accel
+>И</accel
+>гра</guimenu
+> <guimenuitem
+><accel
+>С</accel
+>оединиться с сервером</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Подключиться к игровому серверу, запущенному другим игроком.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F3</keycap
+></shortcut
+> <guimenu
+><accel
+>И</accel
+>гра</guimenu
+> <guimenuitem
+><accel
+>З</accel
+>апустить сервер</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Запустить игровой сервер в ожидании подключения другого игрока.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F4</keycap
+></shortcut
+> <guimenu
+><accel
+>И</accel
+>гра</guimenu
+> <guimenuitem
+><accel
+>О</accel
+>дин игрок</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Начать игру с компьютером.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F10</keycap
+></shortcut
+> <guimenu
+><accel
+>И</accel
+>гра</guimenu
+> <guimenuitem
+><accel
+>Р</accel
+>екорды</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Показать рекорды.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>И</accel
+>гра</guimenu
+> <guimenuitem
+><accel
+>В</accel
+>ыход</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Выйти</action
+> из игры. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Меню <guimenu
+>Настройки</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Н</accel
+>астройки</guimenu
+> <guimenuitem
+>Показать панель <accel
+>и</accel
+>нструментов</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Показать или скрыть панель инструментов.</action
+> По умолчанию она видна. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Н</accel
+>астройки</guimenu
+> <guimenuitem
+><accel
+>П</accel
+>оказать сетку</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Показать или скрыть сетку на игровом поле.</action
+> По умолчанию она не видна. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>Меню <guimenu
+>Помощь</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+>Помо<accel
+>щ</accel
+>ь</guimenu
+> <guimenuitem
+><accel
+>С</accel
+>одержание</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Вызов справочного руководства &kde; о программе Морской бой (то есть, этого документа).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Помо<accel
+>щ</accel
+>ь</guimenu
+> <guimenuitem
+>Что <accel
+>э</accel
+>то?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Курсор мыши превращается в стрелочку со знаком вопроса. Щелкая по различным элементам окна программы &kbattleship;, вы сможете получить доступ к быстрым подсказкам, поясняющим назначение данного элемента, если они существуют для него.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Помо<accel
+>щ</accel
+>ь</guimenu
+> <guimenuitem
+>Сооб<accel
+>щ</accel
+>ить об ошибке</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Открывается диалог, в котором пользователь может ввести сведения в форму об ошибке в программе и отправить их на сервер KDE. Это поможет команде разработчиков KDE обнаружить и исправить ошибку. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Помо<accel
+>щ</accel
+>ь</guimenu
+><guimenuitem
+><accel
+>О</accel
+> программе Морской бой</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Показать сведения об авторе и версии программы</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Помо<accel
+>щ</accel
+>ь</guimenu
+><guimenuitem
+>О <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Показать сведения о версии &kde; и пр.</para
+> </listitem
+> </varlistentry
+> </variablelist
+>  
+
+</sect1>
+</chapter>
+
+<chapter id="questions-answers-and-tips">
+<title
+>Вопросы, ответы, подсказки</title>
+
+<qandaset id="faq">
+<title
+>Часто задаваемые вопросы</title>
+<qandaentry>
+<question>
+<para
+>Я получил ошибку: <errorname
+>Невозможно соединиться с звуковым сервером aRts. Звук будет выключен.</errorname
+></para>
+</question>
+<answer>
+<para
+>Для воспроизведения звуков Морской бой требует наличия &arts;, звукового сервера &kde;. Решить эту проблему можно, запустив &arts; через модуль Центра управления <menuchoice
+><guisubmenu
+>Звук</guisubmenu
+> <guimenuitem
+>Звуковой сервер</guimenuitem
+></menuchoice
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Я знаю вопрос, который надо поместить в &FAQ;. С кем я могу связаться?</para>
+</question>
+<answer>
+<para
+>Свяжитесь с авторами. Они добавят его сюда.</para>
+</answer>
+</qandaentry>
+</qandaset>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Благодарности и лицензии</title>
+
+<para
+>&kbattleship; Copyright 2000, 2001</para>
+
+<itemizedlist
+> <title
+>Авторы</title
+> <listitem
+> <para
+> Nikolas Zimmermann <email
+>wildfox@kde.org</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Daniel Molkentin <email
+>molkentin@kde.org</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Kevin Krammer <email
+>kevin.krammer@gmx.at</email
+> </para
+> </listitem
+> </itemizedlist>
+
+<itemizedlist
+> <title
+>Помощники</title
+> <listitem
+> <para
+> Benjamin Adler <email
+>benadler@bigfoot.de</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Nils Trzebin <email
+>nils.trzebin@stud.uni-hannover.de</email
+> </para
+> </listitem
+> <listitem
+> <para
+>Elmar Hoefner <email
+>elmar.hoefner@uibk.ac.at</email
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+>Дмитрий Ильин <email
+>widgetII@mail.ru</email
+> Перевод на русский</para>
+
+&underFDL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Установка</title>
+
+<sect1 id="requirements">
+<title
+>Требования</title>
+
+<para
+> Программе Морской бой требуются &kde; 2.2 или выше и библиотека &Qt; 2.2.3 или выше. </para>
+
+</sect1>
+
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag:nil
+sgml-shorttag:t
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->
+

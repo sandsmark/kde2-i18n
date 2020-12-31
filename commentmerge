@@ -1,0 +1,134 @@
+#! /opt/local/bin/perl --					# -*-Perl-*-
+eval "exec /opt/local/bin/perl -S $0 $*"
+    if $running_under_some_shell;
+
+# Combine a new .po file and an old translated .po file to a new translation.
+# Copyright (C) 1995 Free Software Foundation, Inc.
+# Ulrich Drepper <drepper@gnu.ai.mit.edu>, May 1995.
+#
+# I have almost rewritten this file to only care about comments, not about
+# entries.
+
+# We take exactly two arguments.
+#
+if ($#ARGV != 1)
+{
+    die "Try `tupdate --help' for more information.\n";
+}
+
+unless (open(OLD, "$ARGV[1]"))
+{
+    die "Cannot open old translated .po file '$ARGV[1]'\n";
+}
+
+$last_comment = "";
+
+while (<OLD>)
+{
+  $last_comment = "";
+
+  if (/^#/) {
+      while ( $_ !~ m/^\s*msgid\s*\"/) {
+	$last_comment .= $_;
+	$_ = <OLD>;
+      }
+    }
+
+  if (/^\s*msgid/) {
+    $_ =~ s/^\s*msgid\s*\"//;
+    $_ =~ s/\"\n$//;
+
+    $msgid = $_;
+	
+    $_ = <OLD>;
+    
+    while (/^\s*\"/)
+      {
+	$_ =~ s/^\s*\"//;
+	$_ =~ s/\"\n$//;
+
+	$msgid .= $_;
+	$_ = <OLD>;
+      }
+  } else {
+    $msgid = "";
+  }
+  
+  $comment{$msgid} = $last_comment if ($last_comment && $msgid);
+}
+
+close (OLD);
+
+unless (open (NEW, "$ARGV[0]"))
+{
+    die "Cannot open new .po file '$ARGV[0]'\n";
+}
+
+my $first = 1;
+
+while (<NEW>)
+{
+  $last_comment = "";
+
+  while (/^#\~/ || /^\s*$/) {
+	 print STDOUT "$_";
+	 $_ = <NEW>;
+	 last if (! $_);
+       }
+
+  if (/^#/) {
+
+      while ( $_ !~ m/^\s*msgid\s*\"/) {
+	if ($_ =~ /^#,\s*fuzzy/ || $_ =~ /^#\s*,\s*.*-format/ || $first == 1) {
+	    $last_comment .= $_;
+	  }
+
+	$_ = <NEW>;
+	last if (! $_);
+	last if (/^#\~/);
+      }
+    }
+  if (/^\s*msgid/) {
+    $_ =~ s/^\s*msgid\s*\"//;
+    $_ =~ s/\"\n$//;
+    $msgid = $_;
+    
+    $_ = <NEW>;
+    
+    while (/^\s*\"/)
+      {
+	$_ =~ s/^\s*\"//;
+	$_ =~ s/\"\n$//;
+	$msgid .= $_;
+	$_ = <NEW>;
+      }
+
+    if ($last_comment =~ /.*-format/ && $comment{$msgid} =~ /.*-format/) {
+       $comment{$msgid} =~ s/# *, .*-format//;
+       $comment{$msgid} =~ s/\n\n/\n/;
+    }
+      
+    if ($first == 0) {
+      print STDOUT $comment{$msgid};
+    }
+    
+    print STDOUT $last_comment;
+
+    print STDOUT "msgid \"$msgid\"\n";
+    
+  } else {
+    print STDOUT $last_comment;
+    $msgid = "";
+  }
+      
+  $first = 0;
+
+
+      print STDOUT $_;
+      
+}
+
+  
+
+
+exit 0;

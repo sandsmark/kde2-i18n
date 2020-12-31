@@ -1,0 +1,479 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&karm;">
+  <!ENTITY % Hungarian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>A &karm; kézikönyve</title>
+
+<authorgroup>
+<author>
+<firstname>Jonathan</firstname>
+<surname>Singer</surname>
+<affiliation>
+<address><email>jsinger@leeta.net</email></address>
+</affiliation>
+</author>
+
+<author>
+<firstname>Sirtaj</firstname>
+<othername>Singh</othername>
+<surname>Kang</surname>
+<affiliation><address><email>taj@kde.org</email></address></affiliation>
+</author>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<contrib>lektor</contrib>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>tszanto@mol.hu</email></address></affiliation>
+<contrib>fordító</contrib>
+</othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Jonathan Singer</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>14/12/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+
+<abstract><para>A &karm; a különböző feladatokra fordított idő mérésére szolgál.</para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>karm</keyword>
+<keyword>kdeutils</keyword>
+<keyword>idő</keyword>
+<keyword>időkövető</keyword>
+<keyword>projekt</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Bevezetés</title>
+
+<para>A &karm; a különböző feladatokra fordított idő mérésére szolgál. Felhasználható például bizonyos
+felhasználóknál a rendszerben töltött idő kiszámlázásához, de arra is, hogy megtudja, a nap mekkora hányadát
+töltötte el a Doom-mal játszva vagy a Slashdot-ot olvasva.</para>
+
+<para>A &karm; szerzőjét Sirtaj Singh Kang-nak hívják. A <quote>karm</quote> szó
+a szerző anyanyelvén (pandzsabi) azt jelenti, hogy <quote>munka</quote>.</para>
+
+</chapter>
+
+
+<chapter id="using-Karm">
+<title>A &karm; használata</title>
+
+<sect1 id="starting">
+<title>A &karm; elindítása</title>
+
+<para>Adja ki a <command>karm</command> parancsot egy parancsértelmezőben vagy válassza a
+<guimenuitem>Személyes időkövető</guimenuitem> menüpontot a
+<guimenu>KDE indítómenü</guimenu> <guisubmenu>Segédprogramok</guisubmenu> nevű
+menüpontjában. A standard Qt és KDE parancssori kapcsolók használhatók (kilistázásukhoz
+adja ki a <userinput><command>karm</command>
+<option>--help</option></userinput> parancsot).</para>
+
+</sect1>
+
+<sect1 id="general-use">
+<title>Általános használat</title>
+
+<para>Először adja meg, hogy mely feladatok idejét szeretné mérni.</para>
+<para>Egy feladat időmérésének elkezdéséhez jelölje ki azt és vagy kattintson rá duplán, vagy
+válassza az <guimenuitem>Indítás</guimenuitem> menüpontot az <guimenu>Időmérés</guimenu> menüben vagy nyomja
+meg az <guiicon>Indítás</guiicon> gombot az eszköztáron. Az időmérés leállításához
+vagy kattintson a feladatra duplán, vagy válassza a <guimenuitem>Leállítás</guimenuitem> menüpontot
+az <guimenu>Időmérés</guimenu> menüben vagy nyomja meg a <guiicon>Leállítás</guiicon> gombot az
+eszköztáron.</para>
+
+<para>Egyszerre több feladat idejét is lehet mérni.</para>
+
+<para>A feladatok adatait el lehet menteni és később vissza lehet tölteni.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="interface">
+<title>A &karm; felhasználói felülete</title>
+
+<para>A &karm; főablaka a következő részekből áll: menüsor, eszköztár,
+feladatablak és állapotsor.</para>
+
+<screenshot>
+<screeninfo>A &karm; főablaka</screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="karm.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase>A &karm; főablaka</phrase>
+          </textobject>
+        </mediaobject>
+</screenshot>
+
+<sect1 id="main-window">
+<title>A feladatablak</title>
+
+<para>Ebben az ablakban jelennek meg a különböző feladatok, mellettük látszik az aktuális
+munkafolyamatban és az összesen eltöltött idő. Azoknál a feladatoknál, amelyek időmérése folyamatban van,
+egy kis óra ikon látható a munkafolyamatbeli idő mellett.</para>
+
+<para>Mindegyik feladat alfeladatokra bontható. Ha duplán rákattint egy feladatra, akkor
+kinyílik vagy összecsukódik az alfeladatok listája. Egy feladatra fordított idő az alfeladatok
+összesített idejéből valamint az alfeladatokhoz nem rendelhető saját időből áll.</para>
+
+</sect1>
+
+<sect1 id="menus">
+<title>A &karm; menüsora</title>
+<sect2>
+<title>A <guimenu>Fájl</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice><shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>S</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>Me<accel>n</accel>tés</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Elmenti a feladatok adatait a hozzájuk tartozó időértékekkel
+együtt</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>P</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem><accel>N</accel>yomtatás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Kinyomtatja</action> a &karm; főablak tartalmát</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>R</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>A munkafolyamat idejének n<accel>u</accel>llázása</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A feladat aktuális munkafolyamatban eltöltött idejének
+nullára állítása</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem><accel>K</accel>ilépés</guimenuitem>
+</menuchoice></term>
+<listitem><para>A program <action>bezárása</action></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>Az <guimenu>Időmérés</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>S</keycap></keycombo>
+</shortcut>
+<guimenu>Időmérés</guimenu>
+<guimenuitem><accel>I</accel>ndítás</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Elindítja</action> az időmérést a kijelölt feladatnál</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>T</keycap></keycombo>
+</shortcut>
+<guimenu>Időmérés</guimenu>
+<guimenuitem><accel>L</accel>eállítás</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Leállítja</action> az időmérést a kijelölt feladatnál</para></listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2>
+<title>A <guimenu>Feladat</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>N</keycap></keycombo>
+</shortcut>
+<guimenu>Feladat</guimenu>
+<guimenuitem>Ú<accel>j</accel></guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>Egy új feladat <action>létrehozása</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>N</keycap></keycombo>
+</shortcut>
+<guimenu>Feladat</guimenu>
+<guimenuitem>Új alfeladat</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>Új alfeladat <action>létrehozása</action> a kijelölt feladathoz</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycap>Del</keycap>
+</shortcut>
+<guimenu>Feladat</guimenu>
+<guimenuitem><accel>T</accel>örlés</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>A kijelölt feladat vagy alfeladat <action>törlése</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>E</keycap></keycombo>
+</shortcut>
+<guimenu>Feladat</guimenu>
+<guimenuitem>S<accel>z</accel>erkesztés</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>A kijelölt feladat nevének vagy felhasznált idejének
+módosítása</action></para><para>Az időt kétféleképpen lehet módosítani: abszolút
+időértékek megadásával, amikor a munkafolyamat ideje és az összesített idő egymástól függetlenül
+megadható, és relatív időérték megadásával, amikor a megadott érték hozzáadódik (vagy kivonódik)
+a munkafolyamatbeli és az összesített időhöz.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+<sect2>
+<title>A <guimenu>Beállítások</guimenu> menü</title>
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>A billentyű<accel>p</accel>arancsok beállítása...</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Megnyit</action> egy párbeszédablakot, melyben a program billentyűparancsai
+kényelmesen módosíthatók</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>Egyéb b<accel>e</accel>állítások...</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Megnyitja</action> a &karm; beállításait tartalmazó párbeszédablakot</para><para>
+A párbeszédablak két lapból áll: a <guilabel>Mentés</guilabel> feliratúból, melyen a program
+adatait tartalmazó fájl elérési útja, az automatikus mentés engedélyezése és időközének beállítása
+található, valamint <guilabel>Az üresjárat érzékelése</guilabel> opció, melynek bekapcsolása esetén
+figyelmeztető ablak jelenik meg bizonyos idejű inaktivitás után.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+</sect2>
+
+<sect2>
+<title>A <guimenu>Segítség</guimenu> menü</title>
+<variablelist>
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut><keycap>F1</keycap></shortcut>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem><accel>T</accel>artalom</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>Megnyitja ezt a dokumentumot</action></para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>Mi e<accel>z</accel>?</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>A kezelőfelület elemeiről lehet rövid leírást
+kérni ennek segítségével</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>Hiba<accel>b</accel>ejelentés...</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>Itt lehet e-mail-ben bejelenteni a programban
+talált hibákat</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>A KArm <accel>n</accel>évjegye</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para>A program verziószáma és szerzőinek névsora <action>található</action>
+itt</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<menuchoice>
+<guimenu><accel>S</accel>egítség</guimenu>
+<guimenuitem>A <accel>K</accel>DE névjegye</guimenuitem>
+</menuchoice>
+</term>
+<listitem><para><action>A KDE projekt néhány fontosabb adata
+található itt</action></para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect2>
+
+</sect1>
+
+<sect1 id="tool-bar">
+<title>Az eszköztár</title>
+<para>Az eszköztáron nyomógombok találhatók az alábbi parancsokhoz:</para>
+
+<note><para>(Ugyanazok a funkciók, mint a megfelelő menüpontok esetében.)</para></note>
+
+<itemizedlist>
+<listitem><para><guiicon>Indítás</guiicon></para></listitem>
+<listitem><para><guiicon>Leállítás</guiicon></para></listitem>
+<listitem><para><guiicon>Új</guiicon></para></listitem>
+<listitem><para><guiicon>Új alfeladat</guiicon></para></listitem>
+<listitem><para><guiicon>Törlés</guiicon></para></listitem>
+<listitem><para><guiicon>Szerkesztés</guiicon></para></listitem>
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="status-bar">
+<title>Az állapotsor</title>
+
+<para>A munkafolyamat kezdete óta eltelt időt mutatja.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+<title>A szerzők névsora és a licencegyezmény</title>
+
+<para>
+&karm;
+</para>
+
+<para>
+Program copyright Sirtaj Singh Kang <email>taj@kde.org</email>, 1997-2000.</para>
+
+<para>Hozzájárultak még</para>
+<itemizedlist>
+<listitem><para>Espen Sand <email>espen@kde.org</email></para></listitem>
+<listitem><para>Jesper Pedersen <email>blackie@ifad.dk</email></para></listitem>
+<listitem><para>Kalle Dalheimer <email>kalle@kde.org</email></para></listitem>
+<listitem><para>Klar&auml;lvdalens Datakonsult AB.</para></listitem>
+</itemizedlist>
+
+<para>A Karm létrejöttét Harald Tveit Alvestrand <application>titrax</application> nevű
+nagyon hasznos kis segédprogramja inspirálta, melynek egyetlen hátránya az Xt könyvtár
+használata volt.</para>
+
+<para>Documentation copyright Jonathan Singer <email>jsinger@leeta.net</email>
+és Sirtaj Singh Kang <email>taj@kde.org</email>, 2000.</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title>A program telepítése</title>
+
+<sect1 id="getting-kapp">
+<title>A &karm; megszerzése</title>
+
+<para>A &karm; a KDE kdeutils nevű csomagjának része, a csomag alapkönyvtárában található tájékoztató
+alapján kell lefordítani és telepíteni. A kdeutils legújabb változatát
+az <ulink
+url="ftp://ftp.kde.org/pub/kde">ftp://ftp.kde.org/pub/kde/</ulink> címről lehet letölteni.</para>
+
+<para>A &karm; lefordításának lépései:</para>
+
+<screen><userinput><command>cd</command> <filename class="directory">kdeutils/karm</filename></userinput>
+<userinput><command>./configure</command></userinput>
+<userinput><command>make</command></userinput>
+<userinput><command>su</command></userinput>
+<userinput><command>make install</command></userinput>
+</screen>
+
+</sect1>
+
+</appendix>
+
+
+&documentation.index; 
+</book>
+

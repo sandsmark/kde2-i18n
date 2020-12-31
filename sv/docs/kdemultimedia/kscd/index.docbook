@@ -1,0 +1,1314 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kscd;">
+  <!ENTITY % Swedish "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Handbok &kscd;</title>
+
+<authorgroup>
+
+<author
+> <firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+><address
+><email
+>jsinger@leeta.net</email
+></address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>David</firstname
+> <surname
+>White</surname
+> <affiliation
+><address
+><email
+>a9403784@unet.univie.ac.at</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Bernd</firstname>
+<othername
+>Johannes</othername>
+<surname
+>Wuebben</surname>
+<affiliation
+><address
+><email
+>wuebben@kde.org</email
+></address
+></affiliation>
+<contrib
+>Utvecklare</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname
+>Dirk</firstname>
+<surname
+>Forsterling</surname>
+<affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Utvecklare</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname
+>Dirk</firstname>
+<surname
+>Foersterling</surname>
+<affiliation
+><address
+><email
+>milliByte@gmx.net</email
+></address
+></affiliation>
+<contrib
+>Utvecklare</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Granskare</contrib>
+</othercredit>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@telia.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000-2001</year>
+<holder
+>J Singer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+  
+
+<date
+>2001-07-19</date>
+<releaseinfo
+>1.03.02</releaseinfo>
+
+<abstract>
+<para
+>&kscd; är en liten snabb, <abbrev
+>CDDB</abbrev
+>-anpassad <abbrev
+>CD</abbrev
+>-spelare för Unix plattformar.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdemultimedia</keyword>
+<keyword
+>kscd</keyword>
+<keyword
+>musik</keyword>
+<keyword
+>CD</keyword>
+<keyword
+>ljud</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Inledning</title>
+
+<para
+>&kscd; är en liten snabb, <abbrev
+>CDDB</abbrev
+>-anpassad <abbrev
+>CD</abbrev
+>-spelare för Unix plattformar. &kscd; står för <quote
+>KDE-projektets lilla/enkla CD-spelare</quote
+>.</para>
+
+<para
+><emphasis
+>Nyhet</emphasis
+>: Perlskriptet <filename
+>workman2cddb.pl</filename
+> som tillhandahålls för att förenkla byte för användare av Workman.</para>
+
+<para
+>Jag hoppas att du blir nöjd med den här CD-spelaren.</para>
+
+<para
+>Bernd Johannes Wuebben</para>
+
+<para
+><email
+>wuebben@kde.org</email
+></para>
+
+<sect1 id="supported-platforms">
+<title
+>Plattformar som stöds</title>
+
+<para
+>&kscd; stöder uttryckligen följande plattformar:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Linux</para
+></listitem
+> <listitem
+><para
+>FreeBSD</para
+></listitem
+> <listitem
+><para
+>NetBSD</para
+></listitem
+> <listitem
+><para
+>BSD386</para
+></listitem
+> <listitem
+><para
+>Sun</para
+></listitem
+> <listitem
+><para
+>&Solaris; (inklusive <acronym
+>cdda</acronym
+>-stöd)</para
+></listitem
+> <listitem
+><para
+>&HP-UX;</para
+></listitem
+> <listitem
+><para
+>&SGI; Irix (inklusive <abbrev
+>cdda</abbrev
+>-stöd)</para
+></listitem
+> <listitem
+><para
+>Sony NEWS</para
+></listitem
+> <listitem
+><para
+>OSF/1</para
+></listitem
+> <listitem
+><para
+>Ultrix</para
+></listitem
+> </itemizedlist>
+
+<para
+>och ska gå att kompilera på många fler med små ändringar.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="onscreen-fundamentals">
+<title
+>Grundläggande skärmhantering</title>
+
+<sect1 id="basic-operation">
+<title
+>Grundläggande användning</title>
+
+<screenshot
+> <screeninfo
+>&kscd;-gränssnittet</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kscd.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>&kscd;-gränssnittet</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Det här är &kscd;s huvudfönster. Du bör se någonting som liknar det här när du startar &kscd;. Knapparna i det här fönstret förklaras nedan, utan någon särskild ordning.</para>
+
+<sect2 id="control-panel">
+<title
+>Kontrollpanelen</title>
+
+<screenshot
+> <screeninfo
+>Kontrollpanelen</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd2.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Kontrollpanelen</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Det här är &kscd;s huvudsakliga kontrollpanel. Funktionen på de här knapparna bör vara bekant för alla som någonsin har använt en CD-spelare.</para>
+
+<para
+>Den översta knappen i diagrammet ovan växlar mellan att spela och pausa CD:n, Den vänstra knappen i andra raden stoppar spelningen av CD:n. Den högra knappen i andra raden växlar repetering, så att CD:n börjar spela igen från början när slutet på sista ljudspåret nås. Knapparna i tredje raden går tillbaka (vänster) eller framåt (höger) 30 sekunder. De två knapparna under statusfönstret hoppar framåt (höger) eller bakåt (vänster) till början av nästa eller föregående spår. </para>
+</sect2>
+
+<sect2 id="eject">
+<title
+>Knappen för att mata ut CD:n</title>
+
+<screenshot
+> <screeninfo
+>Knappen för att mata ut CD:n</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd2a.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Knappen för att mata ut CD:n.</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Den här knappen matar ut CD:n. Observer att utmatningsknappen på din CDROM-enhet kanske inte svarar om en ljud-CD är i enheten och &kscd; har startats. Vissa mycket gamla CDROM-enheter kanske inte stöder utmatning via programvara. Du kanske också måste stänga CDROM-enheten manuellt efter att ha lagt i en ny skiva.</para>
+</sect2>
+
+<sect2 id="status-display">
+<title
+>Statusfönstret</title>
+
+<screenshot
+> <screeninfo
+>Statusfönstret</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd3.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Statusfönstret</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Det här är statusfönstret. Med början överst, från höger till vänster, är huvudtidvisningen (se nedan för behandling av de olika möjliga tidvisningslägena), status för CDROM-enheten, totala speltiden för ljud-CD:n, den nuvarande volyminställningen. och nuvarande och sista spårnumren (nuvarande/sista). De nedersta två raderna text visar artist och titel för CD:n, under förutsättning att posten finns i den lokala eller nätverkets <acronym
+>CDDB</acronym
+> (CD databas).</para>
+
+</sect2>
+
+<sect2 id="time-display-modes">
+<title
+>Tidvisningslägen</title>
+
+<screenshot
+> <screeninfo
+>Tidvisningsväxling</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd4.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Tidvisningsväxling</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Den här knappen växlar mellan de möjliga huvudtidvisningslägena. Normalt visar &kscd; förfluten tid för det nuvarande spåret, om CD:n spelas, eller antingen &ndash;&ndash;:&ndash;&ndash; eller 00:00 om CD:n inte spelas. Genom att trycka på den här knappen växlas i tur och ordning mellan återstående tid för spåret, total förfluten tid, och total återstående tid.</para>
+</sect2>
+
+<sect2 id="configuration-button">
+<title
+>Knappen för att anpassa &kscd;</title>
+
+<screenshot
+> <screeninfo
+>Knappen för att anpassa &kscd;</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd5.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Knappen för att anpassa &kscd;</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Den här knappen öppnar &kscd;:s inställningspanel, som låter dig anpassa &kscd; att fungera på din maskin. Se avsnittet <link linkend="configuring-kscd"
+>Anpassa &kscd;</link
+>, för detaljer om att anpassa &kscd;.</para>
+</sect2>
+
+<sect2 id="cddb-button">
+<title
+><guibutton
+>CDDB</guibutton
+>-knappen</title>
+
+<screenshot
+> <screeninfo
+><acronym
+>CDDB</acronym
+>-knappen</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd6.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+><acronym
+>CDDB</acronym
+>-knappen</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Den här knappen öppnar panelen för <acronym
+>CDDB</acronym
+>-inmatningseditorn (Compact Disc Databas). </para>
+
+<para
+><acronym
+>CDDB</acronym
+> kan identifiera din CD, och oftast ladda ner en lista av spår för den, eller ladda listan från filsystemet. Se avsnittet <link linkend="cddb-editor"
+>CD databaseditor</link
+> för mer detaljer om att använda det här verktyget.</para>
+</sect2>
+
+<sect2 id="information-button">
+<title
+><guibutton
+>Informations</guibutton
+>knappen</title>
+
+<screenshot
+> <screeninfo
+>Informationsknappen</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd7.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Informationsknappen</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Den här knappen hjälper dig att leta efter information om artister på Internet. Du kan ta reda på datum för uppträdanden, köpa skivor,och skaffa annan information genom att trycka på den här knappen och välja lämpligt alternativ i menyn som visas.</para>
+</sect2>
+
+<sect2>
+<title
+>Knappen för att avsluta</title>
+
+<screenshot
+> <screeninfo
+>Knappen för att avsluta</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd8.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Knappen för att avsluta</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Den här knappen stänger  &kscd;.</para>
+</sect2>
+
+<sect2>
+<title
+>Volymreglaget</title>
+
+<screenshot
+> <screeninfo
+>Volymreglaget</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd9.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Volymreglaget</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Det här skjutreglaget kontrollerar volymen för ljudet från CD:n. Åt höger är högre, åt vänster är lägre. Om du spelar CD:n genom ljudkortet, påverkar ljudkortets mixer också avspelningsvolymen.</para>
+</sect2>
+
+<sect2 id="randomize-button">
+<title
+>Knappen för blandad spelning</title>
+
+<screenshot
+> <screeninfo
+>Knappen för blandad spelning</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd15.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Knappen för blandad spelning</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Den här knappen gör att CD-spåren spelas i slumpmässig ordning. </para>
+</sect2>
+
+<sect2>
+<title
+>Spårvalet</title>
+
+<screenshot
+> <screeninfo
+>Spårvalet</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd11.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Spårvalet</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+	    
+<para
+>Den här kombinationsrutan visar dig nuvarande spår, och låter dig direkt välja ett spår att spela. </para>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="configuring-kscd">
+<title
+>Anpassa  &kscd;</title>
+<sect1 id="configuration-intro">
+<title
+>Det huvudsakliga inställningsfönstret </title>
+
+<para
+>Det huvudsakliga inställningsfönstret för &kscd; är en dialog med fyra huvudflikar. </para>
+
+<itemizedlist
+> <listitem
+><para
+><link linkend="freedb-tab"
+><guilabel
+>freedb</guilabel
+></link
+></para
+></listitem
+> <listitem
+><para
+><link linkend="smtp-options"
+><guilabel
+>SMTP-inställningar</guilabel
+> </link
+></para
+></listitem
+> <listitem
+><para
+><link linkend="kscd-options-tab"
+><guilabel
+>Kscd-alternativ</guilabel
+></link
+></para
+></listitem
+> <listitem
+><para
+><link linkend="about"
+><guilabel
+>Om</guilabel
+></link
+></para
+></listitem
+> </itemizedlist>
+</sect1>
+
+<sect1 id="freedb-tab">
+<title
+>Fliken <guilabel
+>freedb</guilabel
+></title>
+<screenshot
+> <screeninfo
+>Fliken <guilabel
+>freedb</guilabel
+> i inställningsdialogrutan</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kscd14.png" format="PNG"/> </imageobject
+> <textobject
+><phrase
+>Fliken <guilabel
+>freedb</guilabel
+> i inställningsdialogrutan</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Fliken <guilabel
+>freedb</guilabel
+> anpassar <acronym
+>CDDB</acronym
+>-funktionen i &kscd;.</para>
+
+<para
+>Rutan <guilabel
+>Aktivera fjärr-freedb</guilabel
+> aktiverar eller stänger av uppslagning i <acronym
+>CDDB</acronym
+> på Internet. Tiden som tillåts innan uppslagningsförsöket avbryts kan ställas in. För att använda en HTTP-proxy, markera <guilabel
+>Använd HTTP-proxy för att komma åt freedb</guilabel
+> och skriv in webbadressen i fältet nedanför.</para>
+
+<para
+>Textfältet <guilabel
+>Baskatalog för freedb</guilabel
+> låter dig välja katalogen där du vill att <acronym
+>CDDB</acronym
+>-poster ska lagras lokalt.</para>
+
+<para
+>Listrutan <guilabel
+>freedb-server</guilabel
+> visar en lista av kända freedb-servrar. Välj en post i den här listan för att visa den i textrutan ovanför. Tryck på knappen <guibutton
+>Uppdatera</guibutton
+> för att uppdatera listan på servrar i listrutan. Tryck på knappen <guibutton
+>Standardvärden</guibutton
+> för att ange standardvärdet, <userinput
+>freedb.freedb.org cddbp 888</userinput
+>, som låter dig uppdatera från en aktuell lista av freedb-servrar som anges i huvudplatsen för freedb på <systemitem class="systemname"
+>freedb.freedb.org</systemitem
+>. Tryck på knappen <guibutton
+>-</guibutton
+> för att ta bort den valda posten från listan.</para>
+
+<para
+>Fältet <guilabel
+>Sänd freedb-bidrag till:</guilabel
+> innehåller e-postadressen dit <abbrev
+>CDDB</abbrev
+>-poster ska skickas. Standardadressen är <email
+>freedb-submit@freedb.org</email
+>. Från version 0.8, accepteras <acronym
+>CDDB</acronym
+>-poster från &kscd; för att infogas i databasen. Tryck på knappen <guibutton
+>-</guibutton
+> för att ta bort den valda posten från listan. Knappen <guibutton
+>Standardvärden</guibutton
+> återställer alla inställningar till standardvärden. Knappen <guibutton
+>Hjälp</guibutton
+> öppnar &kscd;:s hjälpsida (det här dokumentet).</para>
+
+<para
+><guibutton
+>Ok</guibutton
+> sparar nuvarande inställningar och avslutar. <guibutton
+>Avbryt</guibutton
+> avslutar utan att spara. </para>
+</sect1>
+
+<sect1 id="smtp-options">
+<title
+>Fliken <guilabel
+>SMTP-inställningar</guilabel
+></title
+> 
+
+<screenshot
+> <screeninfo
+>Fliken SMTP-inställningar</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd16.png" format="PNG"/></imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Fliken <acronym
+>SMTP</acronym
+>-inställningar ställer in anslutningen till en e-postserver för att skicka nya <acronym
+>CDDB</acronym
+>-poster. Det här är användbart om du inte har systemet inställt som en server. Markera <guilabel
+>Aktivera sändning via SMTP</guilabel
+> för att använda den här funktionen. Skriv in <acronym
+>SMTP</acronym
+>-serverns adress i det övre vänstra textfältet och portnumret (typiskt <userinput
+>25</userinput
+>) i det övre högra fältet. Skriv in din egen e-postadress i textfältet under. </para>
+</sect1>
+
+<sect1 id="kscd-options-tab">
+<title
+>Fliken <guilabel
+>KSCD-alternativ</guilabel
+></title
+> 
+
+<screenshot
+> <screeninfo
+>Fliken <guilabel
+>KSCD-alternativ</guilabel
+></screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd12.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Fliken <guilabel
+>KSCD-alternativ</guilabel
+></phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Fälten <guilabel
+>LED-färg:</guilabel
+> och <guilabel
+>Bakgrundsfärg:</guilabel
+> visar färgen som är vald för förgrunden och bakgrunden i statusfönstret. Tryck på knappen <guibutton
+>Ändra</guibutton
+> intill färgrutorna för att ändra de här färgerna.</para>
+
+<para
+>Fältet <guilabel
+>CD-ROM-enhet</guilabel
+> innehåller namnet på den CD-ROM-enhet som ska användas för att spela ljud-CD. Standardvärdet är <filename
+>/dev/cdrom</filename
+>. Rättigheterna för den här enheten måste vara inställda så att enheten kan öppnas för läsning. Att ändra rättigheter för enheten kräver nästan alltid systemadministratörsrättigheter och kan göras från kommandoraden eller i  &konqueror;s systemadministreringsläge.</para>
+
+<para
+>Fältet <guilabel
+>Unix e-postkommando</guilabel
+> visar kommandot som används för att skicka nya <acronym
+>CDDB</acronym
+>-poster till databasen. Det förvalda värdet är <userinput
+><command
+>mail</command
+> <option
+>-s <replaceable
+>%s</replaceable
+></option
+></userinput
+>. Du måste försäkra dig om att det här kommandot verkligen skickar e-post till fjärrsystem om du vill bidra med <acronym
+>CDDB</acronym
+>-poster, särskilt om du kommer åt Internet via en uppringd förbindelse. Kontrollera dokumentationen för din Linux-distribution för detaljer. Vissa Linux-distributioner som använder sendmail för att leverera e-post kräver bara att du anger din e-postvärddator i fältet <guilabel
+>"Smart" relay host</guilabel
+> i <filename
+>/etc/sendmail.cf</filename
+>. Dessutom kommer <acronym
+>CDDB</acronym
+>-platsen att vilja skicka tillbaks e-post till dig. Därför kan det också vara nödvändigt att redigera <filename
+>/etc/sendmail.cf</filename
+> för att vara säker på att returadressen för bidraget är riktig. Det kan gå mer eller mindre bra. Om allt annat misslyckas, använd <link linkend="smtp-options"
+>SMTP</link
+> istället.</para>
+
+<para
+>Sektionen <guilabel
+>Webbläsare</guilabel
+> låter dig välja vilken webbläsare som du vill använda för att komma åt webbplatserna i menyerna som visas med <link linkend="information-button"
+>informationsknappen</link
+>. Du kan antingen välja &konqueror; eller en egen webbläsare med knapparna. Normalt innehåller fältet <guilabel
+>Använd egen webbläsare</guilabel
+> kommandot <userinput
+><command
+>kfmclient</command
+> <option
+><replaceable
+>openURL %s</replaceable
+></option
+></userinput
+>.</para>
+
+<para
+>Rutan <guilabel
+>Visa verktygstips</guilabel
+> aktiverar eller stänger av verktygstips (små fönster som visas när menyn <quote
+>parkeras</quote
+> tillfälligt över en verktygsikon).</para>
+
+<para
+><guilabel
+>Aktivera KPanel-dockning</guilabel
+> gör att en &kscd;-ikon visas i &kicker;-panelen.</para>
+
+<para
+><guilabel
+>Spela då vagnen stängs</guilabel
+> gör att CD:n börjar spelas när vagnen stängs, utan att behöva trycka på knappen <guibutton
+>Spela</guibutton
+>.</para>
+
+<para
+><guilabel
+>Sluta spela vid avslut</guilabel
+> gör att uppspelning av CD:n stannar när &kscd; avslutas.</para>
+
+<para
+><guilabel
+>Mata ut vid avslut</guilabel
+> gör att CD:n matas ut när uppspelningen slutar.</para>
+
+<para
+><guilabel
+>Slumpmässigt innebär blandning</guilabel
+> betyder att när <link linkend="randomize-button"
+>slumpmässig uppspelning</link
+> används, så spelas varje spår bara en gång.</para>
+
+<para
+>Knappen <guibutton
+>Hjälp</guibutton
+> öppnar innehållsförteckningen för &kscd;:s hjälpsida.</para>
+
+<para
+><guibutton
+>Ok</guibutton
+> sparar nuvarande inställningar och avslutar. <guibutton
+>Avbryt</guibutton
+> avslutar utan att spara.</para>
+
+</sect1>
+
+<sect1 id="about">
+<title
+>Fliken <guilabel
+>Om</guilabel
+> </title>
+
+<para
+> Fliken <guilabel
+>Om</guilabel
+> visar information om vilken version av &kscd; som du använder och en del copyrightinformation. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="cddb-editor">
+<title
+><guilabel
+>CD-databaseditor</guilabel
+></title>
+
+<screenshot
+> <screeninfo
+>CD-databaseditorn</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd13.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>CD-databaseditorn</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>CD-databaseeditorn låter dig ändra, ladda ner, spara, lägga till anteckningar och ladda upp <link linkend="cddb-support"
+><acronym
+>CDDB</acronym
+>-poster</link
+> (Compact Disc databas).</para>
+
+<para
+>Om det finns en post i ditt lokala <acronym
+>CDDB</acronym
+>-träd (se <link linkend="freedb-tab"
+>CDDB avsnittet</link
+> i kapitlet om anpassning) för CD:n i CDROM-enheten, eller om skivan hittades i freedb, visas namnet och titeln på CD:n i fältet <guilabel
+>Skivartist / titel</guilabel
+> och en spårlista med sångtitlar i kombinationsrutan <guilabel
+>Spår / Tid / Titel</guilabel
+>. Annars ser du en lista på spår och speltider utan titlar.</para>
+
+<para
+>Du kan lägga till en anteckning för hela skivan med knappen <guibutton
+>Extern information</guibutton
+> intill fältet <guilabel
+>CD Artist / titel</guilabel
+>, eller för ett markerat spår i rutan <guilabel
+>Spår / tid / titel</guilabel
+> med knappen <guibutton
+>Extern information</guibutton
+> intill. Om du markerar ett spår i rutan <guilabel
+>Spår / tid / titel</guilabel
+>, visas titeln, om den finns, i fältet <guilabel
+>Redigera spårtitel</guilabel
+>. Du kan skriva in en titel för spåret i rutan, eller redigera titeln så att du blir nöjd. Tryck på returtangenten på tangentbordet för att visa texten på rätt rad i rutan ovan.</para>
+
+<para
+>När alla spår väl har fått titlar och <guilabel
+>CD Artist / titel</guilabel
+> har fyllts i, kan du trycka på knappen <guibutton
+>Överför</guibutton
+> för att skicka ditt bidrag till freedb med e-post.</para>
+
+<para
+>Du blir tillfrågad om att välja en kategori för bidraget. <guilabel
+>Disk-id</guilabel
+> sektionen visar den 32-bitars <acronym
+>ID</acronym
+>-kod som freedb använder för att identifiera en CD-skiva. Ovanför <acronym
+>ID</acronym
+>-koden finns <guilabel
+>CDDB</guilabel
+>-postens kategori. De här kategorierna motsvarar underkatalogträdet för katalogen som väljs i <guilabel
+>Baskatalog för freedb</guilabel
+> under fliken <link linkend="freedb-tab"
+><abbrev
+>freedb</abbrev
+></link
+> i &kscd;:s inställningsfönster.</para>
+
+<para
+><guilabel
+>Total tid:</guilabel
+> visar den totala speltiden för CD:n.</para>
+
+<para
+><guilabel
+>Redigera spelsekvens</guilabel
+> låter dig ändra spelsekvensen för en skiva. Skriv in en lista av spårnummer med kommatecken mellan för att definiera en ny spelsekvens.</para>
+
+<para
+>Knappen <guibutton
+>Spara</guibutton
+> skriver posten som visas till disk. Du blir tillfrågad om den kategori som du vill använda för att spara posten. Välj en katalog och tryck på <guibutton
+>Ok</guibutton
+> för att spara.</para>
+
+<para
+>Knappen <guibutton
+>Ladda</guibutton
+> tillfrågar dig om en plats att leta efter en <acronym
+>CDDB</acronym
+>-post, förutom en fjärrserver för freedb eller den lokala värddatorns <abbrev
+>CDDB</abbrev
+>-poster i filsystemet. Knappen <guibutton
+>Stäng</guibutton
+> kan användas för att avsluta CD-databaseditorn utan att spara.</para>
+
+</chapter>
+
+<chapter id="using-kscd-in-the-panel">
+<title
+>Att använda &kscd; i &kde;:s panel</title>
+
+<screenshot
+> <screeninfo
+>Att använda &kscd; i &kde;:s panel</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd18.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Att använda &kscd; i &kde;:s panel</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>När rutan  <guilabel
+>Aktivera Kpanel-dockning </guilabel
+> är markerad, visas ochså ett litet miniprogram i <application
+>KDE:s panel</application
+>. Till skillnad från &kscd;:s huvudfönster, finns det här miniprogrammet tillgängligt på alla skrivbord. <mousebutton
+>Höger</mousebutton
+>klicka på miniprogrammet för att visa en meny som styr uppspelning av CD:n. Ett <mousebutton
+>vänster</mousebutton
+>klick på miniprogrammet gömmer &kscd;:s huvudfönster. Om huvudfönstret är gömt visas det igen med ett nytt <mousebutton
+>vänster</mousebutton
+>klick på miniprogrammet. </para>
+
+<note
+><para
+>För att vara exakt, så visas miniprogrammet i panelens <application
+>systembricka</application
+>. Om inget miniprogram visas när &kscd; minimeras, kanske du har tagit bort systembrickan. För att lägga till den igen, <mousebutton
+>höger</mousebutton
+>klicka på en tom yta i panelen och välj <menuchoice
+><guisubmenu
+>Lägg till</guisubmenu
+> <guisubmenu
+>Miniprogram</guisubmenu
+> <guimenuitem
+>Systembricka</guimenuitem
+> </menuchoice
+></para
+></note>
+
+</chapter>
+
+<chapter id="cddb-support">
+<title
+><acronym
+>CDDB</acronym
+>-stöd</title>
+
+<para
+>freedb är en distribuerad nätverksdatabas, tillgänglig via Internet, som innehåller information om de flesta ljud-CD som finns i cirkulation. Om du har tillgång till Internet, behöver du förmodligen aldrig skriva in spårinformation manuellt för dina CD-skivor, om du har ställt in funktionen riktigt. Se avsnittet <link linkend="freedb-tab"
+>Fliken freedb</link
+> i kapitlet om att anpassa &kscd; för detaljerade instruktioner om hur den här funktionen ska ställas in, och avsnittet <link linkend="cddb-editor"
+>CD-databaseditor</link
+> för instruktion om hur man redigerar <acronym
+>CDDB</acronym
+>-poster.</para>
+
+<para
+>Användning av <acronym
+>CDDB</acronym
+> är gratis. Bidrag från användare uppmuntras.</para>
+
+<para
+>När du förbereder poster för <acronym
+>CDDB</acronym
+>, ha då följande i åtanke:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Använd <quote
+>vanliga</quote
+> tecken från latinska alfabetet i posterna. Vissa specialtecken stöds, men tecken från kyrilliska eller grekiska alfabetet accepteras till exempel inte.</para
+></listitem
+> <listitem
+><para
+>Använd bara ett <keysym
+>/</keysym
+> tecken i fältet <guilabel
+>Skivartist / Titel</guilabel
+> i CD-databaseditorn.</para
+> <para
+>För klassiska skivor är det allmänt accepterat att ange kompositörens namn i artistdelen (innan snedstrecket) och artistens namn i titeldelen (efter snedstrecket).</para
+></listitem
+> <listitem
+><para
+>Om du skickar in en post som redan finns i databasen, kan eventuell ytterligare information som du anger läggas till i den befintliga posten.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Normalt installerar &kscd; <acronym
+>CDDB</acronym
+>-standardkategorier i <filename class="directory"
+>$KDEDIR/share/apps/kscd/cddb</filename
+>. Du kan skapa så många underkataloger som du vill. När du laddar upp visas dock bara de officiella <acronym
+>CDDB</acronym
+>-kategorierna. Den förvalda uppladdningsadressen är <email
+>freedb-submit@freedb.org</email
+>. För mer information, besök hemsidan för <abbrev
+>freedb</abbrev
+>.</para>
+
+<para
+>Den lokala <acronym
+>CDDB</acronym
+>-posten för en viss CD, lagras i filen <filename
+><replaceable
+>kategorinamn</replaceable
+>/<replaceable
+>disk-id</replaceable
+></filename
+> under baskatalogen för <acronym
+>CDDB</acronym
+>. De här filerna kan redigeras med vilken texteditor som helst, om du inte har något bättre för dig på ledig tid.</para>
+
+</chapter>
+
+<chapter id="questions-and-answers">
+<title
+>Vanliga frågor</title>
+
+<qandaset>
+<qandaentry>
+<question
+><para
+>Den här dialogrutan visas när jag startar &kscd;. Vad är det som är fel?</para>
+<screenshot
+> <screeninfo
+>Feldialogruta</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kscd19.png" format ="PNG"/></imageobject
+> <textobject
+><phrase
+>Feldialogruta</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+</question>
+<answer
+><para
+>Det här betyder att &kscd; inte kunde öppna din CDROM-enhet. Namnet på enheten under <guilabel
+>CD-ROM-enhet</guilabel
+> i <guilabel
+>Kscd:s inställningar</guilabel
+> måste ange blockenheten som hör ihop med din CDROM-enhet. Det här är ofta en hård länk till motsvarande <acronym
+>IDE</acronym
+>- (<filename
+>/dev/hdx</filename
+>) eller <acronym
+>SCSI</acronym
+>-enhet (<filename
+>/dev/sdx</filename
+>).</para>
+
+<para
+> Enhetsfilen tillhör normalt användaren root i gruppen root, och tillåter inte att vanliga användare direkt öppnar den för läsning, skrivning eller körning. Det här har <emphasis
+>ingenting</emphasis
+> att göra med <application
+>SUID</application
+> kommandot <command
+>mount</command
+> (Set User <acronym
+>ID</acronym
+> program använder funktionen <function
+>setuid()</function
+> i Unix standardbibliotek för att anta en annan användares identitet), som inte har några problem med rättigheter. &kscd; måste kunna få en filpekare med läsrättigheter som representerar enheten för att kunna styra den och läsa rådata från skivan.</para>
+
+<para
+> Om du känner till root-lösenordet, kan du korrigera det här snabbt och enkelt: Logga in som root och skriv <userinput
+><command
+>chmod</command
+> <option
+>a+r</option
+> <filename
+><replaceable
+>/dev/cdrom</replaceable
+></filename
+></userinput
+> för att låta alla användare på systemet läsa från <filename
+>/dev/cdrom</filename
+>. Om din CDROM-enhet kallas något annat, ändra namnet på den enheten med samma procedur. Om du inte känner till root-lösenordet, fråga din systemadministratör om att få rättighet att läsa från CDROM-enheten.</para>
+
+<para
+>Se också kapitlet <link linkend="configuring-kscd"
+>Anpassa KSCD </link
+></para
+></answer>
+</qandaentry>
+
+<qandaentry
+> 
+<question
+><para
+>Jag kan inte få <acronym
+>CDDB</acronym
+> att fungera. Kan jag få mer detaljerad information om vad som kan ha gått fel?</para
+></question
+> 
+<answer
+><para
+>Om du upplever problem med <acronym
+>CDDB</acronym
+>-funktionen, prova att starta &kscd; från kommandoraden med väljaren <option
+>-d</option
+> och kontrollera avlusningsutskrifterna.</para
+></answer
+> 
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Tack till och licens</title>
+
+<para
+>&kscd; Copyright 1997,1998 Bernd Johannes Wuebben <email
+>wuebben@kde.org</email
+>wuebben
+></para>
+
+<para
+>&kscd; innehåller kod från: </para>
+<itemizedlist
+> <listitem
+><para
+><application
+>workman</application
+> 1.4 beta 3 Copyright (c) Steven Grimm <email
+>koreth@hyperion.com</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Ett särskilt tack till Ti Kan och Steve Scherf, uppfinnarna av <acronym
+>CDDB</acronym
+>-databaskonceptet. Besök <ulink url="http://www.cddb.com/"
+>http://ww.cddb.com</ulink
+> för mer information om <acronym
+>CDDB</acronym
+>.</para>
+
+<para
+>Ett mycket varmt tack också till David White, som skrev den ursprungliga &kscd;-hjälpdokumentionen. Storartat jobb, David!</para>
+
+<para
+>Dokumentation uppdaterad för KDE 2.0, och Copyright av Jonathan Singer <email
+>jsinger@leeta.net.</email
+></para>
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@telia.com</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="how-to-obtain-kscd">
+<title
+>Hur man skaffar &kscd;</title>
+
+<para
+>&kscd; är en del av <ulink url="http://www.kde.org/"
+>KDE-projektet</ulink
+>. &kscd; finns i kdemultimedia-paketet på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, KDE-projektets huvudsakliga FTP-plats. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Krav</title>
+
+<para
+>För att kunna kompilera  &kscd; med lyckat resultat, behöver du den senaste versionen av KDE-biblioteken samt &Qt; C++ bibliotek. Alla bibliotek som krävs samt &kscd; själv finns på KDE:s &FTP;-plats, <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+
+</sect1
+> 
+
+<sect1 id="compilation-and-installation"
+> 
+<title
+>Kompilering och installation</title
+> 
+
+<para
+>För att kompilera och installera &kscd; på ditt system, skriv följande i baskatalogen i distributionen av &kscd;:</para>
+	
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput
+> 
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<lineannotation
+>Sedan som root: </lineannotation>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput
+> 
+</screen
+> 
+	
+<para
+>Var snäll informera den nuvarande underhållaren,  Dirk Foersterling, på <email
+>milliByte@gmlx.net</email
+> om eventuella ändringar som du var tvungen att göra för att få &kscd; att kompilera på din plattform.</para>
+
+</sect1>
+
+</appendix>
+
+
+
+
+
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->

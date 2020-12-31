@@ -1,0 +1,6383 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmail;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Xhosa "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>I &kmail; Incwadi yesandla</title>
+
+<!-- note from daniel.naber@t-online.de, 2001-05-05: I'm working on this
+"by hand" (using nedit) so please don't mix up the formatting too much. -->
+
+<!-- TODO: 
+* is it "message", "mail" or "email" ??? 
+* what is section / tab / ... ?
+* better markup instead of 'quote'
+-->
+
+<authorgroup>
+<author
+> <firstname
+>Daniel</firstname
+> <surname
+>Naber</surname
+> <affiliation
+><address
+> <email
+>daniel.naber@t-online.de</email
+> </address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>David</firstname
+> <surname
+>Rugge</surname
+> <affiliation
+><address
+> <email
+>davidrugge@mindspring.com</email
+> </address
+></affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Antoinette</firstname
+><surname
+>Dekeni</surname
+><affiliation
+><address
+><email
+>antoinette@translate.org.za</email
+></address
+></affiliation
+><contrib
+>Translation</contrib
+></othercredit
+>  
+
+</authorgroup>
+
+<date
+>2001-09-27</date>
+<releaseinfo
+>1.03.02</releaseinfo>
+
+<copyright>
+<year
+>1999</year>
+<year
+>2000</year>
+<year
+>2001</year>
+<holder
+>David Rugge</holder>
+</copyright>
+
+<abstract>
+	
+<para
+>&kmail; yi &kde; ngumxhasi we email ongumhlobo womsebenzisi nonamandla.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Iposi</keyword>
+<keyword
+>email</keyword>
+<keyword
+>Umxhasi</keyword>
+<keyword
+>POP3</keyword>
+<keyword
+>IMAP</keyword>
+<keyword
+>PGP</keyword>
+<keyword
+>GnuPG</keyword>
+<keyword
+>GPG</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="intro">
+<title
+>Ukwazisa</title>
+
+<para
+>I &kmail; Iqela liyakwamkela kwi &kmail; umsebenzisi-umposi ongumhlobo we Meko-bume ye K Desktop. Inqaku lethu kukwenza umposi omhle kwaye ongenantandabuzo ngaphandle kokunikezela ngamandla. </para>
+
+<para
+>Ukuba uke wacwangcisa umxhasi we email kwi &UNIX; ndlela phambi kokuba, siphakamise ukuba ufunda ngapha kwe <link linkend="getting-started"
+>Ifumana uqalo</link
+> icandelo kuqala ukuze ucwangciso lwakho luhambe mpuluswa.</para>
+
+<para
+>Ukusukela ukuba abantu abaninzi bengafundi xwebhu, nalu uqokelelo lweencam ezininzi eziluncedo:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Awunakusebenzisa imouse yakhop ukusebenzisa i &kmail;. Yonke into izakwenzeka ngezitshixo. &kmail; ixhasa zonke ezisezantsi izitshixo njenge <keycap
+>Tab</keycap
+> (switsha phakathi kweglasi). Eli qhinga li: <keycap
+>Utolo lasekhohlo</keycap
+>/<keycap
+>Utolo lasekunene</keycap
+> soloko uxhuma kumyalezo odlulileyo/olandelayo, kodwa xa ubamba phantsi i &Ctrl;, ungasebenzisa i <keycap
+>Utolo lasekhohlo</keycap
+>/<keycap
+>Utolo lasekunene</keycap
+> ukul;awula kwiglasi yencwadi ezineenkcukacha ne <keycap
+>utolo oluphezulu</keycap
+>/<keycap
+>utolo olusezantsi</keycap
+> ukulawula kwiglasi ye Headers. Sebenzisa i <keycombo action="simul"
+>&Ctrl;<keycap
+>Isithuba</keycap
+></keycombo
+> ukukhetha incwadi eneenkcukacha oyilawuleyo.</para
+> </listitem
+> <listitem
+> <para
+>Kwi <guilabel
+>Umqambi</guilabel
+> ungakhetha okubhaliweyo kwaye uyitsale jikelele nge mouse.</para
+> </listitem
+> <listitem
+> <para
+>Noxa i &kmail; ingaqwalaselwa njengemeleyo ungagcina izimamva zemiyalezo yakho, &ie; khuphela nje iifayile kwi <filename class="directory"
+>~/Mail</filename
+> kwindawo ekhuselekileyo.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>&kmail;'iphepha lasekhaya lise <ulink url="http://kmail.kde.org"
+>http://kmail.kde.org</ulink
+>, indawo yokugcina yoluhlu loposo lombhekisi phambili lukwi <ulink url="http://lists.kde.org/?l=kde-kmail&amp;r=1&amp;w=2"
+>lists.kde.org</ulink
+>.</para>
+
+<para
+>Nceda chaza i bugs kwi &kmail; usebenzisa i <menuchoice
+><guimenu
+>Uncedo</guimenu
+><guimenuitem
+>Chaza i bug...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Sinethemba lokuba uyakuyithanda i &kmail;!</para>
+
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Ifumana uqalo</title>
+
+<para
+>Olu kukwazisa okufutshane kwi &kmail; nosebenziso lwayo ukuze uqale ukusebenza ngayo. Oluninzi-olunzulu ulwazi bona i <link linkend="using-kmail"
+>Usebenzisa i &kmail;</link
+> icandelo. Qaphela ukuba i &kmail;'ufako lwayo luchazwa kwi <link linkend="installation"
+>i appendix</link
+>.</para>
+
+<para
+>Ibhenisa i &kmail; ngexesha lokuqala lenza ulawulo olubizwa ngokuba yi <filename class="directory"
+>Iposi</filename
+> iqulathe iifayile eziquphayo (<filename
+>inbox</filename
+>, <filename
+>outbox</filename
+>, <filename
+>iposi-ethunyelweyo</filename
+>, <filename
+>umonakalo</filename
+> ne <filename
+>imizobo</filename
+>) kulawulo lwakho lasekhaya. Sebenzisa i <menuchoice
+> <guimenu
+>Izicwangciso</guimenu
+> <guimenuitem
+>Qwalasela i &kmail;...</guimenuitem
+> </menuchoice
+> ukungenisa ulwazi oluquphileyo ngoko i &kmail; izakukwazi ukugcina ngendlela kwaye ithumele imiyalezo yakho.</para>
+
+<para
+>Iwindow yokuqwalasela iqulathe amacandelo asixhenxe: <guilabel
+>Uqwalaselo</guilabel
+>, <guilabel
+>Umsebenzi womnatha</guilabel
+>, <guilabel
+>Inkangeleko</guilabel
+>, <guilabel
+>Umqambi</guilabel
+>, <guilabel
+>Mime Headers</guilabel
+>, <guilabel
+>Ukhuseleko</guilabel
+>, ne <guilabel
+>Exubeneyo</guilabel
+>. Ukuqala ukuthumela nokufumana imiyalezo uzakutshintsha kuphela izicwangciso kwi <guilabel
+>Uqwalaselo</guilabel
+> ne <guilabel
+>Umsebenzi womnatha</guilabel
+> tabs.</para>
+
+<sect1 id="setting-your-identity">
+<title
+>Icwangcisa uqwalaselo lwakho</title>
+
+<para
+>Izicwangciso kwi <guilabel
+>Uqwalaselo</guilabel
+> tab zijonge phambili kakuhle. Gcwalisa i <guilabel
+>Igama</guilabel
+> umhlaba nge gama elipheleleyo lakho (&eg; <userinput
+>John Doe</userinput
+>) ne <guilabel
+>Iqela elinegunya</guilabel
+> umhlaba (eyodwa) ngolwazi olululo. Elandelayo, gcwalisa i <guilabel
+>Idilesi ye Email</guilabel
+> ne <guilabel
+>Phendula-Kwidilesi</guilabel
+> (eyodwa) umhlaba ngedilesi yakho ye email. Ukuba usebenzisa i<application
+>PGP</application
+> okanye <application
+>GnuPG</application
+> ufuna ukucwangcisa uqwalaselo kwi<guilabel
+>PGP Uqwalaselo loMsebenzisi </guilabel
+> umhlaba.</para>
+
+<para
+>Eyodwa, cwangcisa indawo yefayile yakho yotyikityo kwi <guilabel
+>Ifayile yotyikityo</guilabel
+> umhlaba. Ukuba ufuna utyikityo olujikelezayo, ungakhankanya udweliso lwenkqubo kwaye khangela i <guilabel
+>Ifayile yibhokisiyodweliso</guilabel
+> lwenkqubo.</para>
+
+<para
+>Ukuba udibanisa uqwalaselo olutsha, i <guilabel
+>Dibanisa Isithuthi...</guilabel
+> iqhosha lizakuvela (eli qhosha alisekho kwi <guilabel
+>Engagqibekanga</guilabel
+> uqwalaselo). Ikuvumela uqwalasele indlela yokuthumela imiyalezo woqwalaselo oluthile, &eg; ungafuna ukusebenzisa eyahlukileyo i <acronym
+>SMTP</acronym
+> umncedisi wenye yabaqwalaseli bakho.</para>
+
+</sect1>
+
+<sect1 id="setting-up-your-account">
+<title
+>Icweangcisa ityala lakho</title>
+
+<para
+>I <guilabel
+>Umsebenzi womnatha</guilabel
+> tab iqulathe izicwangciso ezixelela i &kmail; indlela yokuthumela nokwamkela eyakho i email. Ezininzi izicwangciso zingahluka ngokuxhomekeke kwisicwangciso sendlela yakho naku didi lomsebenzi womnatha umncedisi weposi wakho abekwe kulo. Ukuba awusazi isicwangciso omawusikhethe okanye omawukufake emhlabeni, dibana noMnikezi weNkonzo ye Internet yakho (<acronym
+>ISP</acronym
+>) okanye Umphathi wendlela.</para>
+
+<sect2 id="sending-mail">
+<title
+>Ithumela iposi</title>
+
+<para
+>I <guilabel
+>Ithumela Iposi</guilabel
+> icandelo linikeza iinketho ezimbini zokuthumela imiyalezo: <guilabel
+>sendmail</guilabel
+> ne <guilabel
+>SMTP</guilabel
+>. <application
+>Sendmail</application
+> inophindo olunzima ukulicwangcisa, ngoko ukuba awunayo kwaphela esebenzayo <application
+>sendmail</application
+> uqwalaselo, khetha <guilabel
+>SMTP</guilabel
+> kwaye gcwalisa i <guilabel
+>Umncedisi</guilabel
+> umhlaba ngegama nethambeka lomncedisi wakho weposi. awuzukufuna ukutshintsha i <guilabel
+>Izibuko</guilabel
+> isicwangciso (okungagqibekanga yi <userinput
+>25</userinput
+>).</para>
+
+<para
+>Ukuba ufuna ukusebenzisa i <application
+>sendmail</application
+> kwaye usebenzisa udibaniso locofo-phezulu, landela imiyalelo yokucwangcisa yodibaniso locofo-phezulu kwi <link linkend="faq"
+>FAQ</link
+> icandelo.</para>
+
+<para
+>Indlela yokuthumela imiyalezo eqwalaselwe apha izakusetyenziselwa uqwalselo olungagqibekanga lwakho kunye nazo zonke ezinye ingqwalasela ezingenandlela yazo yokuthumela imiyalezo. Ungasebenzisa iindlela ezahlukileyo zokuthumela imiyalezo zengqwalaselo ezhlukileyo ngokuzidibanisa nge <guilabel
+>Dibanisa Isithuthi...</guilabel
+> iqhosha kwi <guilabel
+>Uqwalaselo</guilabel
+> icandelo.</para>
+
+</sect2>
+      
+<sect2 id="properties">
+<title
+>Iimpahla</title>
+
+<para
+>I <guilabel
+>Iimpahla</guilabel
+> icandelo likuvumela uqwalasele njani nanini imiyalezo ithunyelwa.</para>
+
+<para
+><guilabel
+>Okungagqibekanga kuthumela indlela</guilabel
+> ikuvumela uchaze ukuba kwenzeka ntoni xa umyalezo uthunyelwe. Ukuba <guilabel
+>Thumela ngoku</guilabel
+> i khethiwe, umyalezo uthunyelwa kumncedisi weposi ngokukhawuleza, ngexesha ukuba <guilabel
+>Thumela mva</guilabel
+> ikhethiwe, umyalezo uyafoliswa kwibhokisi yangaphandle mva nge <menuchoice
+><guimenu
+>Ifayile</guimenu
+><guimenuitem
+>Thumela Okufolisiweyo</guimenuitem
+></menuchoice
+> umyalelo okanye ngokuzenzekelayo xa ukhangela iposi yakho, kuxhomekeke kwizicwangciso kwi <guilabel
+>Exubeneyo</guilabel
+> tab.</para>
+
+<para
+><guilabel
+>Impahla yoMyalezo</guilabel
+> ikuvumela ukhethe indlela umyalezo wakho uzaku enkhowudwa ngayo xa uthunyelwa. <guilabel
+>Vumela 8-amasuntswana</guilabel
+> ithetha ukuba i &kmail; izakuthumela umyalezo wakho kwi 8 amasuntswana <acronym
+>ASCII</acronym
+>, ithetha ukuba bonke abasebenzi abathile abanjengeeleta ezonyuliweyo zizakuthunyelwa njengoko-zinjalo. Ukuba <guilabel
+>MIME Compliant (Iphindwe Ishicilelwe)</guilabel
+> ikhethiwe, abasebenzi abathile bazaku enkhowudwa usebenzisa esezantsi i &MIME; enkhowudingi, enokuhanjiswa ngaphezulu kwezinye iindlela zokuposa kune 8-amasuntswana <acronym
+>ASCII</acronym
+>. Uqhele ukungafuni ukutshintsha okungagqibekanga. </para>
+
+<para
+>Nge <guilabel
+>Umyalelo wakuqala</guilabel
+> ungakhankanya umyalelo ozakuphunyezwa phambi kokuba imiyalezo yakho ikhethwe.</para>
+
+<para
+><guilabel
+>Qinisekisa phambi kokuthumela</guilabel
+> yenza incoko yababini ecela, lonke ixesha unqakraza <guilabel
+>Thumela ngoku</guilabel
+>, ukuba ngenene ufuna ukuthumela iposi yakho.</para>
+
+</sect2>
+
+<sect2 id="receiving-mail">
+<title
+>Iposi engenayo</title>
+
+<para
+>Ukucwangcisa ityala ungamkela iposi, cinezela i <guibutton
+>Dibanisa...</guibutton
+> iqhosha kwi <guilabel
+>Iposi Engenayo</guilabel
+> icandelo. Uzakunceda ngodidi lwetyala. Abasebenzisi abaninzi banokukhetha <guilabel
+>Pop3</guilabel
+> okanye <guilabel
+>IMAP</guilabel
+>.</para>
+
+<para
+>Emva kokucinezela <guibutton
+>KULUNGILE</guibutton
+> uzakunikwa ngayo i <guilabel
+>Dibanisa Ityala</guilabel
+> window. Kuqala, gcwalisa i <guilabel
+>Igama</guilabel
+> umhla ukunika igama ityala lakho. Ungakhetha naliphi igama olithandayo. <guilabel
+>Login</guilabel
+>, <guilabel
+>Igama eligqithisiweyo</guilabel
+>, ne <guilabel
+>Inginginya</guilabel
+> izakugcwaliswa ngolwazi olululo kweyakho <acronym
+>ISP</acronym
+> okanye Umphathi wendlela. Awufuni kutshintsha i <guilabel
+>Izibuko</guilabel
+> isicwangciso (okungagqibekanga kwe POP3 is <userinput
+>110</userinput
+>, okungagqibekanga kwe IMAP yi <userinput
+>143</userinput
+>).</para>
+
+<sect3 id="receiving-mail-imap">
+<title
+>Iinketho ezayame kuphela kwi IMAP</title>
+
+<para
+>Ukuba usebenzisa i IMAP, ungakhankanya ngokukodwa umendo kwi <guilabel
+>Isimaphambili kwincwadi ezineenkcukacha</guilabel
+> umhlaba. Oku kuxelela &kmail; apho ingafumana khona iincwadi ezineenkcukacha kumncedisi. Ukuba kwakhona unetyala leqokobhe kumncedisi kwaye iiposi zigcinwa kulawulo lwakho lasekhaya inokubaluncedo ukugcina iiposi kulawulo olusezantsi <filename class="directory"
+>/Mail/</filename
+>. Sebenzisa oku njengexabiso kwi <guilabel
+>Isimaphambili kwincwadi ezineenkcukacha</guilabel
+> umhlaba ukuze i &kmail; ingazixubi iifayile zebhokisi yeposi nezinye iifayile. Ukuba awunamdla kulo msebenzi, shiya ngokulula umhlaba ungenanto.</para>
+
+<para
+>Ukuba ukhangela <guilabel
+>cima ngokuzenzekelayo imiyalezo ecinyiweyo</guilabel
+> &kmail; isusa iiposi ozicimileyo kuMncedisi nje ukuba ushiya incwadi eneenkcukacha. Kungenjalo iiposi ziphawulwe kuphela njengezicinyiweyo kwaye kuxhomekeke kuwe ukuphawula iincwadi ngokusebenzisa umba wemenu <guimenuitem
+>Phawula zonke iincwadi ezineenkcukacha</guimenuitem
+>.</para>
+
+<para
+>Ukuba ukhangela <guilabel
+>Bonisa iincwadi ezifihlakeleyo</guilabel
+>, iincwadi ezinamagama aqala ngechaphaza ayaboniswa nawo.</para>
+
+</sect3>
+
+<sect3 id="receiving-mail-pop3">
+<title
+>Iinketho ezijolise kwi POP3</title>
+
+<para
+>Khetha <guilabel
+>Cima iposi kumncedisi</guilabel
+>ukuba awufuni ukushiya imiyalezo yakho kumncedisi emva kokuba uyilayishe ezantsi.</para>
+
+<para
+>Khetha <guilabel
+>Khupha ngaphandle kwi &quot;Khangela Iposi&quot;</guilabel
+> ukuba awufuni kukhangela ityala naphi na usebenzisa i <menuchoice
+><guimenu
+>Khangela iposi</guimenu
+></menuchoice
+>. Ungakhangela kwakhona imiyalezo emitsha kweli tyala nge <menuchoice
+><guimenu
+>Ifayile</guimenu
+><guimenuitem
+>Khangela Iposi kwi</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Khetha <guilabel
+>Yenza ukhangelo lweposi lexeshana</guilabel
+> ukuba ufuna i &kmail; ukukhangela imiyalezo emitsha ngokuzenzekelayo. Isithuba singakhankanywa ngezantsi phantsi kwe <guilabel
+>Khangela isithuba (imizuzu)</guilabel
+>.</para>
+
+<para
+><guilabel
+>ibhokisi yangaphakathi</guilabel
+> iyincwadi engagqibekanga yeposi engenayo. Ukuba ufuna ukutshintsha lo nto ngesizathu esithile, ungakwenza oko nge <guilabel
+>Incwadi yendawo engongileyo</guilabel
+>. Kodwa okufunayo yi <link linkend="filters"
+>filter</link
+>, engenanto yakwenza nolu khetho.</para>
+
+<para
+>Nge <guilabel
+>Umyalelo wokuqala</guilabel
+> ungakhankanya naluphi na udweliso lwenkqubo i &kmail; ezakuliphumeza nje phambi kokuthatha iposi. Nceda khankanya umendo opheleleyo kwaye qaphela ukuba i &kmail; ayizukuqhubeka lude lube udweliso lwenkqubo lubuyiselwe.</para>
+
+</sect3>
+
+<sect3 id="receiving-mail-imap-pop3">
+<title
+>Iinketho zazo zombini i IMAP ne POP3</title>
+
+<para
+>Ukuba ukhetha <guilabel
+>Gcina POP igama eligqithisiweyo kwifayile yoqwalaselo</guilabel
+> resp. <guilabel
+>Gcina IMAP igama eligqithisiweyo kwifayile yoqwalaselo</guilabel
+> &kmail; izakukhumbula igama lakho eligqithisiweyo ukuze ungabinakuchwetheza yona lonke ixesha uqala i &kmail; kwaye thatha iposi entsha.</para>
+
+<warning
+><para
+>Lumkiswa ukuba asinakufihla ngenene igama lakho oligqithisileyo, ngoko abantu abanokunikeza iifayile zakho zoqwalaselo (&eg; umphathi wendlela) angafumana lula igama lakho ukuba ukhetha olu khetho.</para
+></warning>
+
+<para
+>&kmail; ixhasa ufihla igqitha kwi <guilabel
+>SSL</guilabel
+> ne <guilabel
+>TLS</guilabel
+> (<guilabel
+>TLS</guilabel
+> zinokukhethwa ukuba ikhona)</para
+> 
+
+<para
+>Ye POP3 &kmail; ixhasa <guilabel
+>Cacisa okubhaliweyo</guilabel
+>, <guilabel
+>ENGENANTO</guilabel
+>, <guilabel
+>CRAM-MD5</guilabel
+> and <guilabel
+>APOP</guilabel
+> ububhali. <guilabel
+>APOP</guilabel
+> ne <guilabel
+>CRAM-MD5</guilabel
+> zikhuselekile ngokwazo, zonke ezinye iinketho zikhuseleke kuphela xa zisetyenziswa zonke nge <guilabel
+>SSL</guilabel
+> okanye <guilabel
+>TLS</guilabel
+>. Ungasebenzisakuphela i <guilabel
+>Cacisa okubhaliweyo</guilabel
+> ukuba umncedisi wakho akaxhasi nayiphi kwenye yendlela zobubhali. Ngokudibeneyo, ye IMAP <guilabel
+>Engaziwayo</guilabel
+> iyaxhaswa.</para>
+
+<para
+>Ngoku ulungile ukuthumela nokwamkela iposi! Ye IMAP, nqakraza kwi <guilabel
+>+</guilabel
+> phawula kumthi wencwadi eneenkcukacha kwi &kmail;eyoqobo i window. &kmail; ngoku idibanisa kumncedisi wakho kwaye ibonisa iincwadi ezineenkcukacha ezifumanayo. Ye POP3 sebenzisa <menuchoice
+><guimenu
+>Ifayile</guimenu
+> <guimenuitem
+>Khangela Iposi</guimenuitem
+></menuchoice
+>.</para>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="testing-your-setup">
+<title
+>Ivavanya ucwangciso lwakho</title>
+
+<para
+>Kuqala, ungazithumelela ngokwakho umyalezo ukuvavanya olwakho uqwalaselo. Ukuthumela umyalezo, betha <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>, khetha i <guiicon
+>Umyalezo Omtsha</guiicon
+> icon (ikhasi elingenato lephepha) okanye khetha i <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Umyalezo Omtsha...</guimenuitem
+></menuchoice
+> umba wemenu. I <guilabel
+>Umqambi</guilabel
+> window uzakuvela. Gcwalisa i <guilabel
+>Kwi:</guilabel
+> umhlaba ngedilesi yakho ye email kwaye chwetheza enye into kwi <guilabel
+>Umxholo</guilabel
+> umhlaba. Thumela umyaleso ngokukhetha i <menuchoice
+><guimenu
+>Umyalezo</guimenu
+> <guimenuitem
+>Thumela ngoku</guimenuitem
+></menuchoice
+>.</para>
+      
+<para
+>Ukukhangela eyakho i email, khetha <menuchoice
+><guimenu
+>Ifayile</guimenu
+><guimenuitem
+>Khangela Iposi</guimenuitem
+></menuchoice
+>. Kwikona esezantsi ekunene kwe window engundoqo, ibar yenkqubela izakubonisa ukuba mingaphi imiyalezo elayishwe ezantsi. Ukuba wamkela umyalezo owuthumeleyo, ngoku siyavuyisana nawe! Ukuba, njengoko, usamkela nayiphi na imposiso yemiyalezo ngexesha uvavanya ucwangciso lwakho, qiniseka ukuba udibaniso lomsebenzi wakho womnatha uyasebenza kwaye khangela kwakhona izicwangciso zakho ngokukhetha <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+> <guimenuitem
+>Qwalasela &kmail;...</guimenuitem
+></menuchoice
+></para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="using-kmail">
+<title
+>Usebenzisa i &kmail;</title>
+
+<sect1 id="the-mail-reader-window">
+<title
+>Iwindow Engundoqo</title>
+
+<para
+>Iwindow engundoqo yiwindow evela xa i &kmail; iqaliwe. Yahlulwe ngokwamaqela amathathu:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Ulwahlulo lwencwadi ezineenkcukacha (ulwahlulo lasekhohlo)</term
+> <listitem
+> <para
+>Olu lwahlulo luqulathe uluhlu lwencwadi zomyalezo (olunye udweliso lweenkqubo ze email zibabiza ngokuba zibhokisi zeposi). Ukuba kukho inani emva kwegama lencwadi eneenkcukacha oku kwalatha ukuba le ncwadi iqulathe iiposi ezingafundwayo. Ukukhetha incwadi eneenkcukacha, nqakraza lula kuyo. Imiyalezo equlathiweyo kwincwadi izakuvela ngoku kulwahlulo lwe Headers. Inani lemiyalezo engafundwayo nenani elipheleleyo lemiyalezo kwincwadi ekhethiweyo ibonisiwe ngoku kwibar yendawo engatshintshiyo. Iincwadi zingaboniswa kuzo zombini imboniselo emfutshane, ethatha kuphela indawo encinane yecala lasekhohlo lekhusi, kwaye nemboniselo ende, ethatha icala lasekhohlo lekhusi kodwa iyakwazi ukubonisa iibhokisi zeposi ezininzi. Ungaqhobosha phakathi kwezi mboniselo zimbini phantsi kwe <guilabel
+>Inkangeleko</guilabel
+>/<guilabel
+>Ubeko</guilabel
+> kwi <guilabel
+>Qwalasela i &kmail;...</guilabel
+> incoko yababini. Kwakhona bona i <link linkend="folders"
+>Icandelo Lencwadi ezineenkcukacha</link
+> xa ufun aulwazi oluphangaleleyo malunga nendlela yokusebenzisa iincwadi ezineenkcukacha.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ulwahlulo lwe Headers (ulwahlulo lasekunene phezulu)</term
+> <listitem
+> <para
+>Olu lwahlulo ludwelisa ulwazi lwe header (umyalezo Iindwe zeNdawo engatshintshiyo, Umthumeli, Umxholo, Umhla, obubodwa Ubungakanani neNqaku) yemiyalezo kwincwadi yangoku ekhethiweyo. Ukunqakraza kwi header kuzakukhetha lo myalezo kwaye iwubonise kulwahlulo loMyalezo. Ungakhetha kwakhona uthotho lwemiyalezo ngokunqakraza kumyalezo omnye, ibambe phantsi i <keycap
+>Shift</keycap
+> isitshixo, kwaye nokunqakraza komnye umyalezo. Imiyalezo emibini oyinqakrazileyo izakukhethwa, kunye neminye imiyalezo yonke ephakathi. Ngokubamba phantsi i &Ctrl; isitshixo ongasikhetha naliphi inani lemiyalezo ngaphandle kwale iphakathi. Ungalungisa imiyalezo ngokunqakrzaza kumhlathi onqwenela ukuwulungisa. Ukuba unqakraza kumhlathi omnye ngaphezulu nakanye, indlela yolungiso izakuqhobosha phakathi konyuko/ulwehlo. Ukuba unqakraza kwi <guilabel
+>Umxholo</guilabel
+> umhlathi, ungaqhobosha ulungiso phakathi kwe <guilabel
+>Umxholo</guilabel
+> unyuko/ulwehlo ne <guilabel
+>Indawo engatshintshiyo</guilabel
+> unyuko/ulwehlo. Ngokufanayo, ukuba unqakraza kwi <guilabel
+>Umhla</guilabel
+> umhlathi, ungaqhobosha ulungiso phakathi <guilabel
+>Umhla</guilabel
+> unyuko/ulwehlo ne <guilabel
+>Umhla (Indlela yokuFika)</guilabel
+> unyuko/ulwehlo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ulwahlulo loMyalezo (ulwahlulo lasekunene olusezantsi)</term
+> <listitem
+> <para
+>Olu lwahlulo lubonisa iheader nomzimba womyalezo okhethiweyo ngoku. Izifakelo zivela ezantsi kumyalezo. Ungarola ngapha kwephepha lomyalezo ngokusebenzisa iphepha i <keycap
+>Iphepha Phezulu</keycap
+> ne <keycap
+>Iphepha ezantsi</keycap
+> izitshixo, okanye ilayini ngelayini usebenzisa i <keycap
+>utolo oluphezulu</keycap
+> ne <keycap
+>utolo ezantsi</keycap
+> izitshixo. Ungasebenzisa kwakhona iindlela ezimfutshane zesitshixo ukutsiba ngapha kwemiyalezo yakho ngaphandle kokuba nokusebenzisa imouse:</para
+> <informaltable
+> <tgroup cols="2"
+> <thead
+> <row
+> <entry
+>Indlela emfutshane yeBhodi yezitshixo</entry
+> <entry
+>Intshukumo</entry
+> </row
+> </thead
+> <tbody
+> <row
+> <entry
+><keycap
+>Isithuba</keycap
+></entry
+> <entry
+>Rolela phantsi kumyalezo wangoku okanye yiya kumyalezo olandelayo ongafundekiyo ukuba sele usezantsi</entry
+> </row
+> <row
+> <entry
+><keycap
+>Utolo laseKunene</keycap
+> okanye <keycap
+>N</keycap
+></entry
+> <entry
+>Umyalezo olandelayo kwincwadi yangoku</entry
+> </row
+> <row
+> <entry
+><keycap
+>Utolo laseKhohlo</keycap
+> isitshixo okanye <keycap
+>P</keycap
+></entry
+> <entry
+>Umyalezo odlulileyo kwincwadi yangoku</entry
+> </row
+> <row
+> <entry
+><keycap
+>+</keycap
+></entry
+> <entry
+>Umyalezo ongafundekiyo wencwadi yangoku</entry
+> </row
+> <row
+> <entry
+><keycap
+>-</keycap
+></entry
+> <entry
+>Umyalezo odlulileyo ongafundekiyo wencwadi yangoku</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry
+> <entry
+>Yiya kwincwadi elandelayo ngemiyalezo engafundekiyo</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry
+> <entry
+>Yiya kwincwadi edlulileyo ngemiyalezo engafundekiyo</entry
+> </row
+> </tbody
+> </tgroup
+> </informaltable
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Imiyalezo inganenye (hayi ngaphezulu) yeendwe ezininzi zendawo engatshintshiyo, ezingatshintshwayo kwi <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Cwangcisa Indawo engatshintshiyo</guimenuitem
+></menuchoice
+> imenu esezantsi. Iindwe zendawo engatshintshiyo zichazwe ngezantsi:</para>
+
+<informaltable>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Indawo engatsintshiyo</entry
+> <entry
+>Uphawu</entry
+> <entry
+>Ithetha ntoni</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><guimenuitem
+>Entsha</guimenuitem
+></entry
+> <entry
+>Ichaphaza elibomvu</entry
+> <entry
+>Umyalezo wamkelwe okokuqala, kwaye awufundeki.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Awufundeki</guimenuitem
+></entry
+> <entry
+>Ichaphaza eliluhlaza (okwengca)</entry
+> <entry
+>Umyalezo sele ugciniwe kumncedisi noko kanye, kodwa awufundeki.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Funda</guimenuitem
+></entry
+> <entry
+>Udwi</entry
+> <entry
+>Umyalezo ufundiwe</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Iphendulwe</guimenuitem
+></entry
+> <entry
+>Luhlaza u-jika utolo (okwesibhaka-bhaka)</entry
+> <entry
+>Impendulo iqanjiwe kulo myalezo.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Ifolisiwe</guimenuitem
+></entry
+> <entry
+>Imvulophu</entry
+> <entry
+>Umyalezo ufoliswe kwibhokisi engaphandle ukuze uthunyelwe mva.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Ithunyelwe</guimenuitem
+></entry
+> <entry
+>Imvulophu enekona</entry
+> <entry
+>Umyalezo uthunyelwe.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Yenziwe indwe</guimenuitem
+></entry
+> <entry
+>Indwe</entry
+> <entry
+>Indawo engatshintshiyo izakucwangciswa ngokuzenzekelayo yi &kmail;. Ungayisebenzisa ngokukhululekileyo ukuphawula imiyalezo ebalulekileyo kuwe ngenye indlela.</entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="the-composer-window">
+<title
+>Iwindow yomqambi</title>
+
+<para
+>I <guilabel
+>Umqambi</guilabel
+> window issetyenziswa ukubhala imiyalezo emitsha. Ingabheniswa kwi <menuchoice
+><guimenu
+>Umyalezo</guimenu
+></menuchoice
+> menu okanye kwi <guiicon
+>uxwebhu</guiicon
+> icon kwi <guilabel
+>Umfundi wePosi</guilabel
+> ibar yeqhosha le window. Ukuba awucwangcisanga indawo lyefayile yotyikityo lwakho kwaye une <guilabel
+>Sebenzisa utyikityo kwifayile</guilabel
+> ikhangelwe kwi <guilabel
+>Umqambi</guilabel
+> tab ye <guilabel
+>Qwalasela i &kmail;...</guilabel
+> incoko yababini, uzakunikwa indawo yefayile yakho yotyikityo phambi kwe <guilabel
+>Umqambi</guilabel
+> iwindow ivula.</para>
+
+<sect2 id="composing-a-message">
+<title
+>Iqamba umyalezo</title>
+
+<para
+>Ukubhala umyalezo wakho, gcwalisa imihlaba eyiyo kwi <guilabel
+>Umqambi</guilabel
+> window. Kukho ezahlukileyo iindlela ezimfutshane ukukunceda ukubhala imiyalezo yakho. I <guiicon
+>ellipsis</guiicon
+> amaqhiosha ecaleni kwe <guilabel
+>Kwi:</guilabel
+>, <guilabel
+>Cc:</guilabel
+>, ne <guilabel
+>Bcc:</guilabel
+> imihlaba izakubiza incwadi yedilesi ukuze  ukhethe iidilesi apha.</para>
+
+<para
+>Xa uqala ukuchwetheza idilesi kwi <guilabel
+>Kwi:</guilabel
+>/<guilabel
+>Cc:</guilabel
+>/<guilabel
+>Bcc:</guilabel
+> imihlaba, i popup izakuvela enikeza iidilesi ezithelekisekayo ezisetyenziswe ngoku nedilesi ezithelekisekayo kweyakho incwadi yeedilesi. Qaphela ukuba olu gqibo-luzenzekelayo ngumzekelo-onovakalelo, ngoko ukuba uchwetheza i <guilabel
+>john</guilabel
+>, <guilabel
+>John Doe &lt;doe@acme.com&gt;</guilabel
+> akazukuza ngokuzenzekelayo. Ukuba awuyithandi ezenzekelayo i popup ungayikhubaza ngokunqakraza nge &RMB; kumhlaba kwaye khetha eyahlukileyo indlela yogqibo.</para>
+
+<para
+>Naxa ufuna ukudibanisa ngaphezu kwesinye somamkeli komnye wemihlaba, sebenzisa isiphumlisi ukwahlula idilesi nganye kwelandelayo. Ungafuna ukukhankanya iidilesi ezipheleleyo ezilungileyo (&ie; <userinput
+>user@domain.com</userinput
+>) nakubasebenzisi bobulali.</para>
+
+<para
+>Ungasebenzisa i <menuchoice
+><guimenu
+>Imboniselo</guimenu
+></menuchoice
+> menu ukucwangcisa imihlaba ye header enikezwe kuwe. Xa ugqibile ngomyalezo wakho, betha i <guiicon
+>Thumela</guiicon
+> iqhosha (imvulophu) ukufola okanye thumela umyalezo. Ukuba awufuni ukuthumela umyalezo wakho, khetha <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Gcina kwincwadi yemizobo</guimenuitem
+></menuchoice
+>. </para
+> 
+
+</sect2>
+
+<sect2 id="attachments">
+<title
+>Izifakelo</title>
+
+<para
+>Ungafakela iifayile kumyalezo wakho ngokusebenzisa enye kwindlela ezingezantsi:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Nqakraza i <guiicon
+>uqhobosho lwephepha</guiicon
+> iqhosha kwaye khetha ifayile onqwenela ukuyifakela.</para
+> </listitem
+> <listitem
+> <para
+>Tsala ifayile kwi desktop okanye olunye ulawulo kwi <guilabel
+>Umqambi</guilabel
+> window.</para
+> </listitem
+> <listitem
+> <para
+>Khetha enye yeenketho kwi <menuchoice
+><guimenu
+>Fakela</guimenu
+></menuchoice
+> menu.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>I <guilabel
+>Iimpahla zeQela loMyalezo</guilabel
+> incoko yababini izakuvela ukukunika ulwazi malunga nofakelo lwakho. I &MIME;-udidi ne <guilabel
+>Igama</guilabel
+> imihlaba igcwaliswa ngokuzenzekelayo ngamaxabiso angawo. Ngamanye amaxesha i &MIME;-ixabiso lodidi lunoku ngalungi. Ungachwetheza nakweyiphi intsingiselo ye &MIME;-udidi okanye khetha kuluhlu leqhelekileyo i &MIME;-iididi. Ungakhetha kwakhona indlela ye enkhowudingi yefayile yakho kuluhlu lweenketho ze enkhowudingi (ngesiqhelo, ixabiso lokungagqibekanga lisebenza kakuhle).</para>
+
+<para
+>Xa ifayile ifakelelwe kumyalezo wakho, ivela kwi kulwahlulo Lwezifakelo ezantsi kwi <guilabel
+>Umqambi</guilabel
+> window. Ungasusa, ugcine, okanye ufumane ulwazi malunga nofakelo ngokukhetha igama layo kulwahlulo Lwezifakelo nokukhetha i <menuchoice
+><guimenuitem
+>Susa</guimenuitem
+></menuchoice
+>, <menuchoice
+><guimenuitem
+>Gcina...</guimenuitem
+></menuchoice
+>, okanye <menuchoice
+><guimenuitem
+>Iimpahla...</guimenuitem
+></menuchoice
+> kwi <menuchoice
+><guimenu
+>Fakela</guimenu
+></menuchoice
+> menu. </para>
+
+<para
+><application
+>PGP</application
+>/<application
+>GnuPG</application
+> izitshixo zingafakelwa kwakhona kumyalezo wakho ngokusebenzisa ezizezona iinketho kwi<menuchoice
+><guimenu
+>Fakela</guimenu
+></menuchoice
+> menu. <acronym
+>PGP</acronym
+> izifakelo ezingundoqo ziphathwa njengezifakelo zefayile.</para>
+
+<!-- copied from below -->
+<warning
+><para
+>Ungafihla imiyalezo yakho ethunyelwe nge &kmail;, kodwa oku akuthethi ukuba izifakelo zifihliwe. Uzakufihla izifakelo zakho encwadini, usebenzisa umyalelo weqokobhe okanye esinye isixhobo phambi kokufakela zona.</para
+></warning>
+<!-- / copied from below -->
+
+</sect2>
+
+<sect2 id="checking-the-spelling-of-your-message">
+<title
+>Ikhangela upelo loMyalezo wakho</title>
+
+<para
+>Ukukhangela upelo lomyalezo wakho, khetha i <menuchoice
+><guimenu
+>Hlela</guimenu
+> <guimenuitem
+>Upelo...</guimenuitem
+></menuchoice
+>. &kmail; isebenzisa &kspell; ukukhangela upelo, oluyi &kde; isiqalo sesiphelo kwi <application
+>ispell</application
+> okanye <application
+>aspell</application
+> umkhangeli wopelo. Qaphela ukuba ungafuna ukuqwalasela umkhangeli wopelo usebenzisa i <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+> <guimenuitem
+>Umkhangeli wopelo...</guimenuitem
+></menuchoice
+>.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="folders">
+<title
+>Iincwadi ezineenkcukacha zomyalezo</title>
+
+<para
+>Iincwadi ezineenkcukacha zisetyenziswa ukuqokelela imiyalezo yakho ye email. Ngokunga gqibekanga, zonke iincwadi zomyalezo zigcinwa kulawulo <filename class="directory"
+>Iposi</filename
+>, eyenziwe kulawulo lwakho lasekhaya. Xa uqala kuqala nge &kmail; i <guilabel
+>ibhokisi yangaphakathi</guilabel
+>, <guilabel
+>ibhokisi yangaphandle</guilabel
+>, <guilabel
+>iposi-ethunyelweyo</guilabel
+>, <guilabel
+>umonakalo</guilabel
+> ne <guilabel
+>imizobo</guilabel
+> iincwadi ziyenziwa. Ezi ncwadi inye inemisebenzi ethile.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>ibhokisi yangaphakathi:</guilabel
+></term
+> <listitem
+> <para
+>Apho i &kmail; ngokungagqibekanga ibeka imiyalezo yakho emitsha xa ucela yona ikhangele iposi yakho. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>ibhokisi yangaphandle:</guilabel
+></term
+> <listitem
+> <para
+>Apho imiyalezo ibekwa khona ukulinda ukusiwa. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>iposi-ethunyelweyo:</guilabel
+></term
+> <listitem
+> <para
+>Iqulathe ukhuphelo lwayo yonke imiyalezo oyithumeleyo. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>umonakalo:</guilabel
+></term
+> <listitem
+> <para
+>Iqulathe yonke imiyalezo oyicimeleyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>imizobo:</guilabel
+></term
+> <listitem
+> <para
+>Iqulathe imiyalezo oyiqalileyo ukuhlela kodwa engagqitywanga.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Ungafumanisa ukuba iincwadi ezisezantsi zilungele iimfuno zakho. Ngoko, noxa, uzakufuna iincwadi ukukunceda uqokelele imiyalezo yakho. Ukwenza incwadi entsha, khetha i <menuchoice
+><guimenu
+>Incwadi eneenkcukacha</guimenu
+><guimenuitem
+>Yenza...</guimenuitem
+></menuchoice
+> Iwindow izakunikeza igama lencwadi eneenkcukacha. Ukuba awufuni ibekumphakamo ophezulu, ungakhetha incwadi phantsi kwalapho izakuvela khona. Ukuba ufuna ukutshintsha izicwangciso zencwadi eneenkcukacha, khetha incwadi onqwenela ukuyiguqula kancinane kulwahlulo Lweencwadi ezineenkcukacha kwaye khetha i <menuchoice
+><guimenu
+>Incwadi eneenkcukacha</guimenu
+><guimenuitem
+>Iimpahla...</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Ukusa imiyalezo kwenye incwadi ukuya kwenye, khetha umyalezo(imi) ofuna ukuwusa kwaye cinezela i <keycap
+>M</keycap
+> isitshixo okanye khetha i <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Yise ku</guimenuitem
+></menuchoice
+>. Uluhlu lwencwadi luzakuvela. Khetha incwadi kuluhlu ofuna ukusa imiyalezo kuyo. Imiyalezo ingasiwa ngokutsala kulwahlulo lwe Headers ukuya kulwahlulo lLwencwadi ezineenkcukacgha.</para>
+
+<para
+>Ukuba ufuna ukucacisa yonke imiyalezo ngaphandle kwencwadi khetha i <menuchoice
+><guimenu
+>Incwadi eneenkcukacha</guimenu
+><guimenuitem
+>Engenanto</guimenuitem
+></menuchoice
+>. Yonke imiyalezo kwincwadi ekhethiweyo izakusiwa kweyomonakalo. Ukuba incwadi ekhethiweyo yi <guilabel
+>umonakalo</guilabel
+> incwadi eneenkcukacha, yonke imiyalezo izakucinywa ngokupheleleyo.</para>
+
+</sect1>
+
+<sect1 id="the-address-book">
+<title
+>Incwadi yedilesi</title>
+
+<para
+>Incwadi yedilesi ikuvumela ugcine iidilesi ze email eziqhele ukusetyenziswa. Ungabiza incwadi yedilesi kwi <menuchoice
+><guimenu
+>Ifayile</guimenu
+></menuchoice
+> menu, iqhosha lencwadi yedilesi kwengundoqo iwindow, okanye i <guiicon
+>incwadi yedilesi</guiicon
+> iqhosha kwi <guilabel
+>Umqambi</guilabel
+> window.</para>
+
+<para
+>Ungakhetha phakathi kweendidi ezahlukileyo zeencwadi zedilesi kwi <guilabel
+>Inkangeleko</guilabel
+>/<guilabel
+>Idilesi yencwadi</guilabel
+> icandelo kwi &kmail;'s <guilabel
+>Qwalasela i &kmail;...</guilabel
+> incoko yababini.</para>
+
+<para
+>Incwadi yedilesi engagqibekanga yi &kaddressbook;, ene <ulink url="help:/kaddressbook"
+>iuxwebhu layo</ulink
+>.</para>
+
+<sect2 id="the-address-book-simple">
+<title
+>&kmail;ilula <quote
+>ngokwakwantu</quote
+> incwadi yedilesi</title>
+
+<para
+>Ukudibanisa iidilesi kwncwadi yedilesi, chwetheza idilesi ye email kwicandelo elisezantsi lwe window kwaye betha i <guibutton
+>Dibanisa</guibutton
+> iqhosha. Idilesi izakuvela phezulu koluhlu (ixesha elizayo uvula incwadi yedilesi izakuba nendawo yayo ngokwendlela yo nobumba). Ukususa idilesi, yikhethe kuluhlu kwaye betha i <guibutton
+>Susa</guibutton
+> iqhosha. </para>
+
+<para
+>Iidilesi zingadityaniswa kwakhona kwincwadi yedilesi kwi <guilabel
+>Umfundi wePosi</guilabel
+> window ngu &RMB; unqakraza kwidilesi ye email kwi <guilabel
+>Kwi:</guilabel
+> okanye <guilabel
+>Kwi:</guilabel
+> mihlaba kwaye ikhetha i <guilabel
+>Dibanisa incwadi yedilesi</guilabel
+>.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="filters">
+<title
+>Amacebo okucoca ulwelo</title>
+<anchor id="filters-id"/>
+
+<para
+>Emva kokusebenzisa i &kmail; ixesha elithile, ungafumana ukuba unengxaki yokulungisa imiyalezo emitsha kwibhokisi yakho yangaphakathi xa zifika. Amacebo okucoca akuvumela wenze ngokuzenzekelayo iintshukumo ezithile kwimiyalezo engenayo nokwenza iintshukumo ngokwencwadi kwimiyalezo ekhethiweyo kwincwadi eneenkcukacha.</para>
+
+<para
+>Amacebo okucoca aqulathe umlinganiselo wokuphendla, onemithetho yayo esetyenziswa njenge nto yokugweba ukwenza noba eli cebo linokufakwa kumyalezo onikiweyo, noluhlu lweentshukumo zecebo lokucoca, ezichaza okwenziwayo nge okanye kumyalezo ukuba umlinganiselo wophendlo uyathelekiseka. Funda ngaphezulu malunga nemilinganiselo neentshukumo zecebo lokucoca kula macandelo asezantsi alandelayo.</para>
+
+<caution
+><para
+> Amacebo aqwalaselwa elinye emva kwelinye, uqala ngelokuqala kuluhlu. Elokuqala elinomlinganiselo othelekisekayo nomyalezo onikiweyo uyaphunyezwa. Ungacela ukuba amacebo asaleleyo anokufakwa nawo, kodwa okungagqibekanga kukumisa uqhubekeko kwicebo elithelekisekayo. </para
+></caution>
+
+<para
+>Ngesiqhelo, amacebo asetyenziswa kwimiyalezo engenayo, kodwa angafakwa kumyalezo okanye iqela lemiyalezo. Kwimiyalezo yecebo lokucoca elikhethiweyo, khetha imiyalezo ofuna ukuyicoca nokuyichwetheza <keycombo action="simul"
+>&Ctrl;<keycap
+>J</keycap
+></keycombo
+> okanye khetha i <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Faka Amacebo okucoca</guimenuitem
+></menuchoice
+>. Oku kuzakufaka wonke amacebo wakho okucoca kulo miyalezo; akukho ndlela yakufaka kuphela amacebo okucoca athile kwimiyalezo, ngaphandle kwemiyalezo engenayo nephumayo.</para>
+
+<sect2 id="filter-quick">
+<title
+>Ukwenziwa kweCebo lokucoca Elikhawulezayo</title>
+
+<para
+>Kukho iindlela ezimbini zokwenza icebo lokucoca: Indlela ekhawulezayo kukusebenzisa i <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Yenza Icebo Lokucoca</guimenuitem
+></menuchoice
+>. Oku kuzakubiza incoko yababini yecebo lokucoca kwaye ikunike elitsha icebo elinomthetho wokuqala womlinganiselo wophendlo nentshukumo yokuqala (njenge <quote
+>yiya kwincwadi eneenkcukacha</quote
+>) beka kuqala. Kwimizekelo emininzi, konke omele ukwenze kukukhetha incwadi apho umyalezo uzakusiwa khona. Kodwa ungakwazi, kunjalo, hlela icebo njengoko uthanda.</para>
+
+<para
+>Into enika umdla malunga nale ndlela kukuba ukwenza icebo lokucoca kuluhlu lokuposa lizakuzama ngenene nzima ukufumana i header eqwalasela kanye iiposi kolo luhlu. Ukuba iyaphumelela, igama elithekelelwayo loluhlu linikwa kwi <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guisubmenu
+>Yenza icebo lokucoca</guisubmenu
+><guimenuitem
+>Icebo lokucoca ku luhlu-lokuposa...</guimenuitem
+></menuchoice
+> ungeno lwe menu.</para>
+
+<tip
+><para
+>Kwimizekelo emininzi oku kuyasebenza kakuhle, ngamanye amaxesha ungacima amaqela emixholo ye header azakutshintsha kwakhona. Ngesiqhelo, ukugcina nje idilesi yoluhlu kuyasebenza ngcono.</para
+></tip>
+
+<para
+>Indlela yesibini kukulungisa icebo lokucoca ekuqaleni ngoku biza incoko yababini yecebo lokucoca ngapha kwe <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+><guimenuitem
+>Qwalasela Amacebo okucoca...</guimenuitem
+></menuchoice
+>. Incoko yababini yecebo lokucoca ichazwe ngokwenkcukacha kwicandelo elisezantsi elilandelayo.</para>
+</sect2>
+
+<sect2 id="filter-dialog">
+<title
+>Incoko yababini Yecebo lokucoca</title>
+<anchor id="filter-dialog-id"/>
+
+<para
+>Oku kukuvumela ukuba uphathe kwaye uhlele uluhlu lwakho lwamacebo okucoca.</para>
+
+<para
+>Ufikelele kuyo noba ugqitha i <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guisubmenu
+>Yenza Icebo lokucoca</guisubmenu
+></menuchoice
+> okanye <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+><guimenuitem
+>Imithetho Yecebo lokucoca...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Ukukhupha le ncoko yababini ngaphandle kokufaka utshintsho, nqakraza kwi <guibutton
+>Cima</guibutton
+> okanye betha &Esc;.</para>
+
+<para
+>Incoko yababini yahlulwe kumacandelo angundoqo amane:</para>
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Amacebo ococo lolwelo akhoyo</guilabel
+></term
+> <listitem
+><para
+>Iqela liqulathe uluhlu lwamacebo okucoca namaqhosha entshukumo ukuguqula kancinane amacebo okucoca, ngamagama ukwenza amacebo okucoca amatsha, ukuwasa phezulu okanye ezantsi kuluhlu, okanye ukucima nokuwanika amagama kwakhona. Ukuba ukhetha icebo lokucoca kuluhlu, iimpahla zazo ziboniswa kwicala lesandla-sasekunene sencoko yababini.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Into ethathwa njengegweba icebo lokucoca ulwelo</guilabel
+></term
+> <listitem
+><para
+>Kweli qela ungahlela umlinganiselo omawuthelekiswe yimiyalezo yecebo lokucoca emalifakwe kubo. Ungakhetha apha noba yonke yonke imithetho echaziweyo emayithelekiswe okanye noba izimamva ezinokuthelekiswa nabani na kubo. Bona <link linkend="filter-criteria"
+>Phendla Imilinganiselo</link
+> ngezantsi yenkcazelo eneenkcukacha yodidi ngalunye lophendlo.</para
+> <para
+> You can click on <guibutton
+>More</guibutton
+> to get an additional (initially empty) rule if you want to define more complex patterns and on <guibutton
+>Fewer</guibutton
+> to remove the last rule. <guibutton
+>Clear</guibutton
+> clears the pattern, &ie; it removes all but two rules from screen and resets those two.</para
+> <para
+>Engasebenziyo okanye engenanto imithetho ayihluzwa. Ngenene, iyasuswa ngaphakathi. Noba umthetho onikiweyo uqwalaselwa ngokungasebenzi kuxhomekeke kudidi lomthetho, kodwa njengomthetho wobhontsi ungacinga ukuba imithetho iqwalaselwa ngokungasebenzi ukuba ithambeka (eyokuqala ibhokisi yesibini kumqolo ngamnye) okanye umtya wophendlo (uhlelo lwelayini kwisiphelo somqolo ngamnye) alunanto. Ngoko, ukucima ngesiphumo  umthetho othile, ufuna kuphela eyona ingenanto yalo mihlaba mibini yohlelo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Iintshukumo zecebo lokucoca ulwelo</guilabel
+></term
+> <listitem
+><para
+>Kweli qela ungahlela uluhlu lweentshukumo olufakwa kuyo yonke imiyalezo ethelekiseka nomlinganiselo ochaziweyo wophendlo. Bona <link linkend="filter-action"
+>Iintshukumo zecebo lokucoca</link
+> ngezantsi zenkcazelo eneenkcukacha zodidi lwentshukumo ngalunye.</para
+> <para
+> Unganqakraza kwi <guibutton
+>Ngaphezulu</guibutton
+> ukufumana entsha, engenanto intshukumo ukuba ufuna ukuchaza ngaphezulu kwenye intshukumo kunye ne <guibutton
+>Mbalwa</guibutton
+> ukusyusa intshukumo yokugqibela. <guibutton
+>Cacisa</guibutton
+> icacisa uluhlu, &ie; isusa konke kodwa intshukumo enye kwaye icwangcisa kwakhona leyo.</para
+> <para
+>Ezingasebenziyo okanye ezingenanto iintshukumo aziphunyezwanga. Ngenene, zisuswa ngaphakathi. Noba intshukumo enikiweyo iqwalaselwa ngokungasebenzi kuxhomekeke kudidi lwentshukumo, kodwa njengomthetho wobhontsi ungacinga ukuba iintshukumo ziqwalaselwa ngokungabinanto ukuba akukho didi lukhethiweyo okanye - kumzekelo weentshukumo ezifuna iparameter yokubhaliweyo (&ie; enye ekufuneka ingenisiweyo kuhlelo lwelayini) -iparameter ayinanto. Ngoko, ukucima ngesiphumo intshukumo ethile, ufuna kuphela ukungacwangcisi olwayo udidi, &ie; khetha eyokugqibela (engenanto) umba kudidi lwebhokisi yesibini.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Iinketho zaphambili</guilabel
+></term
+><listitem
+><para
+> Kweli qela ungachaza iinketho ezimbalwa zaphambili zamacebo okucoca, ezikuvumela ukucola ucoco lwakho.</para
+> <para
+>Usebenzisa le bhokisi yesibini, ungaqhobosha ufako lwecebo lokucoca elihambelanayo: I <guilabel
+>engenayo</guilabel
+> ukhetho lubonisa ukuba inokuqwalaselelwa iiposi ezingenayo (&ie; kwi <guimenuitem
+>Khangela Iposi</guimenuitem
+>), ngexesha i <guilabel
+>ephumayo</guilabel
+> ukhetho lubonisa eziphumayo iiposi (&ie; kwi <guimenuitem
+>Thumela</guimenuitem
+>).</para
+> <note
+><para
+>Qaphela ukuba akwenzeki ngoku ukuchaza icebo lokucoca olungaqwalaselwanga lwencwadi yokucoca. Lo ngumda owaziwayo. </para
+></note
+></listitem
+> </varlistentry
+> </variablelist>
+
+<note
+><para
+>Amacebo okucoca anikwa amagama ngokuzenzekelayo ngaphandle kokuwanika amagama usebenzisa i <guibutton
+>Nika igama kwakhona...</guibutton
+> iqhosha. Incoko yababini icinga ukuba izakuqhubeka ngokunika igama-ngokuzenzekelayo icebo lokucoca nje ukuba igama lecebo liqale nge <quote
+>&lt;</quote
+>. </para
+></note>
+
+<para
+>Nqakraza kwi <guibutton
+>KULUNGILE</guibutton
+> iqhosha ukufaka lonke utshintsho kwaye uvale incoko yababini, <guibutton
+>Faka</guibutton
+> ukufaka lonke utshintsho nokushiya incoko yababini ivuliwe, ne <guibutton
+>Cima</guibutton
+> ukuvala incoko yababini ngaphandle kokufaka naluphi na utshintsho.</para>
+
+<note
+> <para
+> Ukuba ufaka utshintsho lwecebo lokucoca, &ie; ugqitha <guibutton
+>KULUNGILE</guibutton
+> okanye <guibutton
+>Faka</guibutton
+>, kuphela asebenzayo amacebo okucoca akhutshelweyo ngaphakathi kumphathi wecebo lokucoca.</para
+> <para
+>Icebo lokucoca lithathwa njengelingasebenziyo ukuba</para
+> <orderedlist
+> <listitem
+><para
+>umlinganiselo wophendlo uqulathe imithetho engenanto okanye</para
+></listitem
+> <listitem
+><para
+>uluhlu lwentshukumo alunanto.</para
+></listitem
+> </orderedlist
+> <para
+>Ngokufanayo, imithetho engenanto neentshukumo iyasuswa kumlinganiselo kunye noluhlu lwentshukumo, phambi kokuba icebo lokucoca ligcinwe.</para
+> </note>
+
+</sect2>
+
+<sect2 id="filter-criteria">
+<title
+>Phendla Imilinganiselo</title>
+
+<para
+>Umsebenzi oqhelekileyo wamacebo okucoca kumthumeli wemiyalezo. Oku kunokwenziwa ngokukhetha i <guilabel
+>Kwi</guilabel
+>. Ubhejo olulungileyo loluhlu lokuposa luzakuba yi <guilabel
+>&lt;Ku okanye Cc&gt;</guilabel
+>. Kodwa kukho ezinye ezithathwa njengesigwebo icebo lokucoca elingaziphendlayo:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>&lt;umyalezo&gt;</guilabel
+></term
+> <listitem
+> <para
+>Iphendla umyalezo wonke (&ie; headers, umzimba nezifakelo, ukuba zikhona).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;umzimba&gt;</guilabel
+></term
+> <listitem
+> <para
+>Iphendla umzimba womyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;nayiphi iheader&gt;</guilabel
+></term
+> <listitem
+> <para
+>Iphendla iiheder zomyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;Ku okanye Cc&gt;</guilabel
+></term
+> <listitem
+> <para
+>Iphendla i <quote
+>Ku</quote
+> ne <quote
+>Cc</quote
+> imihlaba ye header yomyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;ubungakanani&gt;</guilabel
+></term
+> <listitem
+> <para
+>Icwangcisa imida ephezulu nesezantsi yobungakanani bomyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;ubudala kwiintsuku&gt;</guilabel
+></term
+> <listitem
+> <para
+>Icwangcisa imida ephezulu nesezantsi yobudala bomyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Nawuphi na omnye umtya</term
+> <listitem
+> <para
+>Iphendla umhlaba we header onikwe ngulo mtya.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="filter-action">
+<title
+>Intshukumo yecebo lokucoca</title>
+
+<para
+>Usebenziso oluqhelekileyo lecebo kukulungisa imiyalezo engenayo kwiincwadi ezineenkcukacha ezithile. Oku kunokwenziwa ngokukhetha i <guilabel
+>yiya kwincwadi eneenkcukacha</guilabel
+>. Nalu uluhlu lweentshukumo ezinokwenzeka:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>yiya kwincwadi eneenkcukacha</guilabel
+></term
+> <listitem
+> <para
+>Oku kuzakusa umyalezo kwenye incwadi eneenkcukacha. Eyangoku ayinaku sebenzisa <acronym
+>IMAP</acronym
+> iincwadi ezinenkcukacha njengetekeni.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>phawula njenge</guilabel
+></term
+> <listitem
+> <para
+>Oku kukuvumela ukuphawula umyalezo njengofundo okanye okubalulekileyo (enendwe), kodwa kwakhona isiwe phambili, yaphendulwa, &etc;</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>cwangcisa inkcaza ku</guilabel
+></term
+> <listitem
+> <para
+>Oku kuzakucwangcisa <emphasis
+>eyakho</emphasis
+> uqwalaselo ukuba uphendula kulo myalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>cwangcisa uthutho ku</guilabel
+></term
+> <listitem
+> <para
+>Oku kuzakucwangcisa indlela yezithuthi (&eg; <acronym
+>SMTP</acronym
+>) ukuba uphendula kumyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>cwangcisa Impendulo-Ku ku</guilabel
+></term
+> <listitem
+><para
+>Izakuguqula kancinane i <guilabel
+>Phendula-Ku</guilabel
+> umhlaba walo myalezo. Oku kunokuba luncedo kuluhlu loposo olucwangcisa ngokuzenzekelayo Phendula-Ku ongayithandiyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>yise phambili ku</guilabel
+></term
+> <listitem
+><para
+>Izakusa phambili umyalezo kwenye idilesi ye email.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>yibonise kwakhona ku</guilabel
+></term
+> <listitem
+><para
+>Izakubonisa kwakhona umyalezo kwenye idilesi ye email.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>ijikile/ibuyiselwe</guilabel
+></term
+> <listitem
+><para
+>Izakuzama ukubuyisela umyalezo kumthumeli njengoku ngaphahtelwanga.</para
+> <caution
+><para
+>Oku kuzakusebenzakuphela ukuba idilesi yomthumeli ye email iyasebenza. Yi <emphasis
+>hayi</emphasis
+> umzekelo we spam ezininzi.</para
+></caution
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>qinisekisa uphathelo</guilabel
+></term
+> <listitem
+><para
+>Izakuzama ukubuyisela umyalezo kumthumeli owalathisa ngempumelelo uphathelo lomyalezo wakhe okanye wakhe.</para
+> <para
+>Le ntshukumo ikuvumela ukhethe ozakufumana iirisiti zophathelo kuwe. Noxa ungenza uqinisekiso lothumelo lophathelo kwi <guilabel
+>Qwalasela &kmail;...</guilabel
+> incoko yababini (icandelo <guilabel
+>Ukhuseleko</guilabel
+>) siyaleza ukungazithumeli kuwo wonke umntu, ukusukela ukuba oku kwenza uphawulo lwe &eg; spam ilula kakhulu kumthumeli.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>susa iheader</guilabel
+></term
+> <listitem
+> <para
+>Izakususa <emphasis
+>zonke</emphasis
+>imihlaba ye header ngegama elinikwe kum,yalezo. Oku kuluncedo kakhulu ekususeni i bogus <quote
+>Phendula-Ku:</quote
+> iiheader.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>dibanisa iheader</guilabel
+></term
+> <listitem
+> <para
+>Ukuba akukho mhlaba sele ukhona, izakudibanisa umhlaba omtsha we header ethunyelweyo ngegama elinikiweyo nexabiso kumyalezo. Ukuba sele kukho kukho umhlaba we header onelo gama, ibhalwe ngaphezulu ngelitsha(eli nikoweyo) ixabiso. Ukuba sele kukho iiheader ezininzi ezinegama elinikiweyo (&eg; <quote
+>Yamkelwe:</quote
+>iiheader), engenasizathu yazo ibhalwe ngaphezulu kwaye ezinye zishiywe zingatshintshanga. Oku ngu mda owaziwayo. Ungafuna ukudibanisa eli cebo nge <guilabel
+>susa iheader</guilabel
+> icebo lokucoca ukuqinisekisa ukuba akukho ezinye iiheader ezinelo gama kumyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>bhala kwakhona iheader</guilabel
+></term
+> <listitem
+> <para
+>Izakuvavanya umhlaba onikiweyo we header, guqula kancinane imixholo yawo kwaye uyibhale ngemva. Umtya wokuphendla usoloko utolikwa njengomzekelo-onovakalelo wochazo lwarhoqo. Umtya wobuyiselo ufakwe ngokufundekayo ngaphandle kwezenzeko ze <userinput
+>\n</userinput
+>, <userinput
+>$n</userinput
+> ne <userinput
+>${nn}</userinput
+>, apho <userinput
+>n</userinput
+> iyengakhabiyo (isuntswana-elilodwa, ngaphandle kwendlela yesithathu) inani okanye <userinput
+>0</userinput
+>. Ezi zilungiso zitolikwa njengentelekiso ezisemva kwimitya esezantsi ebanjwe ngegama elikumtya wophendlo.</para
+><para
+>Imida engqongo njengakwi <guilabel
+>dibanisa iheader</guilabel
+> intshukumo iyafakwa apha, nayo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>phumeza umyalelo</guilabel
+></term
+> <listitem
+> <para
+>Oku kuzakuphumeza udweliso lwenkqubo, kodwa aluzukuguqula kancinane umyalezo. Khankanya umendo opheleleyoi kudweliso lwenkqubo ofuna ukuluphumeza. &kmail; izakuvala lude lube udweliso lwenkqubo luyabuyiselwa. Ungalutyisa udweliso lwenkqubo ngamaqela eposi: <symbol
+>&percnt;0</symbol
+>, <symbol
+>&percnt;1</symbol
+>, &etc; izakumela iifayile ezimele amaqela omyalezo. Eposi eqhelekileyo <symbol
+>&percnt;0</symbol
+> koku bhaliweyo, <symbol
+>&percnt;1</symbol
+> ufakelo lokuqala njalo-njalo. Ngokudibeneyo, umyalezo wonke utyiswe kudweliso lwenkqubo ye <acronym
+>stdin</acronym
+>.</para
+> <caution
+><para
+>Oku kusebenza ngoku ukuba umyalezo une <emphasis
+>noko enye</emphasis
+> ufakelo. Hayi, noba <symbol
+>&percnt;0</symbol
+> izakusebenza kumzekelo ngokubanzi!</para
+></caution
+> <tip
+><para
+> Ungafaka imiyalelo yeqokobhe enegama apha, ukusukela ukuba i &kmail; isebenzisa iqokobhe elisezantsi ukuphumeza ilayinim yomyalelo. Ngoko ke, noba lo myalelo uzakusebenza (kwimida yayo): <userinput
+><command
+>uudecode</command
+> <option
+>-o</option
+> <parameter
+>$(mktemp kmail-uudecoded.XXXXXX)</parameter
+> &amp;&amp; <command
+>echo</command
+> <parameter
+>$'\a'</parameter
+></userinput
+></para
+></tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>umbhobho ngaphaya</guilabel
+></term
+> <listitem
+> <para
+>Oku kuzakutyisa umyalezo wodweliso lwenkqubo. Ukuba olo dweliso lwenkqubo lubuyisela imveliso, umyalezo wangoku (uquka iiheader) izakubuyiselwa ngale mveliso. Ukuba udweliso lwenkqubo alubuyiseli mveliso, umyalezo awuzukutshintsha. Khankanya umendo opheleleyo wodweliso lwenkqubo.</para
+> <caution
+><para
+>Lumka ngale ntshukumo, njengoko izakonakalisa eyakho imiyalezo ukuba udweliso lwenkqubo yecebo lokucoca lubuyisela inkunkuma okanye iilayini ezingaphezulu.</para
+></caution
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="filter-examples">
+<title
+>Imizekelo yecebo lokucoca</title>
+
+<para
+>Ukuba ndinikelwe kwi (ngokubanzi) &kde; Uluhlu, Ndizakwenza incwadi eneenkcukacha yoluhlu (Ndizakuyibiza ngo <replaceable
+>KDE-Ngokubanzi</replaceable
+>) kwaye sebenzisa icebo lokucoca ukunikeza ngokuzenzekelayo imiyalezo emitsha kwibhokisi yam yangaphakathi ukuya kweyam i <replaceable
+>KDE-Ngokubanzi</replaceable
+> incwadi eneenkcukacha ukuba zisuka kwi &kde; Uluhlu. Apha kulapho unenza khona icebo lokucoca:</para>
+
+<procedure
+> <title
+>Icoca uluhlu lokuposa</title
+> <step
+> <para
+>Zama ukuba <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guisubmenu
+>Yenza icebo lokucoca</guisubmenu
+><guimenuitem
+>Icebo ku Luhlu-lokuposa...</guimenuitem
+></menuchoice
+> ingaqwalasela uluhlu lokuposa (igama loluhlu lizakuvela ngoku kumba we menu). Kulo mzekelo, oku kuyasebenza kwaye ndinikwe icebo lokucoca eline <quote
+>X-Uluhlu-lokuposa <guilabel
+>ilingana ne</guilabel
+> &lt;kde@lists.netcentral.net&gt;</quote
+> cwangcisa kuqala. Ukhetha efunwayo incwadi yendawo engqongileyo kwi menu yencwadi yotsalo-phantsi kwi <guilabel
+>Icebo lokucoca</guilabel
+> iqela kwaye yiyo!</para
+> <para
+>Ukub aoko akusebenzi, cinga ngndlela eyodwa yokuqwalasela imiyalezo ofuna ukuyicoca. E (phantse) impahla eyodwa yeyam i &kde; Dwelisa imiyalezo esoloko iqulathe i <quote
+>kde@lists.netcentral.net</quote
+>kwi <guilabel
+>Ku:</guilabel
+> okanye <guilabel
+>Cc:</guilabel
+> umhlaba Iphantse yayodwa kuphela, kuba oku akuphumeleli kwimiyalezo eposwa-ngokunqamleza.</para
+> </step
+> <step
+> <para
+>Khetha <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+><guimenuitem
+>Imithetho yecebo lokucoca...</guimenuitem
+></menuchoice
+>.</para
+> </step
+> <step
+> <para
+>Cinezela i <guibutton
+>Entsha</guibutton
+> iqhosha ukwenza elingenanto icebo lokucoca. Izakuvela njenge <guilabel
+>&lt;engenagama&gt;</guilabel
+>.</para
+> </step
+> <step
+> <para
+>Kwi <guilabel
+> Into ethathwa ngegweba icebo lokucoca</guilabel
+> ariya, khetha i <guilabel
+>&lt; Ku okanye Cc:&gt;</guilabel
+> kwimenu yotsalo-phantsi lokuqala, <guilabel
+>iqulathe</guilabel
+> kwimenu yotsalo-phantsi lwesibini, nodidi <userinput
+>kde@lists.netcentral.net</userinput
+> kumhla woku bhaliweyo.</para
+> </step
+> <step
+> <para
+>Tsiba phantsi icandelo lweentshukumo. Khetha i <guilabel
+>yiya kwincwadi eneenkcukacha </guilabel
+> kwimenu yotslao-phantsi lokuqala. Imenu entsha yotsalo-phantsi equlathe uluhlu lweencwadi ezinenkcukacha izakuvela. Khetha incwadi eneenkcukacha ofuna imiyalezo ecociweyo ithunyelwe kuyo ukuba ziyathelekiseka nogwebo olukhethileyo. Kulo mzekelo, ungakhetha i <guilabel
+>KDE-Ngokubanzi</guilabel
+> kwimenu yotsalo-phantsi.</para
+> </step
+> </procedure>
+
+<para
+>Ungafumana ukub aufuna ukusebenzisa ugwebo olunamandla ukucoca kakuhle imiyalezo yakho. Umzekelo, ungafuna ukucoca i &kde; Dwelisa imiyalezo ebhalwe ngumhlobo wakho u Fred Johnson &lt;fj@anywhere.com&gt;. Apha kulapho icandelo lokugweba elithelekiswayo elisaleleyo livela khona kudlalo:</para>
+
+<procedure
+> <title
+>Yandisa icebo lokucoca</title
+> <step
+> <para
+>Vula i <guilabel
+>Qwalasela Amacebo okucoca...</guilabel
+> window kwaye khetha icebo lokucoca olenzileyo nje.</para
+> </step
+> <step
+> <para
+>Ukusukela ukuba ufuna yonke imiyalezo ene <quote
+>kde@lists.netcentral.net</quote
+> kwi <guilabel
+>Ku:</guilabel
+> okanye <guilabel
+>Cc:</guilabel
+> umhlaba <emphasis
+>ne</emphasis
+> avela ku Fred, khangela i <guibutton
+>Thelekisa zonke ezilandelayo</guibutton
+> iqhosha lonomathotholo.</para
+> </step
+> <step
+> <para
+>Ngoku, yiya kowesibini umthetho wophendlo kwaye khetha okulandelayo kwii menu zotsalo-phantsi: <guilabel
+>Kwi</guilabel
+>, <guilabel
+>iqulathe</guilabel
+>. Ngoku, chwetheza i <userinput
+>fj@anywhere.com</userinput
+> kumhlaba wokubhaliweyo.</para
+> </step
+> </procedure>
+
+<para
+>Ngoku unecebo lokucoca oluthumela zonke i &kde; Dwelisa imiyalezo evela kwi fj@anywhere.com.</para>
+</sect2>
+</sect1>
+
+<sect1 id="multiple-accounts">
+<title
+>Amatyala amaninzi</title>
+
+<para
+>Amatyala amaninzi asetyenziswa ukukhangela imiyalezo yokuqala ngaphezu kwesinye sedilesi ye email na/okanye umncedisi weposi. Khetha i <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+> <guimenuitem
+>Qwalasela i &kmail;...</guimenuitem
+></menuchoice
+> kwaye nqakraza kwi <guilabel
+>Umsebenzi womnatha</guilabel
+> tab ukudibanisa okanye ukutshintsha ezakho izicwangciso zetyala. Bona i <link linkend="getting-started"
+>Iqala i</link
+> icandelo lolwazi oluphangaleleyo kwizicwangciso kwi <guilabel
+>Umsebenzi womnatha</guilabel
+> tab.</para>
+
+<para
+>Ukukhangela imiyalezo kwityala elithile, sebenzisa i <menuchoice
+><guimenu
+>Ifayile</guimenu
+><guimenuitem
+>Khangela iposi kwi...</guimenuitem
+></menuchoice
+> imenu esezantsi ukukhetha ityala ukukhangela iposi. Ungacinezela kwakhona iqhosha le mouse kwi <guiicon
+>Khangela Iposi</guiicon
+> icon ngexesha elithile ukufumana uluhlu lwamatyala.</para>
+
+</sect1>
+
+<sect1 id="pgp">
+<!-- This section is from Andreas Gungl, 2000-05-21 -->
+<title
+><application
+>Ikhusi Elilungileyo Elihle</application
+> (<application
+>PGP</application
+>) / <application
+>GNU Ukhuselo Lekhusi</application
+> (<application
+>GnuPG</application
+>)</title>
+
+<para
+>Oku kukwazisa okufutshane kokucwangcisa i &kmail;'s <application
+>PGP</application
+> inkxaso. Izakunika othsuphe abathile kusebenziso lwe <application
+>PGP</application
+> nayo. Ibhalelwe abantu abaqalayo kule ariya. Ukuba uyalazi usebenziso lwe <acronym
+>PGP</acronym
+>, ungatsiba amanqwanqwa amaninzi. Olu xwebhu (kunye ne &kmail; ujongano lomsebenzisi) ithetha ngokubanzi kuphela malunga ne <quote
+>PGP</quote
+>, kodwa ifaka kuzo zombini <application
+>PGP</application
+> ne <application
+>GnuPG</application
+>, noxa ezinye <application
+>GnuPG</application
+> iiparameter zelayini yomyalelo zinokuba nomahluko.</para>
+
+<para
+>Nceda khangela kwakhona phandle i <link linkend="pgp-faq"
+>&FAQ; umba malunga <application
+>PGP</application
+></link
+>.</para>
+
+<warning
+><para
+>Ungafihla imiyalezo yakho ethunyelwe nge &kmail;, kodwa oku akuthethi ukuba izifakelo zifihliwe. Uzakufihla izifakelo zakho encwadini, usebenzisa umyalelo weqokobhe okanye esinye isixhobo phambi kokufakela zona.</para
+></warning>
+
+<warning
+><para
+>&kmail; izakuxhomekeka kwi <application
+>PGP</application
+>'s imveliso. Le mveliso yahluka rhoqo phakathi koguqulelo olwahlukileyo lwe <application
+>PGP</application
+>, ngoko kubalulekile ukuba uyavavanya ukuba ufihlo lusebenza ngenene ngocwangciso lwakho phambi kokuqala ukuyisebenzisa ngokuzimiseleyo. &kmail; inoku <emphasis
+>hayi</emphasis
+> iyakulumkisa ukuba kukho into engaphumeleliyo. Kungcono wenze <guilabel
+>Bonisa okubhaliweyo okufihliweyo emva kokuqamba</guilabel
+>. </para
+></warning>
+
+<para
+>Ukucwangcisa nokusebenzisa <application
+>PGP</application
+> inkxaso kwi &kmail; kuyimfuneko ukuba ne <application
+>PGP</application
+> efakiweyo necwangciswe kakuhle. Kunjalo asinakukunika ulwaziso olupheleleyo lwe <application
+>PGP</application
+> apha. Sizakukhankanya kuphela amanqwanqwa omawuwenze ukufumana i <application
+>PGP</application
+> ihamba. Kwinkcukacha uzakujonga kwesemagqabini i <application
+>PGP</application
+> uxwebhu okanye <ulink url="http://www.gnupg.org/docs.html#guides"
+>I GNU Incwadi yesandla yeKhusi</ulink
+>.</para
+> 
+
+<para
+>Yingcamango elungileyo ukufunda eli xwebhu njengo kwazisa kuwonke-wonke ufihlo olungundoqo (&eg; ngaphandle kwe <application
+>PGP</application
+> 6.5.x package). Apho ungafunda okuninzi malunga nezimaphambili ezingundoqo, ezizakukunceda uqonde okwenzekayo. Nako, imiba emininzi yokhuseleko omawuyazi ixoxwa apha.</para>
+
+<para
+>Ngoku masiqale.</para>
+
+<sect2 id="pgp-preconditions">
+<title
+>Iimeko eziphambili</title>
+
+<para
+>&kmail; ilindela ukuba esakho <application
+>PGP</application
+> okubini kubizwa ngokuba <command
+>pgp</command
+>. Kumzekelo we <application
+>GnuPG</application
+>, ilindela okubini kubizwe <command
+>gpg</command
+>. Ukuba asingomzekelo wakho, yenza nje i symlink.</para>
+
+<para
+>Ukuba awukwenzanga oko, uzakujikelezisa izitshixo ezimbini (imfihlo ne sitshixo sikawonke-wonke) yoqwalaselo lwakho. Kufuneka wenze oku kwilayini yomyalelo (sebenzisa i <userinput
+><command
+>pgp</command
+> <option
+>-kg</option
+></userinput
+>). &kmail; ayinankxaso yangaphakathi ye <application
+>pgp</application
+>'s ujikeleziso lwesitshixo ngeli xesha. Uqwalasdelo (iqhele ukub aligama lakho lilandelwa yidilesi yakho ye email kwizigweqi, enjenge <userinput
+>John Doe &lt;john@example.com&gt;</userinput
+>) nebinzana lakho logqithiso abalulekile kusebe-nziswano phakathi kwe &kmail; ne <application
+>pgp</application
+>.</para>
+
+</sect2>
+
+<sect2 id="pgp-settings">
+<title
+><application
+>PGP</application
+> Izicwangciso Ezizalanayo kwi &kmail;</title>
+
+<para
+>Ngenisa eyakho <application
+>PGP</application
+> uqwalaselo lomsebenzisi kumhlaba wohambelwano lwe <guilabel
+>Uqwalaselo</guilabel
+> izicwangciso. Ngokuy khetha i <guilabel
+>PGP</guilabel
+> tab kwi <guilabel
+>Ukhuseleko</guilabel
+> iphepha lezicwangciso. Apho uzakufumana iinketho ezilandelayo:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Gcina ibinzana logqitho kwinkumbulo</guilabel
+></term
+> <listitem
+> <para
+>Xa olu khetho lucimile, &kmail; izakucela ibinzana lakho logqitho ixesha ngalinye utyikitya umyalezo (phambi kokuthumela) okanye khetha umyalezo ofihliweyo. Ukub auqala olu khetho, &kmail; izakukhumbula elakho ibinzana logqitho emva kwegalelo lakho lokuqala elinempumelelo ude ube ugqiba eyakho i &kmail; intlanganiso. Ibinzana logqitho ligcinwa kwinkumbulo kwaye ayibhalwa kwi harddiski.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Soloko ufihla kuyo</guilabel
+></term
+> <listitem
+> <para
+>Ukub aolu khetho lucimile kwaye ufuna ukuthumela umyalezo ofihliweyo komnye umntu, ngoku awunakufunda lo myalezo nakanye emva kokuba uqambe kwaye wayifihla. Qala olu khetho ukugcina imiyalezo ethunyelwe ifihliwe efundekayo kuwe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bonisa okubhaliweyo okufihliweyo emva kokuqamba</guilabel
+></term
+> <listitem
+> <para
+>Oku kuzakubonisa iziphumo zofihlo kwaye zityikitya phambi kokuba umyalezo ufumane uthumelo. Le ndlela ungacima uthumelo ukuba ufihlo aluphumelelanga. Yaziswa ngamandla ukusebenzisa olu khetho.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Isixhobo sofihlo</guilabel
+></term
+> <listitem
+> <para
+>Apha ungakhetha ukuba ufuna ukusebenzisa i <application
+>PGP</application
+>, <application
+>GnuPG</application
+> okanye akukho zixhobo zecomputer zofihlo nakanye. Kunjalo udweliso lwenkqubo olukhethayo luzakufakwa kwindlela yakho. Kubalulekile kwakhona ukukhetha uguqulelo kolunye ulwimi olululo.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Kwi <guilabel
+>Umqambi</guilabel
+> tab ungakhangela kwakhona i <guilabel
+>Tyikitya ngokuzenzekelayo imiyalezo usebenzisa i PGP</guilabel
+> ukhetho. Oku kuthetha ukuba yonke imiyalezo yakho izakutyikitywa phambi kokuthunyelwa. (Ngoko awunakucwangcisa ukhetho lotyikityo lomyalezo ngamnye wencwadi.)</para>
+
+<para
+>Ngoku uyakwazi ukutyikitya imiyalezo ephumayo. Ukuvumela abantu bakuthumele imiyalezo efihliweyo kwaye ubavumele baqinisekise utyikityo lwakho kufuneka ubathumele isitshixo sakho sikawonke-wonke okanye ulayishe ngentla isitshixo sikawonke-wonke kwi <application
+>PGP</application
+> umncedisi wesitshixo ukuze babenokuthatha isitshixo sakho apho. Ukuthumela iiposi ezifihliweyo kwabanye abantu okanye ukuqinisekisa imiyalezo yabo etyikityiweyo uzakufuna izitshixo zabo zikawonke-wonke. Ungagcina esakho isitshixo(izi) kwekawonke-wonke <application
+>PGP</application
+> umncedisi wesitshixo onjenge <ulink url="http://www.cam.ac.uk.pgp.net/pgpnet/"
+>http://www.cam.ac.uk.pgp.net/pgpnet/</ulink
+>.</para>
+
+</sect2>
+
+<sect2 id="pgp-sign-your-messages">
+<title
+>Tyikitya imiyalezo yakho</title>
+
+<para
+>Uqamba umyalezo wakho njngesiqhelo kwi <guilabel
+>Umqambi</guilabel
+> window ye &kmail;. Phambi kokuba uthumele umyalezo, khangela iqhosha ngeyenza umgca ngaphantsi i icon kuyo kwi bar yesixhobo yewindow yomqambi. Ngoku, ungathumela umyalezo. Uku yityikitya, &kmail; ifuna ukwazi esakho i <application
+>PGP</application
+> ibinzana logqitho. Ukuba awukhethanga i <guilabel
+>Gcina ibinzana logqitho kwinkumbulo</guilabel
+> kwi <guilabel
+>Ukhuseleko</guilabel
+> izicwangciso tab, &kmail; izakucela yona. Kwesinye isandla, ukuba sele unike ibinzana kwi &kmail;, izakutyikitya umyalezo ngaphandle konikezo naluphi olusa phambili.</para>
+
+</sect2>
+
+<sect2 id="pgp-send-your-public-key">
+<title
+>Thumela Isitshixo sakho Sikawonke-wonke</title>
+
+<para
+>Lungisa umyalezo kumntu ofuna ukuthumela kuye isitshixo sakho sikawonke-wonke. Ngoku khetha kwi <guilabel
+>Umqambi</guilabel
+> window's menu <menuchoice
+><guimenu
+>Fakela</guimenu
+><guimenuitem
+>Fakela Esam Isitshixo Sikawonke- wonke</guimenuitem
+></menuchoice
+>. Oku kuzakufakela esakho isitshixo sikawonke-wonke kwiposi. Ngoku ungathumela iposi.</para>
+
+<para
+>Khumbula ukuba akukhuselekanga ukuba utyikitya umyalezo ukuqinisekisa ukuba umamkeli uzakufumana isitshixo esisiso. Kungakho umntu-ku-hlaselo-laphakathi, njengomnye umntu ongatshintsha isitshixo kwaye atyikitye umyalezo ngesinye isitshixo. Yilo nto umamkeli kufuneka aqinisekise isitshixo esifakelweyo ngokukhangela iminwe yesitshixo ngokuchasene nanako kwinndlela ekhuselekileyo kuwe. Jonga kwi <application
+>PGP</application
+> uxwebhu lwenkcukacha ezisa phambili.</para>
+
+</sect2>
+
+<sect2 id="pgp-you-got-an-encrypted-message">
+<title
+>Unoiimyaslezo ofihlakeleyo</title>
+
+<para
+>Konke omawukwenze kukukhetha umyalezo kwi &kmail;. Uzakunikezwa ngebinzana lakho logqitho. Ngoku &kmail; izakuzama ukungafihli myalezo kwaye ikubonise okubhalioweyo okungenanto ukuba umyalezo ubufihliwe ngesitshixo sakho sikawonke-wonke. (Ukuba akunjalo, ngoku awuzukwazi ukuyifunda.) &kmail; igcina imiyalezo ifihliwe, ngoko akukho mntu unokufunda le miyalezo ngaphandle kokwazi ibinzana lakho logqitho.</para>
+
+</sect2>
+
+<sect2 id="pgp-receiving-a-public-key">
+<title
+>Yamkela Isitshixo sikawonke-wonke</title>
+
+<para
+>Ungamkela isitshixo sikawonke-wonke njengofakelo okanye gqitha i http, ftp okanye i floppy. Phambi kokuba usebenzise esi sitshixo ukufihla umyalezo kumnini wesitshixo, uzakuqinisekisa isitshixo (khangela iminwe yayo okanye jonga izityikityo ezithembakeleyo). Ngoku ungadibanisa esi sitshixo kweyakhokawonke-wonke iringi yesitshixo ngokuchwetheza <userinput
+><command
+>pgp</command
+> <option
+>-ka</option
+> <replaceable
+>igama lefayile</replaceable
+></userinput
+> kwilayini yomyalelo ukuba usebenzisa i <application
+>PGP</application
+> or by typing <userinput
+><command
+>gpg</command
+> <option
+>--rhweba ngaphakathi</option
+> <replaceable
+>filename</replaceable
+></userinput
+> kwilayini yomyalelo ukuba usebenzisa i <application
+>GnuPG</application
+>. Ukuba isitshixo asiqinisekiswanga ngotyikityo oluthembakeleyo kwaye usebenzisa i <application
+>PGP</application
+>, awunakuyisebenzisa nge &kmail; ukufihla imiyalezo ngaphandle kokuba utyikitye eso sitshixo (sebenzisa i <userinput
+><command
+>pgp</command
+> <option
+>-ks</option
+> <replaceable
+>uqalaselo lwesitshixo</replaceable
+></userinput
+>). Nge <application
+>GnuPG</application
+>, kwesinye isandla, okwangoku kuyenzeka ukufihla imiyalezo ngezitshixo ezingathembakalanga.</para>
+
+</sect2>
+
+<sect2 id="pgp-encrypt-your-messages">
+<title
+>Sebenzisa izitshixo zikawonke-wonke zabanye abantu - Fihla Imiyalezo yakho</title>
+
+<para
+>Ukuthumela umyalezo ofihliweyo komnye umntu onesitshixo sakhe sikawonke- wonke, wenza ngokulula umyalezo kwi window yomqambi. Phambi kokuthumela umyalezo; khangela iqhosha ngophawu lokutshixa kwi bar yesitshixo se window yomqambi. Ngoku thumela umyalezo.</para>
+
+<para
+>&kmail; isoloko isebenzisa isitshixo sokuqala esithelekiseka nedilesi yomamkeli ukufihla umyalezo. Ukuba i &kmail; ingafumana isitshixo esithelekisekayo somamkeli, izakubonisa uluhlu oluqulathe zonke izitshixo ezikhoyo. Ungakhetha isitshixo esisiso kuluhlu okanye cima intshukumo. &kmail; ingakwazisa malunga neemposiso ngapha wenkqubo yofihlo.</para>
+
+<para
+>Njengoko kukhankanyiwe ngasentla, awunakwazi ukufunda iiposi zakho ezifihliweyo ukuba awukhangeli i <guilabel
+>Soloko ufihla kuyo</guilabel
+> kwisicwangciso <guilabel
+>Ukhuseleko</guilabel
+> tab.</para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="configure">
+<title
+>Qwalasela i &kmail;</title>
+
+<para
+>&kmail; izicwangciso ze window zikunika inani leendlela zokuqwalasela i &kmail;.</para>
+
+<sect1 id="identity-tab">
+<title
+>Isithuba sokuqwalasela</title>
+
+<para
+>Isithuba sokuqwalasela sichazwa kwi <link linkend="getting-started"
+>Iyaqala</link
+> icandelo.</para>
+
+</sect1>
+
+<sect1 id="network-tab">
+<title
+>Isithuba somsebenzi womnatha</title>
+
+<para
+>Isithuba somsebenzi womnatha sichazwa kwi <link linkend="setting-up-your-account"
+>Icwangcisa ityala lakho</link
+> icandelo.</para>
+
+</sect1>
+
+<sect1 id="appearance-tab">
+<title
+>Isithuba senkangeleko</title>
+
+<sect2 id="appearance-tab-fonts">
+<title
+>Imigca</title>
+
+<para
+>Eli candelo likuvumela utshintshe udidi, ubungakanani neqela labasebenzi bemigca yokubonisa. <guilabel
+>Umzimba womyalezo</guilabel
+> icwangcisa umgca yazo zombini ulwahlulo lomfundi ne window yomqambi. Kukho ungeno olwahlukileyo lwe <guilabel
+>Uluhlu loMyalezo - Umhlaba Womhla</guilabel
+> ngoko ungakhetha isithuba esinye somgca somhlaba womhla sofundo olungcono.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-colors">
+<title
+>Imibala</title>
+
+<para
+>Eli candelo likuvumela utshintshe umbala wokubhaliweyo. <guilabel
+>Rhangqa imibala kuphindo olunzulu</guilabel
+> ithetha ukuba noba okubhaliweyo okuphindiweyo ngapha kwamaxesha amathathu kuzakuvela kumbala.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-layout">
+<title
+>Yaneke</title>
+
+<para
+><guilabel
+>Bonisa uluhlu lwencwadi ende</guilabel
+> ikuvumela uqhoboshe uluhlu lwencwadi olude ukuqala nokucima. Uluhlu lwencwadi olude lubonisa iincwadi zonke indlela ezantsi kwicala lasekhohlo lwe &kmail; iwindow engundoqo, ekuvumela ukuba ubone iincwadi ezininzi kunakwimboniselo emfutshane, kodwa ithatha kude esinye isithuba sokubonisela okubhaliweyo kwemiyalezo. Nge <guilabel
+>Bonisa ubungakanani bomyalezo</guilabel
+> ikhethiwe apho kuzakuba ngomnye umhlathi kulwahlulo lwe Header olubonisa ubungakanani bemiyalezo kwi bytes. <guilabel
+>Uluhlu lomsonto womyalezo we header</guilabel
+> izakubeka yonke imiyalezo kudidi lomthi, ngoko iimpendulo kumyalezo zisezantsi kwalo myalezo.</para>
+
+<para
+>Nge <guilabel
+>iinketho zomsonto ze header yomyalezo</guilabel
+> ungakhetha phantsi kweziphi iimeko imisonto ingavela ivulwe kokungagqibekanga (&ie; ayiwanga phantsi). Ungavula/vala imisonto usebenzisa i <guilabel
+>+</guilabel
+>/<guilabel
+>-</guilabel
+> amaqhosha ukuba awukhubazi oko apha.</para>
+
+<para
+>Nge <guilabel
+>Uboniso loMhla</guilabel
+> ungakhetha phakathi kwefomati ezininzi zomhla. I <guilabel
+>Ifomati Yobulali</guilabel
+> yile ungayikhankanya kwi &kcontrol;.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-profiles">
+<title
+>Iimboniso zabucala</title>
+
+<para
+>Eli candelo likunika izicwangciso zokungagqibekanga ezininzi.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-addressbook">
+<title
+>Incwadi yedilesi</title>
+
+<para
+>Eli candelo likuvumela ukhethe phakathi kweencwadi zedilesi ezininzi, njengoko i <guilabel
+>Eyakwantu i KMail</guilabel
+> ilula kakhulu ne <guilabel
+>&kaddressbook;</guilabel
+> iyephambili - siyaleza ukusebenzisa i &kaddressbook;. Qaphela ukuba ufuna upakisho lwe kdeutils ukusebenzisa i <guilabel
+>KAB</guilabel
+>.</para>
+
+<para
+>Ngexesha i <guilabel
+>Eyakwantu i KMail</guilabel
+> isiseko sedata sizimele (&ie; awuzukuzibona iidilesi kwi <guilabel
+>KAB</guilabel
+>/<guilabel
+>&kaddressbook;</guilabel
+> ukuba ungenise kuphela zona kwi <guilabel
+>Eyakwantu i KMail</guilabel
+> incwadi yedilesi), <guilabel
+>KAB</guilabel
+> ne <guilabel
+>&kaddressbook;</guilabel
+> sebenzisa isiseko sedata esinye.</para>
+
+</sect2>
+
+<!--
+<sect2 id="appearance-tab-messages-scoring">
+<title
+>Messages Scoring</title>
+
+<para
+>In this section you can manage rules that define a message's score.
+If at least one rule is defined for a folder, a <guilabel
+>Score</guilabel>
+column will appear in the Headers pane of that folder. Each rule has a
+name, a list of folders where it is active, one or more conditions that
+decide whether the rule matches a message, and one or more actions that get
+triggered if a condition is matched. This concept is very similar to that
+of <link linkend="filters"
+>filters</link
+>.</para>
+
+<para
+>The most useful action is <guilabel
+>adjust score</guilabel
+>. It will
+increase or decrease the score of a message. The idea is that important
+messages have a high score and you can then use the
+<guilabel
+>Score</guilabel
+> column to sort your messages.</para>
+
+<para
+>The <guilabel
+>display message</guilabel
+> action will display
+a dialog when you enter a folder with a matching message.</para>
+-->
+
+<!-- fixme?: date + less than/greater than broken in kmail -->
+<!-- fixme?: "group" wording in program -->
+
+<!--
+</sect2>
+-->
+
+</sect1>
+
+<sect1 id="composer-tab">
+<title
+>Isithuba soMqambi</title>
+
+<sect2 id="composer-tab-general">
+<title
+>Ngokubanzi</title>
+
+<para
+>I <guilabel
+>Amabinzana</guilabel
+> icandelo likuvumela uchaze iilayini ezijikeleziswa ngokuzenzekelayo ezidityaniswe kwimpendulo yomyalezo, imiyalezo esiwe phambili, nokubhaliweyo okuphindiweyo. Kukho ezithile &percnt;-denoted abasebenzi abazakufaka amaxabiso athile. Ezi ziboniswa ngentla kwi <guilabel
+>Amabinzana</guilabel
+> icandelo: <symbol
+>%D</symbol
+> ukufaka umhla, <symbol
+>%S</symbol
+> ukufaka umxholo, <symbol
+>%F</symbol
+> ukufaka umthumeli, <symbol
+>%%</symbol
+> ukufaka uphawu lepesenti <symbol
+>%_</symbol
+> ukufaka isithuba, ne <symbol
+>%L</symbol
+> ukufaka ulwaphulo lwelayini. Ungadibanisa amabinzana empendulo kwiilwimi ezingaphandle kokungagqibekanga kwakho &kde; ulwimi usebenzisa i <guilabel
+>Ulwimi</guilabel
+> iqhosha. Oku kuzakusebenza kuphela kwiilwimi ezine i18n package oyifakileyo.</para>
+
+<para
+>I <guilabel
+>Amathanda</guilabel
+> umhlaba uqulathe umsebenzi ozakwenza uphindo lokubhaliweyo (uzakufuna ukusebenzisa okungagqibekanga).</para>
+
+<para
+><guilabel
+>Fakela utyikityo ngokuzenzekelayo</guilabel
+> ikuvumela uqhoboshe noba kukuquka ngokuzenzekelayo utyikityo lwakho njgoko kuchazwe kwi <link linkend="setting-your-identity"
+>identity tab</link
+>.</para>
+
+<para
+><guilabel
+>Sebenzisa uphindo olubukekayo</guilabel
+> izakwaphula iilayini ezinde kodwa izakuzama ukugcina uphindo olululo (&eg; i <quote
+>&gt; </quote
+> izakusoloko ikwisiqalo selayini).</para>
+
+<para
+><guilabel
+>Tyikitya ngokuzenzekelayo imiyalezo usebenzisa i PGP</guilabel
+> ikuvumela uqhoboshe noba utyikitye ngokuzenzekelayo imiyalezo yakho ngokungagqibekanga. Kunjalo ungangakhethi i icon kwi window yomqambi yomyalezo ngamnye ukuba kuyimfuneko.</para>
+
+<para
+><guilabel
+>Usongo lwegama kumhlathi</guilabel
+> ikuvumela ujike usongo lwegama ukuqala nokucima kwi <guilabel
+>Iwindow yoMqambi</guilabel
+> kwaye ikuvumela ucwangcise umhlathi apho amagama azakusongwa khona (awufuni noko ukutshintsha ixabiso elingagqibekanga, eliyi <userinput
+>78</userinput
+>).</para>
+
+</sect2>
+
+<sect2 id="composer-tab-editor">
+<title
+>Umhleli</title>
+
+<para
+>Ukuba awuyithandi i <guilabel
+>Umqambi</guilabel
+> ungasebenzisa umhleli owahlukileyo. Qaphela ukuba i <guilabel
+>Umqambi</guilabel
+> window izakuvula kwaye umhleli wangaphandle uzakuvula ngoko ukuba uchwetheza nje umsebenzi omnye kumzimba womyalezo. Ukuba wenziwe, gcina okubhaliweyo kwaye khupha umhleli. Okubhaliweyo kuzakuvela ngoku kwi <guilabel
+>Umqambi</guilabel
+> window, apho ungayithumela khona.</para>
+
+</sect2>
+
+<sect2 id="composer-tab-subject">
+<title
+>Umxholo</title>
+
+<para
+>Eli candelo liqulathe uluhlu lwezimaphambili ze <quote
+>Phendula</quote
+> ne <quote
+>Phambili</quote
+>. Ukuba wamkela imiyalezo esebenzisa izimaphambili ezahlukileyo kwezisezantsi, ungadibanisa apha ukuze &kmail; iziqonde (le ndlela &kmail; ingazilahla ukulungisa imiyalezo kwaye izibuyisele ngokukodwa).</para>
+
+</sect2>
+
+<sect2 id="composer-tab-charset">
+<title
+>Charset</title>
+
+<para
+>Kwi <guilabel
+>Ezikhoyo i charsets</guilabel
+> icandelo ongenza kulo i charsets ezikhoyo zemiyalezo yakho. I charsets kolu luhlu zivela kwezomqambi <menuchoice
+><guimenu
+>Iinketho</guimenu
+><guimenuitem
+>Cwangcisa i Enkhowudingi</guimenuitem
+></menuchoice
+> menu.</para>
+
+<para
+>I <guilabel
+>Engagqibekanga i charset</guilabel
+> icandelo likuvumela ukhethe engagqibekanga icharset yemiyalezo yakho. Ukuba ukhetha i <guilabel
+>Sebenzisa eyakho engagqibekanga icharset xa uphendula okanye usisa phambili i</guilabel
+>, icharset yomyalezo yoqobo izakulahlwa kwaye icharset yakho izakusetyenziswa ukuphendula nokusa phambili.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="mime-tab">
+<title
+>&MIME; Headers Tab</title>
+<!-- fixme in kmail, too: "headers tab" -->
+
+<para
+>I <guilabel
+>Yenza owakho umyalezo-Id headers</guilabel
+> icandelo likuvumela uchaze indlela imiyalezo yakho yomhlaba weMyalezo-Id izakujikeleziswa. Umyalezo-Id kufuneka ubenesimamva sehlabathi-esinye.Kuxhomekeke kolwakho ucwangciso, oku kunokuba ngumzekekelo. Kufuneka uthumele umyalezo kwaye jonga kwi header zayo. Ukuba iqulathe i Umyalezo-Id ophela nge <quote
+>inginginya yobulali</quote
+> okanye nawuphi na omnye umtya ongamelwa ngokuba mnye ofuna ukuwukhetha <guilabel
+>Yenza umyalezo wakho-Id headers</guilabel
+> kwaye cwangcisa esinye isimamva.. Into engcono kukusebeznisa igama lethambeka ongumninilo.</para>
+
+<para
+>I <guilabel
+>Chaza amaphetshana eheader yemime esiko</guilabel
+> icandelo licwangcisa iiheader i &kmail; ezakuzisebenzisa kwimiyalezo ephumayo. Ungafaka yomibini imihlaba emitsha kwaye ubhale ngaphezulu esele ikhona. Lo msebenzi uluncedo kuphela kubasebenzisi abaphambili.</para>
+
+</sect1>
+
+<sect1 id="security-tab">
+<title
+>Isithuba sokhuseleko</title>
+
+<sect2 id="security-tab-general">
+<title
+>Ngokubanzi</title>
+
+<para
+><guilabel
+>Khetha HTML kokubhaliweyo okungenanto</guilabel
+> kuzakubonisa i <acronym
+>HTML</acronym
+> imiyalezo ngeyazo i <acronym
+>HTML</acronym
+> ufomato nobeko. Sazisa ngamandla ukushiya olu khetho lucimile, njengeengxaki zokhuseleko nge <acronym
+>HTML</acronym
+> inoku za. Xa olu khetho lucimile, ungafunda kwakhona <acronym
+>HTML</acronym
+> imiyalezo, kodwa njengokubhaliweyo okungenanto kuphela.</para>
+
+<para
+><guilabel
+>Layisha iintelekiso zangaphandle kumnatha</guilabel
+> izakulayisha imifanekiso yangaphandle, amakhasi ohlobo &etc; kwi the internet xa ujonga kwi <acronym
+>HTML</acronym
+> umyalezo. Siyaleza ngamandla uku shiya olu khetho lucimile (noxa lungenasiphumo ukuba <guilabel
+>Khetha HTML kokubhaliweyo okungenato</guilabel
+> sele icimile). Ngokudibanisa ezangaphandle iintelekiso kwiposi zazo, abantu abathumela ispam bangabhaqa ukuba ujonge kumyalezo wabo. Qaphela ukuba olu khetho alunasiphumo kwi Java, Javascript ne Plagi - ezi zikhutyaziwe kwaye azina kwenziwa nakanye.</para>
+
+<para
+><guilabel
+>Thumela ngokuzenzekelayo iziqinisekiso zokwamkela nokufunda</guilabel
+> izakuthumela ngokuzenzekelayo uqiniiseki (kwindlela yomyalezo omtsha) kumthumeli womyalezo ukuba  ucele oko. Ukuba ushiya olu khetho lucimile, akukho qinisekiso lizakuthunyelwa.Siyaleza ukushiya olu khetho lucimile. Ukuba ufuna ukuthumela iziqinisekiso kubantu abathile ungakwenza oko ngokusebenzisa i <guilabel
+>qinisekisa uphathelo</guilabel
+> intshukumo yecebo lokucoca.</para>
+
+</sect2>
+
+<sect2 id="security-tab-pgp">
+<title
+>PGP</title>
+
+<para
+>Ye <guilabel
+>PGP</guilabel
+> tab nceda bona i <link linkend="pgp-settings"
+><application
+>PGP</application
+> icandelo</link
+>.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="misc-tab">
+<title
+>Isithuba Esixubeneyo</title>
+
+<sect2 id="misc-tab-trash-folder">
+<title
+>Incwadi eneenkcukacha yomonakalo</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Umonakalo ongenanto kuphumo</guilabel
+></term
+> <listitem
+> <para
+>Incwadi yomonakalo icacisiwe ngemiyalezo xa uphuma &kmail; ukuba olu khetho lukhethiwe. Iinketho ezimbini ezilandelayo zikhubazekile, ukuba le yenziwe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Gcina ubungakanani bomonakalo ngezantsi...</guilabel
+></term
+> <listitem
+> <para
+>Kuphumo, cima imiyalezo emidala ukuba incwadi yomonakalo iba nkulu kuna lo mda.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kumonakalo, kuphumo, susa imiyalezo emidala kune...</guilabel
+></term
+> <listitem
+> <para
+>Incwadi yomonakalo icaciswe yimiyalezo emidala kunobudala obunikiweyo xa uphuma &kmail;, ukuba olu khetho lukhethiwe.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="misc-tab-folders">
+<title
+>Iincwadi ezineenkcukacha</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Thumela iposi kwincwadi yebhokisi yangaphandle kukangelo</guilabel
+></term
+> <listitem
+> <para
+>Yonke imiyalezo efoliswe kwincwadi yebhokisi yangaphandle izakuthunyelwa naphi na apho ukhangela khona iposi entsha.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Dibanisa zonke iincwadi kuphumo</guilabel
+></term
+> <listitem
+> <para
+>Oku kuzakudibanisa zonke iincwadi lonke ixesha ukhupha &kmail;. Ukudibanisa iincwadi kuthetha ukuba imiyalezo oyicimileyo ngenene izakususwa.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Qinisekisa phambi kokuqongqotha iincwadi</guilabel
+></term
+> <listitem
+> <para
+>Ukuqongqotha incwadi kuthetha ukuba imiyalezo yayo ifumana uthumele kwi <guilabel
+>umonakalo</guilabel
+> incwadi (kwaye fumana kuphela ucimo ukuba sele zikwi <guilabel
+>umonakalo</guilabel
+> incwadi). Ngoko noxa uqhele ukungayilahli iposi nayiphi na, ungasebenzisa incoko yababini yoqinisekiso ezakucela ukuba ngenene ufuna ukuqongqotha incwadi.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="misc-tab-new-mail-notification">
+<title
+>Isaziso sePosi Entsha</title>
+
+<para
+>Oku kukuvumela uqwalasele iintshukumo zokufika kweposi entsha. Qaphela ukuba imiyalezo ethatha ngokuzenzekelayo inokuqwalaselwa kwizicwangciso zakho zetyala phantsi kwe <link linkend="receiving-mail"
+>Iposi Engenayol</link
+>.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="menus">
+<title
+>Iindlela ezimfutshane zee menu ne bhodi yezitshixo</title>
+
+<para
+>Umba ngamnye we menu uxoxwa ngezantsi. Xa kukho indlela emfutshane yebhodi yezitshixo esebenzisa umsebenzi womba we menu, idweliswe ngomba we menu.</para>
+
+<sect1 id="main-mail-reader-window">
+<title
+>Iwindow Engundoqo</title>
+
+<sect2 id="reader-file-menu">
+<title
+><guimenu
+>Ifayile</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>ile</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>mtsha Umxhasi wePosi...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Yenza iwindow entsha engundoqo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Fa</accel
+>yile</guimenu
+> <guimenuitem
+>Gcina <accel
+>Nje</accel
+>nge...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Igcina umyalezo wangoku oboniswe kwifayile yokubhaliweyo, iquka zonke iiheader nezifakelo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Fa</accel
+>yile</guimenu
+> <guimenuitem
+><accel
+>Shi</accel
+>cilela...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ishicilela umyalezo wangoku obonisiweyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>yile</guimenu
+> <guimenuitem
+>Dibanisa zonke <accel
+>Iincwa</accel
+>di</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Izakudibanisa zonke iincwadi, &ie; izakuya ngenene kwaye icime imiyalezo kwidiski ngendlela oyisuse ngayo noyicime ngazo kwi &kmail;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Fa</accel
+>yile</guimenu
+> <guimenuitem
+>Khangela <accel
+>Ipo</accel
+>si</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Ikhangela imiyalezo emitsha kuwo onke amatyala wakho, ngaphandle kweno <guilabel
+>Khupha kwi &quot;Khangela iposi&quot;</guilabel
+> eyenziweyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>yile</guimenu
+> <guisubmenu
+>Khangela Iposi kwi</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Imenu esezantsi ekuvumela ukhangele imiyalezo emitsha kwityala elithile.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>yile</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>phelisa Okufolisiweyo</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Ithumela imiyalezo ekwibhokisi yakho yangaphandle.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>yile</guimenu
+> <guimenuitem
+>Idilesi <accel
+>Incwa</accel
+>di...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Opens up the <link linkend="the-address-book"
+>Incwadi yedilesi</link
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>yile</guimenu
+> <guimenuitem
+><accel
+>Rhweba</accel
+>ngaphakathi...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Iyaqala <application
+>kmailcvt</application
+> (eyinxenye ye kdenetwork). Esi sicelo sikuvumela urhwebe ngaphakathi imiyalezo yabaxhasi abaninzi beposi kwi &kmail;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Fa</accel
+>yile</guimenu
+> <guimenuitem
+><accel
+>Va</accel
+>la</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivala iwindow yangoku engundoqo okanye ikhupha i &kmail; ukuba kukho kuphela le inye iwindow.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-edit-menu">
+<title
+><guimenu
+>Hlela</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+>Su<accel
+>kwenza</accel
+></guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Rhoxisa itshukumo yakho yokugqibela okanye uyicime. Qaphela ukuba unokungalwenzi ucimo kumonakalo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+><accel
+>Khu</accel
+>phela okubhaliweyo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikhuphela okubhaliweyo okukhethiweyo kwibhodi eqhotyoshwayo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>D</keycap
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+><accel
+>Ci</accel
+>ma</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Isa imiyalezo ekhethiweyo kwincwadi yomonakalo. Ukuba imiyalezo ekhethiweyo sele ikwincwadi yomonakalo, izakucinywa ngenene.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>S</keycap
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+><accel
+>Phe</accel
+>ndla imiyalezo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula iwindow yophendlo ekuvumela uphendle imiyalezo ngemisebenzi ethile, &eg; umxholo othile. Qala uphendlo ngoku ngenisa amaxabiso athile kwaye cinezela i <guibutton
+>Phendla</guibutton
+>. Nqakraza kwenye yemiyalezo yesiphumo kwaye izakuvela kwi <guilabel
+>Ulwahlulo lomyalezo</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+><accel
+>Fu</accel
+>mana kumayalezo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikuvumela uphendle umtya kumyalezo wangoku.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>K</keycap
+></shortcut
+><guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+>Khe<accel
+>t</accel
+>ha yonke imiyalezo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikhetha yonke imiyalezo kwincwadi yangoku.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+>Khetha umyalezo <accel
+>woku</accel
+>bhaliweyo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikhetha okubhaliweyo komyalezo wangoku obonisiweyo.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+
+<sect2 id="reader-view-menu">
+<title
+><guimenu
+>Imboniselo</guimenu
+> Menu</title>
+
+<!-- LW: This really needs to be broken up to one varlistentry per menu item, fixme -->
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Imbo</accel
+>niselo</guimenu
+> <guimenuitem
+><accel
+>Emfu</accel
+>tshane</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>Imbo</accel
+>niselo</guimenu
+> <guimenuitem
+><accel
+>Ezi</accel
+>ntle Headers</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>Imbo</accel
+>niselo</guimenu
+> <guimenuitem
+><accel
+>Ezi</accel
+>sezantsi Headers</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>Imbo</accel
+>niselo</guimenu
+> <guimenuitem
+><accel
+>Ezi</accel
+>nde Headers</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>Imbo</accel
+>niselo</guimenu
+> <guimenuitem
+><accel
+>Zo</accel
+>nke iiHeader Headers</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Itshintsha inani le header ezibonisiweyo ne fomati ye header kwi <guilabel
+>Ulwahlulo lomyalezo</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Imbo</accel
+>niselo</guimenu
+> <guimenuitem
+>Iconic Izifakelo</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>Imbo</accel
+>niselo</guimenu
+> <guimenuitem
+>Izifakelo ezibukekayo</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+><accel
+>Imbo</accel
+>niselo</guimenu
+> <guimenuitem
+>Izifakelo eziselayinini</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Itshintsha indlela izifakelo ezivela ngayo kwi <guilabel
+>Ulwahlulo lomyalezo</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-folder-menu">
+<title
+><guimenu
+>Incwadi</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>In<accel
+>cwa</accel
+>di</guimenu
+> <guimenuitem
+><accel
+>Ye</accel
+>nza...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula i <guilabel
+>Yenza Incwadi</guilabel
+> incoko yababini ekuvumela wenze incwadi entsha. Ungenza le ncwadi intsha incwadi esezantsi ukuba ukhetha incwadi yomzali usebenzisa i <guilabel
+>Ifayile phantsi</guilabel
+> ukhetho. Ukuba uzakusebenzisa le ncwadi kuluhlu lokuposa ungafuna ukudibanisa idilesi yoluhlu lokuposa kwi <guilabel
+>Olwayamanisiweyo Uluhlu Lokuposa</guilabel
+> tab. Ungasebenzisa ngoku i <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Uluhlu lwempendulo...</guimenuitem
+></menuchoice
+> umba wemenu. Izakuvula impendulo ngedilesi yoluhlu lokuposa kwi <guilabel
+>Ku:</guilabel
+> umhlaba (&ie; izakulahla i <token
+>Phendula-Ku</token
+> yomyalezo). Unganqakraza kwakhona i <mousebutton
+>phakathi</mousebutton
+> iqhosha le mouse kulwahlulo lweencwadi ukuposa  kuluhlu lokuposa oluyamaniswe ngalo ncwadi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>In<accel
+>cwa</accel
+>di</guimenu
+> <guimenuitem
+><accel
+>Ii</accel
+>mpahla...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula i <guilabel
+>Guqula kancinane incwadi</guilabel
+> incoko yababini ekuvumela utshintshe izicwangciso zencwadi ekhethiweyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>In<accel
+>cwa</accel
+>di</guimenu
+> <guimenuitem
+>Di<accel
+>ba</accel
+>nisa</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Idibanisa ifayile yencwadi ukunciphisa isithuba sosebenziso lwediski yayo. Sebenzisa lo myalelo ukuba iibhokisi zakho zeposi zinkulu kakhulu kunokuba beziqhele ukuba njalo. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>In<accel
+>cwa</accel
+>di</guimenu
+> <guimenuitem
+><accel
+>Enge</accel
+>nanto</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Isa yonke imiyalezo kwincwadi ekhethiweyo kwincwadi yomonakalo. Ukuba incwadi ekhethiweyo yincwadi yomonakalo, imiyalezo icinywa ngokupheleleyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>In<accel
+>cwa</accel
+>di</guimenu
+> <guimenuitem
+><accel
+>Su</accel
+>sa</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Isusa incwadi ekhehiweyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>In<accel
+>cwa</accel
+>di</guimenu
+> <guimenuitem
+><accel
+>Khe</accel
+>tha HTML kokubhaliweyo okungenanto</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Oku kuzakubonisa <acronym
+>HTML</acronym
+> imiyalezo usebenzisa <acronym
+>HTML</acronym
+>inikeza. Kwizizathu zokhuseleko, si yaleza ukusebenzisa kuphela oku kwimiyalezo ethembakeleyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>I<accel
+>ncwa</accel
+>di</guimenu
+> <guimenuitem
+><accel
+>Imi</accel
+>yalezo yomsonto</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ibonisa imiyalezo kwi <guilabel
+>Ulwahlulo lwe Header</guilabel
+> ku luhlu olunjengo-mthi, ngepmendulo ezikhoyo ngqo phantsi komyalezo eziphendula kuwo.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-message-menu">
+<title
+><guimenu
+>Umyalezo</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Umyalezo Omtsha...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula i <guilabel
+>Umqambi</guilabel
+> window ukuze ubhale iposi entsha. Ukuba incwadi yangoku inoluhlu lokuposa kwaye ine <guilabel
+>Idilesi yokuPosa</guilabel
+> ichaziwe, le dilesi izakuba ngengagqibekanga <guilabel
+>Ku:</guilabel
+> idilesi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>N</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Ela</accel
+>ndelayo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikhetha umyalezo olandelayo kulwahlulo lwe Header. Indlela emfutshane yebhodi yezitshixo <keycap
+>Utolo lasekunene</keycap
+> lwenza lentshukumo nalo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>+</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Okungafundwayo Okulandelayo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikhetha umyalezo wokungafundwayo olandelayo kulwahlulo lwe Header.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Edlu</accel
+>lileyo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikhetha umyalezo odlulileyo kulwahlulo lwe Header.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>-</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Okungafundwayo Okudlulileyo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikhetha umyalezo odlulileyo ongafundwayo kulwahlulo lwe Header.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>R</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Phe</accel
+>ndula...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula i <guilabel
+>Umqambi</guilabel
+> window ngemixholo yomyalezo okhethiweyo we <guilabel
+>Phendula-Ku</guilabel
+> mhlaba kwi <guilabel
+>Ku:</guilabel
+> mhlaba.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>A</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Phendula <accel
+>Ko</accel
+>nke...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula i <guilabel
+>Umqambi</guilabel
+> window kwaye ikhuphela imixholo yomyalezo okhethiweyo we <guilabel
+>Phendula-Ku:</guilabel
+> ne <guilabel
+>Ku:</guilabel
+> imihlaba kwi <guilabel
+>Ku:</guilabel
+> mhlaba, ne <guilabel
+>Cc:</guilabel
+> umhlaba kwi <guilabel
+>Cc:</guilabel
+> umhlaba we <guilabel
+>Umqambi</guilabel
+> window.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>L</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Phendula <accel
+>Ulu</accel
+>hlu...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula i <guilabel
+>Umqambi</guilabel
+> nge <guilabel
+>Ku:</guilabel
+> mhlaba ocwangciswe kwidilesi yoluhlu lokuposa. Kunjalo oku kuzakusebenza kuphela ukuba uqwalasele incwadi yangoku emayiyamaniswe ngoluhlu lokuposa. Kungenjalo i <guilabel
+>Ku:</guilabel
+> umhlaba awuzukubananto.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Alt;<keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Phendula <accel
+>nga</accel
+>phandle kophindo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula i <guilabel
+>Umqambi</guilabel
+> ukuphendula kodwa ayiphindi okubhaliweyo komyalezo woqobo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>F</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Pha</accel
+>mbili...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Isa phambili umyalezo kumamkeli omtsha. Okubhaliweyo komyalezo kuza kukhutshelwa kumzimba womyalezo omtsha ngokubhaliweyo okuphawula iqela elisiwe phambili. Izifakelo zizakusiwa phambili, nazo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>F</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Pha</accel
+>mbili njengofakelo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Isa phambili umyalezo kumamkeli omtsha njengofakelo. Izifakelo kumyalezo woqobo zizakuba zizifakelo zomyalezo ezisiwa phambili.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>E</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Lathi<accel
+>sa</accel
+>kwakhona...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Isebenza njengephambili, ngaphandle kokuba umyalezo uhlala umnye (nditsho ne <guilabel
+>Kwi</guilabel
+> umhlaba). Umsebenzisi owolathiswe kwakhona umyalezo udityaniswa kwimihlaba ethile ye header (<literal
+>Lathisa kwakhona-Kwi</literal
+>, <literal
+>Lathisa kwakhona-Umhla</literal
+>, <literal
+>Lathisa kwakhona-Ku</literal
+>, &etc;).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Uji</accel
+>kisiwe...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ithumela umyalezo emva kumthumeli ngesaziso sokuba ayinakusiwea. Oku kufutshane kungumyalezo ngqo owufumanayo kwiposi yobeko kwakhona ukuba umsebenzisi akasekho. Abanye abantu basebenzisa olu khetho uku <quote
+>phendula</quote
+> ku spam.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Thumela kwa<accel
+>kho</accel
+>na...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ithumela umyalezo kwakhona.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guisubmenu
+>Cwangcisa <accel
+>E</accel
+>nkhowudingi</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikuvumela ukhethe umsebenzi we enkhowudingi ezakusetyenziswa kulwahlulo lomyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>T</keycap
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Hle<accel
+>la</accel
+></guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ihlela umyalezo okhethiweyo ukub auyahleleka. Imiyalezo kuphela ekwi <guilabel
+>ibhokisi ephandle</guilabel
+> ne <guilabel
+>imizobo</guilabel
+> incwadi ingahlelwa.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guisubmenu
+><accel
+>Ye</accel
+>nza icebo lokucoca</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula i <link linkend="filter-dialog-id"
+>Incoko yababini yecebo lokucoca</link
+> ngecebo elitsha elidityanisiweyo. Eli cebo litsha lisekwe kwimihlaba yeposi yangoku.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guisubmenu
+>Cwangcisa Indawo engatshintshiyo</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikuvumela utshintshe indawo engatsintshiyo yomyalezo okhethiweyo komnye ngezantsi (ngapha kwesinye sendawo engatshintshiyo ngomyalezo ngamnye ayixhaswanga ngoku):</para
+> <itemizedlist
+> <listitem
+> <para
+><guimenuitem
+>Entsha</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Awufundeki</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Funda</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Iphendulwe</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Ifolisiwe</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Ithunyelwe</guimenuitem
+></para
+> </listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guisubmenu
+><accel
+>Yi</accel
+>ya ku</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Isa yonke imiyalezo ekhethiweyo kwincwadi ethile.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guisubmenu
+><accel
+>Khu</accel
+>phela ku</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikhuphela yonke imiyalezo ekhethiweyo kwincwadi ethile.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>J</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Faka Amacebo okucoca</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ifaka amacebo wakho wokucoca kwimiyalezo ekhethiweyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Imvelaphi yemboniselo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ibonisa umyalezo kunye nee header zayo ezigqityiweyo kwifomati yokubhaliweyo engenanto kwi window entsha. Oku kunokuba luncedo ukufumana uqobo lweposi. Kufuneka wazi ukuba kulula ukuhanahanisa i <literal
+>Kwi:</literal
+> iheader yeposi, kodwa enye ingafumana ukuba ngabaphi abancedisi abasetyenzisiweyo ngokukhangela kwi <literal
+>Yamkelwe:</literal
+> iilayini kwi header.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+<sect2 id="reader-settings-menu">
+<title
+><guimenu
+>Izicwangciso</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+>Bonisa <accel
+>Ibar</accel
+>yesixhobo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukuba yenziwe, ibar yesixhobo iyabonakala (ibar yesixhobo yenye ene icon ukuqamba umyalezo omtsha &etc;).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+>Bonisa Ibar<accel
+>ye</accel
+>ndawo engatshintshiyo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukuba yenziwe, Ibar yendawo engatshintshiyo iyabonakala (Ibar yendawo engatshintshiyo yeyona incinane ezantsi ebonisa imiyalezo emifutshane eluncedo neetekeni zekhonkco).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+>Qwalasela <accel
+>Izibo</accel
+>phelelo Ezingundoqo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula iwindow ekuvumela uqwalasele iindlela ezimfutshane zebhodi yezitshixo zemiyalezo yemenu emininzi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+>Qwalasela iibar<accel
+>ze</accel
+>sixhobo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula iwindow ekuvumela ukhethe ukuba zeziphi ii icon ezibonakalayo kwi bar yesixhobo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+><accel
+>Qwa</accel
+>lasela i KMail...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Opens the <link linkend="configure"
+>Qwalasela i</link
+> window.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+>Qwalasela Ama<accel
+>ce</accel
+>bo okucoca...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Opens the <link linkend="filters"
+>Qwalasela Amacebo okucoca...</link
+> window.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-help-menu">
+<title
+><guimenu
+>Uncedo</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+><accel
+>U</accel
+>ncedo</guimenu
+> <guimenuitem
+><accel
+>Imi</accel
+>xholo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ibhenisa i &kde; indlela yoncedo nge &kmail; inceda amaphepha abonisiweyo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>U</accel
+>ncedo</guimenu
+> <guimenuitem
+>Yintoni <accel
+>L</accel
+>e?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukukhetha olu khetho kutshintsha isalathisi kutolo ngophawu lombuzo. Ukuba ngoku unqakraza nakweliphi na iqela lolwahlulo lweqela lokulawula, ufumana intsingiselo emfutshane yoncedo olunovakalelo malunga nalo mba (uxolo, lo msebenzi awuphawulwanga kumaqela amaninzi we &kmail;).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>U</accel
+>ncedo</guimenu
+> <guimenuitem
+><accel
+>Cha</accel
+>za iBug...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikuvulela iwindow ukuze uchaze ibug. Uzakudityaniswa kwi Internet ukuthumela ingxelo ye bug.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>U</accel
+>ncedo</guimenu
+> <guimenuitem
+><accel
+>Ma</accel
+>lunga ne KMail</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ibonisa ulwazi malunga ne &kmail; (uguqulelo, ababhali, isivumelwano selayisenisi).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>U</accel
+>ncedo</guimenu
+> <guimenuitem
+>Malunga ne <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ibonisa ulwazi malunga ne &kde;.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+</sect1>
+
+
+<sect1 id="composer-window-menus">
+<title
+>Iwindow yomqambi</title>
+
+<sect2 id="composer-file-menu">
+<title
+><guimenu
+>Umyalezo</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Buyela</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Thu</accel
+>mela</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ithumela umyalezo ngokukhawuleza.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Ufo</accel
+>lo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ifolisa umyalezo kwibhokisi yaphandle ukuyithgumela mva.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+>Gcina kwi <accel
+>Incwa</accel
+>di yemizobo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Gcina umyalezo kwi <guilabel
+>imizobo</guilabel
+> incwadi ukuze uyihlele kwaye uyithumele mva.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Fa</accel
+>ka ifayile...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ifaka ifayile yokubhaliweyo okukhethiweyo kumyalezo, uqala kwindawo yesalathisi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Shi</accel
+>cilela...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ishicilela okubhaliweyo ngoku.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Incwa</accel
+>di yedilesi...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula incwadi yedilesi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Umqa</accel
+>mbi omtsha...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula entsha i <guilabel
+>Umqambi</guilabel
+> window.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Umya</accel
+>lezo</guimenu
+> <guimenuitem
+><accel
+>Va</accel
+>la</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivala le <guilabel
+>Umqambi</guilabel
+> window.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+
+<sect2 id="composer-edit-menu">
+<title
+><guimenu
+>Hlela</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+>Su<accel
+>kwenza</accel
+></guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sukwenza amanqwanqwa wakho ekuhleleni iposi yangoku.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Shift</keycap
+><keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+>Ye<accel
+>nza</accel
+>kwakhona</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Yenza kwakhona amanqwanqwa wakho ekuhleleni iposi yangoku.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+>S<accel
+>i</accel
+>ka</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukusika okubhaliweyo kusebenza njengabahleli abaninzi. Ungakhetha kwakhona okubhaliweyo kwaye uyitsale kwindawo entsha.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+><accel
+>Khu</accel
+>phela</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukukhuphela okubhaliweyo njengabahleli baninzi. Ungakhetha kwakhona okubhaliweyo ngexesha ubambe i &Ctrl; isitshixo, kwaye uyitsale kwindawo entsha, ukuba nayo ikhutshelwe hayi isikiwe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+><accel
+>Co</accel
+>la</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukucola kusebenza kunye njengabahleli baninzi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+>Khetha <accel
+>Ko</accel
+>nke</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikhetha konke okubhaliweyo kumyalezo wakho.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+><accel
+>Fu</accel
+>mana...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ifumana imitya kumyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+><accel
+>Bu</accel
+>yisela...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikuvumela ubuyisele imitya kumyalezo wakho ngeminye imtya.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+>Co<accel
+>ca</accel
+>Izithuba</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Oku kubuyisela izithuba ezininzi ngezithuba ezizodwa kolwangoku ukhetho okanye kumyalezo ogqityiweyo ukuba akukho lukhetho.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Hle</accel
+>la</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>pelo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Isebenzisa i &kspell; ukukhangela upelo kumzimba womyalezo wakho. Qaphela ukuba kufuneka uqwalasele i &kspell; nge <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+> <guimenuitem
+>Umkhangeli wopelo...</guimenuitem
+></menuchoice
+> ukuba usebenzisa yona kwixesha lokuqala.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="composer-view-menu">
+<title
+><guimenu
+>Imboniselo</guimenu
+> Menu</title>
+
+<para
+>Le menu ikuvumela uqhoboshe uboniso lwemihlaba ye header kunye nezinye iinketho kule <guilabel
+>Umqambi</guilabel
+> window.</para>
+
+<para
+>Iinketho ezikhoyo yi:</para>
+
+<itemizedlist
+> <listitem
+> <para
+><guimenuitem
+><accel
+>Yo</accel
+>nke Imihlaba</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>U</accel
+>qwalaselo</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>Isithu</accel
+>thi sePosi</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>K</accel
+>wi</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>Phe</accel
+>ndula ku</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>K</accel
+>u</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>C</accel
+>c</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>B</accel
+>cc</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+><accel
+>Um</accel
+>xholo</guimenuitem
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+>Imib ayangoku ebonakalayo inophawu lokukhangela eliboniswe ecaleni kwegama layo kwi menu.</para>
+
+</sect2>
+
+<sect2 id="composer-options-menu">
+<title
+><guimenu
+>Iinketho</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Ii</accel
+>nketho</guimenu
+> <guimenuitem
+><accel
+>Ngoku</accel
+>ngxama</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Icwangcisa imiyalezo ephambili kuNgxamiseko. Umxhasi weposi yomamkeli uzakuxhasa oku okanye ayizukubanasiphumo. &kmail; ngokwayo ayixhasi eziphambili zemiyalezo engenayo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Ii</accel
+>nketho</guimenu
+> <guimenuitem
+><accel
+>Qi</accel
+>nisekisa uphathelo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukuba ukhetha olu khetho, ucela uqinisekiso lwe email xa umyalezo wakho usiwe ngokunempumelelo kwindawo yawo engqongileyo yomncedisi weposi. Oku kuzakuxhaswa kwicala lomamkeli ukuze isebenze.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Ii</accel
+>nketho</guimenu
+> <guimenuitem
+>Qinisekisa <accel
+>fu</accel
+>nda</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukuba ukhetha olu khetho, ucela uqinisekiso lwe email xa umyalezo wakho ulayishwe ezantsi kwaye ufundwe ngumamkeli wawo. Oku kuzaku xhaswa kwaye kwenziwe ngumxhasi weposi yomammkeli ukuze isebenze. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Ii</accel
+>nketho</guimenu
+> <guisubmenu
+>Cwangcisa <accel
+>E</accel
+>nkhowudingi</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Cwangcisa i enkhowudingi ye charset yalo myalezo. Izakuvela kwi header yeposi ephumayo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Ii</accel
+>nketho</guimenu
+> <guimenuitem
+><accel
+>Uso</accel
+>ngo lwegama</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Qhobosha usongo lwegama oluzenzekelayo. Inokubaluncedo ukuyicima ukuba ufuna ukucola iiayini ezinde ezingenakusonga.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+
+<sect2 id="composer-attach-menu">
+<title
+><guimenu
+>Fakela</guimenu
+> Menu</title>
+
+<para
+>Le menu ikuvumela ukhethe iinketho zofakelo.</para>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>kela</guimenu
+> <guimenuitem
+>Fakela U<accel
+>tyi</accel
+>kityo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ifakela utyiokityo lwakho (<quote
+>footer</quote
+>) kwisiphelo somyalezo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>kela</guimenu
+> <guimenuitem
+>Fakela <accel
+>Esika</accel
+>wonke-wonke isitshixo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ifakela ehambelanayo <application
+>PGP</application
+>/<application
+>GnuPG</application
+> isitshixo kumyalezo wakho usebenzisa i enkhowudingi engagqibekanga.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>kela</guimenu
+> <guimenuitem
+>Fakela Esam <accel
+>Esika</accel
+>wonke-wonke isitshixo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ifakela esakho <application
+>PGP</application
+>/<application
+>GnuPG</application
+> esikawonke-wonke isitshixo kumyalezo wakho usebenzisa i enkhowudinge engagqibekanga.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>kela</guimenu
+> <guimenuitem
+><accel
+>Fa</accel
+>kela...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ifakela ifayile kumyalezo usebenzisa i enkhowudingi oyikhethayo kwincoko yababini. Incoko yababini ikuvumela ukhethe ngaphezu kwefayile enye usebenzisa i &Ctrl; isitshixo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>kela</guimenu
+> <guimenuitem
+><accel
+>Su</accel
+>sa</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Isusa ufakelo olukhethiweyo kwi window yofakelo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>kela</guimenu
+> <guimenuitem
+><accel
+>Gci</accel
+>na...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Igcina ufakelo olukhethiweyo kwi window yofakelo ukuya kwifayile.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Fa</accel
+>kela</guimenu
+> <guimenuitem
+>Ii<accel
+>mpa</accel
+>hla...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ibonisa iimpahla zofakelo olukhethiweyo kwi window yofakelo.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="composer-settings-menu">
+<title
+><guimenu
+>Izicwangciso</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+>Bonisa <accel
+>Ibar</accel
+>yesixhobo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukuba yenziwe, Ibar yesixhobo iyabonakala (ibar yesixhobo yile ine icon ukuthumela umyalezo &etc;).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+>Bonisa Ibar<accel
+>ye</accel
+>ndawo engatshintshiyo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ukuba yenziwe, Ibar yendawo engatshintshiyo iyabonakala (ibar yendawo engatshintshiyo yile incinane ezantsi ebonisa imiyalezo emifutshane eluncedo).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+>Qwalasela <accel
+>Izibo</accel
+>phelelo Ezingundoqo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula iwindow ekuvumela uqwalasele iindlela ezimfutshane zebhodi yezitshixo yomyalelo wemenu eninzi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+>Qwalasela iibar<accel
+>ze</accel
+>sixhobo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ivula iwindow ekuvumela ugqibe ukuba zeziphi ii icon ezivela kwi bar yesixhobo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>Izi</accel
+>cwangciso</guimenu
+> <guimenuitem
+><accel
+>Um</accel
+>khangeli wopelo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ikuvumela uqwalasele i &kspell;, &kde; umkhangeli wopelo.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+<sect2 id="composer-help-menu">
+<title
+><guimenu
+>Uncedo</guimenu
+> Menu</title>
+
+<para
+> Amangeno kule menu anentetho enye ne <link linkend="reader-help-menu"
+>amangeno kuMfundi weposi we menu yoncedo</link
+>.</para>
+
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Imibuzo Ebuzwa Rhoqo (&FAQ;)</title>
+
+<qandaset id="faq-set">
+
+<qandaentry>
+<question
+><para
+>Incwadi zam ziyakhula noba ndicima imiyalezo.</para
+></question>
+<answer
+><para
+> Ukususa ngenene imiyalezo ecinyiweyo kwi diski, kufuneka udibanise iincwadi zakho usebenzisa i <menuchoice
+><guimenu
+>Ifayile</guimenu
+><guimenuitem
+>Dibanisa zonke iincwadi</guimenuitem
+></menuchoice
+> (ngokungagqibekanga, oku kuzakwenzeka lonke ixesha ukhupha i &kmail;).</para>
+<para
+>Ngoko ke, ngoku kukho ibug eyenze kukhupho lwe &kde; 2.2.0 (&kmail; 1.3): ngamanye amaxesha iincwadi azidityaniswa nakanye, noba ngencwadi okanye ngokuzenzekelayo. Nalu usebenzo jikelele: hlela i <filename
+>~/.kde/share/config/kmailrc</filename
+> ifayile, phendla zonke izenzeko ze <quote
+>Ezimileyo=ubuxoki</quote
+> kwaye zibuyisele nge <quote
+>Emileyo=inyaniso</quote
+> (&kmail; mayingasebenzi xa usenza oku). Le bug izakulungiswa kwi KDE 2.2.1 ezakukhutshwa ngenene ngo Septemba 2001. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>I <guilabel
+>&lt;Ku okanye Cc&gt;</guilabel
+> <guilabel
+>ayi qulathanga</guilabel
+> <userinput
+>xxx</userinput
+> icebo lokucoca alisebenzi.</para
+></question>
+<answer
+><para
+>Le asiyo bug, kodwa ayiqondi msinyane. Imvelaphi yokudideka ikhangeleka ikhondoza kwinyaniso ecingwa ngabantu <guilabel
+>&lt;Ku okanye Cc&gt;</guilabel
+> <guilabel
+>ayiqulathanga</guilabel
+> <userinput
+>xxx</userinput
+> inokuthetha ukuba noba <guilabel
+>Ku</guilabel
+> okanye <guilabel
+>Cc</guilabel
+> inokuqulatha <userinput
+>xxx</userinput
+>. Olu guqulelo licinga ukuba ukusebenzisa <guilabel
+>ayiqulathanga</guilabel
+> ithetha ukuyekwa komthetho wonke. Le asingomzekelo.</para>
+<para
+>Ngenene, <guilabel
+>ayiqulathanga</guilabel
+> yenye nje <emphasis
+>umsebenzisi</emphasis
+>, njenge <guilabel
+>iqulathe</guilabel
+>. Ayithe thi ukuba <quote
+>yeka umthetho</quote
+>. Nnjenge <guilabel
+>&lt;Ku okanye Cc&gt;</guilabel
+> <guilabel
+>iqulathe</guilabel
+> <userinput
+>xxx</userinput
+> ithetha ukuba <quote
+><guilabel
+>Ku</guilabel
+> <guilabel
+>iqulathe</guilabel
+> <userinput
+>xxx</userinput
+> <emphasis
+>okanye</emphasis
+> <guilabel
+>Cc</guilabel
+> <guilabel
+>iqulathe</guilabel
+> <userinput
+>xxx</userinput
+></quote
+>, <guilabel
+>&lt;Ku okanye Cc&gt;</guilabel
+> <guilabel
+>ayiqulathanga</guilabel
+> <userinput
+>xxx</userinput
+> ithetha ukuba <quote
+><guilabel
+>Ku</guilabel
+> <guilabel
+> ayiqulathanga</guilabel
+> <userinput
+>xxx</userinput
+> <emphasis
+>okanye</emphasis
+> <guilabel
+>Cc</guilabel
+> <guilabel
+>ayi qulathanga</guilabel
+> <userinput
+>xxx</userinput
+></quote
+>.</para>
+<para
+>Ungalinganisela okunye ukuziphatha ngokusebenzisa imithetho emibini: Omnye we <guilabel
+>Ku</guilabel
+> nomnye we <guilabel
+>Cc</guilabel
+>. Omnye wenguqulelo ezilandelayo ze &kmail; zizakuquka ujongo ngaphaya lophendlo, elizakuyenza yenzeke ukusebenzisa ngokulula imizekelo engasentla.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Xa ndiphendula kwi email kukho umsebenzi othile welayini enye phambi kotyikityo. Ndifumana isilumkiso malunga neqela lomsebenzi elitshintshiweyo xa ndizama ukuthumela iposi.</para
+></question>
+<answer>
+<para
+>Gqiba ku Qt-2.3.1.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndingalufumana phi uluhlu lotshintsho phakathi kweenguqulelo ze &kmail;?</para
+></question>
+<answer>
+<para
+>Ikhusi lokwamkela lidwelisa lonke utshintsho olubalulekileyo lokhupho lwayo. Iboniswa xa uqala uguqulelo olutsha lwe &kmail; ixesha lokuqala. Ungasoloko ujonga kuyo kwakhona ngokukhetha isiqalelo sengcambu yoluhlu lwencwadi, &ie; <guilabel
+>Iposi</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndingayiqwalasela indawo yolawulo lweposi yam?</para
+></question>
+<answer>
+<para
+>Khupha i &kmail;, yenza umva we <filename
+>~/.kde/share/config/kmailrc</filename
+>, ngoku yivule ngo mhleli kwaye dibanisa i &eg; <userinput
+>folders=/home/username/.mail</userinput
+> kwi <quote
+>[General]</quote
+> icandelo. Ngoku yisa zonke ezakho ezikhoyo iincwadi (uquka iifayile zesalathisi ezifihliweyo) kwindawo entsha. Ixesha elizayo uqala i &kmail; izakusebenzisa i <filename class="directory"
+>/home/username/.mail</filename
+> endaweni ye <filename class="directory"
+>/home/username/Mail</filename
+>. Qaphela ukuba i &kmail; izakulahla amacebo wayo ukuba utshintsha indawo yolawulo lweposi kodwa libala ukusa iincwadi zakho ezikhoyo.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Iqhosha lokutyikitya imiyalezo alenziwanga, lalenziwa kwixesha eladlulayo.</para
+></question>
+<answer
+><para
+>Ngenisa eyakho i <guilabel
+>PGP Uqwalaselo loMsebenzisi</guilabel
+> kwi <guilabel
+>Uqwalaselo</guilabel
+> incoko yababini yoqwalaselo. Ngaphandle kwe PGP Uqwalaselo loMsebenzisi &kmail; ayinakwazi ukuba sesiphi isitshixo esinokusetyenziswa ukutyikitya imiyalezo yakho ngayo.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndingomnye wabo bantu abaneposi equlathe iilayini eziphindiweyo eziyi 100 ne layini enye ebhalwe ndim. Ngesinye isizathu (endingayifumaniyo) oku kucaphukisa abanye abantu. Inga &kmail; ndinceda kwaye yenze bonke ubomi bukabani bubengcono?</para
+></question>
+<answer
+><para
+>Kulungile. Khetha nje iqela elifutshane lweposi yoqobo nge mouse phambi kokuphendula.Leli qela kuphela elinokuphindwa kwimpendulo yakho. </para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&kmail; iyalahleka/iyangqubana xa uthatha iposi.</para
+></question>
+<answer
+><para
+>Qiniseka ukuba unesithuba sediski esaneleyo. &kmail; ngoku ayiphathi imeko yediski epheleleyo ngenceba kwaye iyaphuma. Qaphela: &kmail; ikhusela idata yakho, imiyalezo engenakugcinwa kwi diski ishiywe kumncedisi.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ingaba i &kmail; incwadi yedilesi ixhasa uluhlu lonikezelo?</para
+></question>
+<answer
+><para
+>Hayi. Njengomsebenzi jikelele ungadibanisa ezininzi iidilesi ze email kungeno olunye lwedilesi ukuba usebenzisa i <quote
+>eyakwantu</quote
+> &kmail; incwadi yedilesi.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kweminye imiyalezo ixabiso kwi <guilabel
+>Umhla</guilabel
+> umhlaba awulunganga, ubonisa i<guilabel
+>Lwesithathu Dise 31 17:00:00 1969</guilabel
+>.</para
+></question>
+<answer
+><para
+>Ngenene i <quote
+>Umhla:</quote
+> header yale miyalezo yophukile, mhlawumbi ilahlekile kulwazi lommandla wexesha. Kulo mzekelo sidibanise usebenzo jikelele kwi mimelib. Kwi &kde; 2.2 mimelib liqela lopakisho lwe kdenetwork, kufuneka uqiniseke ukuba i &kde;'s mimelib iya setyenziswa kwaye hayi eyahlukileyo kwindlela yakho.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Utyikityo lwam lunezithuba ezimbini ngaphezu kwalo. Oku kundenza lusizi.</para
+></question>
+<answer>
+<para
+>Ukwahlula utyikityo kumzimba womyalezo ngodwi ababini ne sithuba yindlela eqhelekileyo neluncedo yodidi olusezantsi. Ukuba unokuva okunzima malunga nolu phakamiso uguqula kancinane i &kmail; imvelaphi ukususa laa layini.</para>
+</answer>
+</qandaentry>
+
+<!-- TODO: kmail can beep, but how to add an icon to the taskbar
+<qandaentry>
+<question
+><para
+>How do I get a notification if new mail arrives?</para
+></question>
+<answer
+><para
+>fixme</para
+></answer>
+</qandaentry>
+-->
+
+<qandaentry>
+<question
+><para
+>&kmail; ithatha imiyalezo eminye ngapha nangapha kwakhona.</para
+></question>
+<answer
+><para
+>Oku kuyenzeka ukuba une <guilabel
+>Cima iposi ku mncedisi</guilabel
+> engakhethwanga kwaye i POP3 umncedisi wakho akawuxhasi umyalelo we UIDL. Okwangoku akukho sebenzo jikelele ngaphandle kokukhetha i <guilabel
+>Cima iposi kumncedisi</guilabel
+>. Inkcazelo eneenkcukacha ezininzi ingafumaneka <ulink url="http://lists.kde.org/?l=kmail&amp;m=99220697415300&amp;w=2"
+>kolu luhlu lokuposa leposi</ulink
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ingaba i &kmail; ixhsa i <acronym
+>IMAP</acronym
+>?</para
+></question>
+<answer>
+<para
+>Ewe, iyakwenza oko ukusukela &kde; uguqulelo 2.2. Asingomsebenzi ugqityiweyo noko, kodwa kuzakwanela kubasebenzisi abaninzi. Siyayazi loo misa, ngoko nceda sukuzingenisa iingxelo zoluhlu lomnqweno malunga nazo.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kukho iibugs ezaziwayo kwi &kmail;?</para
+></question>
+<answer>
+<para
+>Ungalufumana uluhlu lwe bugs ezingenisiweyo kwi <ulink url="http://bugs.kde.org/db/pa/lkmail.html"
+>bugs.kde.org</ulink
+>. Qaphela ukuba ayisizizo zonke ezi bugs ezisebenzayo, ngoko ke sicinga ukuba i &kmail; liqhekeza elilungileyo lezixhobo ze computer.</para>
+<para
+><warning
+><para
+>Ngoko ke, awunakwenza &kmail; xa omnye umxhasi weposi sele enikezela iifayile kwi <filename class="directory"
+>~/Mail</filename
+>. Ukuba uzama ukwenza oko, ungalahla imiyalezo. Qaphela ukuba ungenza izimamva zemiyalezo yakho nangayiphi na indlela.</para
+></warning
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&kmail; ayibonisi <acronym
+>HTML</acronym
+> posa njenge <acronym
+>HTML</acronym
+>, ndingabona kuphela imvelaphi.</para
+></question>
+<answer
+><para
+>Khetha <menuchoice
+><guimenu
+>Incwadi</guimenu
+><guimenuitem
+>Khetha HTML kunokubhaliweyo okungenanto</guimenuitem
+></menuchoice
+>. Kwizizathu zokhuseleko ungenza oko kuphela kwiposi ezithembakeleyo. Qaphela ukuba iiplagi (njenge <trademark class="registered"
+>Macromedia</trademark
+> <application
+>Flash</application
+>), Java ne Javascript ayizuku boniswa kwi &kmail; kwaye akukho ndlela yokuzisebenzisa.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndingasebenzisa iinguqulelo ezahlukileyo ezimbini ze &kmail; ngexesha elinye? Ndingabuyela umva kuguqulelo langoku le &kmail; ukuya kwendala?</para
+></question>
+<answer
+><para
+>Ungasebenzisa umzekelo omnye kuphela we &kmail; kanye. Siyaleza kwakhona ukuhlala kuguqulelo oluthile kwaye ungaswitshi emva naphambili phakathi kweenguqulelo ezahlukileyo. Ukuthoba kuguqulelo oludala kunokubangela iingxaki, &eg; kuba iifomati zefayile yesalathisi zinokutshintsha. Unyuso alunokubayingxaki.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ingaba i &kmail; ixhasa iifayile ezinga enkhowudwanga?</para
+></question>
+<answer
+><para
+>Hayi. Ngoko ke, ungaziphatha usebenzise icebo lokucoca, elichazwe kwi <ulink url="http://lists.kde.org/?l=kmail&amp;m=98908576320145&amp;w=2"
+>thiyaposa</ulink
+> kuluhlu lokuposa.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&kmail; ingqubene xa bendibhala iposi. Ngoko le posi ilahlekile ngoku?</para
+></question>
+<answer
+><para
+>&kmail; izama ukugcinaiposi yakho kwi <filename
+>~/dead.letter</filename
+> ukulalelisela ungqubano. Ixesha elizayo uqala i &kmail; umqambi weposi uzakuvela ngeposi yakho kwakhona. Ukuba ayenzeki, zama ukuvula <filename
+>~/dead.letter</filename
+> ngomhleli. Ukuba ayisekho, ungqubano lwaba lubi de i &kmail; ayakwazi ukugcina iposi yakho.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Xa ndizama ukucwangcisa incwadi ezakubaluluhlu lokuposa-lindela, ayenzi nantoni na xa isamkela i email kuluhlu.</para
+></question>
+<answer
+><para
+>Ukwayamanisa incwadi ngoluhlu lokuposa akunanto yakwenza ngococo lwemiyalezo yoluhlu lokuposa. Uzakudibanisa umthetho omtsha wokucoca ngencwadi. Ngoko ke, xa wayamanise incwadi noluhlu lokuposa ungasebenzisa i <menuchoice
+> <guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Uluhlu Lempendulo...</guimenuitem
+></menuchoice
+> okanye <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Umyalezo omtsha...</guimenuitem
+></menuchoice
+> nedilesi yoluhlu lokuposa izakucwangciswa kwi <guilabel
+>Ku:</guilabel
+> umhlaba. </para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Umncedisi Wam we SMTP ufuna ububhali. Ingaba i &kmail; iyayixhasa?</para
+></question>
+<answer
+><para
+>Zimbini izixhobo ezisetyenziswayo eziqhelekilyo kububhali be SMTP: <quote
+>SMTP emva POP3</quote
+> ne <quote
+>SMTP Auth</quote
+>. <quote
+>SMTP Auth</quote
+> ayixhaswa ngoku. Ukusebenzisa <quote
+>SMTP emva POP3</quote
+> kufuneka uqokelele zonke iiposi zakho kwi <guilabel
+>ibhokisi yaphandle</guilabel
+> kwaye zithumele nje emva kokuba uthathe iposi entsha.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndingasebenzisa i &kmail; ne <application
+>procmail</application
+>?</para
+></question>
+<answer
+><para
+>Ewe, kodwa kubalulekile ukwenza yona ngendlela eyiyo okanye ungalahla iposi. Ukuze usebenzise iprocmail ne &kmail; ufuna ukucwangcisa i KMail ukuze ithathe iposi entsha kwiifayile ze spool apho iprocmail ilahla khona iposi yakho. Yenza <emphasis
+>hayi</emphasis
+> cwangcisa iprocmail ukusa iposi kwincwadi ye KMail, oku akunakusebenza.</para>
+<para
+>Kwifayile nganye ye spool ye procmail, ufuna ukwenza ityala apho i &kmail; izakuthatha khon aiposi. Ufuna kwakhona ukuqiniseka ukuba ukhankanya igama elililo lefayile yokutshixa yeli tyala. Xa ucwangcisa ityala, &kmail; izakwenza ulinganiso oluncinane kwifayile yakho ye procmail, kwaye izakuzama ukudwelisa ifayile ye spool nganye eyifumanayo, kwaye kwakhona neefayile zokutshixa ecaleni kwe "procmail lockfile" umba. iprocmail ivumela umsebenzi akhankanye iifayile zokutshixa ngendlela ezintathu ezahlukeneyo, ngoko akukho ndlela yokuseka uhambelwano phakathi kwefayile zespool nezokutshixa. Ngoko kuxhomekeke kuwe ngenene  ukuqinisekisa ukuba ukhankanya ifayile yokutshixa kwifayile nganye ye spool.</para>
+</answer>
+</qandaentry>
+
+<qandaentry id="pgp-faq">
+<question
+><para
+>Kufuneka ndazi ntoni ukuba ndifuna ukusebenzisa <application
+>PGP</application
+>/<application
+>GnuPG</application
+> nge &kmail;?</para
+></question>
+
+<answer
+><para
+>&kmail; inikeza ujongano olucacileyo nolulula lwemisebenzi engundoqo wolu dweliso lweenkqubo. Kwakhona uzakuqonda indlela ezi nkqubo zisakusebenza ngayo nento ezakwenza usebenziso lwazo lukhuseleke.Imiba ethile ebalulekileyo:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>U <emphasis
+>ngenene</emphasis
+> ungavavanya ukuba ufihlo luyasebenza phambi kokuba ulusebenzise. &kmail; ixhomekeke kwi <application
+>PGP</application
+>/<application
+>GnuPG</application
+>'s imitya yemposiso, etshintsha rhoqo phakathi kweenguqulelo ezahlukeneyo.</para
+> </listitem
+> <listitem
+> <para
+>Ukuthemba isithsixo sikawonke-wonke sangaphandle ngaphandle kokusikhangela asiyongcamango ilungileyo.</para
+> </listitem
+> <listitem
+> <para
+>&kmail; ayizukufihla imiyalezo nge ngathembakelanga (engatyikitywanga) isitshixo sikawonke-wonke ukuba usebenzisa i <application
+>PGP</application
+>. Ukuba usebenzisa i <application
+>GnuPG</application
+> &kmail; <emphasis
+>izaku</emphasis
+> fihla imiyalezo ngezitshixo ezingathembakelanga zikawonke-wonke.</para
+> </listitem
+> <listitem
+> <para
+>Njengabaninzi abaxhasi beposi, &kmail; ingafihla imiyalezo yakho, kodwa <emphasis
+>hayi</emphasis
+> izifakelo zakho. Kufuneka uzifihle ngencwadi phambi kokuba uzifakele.</para
+> </listitem
+> </itemizedlist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndiza kuyicwangcisa njani i &kmail; ukusebenzisa i (&ie; funda kwaye ubhale) imiyalezo nge ngengabo-Latini1 abasebenzi?</para
+></question>
+<answer
+><para
+>Kwi <guilabel
+>Inkangeleko</guilabel
+>/<guilabel
+>Imigca</guilabel
+> icandelo le <guilabel
+>Qwalasela i &kmail;...</guilabel
+> incoko yababini, khetha elungileyo <guilabel
+>Ucwanbbgciso loMsebenzi</guilabel
+> woluhlu lomyalezo noluhlu lwencwadi. Ukuba <guilabel
+>ikhowudi enye (iso10646-1)</guilabel
+> ikhona, ungakhetha yona. Mhlawumbi imiyalezo ayikaboniswa kakuhle, ungasoloko uzama ezinye izicwangciso kwi <menuchoice
+><guimenu
+>Umyalezo</guimenu
+><guimenuitem
+>Cwangcisa Enkhowudingi</guimenuitem
+></menuchoice
+> menu. Yokubhala imiyalezo, yiya ku <guilabel
+>Umqambi</guilabel
+>/<guilabel
+>Charset</guilabel
+> kwaye qwalasela engagqibekanga icharset ofuna ukuyisebenzisa kwezakho iiposi.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ukhangelo lopelo alubaqondi abasebenzi abangengo-mangesi.</para
+></question>
+<answer
+><para
+>Phambi kokuba ungasebenzisa ukhangelo lopelo kwixesha lokuqala, ungayi qwalasela. Ungakwenza oko kwi <guilabel
+>Umqambi</guilabel
+> window's menu phantsi <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+> <guimenuitem
+>Umkhangeli wopelo...</guimenuitem
+></menuchoice
+>. Ungacwangcisa idikshinari ne enkhowudingi apho.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndiyisebenzisa njani eyam i <application
+>Eudora</application
+>/&Netscape;/<application
+>Ujongo</application
+>/... iincwadi zeposi kwi &kmail;?</para
+></question
+> 
+<answer
+><para
+>Bona icandelo <link linkend="importing"
+>Usebenzisa ezinye iifayile zebhokisi yePosi Nge &kmail;</link
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndingazisebenzisa njani iincwadi ezingekho kwi <filename class="directory"
+>~/Mail/</filename
+>?</para
+></question>
+
+<answer
+><para
+>Yenza lula i symlink kweyakho i <filename class="directory"
+>~/Mail</filename
+> ulawulo usebenzisa i <userinput
+><command
+>Kwi</command
+> <option
+>-s</option
+> <filename
+>/somewhere/Mail/mymailboxfile</filename
+> <filename class="symlink"
+>~/Mail/remote</filename
+></userinput
+>. Xa uqala i &kmail; uzakubona incwadi entsha ngegama i <guilabel
+>bekela kude</guilabel
+> equlathe iiposi kwincwadi yakho yobekelo kude. Ukuba ufuna ukudibanisa ulawulo lweposi lobekelo kude sebenzisa i <userinput
+><command
+>Kwi</command
+> <option
+>-s</option
+> <filename
+>/somewhere/Mail</filename
+> <filename class="symlink"
+>~/Mail/.remotedir.directory</filename
+></userinput
+>. Kulo mzekelo ufuna kwakhona ukwenza incwadi engenanto entsha ebizwa ngokuba yi <filename class="directory"
+>remotedir</filename
+> nge &kmail;. Incwadi eneenkcukacha <filename class="directory"
+>remotedir</filename
+> izakuqulatha ngoku zonke iincwadi zobekelo kude zebhokisi yeposi njengeencwadi ezisezantsi.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndingasebenzisa ufihlo ngeyam yesiqhelo (engeyo-<acronym
+>SSL</acronym
+>) <acronym
+>POP3</acronym
+> ityala?</para
+></question>
+<answer
+><para
+>Ukuba owakho <acronym
+>POP3</acronym
+> umncedisi usebenzisa i <application
+>ssh</application
+> daemon, ungasebenzisa i ssh ukugquma eyakho i <acronym
+>POP3</acronym
+> udibaniso usebenzisa umyalelo olandelayo.</para>
+
+<para
+><userinput
+><command
+>ssh</command
+> <option
+>-L 110:127.0.0.1:110 user@host</option
+></userinput
+></para>
+
+<para
+>Guqula kancinane eyakho i &kmail; uqwalaselo ukuthatha iposi egqitha kwi <acronym
+>POP3</acronym
+> kwi <userinput
+>inginginya yobulali</userinput
+> ne ssh izakugquma udibaniso kuwe. Ufuna ukwenziwa ingcambu ukuphumeza lo myalelo. Ngokuhambelana, tshintsha inani lokuqala lezibuko, &ie; isenzeko sokuqala se <userinput
+>110</userinput
+>, kwinto engaphezulu 1024 kwaye qwalasela i &kmail; ukusebenzisa elo zibuko. <note
+><para
+>Ukuba ezinga-fihlwanga iiposi sele zithunyelwe ngokugqitha kwi internet, uncedo kuphela lokusebenaisa i <application
+>ssh</application
+> lelokuba eyakho i <emphasis
+>igama eligqithisiweyo</emphasis
+> lizakuthunyelwa ngokufihlakeleyo kwi <acronym
+>POP3</acronym
+> umncedisi.</para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ingaba i &kmail; iyazitshixa iincwadi ezisebenzisayo?</para
+></question>
+<answer
+><para
+>&kmail; ayizitshixi iifayile kwi <filename class="directory"
+>~/Mail</filename
+>.</para>
+<para
+>Ukunqanda umngcipheko wokulahla iposi <emphasis
+>ukuba usebenzisa elobulali ityala</emphasis
+> kuyimfuneko ukuqinisekisa ukuba i &kmail; isebenzisa udidi olunye lokutshixa njengommeli wophathelo lweposi.</para>
+
+<para
+>Kukho iinketho ezintlanu ezahlukileyo zotshixo onokuzisebenzisa:</para>
+
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>Mutt dotlock (iyaleziwe)</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Mutt dotlock iphezulu</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Procmail ifayile yokutshixa</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>FCNTL</guilabel
+> (okungagqibekanga)</para
+></listitem
+> <listitem
+><para
+><guilabel
+>akukho nanye (sebenzisa ngononophelo)</guilabel
+></para
+></listitem
+> </itemizedlist>
+
+<para
+><guilabel
+>Mutt dotlock</guilabel
+> ne <guilabel
+>Mutt dotlock iphezulu</guilabel
+> zizakusebenzisa zombini icebo eliluncedo elincinane elivela nge mutt ebizwa ngokuba yi <command
+>mutt_dotlock</command
+>. <guilabel
+>Mutt dotlock</guilabel
+> ingasetyenziswa ngendlela enye njenge <guilabel
+>Procmail ifayile yotshixo</guilabel
+> ukhetho, ngomda omnye ngokhangelo kwi <filename class="directory"
+>/var/spool/mail/</filename
+> iincwadi. Ngoko ke, i <guilabel
+>Mutt dotlock iphezulu</guilabel
+> ukhetho lungenza iifayile zokutshixa kwi <filename class="directory"
+>/var/spool/mail</filename
+> ulawulo. <command
+>mutt_dotlock</command
+> ludweliso lwenkqubo yobeko lwegid kwaye olu khetho luzakuyisebenzisa kwindlela yobeko lwegid. Nceda qaphela ezi nketho zizakusebenza kuphela ukuba i mutt ifakiwe kwindlela yakho.</para>
+
+<para
+><guilabel
+>Procmail ifayile yokuvala</guilabel
+> izakusebenzisa icebo eliluncedo elincinane oluvela nge <application
+>procmail</application
+> ebizwa <command
+>ifayile yokuvala</command
+>. Ungasebenzisa oku ukuba incwadi yakho yeposi iku lawulo apho uneemvume zokubhala. Oku akuzukusebenza kweyakho i <filename class="directory"
+>/var/spool/mail/user</filename
+> ifayile kwemininzi imizekelo. Izakwenza i <filename
+>.lock</filename
+> iifayile kwelakho ityala xa i &kmail; ikhangela iposi entsha. Nceda qaphela ukuba oku kuzakusebenza kuphela ukuba <application
+>procmail</application
+> ifakwe kwindlela yakho.</para>
+
+<para
+><guilabel
+>FCNTL</guilabel
+>: ukhetho olungagqibekanga luzakusebenzisa i <function
+>fcntl()</function
+> ubizo lwendlela.</para>
+
+<para
+>Ukuba awufuni ukusebenzisa naluphi na utshixo, i <guilabel
+>akukho nanye</guilabel
+> ukhetho yilento uyifunayo. Ngoko ke, kukho imingcipheko yokulahla iposi xa kungekho lutshixo lusetyenziswayo.</para>
+
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndiyishiya njani iposi kumncedisi?</para
+></question>
+<answer
+><para
+>Vula i <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+><guimenuitem
+>Qwalasela i &kmail;...</guimenuitem
+> </menuchoice
+> window. Nqakraza kwi <guilabel
+>Umsebenzi womnatha</guilabel
+> tab. Khetha ityala lakho kuluhlu lwetyala kwaye nqakraza i <guilabel
+>Guqula kancinane...</guilabel
+> iqhosha. Le ncoko yababini iqulathe i <guilabel
+>Cima iposi ku mncedisi</guilabel
+> isicwangciso omawungasikhethi.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndizifaka njani ngokuzenzekelayo ifooter zokubhaliweyo kwiiposi zam?</para
+></question>
+<answer
+><para
+>Ifooter yokubhaliweyo ubizwa ngokuba yifayile yotyikityo. Khetha i <menuchoice
+><guimenu
+>Izicwangciso</guimenu
+> <guimenuitem
+>Qwalasela i &kmail;...</guimenuitem
+></menuchoice
+> Khangela kwi <guilabel
+>Uqwalaselo</guilabel
+> tab ye <guilabel
+>Khankanya utyikityo ngezantsi</guilabel
+> umhlaba. Khetha iqhosha lonomathotholo kwaye uchwetheze utyikityo lwakho ngezantsi.</para
+></answer
+> 
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kutheni i &kmail; indibuza ngendawo yefayile yam yotyikityo?</para
+></question>
+<answer
+><para
+>&kmail; izakucela indawo yefayile yotyikityo lwakho ukuba ukhangele ukhetho <guilabel
+>Yenza ngokuzenzekelayo utyikityo</guilabel
+> kwi <guilabel
+>Umqambi</guilabel
+> tab ye <guilabel
+>Qwalasela i &kmail;...</guilabel
+> incoko yababini, kodwa awukhankanyanga fayile yotyikityo kwi <guilabel
+>Uqwalaselo</guilabel
+> tab. Uzakukhankanya noba ifayile yotyikityo, khetha i <guilabel
+>Sebenzisa utyikityo ngezantsi</guilabel
+>, okanye sukukhetha i <guilabel
+>Yenza ngokuzenzekelayo utyikityo</guilabel
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ndiyicwangcisa njani <application
+>thumela iposi</application
+> ukusebenza nge &kmail; ukuba ndinodibaniso locofo-phezulu?</para
+></question
+> 
+
+<answer
+><para
+>Kuqala ungakhangela ukuba eyakho i &Linux;/BSD/naluphi na unikezelo lungakwenzela oku. Sele icwangcisiwe ngexesha lofako.</para>
+
+<para
+>Ukuba asingomzekelo, ungafuna ukujonga kwi <ulink url="http://www.linuxdoc.org/HOWTO/mini/Mail-Queue.html"
+>iposi Fola  HOWTO</ulink
+> okanye kwi <ulink url="http://www.leg.uct.ac.za/Articles/sendmail_dialup.html"
+>UCT Linux Iphepha leqela lomsebenzisi ekuqwalaseleni iposi ethunyelwayo yodibaniso locofo- phezulu</ulink
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Sizibonile iinkcazelo zokuziphatha kolawulo lobekelo kude nge &kmail;. Ilapho naluphi na uxwebhu kujongano olukhoyo?</para
+></question>
+<answer
+><para
+>Ungafumana uluhlu lwemisebenzi ngokusebenzisa lo myalelo kwiqokobhe: <userinput
+><command
+>dcop</command
+> <option
+>kmail KMailIface</option
+></userinput
+>. Olunye uxwebhu kwakhona likwi <filename
+>kdenetwork/kmail/kmailIface.h</filename
+> ne <filename
+>kdenetwork/kmail/mailcomposerIface.h</filename
+>.</para
+></answer>
+</qandaentry>
+
+</qandaset>
+
+</chapter>
+
+
+<chapter id="importing">
+<title
+>Usebenzisa ezinye Iifayile zebhokisi yePosi nge &kmail;</title>
+
+<para
+>&kmail; inikeza isixhobo sorhwebo lwangaphakathi kwifomati ezithile. Unganikeza yona usebenzisa <menuchoice
+><guimenu
+>Ifayile</guimenu
+><guimenuitem
+>Rhweba ngaphakathi...</guimenuitem
+></menuchoice
+>. Ufuna kuphela esinsiqendu ukuba esi sixhobo asikusebenzeli.</para>
+
+<para
+>Eli candelo lwabo bonke abasebenzisi abafuna ukusa imiyalezo ye email kodlulileyo umxhasi we email ngapha kwi &kmail;. &kmail; igcina eyayo iposi usebenzisa i <literal
+>mbox</literal
+> fomati, enye yezibninzi ezisetyenziswayo iifomati zebhokisi yeposi kwi &UNIX; iindlela. Mbox iibhokisi zigcina imiyalezo kwifayile enye, iqwalasela apho imiyalezo iqala khona nalapho iphela khona nge i <literal
+>Kwi</literal
+> ilayini (sukuxuba oku nge <literal
+>Kwi:</literal
+> header equlathe umthumeli womyalezo). Kwezininzi &UNIX; udweliso lweenkqubo zeposi, konke omawukwenze kukusa ezakho iibhokisi zeposi kwi <filename class="directory"
+>~/Mail</filename
+> (okanye yenza i <filename class="symlink"
+>Iposi</filename
+> ikhonkco elinophawu kwincwadiequlathe iibhokisi zeposi zakho), qiniseka ukuba ziyabhaleka ngomsebenzisi wakho, kwaye yazisa i &kmail;. Iibhokisi zeposi zizakuza ngoku kakuhle kwi &kmail;.</para>
+
+<para
+>Ukuba ezindala iibhokisi zeposi azikho kwifomati ye mbox, bona ngezantsi imiyalelo ekurhwebeni ngaphakathi ezinye iifomati eziqhelekileyo. Thatha ujongo kwi <ulink url="http://kmail.kde.org/download.html"
+>Icandelo lolayisho phantsi lwe &kmail;'s iphepha lasekhaya</ulink
+> ukuba ifomati yebhokisi yeposi ayidweliswanga apha.</para>
+
+<warning
+><para
+>Sukusebenzisa umxhasi wesibini weposi onikeza iifayile kwi <filename class="directory"
+>~/Mail</filename
+> ngexesha i &kmail; isebenza okanye ungalahla imiyalezo. Eli candelo licacisa kuphela indlela yokurhweba ngaphakathi iibhokisi zeposi kwi &kde; kanye, ayiloncedo kuwe ukuba uceba ukusebenzisa abaxhasi beposi abaninzi bebhokisi zakho zeposi kwixesha elizayo.</para
+></warning>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Eudora Lite</application
+>/<application
+>Eudora Pro</application
+></term
+> <listitem
+> <para
+><application
+>Eudora</application
+> isebenzisa ifomati ye mbox kwiifayile zayo zeposi. Ukuzisebenzisa nge &kmail;, qiniseka ukuba eyakho i <application
+>Eudora</application
+> iibhokisi zeposi zilinganisiwe, ngoku khuphela i <literal role="extension"
+>.mbx</literal
+> iifayile (&Windows; <application
+>Eudora</application
+>) okanye <application
+>Eudora</application
+> iifayile zebhokisi yeposi (&Mac; <application
+>Eudora</application
+>) kweyakho <filename class="directory"
+>~/Mail</filename
+> ulawulo. Awufuni kukhuphela <filename
+>isalathisi</filename
+> iifayile. Xa uqala i &kmail;, iibhokisi zeposi zinokuvela kulwahlulo lweencwadi nemiyalezo inokunikezwa kulwahlulo lwe Headers.</para
+> <para
+>Ukuba imiyalezo ayiveli kulwahlulo lwe Headers, iifayile zakho zebhokisi yeposi zinokuqulatha i &Windows; okanye &Mac; abasebenzi botyiso lwelayini. Sebenzisa owakho umhleli wokubhaliweyo omthandayo, i <application
+>ikhowudi kwakhona</application
+> umyalelo okanye ulwimi olushicilelayo ukutshintsha i &Windows; okanye &Mac; ilayini ityisa kwi &UNIX; ilayini ityisa.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>MMDF</term
+> <listitem
+> <para
+>Le fomati ikufutshane ngokwaneleyo kwifomati yebhokisi yeposi i &kmail; enokwazi ukusebenzisa ezi bhokisi zeposi ukuba ukhuphela nje zona kweyakho i <filename class="directory"
+>~/Mail</filename
+> ulawulo. Ngoko ke, MMDF iibhokisi zeposi azivavanywanga nge &kmail;, ngoko iziphumo zakho zinokwahluka. Ukuba ungafumana le fomati ukusebenza nge &kmail;, nceda sazise ukuze siquke izalathisi ezininzi kukhupho loxwebhu olukhankanyiweyo olulandelayo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>MH iibhokisi zeposi</term
+> <listitem
+> <para
+>MH iibhokisi zeposi zingabalawuli abaqulathe iifayile ezihambelana nomyalezo ngamnye kulo bhokisi yeposi. Iqokobhe lokushicilelweyo ukuguqula MH iibhokisi zeposi kwi mbox iibhokisi zeposi, <command
+>mh2kmail</command
+>, iyaqukwa noko kukhupho lwemvelaphi ye &kmail;, kodwa mhlawumbi kukhupho olupakishiweyo. Ukwenza olu shicilelo kwi MH incwadi kuzakuguqula yona kwi mbox fayile. Siphakamisa ngamandla ukuba ubuyisela eyakho i MH iincwadi zeposi phambi kokuba usebenzise olu shicilelo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Forte <application
+>Ummeli</application
+></term
+> <listitem
+> <para
+>Kwi <application
+>Ummeli</application
+>:</para
+> <procedure
+> <step
+> <para
+>Khetha imiyalezo ukurhweba ngaphandle</para
+> </step
+> <step
+> <para
+>Khetha <menuchoice
+><guimenu
+>IFAYILE</guimenu
+><guimenuitem
+>GCINA IMIYALEZO NJENGE</guimenuitem
+></menuchoice
+></para
+> </step
+> <step
+> <para
+>Phawula i <guilabel
+>UNIX FORMAT</guilabel
+> ne <guilabel
+>GCINA KRWADA</guilabel
+> iibhokisi</para
+> </step
+> <step
+> <para
+>Nika ifayile i <literal role="extension"
+>.txt</literal
+> ulwandiso no gcino.</para
+> </step
+> </procedure
+> <para
+>Kwi &kde;:</para
+> <procedure
+> <step
+> <para
+>Okudlulileyo okusiweyo kugcina ifayile kwelungileyo i <filename class="directory"
+>~/Mail</filename
+> incwadi eneenkcukacha</para
+> </step
+> <step
+> <para
+>Nika kwakhona ifayile igama ngaphandle <literal role="extension"
+>.txt</literal
+> ulwandiso</para
+> </step
+> </procedure
+> <para
+>Xa uvula i &kmail; incwadi entsha ngemiyalezo eyiyo izakuba lapho.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>&Netscape; Iposi</term
+> <listitem
+> <para
+>Khuphela eyakho &Netscape; iifayile zeposi kwi <filename class="directory"
+>~/nsmail/</filename
+> kwi <filename class="directory"
+>~/Mail</filename
+> kwaye qiniseka ukuba ziyabhaleka (kuphela ngomsebenzisi wakho, kunjalo). Iibhokisi zeposi zizakubakhona kwi &kmail; kwixesha elizayo uyiqala.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Iposi ye Pegasus</application
+></term
+> <listitem
+> <para
+><application
+>Pegasus</application
+> ye win32 isebenzisa iifayile ezizodwa zencwadi ezineenkcukacha zePosi ezifana kwi &kmail;. <application
+>Pegasus iposi</application
+> iifayile zencwadizinolwandiso <literal role="extension"
+>.pmm</literal
+> kodwa ziyifomati enye ne mbox ngaphandle kokuba imiyalezo ayiqali nge <literal
+>Kwi</literal
+> header, kodwa ngomsebenzi wolawulo. Ukusebenza jikelele kule, buyisela umzekelo ngamnye womsebenzi wolawulo nge <literal
+>Kwi aaa@aaa Mvulo Jan 01 00:00:00 1997</literal
+>. Le <literal
+>Kwi</literal
+> layini izakubayilayini yokuqala yomyalezo ngamnye, phambi kwe <literal
+>Yamkelwe:</literal
+> nezinye iiheader. Qiniseka ukusebenzisa umhleli wokubhaliweyo okuvumela ukuba ugcine iifayile kwi &UNIX; fomati okanye yenza iincwadi ezintsha kwi <application
+>Pegasus</application
+> akwi &UNIX; fomati kwaye khuphela iiposi zakho apho.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Maildir / Outlook Express / xfmail</term
+> <listitem
+> <para
+>Izixhobo ukuguqula ezi fomati zikhoyo kwi <ulink url="http://kmail.kde.org/download.html"
+>icandelo loLayisho phantsi le &kmail;'s iphepha lasekhaya</ulink
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Lotus <application
+>Iziqwalaselo</application
+>, BeOS Iifayile zePosi, <application
+>cc: Mail</application
+>, &etc;...</term
+> <listitem
+> <para
+>Kuqala kufuneka ujonge kwi <ulink url="http://kmail.kde.org/download.html"
+>Icandelo lolayisho phantsi lwe &kmail;'s iphepha lasekhaya</ulink
+> ukuba kuukho izixhobo ukuguqula iiposi.</para
+> <para
+>Udweliso lweenkqubo zeposi azidweliswanga apha okanye kwiphepha lasekhaya azisebenzi nge &kmail; njengoko zisebenzisa iifomati zeposi apho i &kmail; ingenakuqonda. Ngoko ke, akukho ngozi ekuzameni! Ukuba ifayile yebhokisi yeposi ijongeka ngokufanayo kwifomati yebhokisi yeposi, zama ukumelana nefayile yebhokisi yeposi (khumbula, ifayile yesalkathisi ayifuneki) kweyakho i <filename
+>~/Mail</filename
+> ulawulo kwaye bona okwenzekayo ukuba uqala i &kmail;. Ukuba ufumana iibhokisi zeposi kumxhasi weposi omthandayo ukusebenza kwi &kmail;, nceda sixelele indlela oyenze ngayo ukuze ziquke izalathisi kuphindo lwexesha elizayo lolu xwebhu. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+
+<chapter id="credits-and-licenses">
+<title
+>Amatyala nelayisenisi</title>
+
+<para
+>&kmail;: Copyright i &kmail; ababhekisi phambili, 1997-2001</para>
+
+&underGPL;
+&underFDL;
+
+<sect1 id="developers">
+<title
+>Ababhekisi phambili boqobo</title>
+<!-- please keep in sync with the authors list on the webpage -->
+
+<itemizedlist
+> <listitem
+> <para
+>Stefan Taferner <email
+>taferner@alpin.or.at</email
+></para
+> </listitem
+> <listitem
+> <para
+>Markus Wuebben <email
+>markus.wuebben@kde.org</email
+></para
+> </listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="team">
+<title
+>Iqela langoku</title>
+
+<itemizedlist
+> <listitem
+><para
+>Waldo Bastian <email
+>bastian@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Andreas Gungl <email
+>a.gungl@gmx.de</email
+></para
+></listitem
+> <listitem
+><para
+>Michael Haeckel <email
+>michael@haeckel.net</email
+></para
+></listitem
+> <listitem
+><para
+>Lars Knoll <email
+>knoll@mpi-hd.mpg.de</email
+></para
+></listitem
+> <listitem
+><para
+>J. Nick Koston <email
+>bdraco@darkorb.net</email
+></para
+></listitem
+> <listitem
+><para
+>Marc Mutz <email
+>mutz@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Daniel Naber <email
+>daniel.naber@t-online.de</email
+></para
+></listitem
+> <listitem
+><para
+>Sven Radej <email
+>radej@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Espen Sand <email
+>espen@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Don Sanders <email
+>sanders@kde.org</email
+> (Umlondolozi osebenzayo)</para
+></listitem
+> <listitem
+><para
+>George Staikos <email
+>staikos@0wned.org</email
+></para
+></listitem
+> <listitem
+><para
+>Mario Weilguni <email
+>mweilguni@sime.com</email
+></para
+></listitem
+> <listitem
+><para
+>Robert D. Williams <email
+>rwilliams@kde.org</email
+></para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="documentation">
+<title
+>Uxwebhu</title>
+
+<para
+>Ugqibo lwe &kmail; 1.2 ne 1.3 ngu Daniel Naber <email
+>daniel.naber@t-online.de</email
+>, <application
+>PGP</application
+> inxenye ngu Andreas Gungl <email
+>a.gungl@gmx.de</email
+>, inxenye yecebo lokucoca ngu Marc Mutz <email
+>Marc.Mutz@uni-bielefeld.de</email
+>. Amanye amaqela anikelwe ngabohlukileyo be &kmail; ababhekisi phambili.</para>
+
+<para
+>&kmail; 1.0 uxwebhu ngu David Rugge <email
+>davidrugge@mindspring.com</email
+>. Uxwebhu loqobo ngu Markus Wuebben <email
+>markus.wuebben@kde.org</email
+>, Robert Williams <email
+>rwilliams@kde.org</email
+> (Umhleli).</para>
+
+<para
+>Enkosi ku Michael Elkins <email
+>me@cs.hmc.edu</email
+> ngenkcazelo yakhe esemagqabini yeefomati zeposi ye Unix eyahlukileyo kuxwebhu le Mutt.</para>
+
+<para
+>Enkosi kwaba bantu balandelayo abanikeza izalathiso ekusebenziseni ezinye iibhokisi zeposi zomxhasi weposi nge &kmail;:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Mendel Mobach <email
+>mendel@mobach.nl</email
+> (&Netscape; iposi)</para
+></listitem
+> <listitem
+><para
+>Ed Shapard <email
+>shapard@bigfoot.com</email
+> (<application
+>Pegasus</application
+> Iposi)</para
+></listitem
+> <listitem
+><para
+>Ray Muir <email
+>rjmuir@ibm.net</email
+> (Forte <application
+>Ummeli</application
+>)</para
+></listitem
+> </itemizedlist>
+<para
+>Translation Antoinette Dekeni <email
+>antoinette@translate.org.za</email
+></para>
+
+</sect1>
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Ufako</title>
+
+<sect1 id="getting-kmail">
+<title
+>Ungayifumana njani i &kmail;</title>
+
+<para
+>&kmail; yinxenye ye &kde; projekti <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kmail; ingafunyanwa kupakisho lwe kdenetwork kwi <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, engundoqo &FTP; inxuwa le &kde; projekti. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Uqokelelo no Fako</title>
+
+<para
+>Ukuze uqokelele kwaye ufake i &kmail; kwindlela yakho, chwetheza okulandelayo kulawulo lesiseko lonikezelo lwe kdenetwork:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>yenza</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>yenza</command
+> <option
+>faka</option
+></userinput>
+</screen>
+
+<para
+>Ukusukela ukuba i &kmail; isebenzisa i <application
+>qwalasela ngokuzenzekelayo</application
+> ne <application
+>yenza ngokuzenzekelayo</application
+> unokuba nengxaki yokuyiqokelela. Xa uneengxaki nceda zixele kwi &kde; uluhlu lokuposa.</para>
+
+</sect1>
+
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

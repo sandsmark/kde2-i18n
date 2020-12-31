@@ -1,0 +1,253 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ksnake;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>A &ksnake; kézikönyve</title>
+<authorgroup>
+<author
+> <firstname
+>Michel</firstname
+> <surname
+>Filippi</surname
+> </author>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Michel Filippi</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+<date
+>2000-12-16</date>
+<releaseinfo
+>0.02.00</releaseinfo>
+
+<abstract>
+<para
+> A Kígyóverseny egy szórakoztató ügyességi játék. Egy éhes kígyót kell irányítani, a lehető leggyorsabban elfogyasztva a teremben megjelenő almákat! </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>játék</keyword>
+<keyword
+>Linux</keyword>
+<keyword
+>verseny</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+
+<para
+> A Kígyóverseny egy szórakoztató ügyességi játék. Egy éhes kígyót kell irányítani, a lehető leggyorsabban elfogyasztva a teremben megjelenő almákat! </para>
+
+</chapter>
+
+<chapter id="rules-of-the-game">
+<title
+>Játékszabályok</title>
+
+<sect1 id="to-win">
+<title
+>A játék célja</title>
+
+<para
+> A játék megnyeréséhez meg kell enni az összes megjelenő almát, és végül el kell hagyni a termet a felül megnyíló kijáraton keresztül. </para>
+
+<itemizedlist
+> <listitem
+> <para
+> A kígyó minden megevett alma után egy kicsit hosszabb lesz. </para
+> </listitem
+> <listitem
+> <para
+> Ha nekiütközik a falnak, vége a játéknak. </para
+> </listitem
+> <listitem
+> <para
+> Ha a kígyó önmagával ütközik, akkor is vége a játéknak. </para
+> </listitem
+> <listitem
+> <para
+> Ha egy pattogó labda eltalálja a kígyót, akkor is vége a játéknak. </para
+> </listitem
+> <listitem
+> <para
+> Ha túl lassan eszi meg a kígyó az almákat, újabbak jelennek meg. </para
+> </listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="scoring">
+<title
+>Eredményszámítás</title>
+
+<sect2>
+<title
+>Mielőtt az idő letelne</title>
+
+
+<para
+> Az idő leteltéig a pontszámok a következőképpen alakulnak: </para>
+
+<itemizedlist
+> <listitem
+> <para
+> 1 pont minden megevett piros almáért + jutalom a nehézségi szinttől függően. </para
+> </listitem
+> <listitem
+> <para
+> 5 pont minden megevett aranyszínű almáért + jutalom a nehézségi szinttől függően + 2 pont minden gépi kígyóért + 2 pont minden pattogó labdáért. </para
+> </listitem
+> <listitem
+> <para
+> A terem elhagyásakor a szint számának kétszerese + jutalom a nehézségi szinttől függően. </para
+> </listitem
+> </itemizedlist>
+
+</sect2>
+
+<sect2>
+<title
+>Az idő letelte után</title>
+
+<para
+> Az idő letelte után a pontszámok a következőképpen alakulnak: </para>
+
+<itemizedlist
+> <listitem
+> <para
+> 1 pont minden megevett piros almáért. </para
+> </listitem
+> <listitem
+> <para
+> 2 pont minden megevett aranyszínű almáért. </para
+> </listitem
+> <listitem
+> <para
+> A terem elhagyásakor a szint száma + jutalom a nehézségi szinttől függően. </para
+> </listitem
+> </itemizedlist>
+
+</sect2>
+
+<sect2>
+<title
+>Ha egy gépi kígyó eszik meg valamit</title>
+
+<para
+> A gépi kígyók által elfogyasztott almákért pontlevonás jár: </para>
+
+<itemizedlist
+> <listitem
+> <para
+> 2 pont mínusz a piros almákért. </para
+> </listitem
+> <listitem
+> <para
+> 5 pont mínusz az aranyszínű almákért. </para
+> </listitem
+> </itemizedlist>
+
+</sect2>
+
+<sect2>
+<title
+>Más pontok</title>
+
+<para
+> Minden megölt gépi kígyóért 20 pont jutalom jár. </para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="customization">
+<title
+>Testreszabás</title>
+
+<sect1 id="create-your-own-levels">
+<title
+>Saját szintek létrehozása</title>
+
+<para
+> Egyéni szint létrehozásához át kell másolni az egyik szinthez tartozó fájlt a <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/apps/ksnake/levels</filename
+> könyvtárból a <filename class="directory"
+>$<envar
+>HOME</envar
+>/.kde/share/apps/ksnake</filename
+> könyvtárba és át kell szerkeszteni egy képfeldolgozó programmal. Az új szint betöltéséhez a <menuchoice
+><guimenu
+>Beállítások</guimenu
+> <guimenuitem
+>Kezdőterem</guimenuitem
+> </menuchoice
+> menüpontot kell kiválasztani. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>A szerzők névsora és a licencengedély</title>
+
+<para
+> &ksnake; - Copyright: Michel Filippi, 2000. </para>
+
+<para
+> Documentation copyright: Michel Filippi és Robert Williams, 2000. </para>
+
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

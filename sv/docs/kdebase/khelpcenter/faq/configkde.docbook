@@ -1,0 +1,458 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+ 
+<chapter id="configure">
+<title
+>Anpassa &kde;</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Hur väljer jag språket som används av &kde;?</para>
+</question>
+<answer>
+<para
+>Det finns två sätt att välja språket som &kde; använder för att visa meddelanden:</para>
+<variablelist
+> <varlistentry
+><term
+>Med <application
+>&kde;:s inställningscentral</application
+></term
+> <listitem
+><para
+>Kör igång <application
+>&kde;:s inställningscentral</application
+> och välj <guimenu
+>Personligt</guimenu
+> följt av <guimenuitem
+>Land &amp; språk</guimenuitem
+>. Du kan välja ditt språk och plats här. Om &kde; inte hittar en översättning i det första språket som du valt, återgår det till det förvalda språket. Detta är oftast (amerikansk) engelska.</para
+> <note
+><para
+>Att använda <application
+>&kde;:s inställningscentral</application
+> är det bästa sättet att välja språk i &kde;.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Genom att använda miljövariabeln <envar
+>LANG</envar
+></term
+> <listitem
+><para
+>Den andra metoden använder ditt systems standardplatsinställning. För att ändra språket, ändra helt enkelt miljövariabeln <envar
+>LANG</envar
+> i enlighet med språket. Till exempel, om du använder <application
+>bash</application
+>, kör <command
+>export LANG=de</command
+> för att välja tyska språket.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Finns det ett program för att byta tangentbord mellan olika internationella tangentbord i &kde;?</para>
+</question>
+<answer>
+<para
+>I &kde; 1.x fanns programmet &kikbd; men det har försvunnit helt sedan dess och man ska använda <application
+>xkb</application
+> istället.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur byter jag ut &Linux; textbaserade standardloginskärm mot &kde;:s logginskärm?</para>
+</question>
+<answer>
+<para
+>Först måste du byta till "xdm runlevel" (runlevel 5 på &RedHat; system, 3 på S.u.S.E.) genom att redigera din <filename
+>/etc/inittab</filename
+>-fil. I den här filen ska det finnas en rad som lyder <userinput
+>id:3:initdefault:</userinput
+>. Ändra den till <userinput
+>id:5:initdefault:</userinput
+>. Gå därefter till slutet på filen, kommentera bort följande rad: <userinput
+>x:5:respawn:/usr/bin/X11/xdm -nodaemon</userinput
+> och ersätt den med <userinput
+>x:5:respawn:<replaceable
+>/opt/kde/</replaceable
+>bin/kdm -nodaemon</userinput
+>. <note
+><para
+>Sökvägen till &kdm; kan vara annorlunda i ditt system.</para
+></note
+></para>
+<para
+>För att låta ändringarna få effekt omedelbart, skriv <command
+>init 5</command
+> (för &RedHat; system) på kommandoraden. <caution
+><para
+>Det är riskabelt att initiera en grafisk inloggning utan att i förhand kontrollera om det fungerar. Om det misslyckas, får du det svårt att komma tillbaka...</para
+></caution
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur byter jag ut &kwm; eller &kwin; med en annan fönsterhanterare som passar ihop med  &kde; som <application
+>Blackbox</application
+> och &windowmaker;?</para>
+</question>
+<answer>
+<para
+>Ladda först hem källkoden och kompilera den. Du måste antagligen ange några parametrar när du kör <filename
+>configure</filename
+>-skriptet för att få fram binärfiler som passar ihop med &kde;. Läs filerna <filename
+>README</filename
+> och <filename
+>INSTALL</filename
+> för att få instruktioner. Byt därefter helt enkelt ut <command
+>kwm</command
+>-kommandot i <filename
+>startkde</filename
+>-skriptet mot kommandot som kör den nya fönsterhanteraren och du är klar. För &kde; 2 skriver du istället om raden som kör <application
+>ksmserver</application
+> i <filename
+>startkde</filename
+> för att anropa sessionshanteraren med argumentet <option
+>--windowmanager <replaceable
+>min_fönsterhanterare</replaceable
+></option
+>.</para>
+<para
+><application
+>Blackbox</application
+> är ytterligare ett tillägg i listan av fönsterhanterare för &X-Windows;. Den är byggd med C++ och har ingen kod gemensam med någon annan fönsterhanterare (även om grafikimplementeringen liknar den i &windowmaker;). <application
+>Blackbox</application
+> anpassades till &kde; i och med version 0.50.2. Var god besök <ulink url="http://blackbox.alug.org/"
+>Blackbox @ alug.org</ulink
+> för ytterligare information. Du hittar också en användbar webbsida på <ulink url="http://www.draknor.net/kbb/"
+>KBB - att få <application
+>Blackbox</application
+> att fungera med &kde;</ulink
+>.</para>
+<para
+>För att använda <application
+>Blackbox</application
+> med &kde;, ladda hem källkoden, packa upp den, gå till den nyskapade katalogen, och kör <command
+>./configure <option
+>--with-kde</option
+> ; make ; su -c 'make install'</command
+> (argumentet <option
+>--with-kde</option
+> aktiverar stöd för &kde;).</para>
+<para
+>Redigera därefter <filename
+>startkde</filename
+>-skriptet enligt beskrivningen ovan för att istället anropa <command
+>blackbox</command
+>. Spara till exempel det nya skriptet som <filename
+>$<envar
+>KDEDIR</envar
+>/bin/startbb</filename
+> och ändra sista raden i din X-startfil så att den kör det nya skriptet istället för det gamla. Kör igång &X-Windows; och du är klar.</para>
+<para
+>&windowmaker; är en X11-fönsterhanterare som är gjord för att ge ytterligare stöd för att integrera <ulink url="http://www.gnustep.org/"
+>GNUstep</ulink
+>-program. Den försöker följa det eleganta utseende och känslan som finns i &NeXTSTEP;:s grafiska gränssnitt (&GUI;). Den är relativt snabb, funktionsrik, lätt att anpassa och använda. &windowmaker; anpassades till &kde; i och med version 0.50.0. Var god besök den <ulink url="http://www.windowmaker.org/"
+>officiella Window Maker webbsidan</ulink
+> för mer information.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur kan jag ändra &RedHat; &Linux; logotypen på uppstartsskärmen?</para>
+</question>
+<answer>
+<para
+>&RedHat; använder <application
+>xbanner</application
+> för att visa sin logotyp, så för att stänga av den, kommentera bara bort raden som anropar <application
+>xbanner</application
+> från inställningsfilen som <application
+>xdm</application
+> läser, vilket för det mesta är <filename
+>/etc/X11/xdm/Xsetup_0</filename
+>. Om du vill att något annat ska köras istället vid samma tillfälle, skriv in det istället, till exempel: <command
+><replaceable
+>/opt/kde</replaceable
+>/bin/kdmdesktop</command
+>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+
+<para
+>Jag skulle vilja kunna klicka med vänster musknapp var som helst på skrivbordet och få <guimenu
+>K</guimenu
+>-menyn att visas.</para>
+</question>
+<answer>
+<variablelist
+> <varlistentry
+><term
+>&kde; 1.x</term
+> <listitem
+><para
+>Redigera först <filename
+>$<envar
+>HOME</envar
+>/.kde/share/config/krootwmrc</filename
+> och lägg till de följande två raderna:</para
+> <screen>
+[MouseButtons]
+Left=Menu
+</screen
+> <para
+>Starta sedan om &kde;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>&kde; 2</term
+> <listitem
+><para
+>Starta <application
+>&kde;:s inställningscentral</application
+> och välj <menuchoice
+><guisubmenu
+>Utseende &amp; känsla</guisubmenu
+><guisubmenu
+>Skrivbordet</guisubmenu
+> <guisubmenu
+>Skrivbord</guisubmenu
+></menuchoice
+>. Du kan nu välja det beteende som klickningar på skrivbordet ger. För att visa <guimenu
+>K</guimenu
+>-menyn med ett enkelt klick med vänster musknapp, ändra posten med texten <guilabel
+>Vänster musknapp</guilabel
+> till  <guilabel
+>Programmeny</guilabel
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur använder jag de tre extratangenterna på mitt &Windows;-tangentbord i &kde;?</para>
+</question>
+<answer>
+<para
+>Du kanske måste anpassa din X-server med <command
+>xmodmap</command
+> för att passa ihop tangentkoderna för &Windows;-tangenterna med användbara tangentsymboler i X (<command
+>xev</command
+> är en bra hjälp!).</para>
+<para
+>Skapa först filen <filename
+>$<envar
+>HOME</envar
+>/.Xmodmap</filename
+> med följande poster:</para>
+<screen>
+keycode 115=F13
+keycode 117=F15
+</screen>
+<para
+>Kör därefter <command
+>xmodmap ~/.Xmodmap</command
+>. Detta gör att <keycap
+>Start</keycap
+>-tangenten avger <keysym
+>F13</keysym
+> och att <keycap
+>Windows</keycap
+>-tangenten avger <keysym
+>F15</keysym
+>. Kör därefter igång <application
+>&kde;:s inställningscentral</application
+> och välj <menuchoice
+><guimenu
+>Utseende &amp; känsla</guimenu
+><guimenuitem
+>Tangentbindningar</guimenuitem
+></menuchoice
+>. Välj <guilabel
+>Poppa upp startmeny</guilabel
+> och ändra till <keysym
+>F13</keysym
+> och ändra <guilabel
+>Fönstermeny</guilabel
+> till <keysym
+>F15</keysym
+>. Det är allt. <note
+><para
+>Värdena 115 och 117 kan bero på tangentbordet. Om du inte är säker, var god kontrollera med <command
+>xev</command
+>. Dessutom kräver metoden ovan &kde; 1.1 eller senare.</para
+> <para
+>&kikbd; kan också göra samma sak, men keymaps måste redigeras. Fördelen med &kikbd; är att man kan välja om de här inställningarna ska användas för flera egna keymaps och kunna bytas i farten.</para
+> <para
+>Det vore intressant att göra ett litet skript som automatiskt gör ändringarna i keymaps vid behov. &kikbd; borde kunna läsa och förstå användarens keymap-filer.</para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Efter installering av &kde;, försvinner &RedHat;:s startmeny!</para>
+</question>
+<answer>
+<para
+>Kör bara kommandot <command
+>wmconfig <option
+>--output kde</option
+></command
+>. Detta lägger de &RedHat;-specifika ikonerna in din &kde;-meny. Om du kör det här inne i &kde;, måste du starta om panelen. De specifika ikonerna installeras normalt i <filename class="directory"
+>applnk</filename
+> mappen efter du har kört kommandot, men sedan kan du kopiera och klistra in dem var du vill med &kmenuedit;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Var hittar jag information om &kde;:s teman?</para>
+</question>
+<answer>
+<para
+>Titta på <ulink url="http://kde.themes.org/"
+>http://kde.themes.org/</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur ändrar jag &MIME;-typer?</para>
+</question>
+<answer>
+<para
+>Om du använder &kfm;, öppna först ett &kfm;-fönster och välj <menuchoice
+><guimenu
+>Redigera</guimenu
+><guimenuitem
+>Mime-typer </guimenuitem
+></menuchoice
+>. Leta rätt på typen som du vill ändra (<abbrev
+>t.ex.</abbrev
+> text/english eller image/gif), klicka med höger musknapp och välj <guimenuitem
+>Egenskaper</guimenuitem
+>, välj fliken <guilabel
+>Bindning</guilabel
+>, och ställ in förvalt program till vad du vill.</para>
+<para
+>Om du använder &konqueror;, gör så här istället: öppna först ett &konqueror;-fönster och välj <menuchoice
+><guimenu
+>Redigera</guimenu
+><guimenuitem
+>Redigera filtyp...</guimenuitem
+></menuchoice
+>. Leta rätt på typen du vill ändra (<abbrev
+>t.ex.</abbrev
+> text/english eller image/gif), klicka med höger musknapp, välj fliken <guilabel
+>Allmänt</guilabel
+>, och ställ in föredragen ordning av program till vad du vill.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kde; (&kdm;) läser inte min <filename
+>.bash_profile</filename
+>!</para>
+</question>
+<answer>
+<para
+>Jo, <application
+>xdm</application
+> (och &kdm;) kör inte ett loginskal, så <filename
+>.profile</filename
+>, <filename
+>.bash_profile</filename
+>, <abbrev
+>etc.</abbrev
+> körs inte. När användaren loggar in, kör <application
+>xdm</application
+> <command
+>Xstartup</command
+> som root och sedan <command
+>Xsession</command
+> som användare. Därför är det normala förfarandet att lägga till satser i <filename
+>Xsession</filename
+> för att köra användarprofilen. Var god redigera dina <filename
+>Xsession</filename
+> och <filename
+>.xsession</filename
+> filer.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur använder jag &TrueType;-teckensnitt i &kde;?</para>
+</question>
+<answer>
+<para
+>Du måste installera stöd för &TrueType;-teckensnitt i &X-Windows;. Var god ta en titt på <ulink url="http://x.themes.org/"
+>x.themes.org</ulink
+> för att hämta teckensnitten, och <ulink url="http://www.dcs.ed.ac.uk/home/jec/programs/xfsft/"
+>xfsft: stöd för &TrueType;-teckensnitt i X11</ulink
+> eller <ulink url="http://X-TT.dsl.gr.jp/"
+>X-&TrueType; server projektets hemsida</ulink
+> för att hämta en teckensnittserver.</para>
+<para
+>Om du har en uppsättning med &TrueType;-teckensnitt från &Microsoft; &Windows;, redigera filen <filename
+>XF86Config</filename
+> för att hämta teckensnitten från fonts-katalogen. Tala sedan bara om för &kde; att de nya teckensnitten ska användas med verktyget för att hantera teckensnitt.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Är det möjligt att skriva in, visa och arbeta med Euro symbolen i &kde;?</para>
+</question>
+<answer>
+<para
+>Ja och nej. För detaljer titta här <ulink url="http://users.pandora.be/sim/euro/"
+>http://users.pandora.be/sim/euro/</ulink
+>.</para>
+<!-- todo: maybe also/instead link http://www.koffice.org/kword/euro.phtml -->
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

@@ -1,0 +1,1225 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kghostview;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE"
+><!-- change language only here -->
+]>
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Le manuel de &kghostview;</title>
+<authorgroup>
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+> <firstname
+>Éric</firstname
+> <othername
+>Bischoff</othername
+> <contrib
+>Traduction française</contrib
+> </othercredit>
+</authorgroup>
+
+
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Pamela Roberts</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-07</date>
+<releaseinfo
+>0.12.00</releaseinfo>
+
+<abstract>
+<para
+>Ce document décrit &kghostview; version 0.12.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>linux</keyword>
+<keyword
+>postscript</keyword>
+<keyword
+>ghostview</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Introduction</title>
+
+<para
+> &kghostview; affiche et imprime des fichiers aux formats &PostScript; (<literal role="extension"
+>.ps</literal
+>, <literal role="extension"
+>.eps</literal
+>) et Portable Document Format (<literal role="extension"
+>.pdf</literal
+>). C'est une interface graphique pour le programme <application
+>Ghostview</application
+> de Tim Theisen qui est utilisé pour afficher des documents preparés dans le langage de description de pages &PostScript; d'<trademark
+>Adobe</trademark
+>. &PostScript; est le langage de description de pages principal pour imprimer sous les systèmes &UNIX; et cette application est utilisée pour préafficher ce que l'on a prévu d'imprimer ou de mettre en ligne. </para>
+
+<para
+> Vous pouvez utiliser &kghostview; avec toutes les versions récentes de <application
+>Ghostscript</application
+>. Les nouvelles versions offrent des performances bien supérieures dont vous pouvez profiter avec &kghostview;. </para>
+
+<para
+> Si un document n'est pas conforme aux conventions de structure de documents d'<trademark class="registered"
+>Adobe</trademark
+>, l'utilité de l'afficheur est limitée. Par exemple, s'il n'y a pas de table des matières, la navigation au sein du document ainsi que le marquage de pages ne sont pas possibles. </para>
+
+</chapter>
+
+
+<chapter id="fundamentals">
+<title
+>Techniques de base</title>
+
+<para
+> Cette section décrit ce que vous apercevez dans la fenêtre principale de &kghostview;, les actions associées à la barre d'outils, ainsi que l'utilisation de la liste des pages. </para>
+
+<para
+> Vous pouvez ouvrir plusieurs instances de &kghostview; pour afficher plusieurs documents. La barre de titre au sommet d'une fenêtre indique le nom du document dans cette fenêtre. </para>
+
+<para
+> Notez que vous pouvez faire disparaître la barre d'outils ainsi que les champs de texte qui vous aident à naviguer au sein d'un document grâce aux éléments du menu <link linkend="settings"
+>Configuration</link
+> afin de réserver plus de place à l'écran pour la zone dediée au contenu. </para>
+
+<para
+> La zone principale affiche une page du document en cours. Si la page est trop grande pour tenir dans la fenêtre, des barres de defilement sont automatiquement ajoutées sur les côtés, à moins de les désactiver grâce au menu <link linkend="settings"
+>Configuration</link
+>. </para>
+
+<para
+> Vous pouvez également faire défiler une page de haut en bas et de bas en haut grâce aux touches <keysym
+>Flèche vers le haut</keysym
+> et <keysym
+>Flèche vers le bas</keysym
+>.</para
+> <para
+>Les boutons de barre d'outils <guibutton
+>Page suivante</guibutton
+> et <guibutton
+>Page précédente</guibutton
+> font ce qu'ils sont supposés faire, et vous pouvez vous rendre directement à n'importe quelle page en cliquant avec le &BGS; dans la liste de pages. </para>
+
+<para
+> Si une page est trop haute pour être affichée entièrement dans la fenêtre, les boutons <guibutton
+>Lire en remontant</guibutton
+> et <guibutton
+>Lire en descendant</guibutton
+> peuvent être utilisés pour faire défiler vers le haut ou vers le bas le document dans son ensemble. </para>
+
+<para
+> Une liste de pages s'affiche sur le côté gauche de la fenêtre lorsque l'option correspondante est validée dans le menu <guimenu
+>Configuration</guimenu
+>. Cette liste se compose de deux colonnes&nbsp;: la première peut contenir des drapeaux indiquant que la page a ete marquée avec un signet, la seconde indique les numéros de pages. Vous pouvez utiliser cette liste de pages pour naviguer au sein du document ou pour marquer des pages en vue de l'impression. </para>
+
+<para
+> Vous pouvez ajouter ou retirer le <quote
+>signet</quote
+> marquant la page courante en appuyant sur <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>M</keycap
+></keycombo
+> et en faire autant pour n'importe quelle page en cliquant avec le &BCS; dans la liste de pages. Vous pouvez également réinitialiser ou changer vos signets grâce au menu déroulant qui s'affiche lorsque vous cliquez avec le &BDS; n'importe où dans la zone de la liste de pages, ou en sélectionnant le menu <link linkend="pagemarks"
+>Signets</link
+>. </para>
+
+</chapter>
+
+<chapter id="primary-menu-items">
+<title
+>La barre de menus</title>
+
+<sect1 id="menufile">
+<title
+>Le menu <guimenu
+>Fichier</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>ichier</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>uvrir...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ouvre</action
+> un fichier. Si un fichier est en cours d'affichage, il sera fermé au prealable.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ichier</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>écemment ouvert(s)</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ouvre</action
+> un fichier choisi dans une liste déroulante des fichiers récemment ouverts. Si un fichier est en cours d'affichage, il sera fermé au prealable.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ichier</guimenu
+> <guimenuitem
+>Enregistrer <accel
+>s</accel
+>ous...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Enregistre</action
+> le fichier actuellement ouvert.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>ichier</guimenu
+> <guimenuitem
+>Im<accel
+>p</accel
+>rimer...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Imprime</action
+> le fichier actuellement affiché. La boîte de dialogue d'impression vous permet de choisir d'imprimer toutes les pages ou celles que vous avez choisi au préalable (en les marquant avec des signets).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ichier</guimenu
+> <guimenuitem
+>Informations sur le document...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Affiche</action
+> des informations de base concernant le document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>ichier</guimenu
+> <guimenuitem
+><accel
+>Q</accel
+>uitter</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ferme</action
+> &kghostview;.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="view">
+<title
+>Le menu <guimenu
+>Affichage</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+>Réa<accel
+>f</accel
+>ficher</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Effectue à nouveau le rendu</action
+> de la page courante du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+>A<accel
+>j</accel
+>uster à la largeur de la page</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Change l'échelle</action
+> de l'affichage de telle sorte qu'une page occupe exactement la zone d'affichage principale.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>rientation</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Change l'orientation</action
+> de la page affichée. Vous pouvez choisir entre <guimenuitem
+>Auto</guimenuitem
+>, <guimenuitem
+>Portrait</guimenuitem
+> (vertical), <guimenuitem
+>Paysage</guimenuitem
+> (horizontal), <guimenuitem
+>Portrait inversé</guimenuitem
+> (vertical tête en bas) et <guimenuitem
+>Payage inversé</guimenuitem
+> (horizontal tête en bas).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+>For<accel
+>m</accel
+>at du papier</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Vous permet d'afficher le document comme s'il etait imprimé sur différents <action
+>formats de papier</action
+> sans changer d'échelle. Vous devriez normalement choisir <guimenuitem
+>Auto</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; &Shift;<keycap
+>+</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+>Zoom ava<accel
+>n</accel
+>t</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Agrandit plus</action
+> la zone d'affichage du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+>Zoom A<accel
+>r</accel
+>rière</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Agrandit moins</action
+> la zone d'affichage du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Page Haut</keycap
+> </shortcut
+> <guimenu
+><accel
+>V</accel
+>iew</guimenu
+> <guimenuitem
+>Page <accel
+>p</accel
+>récédente</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Affiche la <action
+>page précedente</action
+> du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Page Bas</keycap
+> </shortcut
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+>Page <accel
+>s</accel
+>uivante</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Affiche la <action
+>page suivante</action
+> du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Début</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+>Aller au début</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Retourne au début</action
+> du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Fin</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+>Aller à la fin</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Va à la fin</action
+> du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Majuscule</keycap
+> <keycap
+>Espace</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+>Lire en descendant</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Fait défiler en arrière</action
+> le document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>ller à la page...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Choisit</action
+> la page du document à afficher.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="pagemarks">
+<title
+>Le menu <guimenu
+>Signets</guimenu
+></title>
+
+<note
+> <para
+> Vous pouvez également accéder à ce menu en cliquant avec le &BDS; dans la zone contenant la liste de pages. </para
+> </note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl; <keycap
+>M</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>ignets</guimenu
+> <guimenuitem
+>Marquer la page courante</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Place ou enlève le signet</action
+> à la page courante.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>ignets</guimenu
+> <guimenuitem
+>Marquer <accel
+>t</accel
+>outes les pages</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Place un signet</action
+> à chaque page du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>ignets</guimenu
+> <guimenuitem
+>Marquer les pages <accel
+>p</accel
+>aires</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Place un signet</action
+> à chaque page de numero pair du document. Lorsqu'elle est utilisée en conjonction avec <guimenuitem
+>Marquer les pages impaires</guimenuitem
+> ou <guimenuitem
+>Inverser les signets</guimenuitem
+>, cette fonction fournit une méthode pratique pour imprimer un document recto-verso sur une imprimante n'imprimant que le recto.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>ignets</guimenu
+> <guimenuitem
+>Marquer les pages i<accel
+>m</accel
+>paires</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Place un signet</action
+> à chaque page de numero impair du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>ignets</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nverser les signets</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Place un signet s'il n'y en avait pas, et l'enlève s'il y en avait un</action
+> à chaque page du document.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>ignets</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>etirer les signets</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Enlève les signets</action
+> à chaque page du document.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings">
+<title
+>Le menu <guimenu
+>Configuration</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+>Afficher la barre d'<accel
+>o</accel
+>utils</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Affiche ou cache la barre d'outils</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+>Afficher la barre d'ét<accel
+>a</accel
+>t</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Affiche ou cache la barre d'état</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+>Afficher les barres de <accel
+>d</accel
+>éfilement</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Affiche ou cache les barres de defilement</action
+> horizontale et verticale.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+>Sur<accel
+>v</accel
+>eiller les modifications</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Si cette option est selectionnée, l'affichage se <action
+>réactualisera automatiquement</action
+> si le fichier contenant le document est modifié.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+>Montrer la liste des <accel
+>p</accel
+>ages</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Affiche ou cache la liste des pages</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+>Montrer les noms des pages</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Si cette option est sélectionnée, <action
+>le nom (s'il existe) de la page courante est affiché dans la barre d'état.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+><accel
+>C</accel
+>onfiguration de l'afficheur...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Fait apparaître le <link linkend="config-dialog"
+><action
+>dialogue de configuration</action
+> de &kghostview;.</link
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+>Le menu <guimenu
+>Aide</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+>Conten<accel
+>u</accel
+></guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Affiche ce manuel</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>apport de bogue...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Utilisez cette option pour <action
+>signaler toute bogue que vous pourriez trouver dans &kghostview;</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+>À <accel
+>p</accel
+>ropos de &kghostview;</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Utilisez cette option pour <action
+>afficher le numéro de version de &kghostview; ainsi que de brèves informations sur les auteurs du programme, le copyright ainsi que la license</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+>À propos de <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Affiche de <action
+>brèves informations sur l'environnement de bureau K</action
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="config-dialog">
+<title
+>Configuration</title>
+
+<para
+> La boîte de dialogue de configuration s'obtient en sélectionnant l'option <menuchoice
+><guimenu
+>Configuration</guimenu
+><guimenuitem
+>Configurer l'afficheur...</guimenuitem
+></menuchoice
+>. Il comporte deux pages; <guilabel
+>Configuration générale</guilabel
+> et <guilabel
+>Configuration de GhostScript</guilabel
+> </para>
+
+<sect1 id="general-settings">
+<title
+>Configuration générale</title>
+
+<para
+> Vous pouvez choisir d'activer l'<guilabel
+>Anticrénelage</guilabel
+> pour obtenir des textes rendus de manière harmonieuse, mais il convient de remarquer que l'anti-crenélage utilise intensivement la mémoire et qu'il est plus lent que le rendu direct des polices de caractères. Les premières versions de <application
+>Ghostscript</application
+> ne pouvaient pas réaliser d'anti-crénelage. </para>
+
+<para
+> Choisissez <guilabel
+>Polices système</guilabel
+> si vous souhaitez utiliser les polices système d'origine plutôt que celles qui sont fournies avec <application
+>Ghostscript</application
+>. </para>
+
+<para
+> Activez <guilabel
+>messages</guilabel
+> si vous voulez être informé de chaque message de sortie ou d'erreur généré par l'interpréteur <application
+>Ghostscript</application
+>. </para>
+
+<para
+> Vous pouvez demander à ce que &kghostview; utilise une <guilabel
+>Palette</guilabel
+> <guilabel
+>Monochrome</guilabel
+>, en <guilabel
+>Nuances de gris</guilabel
+> ou <guilabel
+>Couleur</guilabel
+> pour l'affichage. </para>
+
+<para
+> Une fois que le contenu d'une page de document a été rendue par <application
+>Ghostscript</application
+>, il doit être enregistré quelque part en vue de son utilisation par l'afficheur. Vous pouvez demander à ce que cela soit fait sous la forme d'une "pixmap" (image en memoire) <guilabel
+>par l'afficheur</guilabel
+> ou sous la forme d'un "backing store" (<guilabel
+>stockage de la zone d'écran</guilabel
+>) par le serveur X. En fonction de votre serveur X, une methode pourrait être plus rapide que l'autre, mais veuillez noter que certains serveurs X ne permettent pas le "backing store". </para>
+
+</sect1>
+
+<sect1 id="ghostscript-config">
+<title
+>Configuration de <application
+>GhostScript</application
+></title>
+
+<para
+> Dans cette page de la boîte de dialogue, vous pouvez régler le nom de l'<guilabel
+>interpréteur</guilabel
+> <application
+>Ghostscript</application
+> executable ainsi que les <guilabel
+>Arguments ne concernant pas l'anti-crénelage</guilabel
+> et les <guilabel
+>Arguments concernant l'anti-crénelage</guilabel
+> qui lui seront passés. Les réglages par défaut devraient convenir à la majorité des systèmes. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Remerciements et license</title>
+
+<para
+> &kghostview; </para>
+
+<itemizedlist
+> <title
+>Programme Copyright&nbsp;:</title
+> <listitem
+><para
+>Mark Donohoe (auteur initial) 1998 </para
+></listitem
+> <listitem
+><para
+>David Sweet <email
+>dsweet@kde.org</email
+> Mainteneur 1999-2000 </para
+></listitem
+> <listitem
+><para
+>Wilco Greven <email
+>greven@kde.org</email
+> Mainteneur actuel 2000-2001 </para
+></listitem
+> </itemizedlist>
+
+
+<itemizedlist
+> <title
+>Contributeurs</title
+> <listitem
+><para
+>David Faure (infrastructure pour l'interpréteur de commandes)</para
+> </listitem
+> <listitem
+><para
+>Daniel Duley (port vers Kparts)</para
+> </listitem
+> <listitem
+><para
+>Espen Sand (boîtes de dialogue)</para
+> </listitem
+> </itemizedlist>
+
+<para
+> Documentation copyright 2001 Pamela Roberts <email
+>pam.roberts@btinternet.com</email
+> </para>
+
+
+<para
+>Traduction française Copyright 2001 Éric Bischoff <email
+>e.bischoff@noos.fr</email
+></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+
+&underGPL;        	 <!-- GPL License -->
+
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<para
+> &kghostview; fait partie du projet &kde; 2, au sujet duquel vous pouvez obtenir desdétails à l'adresse <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. </para>
+
+<para
+> Pour utiliser &kghostview;, vous devez avoir le programme <application
+>Ghostscript</application
+> ainsi que &kde; 2 installés sur votre machine. La page de base de <application
+>Ghostscript</application
+> est à l'adresse <ulink url="http://www.cs.wisc.edu/~ghost/"
+>http://www.cs.wisc.edu/~ghost/</ulink
+></para>
+
+<para
+> La plupart des distributions comprennent &kghostview;, mais si vous souhaitez le construire vous-même, le code source se trouve dans le paquetage Kdegraphics à l'adresse <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, le site FTP principal du projet KDE. </para>
+
+<para
+> Pour voir si une version ultérieure de &kghostview; a fait son apparition, vous pouvez jeter un œil sur <ulink url="http://apps.kde.com"
+>http://apps.kde.com</ulink
+>. </para>
+
+<para
+> Pour compiler et installer &kghostview; sur votre système, tapez les commandes suivantes en tant que super-utilisateur dans le répertoire ou vous avez enregistré le code source de &kghostview;&nbsp;: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+> Comme &kghostview; utilise <command
+>autoconf</command
+> et <command
+>automake</command
+>, vous ne devriez pas avoir de probleme à le compiler. Si c'etait toutefois le cas, veuillez reporter le probleme aux listes de discussion de &kde;. </para>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

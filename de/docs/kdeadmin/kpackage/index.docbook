@@ -1,0 +1,1387 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kpackage;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &kpackage;-Handbuch</title>
+<authorgroup>
+<author
+> <firstname
+>Toivo</firstname
+> <surname
+>Pedaste</surname
+> <affiliation
+> <address
+><email
+>toivo@ucs.uwa.edu.au</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>lauri@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Überprüfung</contrib>
+</othercredit>
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Toivo Pedaste</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-01-04</date>
+<releaseinfo
+>2.01.00</releaseinfo>
+
+<abstract
+><para
+>Dieses Handbuch beschreibt &kpackage; Version 2.0</para
+></abstract>
+
+<keywordset>
+<keyword
+>kpackage</keyword>
+<keyword
+>Paket</keyword>
+<keyword
+>Paketmanager</keyword>
+<keyword
+>rpm</keyword>
+<keyword
+>deb</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+>&kpackage; ist eine einheitliche graphische Benutzeroberfläche für die <abbrev
+>RPM</abbrev
+>-, Debian-, Slackware- und <abbrev
+>BSD</abbrev
+>-Paketmanager, ähnlich dem Programm <application
+>GLINT</application
+>. &kpackage; ist Teil der KDE-Benutzeroberfläche und zeichnet sich durch nahtlose Integration in den <abbrev
+>KDE</abbrev
+> Dateimanager <application
+>konqueror</application
+> aus. </para>
+
+</chapter>
+
+<chapter id="onscreen-fundamentals">
+
+<title
+>Grundsätzliches</title>
+
+<para
+>Die Oberfläche von &kpackage; ist in 2 Ansichten geteilt. Die linke Ansicht zeigt alle Pakete in einer Baumstruktur an. Mit Hilfe der Karteireiter können Sie wählen, ob nur die installierten, nur die aktualisierten (mit neuen, verbesserten Versionen), nur die verfügbaren (lokal oder auch von fremden Rechnern via <abbrev
+>FTP</abbrev
+> erreichbar) oder alle Pakete dargestellt werden. Wenn Sie in der Baumansicht ein Paket ausgewählt haben, werden in der rechte Ansicht Informationen über das Paket dargestellt.</para>
+
+<sect1 id="drag-and-drop">
+<title
+>Drag &amp; Drop</title>
+
+<para
+>&kpackage; unterstützt Drag &amp; Drop, das heißt Sie können Pakete aus einem anderen Fenster auf &kpackage; ziehen, um sie zu installieren. Sie können diese Funktion auch dazu verwenden, um eine Datei auf den Dialog "<guilabel
+>Datei suchen</guilabel
+>" zu ziehen und das zugehörige Paket suchen zu lassen.</para>
+
+</sect1>
+
+<sect1 id="the-package-tree-panel">
+<title
+>Die Baumansicht der Pakete</title>
+
+<para
+>Sofern &kpackage; normal gestartet wurde, wird auf der linken Ansicht eine Baumansicht der installierten Pakete und optional auch von neuen und aktualisierten Paketen angezeigt.</para>
+      
+<para
+>Die Karteireiter oberhalb der Baumansicht bestimmen, welche Pakete angezeigt werden: <guilabel
+>Installierte</guilabel
+>, <guilabel
+>Aktualisierte</guilabel
+>, <guilabel
+>Verfügbare</guilabel
+> oder <guilabel
+>Alle</guilabel
+>.</para>
+      
+<para
+></para>
+
+<para
+></para>
+
+<itemizedlist
+> <listitem
+> <para
+></para
+> </listitem
+> <listitem
+> <para
+></para
+> </listitem
+> <listitem
+> <para
+></para
+> </listitem
+> <listitem
+> <para
+>Pakete deinstallieren</para
+> </listitem
+> <listitem
+> <para
+>Aktualisierte und neue Pakete in der Baumansicht</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Ein einzelnes Paket wird durch einen Mausklick auf seinen Namen ausgewält. Wenn Sie auf den Punkt in der <guilabel
+>Markieren</guilabel
+>-Spalte klicken, wird das Paket mit einem Haken markiert, eine weiterer Mausklick hebt die Markierung wieder auf. Um eine Reihe von Paketen auszuwählen, markieren Sie ein Paket und halten sie beim Mausklick die <keycombo
+><keycap
+>Umschalt</keycap
+></keycombo
+>-Taste gedrückt, während sie ein weiteres Paket auswählen. Alle Pakete, die in der Liste zwischen den beiden ausgewählten liegen, werden markiert.</para>
+      
+</sect1>
+
+<sect1 id="integrating-available-packages-in-the-tree">
+<title
+>Aktualisierte und neue Pakete in der Baumansicht</title>
+
+<para
+>Sie können in den <guimenu
+>Einstellugen</guimenu
+> für jeden Pakettyp Speicherorte (auch URLs von fremden Rechnern) angeben. Wählen Sie dazu im Menü <guimenu
+>Url nicht installierter Pakete</guimenu
+> den Pakettypen aus und machen Sie dort Angaben über die Pfade zu den Dateien.</para>
+
+<para
+>&kpackage; kann Verzeichnisse, die <abbrev
+>RPM</abbrev
+>-Pakete enthalten, lesen und diese Pakete als neue oder aktualisierte Pakete in die Baumansicht integrieren. Die Pakete können direkt untersucht und installiert werden. Die Versionsinformation wird zunächst nur aus dem Dateinamen gewonnen, für nähere Informationen benutzen Sie bitte den <guibutton
+>Untersuchen</guibutton
+>-Knopf. Mittels einer Option können Sie &kpackage; veranlassen, beim Start alle lokalen Verzeichnisse zu durchsuchen, um die Paketinformation zu gewinnen. Dies verlangsamt den Start von &kpackage;, jedoch werden danach die kompletten Beschreibungen aller Paket angezeigt.</para>
+
+<para
+>Die Pfade zu Debian-Paketen können sie auf drei Möglichkeiten in den Einstellungen definieren. </para>
+
+<itemizedlist
+> <listitem
+> <para
+>Tragen Sie die URL eines <abbrev
+>FTP</abbrev
+>-Servers für Debian-Distribution ein (z.B. ftp://ftp.debian.org/) und wählen Sie die gewünschte Version und Architektur. &kpackage; sieht an den Standardorten nach den <filename
+>Packages</filename
+>-Dateien, die die Paketbeschreibungen der verfügbaren Pakete enthalten. Die Pakete werden der Baumansicht hinzugefügt und können untersucht und installiert werden.</para
+> </listitem
+> <listitem
+> <para
+>Tragen sie das Basis-Verzeichnis der Debian-Distribution zusammen mit den <filename
+>Packages</filename
+>-Dateien ein, die Sie interessieren. Wenn Sie das Programm "<application
+>dselect</application
+>" installiert haben, kann die Datei <filename
+>/var/lib/dpkg/available</filename
+> als <filename
+>Packages</filename
+>-Datei genutzt werden, um die von "<application
+>dselect</application
+>" genutzte Distribution zu beschreiben.</para
+> </listitem
+> <listitem
+><para
+>Außerdem können Sie analog zu <abbrev
+>RPM</abbrev
+>-Paketen Verzeichnisse angeben, die nach Debian-Paketen durchsucht werden.</para
+></listitem
+> </itemizedlist>
+
+<para
+> </para>
+
+<para
+>Auch Slackware-Pakete können in die Baumansicht integriert werden. Slackware-Distributionen stellen nur sehr wenig Informationen über installierte Software zur Verfügung. Es ist jedoch möglich, durch die Datei <filename
+>PACKAGE.TXT</filename
+> Informationen über die installierte Software zu erhalten. Diese Datei entspricht Debians <filename
+>Packages</filename
+>-Datei. Außerdem benutzen Slackware-Distributionen eine spezielle Verzeichnisstruktur, in der die <filename
+>.tgz</filename
+>-Archive und die Datei <filename
+>PACKAGES.TXT</filename
+> abgelegt sind. In <filename
+>PACKAGES.TXT</filename
+> sind jedoch keine Information über die Version des Paketes enthalten. Daher kann KPackage nicht feststellen, ob ein Paket neuer als das installierte ist. Auch für Slackware-Pakete können Sie beliebige Verzeichnisse angeben, die nach Paketen durchsucht werden.</para>
+
+<para
+></para>
+
+<para
+>Bei <abbrev
+>BSD</abbrev
+>-Paketen muss der Pfad zu den Portierungen angegeben werden, welcher sowohl eine <filename
+>INDEX</filename
+>-Datei (enthält die Beschreibungen aller Pakete) als auch ein Verzeichnis namens <filename
+>All</filename
+> beinhaltet, in dem sich alle Pakete befinden. Außerdem können Sie beliebige Verzeichnisse angeben, die nach Paketen durchsucht werden. </para>
+
+<para
+>Verzeichnisse und Pakete von fremden Rechnern werden von &kpackage; zwischengespeichert. Die Pakete werden in <filename
+>~/.kpackage</filename
+> zwischengespeichert und Verzeichnissinhalte in <filename
+>~/.kpackage/dir</filename
+>.</para>
+
+<note
+><para
+>Um auf Verzeichnisse von fremden Rechnern per <abbrev
+>FTP</abbrev
+> zugreifen zu können, kann es notwendig sein, in den Browser-Einstellungen von <application
+>Konqueror</application
+> die Option "<guilabel
+>FTP Proxy</guilabel
+>" zu deaktivieren.</para
+></note>
+
+</sect1>
+
+<sect1 id="package-information-panel">
+<title
+>Die Baumansicht der Pakete</title>
+
+<para
+> </para>
+
+<itemizedlist
+> <listitem
+> <para
+></para
+> </listitem
+> <listitem
+> <para
+></para
+> </listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="root-access">
+<title
+></title>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+> </para>
+
+</sect1>
+
+<sect1 id="installing-packages">
+<title
+>Pakete installieren</title>
+
+<para
+>Sie können ein Paket installieren, indem Sie</para>
+<itemizedlist
+> <listitem
+> <para
+>es aus einem <application
+>Konqueror</application
+>-Fenster auf ein laufendes &kpackage; ziehen,</para
+> </listitem
+> <listitem
+> <para
+>im <application
+>Konqueror</application
+> auf das Paket klicken und damit &kpackage; starten,</para
+> </listitem
+> <listitem
+> <para
+>&kpackage; starten und im Menü <guimenu
+>Öffnen</guimenu
+> wählen oder</para
+> </listitem
+> <listitem
+> <para
+>es in der Baumansicht auswählen.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Ein ausgewähltes Paket wird mit der <guibutton
+>Untersuchen</guibutton
+> Funktion geöffnet und die Paketinformationen werden angezeigt. Sofern das Paket nicht lokal vorhanden ist, wird es von dem fremden Rechner geholt. </para>
+
+<para
+>Um mehrere Pakete zu deinstallieren, markieren Sie in der Baumansicht die gewünschten Pakete und betätigen Sie den Knopf <guibutton
+>Markierte Pakete deinstallieren</guibutton
+>. Nach Betätigen öffnet sich ein Dialogfenster mit Optionen. Wählen Sie <guibutton
+>Deinstallieren</guibutton
+> und alle markierten Pakete werden aus dem System entfernt.</para>
+
+<para
+>Um mehrere Pakete zu installieren, markieren Sie die gewünschten in der Spalte <guilabel
+>Markieren</guilabel
+> der Baumansicht und benutzen Sie die <guibutton
+>Markierte Pakete installieren</guibutton
+> Funktion. Nach Betätigen öffnet sich ein Dialogfenster mit Optionen. Wählen Sie <guibutton
+>Installieren</guibutton
+> werden alle markierten Pakete installiert. </para>
+
+<para
+><abbrev
+>RPM</abbrev
+>-Pakete werden von &kpackage; direkt installiert. Debian-, Slackware- und <abbrev
+>BSD</abbrev
+>-Pakete werden von externen Programmen installiert, die von &kpackage; aufgerufen werden. Um Debian-Pakete zu installieren, wird <application
+>DPKG</application
+> in einem <application
+>xterm</application
+>-Fenster ausgeführt. Falls notwendig, kann in dem Fenster in den Prozess eingegriffen werden. </para>
+
+</sect1>
+
+<sect1 id="uninstalling-packages">
+<title
+>Pakete deinstallieren</title>
+
+<para
+>Um ein Paket zu entfernen, wälen Sie es mit der Maus und benutzen Sie die <guibutton
+>Deinstallieren</guibutton
+>-Funktion in der rechten Ansicht. Nach Betätigen öffnet sich ein Dialogfenster mit Optionen. Der <guibutton
+>Deinstallieren</guibutton
+>-Knopf entfernt das Paket aus dem System.</para>
+
+<para
+>Um mehrere Pakete zu deinstallieren, markieren Sie in der Baumansicht die gewünschten Pakete und betätigen Sie den Knopf <guibutton
+>Markierte Pakete deinstallieren</guibutton
+>. Nach Betätigen öffnet sich ein Dialogfenster mit Optionen. Wählen Sie <guibutton
+>Deinstallieren</guibutton
+> und alle markierten Pakete werden aus dem System entfernt.</para>
+
+</sect1>
+
+</chapter>
+<chapter id="menus">
+
+<title
+>Menüs</title>
+
+<para
+> </para>
+
+<sect1 id="file-menu">
+<title
+>Das Menü <guimenu
+>Datei</guimenu
+></title>
+
+<para
+>Folgende Einträge sind im Menü <guimenu
+>Datei</guimenu
+> enthalten:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo
+><keycap
+>Strg</keycap
+><keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Datei</guimenu
+><guimenuitem
+>Öffnen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Öffnet einen Dialog, um lokale und entfernte, per <abbrev
+>FTP</abbrev
+> erreichbare Pakete zu öffnen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Zuletzt geöffnete Dateien</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Zeigt eine Liste mit den zuletzt bearbeiteten Dateien.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Datei</guimenu
+><guimenuitem
+>Paket suchen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Sucht nach Paketen, die den Suchbegriff im Paketnamen enthalten. Es werden auch nicht installierte (Neue und Aktualisierte) Pakete berücksichtigt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Datei suchen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Sucht in allen installierten Paketen nach Dateien, die dem Suchbegriff entsprechen. Sie können als Jokerzeichen den "<userinput
+>*</userinput
+>" benutzen, wenn Sie den Dateinamen nicht exakt angeben können oder wollen. Bei der Suche wird zwischen Groß- und Kleinschreibung unterschieden. Mit der Eingabe "<userinput
+>*etscape*</userinput
+> werden sowohl <filename
+>netscape</filename
+>, <filename
+>Netscape</filename
+> als auch <filename
+>NetsapeLogo.xpm</filename
+> gefunden! Nachdem Sie eine Datei markiert haben, werden die Informationen über das Paket in der rechten Ansicht des Hauptfensters dargestellt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycap
+>F5</keycap
+></shortcut
+> <guimenu
+>Datei</guimenu
+><guimenuitem
+>Erneut laden</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Liest die Paket-Informationen und baut die Baumansicht neu auf.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Datei</guimenu
+><guimenuitem
+>Beenden</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Beendet &kpackage; </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="packages-menu">
+<title
+>Das Menü <guimenu
+>Pakete</guimenu
+></title>
+
+<para
+>Folgende Einträge sind im Menü <guimenu
+>Pakete</guimenu
+> enthalten:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Pakete</guimenu
+><guimenuitem
+>Zurück</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Dient zur Navigation zwischen den Verweisen voneinander abhängiger Pakete in der rechten Ansicht.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Pakete</guimenu
+><guimenuitem
+>Nach vorne</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Dient zur Navigation zwischen den Verweisen voneinander abhängiger Pakete in der rechten Ansicht.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Pakete</guimenu
+> <guimenuitem
+>Unterverzeichnisse anzeigen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Erweitert die Baumansicht um Unterverzeichnisse. Alle Pakete werden angezeigt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Pakete</guimenu
+> <guimenuitem
+>Unterverzeichnis ausblenden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Blendet die Unterverzeichnisse in der Baumansicht aus, so dass die Baumstruktur besser erkennbar ist.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Pakete</guimenu
+><guimenuitem
+>Auswahl löschen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Die Auswahl der markierten Pakete wird zurückgesetzt.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="cache-menu">
+<title
+>Das Menü <guimenu
+>Zwischenspeicher</guimenu
+></title>
+
+<para
+>Folgende Eintrage sind im Menü <guimenu
+>Zwischenspeicher</guimenu
+> enthalten: </para>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Zwischenspeicher</guimenu
+> <guimenuitem
+>Verzeichnis-Zwischenspeicher leeren</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Löscht zwischengespeicherte Kopien von Verzeichnissen von fremden Rechnern.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Zwischenspeicher</guimenu
+><guimenuitem
+>Paket-Zwischenspeicher leeren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Löscht zwischengespeicherte Kopien von Paketen, die von fremden Rechner geholt worden sind.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="special-menu">
+<title
+>Das Menü <guimenu
+>Datei</guimenu
+></title>
+
+<para
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Zuletzt geöffnete Dateien</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+></guilabel
+></term
+> <listitem
+><para
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+></guilabel
+></term
+> <listitem
+><para
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+></guilabel
+></term
+> <listitem
+><para
+></para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Das Menü <guimenu
+>Einstellungen</guimenu
+></title>
+
+<para
+>Folgende Einträge sind im Menü <guimenu
+>Einstellungen</guimenu
+> enthalten:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Werkzeugleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Aktiviert bzw. Deaktiviert die Darstellung der Werkzeugleiste.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Einstellungen speichern</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Speichert geänderte Optionen sofort und nicht erst beim Beenden von &kpackage;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Tastenzuordnungen vornehmen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Öffnet den <abbrev
+>KDE</abbrev
+> Standarddialog für die Zuordnung von Tasten zu bestimmten Aktionen. Hier können Sie Kurzbefehle für Funktionen von &kpackage; definieren.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Werkzeugleisten einrichten</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Öffnet den <abbrev
+>KDE</abbrev
+> Standarddialog für die Einrichtung der Werkzeugleisten. Hier können Sie Position und Aussehen der Werkzeugleiste bestimmen, sowie welche Elemente die Werkzeugleiste enthalten soll.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Optionen</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+></guilabel
+></term
+> <listitem
+><para
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Verzeichnis-Zwischenspeicher</guilabel
+></term
+> <listitem
+><para
+>Hier können Sie bestimmen, ob Verzeichnisse fremder Rechner zwischengespeichert werden sollen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Paket-Zwischenspeicher</guilabel
+></term
+> <listitem
+><para
+>Hier können Sie bestimmen, ob Pakete von fremden Rechnern zwischengespeichert werden sollen. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Verschiedenes</guilabel
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+></guilabel
+></term
+> <listitem
+><para
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Dateiliste überprüfen</guilabel
+></term
+> <listitem
+><para
+>Ist diese Option markiert, wird anhand der Dateiliste des Paketes überprüft, ob der Dateistatus von Dateien verändert wurde. So können Sie Veränderungen von Paketen nach der Installation aufspüren.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Informationen aller lokalen Paketdateien einlesen</guilabel
+></term
+> <listitem
+><para
+>Ist diese Option markiert, werden die Paketinformationen nicht nur aus dem Dateinamen abgeleitet. Stattdessen werden alle lokalen Pakete analysiert. Dies verlangsamt den Start von &kpackage;, ergibt aber genauere Informationen.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guisubmenu
+>URL nicht installierter Pakete</guisubmenu
+></menuchoice
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>URL RPM</guimenuitem
+></term
+> <listitem
+><para
+>Hier können Sie Speicherorte für <abbrev
+>RPM</abbrev
+>-Paketdateien angeben. Dies können sowohl Pfade in ihrer lokalen Verzeichnisstruktur sein, wie auch Verzeichnisse auf fremden Rechnern, die via <abbrev
+>FTP</abbrev
+> erreicht werden können. Sie können hier einen Eintrag vornehmen, indem Sie den Speicherort einfach selbst eingeben. Wenn Sie auf den Knopf "<guibutton
+>...</guibutton
+>" drücken, öffnet sich ein Dateiauswahldialog, mit dessen Hilfe sie ein Verzeichnis auswählen können. Mit dem Ankreuzfeld "<guilabel
+>Benutzen</guilabel
+>" können Sie bestimmen, ob der angegebene Pfad tatsächlich benutzt werden soll. Mit dem Ankreuzfeld "<guilabel
+>Unterverzeichnisse</guilabel
+>" bestimmen Sie, ob auch Unterverzeichnisse nach Paketen durchsucht werden sollen. Um die Übersichtlichkeit zu erhöhen, sind mehrere Felder vorgesehen, in denen Sie Pfade zu Paketen eintragen können.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <abbrev
+>URL</abbrev
+> <abbrev
+>BSD</abbrev
+></term
+> <listitem
+><para
+>Unterhalb des ersten Karteireiters können Sie den Speicherort der Portierungen angeben. </para
+> <para
+>Unterhalb der anderen Karteireiter können sie Verzeichnisse angeben, die <abbrev
+>BSD</abbrev
+>-Pakete enthalten, also solche, die die Datei <filename
+>INDEX</filename
+> enthalten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><abbrev
+>URL</abbrev
+> <abbrev
+>BSD</abbrev
+></term
+> <listitem
+><para
+>Für Slackware-Pakete sind drei Typen von Karteikarten vorgesehen.</para
+> <itemizedlist
+> <listitem
+><para
+></para
+></listitem
+> <listitem
+><para
+></para
+></listitem
+> <listitem
+><para
+> </para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><abbrev
+>URL</abbrev
+> <abbrev
+>SLACK</abbrev
+></term
+> <listitem
+><para
+>Für Slackware-Pakete sind drei Typen von Karteikarten vorgesehen.</para
+> <itemizedlist
+> <listitem
+><para
+>In der ersten Karteikarte geben sie den Speicherort der Datei <filename
+>PACKAGES.TXT</filename
+> an, welche Informationen über die installierten Pakete bereitstellt.</para
+></listitem
+> <listitem
+><para
+>Unterhalb der nächsten vier Karteireiter können Sie Speicherorte von Basis-Verzeichnissen von Slackware-Distributionen eintragen. Dies ist der Verzeichniszweig, der die <filename
+>.tgz</filename
+>-Dateien sowie die dazugehörigen <filename
+>PACKAGES.TXT</filename
+>-Dateien enthält.</para
+></listitem
+> <listitem
+><para
+>Die letzten beiden Karteikarten sind für Verzeichnisse vorgesehen, in denen sich Slackware-Pakete, aber <emphasis
+>keine</emphasis
+> <filename
+>PACKAGES.TXT</filename
+>-Dateien befinden.</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>Das Menü <guimenu
+>Hilfe</guimenu
+></title>
+
+<para
+>Folgende Einträge sind im Menü <guimenu
+>Hilfe</guimenu
+> enthalten: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+>Hilfe</guimenu
+><guimenuitem
+>Inhalt</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet die Online-Hilfe für &kpackage; (dieses Dokument).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+><keycap
+>Umschalt</keycap
+><keycap
+>F1</keycap
+> </keycombo
+></shortcut
+> <guimenu
+>Hilfe</guimenu
+><guimenuitem
+>Was ist das?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Der Cursor wird um ein Fragezeichen erweitert. Mit diesem veränderten Cursor können Sie auf ein Symbol oder einen anderen Eintrag innerhalb des &kpackage;-Fensters klicken, woraufhin Sie eine Kurzbeschreibung erhalten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Hilfe</guimenu
+><guimenuitem
+>Berichten Sie Probleme oder Wünsche</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet das Dialogfenster <guilabel
+>Problembericht einschicken</guilabel
+>. In einer Dialogbox können Sie Programmfehler beschreiben oder einen Eintrag auf die Wunschliste setzen für eine Funktion, die Sie vermissen und in einer kommenden Version von &kpackage; gerne sehen würden. Es wird eine E-Mail generiert und an die <abbrev
+>KDE</abbrev
+>-Entwickler geschickt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Hilfe</guimenu
+><guimenuitem
+>Über KPackage</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Gibt Informationen über die Version, die Autoren und die Lizenzbestimmungen von &kpackage;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Hilfe</guimenu
+> <guimenuitem
+>Über KDE</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Gibt Informationen über die Version, die Autoren und die Lizenzbestimmungen von &kpackage;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="toolbar">
+<title
+>Werkzeugleiste</title>
+
+<itemizedlist
+> <listitem
+><para
+><guiicon
+>Öffnen</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Zurück</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Nach vorne</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Unterverzeichnisse anzeigen</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Unterverzeichnisse ausblenden</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Paket suchen</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Datei suchen</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Erneut laden</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Beenden</guiicon
+></para
+></listitem
+> </itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>Team und Lizenz</title>
+
+<para
+> &kpackage; </para>
+<para
+>Program copyright 1999-2000 Damyan Pepper, Toivo Pedaste</para>
+
+<para
+>Documentation copyright 2000 Toivo Pedaste <email
+>toivo@ucs.uwa.edu.au</email
+></para>
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="how-to-obtain-kpackage">
+<title
+>Wie bekomme ich &kpackage;?</title>
+
+<para
+>&kpackage; gehört zum Paket "kdeadmin" von <abbrev
+>KDE2</abbrev
+> und ist auf dem <ulink url="ftp://ftp.kde.org/pub/kde/"
+><abbrev
+>KDE FTP-Server</abbrev
+></ulink
+> zu finden. Das Programm ist au�rdem über <abbrev
+>CVS</abbrev
+> zu beziehen.</para>
+
+<para
+>Für Informationen über Bezug und Kompilierung von &kpackage; siehe <ulink url="http://www.kde.org/install-source.html"
+> http://www.kde.org/install-source.html</ulink
+>.</para>
+
+<para
+>Weitere Informationen zur Kompilierung sind unter folgender URL zu erhalten: <ulink url="http://www.kde.org/compilationfaq.html"
+> http://www.kde.org/compilationfaq.html</ulink
+></para>
+
+<para
+>Zu &kpackage; gibt es eine eigene Homepage: <ulink url="http://www.general.uwa.edu.au/u/toivo/kpackage"
+> http://www.general.uwa.edu.au/u/toivo/kpackage</ulink
+></para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen</title>
+
+<para
+>Um &kpackage; benutzen zu können, benötigen Sie folgende Bibliotheken und Programme:</para>
+
+<itemizedlist
+> <listitem
+><para
+><abbrev
+>QT</abbrev
+>-Bibliothek 2 und <abbrev
+>KDE</abbrev
+>2 </para
+></listitem
+> </itemizedlist>
+
+<para
+>Um den Inhalt von Debian-Paketen anzeigen zu können, wird keine weitere Software benötigt. Zum Installieren und Entfernen benötigen Sie jedoch:</para>
+
+<itemizedlist
+> <listitem
+><para
+>den <application
+>DPKG</application
+>-Paketmanager.</para
+></listitem
+> <listitem
+><para
+> </para
+></listitem
+> </itemizedlist>
+
+<para
+>Für <abbrev
+>BSD</abbrev
+>-Pakete benötigen Sie folgende Programme: </para>
+
+<itemizedlist
+> <listitem
+><para
+><command
+>pkg_info</command
+></para
+></listitem
+> <listitem
+><para
+><command
+>pkg_add</command
+></para
+></listitem
+> <listitem
+><para
+><command
+>pkg_delete</command
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Für Slackware-Pakete benötigen Sie folgende Programme: </para>
+
+<itemizedlist
+> <listitem
+><para
+><application
+>installpkg</application
+> </para
+></listitem
+> <listitem
+><para
+><application
+>removepkg</application
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Um mit Redhat Paketen (RPM) arbeiten zu können benötigen Sie:</para>
+<itemizedlist
+> <listitem
+><para
+><abbrev
+>RPM</abbrev
+> und <abbrev
+>RPM</abbrev
+>-DEVEL mindestens Version 3.0</para
+></listitem
+> <listitem
+><para
+>die Bibliotheken, die benötigt werden, um <abbrev
+>RPM</abbrev
+> zu kompilieren. Dies sind:</para
+> <itemizedlist
+> <listitem
+><para
+><filename
+>libdb</filename
+> - Die Berkeley Datenbank Bibliothek </para
+></listitem
+> <listitem
+><para
+><filename
+>libz</filename
+> und <filename
+>libz-dev</filename
+> - Bibliotheken zur Komprimierung </para
+></listitem
+> <listitem
+><para
+><abbrev
+>RPM</abbrev
+> benötigt die <filename
+>gettext</filename
+>-Routinen, die sich in <filename
+>libc6</filename
+> oder in <filename
+>libintl</filename
+> befinden.</para
+></listitem
+> <listitem
+><para
+><abbrev
+>RPM</abbrev
+> 3.0 benötigt eventuell das <filename
+>popt</filename
+>-Paket.</para
+></listitem
+> </itemizedlist
+> </listitem
+> </itemizedlist>
+
+<para
+>Damit &kpackage; <abbrev
+>RPM</abbrev
+>-Pakete bearbeiten kann, muss die <abbrev
+>RPM</abbrev
+>-Datenbank initialisiert worden sein. Falls die Eingabe `<command
+>rpm <option
+>-qa</option
+></command
+>' auf der Befehlszeile die Fehlermeldung `<computeroutput
+>unable to open....</computeroutput
+>` zur Folge hat, initialisieren Sie die Datenbank mit dem Kommando `<command
+>rpm <option
+>--rebuilddb</option
+></command
+>' neu.</para>
+
+</sect1>
+
+</appendix>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

@@ -1,0 +1,679 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kasteroids;">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+
+<title
+>A &kasteroids; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Martin</firstname
+> <othername
+>R.</othername
+> <surname
+>Jones</surname
+> <affiliation
+> <address
+><email
+>mjones@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Philip</firstname
+> <surname
+>Rodrigues</surname
+> <affiliation
+> <address
+><email
+>phil.rod@ntlworld.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Martin R. Jones</holder>
+</copyright>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Philip Rodrigues</holder>
+</copyright>
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-05-29</date>
+<releaseinfo
+>2.00.01</releaseinfo>
+
+<abstract
+><para
+>A &kasteroids; a népszerű Asteroids játék egy &kde;-alapú változata.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>játékok</keyword>
+<keyword
+>Linux</keyword>
+<keyword
+>asteroids</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+
+<para
+>A játék célja a képernyőn látható összes aszteroida megsemmisítése és az életben maradás a következő pályáig. Az űrhajó megsemmisül, ha összeütközik egy aszteroidával.</para>
+
+</chapter>
+
+<chapter id="ship">
+<title
+>Az Ön űrhajója</title>
+
+<para
+>Kezdetben az űrhajó a következő alapvető képességekkel rendelkezik: fordulás, gyorsítás/lassítás és lövés.</para>
+
+<para
+>Manőverezéshez először a kívánt irányba kell forgatni az űrhajót, majd meg kell nyomni a gyorsítás billentyűt. Az űrhajó tehetetlensége miatt egy kicsit mindig kompenzálni kell forgatás után. Gyorsításkor fogy az üzemanyag, ezért csak indokolt esetben érdemes manőverekbe kezdeni.</para>
+
+<para
+>A lőszer végtelenített, ezért lövöldözni tetszés szerint lehet. Korlátozott azonban, hogy egyszerre hány lövedék lehet úton. Folyamatos lövés esetén észre fogja venni, hogy néha elakad a tüzelés (amíg néhány lövedék meg nem semmisül).</para>
+
+<para
+>Az üzemanyag mennyisége azonban nem végtelen. Ha teljesen kiürül az üzemanyagtartály, akkor nem lehet gyorsítani többé. Forogni és lőni azonban ilyenkor is lehet, az űrhajó nem marad teljesen védtelen.</para>
+
+<para
+>Szerencsére néhány aszteroidából üzemanyag válik ki szétlövéskor. "Feltankoláshoz" neki kell repülni a megjelenő üzemanyagszimbólumnak.</para>
+
+<screenshot
+> <screeninfo
+>Üzemanyagtartály-bővítés</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="fuel.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Üzemanyagtartály-bővítés</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+</chapter>
+
+<chapter id="upgrades">
+<title
+>Űrhajóbővítés</title>
+
+<para
+>Néha egy aszteroida szétlövésekor megjelenik egy speciális szimbólum. Ezek a szimbólumok megnövelik az űrhajó képességeit, ha sikerül nekirepülni. A bővítések hatása összegződik, maximum 5 darabig.</para>
+
+<para
+>A fejlesztési lehetőségek a következők:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Fékezőrakéták</term
+> <listitem
+><para
+>Ezek segítségével gyorsan megállítható az űrhajó. Több fékezőrakéta telepítése után gyorsabban meg lehet állni, kevesebb üzemanyag felhasználásával.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Pajzsok</term
+> <listitem
+><para
+>A pajzsok segítségével túl lehet élni bizonyos ütközéseket, de ez sok üzemanyagba kerül. Egy közepes méretű aszteroidával való ütközés kivédéséhez legalább 2 pajzs kell, a nagyobbakhoz 3, ráadásul a pajzsnak csak akkor hatásos, ha van elég üzemanyag.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="controls">
+<title
+>Irányítás</title>
+
+<para
+>A billentyűparancsok megváltoztatásához válassza a <menuchoice
+><guimenu
+>Beállítások</guimenu
+><guimenuitem
+>A billentyűparancsok beállítása</guimenuitem
+></menuchoice
+> menüpontot.</para>
+
+<para
+>Az alapértelmezések:</para>
+
+<itemizedlist
+> <listitem
+><para
+><action
+>Forgás balra</action
+> - <keysym
+>Balra</keysym
+></para
+></listitem
+> <listitem
+><para
+><action
+>Forgás jobbra</action
+> - <keysym
+>Jobbra</keysym
+></para
+></listitem
+> <listitem
+><para
+><action
+>Gyorsítás</action
+> - <keysym
+>Felfelé</keysym
+></para
+></listitem
+> <listitem
+><para
+><action
+>Lövés</action
+> - <keysym
+>Szóköz</keysym
+></para
+></listitem
+> <listitem
+><para
+><action
+>A pajzs aktiválása</action
+> - <keycap
+>S</keycap
+></para
+></listitem
+> <listitem
+><para
+><action
+>Szünet</action
+> - <keycap
+>P</keycap
+></para
+></listitem
+> <listitem
+><para
+><action
+>Fékezés</action
+> - <keycap
+>X</keycap
+></para
+></listitem
+> </itemizedlist>
+
+</chapter>
+
+<chapter id="config">
+<title
+>A &kasteroids; beállítása...</title>
+<para
+>A &kasteroids; néhány paraméterét lehet megváltoztatni a <menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+><guimenuitem
+>A <accel
+>K</accel
+>Asteroids beállításai</guimenuitem
+></menuchoice
+> menüpontban.</para>
+
+<variablelist
+> <varlistentry
+><term
+>Új játék kezdése: <replaceable
+>n</replaceable
+> űrhajóval</term
+> <listitem
+><para
+>Itt lehet megadni, hogy új játék kezdetekor hány űrhajóval rendelkezik a játékos. A megadott érték az űrhajók száma <emphasis
+>összesen</emphasis
+> (tehát nem a tartalékok száma).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+><term
+>Dicsőségtábla a játék végén</term
+> <listitem
+><para
+>Ha ez be van jelölve, akkor minden játék végén megjelenik a dicsőségtábla, függetlenül attól, hogy sikerült-e rá az eredménnyel felkerülni.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+><term
+>Az energiacsomagok megsemmisíthetők</term
+> <listitem
+><para
+>Ha ez be van jelölve, akkor az energiacsomagokat szét lehet lőni, máskülönben nem semmisülhetnek meg.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="tips">
+<title
+>Tippek</title>
+
+<para
+>Az elinduláshoz néhány tipp:</para>
+
+<tip
+><para
+>Az űrhajó megállításához érdemes a fékezőrakétákat használni, mert azokkal gyorsabban, kisebb energiafelhasználással lehet megállni.</para
+></tip>
+
+<tip
+><para
+>A pajzs használata sok energiába kerül, csak végső esetben érdemes használni. Az ütközést először meg kell próbálni manőverezéssel elhárítani.</para
+></tip>
+
+<tip
+><para
+>Kerülni kell a pálya szélét, mert úgy a kívülről közelítő aszteroidák elkerülése sokkal nehezebb.</para
+></tip>
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>A menüparancsok</title>
+<sect1 id="game-menu">
+<title
+>A <guimenu
+>Játék</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Játék</guimenu
+> <guimenuitem
+>Új</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Elkezd egy új játékot.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Játék</guimenu
+> <guimenuitem
+>A legjobb eredmények megjelenítése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megjeleníti a dicsőségtáblát.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Játék</guimenu
+> <guimenuitem
+>Kilépés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Bezárja</action
+> a programot.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>A <guimenu
+>Beállítások</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+><term
+><menuchoice
+><shortcut
+><keycombo action="seq"
+>&Alt;<keycap
+>S</keycap
+><keycap
+>K</keycap
+></keycombo
+> </shortcut
+><guimenu
+>Beállítások</guimenu
+><guimenuitem
+>A billentyűparancsok beállítása</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Megnyitja a billentyűparancs-beállító ablakot. Ez egy standard billentyűparancs-beállító ablak, bizonyára már ismerős máshonnan. Az alapértelmezett billentyűparancsok listája megtalálható itt: <xref linkend="controls"/>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="seq"
+>&Alt;<keycap
+>S</keycap
+><keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Beállítások</guimenu
+> <guimenuitem
+>A KAsteroids beállításai</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megjeleníti a &kasteroids; beállítóablakát</action
+>. Lásd: <xref linkend="config"/>. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+>A <guimenuitem
+>Segítség</guimenuitem
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+><accel
+>T</accel
+>artalom</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Megnyitja a &kde; Segítség rendszert és rááll ennek a dokumentumnak a nyitóoldalára.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>Mi <accel
+>e</accel
+>z?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Ennek hatására az egérmutató alakja egy nyíl és egy kérdőjel kombinációjává változik. Ha ilyenkor rákattint valamire a program ablakán belül, megnyílik egy kis ablak az elem funkciójának rövid leírásával (ha tartozik hozzá leírás).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>Hiba<accel
+>b</accel
+>ejelentés</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Hiba vagy kívánság bejelentése - az üzenet el fog jutni a program karbantartóihoz.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>A <accel
+>K</accel
+>Asteroids névjegye</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Megjeleníti a program verziószámát és a szerző(k) nevét.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>A <accel
+>K</accel
+>DE névjegye</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Megjeleníti a &kde; verziószámát és még néhány más jellemzőjét.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Köszönetnyilvánítások</title>
+
+<para
+>&kasteroids;</para>
+
+<para
+>Copyright: Martin R Jones (<email
+>mjones@kde.org</email
+>), 1997.</para>
+
+<para
+>A dokumentáció Martin R Jones eredeti dokumentációjára épül, a jelenlegi karbantartó: Philip Rodrigues (<email
+>phil.rod@ntlworld.com</email
+>)</para>
+
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+
+<sect1 id="getting-kasteroids">
+<title
+>A program megszerzése</title>
+
+<para
+>A &kasteroids; a &kde; projekt (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>) része, a kdegames csomagban található itt: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, a &kde; projekt központi FTP-kiszolgálóján. </para>
+
+<para
+>Az összes szükséges programkönyvtár letölthető <ulink url="ftp://ftp.kde.org"
+>A &kde; &FTP;-kiszolgálójáról</ulink
+>.</para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Lefordítás és telepítés</title>
+
+<para
+>A program lefordításához és telepítéséhez az alábbi parancsokat kell kiadni a kdegames forráscsomag alapkönyvtárában:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>A &kasteroids; fordítási szkriptjei az <command
+>autoconf</command
+> és az <command
+>automake</command
+> segítségével készültek, külön beállítást nem igényelnek. A felmerült problémák leírását küldje el erre a címre, a <ulink url="mailto:mjones@kde.org"
+>szerzőnek</ulink
+>.</para>
+
+</sect1>
+
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

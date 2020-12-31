@@ -1,0 +1,432 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kuser;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>A &kuser; kézikönyve</title>
+<authorgroup>
+<author
+> <firstname
+>Matt</firstname
+> <surname
+>Johnston</surname
+> <affiliation
+> <address
+><email
+>mattj@flashmail.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>vampyr@atconnex.net</email
+></address>
+</affiliation>
+<contrib
+>Lektor</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Matt Johnston</holder>
+</copyright>
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+
+<date
+>2000-08-22</date>
+<releaseinfo
+>1.03.00</releaseinfo>
+
+<abstract
+><para
+>Ez a dokumentum a &kuser; 1.0-s változatát írja le. A program segítségével könnyen karbantarthatók a felhasználónevek és a csoportok.</para
+> </abstract>
+
+<keywordset>
+<keyword
+>kuser</keyword>
+<keyword
+>felhasználó</keyword>
+<keyword
+>kezelés</keyword>
+<keyword
+>adminisztrálás</keyword>
+<keyword
+>eszközök</keyword>
+<keyword
+>csoport</keyword>
+<keyword
+>jelszó</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="start">
+<title
+>A kezdeti lépések</title>
+<para
+>Most áttekintjük a &kuser; legfontosabb jellemzőit. Részletes információ a <link linkend="using"
+>Használat</link
+> fejezetben található.</para>
+
+<para
+>A &kuser; használata semmilyen előkészítést nem igényel az alapvető <link linkend="customizing"
+>beállítások</link
+> elvégzésén kívül.</para>
+
+<para
+>Ha végrehajtotta a kívánt módosításokat, válassza a <guimenuitem
+>Mentés</guimenuitem
+> menüpontot a <guimenu
+>Fájl</guimenu
+> menüben vagy nyomja meg a megfelelő gombot az eszköztáron.</para>
+
+</chapter>
+
+<chapter id="using">
+<title
+>Használat</title>
+
+<sect1 id="sec1mainwindow">
+<title
+>Főablak</title>
+
+<para
+>A &kuser; egy nagyon egyszerű alkalmazás. A főablakban két lista látható: a felhasználók és a csoportok listája. Egy felhasználó vagy egy csoport jellemzőinek módosításához kattintson duplán az elemre a hozzá tartozó tulajdonságablak előhívásához.</para>
+
+</sect1>
+
+<sect1 id="user-properties">
+<title
+>A felhasználótulajdonságok ablaka</title>
+
+<para
+>Ez az ablak több lapot is tartalmazhat.</para>
+
+<para
+>A lapok száma a felhasználónevek tárolási módjától és a kvóták állapotától függ. Ha a rendszer árnyékjelszavakat használ, akkor ahhoz külön tulajdonságlap tartozik. Külön tulajdonságlapja van néhány egyéb kiegészítő funkciónak, például az <filename
+>/etc/master.passwd</filename
+> fájlnak BSD Unix-ok esetén.</para
+> 
+
+<sect2 id="user-info"
+> 
+<title
+>A <guilabel
+>Felhasználójellemzők</guilabel
+> lap</title>
+
+<para
+>Ezen a lapon a következő adatokat lehet módosítani: </para>
+
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>Teljes név</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>A bejelentkezési parancsértelmező</guilabel
+> (a választható parancsértelmezők listáját az <filename
+>/etc/shells</filename
+> fájlból olvassa be a program)</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Saját könyvtár</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Speciális jellemzők</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Felhasználóazonosító</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Jelszó</guilabel
+></para
+></listitem
+> </itemizedlist>
+
+</sect2>
+
+<sect2 id="extended-info">
+<title
+>A <guilabel
+>Speciális jellemzők</guilabel
+> lap</title>
+
+<para
+>A "<guilabel
+>Speciális jellemzők</guilabel
+>" lap csak akkor jelenik meg, ha árnyékjelszavakat vagy más ehhez hasonló mechanizmust használ, például a BSD Unix-oknál elterjedt <filename
+>/etc/master.passwd</filename
+> fájlt.</para>
+
+<para
+>A "<guilabel
+>Speciális jellemzők</guilabel
+>" lapon a jelszókezeléshez tartozó kiegészítő adatokat lehet módosítani: </para>
+
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>A jelszómódosítás legközelebbi lehetséges dátuma</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>A jelszó módosításának határideje</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>A jelszó lejárására figyelmeztetés dátuma</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>A felhasználónév letiltásának dátuma</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>A felhasználónév lejárásának dátuma</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Osztály</guilabel
+> (csak BSD rendszerekben)</para
+></listitem
+> </itemizedlist>
+
+</sect2>
+
+<sect2 id="quota">
+<title
+>A <guilabel
+>Kvóta</guilabel
+> lap</title>
+
+<para
+>A "<guilabel
+>Kvóta</guilabel
+>" lapot csak akkor fogja látni, ha legalább az egyik aktív fájlrendszer támogatja a kvótákat és létezik egy kvótafájl. Ebben az esetben az alábbi adatokat lehet itt módosítani: </para>
+
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>A fájlok szoftkvótája</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>A fájlok hardkvótája</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>A fájlok időkorlátja (lejárati időtartam)</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Az iNode-ok szoftkvótája</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Az iNode-ok hardkvótája</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Az iNode-ok időkorlátja (lejárati időtartam)</guilabel
+></para
+></listitem
+> </itemizedlist>
+
+<para
+> Ezek a paraméterek minden olyan fájlrendszernél beállíthatók, amelyek képesek kvótákat kezelni. A kívánt fájlrendszert a "<guilabel
+>Fájlrendszer kvótával</guilabel
+>" feliratú kombinált listában lehet kiválasztani.</para
+> 
+
+</sect2
+> 
+
+<sect2 id="group">
+<title
+>A <guilabel
+>Csoportok</guilabel
+> lap</title>
+
+<para
+>A "<guilabel
+>Csoportok</guilabel
+>" lapon az egyes csoportokhoz tartozó felhasználókat lehet áttekinteni. Megtekinthető minden felhasználónál az elsődleges csoport, továbbá tetszés szerint megadható, hogy egy adott felhasználó melyik további csoportokhoz tartozzon.</para
+> 
+
+</sect2>
+</sect1>
+
+<sect1 id="group-properties">
+<title
+><guilabel
+>Csoporttulajdonságok</guilabel
+></title>
+
+<para
+>A <guilabel
+>Csoport</guilabel
+> tulajdonságablakban két lista látható. A jobb oldali listába ("<guilabel
+>Tagja a csoportnak</guilabel
+>") azok kerülnek, akik tagjai a csoportnak, a bal oldali listába pedig az összes többi felhasználó ("<guilabel
+>Nem tagja a csoportnak</guilabel
+>"). A <guibutton
+>nyilak</guibutton
+> segítségével lehet a felhasználókat az egyik listából a másikba mozgatni. Jelölje ki a kívánt felhasználót, majd a megfelelő nyilat ábrázoló gombot lenyomva végezze el a mozgatást.</para
+> 
+
+</sect1>
+
+<sect1 id="add-user">
+<title
+>Hozzáadás egy csoporthoz, törlés egy csoportból</title>
+
+<para
+>Új felhasználó vagy csoport létrehozásához válassza a <guimenu
+>Felhasználó</guimenu
+> ill. <guimenu
+>Group</guimenu
+> menü <guimenuitem
+>Hozzáadás</guimenuitem
+> menüpontját vagy kattintson a "<guiicon
+>Hozzáadás</guiicon
+>" gombra az eszköztáron. Hasonlóan kell eljárni törlés esetén is. </para
+> 
+</sect1
+> 
+</chapter>
+
+<chapter id="customizing">
+<title
+>A program testreszabása</title>
+
+<sect1 id="defaults">
+<title
+>Az új felhasználók alapértelmezéseinek beállítása</title>
+
+<para
+>Az új felhasználók alapértelmezett jellemzőit "<guilabel
+>Az alapértelmezések beállítása</guilabel
+>" ablakban lehet beállítani, amely a <menuchoice
+><guimenu
+>Beállítások</guimenu
+><guimenuitem
+>Beállítások</guimenuitem
+></menuchoice
+> menüpontból érhető el. A következő adatokat lehet megadni: a bejelentkezési parancsértelmező neve, a saját könyvtár (vagy a saját könyvtárak partíciója). Meg lehet adni, hogy felhasználó létrehozásakor a saját könyvtár létrehozása megtörténjen-e, kell-e egy előre megadott könyvtárstruktúrát létrehozni vagy sem. A "Privát csoport létrehozása" opció beállításakor a program minden új felhasználóhoz létrehoz egy ugyanolyan nevű csoportot, a név törlésekor pedig törli ezt a csoportot.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>A szerzők névsora és a licencegyezmény</title>
+
+<para
+>&kuser;</para>
+
+<para
+>Program copyright: Denis Pershin (<email
+>dyp@inetlab.com</email
+>), 1997-2000.</para>
+
+<para
+>Documentation copyright: Denis Pershin (<email
+>dyp@inetlab.com</email
+>), 1997-2000.</para>
+<para
+>Documentation copyright: Matt Johnston (<email
+>mattj@flashmail.com</email
+>), 2000.</para>
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+&documentation.index; 
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

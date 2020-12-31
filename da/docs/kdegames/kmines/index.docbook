@@ -1,0 +1,970 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmines;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Danish "INCLUDE" 
+> <!-- change language only here --> 
+  
+   
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>&kmines; håndbog</title>
+
+<authorgroup>
+<author
+> <firstname
+>Nicolas</firstname
+> <surname
+>Hadacek</surname
+> <affiliation
+> <address
+><email
+>hadacek@kde.org</email
+></address
+> </affiliation
+> </author>
+<author
+> <firstname
+>Michael</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+><email
+>mmcbride@ematic.org</email
+></address
+></affiliation
+> </author>
+<othercredit role="developer">
+<firstname
+>Nicolas</firstname>
+<surname
+>Hadacek</surname>
+<affiliation>
+<address
+><email
+>hadacek@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Udvikler</contrib>
+</othercredit>
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Tester</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicolas Hadacek, Michael McBride</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-02-03</date>
+<releaseinfo
+>2.00.10</releaseinfo>
+
+<abstract
+><para
+>&kmines; er KDE versionen af det klassiske minesøger spil.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>spil</keyword>
+<keyword
+>minesøger</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Indledning</title>
+
+<para
+>&kmines; er det klassiske minesøger spil. Man skal afdække alle de tomme felter uden at udløse en mine.</para>
+
+<para
+>Når man afdækker et felt viser et tal sig : det indikerer hvor mange miner der omgiver dette felt. Hvis der ikke er noget tal bliver nabofelterne automatisk afdækkede. Når du er i færd med at afdække sikre felter er det <emphasis
+>meget</emphasis
+> nyttigt at putte et flag på de felter der indeholder en mine.</para>
+
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Hvordan man spiller</title>
+
+<para
+>Man skal bruge musen og dens tre knapper (hvis du kun har to knapper klikker man sædvanligvis på den "midterste" ved samtidig at trykke på <mousebutton
+>venstre</mousebutton
+> og <mousebutton
+>højre</mousebutton
+> knap) for at afdække eller sætte flag på et felt. Her er detaljerne :</para>
+
+<itemizedlist
+> <listitem
+><para
+>Venstre knap vil afdække et felt. Hvis der er en bombe under feltet, så vil bomben eksplodere og spillet er forbi </para
+> <para
+>Hvis der ikke er en bombe under feltet, så vil et tal vise sig. Det er antallet af nabofelter der har bomber under sig. Hvilke spørger du? Det er netop spillets pointe.</para
+> <para
+>For hver kasse (med undtagelse af kant og hjørnekasse), er der 8 nabokasser.</para
+> <para
+>Hvis der ikke er bomber under nogen af nabokasserne, så vil et blankt felt vise sig og alle nabokasser vil automatisk blive afdækkede.</para
+> <note
+><para
+><mousebutton
+>Venstre</mousebutton
+> klikning på en kasse med flag er sikkert og ændrer ingenting.</para
+></note
+></listitem
+> <listitem
+><para
+><mousebutton
+>Højre</mousebutton
+> knap vil markere et felt som indeholdende en mine (tegner et rødt flag) eller, hvis indstillingen er sat, som værende usikker (tegner et spørgsmålstegn). Den usikre markering kan være nyttig hvis du er i tvivl om positionen af minerne.</para
+></listitem
+> <listitem
+><para
+>Den <mousebutton
+>midterste</mousebutton
+> knap vil rydde alle omgivende kasser, hvis der allerede er det rigtige antal kasser med flag. Dette er meget nyttigt da det er meget hurtigere end at afdække alle individuelle felter. </para
+> <warning
+><para
+>Hvis dine flag ikke står rigtigt vil en bombe eksplodere.</para
+></warning
+></listitem
+> <listitem
+><para
+>Det starter et nyt spil at trykke på den <guiicon
+>gule smiley</guiicon
+>.</para
+></listitem
+> </itemizedlist>
+
+<note
+><para
+>Dette er standardopsætningen. Museknapperne kan omprogrammeres. For mere information, se sektionen der hedder <link linkend="prefs"
+>Spil indstillinger</link
+>.</para
+></note>
+
+<sect1 id="screen"
+><title
+>&kmines; Skærmen</title>
+
+<screenshot
+> <screeninfo
+>&kmines; Skærmen</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kmines1.png" format="PNG"/></imageobject
+> </mediaobject
+> </screenshot
+>   
+
+<para
+>&kmines; skærmen består af:</para>
+
+<itemizedlist
+> <listitem
+><para
+>En boks der viser det antal miner der stadig skal markeres. Hver gang du putter et flag på et bombested, vil dette antal gå én ned.</para
+> <note
+><para
+>Denne boks afgør ikke om du har ret eller uret, kun hvor mange miner du teoretisk behøver at markere før du er færdig med spillet.</para
+></note
+> <para
+>I dette eksempel er der 10 miner der skal markeres.</para
+></listitem
+> <listitem
+><para
+>Et gult smiley ansigt. Ved at klikke på dette starter man et nyt spil. Hvis du taber spillet, bliver det til en grimasse.</para
+></listitem
+> <listitem
+><para
+>Boksen til højre viser hvor lang tid denne runde har taget. De hurtigste tider på hvert niveau får lov til at indføje deres navne på topscorerlisten.</para
+></listitem
+> <listitem
+><para
+>Spilleområdet. Dette varierer i størrelse afhængig af den valgte sværhedsgrad. I dette eksempel bestårt det af 64 kasser. Det er her du spiller spillet.</para
+></listitem
+> <listitem
+><para
+>En statuslinie i bunden af vinduet. I dette eksempel siger den simpelthen <guilabel
+>Pause i spillet</guilabel
+>.</para
+></listitem
+> </itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="prefs"
+><title
+>Spillets indstillinger</title>
+<para
+>Indstillinger for &kmines; sættes ved at vælge <menuchoice
+> <guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Indstillinger</guimenuitem
+> </menuchoice
+>fra menulinien. Dette bringer en dialogboks frem.</para>
+
+<screenshot
+> <screeninfo
+>&kmines; Indstillinger</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kmines2.png" format="PNG"/></imageobject
+> </mediaobject
+> </screenshot
+>  
+
+<para
+>Denne dialogboks er opdelt i to afdelinger.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Hovedindstillinger</guilabel
+></term
+> <listitem
+><para
+>Den øverste indstilling, der hedder <guilabel
+>kassestørrelse</guilabel
+>, afgør størrelsen af hver af firkanterne i spilleområdet. Som standard er den sat til at være lille. Man kan øge størrelsen hvis man arbejder ved en skærm med høj opløsning.</para
+> <para
+>Den næste mulighed nedad ved navn <guilabel
+>Aktivér ?-tegn</guilabel
+>, afgør om man kan markere et felt som <quote
+>tvivlsomt</quote
+>. Hvis dette er afkrydset, så vil højreklikning med musen først forårsage at der kommer et flag og hvis man klikker igen vil flaget ændres til et <guiicon
+>?</guiicon
+>, for at angive, at du ikke ved om der er en bombe der eller ej. Hvis du klikker igen vil firkanten blive blank igen.</para
+> <para
+>Hvis denne indstilling ikke er aftjekket vil det første  <mousebutton
+>højre</mousebutton
+> museklik ændre kassen til et rødt flag. Det andet vil få det til at blive blankt igen, så ? symbolet overspringes.</para
+> <para
+>Den næste indstilling nedad ved navn <guilabel
+>Aktivér tastatur</guilabel
+>, afgør om tastaturgenveje virker mens man spiller.</para
+> <note
+><para
+>De eneste tastaturgenvej dette har virkning på, er dem der bruges i spillet. Tastatur kommandoer såsom <guimenuitem
+>Nyt spil</guimenuitem
+>, og <guimenuitem
+>Afslut</guimenuitem
+>, virker stadigvæk uanset denne indstilling.</para
+></note
+> <para
+>Den sidste sektion tillader dig at ændre den måde museknapperne virker på. Dine muligheder er :</para
+> <variablelist
+> <varlistentry
+> <term
+>Afslør</term
+> <listitem
+><para
+>Dette vil afsløre indholdet af kassen. Hvis der ikke er en bombe så vil et tal vise sig. Hvis der er en bombe, så vil den eksplodere og spillet er forbi.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Slå markering til/fra</term
+> <listitem
+><para
+>Ved at klikke med denne knap på en kasse vil der skiftes mellem et rødt flag og ingenting.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Autovisning</term
+> <listitem
+><para
+>Klik på et felt med denne knap vil automatisk afsløre alle nabofelter der ikke er markerede med røde flag. Hvis en af disse naboer har en bombe under sig vil den eksplodere og spillet vil være ovre.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Slå ? Markering til/fra</term
+> <listitem
+><para
+>Ved at klikke med denne knap på et felt, vil der blive markeret afmarkeret med et spørgsmålstegn.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Farveopsætning</guilabel
+></term
+> <listitem
+><para
+>Denne dialogboks tillader dig at justere farverne på kmines skærmen. Klik på farveknappen ved hver beskrivelse for at ændre farven , og vælg en ny farve.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Gem dine ændringer</term
+> <listitem
+><para
+>Når du er færdig med at lave dine ændringer, så klik på "<guibutton
+>O.k.</guibutton
+>" for at gøre dem permanente.</para
+> <para
+>Hvis du ønsker at glemme dine ændringer, så klik på "<guibutton
+>Annullér</guibutton
+>".</para
+> <para
+>Hvis du klikker på "<guilabel
+>Standard</guilabel
+>", vil standard opsætningen blive genoprettet. Klik på "<guilabel
+>O.k.</guilabel
+>" for at gøre standardopsætningen permanent, eller redigér opsætningen mere.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+
+</chapter>
+
+<chapter id="command">
+<title
+>Kommandoer/Tastatur genveje</title>
+
+<para
+>De følgende sektioner beskriver kort hver indstilling i menulinien.</para>
+
+<sect1 id="game-menu">
+<title
+><guimenu
+>Spil</guimenu
+>menu</title>
+
+<para
+><guimenu
+>Spil</guimenu
+>menuen består af 5 indstillinger.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>yt spil</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Starter et nyt spil.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>H</keycap
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+>Topresultater...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Dette viser dig topscoringerne (den korteste tid) for hver sværhedsgrad.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>ause</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Pause i spillet. Dette vil gemme brættet (der kan ikke snydes), og det giver dig en knap at trykke på, når du vil fortsætte dette spil.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>dskriv</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Udskriver spillets bræt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Afslutter</action
+> &kmines;</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="settings-menu"
+><title
+><guimenu
+>Opsætnings</guimenu
+>menu</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>M</accel
+>enulinie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Hvis dette valg er afkrydset vil menulinien blive synlig. Ellers vil menulinien være skjult.</para
+> <note
+><para
+>Klik udenfor spilområdet med højre museknap for at genoprette en skjult menulinie, . Dette vil få en lille undermenu frem. Vælg så <guimenuitem
+>Vis menulinie</guimenuitem
+> fra denne undermenu og menulinien vil blive synlig igen.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Indstil <accel
+>T</accel
+>astebindinger...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Tillader dig at ændre tastegenveje for &kmines;</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndstil KMines</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Tillader dig at justere spillet.  For mere detaljeret information, se  sektionen ved navn <link linkend="prefs"
+>SpilIndstillinger</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Indstillinger</guimenu
+><guisubmenu
+>Niveau</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+>Lader dig sætte sværhedsgraden fra en undermenu.</para
+> <para
+>Der er tre standsard sværhedsgrader: <guimenuitem
+>Let</guimenuitem
+> (64 kasser, 10 miner), <guimenuitem
+>Normalt</guimenuitem
+> (256 kasser, 40 miner), og <guimenuitem
+>Ekspert</guimenuitem
+> (480 kasser, 99 miner). Det er også muligt at lave <guimenuitem
+>Brugervalgte...</guimenuitem
+> indstillinger.</para
+> <para
+>Hvis du vælger <guimenuitem
+>Brugerindstil</guimenuitem
+>, vil en lille dialogboks vise sig der tillader dig at justere bredden (antal kasser tværsover), højden (antal kasser opad) og antal miner ved hjælp af glideknapper eller ved direkte at skrive dem ind i teksboksene.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+><guimenu
+>Hjælp</guimenu
+> menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="contents"/><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndhold</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette starter &kde;'s hjælpesystem startende med &kmines; hjælpesider (dette dokument).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="bug"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Hvad er <accel
+>d</accel
+>ette?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Dette ændrer musemarkøren til en kombination af en pil og et spørgsmålstegn. Ved at klikke på ting indenfor &kmines; med denne pil vil et hjælpevindue blive åbnet (hvis der findes et for dette punkt) der forklarer vedkommendes funktion.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="whats-this"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+><accel
+>R</accel
+>apportér problem...</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Hvis du har en god idé til næste udgave af spillet eller programmet bryder sammen for dig, så kan du vælge dette og sende en problemrapport til forfatteren.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kmines"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Om <accel
+>K</accel
+>Mines</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette vil vise version og forfatterinformation</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kde"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette viser &kde; versionen og anden basal information.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="keys"
+><title
+>Standard tastebindinger</title>
+<para
+>Følgende tabel viser dig standard tastebindinger.</para>
+
+
+<table>
+<title
+>Menu bindinger</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Tastekombination</entry
+><entry
+>Handling</entry
+></row
+></thead>
+<tbody
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Pile</keycap
+></keycombo
+></entry
+><entry
+>Flyt markøren i spilleområdet.</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+></keycombo
+></entry
+><entry
+>Vis omgivende kasser ikke markeret med flag automatisk.</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></entry
+><entry
+>Nyt spil</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+></entry
+><entry
+>Pause i spil</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+></entry
+><entry
+>Udskriv spil</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></entry
+><entry
+>Afslut &kmines;</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Hjælp indhold</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Hvad er denne hjælp</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+></keycombo
+></entry
+><entry
+>Afslør mine.</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Mellemrum</keycap
+></keycombo
+></entry
+><entry
+>Markér mine</entry
+></row
+> </tbody>
+</tgroup>
+</table>
+
+<para
+>Disse tastebindinger kan ændres ved at vælge <menuchoice
+><guimenu
+>Indstillinger</guimenu
+> <guimenuitem
+>Indstil tastebindinger</guimenuitem
+></menuchoice
+> fra menulinien.</para>
+
+</sect1>
+
+</chapter>
+<chapter id="credits"
+><title
+>Medvirkende og licens</title>
+ 
+<para
+> &kmines; </para>
+<para
+> Program ophavsret 1996-2000 Nicolas Hadacek <email
+>hadacek@kde.org</email
+></para>
+<para
+>Dokumentation ophavsret 2000 Nicolas Hadacek <email
+>hadacek@kde.org</email
+></para>
+<para
+>Dokumentation opdateret for KDE 2.0 af Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter
+>                  
+
+<appendix id="installation">
+<title
+>Installation</title>
+ 
+<sect1 id="getting-kapp">
+<title
+>Hvordan får man fat på &kmines;</title>
+ 
+<para
+>&kmines; er en del af KDE projektet <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kmines; findes i kdegames pakken på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, som er hoved ftp-stedet for KDE projektet. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilering og installation</title>
+ 
+<para
+>For at kompilere og installere &kmines; på dit system, skal du skrive følgende i basismappen for KDE distributionen:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>cd kdegames</userinput>
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+>Da &kmines;  bruger <application
+>autoconf</application
+> og <application
+>automake</application
+> skulle det ikke give problemer at kompilere den. Hvis du løber ind i problemer, så rapportér dem venligst til KDE listerne.</para>
+ 
+</sect1
+>         
+</appendix>
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+

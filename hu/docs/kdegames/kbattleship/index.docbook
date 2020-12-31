@@ -1,0 +1,657 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kbattleship;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>A KBattleship kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+> <address
+><email
+>molkentin@kde.org</email
+></address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>Nikolas</firstname
+> <surname
+>Zimmermann</surname
+> <affiliation
+> <address
+><email
+>wildfox@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Daniel Molkentin</holder>
+</copyright>
+<copyright>
+<year
+>2001</year>
+<holder
+>Nikolas Zimmermann</holder>
+</copyright>
+<copyright>
+<year
+>2001</year>
+<holder
+>Kevin Krammer</holder>
+</copyright>
+
+
+<date
+>2001-07-29</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract>
+<para
+> A &kbattleship; egy &kde;-alapú, egymás ellen is játszható <quote
+>Torpedó</quote
+> játék.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>játék</keyword>
+<keyword
+>torpedó</keyword>
+<keyword
+>Torpedó</keyword>
+<keyword
+>csata</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+
+<sect1 id="features">
+<title
+>A játék jellemzői</title>
+<itemizedlist
+> <listitem
+><para
+>Hálózati játék</para
+></listitem
+> <listitem
+><para
+>Gépi játékos</para
+></listitem
+> <listitem
+><para
+>Hanghatások</para
+></listitem
+> <listitem
+><para
+>Csevegés játék közben</para
+></listitem
+> <listitem
+><para
+>Statisztika</para
+></listitem
+> <listitem
+><para
+>Dicsőségtábla</para
+></listitem
+> </itemizedlist>
+
+<tip
+> <para
+> A &kbattleship; hálózati adatkezelése &XML;-alapú protokollt használ, ezért bármelyik platformon, bármelyik nyelven írható hozzá kliens. Ha esetleg kedve támadt átültetni a programot valamelyik még nem támogatott platformra, kérem írjon nekünk, örömmel fogadunk minden jelentkezőt. </para
+> </tip>
+</sect1>
+
+</chapter>
+
+<chapter id="using-kbattleship">
+<title
+>A program kezelése</title>
+
+<para
+> A &kbattleship;-et ketten is játszhatják a hálózaton keresztül. Az egyik játékos elindítja a játékot a <menuchoice
+><guimenu
+>Játék</guimenu
+> <guimenuitem
+>A kiszolgáló elindítása</guimenuitem
+></menuchoice
+> menüponttal, vagy az <keycap
+>F3</keycap
+> megnyomásával. </para>
+
+<para
+> Megjelenik egy párbeszédablak, ahol meg kell adni a <guilabel
+>becenevet</guilabel
+> és a <guilabel
+>port</guilabel
+> számát. A program felajánlja az aktuális bejelentkezési nevet, de bármit meg lehet adni. A port értékét ritkán kell csak megváltoztatni. Ha nem sikerült csatlakozni, próbálkozzon meg egy 1024 fölötti értékkel. A port megváltoztatásáról értesíteni kell a másik játékost, mert azonos értéket kell megadni mind a két oldalon. </para>
+
+<para
+> A másik játékos válassza a <menuchoice
+><guimenu
+>Játék</guimenu
+> <guimenuitem
+>Cstalakozás egy kiszolgálóhoz</guimenuitem
+></menuchoice
+> menüpontot vagy nyomja meg az <keycap
+>F2</keycap
+>-t. Meg kell adni a <guilabel
+>becenevet</guilabel
+>, mely alapértelmezetten a bejelentkezési név. </para>
+
+<para
+> Fontos, hogy helyesen töltse ki a <guilabel
+>Kiszolgáló</guilabel
+> mezőt. Ide kell beírni a kiszolgáló gép nevét (a játékot kezdeményező játékos gépének nevét). </para>
+
+<para
+> Lehet egyedül is játszani a számítógép ellen. Válassza az <guimenuitem
+>Egy játékos</guimenuitem
+> menüpontot a <guimenuitem
+>Játék</guimenuitem
+> menüből, vagy nyomja meg az <keycap
+>F4</keycap
+>-et. </para>
+
+<para
+> Most már kezdődhet a játék! Kövesse az állaposorban megjelenő utasításokat! A főképernyőn két rácsozott mező jelenik meg, ez lesz a tengeri csata színhelye. A bal oldali részen látható a saját játékmező. Itt kell elhelyezni a saját flottát és itt lehet követni az ellenséges támadást. A jobb oldali részen belül rejtőzködik az ellenséges flotta. Ha Ön következik, akkor kattintson rá az ellenséges terület valamelyik szektorára, ahol úgy gondolja, hogy ellenséges hajó található. </para>
+
+<para
+> Először el kell helyezni a hajókat, a játékot kezdeményező fél jön először, utána a másik játékos. </para>
+
+<para
+> A hajók elhelyezése igazán könnyű: kattintson rá arra az üres mezőre, ahová a hajót le szeretné tenni. Az első, leghosszabb hajó négy egység hosszú, a többi 3, 2, 1 egységnyi. Arra a kockára kell kattintani, amelyben a hajó kezdő végpontja lesz. Ha a <mousebutton
+>bal</mousebutton
+> egérgombbal kattint, akkor a hajó vízszintes lesz, <keycombo
+><keycap
+>Shift</keycap
+><mousebutton
+>bal</mousebutton
+></keycombo
+> kattintásra pedig függőleges. A <keycap
+>Shift</keycap
+> hatására a hajó helyzete megváltozik az előképen. </para>
+
+<para
+> Kezdődhet a lövöldözés! :) Az állapotsorban mindig látszik, hogy éppen ki következik. </para>
+
+<para
+> Az győz, aki hamarabb pusztítja el a másik összes hajóját. </para>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>A menük</title>
+
+<sect1 id="game-menu">
+<title
+>A <guimenu
+>Játék</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F2</keycap
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+><accel
+>C</accel
+>satlakozás a kiszolgálóhoz</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Csatlakozás egy másik felhasználó által kezdeményezett játékhoz.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F3</keycap
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+>A <accel
+>k</accel
+>iszolgáló elindítása</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>A kiszolgáló elindítása (hogy a másik játékos csatlakozhasson).</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F4</keycap
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+>E<accel
+>g</accel
+>y játékos</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Új játék kezdése a számítógép ellen.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F10</keycap
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>icsőségtábla</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Megjeleníti a dicsőségtáblát (a legjobb eredményeket).</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>ilépés</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Kilépés</action
+> a programból. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>A <guimenu
+>Beállítások</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Az <accel
+>á</accel
+>llapotsor megjelenítése</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Ki- és bekapcsolja az állapotsor megjelenítését.</action
+> Alapértelmezés szerint be van kapcsolva. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>A <accel
+>rács</accel
+> megjelenítése</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Ki- és bekapcsolja a játéktér rácsozatának megjelenítését.</action
+> Alapértelmezés szerint ki van kapcsolva. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>A <guimenu
+>Segítség</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>artalom</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Elindítja a &kde; Segítség rendszert és rááll ennek a dokumentumnak az első oldalára.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>Mi <accel
+>e</accel
+>z?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ennek hatására az egérmutató alakja egy nyíl és egy kérdőjel kombinációja lesz. Ha most rákattint valamire a program ablakán belül, akkor megjelenik egy kis ablakban az objektum funkciójának rövid leírása (ha tartozik az objektumhoz ilyen).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>Hiba<accel
+>b</accel
+>ejelentés</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>A megjelenő ablakban lehet összeállítani egy hibabejelentést, amely aztán eljut a program karbantartóihoz. A program automatikusan beilleszti a jelentésbe az operációs rendszer és a &kde; legfontosabb jellemzőit. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>A <accel
+>K</accel
+>Battleship névjegye</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Megjeleníti a program verziószámát és a szerzők nevét.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>A <accel
+>K</accel
+>DE névjegye</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Megjeleníti a &kde; verziószámát és még néhány más jellemzőjét.</para
+> </listitem
+> </varlistentry
+> </variablelist
+>  
+
+</sect1>
+</chapter>
+
+<chapter id="questions-answers-and-tips">
+<title
+>Kérdések, válaszok, tippek</title>
+
+<qandaset id="faq">
+<title
+>Gyakran feltett kérdések</title>
+<qandaentry>
+<question>
+<para
+>A következő hibaüzenetet kapom: <errorname
+>Nem sikerült csatlakozni az aRts hangszolgáltatáshoz. A hang ki lesz kapcsolva.</errorname
+></para>
+</question>
+<answer>
+<para
+>A &kbattleship; az &arts;-en keresztül generálja a hanghatásokat. Az &arts;-t a KDE vezérlőközpontban lehet bekapcsolni, a <menuchoice
+><guisubmenu
+>Hang</guisubmenu
+> <guimenuitem
+>aRts hangszolgáltatás</guimenuitem
+></menuchoice
+> modulban.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Olyan kérdésem van, amely jó volna, ha bekerülne a FAQ-ba. Kinek küldjem el?</para>
+</question>
+<answer>
+<para
+>Vegye fel a kapcsolatot a szerzőkkel, ők fel tudják venni a kérdést.</para>
+</answer>
+</qandaentry>
+</qandaset>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Köszönetnyilvánítások és a licencegyezmény</title>
+
+<para
+>&kbattleship; Copyright 2000, 2001.</para>
+
+<itemizedlist
+> <title
+>Szerzők</title
+> <listitem
+> <para
+> Nikolas Zimmermann (<email
+>wildfox@kde.org</email
+>) </para
+> </listitem
+> <listitem
+> <para
+> Daniel Molkentin (<email
+>molkentin@kde.org</email
+>) </para
+> </listitem
+> <listitem
+> <para
+> Kevin Krammer (<email
+>kevin.krammer@gmx.at</email
+>) </para
+> </listitem
+> </itemizedlist>
+
+<itemizedlist
+> <title
+>Hozzájárultak még</title
+> <listitem
+> <para
+> Benjamin Adler (<email
+>benadler@bigfoot.de</email
+>) </para
+> </listitem
+> <listitem
+> <para
+> Nils Trzebin (<email
+>nils.trzebin@stud.uni-hannover.de</email
+>) </para
+> </listitem
+> <listitem
+> <para
+>Elmar Hoefner (<email
+>elmar.hoefner@uibk.ac.at</email
+>)</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underFDL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+
+<sect1 id="requirements">
+<title
+>Követelmények</title>
+
+<para
+> A &kbattleship; mostani verziójához a &kde; 2.2 (vagy annál újabb) és a &Qt; 2.2.3 (vagy annál újabb) verziója szükséges. </para>
+
+</sect1>
+
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag:nil
+sgml-shorttag:t
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->
+

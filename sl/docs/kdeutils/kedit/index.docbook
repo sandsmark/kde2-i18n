@@ -1,0 +1,1954 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kedit;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Priročnik za &kedit;</title>
+<authorgroup>
+
+<author
+><firstname
+>Thad</firstname
+><surname
+>McGinnis</surname
+> <affiliation
+> <address
+><email
+>ctmcginnis@compuserve.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>lauri@kde.org</email
+></address
+></affiliation>
+<contrib
+>Pregled</contrib>
+</othercredit>
+</authorgroup>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>1.03.00</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract
+><para
+>Ta priročnik opisuje &kedit; različice 1.3, preprost tekstovni urejevalnik &kde;</para
+> </abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KEdit</keyword>
+<keyword
+>urejevalnik besedila</keyword>
+</keywordset>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Thad McGinnis</holder>
+</copyright>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+>&kedit; je privzeti tekstovni urejevalnik za namizje &kde;. Je majhen urejevalnik, ki s lahko uporablja s &konqueror;jem za pregledovanje nastavitvenih in tekstovnih datotek. &kedit; prav tako dobro služi za ustvarjanje tekstovnih dokumentov. Ni mišljen za uporabo kot programerski urejevalnik, še posebej ni namenjen za zamenjavo katerega od bolj zmogljivih urejevalnikov, kot so &kate;, <application
+>XEmacs</application
+> ali <application
+>Emacs</application
+>. &kedit;ova funkcionalnost bo namenomaostala omejena, da zagotovi razumno hiter zagon.</para>
+
+</chapter>
+
+<chapter id="on-screen-fundamentals"
+> 
+<title
+>Nekaj osnov</title
+>  
+
+<para
+>&kedit; je zelo preprost za uporabo. Kdorkoli je že uporabljal tekstovni urejevalnik ne bi smel imeti težav. </para>
+
+<sect1 id="drag-and-drop">
+<title
+>Povleci in spusti</title
+>  
+
+<para
+>&kedit; uporablja &kde;-jev protokol 'povleci in spusti'. Datoteke lahko povlečete in spustite na &kedit; z namizja, &konqueror;ja ali oddaljene &FTP; strani, odprte v enem izmed &konqueror;jevih oken. </para>
+
+</sect1
+>  
+
+<sect1 id="command-line-options"
+> 
+<title
+>Možnosti ukazne vrstice</title
+>  
+
+<para
+>Čeprav bo &kedit; verjetno najpogosteje pognan iz programskega menuja &kde; ali namizne ikone, je lahko pognan tudi iz ukazne vrstice treminalskega okna. V tem primeru je na razpolago nekaj uporabnih možnosti.</para>
+
+<sect2 id="specify-a-file"
+> 
+<title
+>Določi datoteko</title
+>  
+
+<para
+>Z določitvijo poti in imena določene datoteke lahko uporabnik določi, da &kedit; odpre (ali ustvari) to datoteko takoj ob zagonu. Ta možnost bi morda izgledala nekako takole:</para
+>  
+
+<informalexample
+> <screen
+><prompt
+>%</prompt
+><userinput
+><command
+>kedit</command
+> <replaceable
+>/home/myhome/docs/myfile.txt</replaceable
+></userinput
+></screen
+> </informalexample
+> 
+
+</sect2
+> 
+
+<sect2 id="editing-files-on-the-internet"
+> 
+<title
+>Določi datoteko v internetu</title
+>  
+
+<para
+>Zgoraj omenjena možnost bi se lahko uporabila celo za odpiranje datotek z interneta (če ima uporabnik aktivno povezavo). Primer za to bi izgledal nekako takole:</para>
+
+<informalexample
+> <screen
+><prompt
+>%</prompt
+><userinput
+><command
+>kedit</command
+> <replaceable
+>ftp://ftp.kde.org/pub/kde/Welcome.msg</replaceable
+></userinput
+></screen
+> </informalexample
+>  
+
+</sect2
+>   
+
+<sect2
+> 
+<title
+>Druge možnosti ukazne vrstice</title
+>  
+
+<para
+>Na razpolago so naslednje možnosti pomoči</para
+>  
+
+
+<variablelist
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--help</option
+></term
+> <listitem
+> <para
+>To izpiše najbolj osnovne možnosti, ki so dosegljive z ukazne vrstice.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--help-qt</option
+></term
+> <listitem
+> <para
+>To našteje možnosti, ki so dosegljive za spreminjanje načina interakcije &kedit; s &Qt;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--help-kde</option
+></term
+> <listitem
+> <para
+>To našteje možnosti, ki so dosegljive za spreminjanje načina interakcije &kedit; s &kde;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--help-all</option
+></term
+> <listitem
+> <para
+>To izpiše seznam vseh možnosti ukazne vrstice.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--author</option
+></term
+> <listitem
+> <para
+>NaĹĄteje &kedit;ove avtorje v terminalskem oknu.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--version</option
+></term
+> <listitem
+> <para
+>Našteje informacije o različicah &Qt;, &kde;, in &kedit;. Dosegljivo tudi s <command
+>kedit</command
+> <option
+>-V</option
+></para
+> </listitem
+> </varlistentry
+> </variablelist
+> 
+
+</sect2
+> 
+
+</sect1
+> 
+
+<sect1 id="keybindings">
+<title
+>Tipkovne vezi</title>
+
+<para
+>Mnoge vezi tipk (bližnjice) so nastavljive preko menuja <link linkend="settings"
+>Nastavitve</link
+>.  Privzeto &kedit; nagradi naslednje vezi tipk.</para
+> 
+
+<informaltable>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Vez tipke</entry
+> <entry
+>Dejanje</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><keycap
+>Leva puščica</keycap
+></entry
+> <entry
+><action
+>Premakni kurzor en znak na levo.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Desna puščica</keycap
+></entry
+> <entry
+><action
+>Premakni kurzor en znak na desno.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Puščica navzgor</keycap
+></entry
+> <entry
+><action
+>Premakni kurzor eno vrstico navzgor.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Puščica navzdol</keycap
+></entry
+> <entry
+><action
+>Premakni kurzor eno vrstico navzdol.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Page Up</keycap
+></entry
+> <entry
+><action
+>Premakni kurzor eno stran navzgor.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Page Down</keycap
+></entry
+> <entry
+><action
+>Premakni kurzor eno stran navzdol.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Backspace</keycap
+></entry
+> <entry
+><action
+>Briši znak na levi strani kurzorja.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Domov</keycap
+></entry
+> <entry
+><action
+>Premakni kurzor na začetek vrstice.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>End</keycap
+></entry
+> <entry
+><action
+>Premakni kurzor na konec vrstice.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Izbriši</keycap
+></entry
+> <entry
+><action
+>Izbriši znak na desni strani kurzorja.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Shift;<keycap
+>Leva puščica</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Označi besedilo en znak na levo.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Shift;<keycap
+>Desna puščica</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Označi besedilo en znak na desno.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Izberi vso besedilo v dokumentu.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Premakni kurzor en znak na levo.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+> &Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Prepiši označeno besedilo na odložišče.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl; <keycap
+>D</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Izbriši znak na desni strani kurzorja.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>E</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Premakni kurzor na konec vrstice.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Išči besedilo v dokumentu.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Izbriši znak na levi strani kurzorja.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>K</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Ustvari nov dokument</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Premakni kurzor eno vrstico navzdol.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Natisni.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Prilepi besedilo na odložišču na mestu kurzorja.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+> &Ctrl;<keycap
+>X</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Izreži označeno besedilo in ga prepiši na odložišče.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Y</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Prilepi (yank) vsebino kill-bufferja (odložišča) v dokument, na trenutni poziciji kurzorja.</action
+></entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+</chapter>
+
+<chapter id="the-menu-entries">
+<title
+>Vsebina menujev</title>
+
+<sect1 id="file">
+<title
+>Menu <guimenu
+>Datoteka</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="new"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+><guimenuitem
+><accel
+>N</accel
+>ova</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To odpre nov dokument v novem izvodu urejevalnik.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="open"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+><guimenuitem
+><accel
+>O</accel
+>dpri</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Odpre datoteko.</action
+> To naredi preko pogovornega okna, ki omogoča uporabniku navigacijo skozi datotečni sistem.</para
+> <para
+>Pogovorno okno deluje kot majhen datotečni upravljalnik. Klik na imenikih, ki so prikazani v osrednjem oknu naroči pogovornemu oknu, naj vstopi vanj in prikaže njegovo vsebino. Tukaj je še vnosno/spustno polje, ki se lahko uporabi za direkten vnos lokacije in imena datoteke ali s klikom na puščico ob strani, za izbiro s spustnega seznama nedavno uporabljenih lokacij.</para
+> <para
+> Spodaj je filter, v katerega so podatki prav tako lahko neposredno vnešeni ali pa izbrani s spustnega seznama nedavno uporabljenih filtrov. Filter dopušča v osrednjem oknu prikaz le tistih datotek, ki ustrezajo njegovim zahtevam. Če filter vsebuje besedilo kot je <literal role="extension"
+>*.txt</literal
+>, potem so v izbirnem oknu prikazane le datoteke s končnico txt.</para
+> <para
+>Orodna vrstica ima gumba z levo in desno puščico, ki omogočata uporabniku gibanje nazaj in naprej skozi predhodno izbrane imenike, kot tudi gumb s puščico navzgor, za premikanje po imeniškem drevesu navzgor. Gumb s hiško popelje uporabnika v njegov domač imenik, tisti z dvema zavitima puščicama pa osveži pogled v trenuten imenik. Gumb z zastavico omogoča uporabniku postaviti nov zaznamek v trenutnem imeniku ali pa iti na katerega od prej postavljenih. Gumb z ikono ključa celo omogoča uporabniku spremembo osnovnih nastavitev pogovornega okna. Končno je tu še spustno polje s seznamom nekaterih pogosteje obiskovanih imenikov.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="open-recent"/><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+><guimenuitem
+>Odpri nedavne</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+><action
+>To je bližnjica do nedavno shranjenih dokumentov.</action
+> Klik na tej izbiri odpre seznam na strani menuja z večimi nazadnje shranjenimi datotekami. Klik na določeno datoteko jo bo odprl v &kedit;u - če je datoteka še vedno na isti lokaciji. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="save"/><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+><guimenuitem
+><accel
+>S</accel
+>hrani</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To shrani trenuten dokument.</action
+> Če je bil ta dokument že shranjen, bo prepisan, ne da bi bil uporabnik vprašan.</para
+> <note
+> <para
+>Urejevalnik je lahko nastavljen tako, da naredi <link linkend="backuppref"
+>varnostno kopijo</link
+>.</para
+> </note
+> <para
+>Če gre za prvo shranjevanje dokumenta, bo vpoklicano pogovorno okno 'Shrani kot' (opisano spodaj).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="save-as"/><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+><guimenuitem
+>Shrani <accel
+>k</accel
+>ot</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Omogoča shranjevanje dokumenta z novim imenom.</action
+> To je narejeno s pomočjo datotečnega pogovornega okna, ki je opisano zgoraj v razdelku <link linkend="open"
+>Odpri</link
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="close"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+> </keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+><guimenuitem
+><accel
+>Z</accel
+>apri</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To bo zaprlo urejevalno okno, če imate odprt več kot en izvod &kedit;a, ti izvodi ne bodo zaprti.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="print"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+><guimenuitem
+><accel
+>N</accel
+>atisni...</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Odpre preprosto pogovorno okno tiskanja, ki omogoča uporabniku določiti kaj, kje in kako tiskati.</action
+> Uporabnik lahko izbere med običajnim <command
+>lpr</command
+> ali pa poljubnim ukazom, kot tudi, ali naj se tiska celoten dokument ali izbran razdelek.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="mail"/><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+><guimenuitem
+><accel
+>P</accel
+>ošta</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Uporablja se za pošiljanje trenutnega dokumenta po e-pošti.</action
+> Pokliče poštno pogovorno okno, kjer lahko uporabnik vnese naslov in predmet sporočila.</para
+> <note
+> <para
+>Prepričajte se, da ste preverili in če je bilo potrebno spremenili ukaz <link linkend="mailpref"
+>mail</link
+> v pogovornem oknu <guimenuitem
+>Nastavi</guimenuitem
+> menuja <guimenu
+>Nastavitve</guimenu
+>menu.</para
+> </note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="quit"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+> </keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+><guimenuitem
+><accel
+>K</accel
+>končaj</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Zapre urejevalnik.</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="edit">
+<title
+>Menu <guimenu
+>Uredi</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="undo"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+><accel
+>R</accel
+>azveljavi</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To se uporablja za odstranitev ali obrat zadnjega uporabnikovega dejanja ali operacije.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="redo"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Shift</keycap
+><keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+><accel
+>O</accel
+>bnovi</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To bo obrnilo zadnjo spremembo</action
+>, ki je bila narejena (če je bila) z uporabo <guimenuitem
+>Razveljavi</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="cut"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+>Iz<accel
+>r</accel
+>eži</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Ta ukaz izbriše trenutno označeno besedilo in ga prepiše na odložišče.</action
+> Odložišče je zmožnost &kde;, ki dela neopazno, da ponuja način prenosa med programi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="copy"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+><accel
+>P</accel
+>repiši</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To prepiše trenutno izbrano besedilo na odložišče, tako da se lahko prilepi drugje.</action
+> Odložišče je zmožnost &kde;, ki dela neopazno, da ponuja način prenosa med programi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="paste"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+>Pri<accel
+>l</accel
+>epi</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To bo vrinilo besedilo z odložišča na mestu kurzorja.</action
+> Odložišče je zmožnost &kde;, ki dela neopazno, da ponuja način prenosa med programi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="select-all"/><menuchoice
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+>Izberi <accel
+>v</accel
+>se</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To bo izbralo celoten dokument.</action
+> To je lahko zelo uporabno za kopiranje celotne datoteke v drug program.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="find"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+><accel
+>N</accel
+>ajdi</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Odpre pogovorno okno iskanja, ki se uporablja za določitev besedila, ki naj se išče v dokumentu.</action
+> Za vnos vzorca je tu majhno tekstovno polje. Na voljo sta še dve možnosti, ki povečata učinkovitost iskanja. Izbira <guilabel
+>Loči velike in male črke</guilabel
+> bo omejila zadetke na tiste, katerih velikost črk (velike/majhne) ustreza iskanemu vzorcu. <guilabel
+>Najdi vzvratno</guilabel
+> usmeri iskanje v obratno smer, to je nazaj.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="find-again"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>F3</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+><accel
+>N</accel
+>ajdi naslednje</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To ponovi zadnji opracijo iskanja (če ta obstaja) brez klicanja pogovornega okna iskanja.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="replace"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+><accel
+>Z</accel
+>amenjaj</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Ta ukaz odpre pogovorno okno zamenjave.</action
+>  To je podobno zgoraj omenjenemu pogovornemu oknu iskanja z dodatnim tekstnim poljem <guilabel
+>Zamenjaj z:</guilabel
+>. Z uporabo tega pogovornega okna lahko uporabnik določi besedilo, ki naj se najde in s katerim se bo zamenjalo. Poleg tega vsebuje še dva dodatna gumba. Gumb <guilabel
+>Zamenjaj</guilabel
+> omogoča uporabniku eno zamenjavo naenkrat, kar je uporabno, kadar ni treba zamenjati vseh pojavitev iskanega besedila. Gumb <guilabel
+>Zamenjaj vse</guilabel
+> je treba uporabljati previdno,saj takoj zamenja vse pojavitve določenega besedila.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="insertfile"/> <menuchoice
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+>Vstav<accel
+>i</accel
+> datoteko</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Odpre pogovorno okno <guimenu
+>Datoteka</guimenu
+><link linkend="open"
+><guimenuitem
+>Odpri</guimenuitem
+></link
+>, s čimer lahko <action
+>vstavite v odprt dokument celotno datoteko.</action
+> Datoteka bo vnešena na mestu utripajočega kurzorja.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="insertdate"/> <menuchoice
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+>Vstavi <accel
+>d</accel
+>atum</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To bo vneslo trenuten datum na mestu utripajočega kurzorja.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="cleanspaces"/> <menuchoice
+> <guimenu
+><accel
+>U</accel
+>redi</guimenu
+><guimenuitem
+>Počisti pr<accel
+>e</accel
+>sledke</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Izbira tega bo iz <emphasis
+>označenega besedila</emphasis
+> odstranila vse nepotrebne presledke in prelome vrstice (ki so na koncu datoteke, pred kodo za konec datoteke in so tam zaradi nepotrebnega pritiskanja tipke <keycap
+>Enter</keycap
+>).<action
+> Z drugimi besedami, vsak par (ali več) presledkov bo reduciran na enega; vsi odstavki in prazne vrstice bodo reducirani na en sam odstavek</action
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="Go">
+<title
+>Menu <guimenu
+>Pojdi</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="go-to-line"/><menuchoice
+> <guimenu
+><accel
+>P</accel
+>ojdi</guimenu
+><guimenuitem
+>Pojdi v <accel
+>v</accel
+>rstico...</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To odpre pogovorno okno 'Pojdi v vrstico', ki se uporablja za postavitev kurzorja v točno določeno vrstico (določeno s številko) dokumenta.</action
+> Številka vrstice je lahko vnesena direktno v tekstno polje ali grafično s klikom na puščici navzgor in navzdol na strani tekstnega polja. Majhna puščica navzgor bo povečala številko vrstice, puščica navzdol pa zmanjšala.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="tools">
+<title
+>Menu <guimenu
+>Orodja</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="Spelling..."/><menuchoice
+> <guimenu
+><accel
+>O</accel
+>rodja</guimenu
+><guimenuitem
+>Črko<accel
+>v</accel
+>anje...</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To požene črkovalnik -program, ki je zasnovan, da pomaga uporniku ujeti in popraviti črkovalne napake.</action
+> Klik na tej izbiri bo pognal črkovalnik in pojavilo se po pogovorno okno črkovanja, s katerim lahko uporabnik nadzoruje proces. Levo od centra so navpično poravnana tri polja z ustreznimi oznakami bolj na levi. Od vrha navzdol so:</para
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+>Narobe črkovana beseda:</guilabel
+></term
+> <listitem
+> <para
+>Tukaj črkovalnik prikaže besedo, ki je trenutno v obravnavi. To se zgodi, ko črkovalnik naleti na besedo, ki ni v njegovem slovarju - datoteki, ki vsebuje seznam pravilno črkovanih besed, s katerimi primerja vsako besedo v urejevalniku.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zamenjava:</guilabel
+></term
+> <listitem
+> <para
+> Če črkovalnik najde v slovarju podobne besede, bo prva prikaza tukaj. Uporabnik lahko izbere predlog, vtipka svoj lasten popravek ali pa izbere drugačen predlog iz naslednjega polja.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Predlogi:</guilabel
+></term
+> <listitem
+> <para
+>Črkovalnik bo tukaj morda naštel več možnih zamenjav za besedo v postopku. Klik na katerokoli izmed njih bo povzročil, da bo vnešena v polje <guilabel
+>Zamenjava</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> <para
+>V pogovornem oknu je 8 gumbov, ki omogočajo uporabniku nadzor nad procesom črkovanja. To so:</para
+> <variablelist
+> <varlistentry
+> <term
+><guibutton
+>Zamenjaj</guibutton
+></term
+> <listitem
+> <para
+>Ta gumb povzroči zamenjavo vprašljive besede z besedo v <guilabel
+>Zamenjava:</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Zamenjaj vse</guibutton
+></term
+> <listitem
+> <para
+>Ta gumb povzroči zamenjavo ne le trenutne <guilabel
+>Narobe črkovane besede</guilabel
+>, ampak samodejno opravi zamenjave kadarkoli se ta beseda znova pojavi v dokumentu.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Zanemari</guibutton
+></term
+> <listitem
+> <para
+>Aktiviraje tega gumba bo povzročilo, da se bo črkovalnik premaknil naprej, ne da bi opravil spremembe.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Zanemari vse</guibutton
+></term
+> <listitem
+> <para
+>Ta gumb pove črkovalniku, naj ne naredi ničesar s trenutno <guilabel
+>Narobe črkovano besedo:</guilabel
+> in prezre vse naslednje instance iste besede.</para
+> <note
+> <para
+>To velja le za trenutno izvajanje črkovanja. Če je črkovalnik znova pognan pozneje, se bo ustavil ob isti besedi.</para
+> </note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Dodaj</guibutton
+></term
+> <listitem
+> <para
+>Pritisk na ta gumb doda besedo v polju <guilabel
+>Narobe črkovana beseda</guilabel
+> v črkovalnikov slovar. To pomeni, da bo v bodoče črkovalnik vedno upošteval to besedo kot pravilno.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Pomoč</guibutton
+></term
+> <listitem
+> <para
+>Vpokliče sistem pomoči KDE, začne pa s &kedit;ovo pomočjo (ta dokument).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Ustavi</guibutton
+></term
+> <listitem
+> <para
+>Ta gumb ustavi proces preverjanja črkovanja.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Prekliči</guibutton
+></term
+> <listitem
+> <para
+>Ta gumb prekine proces preverjanja črkovanja.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> <para
+>Na dnu pogovornega okna se nahaja vrstica napredovanja. Ko črkovanje napreduje, ta vrstica ponuja grafičen prikaz napredka črkovanja z leve na desno.</para
+> <note
+> <para
+>Numeričen prikaz procesa črkovanja je hkrati prikazan v statusni vrstici urejevalnika. <link linkend="show-statusbar"
+>Statusna vrstica</link
+> je vodoraven trak na dnu urejevalnika, tik izven območja za vnos besedila.</para
+> </note
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings">
+<title
+>Menu <guimenu
+>Nastavitve</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="show-toolbar"/><menuchoice
+> <guimenu
+><accel
+>N</accel
+>astavitve</guimenu
+><guimenuitem
+>Pokaži <accel
+>o</accel
+>rodjarno</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Ko je označen, prikazuje gibljivo orodno letev ki vsebuje gumbe za zagon pogosto uporabljenih ukazov. Orodna vrstica se najpogosteje nahaja na vrhu urejevalnika, tik pod menujem. Ko izbira ni označena, je opravilna vrstica skrita.</action
+> Klika na šrafiran gumb ob strani jo bo skril. Klik in vlečenje tega gumba omogoča uporabniku premikanje vrstice.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="show-statusbar"/><menuchoice
+> <guimenu
+><accel
+>N</accel
+>astavitve</guimenu
+><guimenuitem
+>Prikaži <accel
+>s</accel
+>tusno vrstico</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Ko je odkljukan prikaže majhno letev na dnu urejevalnika, ki vsebuje informacije o statusu trenutnega dokumenta. Ko ni odkljukan je statusna letev skrita.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="save-options"/><menuchoice
+> <guimenu
+><accel
+>N</accel
+>astavitve</guimenu
+><guimenuitem
+><accel
+>S</accel
+>hrani nastavitve</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To shrani trenutne nastavitve urejevalnika za uporabo v prihodnjih dokumentih.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="configure-keybindings"/><menuchoice
+> <guimenu
+><accel
+>N</accel
+>astavitve</guimenu
+><guimenuitem
+>Nastavi vezi s <accel
+>t</accel
+>ipkami</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Ta ukaz odpre pogovorno okno, v katerem lahko spremenite <link linkend="keybindings"
+>tipkovne vezi</link
+>. Polje na vrhu pogovornega okna kaže seznam dosegljivih ukazov. Pod njim so trije izbirni gumbi. Uporabnik lahko izbere med <guilabel
+>Brez tipke</guilabel
+>, <guilabel
+>Privzeta tipka</guilabel
+> in <guilabel
+>Določena tipka</guilabel
+>.</para
+> <note
+> <para
+>Upoštevajte da nabor izbirnih gumbov omogoča izbiro le ene izmed ponujenih možnosti - na način, kot gumbi na avtoradiu ponujajo le izbiro prisotnih radijskih postaj. Izbira Privzeta tipka je dosegljiva le za tiste ukaze, ki dejansko imajo <quote
+>privzeto</quote
+> bližnjico.)</para
+> </note
+> <para
+> Izbira možnosti Določena tipka aktivira tri potrditvena polja na dnu pogovornega okna. Uporabnik lahko izbere kombinacijo tipk za ta ukaz s pomočjo treh potrditvenih polj in gumba tipk. Z izbranim ukazom O &kde; lahko uporabnik izbere tipki &Ctrl; in &Alt;, klikne na gum za tipko in pritisne tipko <keycap
+>K</keycap
+>. To bi pomenilo, da bi kadarkoli bi držal &Ctrl; in &Alt; ter pritisnil <keycap
+>K</keycap
+> (seveda velja to le za &kedit;) bilo vpoklicano okno 'O &kde;'. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="configure-toolbars"/><menuchoice
+> <guimenu
+><accel
+>N</accel
+>astavitve</guimenu
+><guimenuitem
+>Nastavi <accel
+>o</accel
+>rodjarno</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To odpre pogovorno okno, v katerem se lahko spremeni nastavitev orodne vrstice.</action
+> Uporabnik lahko izbere kateri gumbi bližnjic se bodo pojavili na orodni vrstici. Druge izbire vsebujejo velikost gumbov (ikon) in lokacije orodne vrstice (na vrhu, levo, desno, plavajoče ali plosko). 'Plosko' povzroči, da je orodna vrstica umaknjena. Klik na hrapav gumb jo razširi za uporabo, nadaljni klik pa jo znova umakne. Izpisno polje na levi prikazuje ukaze, ki so na voljo za prikaz na orodni vrstici. Polje na desni kaže tiste, ki so že na orodni vrstici. Nabor štirih puščičnih gumbov med njima omogoča upravljanje z izbirami. Gumb z desno puščico uvrsti vsak v levem polju izbran ukaz v desnega, to pomeni, da ga doda v orodno vrstico. Leva puščica naredi ravno obratno, odstrani namreč vsak v desnem polju izbran ukaz iz orodne vrstice. Puščici navzgor in navzdol spremenita položaj izbranega dejanja v desnem oknu, kar pomeni, da se spremeni položaj njegovega gumba v orodni vrstici.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="preferences"/><menuchoice
+> <guimenu
+><accel
+>N</accel
+>astavitve</guimenu
+><guimenuitem
+><accel
+>P</accel
+>rikroji KEdit</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Ta izbira odpre pogovorno okno, kjer se lahko spremeni skupina raznovrstnih <link linkend="pref-dialog"
+>nastavitev</link
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+>Menu <guimenuitem
+>Pomoč</guimenuitem
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="contents"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>omoč</guimenu
+><guimenuitem
+><accel
+>V</accel
+>sebina</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Vpokliče sistem pomoči KDE, začne pa s &kedit;ovo pomočjo (ta dokument).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="whats-this"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>omoč</guimenu
+><guimenuitem
+>Kaj je<accel
+>t</accel
+>o?</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To spremeni kurzor miške v kombinacijo puščice in vprašaja.</action
+> Klik na element znotraj &kedit;a bo odprl okno pomoći (če seveda obstaja za ta element), ki razloži elementovo funkcijo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kedit"/><menuchoice
+> <guimenu
+><accel
+>P</accel
+>omoč</guimenu
+><guimenuitem
+><accel
+>O</accel
+> KEdit</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To bo prikazalo informacijo o različici in avtorju.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kde"/><menuchoice
+> <guimenu
+><accel
+>P</accel
+>omoč</guimenu
+><guimenuitem
+>O <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>To prikaže različico KDE in druge osnovne informacije.</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+<chapter id="pref-dialog">
+<title
+>Pogovorno okno nastavitev</title>
+
+<para
+>Izbira <menuchoice
+><guimenu
+>Nastavitve</guimenu
+><guimenuitem
+>Prikroji KEdit</guimenuitem
+></menuchoice
+> prikaže pogovorno okno lastnosti. To se lahko uporabi za spreminjanje celega kupa različnih nastavitev. Dosegljive nastavitve se spreminjajo  odvisno od tega, katero kategorijo iz seznama na levi strani pogovornega okna uporabnik izbere. S pomočjo petih gumbov na dnu pogovornega okna lahko uporabnik nadzira ta proces. Vpokliče lahko sistem pomoči (izbira <guilabel
+>Pomoč</guilabel
+>), postavi privzete vrednosti ('<guilabel
+>Privzeto</guilabel
+>'), sprejme trenutne nastavitve in zapre pogovorno okno z gumbom <guibutton
+>V redu</guibutton
+>, pritisne gumb <guibutton
+>Uporabi</guibutton
+>, s čimer uveljavi trenutne izbire, ne da bi zaprl pogovorno okno, ali pa s klikom na <guibutton
+>Prekliči</guibutton
+> prekliče proces. Kategorije <guilabel
+>Pisava</guilabel
+>, <guilabel
+>Barva</guilabel
+>, <guilabel
+>Črkovanje</guilabel
+> in <guilabel
+>Razno</guilabel
+> so podrobneje opisane spodaj.</para>
+
+<sect1 id="preffont">
+<title
+>Pisave</title>
+
+<para
+>Pogovorno okno nastavitev se odpre z izbrano to, prvo kategorijo. Tukaj lahko uporabnik spremeni štiri nastavitve in vidi učinke vsake spremembe na vzorcu besedila, ki je prikazano v pravokotniku na dnu okna. Nastavitve so:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Nabor znakov:</guilabel
+></term
+> <listitem
+> <para
+>To majhno spustno polje se nahaja na desni strani v navpični sredini pogovornega okna. Če ima uporabnik na računalniku na razpolago enega ali več kodnih naborov, se lahko uporabi za izbiro nabora, ki naj se uporabi za besedilo v urejevalniku.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Pisave</guilabel
+></term
+> <listitem
+> <para
+>Drsno polje omogoča uporabniku, da izbere ime izmed množice dosegljivih pisav. Izgled izbrane pisave je viden na vzorcu besedila, ki je prikazano v pravokotniku na dnu pogovornega okna.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Slog pisave</guilabel
+></term
+> <listitem
+> <para
+>To sredinsko polje se uporablja za izbiro med štirimi osnovnimi slogi: Pravilen, Kurzivno, Polkrepko, in Polkrepko kurzivno. Izgled izbranega sloga je viden na vzorcu besedila, ki je prikazano v pravokotniku na dnu pogovornega okna. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Velikost</guilabel
+></term
+> <listitem
+> <para
+>To, najbolj desno drsno/izbirno polje omogoča uporabniku spremembo velikosti pisave. Večja, kot je izbrana številka, večja bo pisava. Vzorec besedila, ki je prikazan v pravokotniku na dnu pogovornega okna bo odseval izbiro velikosti.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="prefcolors">
+<title
+>Barve</title>
+
+<para
+>Ta razdelek ponuja dostop do <link linkend="pref-color-settings"
+>dveh različnih barvnih nastavitev</link
+>, opisani sta spodaj. Vsaka od teh nastavitev se da spremeniti s klikom na ustrezen gumb. To sta posebna široka gumba, ki sta v barvi trenutne nastavitve. Klik na enega izmed gumbov prikliče posebno pogovorno okno, ki se uporablja za spreminjanje nastavitev.</para>
+
+<para
+>Pogovorno okno spreminjanja barv ponuja udoben in grafičen način izbire barve. Levo na vrhu je je pravokotno polje za prikaz spektra barv. Ob njem je na desni navpično polje, ki prikazuje intenzivnost barv, od najbolj temne na dnu do najbolj svetle na vrhu. Uporabnik lahko izbere barvo s klikom na na ti dve polji. Klik v pravokotno polje izbere določeno zmes rdeče, zelene in modre barve, klik na navpično letev pa izbere nivo intenzivnosti (vrednost). Različni barvni atributi so prikazani v numerični obliki v majhnih vnosnih poljih, ki se nahajajo tik pod spektralnim pravokotnikom in jih uporabnik med določanjem barve lahko vidi. Ti atributi vsebujejo mešanico osnovnih barvnih komponent (rdeča, zelena in modra), kot tudi vrednosti hue in nasičenja. Alternativno lahko uporabnik vnese vrednosti neposredno v ta polja. Prav tako je na dnu pogovornega okna kvadrat, ki vseskozi prikazuje barvo, ki se izbira. Na levi strani kvadrata je še eno vnosno polje, označeno z <guilabel
+>HTML</guilabel
+>: To uporabniku prikazuje barvno kodo, ki se bi uporabila za določitev te barve v <abbrev
+>HTML</abbrev
+> kodi, kar se pogosto uporablja na spletnih straneh.</para>
+
+<para
+>Poleg zgoraj opisanega pogovorno okno izbire barv omogoča zajem katerekoli barve, ki je trenutno prikazana na namizju ali v programu. Klik na gumb z ikono kapljalnika (dropper) (nahaja se na desni strani pogovornega okna) spremeni obliko miškinega kurzorja v križec. Ponoven klik bo pobral barvne atribute katerekoli barve, ki je prikazana pod križcem.</para>
+
+<para
+>Poleg tega ima uporabnik možnost dodajanja katerekoli barve v osebno paleto <guilabel
+>Določene barve</guilabel
+> s klikom na širok gumb, označen z <guibutton
+>Dodaj določenim barvam</guibutton
+> (ki se nahaja nad prikazovalnim kvadratom). To doda trenutno barvo k osebni paleti. Ta in katerakoli druga dosegljiva paleta se lahko prikaže z uporabo spustnega polja, ki se nahaja neposredno nad prikazom palete, desno zgoraj. Poleg določenih barv, lahko uporabnik dostopa do množice predpripravljenih palet.</para>
+
+<variablelist
+> <varlistentry id="pref-color-settings"
+> <term
+><guilabel
+>Ospredje</guilabel
+></term
+> <listitem
+> <para
+>Tukaj lahko uporabnik izbere barvo besedila v&kedit;u.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ozadje</guilabel
+></term
+> <listitem
+> <para
+>Tukaj lahko uporabnik določi barvo splošnega ozadja  &kedit;a.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="prefspellchecker">
+<title
+>Črkovalnik</title
+> 
+
+<para
+>Črkovalnik je program, ki je mišljen kot pomoš uporabniku pri lovljenju in popravljanju napašno zapisanih besed. Ta razdelek pogovornega okna nastavitev omogoča prilagoditev nekaterih v tem oziru ključnih nastavitev.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Kombinacij za ustvarjanje korena/pripone še ni v slovarju</guilabel
+></term
+> <listitem
+> <para
+>Izbira te možnosti omogoča črkovalniku registracijo kombinacij korenskih besed s končnicami ali predlogi kot <quote
+>pravilnih</quote
+>, četudi se določena kombinacija ne nahaja v njegovem slovarju. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Obravnavaj skupaj pisane besede kot napake</guilabel
+></term
+> <listitem
+> <para
+>Izbira tega bo povzročila, da bo črkovalnik registrial kot <quote
+>narobe črkovano</quote
+> dve ali več pravilno črkovanih besed, ki so <quote
+>pisane skupaj</quote
+>, to je, da jih ne ločijo presledki.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Slovar:</guilabel
+></term
+> <listitem
+> <para
+>Izbira tega bo povzročila, da bo črkovalnik dve ali več pravilno črkovanih besed, ki se držijo skupaj (med katerimi ni presledkov) zaznal kot 'napačne'.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kodni nabor:</guilabel
+></term
+> <listitem
+> <para
+>Obstaja več različnih kodnih naborov za povezavo določene kode z znaki in simboli. Če uporabnik(ca) ve, katero kodo uporablja, to spustno polje omogoča določitev tega nabora, tako da lahko črkovalnik pravilno opravi svojo nalogo. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Odjemnik:</guilabel
+></term
+> <listitem
+> <para
+>Ker &kedit; ne vsebuje svojega lastnega črkovalnika, je treba izbrati zunanjega. Tukaj lahko uporabnik določi, kateri črkovalni program naj se uporabi.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="prefmisc">
+<title
+>Razno</title>
+
+<para
+>Ta kategorija se ukvarja  s tremi različnimi lastnostmi, podrobneje opisanimi spodaj.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Prelom vrstice:</guilabel
+></term
+> <listitem
+> <para
+>je lastnost, ki povzroči, da urejevalnik samodejno prične novo vrstico, ali pa premakne kurzor na začetek nove vrstice. Spustno polje na vrhu pogovornega okna ponuja tri možnosti:</para
+> <variablelist
+> <varlistentry
+> <term
+>Onemogoči prelom vrstic</term
+> <listitem
+> <para
+>Izbira te bo preprečila izvajanje prelamljanja (wrapping) vrstic. Uporabnik bo moral pričeti novo vrstico ročno (s tipko <keycap
+>Enter</keycap
+>).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Avtomatično določanje širine</term
+> <listitem
+> <para
+>Ta možnost pove urejevalniku, naj samodejno prilagodi dolžino vrstice, da bo ustrezal njegovi trenutni širini. Drugače povedano: širši kot je urejevalnik, daljše bodo vrstice in seveda obratno.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>V navedenem stolpcu</term
+> <listitem
+> <para
+>Izbira te možnosti takoj aktivira tekstovno polje, označeno z <guilabel
+>Prelom stolpcev:</guilabel
+>. Tukaj lahko uporabnik določi največje število znakov v vrstici besedila. </para
+> <note
+> <para
+>Vsak znak, vključno s presledki zapolni en stolpec.</para
+> </note
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term id="backuppref"
+><guilabel
+>Varnostna kopija pri shranjevanju</guilabel
+></term
+> <listitem
+> <para
+>Ta možnost pove urejevalniku, da naj preimenuje zadnjo shranjeno različico trenutnega dokumenta, preden izvede ukaz <command
+>shrani</command
+>. Urejevalnik to stori tako, da doda ,,tildo'' (<keycap
+>~</keycap
+>) na konec imena originalne datoteke.  Na ta način ima uporabnik možnost povrnitve dokumenta, preko katerega je po nesreči shranil kaj drugega.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term id="mailpref"
+><guilabel
+>Poštni ukaz:</guilabel
+></term
+> <listitem
+> <para
+>To tekstno polje se uporablja za vnos ukaza s katerim lahko z izbiro <link linkend="mail"
+><menuchoice
+><guimenu
+>Datoteka</guimenu
+><guimenuitem
+>Pošta</guimenuitem
+></menuchoice
+></link
+> odpošljemo trenuten dokument. Urejevalnik je privzeto nastavljen, da uporabi program <application
+>mail</application
+> iz ukazne vrstice.  Uporabnik si bo moral pogledati dokumentacijo e-poštnega programa, ki ga želi, kako in če je možno poklicati program na podoben način.</para
+> </listitem 
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Zahvale in licence</title>
+
+<para
+>&kedit; Copyright 2000 Bernd Johannes Wuebben <email
+>wuebben@math.cornell.edu</email
+></para>
+
+<para
+>Avtorske pravice (Copyright 2000) Thad McGinnis <email
+>ctmcginnis@compuserve.com</email
+>.</para>
+
+<para
+>Ta različica Priročnika za &kedit; je osnovana na originalu, ki ga je spisal Bernd Johannes Wuebben <email
+>wuebben@math.cornell.edu</email
+></para>
+
+<para
+>Prevod: Andrej Vernekar <email
+>andrej.vernekar@kiss.uni-lj.si</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Namestitev</title
+>  
+
+<para
+>&kedit; je del paketa kdeutils. Za več podrobnosti o nameščanju in prevajanju KDE prosim poglejte na <ulink url="http://www.kde.org"
+>www.kde.org</ulink
+>.</para>
+
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+
+

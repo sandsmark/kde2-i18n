@@ -1,0 +1,657 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kfract;">
+ <!ENTITY % Slovak "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+ 
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Manuál pre &kfract;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Uwe</firstname
+> <surname
+>Thiem</surname
+> <affiliation
+> <address
+><email
+>uwe@uwix.alt.na</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Stanislav</firstname
+> <surname
+>Višňovský</surname
+> <affiliation
+> <address
+><email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></address
+> </affiliation
+><contrib
+>Preklad</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>1999</year
+> <year
+>2001</year>
+<holder
+>Uwe Thiem, Pamela Roberts</holder>
+</copyright>
+<!-- Translators: put here the copyright notice of the translation -->
+<!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook
+     and in the FDL itself on how to use it. -->
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-07</date>
+<releaseinfo
+>01.03.00</releaseinfo>
+
+<abstract>
+<para
+>&kfract; generuje a zobrazuje fraktálové obrázky.</para>
+<para
+>Tento manuál popisuje &kfract; verzie 1.3.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>grafika</keyword>
+<keyword
+>fraktál</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Úvod</title>
+
+<screenshot
+> <screeninfo
+>KFract</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kfract.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+>&kfract; je generátor pre <ulink url="http://hypertextbook.com/chaos/"
+>fraktály</ulink
+>. Momentálne dokáže generovať iba mandelbrotove a julia množiny, nič také fantastické ako Xfractint, a ani nie je taký rýchly ako <ulink url="http://spanky.triumf.ca/www/fractint/fractint.html"
+> fractint</ulink
+>. Ale používa sa jednoduchšie.</para>
+
+<para
+>Kedykoľvek ma môžete kontaktovať:</para>
+<para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para>
+
+</chapter>
+
+<chapter id="using-kfract">
+<title
+>Použitie KFract</title>
+
+<sect1 id="mouse-functions">
+<title
+>Funkcie myši</title>
+
+<para
+>Pomocou držania ľavého tlačidla myši a nakreslením obdĺžnika definujete časť obrázku, ktorý chcete zväčšiť. Stred obdĺžnika sa stane stredom nového obrázku, pomer strán X a Y sa upraví podľa rozmerov okna.</para>
+
+<para
+>Zväčšiť obrázok môžete aj kliknutím stredným tlačidlom myši, kde chcete, aby bol stred obrázku. </para>
+
+<para
+>Zmenšiť obrázok môžete aj kliknutím pravým tlačidlom myši.</para>
+
+</sect1>
+
+<sect1 id="the-file-menu">
+<title
+>Menu <guimenu
+>Súbor</guimenu
+></title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>tvoriť parametre...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Načíta</action
+> súbor s parametrami &kfract;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>ložiť parametre...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Uloží parametre aktuálnych obrázkov.</action
+> Súbor by mal mať príponu <literal role="extension"
+>.fct</literal
+> (napríklad <filename
+>BigJulie.fct</filename
+>) a neskôr ho môžete znovu načítať, aby ste znovu spočítali obrázok. Obsahuje čisté <acronym
+>ASCII</acronym
+> a môžete ho ľahko kopírovať medzi rôznymi architektúrami na ktorých ale musí byť &kde; nainštalované.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+>Uložiť obrázok...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Uloží obrázok do súboru.</action
+> Formát je určený podľa prípony mena súboru, ktoré zadáte. Napríklad <filename
+>mandel.png</filename
+> ho uloží vo formáte <literal role="extension"
+>.png</literal
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>oniec</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Týmto ukončíte &kfract;.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-view-menu">
+<title
+>Menu <guimenu
+>Zobraziť</guimenu
+></title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Z<accel
+>v</accel
+>äčšiť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Zväčší obraz.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+>Z<accel
+>m</accel
+>enšiť</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Zmenší obraz.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Z</accel
+>obraziť</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>upa...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Táto voľba vám umožní zmeniť krok pri zmenšení a zväčšení, ale momentálne ešte nefunguje.</para
+> </listitem
+> </varlistentry
+> </variablelist
+></para>
+
+</sect1>
+
+
+<sect1 id="the-options-menu">
+<title
+>Menu <guimenu
+>Nastavenia</guimenu
+></title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>M</accel
+>ožnosti</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>andelbrot...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Prepne na Mandelbrotovu množinu a nastaví rôzne parametre pre výpočet a zobrazenie.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>J</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>M</accel
+>ožnosti</guimenu
+> <guimenuitem
+><accel
+>J</accel
+>ulia...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Prepne na množinu Julia a umožní nastaviť rôzne parametre pre výpočet a zobrazenie.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>M</accel
+>ožnosti</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>pakovanie...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Umožní zmeniť počet opakovaní.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-settings-menu">
+<title
+>Menu <guimenu
+>Nastavenia</guimenu
+></title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Nas<accel
+>t</accel
+>avenia</guimenu
+> <guimenuitem
+>Nastaviť <accel
+>k</accel
+>lávesy...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Umožní zmeniť klávesové skratky pre prepínanie medzi mandelbrotovou a juliovou množinou a ukladanie obrázku.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+
+<sect1 id="the-help-menu">
+<title
+>Menu <guimenu
+>Pomocník</guimenu
+></title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>P</accel
+>omocník</guimenu
+> <guimenuitem
+>O<accel
+>b</accel
+>sah</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Zobrazí tento manuál.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>omocník</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>oslať správu o chybe...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Týmto môžete poslať správu o chybe na server kde.org.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>omocník</guimenu
+> <guimenuitem
+><accel
+>O</accel
+> Generátor fraktálov</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Zobrazí dialóg s informáciami o tomto programe a jeho autorovi.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>omocník</guimenu
+> <guimenuitem
+>O <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Zobrazí dialóg s informáciami o KDE.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</sect1>
+
+<sect1 id="the-toolbar">
+<title
+><interface
+>Panel nástrojov</interface
+></title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>Otvoriť parametre</term
+> <listitem
+> <para
+>Podobne ako <emphasis
+><guimenu
+>Súbor</guimenu
+>-&gt;<guimenuitem
+>Otvoriť parametre</guimenuitem
+></emphasis
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Lupa</term
+> <listitem
+> <para
+>Podobne ako <emphasis
+><guimenu
+>Zobraziť</guimenu
+>-&gt;<guimenuitem
+>Lupa... </guimenuitem
+></emphasis
+>.</para
+></listitem
+></varlistentry
+> <varlistentry
+> <term
+>Uložiť obrázok</term
+> <listitem
+> <para
+>Podobne ako <emphasis
+><guimenu
+>Súbor</guimenu
+>-&gt;<guimenuitem
+>Uložiť obrázok...</guimenuitem
+></emphasis
+>.</para
+></listitem
+></varlistentry
+> </variablelist
+> </para>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Autori a licencia</title>
+
+<para
+>&kfract;</para>
+
+<para
+>Program copyright 1999-2001</para>
+<itemizedlist
+> <listitem
+><para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+> Documentation copyright 1999-2001</para>
+<itemizedlist
+> <listitem
+><para
+>Uwe Thiem <email
+>uwe@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Pamela Roberts <email
+>pam.roberts@btinternet.com</email
+> (správca dokumentu) </para
+></listitem
+> </itemizedlist>
+
+<para
+>Preklad dokumentácie Stanislav Višňovský <email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

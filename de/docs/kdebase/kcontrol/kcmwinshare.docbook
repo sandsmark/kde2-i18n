@@ -1,0 +1,160 @@
+<sect1 id="windows-shares">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Stefan</firstname
+><surname
+>Winter</surname
+><affiliation
+><address
+><email
+>kickdown@online.de</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-02-04</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Kontrollzentrum</keyword>
+<keyword
+>windows-ressourcen</keyword>
+</keywordset>
+</sect1info>
+<title
+>Windows-Ressourcen</title>
+
+<sect2 id="windows-shares-intro">
+<title
+>Einleitung</title>
+
+<para
+>In vielen kleinen lokalen Netzen wird das <abbrev
+>SMB</abbrev
+>-Protokoll benutzt, um das Netzwerk zu betreiben. Statt SMB werden oft auch Namen wie <quote
+>Microsoft Netzwerk</quote
+> oder <quote
+>LANManager</quote
+> benutzt. Mit Hilfe von <abbrev
+>SMB</abbrev
+> können <quote
+>Ressourcen</quote
+> (also freigegebene Verzeichnisse und Drucker) im Netz zur Verfügung gestellt werden. </para>
+
+<para
+>&kde; verfügt über eine eingebaute <abbrev
+>SMB</abbrev
+>-Unterstützung. Da &kde; netzwerk-transparent ist, heisst das, dass Sie die <abbrev
+>SMB</abbrev
+>-Ressourcen überall genau wie lokale Dateien benutzen können, zum Beispiel im &konqueror;-Dateimanager und im Dialog <quote
+>Datei öffnen</quote
+>. Um diesen Vorteil nutzen zu können, sollten Sie &kde; einige Informationen über Ihr <abbrev
+>SMB</abbrev
+>-Netzwerk geben. Das ist normalerweise ganz einfach, denn das sind dieselben Informationen, die Sie einem Windows-Rechner auch geben müssten.</para>
+
+<!-- Don't know if the following info should go in the base documentation -->
+<!-- this smb-ioslave doesn't support showing a list of hosts (like e.g. smb:/),
+for this you need the lan or rlan-ioslave, very cool thing (TM) btw. If you want
+to write some documentation for this one too, have a look at
+kdenetwork/lanbrowsing/lisa/README and contact me if you have questions. -->
+
+<note
+><para
+>Damit das <acronym
+>SMB</acronym
+>-Protokoll funktioniert, müssen Sie <application
+>samba</application
+> installiert haben. Wenn Sie einen NT-Domain-Controller verwenden wollen, benötigen Sie mindestens Version 2.0 von <application
+>samba</application
+>. Wenn Sie Zugang zu &Windows; 2000 Ressourcen benötigen, muss die <application
+>samba</application
+>-Version mindestens 2.0.7 sein. Ältere Versionen mögen auch funktionieren, sind aber nicht daraufhin getestet worden.</para
+></note>
+
+<!-- TODO: link to some place which explains USING SMB, i.e. konqueror or file
+dialog manual -->
+
+</sect2>
+
+<sect2 id="windows-shares-use">
+<title
+>Benutzung</title>
+
+<para
+>Obwohl es sehr viele nicht gesicherte <abbrev
+>SMB</abbrev
+>-Netzwerke gibt, die jedem Zugriff auf alles erlauben, muss man sich prinzipiell bei einem <abbrev
+>SMB</abbrev
+>-Netz authentifizieren, bevor man auf Daten zugreifen kann. Standardmäßig verwendet &kde; die Daten, die Sie unter <guilabel
+>Standard-Benutzername</guilabel
+> und <guilabel
+>Standard-Passwort</guilabel
+> eingetragen haben, um sich bei einem <acronym
+>SMB</acronym
+>-Server anzumelden. Wenn man das Feld <guilabel
+>Standard-Benutzername</guilabel
+> leer lässt, versucht &kde; sich bei <acronym
+>SMB</acronym
+>-Servern ohne Benutzername anzumelden. Wenn man das <guilabel
+>Standard-Passwort</guilabel
+> frei lässt, versucht &kde; es ohne Passwort. Falls &kde; damit keinen Erfolg hat, werden Sie zur Eingabe eines Benutzernamens und Passwortes aufgefordert.</para>
+
+<important
+><para
+>Obwohl das Speichern von <acronym
+>SMB</acronym
+>-Passwörtern Ihnen das Leben leichter macht, könnte daraus ein Sicherheitsproblem entstehen. Wenn Sie in einem <acronym
+>SMB</acronym
+>-Netz arbeiten, bei dem es auf Sicherheit ankommt, sollten Sie keine Passwörter speichern, sondern stattdessen ihr Passwort jedesmal neu eingeben, wenn Sie Zugriff auf einen <acronym
+>SMB</acronym
+>-Server benötigen.</para
+></important>
+
+<para
+>Im Feld <guilabel
+>Arbeitsgruppe</guilabel
+> können Sie den Namen Ihrer Arbeitsgruppe eintragen. Falls dieser Name nicht bekannt ist, kann man den Systemverwalter danach fragen oder einen Blick auf die Einstellungen eines bereits konfigurierten Computers werfen. In den meisten Fällen ist es nicht erforderlich, den Arbeitsgruppennamen anzugeben, sodass Sie das Feld vermutlich leer lassen können.</para>
+
+<para
+>Wenn die Option <guilabel
+>Versteckte Ressourcen anzeigen</guilabel
+> ausgewählt ist, werden auch Ressourcen angezeigt, die mit einem <quote
+>$</quote
+> enden.</para>
+</sect2>
+
+<sect2 id="windows-shares-author">
+<title
+>Abschnittsautor</title>
+<para
+>Dieser Abschnitt wurde geschrieben von: Jost Schenck <email
+>jost@schenck.de</email
+></para>
+
+</sect2>
+</sect1>
+
+

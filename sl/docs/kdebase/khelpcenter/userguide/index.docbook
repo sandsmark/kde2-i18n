@@ -1,0 +1,4115 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kde; User's Guide">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovenian "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Namizno okolje K (K Desktop Environment)</title>
+<authorgroup>
+<author
+> <surname
+>Ekipa KDE</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Andrej</firstname
+><surname
+>Vernekar</surname
+><affiliation
+><address
+><email
+>andrej.vernekar@kiss.uni-lj.si</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2000-11-06</date>
+<releaseinfo
+>2.00.00</releaseinfo>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Ekipa KDE</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!-- Please note: This is NOT the final KDE Users Guide, which is not complete.
+This is a quick rewrite of the KDE 1.1x user guide, because it was badly out of
+date, and so that KDE wasn't released without a users guide entirely.  -->
+
+<abstract
+><para
+>To je Uporabniški priročnik KDE, celovita dokumentacija namiznega okolja K (KDE) iz perspektive uporabnika. KDE je zbirka orodij, ki bodo olajšala vaše življenje v UNIX-u in ga naredila bolj uživaško. </para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>user</keyword>
+<keyword
+>guide</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="about-this-preview">
+<title
+>O tem pregledu </title>
+
+<para
+>Dobrodošli v Uporabniškem priročniku KDE! Čeprav ta knjiga še ni povsem končana in precej stvari pišemo na novo, upamo, da vam bo ta različica pomagala odgovoriti na nekatera vprašanja, ki si jih lahko zastavi nov uporabnik. </para>
+
+<para
+>Ta knjiga vsebuje celovit uvod, vodič po namestitvi KDE, opis uporabniškega vmesnika, tri praktične zglede kako uporabljati KDE za vsakodnevno delo in opis prilagoditve namizja vašim željam. Vključeni so tudi seznam bližnjic in nekaj namigov &amp; trikov.</para>
+
+</chapter>
+
+<chapter id="introduction">
+<title
+>Uvod </title>
+
+<epigraph>
+<attribution
+>The <abbrev
+>CEO</abbrev
+> of a big software company, at the
+beginning of the 80s...</attribution>
+<para
+>640kB bi moralo zadostovati vsakomur </para>
+</epigraph>
+
+<para
+>Od začetka razvoja UNIX-a je bila vedno prisotna težava: obstajala so stabilna jedra in dobra, močna programska oprema. Na žalost je lahko UNIX uporabljalo le malo ljudi, saj je bil napisan za tiste študente in profesionalce, ki so ga dovolj dolgo študirali. Običajen način prebiranja USENET-a je bil na primer </para>
+
+<screen
+><userinput
+><command
+>find</command
+> <filename
+>/var/spool/news</filename
+> <parameter
+>-name '[0-9]*' -exec cat {} \;</parameter
+> | <command
+>more</command
+></userinput>
+</screen>
+
+<para
+>Ta problem je bil rešen. Danes je na voljo precej dobrih vmesnikov, kot sta <application
+>tin</application
+> in <application
+>KNode</application
+>, ki ponujajo preprostost uporabe, intuitiven grafični uporabniški vmesnik (<acronym
+>GUI</acronym
+>). Na žalost pa <acronym
+>GUI</acronym
+>-jem manjka standarden ,,občutek in izgled''. Komercialne programske knjižnice kot je <application
+>Motif</application
+> so obljubljale rešitev, vendar pa ostajajo predrage in prepočasne. </para>
+
+<para
+>Nastavitev programov je pogosto težka. Medtem, ko je prevajanje običajno opravljeno z <userinput
+><command
+>./configure</command
+> &amp;&amp; <command
+>make</command
+> &amp;&amp; <command
+>make <option
+>install</option
+></command
+></userinput
+> se da le zelo malo programov prilagoditi s pomočjo menujev ali skript. V večini primerov morate sami urejevati tekstovno nastavitveno datoteko. Pogosto se zgodi, da narobe postavljena vejica podre celotno datoteko in vas s tem prisili, da ponovno pričnete namestitveni proces. Kadarkoli želite znova spremeniti vaše nastavitve ali prilagoditi program, se vsa zmeda ponovno pojavi. </para>
+
+<para
+>Vse to prispeva k dejstvu, da Linux in drugi UNIX-i težko dosežejo širše občinstvo. Hkrati pa mnogo ljudi ni zadovoljnih s svojimi trenutnimi operacijskimi sistemi, večinoma zaradi pomanjkanja stabilnosti in zmogljivosti teh sistemov. Drugi ljudje sovražijo dejstvo, da morajo vsakič, ko izide program brez katerega ne morejo živeti, kupiti nov računalnik, ker program rabi več <acronym
+>RAM</acronym
+>-a in prostora na disku. Pogosto nova različica ponuja funkcije, ki jih zares rabi le malo ljudi. </para>
+
+<para
+> <emphasis
+>KDE je drugačen.</emphasis
+> Čeprav ne želimo nadomestiti običajne UNIX lupine, delamo na orodju, ki bo olajšalo uporabo UNIX-a. Prav tako želimo privabiti več uporabnikov. Preproste stvari bodo postale lahke in zapletene izvedljive. Prav tako bo ponujen enoten vmesnik namesto ducata trenutno zahtevanih. </para>
+
+<sect1 id="what-kde-can-do-for-you">
+<title
+>Kaj lahko KDE stori za vas </title>
+
+<para
+>KDE smo zasnovali tako, da bi bi bil dostopen za novince v UNIX-u in za tiste, ki se želijo izogniti zapletenim procesom učenja novih tehnologij in ukazov, ki jih ne najdejo v njihovih starih operacijskih sistemih. Prav tako ponujamo nekaj tudi izkušenim uporabnikom UNIX-a. </para>
+
+<variablelist
+> <varlistentry
+> <term
+>V UNIX-u ste novi:</term
+> <listitem
+><para
+>Sploh ne poskušajte uporabiti česa drugega, saj ste ravno tiste vrste oseba, za katero smo napisali to programsko opremo. Ponujamo vam:</para
+> <itemizedlist
+> <listitem
+><para
+>Lepo in za uporabo preprosto okensko okolje </para
+></listitem
+> <listitem
+><para
+>Močan, za uporabo preprost upravljalnik datotek </para
+></listitem
+> <listitem
+><para
+>Preprosto, centralizirano nastavitev </para
+></listitem
+> <listitem
+><para
+>Sprotno pomoč, ki vas bo podprla v vsaki situaciji </para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Z UNIX-om že imate izkušnje.</term
+> <listitem
+><para
+>Kot izkušen uporabnik UNIX-a boste pozdravili nove zmožnosti, ki jih ponuja KDE:</para
+> <itemizedlist
+> <listitem
+><para
+>Dober, priročen in hiter okenski upravljalnik </para
+></listitem
+> <listitem
+><para
+>Enoten vmesnik za vaše programe. Ne bo vam treba več ugibati, če <mousebutton
+>desni</mousebutton
+> ali <mousebutton
+>levi</mousebutton
+> gumb miške počneta to, kar od njiju pričakujete</para
+></listitem
+> <listitem
+><para
+>Terminalski emulator, ki ne zapolni pomnilnika, kadar je hkrati odprtih več oken</para
+></listitem
+> <listitem
+><para
+>Modno namizje, zaradi katerega bodo postali vaši prijatelji zavistni </para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="background-of-kde">
+<title
+>Ozadje KDE </title>
+
+<para
+>Oktobra 1996 je nemški razvijalec <application
+>LyX</application
+>-a Matthias Ettrich sprožil razvoj KDE s sporočilom v USENET-u. Kmalu potem je nekaj zainteresiranih razvijalcev začelo načrtovati in programirati dele novega projekta. Leto dni pozneje so bili okenski in datotečni upravljalnik, terminalski emulator, sistem pomoči in prikrojitveno (nastavitveno) orodje izdani v ALFA in Beta beta testiranje in se izkazali za relativno stabilne. </para>
+
+<para
+>Julija 1998 je bil KDE 1.0 objavljen. To je bila stabilna različica za naslednjih šest mesecev, medtem ko so razvijalci nadaljevali delo na izboljšavi KDE brez zahtev po stabilnosti. Januarja 1999 so bili njihovi napori konsolidirani in združeni v KDE 1.1, novi standardni, stabilni različici. </para>
+
+<para
+>Razvijalci in zainteresirani uporabniki komunicirajo preko večih poštnih list, kot je opisano v razdelku <link linkend="mailing-lists"
+>Poštni seznami</link
+>. Če želite pomagati to prosim storite. Še vedno iščemo ljudi, ki bi bili pripravljeni pomagati. </para>
+
+</sect1>
+
+<sect1 id="legal-status">
+<title
+>Pravne opombe</title>
+
+<para
+>KDE je prosta programska oprema pod licenco <link linkend="license"
+>GNU General Public License (GPL)</link
+>, ki je vključena z vsako KDE komponento. KDE lahko kopirate in razširjate po želji, dokler vedno vključite celotno izvorno kodo. Poglejte v razdelek <link linkend="license"
+>GNU General Public License (GPL)</link
+>. </para>
+
+</sect1>
+
+<sect1 id="getting-kde">
+<title
+>Kako dobiti nove komponente </title>
+
+<para
+>Glavna stran KDE je <ulink url="http://www.kde.org/"
+>http://www.kde.org</ulink
+>. Tukaj lahko najdete vse pomembne informacije povezane s KDE, vključno z naznanili, popravki, informacijami za razvijalce, navodila za sloge (style guides), precejšnjo količino dokumentacije (vključno z najnovejšo različico te knjige) in še mnogo drugega. Za nadgradnjo programske opreme prosim obiščite našo ftp stran, <ulink url="ftp://ftp.kde.org/"
+>ftp://ftp.kde.org</ulink
+> ali pa uporabite zrcalni strežnik, v kolikor obstaja kateri blizu vas. </para>
+
+<para
+>Imenik <filename
+>unstable</filename
+> vedno vsebuje najnovejšo programsko opremo, vendar pa je pogosto nepreizkušena in se morda sploh ne da prevesti. Če iščete bolj zanesljive komponente, si prosim oglejte imenik <filename
+>stable</filename
+>, kamor damo Beta različice in uradne izdaje. </para>
+
+<para
+>Če se zanimate za razvoj KDE programov, potem bi morali obiskati Troll Techov strežnik (<ulink url="http://www.troll.no/"
+>http://www.troll.no</ulink
+>) ki vsebuje veliko podatkov, ki se nanašajo na knjižnico Qt, ki jo uporablja KDE. Prav tako je v tem primeru priporočljivo, da se pridružite <link linkend="mailing-lists"
+>razvijalski poštni listi.</link
+></para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="installation">
+<title
+>Namestitev </title>
+
+<epigraph>
+<attribution
+>Linus Torvalds, after finding one of his file systems smashed by a
+new Beta kernel</attribution>
+<para
+>Core dumping fsck's tend to make me nervous.</para>
+</epigraph>
+
+<para
+>Brez skrbi! Čeprav lahko uporaba Beta programske opreme povzroči precej težav, ni posebej verjetno, da bi namestitev KDE uničila vaš disk. To poglavje je zasnovano posebej zato, da vas vodi skozi namestiveni proces, tako da lahko kar najhitreje (in s kar najmanj truda) pričnete uporabljati vaše novo namizje. Kot pri vseh namestitvah okenskih upravljalnikov je priporočljivo da naredite varnostno kopijo vseh X11 specifičnih nastavitvenih datotek preden pričnete z namestitvijo. Če ne poznate natančno njihove lokacije, poizkusite z vsemi skritimi datotekami (<filename
+>.*</filename
+>) v vašem domačem imeniku in imeniku <filename
+>/usr/X11/lib/X11/xdm</filename
+>. </para
+> 
+
+<sect1 id="requirements">
+<title
+>Zahteve </title>
+
+<para
+>Preden namestite KDE, se prepričajte, da vaš sistem izpolnjuje naslednje zahteve: </para>
+
+<itemizedlist
+> <listitem
+><para
+>Delujoč, POSIX kompatibilen UNIX sistem. UNIX-i, za katere je znano da delajo s KDE vključujejo: Linux, FreeBSD, Solaris, HP-UX in MkLinux. Trudimo se, da bi bil KDE kmalu dosegljiv na še več platformah. </para
+></listitem
+> <listitem
+><para
+>Nekaj prostega prostora na particiji, kjer bo ustvarjen <filename
+>/opt/kde</filename
+> . Priporočamo, da rezervirate približno 50MB, če vaš sistem podpira deljene knjižnice in ustrezno več, če jih ne. Če morate ali želite zgraditi KDE iz izvornega drevesa potem prosim rezervirajte okrog 100MB v <filename
+>/usr/src</filename
+>.</para
+></listitem
+> <listitem
+><para
+>Delujoč sistem X11 z ali brez <application
+>xdm</application
+>. Če še niste namestili X Window System potem najprej preverite namestitveni medij vaše različice UNIX-a, ali vsebuje primerno različico. Če je ne najdete, obiščite <ulink url="http://www.xfree86.org"
+>spletno stran XFree86</ulink
+> kjer dobite več informacij o tem, kako dobiti in namestiti X Window System, oziroma kontaktirajte vašega UNIX prodajalca UNIX-a za podporo. </para
+></listitem
+> <listitem
+><para
+>Knjižnice Qt, različice 2.2. Dobite jih lahko na <ulink url="ftp://ftp.troll.no/pub/qt"
+>Troll Techovem FTP strežniku</ulink
+> v formatih rpm in tgz. </para
+> </listitem
+> </itemizedlist>
+
+<warning
+><para
+>Opozorilo preden začnete: Preden nadgradite s prejšnje različice KDE, priporočamo, da storite naslednje:</para>
+
+<screen
+> 
+<command
+>cd <filename
+>/opt/kde</filename
+></command
+> 
+<command
+>tar <option
+>cfvz <replaceable
+>~/KDE-old-version-backup.tar.gz</replaceable
+> * </option
+></command>
+</screen>
+</warning>
+
+</sect1>
+
+<sect1 id="linux-installing-rpms">
+<title
+>Linux: nameščanje RPM-ov za RedHat, Caldero in SuSE.</title>
+
+<para
+>Uporaba RPM-ov je najlažja metoda da dobite in namestite KDE. Obiščite vaše priljubljen zrcalni strežnik KDE in njegov imenik <filename
+>/pub/kde/stable/distribution/rpm</filename
+>. Tukaj lahko vidite imenike za različne operacijske sisteme. Trenutno so podprte arhitekture i386, alpha in sparc. Pakete rpm lahko prav tako najdete na straneh Red Hata kot so sunsite.unc.edu ali ftp.redhat.com. </para>
+
+<para
+>Osnovni sistem sestavljajo datoteke <filename
+>kde-<replaceable
+>component</replaceable
+>.<replaceable
+>architecture</replaceable
+>.rpm</filename
+> Rabite najmanj kdesupport, kdelibs in kdebase. Ko ste dobili osnovno distribucijo lahko ostale pakete naložite po želji oziroma le tiste, za katere mislite, da vam bodo prišli prav. </para>
+
+<para
+>Sedaj pa lahko pričnete nameščati osnoven paket. Če nameščate KDE prvič, uporabite </para>
+
+<screen
+> 
+<userinput
+><command
+>rpm</command
+> <option
+>-i </option
+> <filename
+>kdesupport.arch.rpm</filename
+></userinput>
+<userinput
+><command
+>rpm</command
+> <option
+>-i </option
+> <filename
+>kdelibs.arch.rpm</filename
+></userinput>
+<userinput
+><command
+>rpm</command
+> <option
+>-i </option
+> <filename
+>kdebase.arch.rpm</filename
+></userinput>
+</screen>
+ 
+<important
+><para
+>Te komponente morajo biti nameščene v naštetem vrstnem redu inpred vsemi drugimi komponentami KDE.</para
+></important>
+
+<para
+>Če nadgrajujete prejšnjo različico poskusite <screen
+> 
+<userinput
+><command
+>rpm</command
+> <option
+>-Uvh</option
+> <filename
+>kde-<replaceable
+>component</replaceable
+>.<replaceable
+>arch</replaceable
+>.rpm</filename
+></userinput>
+</screen
+> </para>
+
+<para
+>Še nekrat: zgoraj našteti vrstni red mora biti ohranjen in podane komponente morajo biti nameščene pred vsemi drugimi.</para>
+
+<para
+>To bo odpakiralo osnovno distribucijo in jo privzeto namestilo v <filename
+>/opt/kde</filename
+>.</para>
+
+<para
+>Če je bila namestitev osnovnih paketov uspešna, lahko namestite preostale pakete (uporabite <option
+>-Uvh</option
+> namesto <option
+>-i</option
+> da nadgradite obstoječo različico) na enak način. </para>
+
+</sect1>
+
+<sect1 id="installing-debian">
+<title
+>Linux: nameščanje paketov <acronym
+>DEB</acronym
+> za debian</title>
+
+<para
+>Tudi namestitev v sistemu Debian je dokaj preprosta. Našli boste le pakete za Debian 2.2 (Potato) in 3.0 (Woody). Opisali bomo nameščanje paketov za Debian 2.2, ki je stabilna različica, saj je Debian 3.0 še v razvoju. Vendar pa je namestitev v obeh različicah skoraj identična. Glavna razlika je v tem, da je KDE v Debian 3.0 uradno vključen in vam ni treba določiti posebne lokacije, da najdete pakete deb za KDE.</para>
+
+<para
+>V prvem koraku bomo sistemu povedali, kje lahko najde pakete deb. Seznam naslovov Debian paketov se nahaja na vašem disku v <filename
+>/etc/apt/sources.list</filename
+>. V to datoteko morate dodati naslednjo vrstico: <userinput
+>http://kde.tdyc.com/ stable kde2</userinput
+></para>
+
+ 
+<para
+>Potem morate osvežiti vašo lokalno bazo podatkov, tako da vaš sistem ve, da so na voljo novi paketi. Vtipkajte naslednji ukaz:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>update</option
+></userinput>
+</screen>
+ 
+<para
+>Končno lahko namestite osnovne komponente KDE. To storite tako, da vtipkate:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdebase</option
+></userinput>
+</screen>
+ 
+<para
+>Če želite namestiti več komponent KDE poizkusite nekatere ali pa kar vse naslednje možnosti:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdenetwork</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdeadmin</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdetoys</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdeutils</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdemultimedia</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdegraphics</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdepim</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdegames</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-koffice</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdebase-docs</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdm</option
+></userinput>
+</screen>
+
+<para
+>Morda vas bo zanimalo kako namestiti vaš jezik.</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install
+kde-i18n-<replaceable
+>xx</replaceable
+></option
+></userinput>
+ </screen>
+<para
+>kjer morate <replaceable
+>xx</replaceable
+> zamenjati s kodo jezika.</para>
+
+<para
+>Nastavitvene datoteke KDE bodo nameščene v <filename class="directory"
+>/etc/kde2</filename
+>, izvedljive v <filename class="directory"
+>/usr/bin</filename
+> in večina drugih v <filename class="directory"
+>/usr/share</filename
+> v rezlične imenike. </para>
+
+<para
+>Če nadgrajujete s prejšnje različice KDE, potem izvedite naslednje korake. Najprej dopolnite datoteko <filename
+>/etc/apt/sources.list</filename
+> tako, da spremenite vrstico z lokacijo paketov KDE v: <userinput
+>http://kde.tdyc.com/ stable kde2</userinput
+>. Nato osvežite bazo podatkov paketov:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>update</option
+></userinput>
+</screen>
+ 
+<para
+>Končno namestite osnovni sitem:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdebase</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>dist-upgrade</option
+></userinput>
+</screen>
+ 
+<para
+> Če želite namestiti več komponent KDE poizkusite nekatere ali pa kar vse naslednje možnosti.</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdenetwork</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdeadmin</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdetoys</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdeutils</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdemultimedia</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdegraphics</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdepim</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdegames</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-koffice</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdebase-docs</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdm</option
+></userinput>
+</screen>
+
+</sect1>
+
+<sect1 id="source-distribution">
+<title
+>Uporaba TGZ za nameščanje v drugih sistemih </title>
+
+<para
+>Če vaša distribucija nima RPM ali DEB arhivskega formata ali pa sloh ne upoprabljate Linuxa, potem morate KDE prevesti sami. V prihodnosti načrtujemo binarno distribucijo, ki vključuje svoj namestitevni program. </para>
+
+<para
+>Da lahko prevedete in namestite KDE rabite morajo biti na vašem disku nameščeni naslednji elementi: </para>
+
+<itemizedlist
+> <listitem
+><para
+>ANSI-C prevajalnik, <abbrev
+>npr.</abbrev
+> <abbrev
+>GNU</abbrev
+> C compiler (GCC). </para
+></listitem
+> <listitem
+><para
+>ANSI-C++ prevajalnik, <abbrev
+>npr.</abbrev
+> <abbrev
+>GNU</abbrev
+> C++ (G++). </para
+></listitem
+> <listitem
+><para
+>Program <application
+>make</application
+>. </para
+></listitem
+> <listitem
+><para
+>Qt development različice 2.2 ali višje.</para
+></listitem
+> <listitem
+><para
+>X11 razvijalska različica (include datoteke pogosto manjkajo) </para
+></listitem
+> </itemizedlist>
+
+<para
+>Ko enkrat imate vse te programe, pojdite na vaš priljubljeni zrcalni strežnik KDE in pridobite sledeče datoteke iz imenika <filename
+>/pub/kde/stable/<replaceable
+>(najnovejša različica)</replaceable
+></filename
+>:</para>
+
+<itemizedlist
+> <listitem
+><para
+><filename
+>kdesupport-<replaceable
+>version</replaceable
+>.tar.gz</filename
+></para
+></listitem
+> <listitem
+><para
+><filename
+>kdelibs-<replaceable
+>version</replaceable
+>.tar.gz</filename
+> </para
+></listitem
+> <listitem
+><para
+><filename
+>kdebase-<replaceable
+>version</replaceable
+>.tar.gz</filename
+></para
+></listitem
+> <listitem
+><para
+>katerikoli drug paket, ki ga želite namestiti. Svetujemo vam, da vzamete vsaj kdeutils. </para
+></listitem
+> </itemizedlist>
+
+<para
+>kjer <replaceable
+>(version)</replaceable
+> nadomestite s številko trenutne raličice. Ko ste naložili vse, kar potrebujete, izvlečite te datoteke v <filename
+>/usr/src</filename
+>. Ta proces bi moral ustvariti sledečo imeniško strukturo:</para>
+
+<itemizedlist
+> <listitem
+><para
+><filename
+>/usr/src/kdesupport</filename
+></para
+></listitem
+> <listitem
+><para
+><filename
+>/usr/src/kdelibs</filename
+></para
+></listitem
+> <listitem
+><para
+><filename
+>/usr/src/kdebase</filename
+></para
+></listitem
+> <listitem
+><para
+><filename
+>/usr/src/...</filename
+> (katerikoli drug paket)</para
+></listitem
+> </itemizedlist>
+
+<para
+>Poskrbite, da imate pisalno dovoljenje v <filename
+>/opt/kde</filename
+>.</para>
+
+<para
+>Sedaj morate prevesti in namestiti pakete z uporabo: </para>
+
+<procedure
+> <step
+><para
+><command
+>cd</command
+> v imenik paketa, ki ga želite namestiti (glejte zgoraj)</para
+></step
+> <step
+><para
+><command
+>./configure</command
+> (z opcijami, ki jih želite uveljaviti)</para
+></step
+> <step
+><para
+><command
+>make</command
+></para
+></step
+> <step
+><para
+><command
+>make install</command
+></para
+></step
+> </procedure>
+
+<para
+>Uporabite gornje korake na vsakem paketu, ki ga želite namestiti.</para>
+
+<note
+><para
+>Ta navodila so uporabna za skoraj vsak dosegljiv paket izvorne kode, ne le za pakete KDE. </para
+></note>
+
+<para
+>Vsaka prilagoditvena skripta ima na razpolago več opcij. Nekatere so splošne za vse pakete, druge pa specifične za vsakega posebej. Sledeče je rezultat ukaza <command
+>configure <option
+>--help</option
+></command
+> v kdelibs:</para>
+
+<screen>
+<computeroutput>
+  --disable-fast-perl     disable fast Makefile generation (needs perl)
+  --enable-debug          creates debugging code [default=no]
+  --enable-strict         compiles with strict compiler options (may not work!)
+  --enable-profile        creates profiling infos [default=no]
+  --enable-final          build size optimized apps (experimental - needs lots of memory)
+  --disable-closure       don't delay template instantiation
+  --enable-shared[=PKGS]  build shared libraries [default=yes]
+  --enable-static[=PKGS]  build static libraries [default=no]
+  --enable-fast-install[=PKGS]  optimize for fast installation [default=yes]
+  --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
+  --disable-libtool-lock  avoid locking (might break parallel builds)
+  --with-pic              try to use only PIC/non-PIC objects [default=use both]
+  --with-extra-includes=DIR
+                          adds non standard include paths
+  --with-extra-libs=DIR   adds non standard library paths
+  --with-qt-dir=DIR       where the root of Qt is installed
+  --with-qt-includes=DIR  where the Qt includes are.
+  --with-qt-libraries=DIR where the Qt library is installed.
+  --disable-rpath         do not use the rpath feature of ld
+  --disable-path-check    don't try to find out, where to install
+  --with-xdmdir           If the xdm config dir can't be found automaticly
+  --with-pam[=ARG]        enable support for PAM: ARG=[yes|no|service name]
+  --with-shadow           If you want shadow password support
+  --with-krb4[=PATH]      Compile in Kerberos v4 support.
+  --with-afs              Compile in AFS support (requires KTH krb4).
+  --with-ldap[=PATH]      Compile in LDAP support.
+  --with-samba-libs=path  Use Samba-tng libs in 'path'                [search]
+  --without-gl            disable 3D GL modes
+  --without-xpm           disable color pixmap XPM tests
+  --without-dpms          disable DPMS power saving
+  --with-x                use the X Window System
+  --with-motif-includes=DIR    Motif include files are in DIR
+  --with-motif-libraries=DIR   Motif libraries are in DIR                           
+</computeroutput>
+</screen>
+
+<para
+>Mnoge opcije niso zahtevane in so uporabne le za premostitev znanih težav(<abbrev
+>npr.</abbrev
+> <option
+>--disable-FEATURE</option
+>). Ker so nakatere pomembne, na primer <emphasis
+>--with-shadow</emphasis
+>, bi morali vedno preveriti dosegljive možnosti.</para>
+
+<para
+>Pomembna možnost je <option
+>--prefix</option
+>. Ta možnost določa pot, kamor naj configure namešča (za kdesupport in kdelibs) ali kam naj pogleda za knjižnicami (za druge pakete). Privzeto bo configure pogledal v <filename
+>/opt/kde</filename
+>. Če želite namestiti KDE v <filename
+>/usr/local/kde</filename
+>, morate uporabiti <command
+>configure <option
+>--prefix /usr/local/kde</option
+></command
+>.</para>
+
+<para
+>Če ste namestili knjižnice Qt na nenavadnem mestu, na primer v <filename
+>$HOME/src/qt</filename
+>, morate uporabiti <command
+>configure <option
+>--with-qt-dir=$HOME/src/qt</option
+></command
+>. Privzeto configure pogleda v najbolj običajne kraje, kjer se morda nahajajo Qt, preden obupa.</para>
+
+<para
+>Če imate težave, ki jih ne morete rešiti pošljite kopijo datoteke <filename
+>config.log</filename
+> na naslov v datoteki <filename
+>README</filename
+> v problematičnem paketu.</para>
+
+<para
+>KDE morate namestiti v naslednjem vrstnem redu: kdesupport, kdelibs, nato pa programske pakete (na primer kdebase). Vsi programski pakete bi morali biti odvisni le od kdelibs, tako da jih lahko prevajate hkrati (če imate dovolj zmogljiv računalnik).</para>
+
+<para
+>Če se želite poslužiti zmožnosti večprocesorskih sistemov, poskusite <command
+>make <option
+> -j <replaceable
+>št. procesorjev</replaceable
+></option
+></command
+> namesto <command
+>make</command
+>. </para>
+
+<sect2>
+<title
+>Od platforme odvisne opombe </title>
+
+<sect3>
+<title
+>Linux </title>
+
+<para
+>Za Linux lahko večino za izgrdnjo KDE potrebnih orodij najdete ali na <ulink url="ftp://sunsite.unc.edu/pub/Linux/GCC"
+>ftp://sunsite.unc.edu/pub/Linux/GCC</ulink
+> ali pa <ulink url="ftp://sunsite.unc.edu/pub/GNU"
+>ftp://sunsite.unc.edu/pub/GNU</ulink
+>. The Knjižnice Qt lahko najdete na <ulink url="ftp://ftp.troll.no/pub/qt/linux"
+>ftp://ftp.troll.no/pub/qt/linux</ulink
+>, dosegljive v obliki izvorne kodaeali pa v formatu RPM. Oba vključujeta podrobna navodila o tem, kako ju namestiti. Include datoteke za X11 programe bi morale biti dosegljive na <ulink url="ftp://ftp.xfree86.org"
+>ftp://ftp.xfree86.org</ulink
+> v razdelku xdevel. </para>
+
+</sect3>
+</sect2>
+</sect1>
+
+<sect1 id="suse-install">
+<title
+>Zahtevane spremebe v vaših nastavitvenih datotekah </title>
+<para
+> Potem ko ste postavili binarne datoteke KDE v njihov končni imenik, je tu še nekaj prilagoditev, ki jih morate narediti v vaših zagonskih skriptah. </para>
+<para
+> Sledeč postopek je bil preizkušen na SuSE Linux 5.0 in bi moral biti združljiv tudi z drugimi popularnimi UNIX-i. <emphasis
+>Vedno pripravite vrnostne kopije nastavitvenih datotek, preden jih spreminjate!</emphasis
+> Dodajte sledeče na konec vašega /etc/profile: </para>
+<para
+> <screen
+>export PATH=$PATH:/opt/kde/bin 
+export KDEDIR=/opt/kde
+</screen
+> </para>
+<para
+>Nato uredite datoteko .xinitrc v vašem domačem imeniku. Poglejte v vrstico, ki kliče okenski upravljalnik in ga nadomestite s <literal
+>startkde</literal
+>.</para>
+<para
+>Sedaj, ko je bilo vse, kar je potrebno za zagon KDE nameščeno, lahko pogledate v 4. poglavje, kjer boste prvič pognali KDE. Če gre kaj narobe, boste morda morali sami prevesti KDE. Preberite <emphasis
+> <link linkend="source-distribution"
+>Uporaba TGZ za nameščanje v drugih sistemih</link
+> </emphasis
+> za več informacij. </para>
+<para
+>Namestitev smo naredili kar se da trpežno, tako da ne bi smeli naleteti na resnejše probleme razen v primeru, da je vaša konfiguracija eksotična. Če pa le naletite na težave, potem ne oklevajte in uporabite <link linkend="mailing-lists"
+>poštne liste KDE</link
+>. </para>
+</sect1>
+</chapter>
+
+<chapter id="first-impressions">
+<title
+>Prvi vtisi </title>
+
+<epigraph>
+<attribution
+>Origin unknown</attribution>
+<para
+>You see to sea to see that all you can see is sea</para>
+</epigraph>
+
+<para
+>Prvi vtisi so najpomembnejši -- to ne velja le za slovito shrhljivko Agathe Christie "Mišolovka" -- ampak tudi za KDE. Kot smo že omenili naj bi bil KDE karseda intuitiven, za učenje preprost uporabniški vmesnik. Cilj bomo pravzaprav dosegli, ko uporabnike ne bodo več potrebovali tega priročnika zato, da bodo mogli delati s KDE, zaradi česar bodo avtorji (neplačani in prostovoljni) izgubili svoje delovno mesto piscev dokumentacije. </para>
+
+<sect1 id="starting-kde">
+<title
+>Zagon KDE </title>
+
+<para
+>Ko zaženete sistem UNIX, se bi morala zgoditi ena od dveh stvari (če seveda sistem deluje pravilno; vse drugo je nedokumentiran tretji primer). Ali ostanete v tekstovnem (konzolnem) načinu in se znajdete pred prijavno vrstico ali pa se pojavi grafično prijavno okno. V prvem primeru se morate prijaviti in vtipkati: </para>
+
+<screen
+>  
+<command
+>startx</command
+>  
+</screen>
+
+<para
+>Če je bila namestitev uspešna, se bi moralo namizje KDE pojaviti po nekaj sekundah. </para>
+
+<para
+>Če se je pojavilo grafično prijavno okno, potem je vse, kar bi morali vnesti vaše prijavno ime in geslo. Ob pogoju, da je bila namestitev uspešna, bi se moral KDE zagnati brez nadaljnega vmešavanja. </para>
+
+<para
+>Če tega še niste storili, vam priporočamo spremembo vaše X upravljalnika prikaza z <application
+>xdm</application
+> na <application
+>kdm</application
+>, ki vključuje isto funkcionalnost, vendar z naprednimi zmožnostmi namiznega okolja K. </para>
+
+</sect1>
+
+<sect1 id="desktop-components">
+<title
+>Gradniki namizja </title>
+
+<para
+>Ko se je vse pojavilo, si vzemite čas za raziskovanje novega okolja. Če ste že kdaj delali z <emphasis
+>Windows 95</emphasis
+> ali <emphasis
+>OS/2 Warp 4</emphasis
+> se vam bo mnogo stvari zdelo znanih. Trije glavni deli namizja KDE so namizje samo, pult in opravilna vrstica. </para>
+
+<sect2 id="kde-logout">
+<title
+>Pult </title>
+
+<para
+>Ko zaženete KDE prvič je pult na dnu zaslona. Od tukaj boste zaganjali programe in preklapljali med navideznimi zasloni. </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Gumb <guiicon
+>K</guiicon
+></term
+> <listitem
+><para
+>Gumb "<guiicon
+>K</guiicon
+>" je eden najpomembnejših krajev na namizju KDE. Od tukaj lahko uporabljate <link linkend="adding-programs"
+> K Menu Editor</link
+>, lahko pa tudi tu dodajate tudi druge programe. Da poženete program, morate le klikniti na gumb. Pojavil se bo seznam različnih kategorij in nekaj dodatnih vnosov. Ko boste premaknili miško preko izbire, ki ima na desni majhno puščico, se bo pojavil nov menu. Ko najdete program, ki ga želite pognati, kliknite nanj z <mousebutton
+>levim</mousebutton
+> gumbom miške.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Gumbi navideznih namizij</term
+> <listitem
+><para
+>Ko prvič poženete KDE boste opazili štiri gumbe, ki so označeni kot "Ena", "Dva", "Tri" in "Štiri". Ti predstavljajo vaša štiri <emphasis
+>namizja</emphasis
+>. Kliknite na enega izmed njih. Ne skrbite; čeprav so "izginila", so odprta okna še vedno aktivna (le poglejte v seznam opravil!). Uporaba več namizij naenkrat je ena izmed najmočnejših zmožnosti KDE in sistema X Window. Namesto postavljanja enega okna preko drugega, kot bi to počeli v Windows ali OS/2, lahko rečete "No, na prvem namizju bom pisal uporabniški priročnik KDE, na drugem bom pognal prevajalnik <abbrev
+>sgml2latex</abbrev
+> in si ogledal rezultate, medtem ko bom na tretjem namizju prevajal Linuxovo jedro in na četrtem bral e-pošto." </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Vrstica ikon</term
+> <listitem
+> <para
+>Nekateri ljudje (vključno z mano) so tako leni, da menijo, da sta dva ali celo trije premiki skozi menuje preveč. Zanje se lahko namestijo dodatni gumbi poleg namiznih gumbov; na primer bližnjice v vaš domač imenik, smetnjak, terminalski emulator in dokumenti, ki jih pogosto uporabljate. Za informacije, kako dodati ikone v opravilno vrstico preberite <link linkend="icons-add"
+>Dodajanje ikon v opravilno vrstico</link
+>. </para
+> <para
+>KDE privzeto namesti več pogosto uporabljenih gumbov, med drugim povezave do <application
+>KHelpCenter</application
+>, <application
+>KWrite</application
+> in <application
+>nadzorne plošče KDE</application
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Datum in čas</term
+> <listitem
+><para
+>Na skrajnem desnem koncu pulta KDE lahko vedno vidite čas in datum.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Seznam opravil</term
+> <listitem
+> <para
+>V drugem odseku pulta poiščite gumb za vsako odprto okno. Kliknite na gumb, ki ustreza oknu, ki ga želite odpreti. Nadaljen klik bo pomanjšal okno. Klik na <mousebutton
+>desni</mousebutton
+> gumb miške bo odprl menu, ki omogoča premik okna na drugo namizje, spreminjanje njegove velikosti ali zapiranje programa.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+<sect2>
+<title
+>Uporaba oken </title>
+
+<variablelist
+> <varlistentry
+> <term
+>Menu okna</term
+> <listitem
+> <para
+>Klik z <mousebutton
+>desnim</mousebutton
+> gumbom miške na naslovni letvi okna (kjer vidite ime programa) lahko vidite menu za upravljanje z okni. To je enak menu, kot ga vidite, če kliknete z <mousebutton
+>desnim</mousebutton
+> gumbom miške na ikono programa v opravilni vrstici pulta. Ko kliknete nanjo, se pojavi kontekstni menu, ki vsebuje ukaze za manipulacijo z okni. Na voljo so naslednji ukazi:</para
+> <variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Premaknimo</guimenuitem
+></term
+> <listitem
+><para
+>Omogoča premikanje okna z miško. Kliknite z <mousebutton
+>levi</mousebutton
+> gumbom miške, ko je okno tam, kjer želite, da naj bo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Velikost</guimenuitem
+></term
+> <listitem
+><para
+>omogoča povečevanje ali pomanjševanje okna. Premikajte miško naokoli in kliknite, ko ste zadovoljni z novo velikostjo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Pomanjšajmo</guimenuitem
+></term
+> <listitem
+><para
+>Skrije okno in pusti le ikono v opravilni vrstici. Opazili boste, da je naslov okna prikazan v (oklepajih). Da prikličete okno nazaj na namizje, kliknite na naslov okna.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Razpnimo</guimenuitem
+></term
+> <listitem
+><para
+>To bo razširilo okno na največjo možno velikost. Upoštevajte, da bo KDE uporabil velikost vašega <emphasis
+>navideznega namizja</emphasis
+>, kar pomeni, da je lahko okno večje kot vaš zaslon. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Osenčimo</guimenuitem
+></term
+> <listitem
+><para
+>"Zvij" okno, tako da bo ostala vidna le naslova letev. Enak učinek lahko dosežete z dvojnim klikom na naslovni vrstici. Da se znova prikaže celotno okno izberite <guimenuitem
+>Shade</guimenuitem
+> ali pa dvojno kliknite na naslovno letev.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Vedno na vrh</guimenuitem
+></term
+> <listitem
+><para
+>Ta izbira bo ohranila okno pred vsemi programi na namizju, tudi če nima fokusa.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Okraski</guimenuitem
+></term
+> <listitem
+><para
+>Omogoča vam spreminjanje izgleda in v nekaterih primerih pozicijo vseh oken v KDE. To spremeni gradnike okenskih okraskov, vključno z naslovnimi letvami in tudi potrditvenimi polji in gumbi ter pogovornimi okni, drsniki in naslovno letvijo samo. Privzeto je KDE2.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Na namizje</guimenuitem
+></term
+> <listitem
+><para
+>Omogoča vam, da pošljete okno na drugo namizje. Izberite namizje, na katerem želite, da je okno. Okno bo takoj izginilo. Da ga znova vidite, izberite ustrezni <guiicon
+>namizni gumb</guiicon
+> na <application
+>pultu</application
+>. Če izberete <guimenuitem
+>Vsa namizja</guimenuitem
+> bo okno postalo "lepljivo" - izrisano bo na vseh namizjih, tako da ga lahko vedno vidite.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Zapri</guimenuitem
+></term
+> <listitem
+><para
+>To bo zaprlo okno. Včasih vam bo program dovolil shraniti vaše delo, v nekaterih primerih (<abbrev
+>npr.</abbrev
+>, pri starih X11 programih) pa to ne dela. Najbolje je zapirati programe z njihovimi lastnimi ukazi, z uporabo tega menuja le kot zadnje možnosti.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>'Lepljivi' gumb</term
+> <listitem
+><para
+>Ta gumb je videti kot tuba lepila. Izvede isto operacijo kot izbira <guimenuitem
+>Vsa namizja</guimenuitem
+> v <guimenu
+>okenskem menuju</guimenu
+>, zahteva pa manj korakov.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Naslovna letev</term
+> <listitem
+><para
+>Naslovno letev, ki vsebuje ime okna, lahko z dvojnim klikom zvijete. Uporabite <mousebutton
+>desni</mousebutton
+> gumb miške: <guimenu
+>okenski menu</guimenu
+> se bo ponovno pojavil in vam omogočil povečanje, pomanjšanje, premikanje, spreminjanje velikosti, odlepljenje okna, premik na drugo namizje (dela hitreje kot metoda z lepljivim gumbom). Ko se program ne odziva, ga lahko zaprete (kar vam bo včasih ponudilo možnost, da shranite vaše delo). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Gumbi <guibutton
+>pomanjšaj</guibutton
+>, <guibutton
+>razpni</guibutton
+> in <guibutton
+>zapri</guibutton
+></term
+> <listitem
+><para
+>Na skrajni desni strani naslovne letve sta dva gumba, ki se lahko uporabljata za ikoniziranje in razpenjanje okna (to je hitreje kot uporaba menujev za manipulacijo ikon). Pomanjšana (ikonizirana) okna se lahko povrnejo s klikom na opravilni vrstici. </para
+> <para
+>Na skrajni levi strani naslovne vrstice (pri privzetih okraskih oken) je gumb za zapiranje okna.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Da premaknete okno postavite kurzor na naslovno letev in držite <mousebutton
+>levi</mousebutton
+> gumb miške. Ne da bi ga spustili premaknite okno tja, kamor želite, nato pa spustite gumb miške. Če želite spremeniti velikost okna premaknite kurzor nad rob okna, ki ga želite spremeniti. Ko ste dosegli pravo mesto se bo kurzor spremenil iz puščice v črtico in puščico. Pritisnite <mousebutton
+>levi</mousebutton
+> gumb miške in povlecite stran, ki jo spreminjate na lokacijo, ki jo želite ter spustite gumb. Upoštevajte da lahko vlečete stranice ali pa kote (kar bo spremenilo velikost v dveh dimenzijah hkrati).</para>
+
+<para
+>Uporaba menujske vrstice vsakega okna KDE je preprosta. Kliknite na to, kar želite narediti in opravljeno bo.</para>
+
+<para
+>Pod menujsko vrstico je nabor simbolov za orodja, ki jih lahko uporabite za izvajanje ukazov. Kadarkoli se premaknete nadnje, bo aktivna slika označena. Vendar pa lahko menu za vas naredi še več. Ste opazili teksturiran pas na levi strani menujske in ikonske vrstice? Kliknite z <mousebutton
+>desnim</mousebutton
+> gumbom miške in pojavil se bo kontekstni menu, ki vam bo omogočil, da menu postavite <guimenuitem
+>Na vrhu</guimenuitem
+> <guimenuitem
+>Levo</guimenuitem
+>, <guimenuitem
+>Desno</guimenuitem
+>, ali <guimenuitem
+>Na dnu</guimenuitem
+> okna. Lahko ga tudi skrijete z izbiro <guimenuitem
+>Plosk</guimenuitem
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Priklic pomoči </title>
+
+<para
+>Pomoč je dosegljiva skoraj povsod: na namizju uporabite <mousebutton
+>desni</mousebutton
+> gumb miške in izberite <guimenuitem
+>Pomoč za namizje</guimenuitem
+>. Na pultu odprite menu zaganjalca programov in izberite <guimenu
+>Pomoč</guimenu
+>. Vsak KDE program ima menu pomoči. Vsa pomoč je osnovana na HTML, tako da je uporaba sistema pomoči enako preprosta kot uporaba vašega najljubšega spletnega brskalnika! </para>
+
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Pričetek </title>
+
+<epigraph>
+<attribution
+>Help for one of the toughest riddles in <quote
+>The 7th
+Guest</quote
+></attribution>
+<para
+>Ali lahko z uporabo tega, kar vidite pridete od A do B?</para>
+</epigraph>
+
+<para
+>Dosedaj je videti, da je KDE le nekaj več kot pa še en okenski upravljalnik z nekaj priročnimi zmožnostmi namizja. Vendar se raje primite sedežev; v nekaj naslednjih razdelkih vas bomo vpeljali v zmožnosti, ki vam bodo zagotovile, da ne boste nikoli več poskušali uporabljati vašega sistema UNIX brez KDE!</para>
+
+<sect1 id="editing-files">
+<title
+>Urejevanje datotek </title>
+
+<para
+>Ker na vašem sistemu nimate nameščenih le programov KDE, verjetno poznate zmedo urejevanja <abbrev
+>ASCII</abbrev
+> prilagoditvenih datotek. Vendar pa je še mnogo drugih datotek, ki morajo biti urejane na ta način. Na primer surove <abbrev
+>SGML</abbrev
+> datoteke za ta vodič je bil napisan v načinu <abbrev
+>ASCII</abbrev
+>, kot je bila tudi izvorna koda za same programe KDE. Sedaj vam bomo pokazali, da lahko v KDE uporabite program <application
+>KEdit</application
+> za urejanje <abbrev
+>ASCII</abbrev
+> datotek. </para>
+
+<sect2 id="the-filemanager-screen">
+<title
+>Odpiranje okna ki vsebuje vaš domač imenik </title>
+
+<para
+>Kliknite na <guibutton
+>zaganjalca programov</guibutton
+> in izberite <guimenuitem
+>Domač imenik</guimenuitem
+>. Pojavilo se bo okno, ki bo prikazovalo vsebino vašega domačega imenika. Da vidite podrobnejši seznam datotek v vašem domačem imeniku naredite naslednje: </para>
+
+<procedure
+> <step
+><para
+>Izberite <guimenuitem
+>Prikaži skrite datoteke</guimenuitem
+> iz menuja <guimenu
+>Videz</guimenu
+>.</para
+></step
+> <step
+><para
+>Izberite <guimenuitem
+>Prikaži drevo imenikov</guimenuitem
+> iz menuja <guimenu
+>Nastavitve</guimenu
+>.</para
+></step
+> </procedure>
+
+<para
+>Na levi strani okna bi se moral pojaviti drevesni prikaz strukture datotečnega sistema, vključno s "skritimi datotekami" -- datotekami ali imeniki, ki se prično s piko. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Zaslon upravljalnika datotek </title>
+
+<para
+>Trudili smo se narediti datotečni upravljalnik kar se da prijazen za uporabo in če poznate druge okenske upravljalnike (vključno s tistimi iz drugih operacijskih sistemov) z integriranim upravljanjem datotek, bi vam morali biti mnogi od sledečih konceptov znani. </para>
+
+<para
+>Na vrhu je <guimenu
+>lokacijski</guimenu
+> menu, ki vsebuje funkcije za odpiranje in zapiranje oken datotečnega upravljalnika. Prav tako lahko trenutno vsebino natisnete. </para>
+
+<note
+><para
+>Želite obiskati internet? Potem izberite <menuchoice
+><guimenu
+>Lokacija</guimenu
+> <guimenuitem
+>Odpri lokacijo</guimenuitem
+></menuchoice
+> (ali pritisnite <keycombo
+><keycap
+>Ctrl</keycap
+> <keycap
+>O</keycap
+></keycombo
+>) in vnesite <abbrev
+>URL</abbrev
+>. </para
+> <para
+>Na primer, če želite obiskati domačo stran KDE potem vnesite <userinput
+>http://www.kde.org</userinput
+>. Prav tako lahko s pomočjo te metode hitro naložite datoteke preko <abbrev
+>FTP</abbrev
+>. KDE je "pripravljen za internet", kar pomeni da lahko datoteke nalagate ali shranjujete ne le na vaš lokalen disk, ampak tudi na oddaljene <abbrev
+>FTP</abbrev
+> in <abbrev
+>HTTP</abbrev
+> strežnike. Medtem ko drugi operacijski sistemi in namizja delajo razliko med lokalnimi in oddaljenimi sistemi KDE tega ne počne. </para
+></note>
+
+<para
+>Menu <guimenu
+>Uredi</guimenu
+> ponuja funkcije za izbiro prepisovanje in premikanje datotek. Če ste že uporabili menu <guimenu
+>Videz</guimenu
+>, ste verjetno opazili, da si lahko vsebino ogledate na več različnih načinov. Malo se igrajte in opazujte, kaj se dogaja. </para>
+
+<para
+>Brez dvoma boste ugotovili, da so <guimenu
+>Zaznamki</guimenu
+> zelo uporabni: sedaj si lahko zapomnite praktično vsako povezavo, pa naj je na lokalnem računalniku ali kje v internetu. </para>
+
+<para
+>Menu <guimenu
+>Orodja</guimenu
+> vam pomaga najti nadležne datoteke-ki-so-nekje-pa-ne-vem-več-kje. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Križarjenje po imenikih </title>
+
+<para
+>Sedaj bomo pobrali eno izmed vaših nastavitvenih datotek in jo uredili. Najprej moramo v upravljalniku datotek spremeniti imenik. Premaknite drevesni pogled na levi strani okna, dokler ne najdete imenika <filename
+>/etc</filename
+>. Dvakrat kliknite na <filename
+>etc</filename
+>. V desnem oknu boste videli seznam datotek. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Urejanje datoteke </title>
+
+<para
+>Zdrsnite navzdol, dokler ne najdete datoteke <filename
+>motd</filename
+> in kliknite nanjo z <mousebutton
+>desnim</mousebutton
+> gumbom miške. V <guimenu
+>kontekstnem menuju</guimenu
+> izberite <guimenuitem
+>Odpremo z</guimenuitem
+>. Pojavilo se bo novo okno. Vnesite <userinput
+>kedit</userinput
+> in kliknite na <guibutton
+>V redu</guibutton
+> ali pa pritisnite <keycap
+>Enter</keycap
+>. Pa smo! </para>
+
+</sect2>
+
+<sect2>
+<title
+>Zaslon urejevalnika </title>
+
+<para
+>Več kot delate s KDE, bolj boste zaznali, da večina programov izgleda in se obnaša podobno. <application
+>KEdit</application
+>-ov menu <guimenu
+>Datoteka</guimenu
+> je odličen primer tega: skorajda vsak drugi KDE program ima isti menu, s katerim vam omogoča da ustvarjate nove datoteke, odprete že obstoječe iz vašega lokalnega sistema ali pa (to bomo raložili kmalu) celo s spleta, jih shranite (kmalu tudi na spletu!), natisnete ali pa pošljete preko e-pošte komu drugemu.</para>
+
+<para
+>Menu <guimenu
+>Uredi</guimenu
+> se prav tako nahaja v večini KDE programov, omogoča pa vam izrezovanje in prilepljanje informacij med programi. Lahko tudi iščete in zamenjujete besedilo. Z uporabo menuja <guimenu
+>Nastavitve</guimenu
+> lahko prilagodite urejevalnik na mnogo različnih načinov. Povečate lahko velikost pisave, da se bolje prilega ločljivosti vašega zaslona -- in vašim očem. Seveda lahko tako kot v drugih KDE programih najdete menu <guimenu
+>Pomoč</guimenu
+>, ki vam ponuja sprotno (spletno) pomoč kadarkoli jo rabite. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Uporaba urejevalnika </title>
+
+<para
+>Večina datotek <filename
+>motd</filename
+> vsebuje nesmiselne stvari, kot so "Do not forget to back up your data" ali "Do not annoy the system manager". Dolgočasno. Spremenimo besedilo, tako, da dobijo uporabniki, ki se prijavljajo res pomembne informacije. Po besedilu se lahko gibljete s puščičnimi tipkami in označite razdelke z <keycombo
+><keycap
+>Shift</keycap
+> <keycap
+>Puščicami</keycap
+> </keycombo
+> ali z uporabo miške s pritisnjenim <mousebutton
+>levim </mousebutton
+> gumbom. Uporabite menu <guimenu
+>Uredi</guimenu
+> za izrezovanje in prilepljanje besedila. Vnesite kar hočete ali pa uporabite naslednji (čudovit) zgled: </para>
+
+<screen
+><userinput
+>Dobrodošli!
+ 
+Ta računalnik ima sedaj nameščen KDE, s čimer vam ponuja izvrsten,
+za uporabo preprost vmesnik in enoten 'videz in občutek' za vse
+programe. Za več informacij o tem, kako usposobiti KDE na
+vašem računu prosim pošljite e-sporočilo administratorju. </userinput
+></screen>
+
+</sect2>
+
+<sect2 id="drag-and-drop">
+<title
+>Shranjevanje vašega dela </title>
+
+<para
+>Sedaj, ko ste spremenili datoteko <filename
+>motd</filename
+> je čas, da jo shranite in tako uveljavite spremembe. To lahko storite z uporabo menuja <guimenu
+>Datoteka</guimenu
+> ali pa z ikono <guiicon
+>Shrani</guiicon
+> v orodni vrstici. Končno zaključite delo s tem, da zaprete urejevalnik in okno datotečnega upravljalnika. To lahko naredite z gumbom <guibutton
+>X</guibutton
+> zgoraj levo na vrhu okna, z uporabo okenskega menuja naslovne letve ali z izbiro <menuchoice
+><guimenu
+>Datoteka</guimenu
+> <guimenuitem
+>Končaj</guimenuitem
+></menuchoice
+>. Preprosto in elegantno, kajne? </para>
+
+</sect2>
+</sect1>
+
+<sect1 id="moving-files-with-drag-and-drop">
+<title
+>Premikanje datotek z uporabo 'povleci in spusti' </title>
+
+<para
+>Kot ste videli v prejšnjem razdelku je delo z datotekami preprosto kot 1-2-3. Vendar pa postane kadar želite prepisovati in premikati datoteke ves sistem prepiši-in-prilepi prav nadležen. Ne skrbite -- postopek imenovan "povleci in spusti" vam omogoča prepisovanje in premikanje datotek hitreje in preprosteje. </para>
+
+<sect2>
+<title
+>Odpiranje dveh oken datotečnega upravljalnika </title>
+
+<para
+>Preden lahko začnete boste morali odpreti dve okni datotečnega upravljalnika. Najlažji način je ta, da pritisnete gumb z zobnikom na desni strani vrstice z ikonami. Če v novem oknu ne vidite drevesnega pogleda, ga aktivirajte (<menuchoice
+><guimenu
+>Okno</guimenu
+><guimenuitem
+>Prikaži drevo imenikov</guimenuitem
+></menuchoice
+>). </para>
+
+</sect2>
+
+<sect2>
+<title
+>Vlečenje datoteke iz enega okna v drugo </title>
+
+<para
+>V prvem oknu odprite imenik <filename
+>/etc</filename
+> in drsite po oknu, dokler ne vidite datoteke <filename
+>motd</filename
+>, ki smo jo spremenili v prejšnjem razdelku.</para>
+
+<para
+>V drugem oknu odprite domač imenik.</para>
+
+<para
+>Kliknite na datoteko <filename
+>motd</filename
+>. Držite <mousebutton
+>levi</mousebutton
+> gumb miške in povlecite datoteko v vaš domač imenik. Spustite <mousebutton
+>levi</mousebutton
+> gumb miške (temu se reče <emphasis
+>spuščanje</emphasis
+> datoteke). Predstavljene vam bodo tri možnosti: <guimenuitem
+>prepiši</guimenuitem
+>, <guimenuitem
+>premakni</guimenuitem
+> in <guimenuitem
+>poveži</guimenuitem
+>. <guimenuitem
+>Poveži</guimenuitem
+> bo ustvaril simbolično povezavo na datoteko, medtem ko bosta <guimenuitem
+>prepiši</guimenuitem
+> in <guimenuitem
+>premakni</guimenuitem
+> naredila točno to, kar pravita. Izberite <guimenuitem
+>prepiši</guimenuitem
+>. Sedaj bi morali v vašem domačem imeniku imeti kopijo datoteke <filename
+>motd</filename
+>. </para>
+
+</sect2>
+</sect1>
+
+<sect1 id="using-command-line-and-terminals">
+<title
+>Uporaba ukazne vrstice in terminalov </title>
+
+<para
+>Do sedaj smo delali le z orodji in programi ki jih ponuja KDE. Brez dvoma pa boste želeli uporabljati tudi druge UNIX programe. Na voljo sta dva načina za njihovo delovanje: hitra ukazna vrstica in terminal. </para>
+
+<sect2>
+<title
+>Hitra ukazna vrstica </title>
+
+<para
+>Pritisk na <keycombo
+><keycap
+>Alt</keycap
+> <keycap
+>F2</keycap
+></keycombo
+> odpre majhno okno, kjer lahko vnesete ukaz za zagon. Prosim upoštevajte da ne boste videli besedila, ki ga generira na ta način pognan program! Ta metoda je priporočljiva le za zagon programov X Window System ali pa za poganjanje orodij, kjer vam ni treba videti ali vtipkati ničesar. Za ostale programe boste še vedno rabili terminal. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Emulator UNIX terminala </title>
+
+<para
+>Iz menuja programov izberite <menuchoice
+><guisubmenu
+>Sistem</guisubmenu
+><guimenuitem
+>Terminal</guimenuitem
+> </menuchoice
+>. Odprlo se bo terminalsko okno. V njem lahko uporabljate regularne ukaze UNIX-ove lupine: <command
+>ls</command
+>, <command
+>cat</command
+>, <command
+>less</command
+> in tako dalje. Z uporabo menuja Možnosti lahko prilagodite terminalsko emulacijo svojim potrebam. </para>
+
+</sect2>
+</sect1>
+
+<sect1 id="finding-your-lost-files">
+<title
+>Iskanje vaših izgubljenih datotek </title>
+
+<para
+>Vsakdo je brez dvoma naletel na naslednji problem: poženete ftp, se prijavite na odlično stran, kot je ftp.kde.org in pričnete nalagati datoteke. Je že pozno in po zaključenem prenosu ugasnete računalnik. Naslednje jutro ste znova za tipkovnico in se pričnete spraševati, v kateri imenik ste namestili pred kratkim prenesene datoteke. Uporaba KDE-jevega orodja <application
+>KFind</application
+> olajša iskanje teh izgubljenih datotek. </para>
+
+<sect2>
+<title
+>Zagon <application
+>KFind</application
+> </title>
+
+<para
+>Zagon <application
+>KFind</application
+> je preprost: izberite <guimenuitem
+>Poišči datoteke</guimenuitem
+> v menuju <guimenu
+>zagnjalca programov</guimenu
+>. <application
+>KFind</application
+> uporablja del vmesnika, ki ga verjetno že poznate: register tabs. Ko se <application
+>KFind</application
+> pojavi, lahko opazite, da je izbran <guilabel
+>Ime in lokacija</guilabel
+>. Ko kliknete na <guilabel
+>Spremenjeno</guilabel
+>, se vsebina registra spremeni. Ker še niste pognali iskanja, bo večina ikon v orodni vrstici onemogočenih (sivih). To bomo sedaj spremenili. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Iskanje datoteke, če veste del njenega imena </title>
+
+<para
+>Dokler poznate vsaj del imena je iskanje preprosto. Izberite vez <guilabel
+>Ime in lokacija</guilabel
+> in vnesite ime datoteke. Posebne znake (?,*) uporabite po potrebi. Za preizkus vtipkajte <userinput
+>*.tar.gz</userinput
+>. Privzeto se iskanje začne v vašem domačem imeniku, lahko pa izberete začetni imenik ki želite s klikom na <guilabel
+>Poglej v</guilabel
+> ali <guibutton
+>Brskaj...</guibutton
+>. Da pričnete iskanje kliknite na ikono (izgleda kot povečevalno steklo nad kupom papirja) na levi strani orodne vrstice. Čez nekaj trenutkov se bo pojavil seznam datotek v iskalnem oknu. Če se ne pojavijo, ste pričeli iskati v napačnem imeniku, se zmotili v črkovanju pri vnosu imena ali pa na vašem računalniku ni datotek s končnico <filename
+>.tar.gz</filename
+>. </para>
+
+</sect2>
+
+<sect2 id="finding-with-complex-criteria">
+<title
+>Iskanje datotek po bolj zapletenih kriterijih </title>
+
+<para
+>Obstaja mnogo kategorij, ki jih lahko uporabite, da bo vaše iskanje natančnejše. <emphasis
+>Več kot veste o datoteki, večje so možnosti, da jo najdete </emphasis
+>.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Datumski razpon</guilabel
+></term
+> <listitem
+><para
+>Tukaj lahko določite, da želite videti le datoteke ki so bile dostopane (spremenjene) v danem obdobju. Lahko tudi določite da želite videti le datoteke ki so bile spremenjene po nekem določenem mesecu ali dnevu.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Tip</guilabel
+> v listu <guilabel
+>Napredno</guilabel
+></term
+> <listitem
+><para
+>Če veste, da je bila datoteka posebne zvrsti (<abbrev
+>npr.</abbrev
+>, arhiv tar/gzip ali pa jpeg slika), lahko <application
+>KFind</application
+> poveste, naj najde le ta tip datoteke. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ki vsebujejo besedilo</guilabel
+> v listu <guilabel
+>Napredno</guilabel
+></term
+> <listitem
+> <para
+>Lahko določite besedilo, ki ga naj vsebuje datoteka. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Velikost je</guilabel
+>, tudi v listu <guilabel
+>Napredno</guilabel
+></term
+> <listitem
+><para
+>Če poznate velikost datoteke lahko omejite iskanje tudi na ta način. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>&kfind; ima še mnogo drugih možnosti za natančnejše iskanje, preizkusite jih!</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="using-multiple-desktops">
+<title
+>Uporaba več namizij naenkrat </title>
+
+<para
+>Uporaba večih namizij naenkrat vam pomaga organizirati delo. Programe lahko postavite na različna namizja in namizja poimenujete, tako da veste, kaj tam počnete. To poveča in optimizira vašo delovno površino. Prav tako vam pomaga ko brskate po internetu namesto da bi delali in se nenadoma pojavi vaš šef. Vendar se to zgodi redko -- vsaj v pisarni, kjer delam... </para>
+
+<para
+>Med namizji lahko preklapljate s kliki na namizne gumbe na pultu. Če jih želite preimenovati lahko to narediti z dvojnim klikom. </para>
+
+<para
+>Okna lahko uporabljate na več namizjih. Če želite imeti okno prisotno povsod kliknite na lepljivi gumb levo na vrhu okna. Da pošljete okno na drugo namizje kliknite naslovno letev z desnim gumbom miške, izberite <guimenuitem
+>Na namizje</guimenuitem
+> in izberite namizje na katero želite premakniti okno. </para>
+
+</sect1>
+
+<sect1 id="quitting-kde">
+<title
+>Zapiranje KDE </title>
+
+<para
+>Da končate delo s KDE lahko uporabite izbiro <guimenuitem
+>Odjavi se</guimenuitem
+> v menuju <guimenu
+>zaganjalca programov</guimenu
+>. Vprašani boste, ali res želite končati KDE. To zapre vsa okna in vas vrne v konzolo ali upravljalnik prijav. Za informacije, kako lahko programi med odjavljanjem shranijo podatke prosim preberite <link linkend="kde-logout"
+>opombe o odjavljanju.</link
+> </para>
+
+</sect1>
+</chapter>
+
+<chapter id="all-about-your-desktop">
+<title
+>Vse o vašem namizju</title>
+
+<epigraph>
+<attribution
+>Little Red Riding Hood</attribution>
+<para
+>Babica, kako velike oči imaš!</para>
+</epigraph>
+
+<epigraph>
+<attribution
+>The Wolf</attribution>
+<para
+>Da te bolje vidim!</para>
+</epigraph>
+
+<para
+>Več kot vidite, učinkoviteje lahko uporabljate vaše namizje, KDE vam ponuja možnost, da si prilagodite izgled in obnašanje namizja tako kot želite in vam s tem omogoča hitrejše in učinkovitejše delo. Ponuja vam celo možnost opozorila, če vas želi požreti volk ali pa vas (če ste babica) opozori, da se vam bliža Rdeča kapica, ki vam prinaša dobrote. No, če to ni postrežba. </para>
+
+<sect1 id="the-autostart-folder">
+<title
+>Mapa Autostart</title>
+
+<para
+>Preden sem odkril mapo Autostart, je bil moj dnevni zagonski postopek KDE sledeč: poženi <application
+>KDE</application
+>, poženi <application
+>KEdit</application
+>, poženi <application
+>Konsole</application
+>, poženi <application
+>Netscape</application
+> in poženi <application
+>kscd</application
+>. To mi je vzelo čas, ki bi ga lahko izkoristil bolje. Programi, pisani za KDE, ki ostanejo odprti na koncu seje shranijo svoje stanje in se ponovno pojavijo ob vaši naslednji prijavi, vendar pa obstaja nekaj programov (ko na primer <application
+>Netscape</application
+>) ki tega ne bodo naredili. Zanje lahko uporabite mapo <filename
+>Autostart</filename
+>.</para>
+
+<para
+>Da poženete programe ob zagonu KDE naredite naslednje:</para>
+
+<procedure
+> <step
+><para
+>Odprite mapo <filename
+>Autostart</filename
+>. Najdete ga lahko v zgornjem levem kotu namizja.</para
+></step
+> <step
+><para
+>Odprite okno <application
+>Konqueror</application
+>ja in poiščite program, ki ga želite dodati. Če ne veste, kako to storiti, poglejte v razdelek <xref linkend="the-filemanager-screen"/></para
+></step
+> <step
+><para
+>Povlecite in spustite željeni program iz <application
+>Konqueror</application
+>jevega okna v mapo <filename
+>Autostart</filename
+>. Ko boste vprašani, izberite <guimenuitem
+>Link</guimenuitem
+> da ustvarite simbolno povezavo namesto polne kopije. To prihrani veliko prostora na disku.</para
+></step
+> <step
+><para
+>Ponovite ta korak za vsak program, ki ga želite pognati ob zagonu KDE. . Ne pozabite, da vam ni treba dodajati KDE programov. Ko se odjavljate, jih preprosto pustite odprte in ob naslednji prijavi v KDE se bodo odprli, kot da se ni zgodilo nič.</para
+></step
+> <step
+><para
+>Da vidite funkcijo autostart ,,na delu'', ponovno poženite KDE.</para
+></step
+> </procedure>
+
+<para
+>Programi se bi morali sedaj samodejno pognati ob zagonu KDE. Če želite dodati nekaj posebnega (<abbrev
+>npr.</abbrev
+> da želite ob zagonu videti določeno spletno stran), potem preberite <link linkend="using-templates"
+>Uporaba predlog</link
+>. Tam opisani postopek dela v vsakem imeniku, zato ga lahko uporabite tudi v mapi <filename
+>Autostart</filename
+>.</para>
+
+</sect1>
+
+<sect1 id="adding-programs">
+<title
+>Dodajanje programov in ikon za bližnjice na pult in v menu <guimenu
+>K</guimenu
+></title>
+
+
+<para
+><guimenu
+>Menu K</guimenu
+> in <application
+>pult</application
+> nista omejena s privzeto nastavitvijo. Pult je zasnovan tako, da se da razširiti, za to pa obstajata dva načina: dodajanje novih programov in dodajanje ikon bližnjic.</para>
+
+<sect2 id="menu-items-add">
+<title
+>Dodajanje izbir v menuje</title>
+
+<para
+>Da na pult dodate vaše priljubljene programe lahko uporabite KDE-jev urejevalnik menujev. Da ga poženete, uporabite <guiicon
+>zaganjalca programov</guiicon
+> in izberite <menuchoice
+><guimenuitem
+>Sistem</guimenuitem
+><guimenuitem
+>Urejevalnik menujev</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Novo okno bo na levi odprlo prikaz obstoječega <guimenu
+>menuja K</guimenu
+> in prazno pogovorno okno menujskih izbir.</para>
+
+<para
+>V tem zgledu bomo dodali nov vnos za <application
+>Gimp</application
+> v podmenuju <guisubmenu
+>Grafika</guisubmenu
+>. Če tam že imate vnos <guimenuitem
+>Gimp</guimenuitem
+> in ne želite novega potem ko ste končali ne smete pritisniti gumba <guibutton
+>Uveljavi</guibutton
+>.</para>
+
+<procedure
+> <step
+><para
+>Premaknite se po levem drevesu navzdol do izbire <guisubmenu
+>Grafika</guisubmenu
+>.</para
+></step
+> <step
+><para
+>Kliknite nanjo enkrat z <mousebutton
+>levim</mousebutton
+> gumbom miške na jo razširite.</para
+></step
+> <step
+><para
+>Kliknite na ikono <guiicon
+>Nov vnos</guiicon
+> v orodni vrstici, ali pa izberite <menuchoice
+><guimenu
+>Datoteka</guimenu
+><guimenuitem
+>Nov vnos</guimenuitem
+></menuchoice
+> v menujski vrstici.</para
+></step
+> <step
+><para
+>V pogovornem oknu, ki se prikaže vnesite ime, ki ga želite podati novi izbiri. V tem primeru vnesite <userinput
+>Gimp</userinput
+>.</para
+><para
+>Sedaj pritisnite gumb <guibutton
+>V redu</guibutton
+> v pogovornem oknu.</para
+></step
+> <step
+><para
+>Kliknite na nov menujski element <guimenuitem
+>Gimp</guimenuitem
+>, ki je bil ustvarjen v podmenuju <guisubmenu
+>Grafika</guisubmenu
+>. Pogovorno okno menujske izbire na desni se bo sedaj spremenilo in bo skoraj povsem prazno, razen imena, ki ste ga mu dali.</para
+></step
+> <step
+><para
+>Polje <guilabel
+>Komentar</guilabel
+> izpolnite po želji. Morda boste na primer želeli dodati <userinput
+>Urejevalnik slik</userinput
+>. Tukaj vneseno besedilo bo prikazano kot namig v <guimenu
+>Zaganjalcu programov</guimenu
+></para
+></step
+> <step
+><para
+>V polje označeno z <guilabel
+>Ukaz</guilabel
+> vnesite ukaz, ki ga bi vtipkali v ukazno vrstico, da bi pognali vaš program. V tem primeru je to <command
+>gimp</command
+>. Če želite, lahko vnesete poljuben parameter. To lahko uporabite za to, da ustvarite menujsko izbiro, ki vedno odpre določen dokument ali sliko. Preverite dokumentacijo programa, da izveste več o parametrih ukazne vrstice.</para
+></step
+> <step
+><para
+>Če želite, da bo program deloval iz določenega imenika (na primer za to, da <application
+>Gimp</application
+> odpre pogovorno okno <guilabel
+>Load Image</guilabel
+> na določenem mestu) vnesite to pot v polje označeno z <guilabel
+>Delovna pot</guilabel
+>. To je opcijsko.</para
+></step
+> <step
+><para
+>Če želite zamenjati privzeto ikono "neznano", kliknite <guiicon
+>ikono</guiicon
+> na desni strani pogovornega okna, da odprete KDE-jev standardni izbiralec ikon.</para
+></step
+> <step
+><para
+>Nekatere programe je treba <guilabel
+>poganjati v terminalskem</guilabel
+> oknu (na primer <application
+>Pine</application
+>). Če to velja za vaš primer, označite ustrezno potrditveno polje.</para
+></step
+> <step
+><para
+>Če želite program poganjati kot drug uporabnik, preverite polje označeno z <guilabel
+>Zaženi kot drug uporabnik</guilabel
+> in vnesite ustrezno uporabniško ime v polje.</para
+></step
+> <step
+><para
+>Če ste zadovoljni z vašim vnosom v menu, pritisnite <guibutton
+>Apply</guibutton
+>. Če pa bi radi pričeli znova, pritisnite <guibutton
+>Reset</guibutton
+>.</para
+></step
+> </procedure>
+
+<para
+>To je vse. Sedaj imate novo izbiro v menuju.</para>
+
+</sect2>
+
+<sect2 id="icons-add">
+<title
+>Ikone bližnjic</title>
+
+<para
+>Čeprav je KDE bolj udoben kot povprečen Unix-ov okenski upravljalnik, želi vsakdo rešitev za zagon programa v obliki enega klika. Pozneje se boste naučili kako ustvariti povezave in datotek na vašem namizju, kar pa ima tudi svoje slabosti: včasih se vaše namizje napolni z okni in ne morete doseči ikon, ne da bi pomanjšali vsa okna nad njimi v ikone. Da za pogosto uporabljane programe zmanjšate ta problem in povečate hitrost dostopa ustvarite ikone bližnjic na pultu.</para>
+
+<para
+>Da na pultu ustvarite bližnjice imate dve možnosti: 'povleci in spusti' ali pa preko menuja. </para>
+
+<procedure
+> <title
+>Dodajanje ikone bližnjice z uporabo menuja.</title
+> <step
+><para
+>Kliknite na <guiicon
+>zaganjalca programov</guiicon
+> in izberite <menuchoice
+><guisubmenu
+>Menu pulta Menu</guisubmenu
+><guisubmenu
+>Dodaj</guisubmenu
+><guimenuitem
+>Program</guimenuitem
+> </menuchoice
+>.</para
+></step
+> <step
+><para
+>Znova boste videli vrhnji nivo <guimenu
+>zaganjalca programov</guimenu
+>. Preglejte menuje, da najdete vnos za katerega želite ustvariti bližnjico, kot je <guimenuitem
+>Domač imenik</guimenuitem
+> ali pa <guimenuitem
+>Konqueror</guimenuitem
+>. Kliknite na program, ki ga želite.</para
+> </step
+> </procedure>
+
+<para
+>Na pultu se bo pojavila nova ikona. Kliknite nanjo in program se bo pognal.</para>
+
+<para
+>Dodajanje bližnjice s pomočjo metode povleci in spusti je še preprostejše - povlecite ikono z namizja ali iz <application
+>Konqueror</application
+>jevega okna na prazno mesto na pultu.</para>
+
+<para
+>Kaj se zgodi ko povlečete element na pult je odvisno od tega, kaj ta element je:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Če povlečete imenik...</term
+> <listitem
+><para
+>Pojavil se bo menu, ki vam bo ponudil izbiro med <guimenuitem
+>Add as a File Manager URL</guimenuitem
+> ali pa <guimenuitem
+>Add as a QuickBrowser</guimenuitem
+>. Izbira prvega bo ustvarila ikono, ki odpre <application
+>Konqueror</application
+>jevo okno s tem imenikom, medtem ko druga odpre imenik kot menu s pulta.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Če povlečete bližnjico z namizja...</term
+> <listitem
+><para
+>Bo prepisana na pult.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Če povlečete dokument...</term
+> <listitem
+><para
+>Na pultu bo ustvarjena povezava, prvoten dokument pa bo ostal tam, kjer je. Klik na ustvarjeni ikoni bo odprl ta dokument v privzetem programu.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>V vsakem primeru, če želite premakniti ikono, kliknite nanjo z <mousebutton
+>desnim</mousebutton
+> gumbom miške in izberite <guimenuitem
+>Premakni</guimenuitem
+>. Premaknite ikono tja, kamor želite in pritisnite <mousebutton
+>levi</mousebutton
+> gumb miške. Če želite ikono odstraniti, potem kliknite nanjo z <mousebutton
+>desnim</mousebutton
+> gumbom miške in izberite <guimenuitem
+>Odstrani</guimenuitem
+>. Ikono lahko premaknete tudi tako, da nanjo kliknete s <mousebutton
+>srednjim</mousebutton
+> gumbom miške in jo povlečete na njeno novo lokacijo.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="creating-new-files-on-your-desktop">
+<title
+>Ustvarjanje novih datotek na namizju</title>
+
+<para
+>Vaše namizje je lahko učinkovito delovno mesto. Vsakič ko poženete KDE lahko vidite celotne datoteke, imenike in URL-je, ki jih pogosto uporabljate.</para>
+
+<para
+>Obstajata dva načina ustvarjanja in urejevanja datotek na vašem namizju. V vsakem programu lahko rečete, da želite shraniti datoteke v podimeniku Desktop vašega domačega imenika. Moj imenik je na primer <filename
+>/home/stupiddog</filename
+>, tako da je imenik Desktop <filename
+>/home/stupiddog/Desktop</filename
+>. Vse, kar shranite tam se bo znašlo na vašem namizju.</para>
+
+<para
+>Če želite premakniti obstoječe datoteke na vaše namizje je najboljši način uporaba <application
+>Konqueror</application
+>ja. Odprite okno datotečnega upravljalnika in povlecite datoteke, ki jih rabite na namizje ali pa ustvarite simbolične povezave do pravih datotek. Karkoli spremenite v povezanih datotekah bo samodejno osveženo v originalnih. Za več informacij kako uporabljati 'povleci in spusti' &amp; datotečnega upravljalnika poglejte v poglavje <link linkend="drag-and-drop"
+>Premikanje datotek s 'povleci &amp; spusti'.</link
+></para>
+
+</sect1>
+
+<sect1 id="using-templates">
+<title
+>Postavljanje povezav na vaše namizje</title>
+
+<para
+>Postavljanje datotek na namizje bo morda skrajšalo pot, ki jo opravite, da jih odprete, vendar pa bi bilo včasih lepo, če bi lahko pognali <application
+>KEdit</application
+> z že odprto pogosto urejevano datoteko. In kako pogosto ste frustrirani potem ko ste prebrskali neskončne sezname zaznamkov, da bi našli stran, ki jo pogosto obiskujete? Ali ne bi bilo lepo, če bi se vse, kar je potrebno, da obiščete to stran zgodilo samodejno po kliku ene same ikone?</para>
+
+<sect2 id="using-mimetype">
+<title
+>Uporaba predlog</title>
+
+<para
+>Predloge ponujajo priročen mehanizem za izvajanje nalog, kot so zgoraj omenjene. Prav tako se lahko uporabijo za povezavo določenih datotečnih končnic z določenim programom. Kadar dvojno kliknete na datoteko z znano končnico se samodejno izvede program povezan s to končnico. Na kratko, <emphasis
+>predloge</emphasis
+> vam pomagajo izvleči kar največ iz KDE.</para
+> 
+
+<para
+>Zgled: na namizje želite dodati ikono za obisk spletne strani KDE.</para>
+
+<procedure
+> <step
+><para
+>Z <mousebutton
+>desnim gumbom</mousebutton
+> kliknite na prazen prostor na namizju.</para
+></step
+> <step
+><para
+>Izberite <menuchoice
+><guisubmenu
+>Ustvari nov</guisubmenu
+><guimenuitem
+>Internetni naslov (URL)</guimenuitem
+></menuchoice
+> iz kontekstnega menuja.</para
+></step
+> <step
+><para
+>Odprlo se bo pogovorno okno, kjer lahko vtipkate naslov do katerega ustvarjate bližnjico.</para
+></step
+> <step
+><para
+>Na namizju bo ustvarjena nova ikona.</para
+></step
+> </procedure>
+
+<para
+>Vaša nova internetna bližnjica se da prilagoditi enako kot katerakoli ikona bližnjice. Kliknite z <mousebutton
+>desnim</mousebutton
+> gumbom na ikoni in izberite <guimenuitem
+>Lastnosti</guimenuitem
+> in lahko boste spremenili ikono bližnjice kot boste želeli.</para>
+
+</sect2>
+<sect2>
+
+<title
+>Uporaba zvrsti mime</title>
+
+<para
+>Zvrsti mime so zelo zmogljive. Z njihovo uporabo lahko zlahka prilagodite vaš sistem tako, da klik na datoteko določene zvrsti (tipa) požene program, s katerim je bila ta datoteka povezana. Vse datoteke .mod bi na primer lahko bile odprte s <emphasis
+>kmodplayer</emphasis
+>, .html bi lahko odprle okno <emphasis
+>konquerorja</emphasis
+>, ki bi jih prikazalo in core datoteke bi si ogledovali z dvojiškim urejevalnikom s preprostim klikom nanjo. <emphasis
+>Opozorilo:</emphasis
+> Čeprav so zvrsti mime zelo zmogljive, niso brez nevarnosti. Igranje z zvrstmi MIME kadar ste prijavljeni kot sistemski administrator (root) lahko poškoduje sistem KDE tako resno, da se ga ne da ponovno pognati! V tem primeru boste ustvarili vaš <emphasis
+>osebni</emphasis
+> slog MIME, ki je veljaven le za vas. Ostale uporabnike bo zadeval le, če ga prepišete ali premaknete v /opt/share/mimelnk.</para>
+
+<para
+>Da povežete nek tip datotek z določenim programom:</para>
+
+<procedure
+> <step
+><para
+>Prepričajte se, da ima program, s katerim želite pognati ta tip datotek, vnos v menuju <guimenu
+>zaganjalca programov</guimenu
+>.</para
+></step
+> <step
+><para
+>V <application
+>Konqueror</application
+>ju poiščite ali pa ustvarite datoteko s končnico, s katero želite povezovati.</para
+></step
+> <step
+><para
+>Z <mousebutton
+>desnim</mousebutton
+> gumbom miške kliknite na datoteko in izberite <guimenuitem
+>Uredi vrsto datotek</guimenuitem
+> iz kontekstnega menuja ali pa izberite <menuchoice
+><guimenu
+>Uredi</guimenu
+><guimenuitem
+>Uredi vrsto datotek</guimenuitem
+></menuchoice
+> v <application
+>Konqueror</application
+>jevi menujski vrstici.</para
+></step
+> <step
+><para
+>Dodajte datotečne končnice s klikom na gumb <guibutton
+>Dodaj</guibutton
+> in vnesite datotečni vzorec, ki ga želite. Ne pozabite, da je Unix občutljiv na velikost črk, tako da boste morda rabili več variacij - *.mp3 boste na primer morda morali dodati tudi *.MP3. Dodajte toliko končnic, kot želite.</para
+></step
+> <step
+><para
+>Če želite, lahko dodate opis. To je opcijsko.</para
+></step
+> <step
+><para
+>V razdelku, označenem z <guilabel
+>Application Preference Order</guilabel
+>, pritisnite gumb <guibutton
+>Dodaj</guibutton
+>. Odprla se bo pomanjšana kopija <guimenu
+>zaganjalca programov</guimenu
+>, kjer lahko izberete program, ki naj odpre ta tip datotek.</para
+></step
+> <step
+><para
+>Včasih boste morda želeli uporabiti različne programe za odpiranje tega tipa datotek. Lahko na primer uporabite <application
+>KWrite</application
+> za odpiranje datotek z besedilom, ki jih želite urediti in <application
+>KEdit</application
+> za hiter pogled vanje. Dodate lahko več programov, na enak način kot ste prejšnjega, in potem zamenjate vrstni red z uporabo gumbov <guibutton
+>Move Up</guibutton
+> in <guibutton
+>Move Down</guibutton
+>.</para
+></step
+> <step
+><para
+>Če ste zadovoljni z izbirami, lahko kliknete gumb <guibutton
+>Uveljavi</guibutton
+> da shranite spremembe, ne da bi zaprli pogovorno okno. To vam ponuja možnost preizkušanja pravilnosti vaše datotečne povezave v <application
+>Konqueror</application
+>jevem oknu. Izberete lahko <guibutton
+>V redu</guibutton
+>, da shranite spremembe in zaprete pogovorno okno ali pa <guibutton
+>Prekliči</guibutton
+>, če ste si premislili in želite le zapreti pogovorno okno.</para
+></step
+> </procedure>
+  
+<para
+>Ne pozabite preizkusiti nove povezave tako, da odprete imenik, ki vsebuje datoteko pravkar nameščenega tipa. Kliknite nanjo in program, ki je potreben za njeno urejanje bi se moral pognati.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="using-the-trashcan">
+<title
+>Uporaba smetnjaka</title>
+
+<para
+>V običajnih pogojih je brisanje datoteke v UNIX-u dejanje, ki se ga ne da razveljaviti. V datotečnem upravljalniku KDE pa lahko namesto <guimenuitem
+>Izbriši</guimenuitem
+> izberete <guimenuitem
+>Premakni v smeti</guimenuitem
+>. To bo element premaknilo v imenik <filename
+>Smeti</filename
+>, ki je privzeto dosegljiv kot ikona na namizju. V imeniku <filename
+>Smeti</filename
+> lahko vedno rešite izbrisane datoteke. Ne pozabite redno prazniti smetnjaka, kar opravite s klikom desnega gumba miške in izbiro <guimenuitem
+>Izprazni koš za smeti</guimenuitem
+>, drugače vam lahko zmanjka prostora na disku, saj datoteke še vedno zavzemajo prostor. Upoštevajte pa, da so potem, ko enkrat izpraznite mapo <filename
+>Smeti</filename
+>, datoteke v njem izgubljene za vedno.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="shortcuts">
+<title
+>Namigi &amp; triki za vaše vsakodnevno delo </title>
+
+<epigraph>
+<attribution
+>Fortune Cookies</attribution>
+<para
+>Everyone can make an omelet with eggs. The trick is to make one with none.</para>
+</epigraph>
+
+<para
+>Skoraj vsakdo lahko uporablja KDE; zaradi tega so ga razvijalci naredili. Ni kriptičnih in neugotovljivih stikal in malo natavitvenih datotek, ki bi jih morali urejati v načinu <acronym
+>ASCII</acronym
+>. Obstaja pa nekaj načinov, ki vam omogočajo bolj elegantno opravljanje dela, ki vam prihranijo čas za resnično pomembne stvari, kot je na primer tetris.</para>
+
+<sect1 id="shortcut-table">
+<title
+>Tabela bližnjic </title>
+
+<variablelist
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><keycap
+>Tab</keycap
+> </keycombo
+>ali <keycombo
+><keycap
+>Alt</keycap
+><keycap
+>Shift</keycap
+><keycap
+>Tab</keycap
+></keycombo
+></term
+> <listitem
+><para
+>Preklapljaj med okni </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Tab</keycap
+> </keycombo
+> or <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>Tab</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Preklapljaj med namizji </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><keycap
+>F2</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Mini ukazna vrstica</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><keycap
+>F3</keycap
+></keycombo
+></term
+> <listitem
+><para
+>Menu oken </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><keycap
+>F4</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Zapri trenutno okno </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>F{1..8}</keycap
+></keycombo
+></term
+> <listitem
+><para
+>Preklopi na željeno namizje </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Esc</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Uničevalec oken (vsako okno, na katerega kliknete, bo uničeno) </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Backspace</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>To konča KDE (brez shranjevanja!) Uporabite le kot zadnji izhod </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Numpad +</keycap
+></keycombo
+></term
+> <listitem
+><para
+>Preklaplja na naslednjo ločljivost zaslona</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Numpad -</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Preklaplja na prejšnjo ločljivost zaslona </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="mouse-techniques">
+<title
+>Tehnike uporabe miške </title>
+
+<variablelist
+> <varlistentry
+> <term
+>Klik z gumbom na rob ali naslovno letev</term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><mousebutton
+>Levi</mousebutton
+></term
+> <listitem
+><para
+>Aktivira in prikliče okno v ospredje.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Srednji</mousebutton
+></term
+> <listitem
+><para
+>Pošlje okno v ozadje</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Desni</mousebutton
+></term
+> <listitem
+><para
+>Prikaže <guimenu
+>okenski menu</guimenu
+>, če je okno aktivno, sicer ga aktivira.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dvojni klik na naslovu okna</term
+> <listitem
+><para
+>Senči okno </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Vlečenje na naslovni letvi</term
+> <listitem
+><para
+>Premika okno naokrog </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Vlečenje na robovih ali vogalih</term
+> <listitem
+><para
+>Spremeni velikost okna </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><mousebutton
+>Levi</mousebutton
+></keycombo
+> gumb</term
+> <listitem
+><para
+>Premika okno naokrog </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><mousebutton
+>Srednji</mousebutton
+> </keycombo
+> gumb</term
+> <listitem
+><para
+>Prikliče okno v ospredje </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><mousebutton
+>Desni</mousebutton
+> </keycombo
+> gumb</term
+> <listitem
+><para
+>Spremeni velikost okna </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Klik na ikono levo na vrhu</term
+> <listitem
+><para
+>Zapre program</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Klik na 'lepljivi' gumb</term
+> <listitem
+><para
+>Preklaplja med lepljivostjo </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Klik na Razpni</term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><mousebutton
+>Levi</mousebutton
+></term
+> <listitem
+><para
+>Razširi okno čez cel zaslon</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Srednji</mousebutton
+></term
+> <listitem
+><para
+>Razširi le navpično</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Desni</mousebutton
+></term
+> <listitem
+><para
+>Razširi le vodoravno</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<!-- LW FIXME START -->
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="kdebase-applications">
+<title
+>Osnovni programi (kdebase)</title>
+<para
+>V distribuciji kdebase lahko najdete spodaj naštete programe.</para>
+
+<para
+>Stabilne različice imajo relativno malo hroščev in so na voljo v izvorni kodi in binarnih formatih.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Nestabilne različice se spreminjajo dnevno in so na voljo le v obliki izvorne kode, kar pomeni, da jih morate prevesti, da dobite delujočo različico. Zavedajte se, da so nestabilne in se morda sploh ne dajo prevesti. Če imate težave z nestabilnim programom, poročajte o njih in po vsej verjetnosti bo v prihodnjem posnetku odpravljen.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>KWin</application
+></term
+> <listitem
+><para
+>KDE-jev lastni okenski upravljalnik</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Konqueror</application
+></term
+> <listitem
+><para
+>Brskajte z enako lahkoto po spletu, vašem disku ali FTP strani.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kicker</application
+></term
+> <listitem
+><para
+>KDE-jev pult, ki vključuje opravilno vrstico, pager, uro in menu <guimenu
+>K</guimenu
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Konsole</application
+></term
+> <listitem
+><para
+>Zelo nastavljiv X terminalski emulator.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Klipper</application
+></term
+> <listitem
+><para
+>Odložišče z razliko - prilagodite lahko različna dejanja osnovana na stvareh, ki jih prepisujete.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KDesktop</application
+></term
+> <listitem
+><para
+>Namizje samo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KHelpcenter</application
+></term
+> <listitem
+><para
+>KDE-jevo lastno središče pomoči, ki je sposobno brskati po straneh man in info.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdm</application
+></term
+> <listitem
+><para
+>KDE-jev upravljalnik prijav</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KControl</application
+></term
+> <listitem
+><para
+>Nadzorni pult (središče). Skoraj vse, kar se da v KDE prilagoditi lahko prilagodite od tu - v KDE pa lahko prilagodite svojemu okusu skoraj vse.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KWrite</application
+></term
+> <listitem
+><para
+>Zelo prilagodljiv urejevalnik besedil, ki zna barvati skladnjo (C/C++, HTML...).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kappfinder</application
+></term
+> <listitem
+><para
+>Pripomoček za dodajanje ne-KDE programov v vaš menu <guimenu
+>K</guimenu
+>, ki vam prihrani ročno opravljanje tega.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KScreensaver</application
+></term
+> <listitem
+><para
+>Vsi imajo radi ohranjevalnike zaslonov in KDE vam pri tem pomaga.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSysguard</application
+></term
+> <listitem
+><para
+>Omrežno usposobljen sistemski monitor, ki vključuje dodano funkcionalnost ukaza <application
+>top</application
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Ktip</application
+></term
+> <listitem
+><para
+>Čarovnik Kandalf vam daje nasvete in zanimive informacije.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KMenuedit</application
+></term
+> <listitem
+><para
+>Preuredite menu <guimenu
+>K</guimenu
+> s tem pripomočkom.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>DrKonqi</application
+></term
+> <listitem
+><para
+>Upravljalec sesutja, ki ponuja možnost prijavljanja hroščev neposredno razvijalcem.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="kdeadmin-applications">
+<title
+>Administrativni programi (kdeadmin)</title>
+
+<para
+>V distribuciji kdeadmin lahko najdete spodaj naštete programe.</para>
+
+<para
+>Stabilne različice imajo relativno malo hroščev in so na voljo v izvorni kodi in binarnih formatih.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Nestabilne različice se spreminjajo dnevno in so na voljo le v obliki izvorne kode, kar pomeni, da jih morate prevesti, da dobite delujočo različico. Zavedajte se, da so nestabilne in se morda sploh ne dajo prevesti. Če imate težave z nestabilnim programom, poročajte o njih in po vsej verjetnosti bo v prihodnjem posnetku odpravljen.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Kcron</application
+></term
+> <listitem
+><para
+>KDE doda <application
+>Cron</application
+>ovim sposobnostim razprejanja opravil lep in intuitiven grafični vmesnik.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kuser</application
+></term
+> <listitem
+><para
+>Grafični upravljalnik uporabnikov (za delovanje zahteva administratorske (root) privilegije)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KPackage</application
+></term
+> <listitem
+><para
+>Vzdržujte vaš sistem na zadnjem nivoju s KDE-jevim lastnim upravljalnikom paketov.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kdat</application
+></term
+> <listitem
+><para
+>Pripomoček za varnostne kopije namenjen lastnikom tračnih enot.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>ksysv</application
+></term
+> <listitem
+><para
+>Urejevalnik SysV-Init, ki vam pomaga ohranjati organiziran zagon računalnika.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kwuftpd</application
+></term
+> <listitem
+><para
+>Grafičen vmesnik za nastavitev <application
+>wuftpd</application
+> ftp daemona.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSysctrl</application
+></term
+> <listitem
+><para
+>Ugotovite, kaj je res na vašem računalniku - pripomoček za prikaz sistemskih informacij.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="kdepim-applications">
+<title
+>Programi iz paketa kdepim</title>
+
+<para
+>V distribuciji kdeadmin lahko najdete spodaj naštete programe.</para>
+
+<para
+>Stabilne različice imajo relativno malo hroščev in so na voljo v izvorni kodi in binarnih formatih.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Nestabilne različice se spreminjajo dnevno in so na voljo le v obliki izvorne kode, kar pomeni, da jih morate prevesti, da dobite delujočo različico. Zavedajte se, da so nestabilne in se morda sploh ne dajo prevesti. Če imate težave z nestabilnim programom, poročajte o njih in po vsej verjetnosti bo v prihodnjem posnetku odpravljen.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Korganizer</application
+></term
+> <listitem
+><para
+>Organizirajte si čas s tem priročnim koledarjem, dnevnikom in razporejevalnikom opravil.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kab2</application
+></term
+> <listitem
+><para
+>Knjižica z naslovi (The KDE Address book).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kpilot</application
+></term
+> <listitem
+><para
+>Pripomoček za sinhronizacijo vašega Palm Pilota s PC-jem.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+<chapter id="entertainment-applications">
+<title
+>Programi za razvedrilo</title>
+
+<para
+>V distribuciji lahko najdete naslednje, spodaj naštete programe.</para>
+
+<para
+>Stabilne različice imajo relativno malo hroščev in so na voljo v izvorni kodi in binarnih formatih.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+<para
+>Nestabilne različice se spreminjajo dnevno in so na voljo le v obliki izvorne kode, kar pomeni, da jih morate prevesti, da dobite delujočo različico. Zavedajte se, da so nestabilne in se morda sploh ne dajo prevesti. Če imate težave z nestabilnim programom, poročajte o njih in po vsej verjetnosti bo v prihodnjem posnetku odpravljen.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>KAbalone</application
+></term
+> <listitem
+><para
+>Omrežno zavedna igra, ki jo lahko igrate proti računalniku ali drugim igralcem v vašem omrežju.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KAsteroids</application
+></term
+> <listitem
+><para
+> Majhna vesoljska igra "postreli jih". </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KAtomic</application
+></term
+> <listitem
+><para
+> Majhna logična sestavljanka, kjer morate zgraditi molekule. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KBlackbox</application
+></term
+> <listitem
+><para
+> KDE-jev različica klasične <application
+>Emacsove</application
+> igre blackbox. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KJumpingCube</application
+></term
+> <listitem
+><para
+> Taktična igra za enega ali dva igralca, ki je težja, kot izgleda. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KMahjongg</application
+></term
+> <listitem
+><para
+> The classic tile matching game. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KMines</application
+></term
+> <listitem
+><para
+> Najdite mine, ne da bi jih razneslo. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Konquest</application
+></term
+> <listitem
+><para
+> Razširite vaš medzvezdni imperij preko galaksije in v tem procesu seveda zlomite vaše konkurente. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KPat</application
+></term
+> <listitem
+><para
+> Računalnik ni popoln brez Patience (potrpljenja). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KPoker</application
+></term
+> <listitem
+><para
+> KDE-jeva različica enorokih banditov, ki zasvojijo. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KReversi</application
+></term
+> <listitem
+><para
+> KDE različica klasične igre. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSame</application
+></term
+> <listitem
+><para
+> Majhna logična igra, ki zasvoji. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KShisen</application
+></term
+> <listitem
+><para
+> Še ena igra, kjer morate primerjati. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSirtet</application
+></term
+> <listitem
+><para
+> Igrajte različico Tetrisa ali pa (na Japonskem) dobro znano igro Puyo-Puyo. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSmiletris</application
+></term
+> <listitem
+><para
+> Rahlo drugačen od običajnega klona Tetris. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSnake</application
+></term
+> <listitem
+><para
+> Klasična kača (nibbles) je osvežena in bolje trenirana (hitrejša). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSokoban</application
+></term
+> <listitem
+><para
+> Push those crates to get where you need to go. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSpaceDuel</application
+></term
+> <listitem
+><para
+> Sestrelite sovražnika v izzivalni arkadni igri za dva igralca. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KTron</application
+></term
+> <listitem
+><para
+> Classic keep-away - keep away from your foe, the walls, and your own tail. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KTuberling</application
+></term
+> <listitem
+><para
+> Za malčke. Kdo bi se lahko uprl krompirjastemu možicu? </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Lskat</application
+></term
+> <listitem
+><para
+> Zvita igra s kartami </para
+></listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+<chapter id="graphical-applications">
+<title
+>Grafični programi</title>
+<para
+>V distribuciji kdegraphics lahko najdete naslednje, spodaj naštete programe.</para>
+<para
+>Stabilne različice imajo relativno malo hroščev in so na voljo v izvorni kodi in binarnih formatih.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Nestabilne različice se spreminjajo dnevno in so na voljo le v obliki izvorne kode, kar pomeni, da jih morate prevesti, da dobite delujočo različico. Zavedajte se, da so nestabilne in se morda sploh ne dajo prevesti. Če imate težave z nestabilnim programom, poročajte o njih in po vsej verjetnosti bo v prihodnjem posnetku odpravljen.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Pixie</application
+></term
+> <listitem
+><para
+> Urejevalnik slik z razliko </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSnapshot</application
+></term
+> <listitem
+><para
+> Pripomoček za snemanje zaslonov. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KFract</application
+></term
+> <listitem
+><para
+> Majhen generator fraktalov. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kview</application
+></term
+> <listitem
+><para
+> Zmogljiv preglejevalnik slik, sposoben prikazati mnoge formate. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kghostview</application
+></term
+> <listitem
+><para
+> KDE-jev lastni preglejevalnik Postscripta. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kfax</application
+> and <application
+>Kfaxview</application
+></term
+> <listitem
+><para
+> Pripomočka za ogled in ravnanje s faksi. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdvi</application
+></term
+> <listitem
+><para
+> Pregledovalnik DVI. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="multimedia-applications">
+<title
+>Večpredstavni programi</title>
+
+<para
+>V distribuciji kdemultimedia lahko najdete spodaj naštete programe.</para>
+
+<para
+>Stabilne različice imajo relativno malo hroščev in so na voljo v izvorni kodi in binarnih formatih.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Nestabilne različice se spreminjajo dnevno in so na voljo le v obliki izvorne kode, kar pomeni, da jih morate prevesti, da dobite delujočo različico. Zavedajte se, da so nestabilne in se morda sploh ne dajo prevesti. Če imate težave z nestabilnim programom, poročajte o njih in po vsej verjetnosti bo v prihodnjem posnetku odpravljen.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>KMix</application
+></term
+> <listitem
+><para
+>Pult mešalne mize</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>AKtion</application
+></term
+> <listitem
+><para
+>Predvajalnik za filme in animacije s podporo za mnoge formate.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>&noatun;</term
+> <listitem
+><para
+>Predvajalnik zvočnih datotek, s podporo za mnoge formate.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSCD</application
+></term
+> <listitem
+><para
+>KDE-jev predvajalnik CD, s podporo CDDB.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kmid</application
+></term
+> <listitem
+><para
+> Predvajalnik midi s podporo za petje.. vaš lasten stroj Karaoke! </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KMidi</application
+></term
+> <listitem
+><para
+> Prijetno zveneč a procesorsko zahteven predvajalnik midi </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="network-applications">
+<title
+>Omrežni programi </title>
+<para
+>V distribuciji kdenetwork lahko najdete nsalednje, spodaj naštete programe.</para>
+<para
+>Stabilne različice imajo relativno malo hroščev in so na voljo v izvorni kodi in binarnih formatih.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+> </para>
+<para
+>Nestabilne različice se spreminjajo dnevno in so na voljo le v obliki izvorne kode, kar pomeni, da jih morate prevesti, da dobite delujočo različico. Zavedajte se, da so nestabilne in se morda sploh ne dajo prevesti. Če imate težave z nestabilnim programom, poročajte o njih in po vsej verjetnosti bo v prihodnjem posnetku odpravljen.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>KMail</application
+></term
+> <listitem
+><para
+>Zmogljiv e-poštni odjemalec, ki omogoča uporabo več strežnikov in različnih identitet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KNode</application
+></term
+> <listitem
+><para
+>Zmogljiv novičarski odjemalec s podporo za več NNTP strežnikov.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Keystone</application
+></term
+> <listitem
+><para
+>A KDE VNC viewer application.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kit</application
+></term
+> <listitem
+><para
+>Odjemalec AOL Instant Messenger, uporablja protokol <abbrev
+>TOC</abbrev
+> .</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSirc</application
+></term
+> <listitem
+><para
+>Odjemalec IRC</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Korn</application
+></term
+> <listitem
+><para
+>Vstavek Biff. <application
+>Korn</application
+> preverja, ali je prispela nova pošta in vam pove, ko je na voljo za nalaganje z vašega strežnika.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KPPP</application
+></term
+> <listitem
+><para
+>Program za klicanje interneta.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KTalkd</application
+></term
+> <listitem
+><para
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+<chapter id="utility-applications">
+<title
+>Potrebščine</title>
+<para
+>V distribuciji kdeutils lahko najdete naslednje programe.</para>
+
+
+<para
+>Stabilne različice imajo relativno malo hroščev in so na voljo v izvorni kodi in binarnih formatih.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Nestabilne različice se spreminjajo dnevno in so na voljo le v obliki izvorne kode, kar pomeni, da jih morate prevesti, da dobite delujočo različico. Zavedajte se, da so nestabilne in se morda sploh ne dajo prevesti. Če imate težave z nestabilnim programom, poročajte o njih in po vsej verjetnosti bo v prihodnjem posnetku odpravljen.</para>
+
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Kab</application
+></term
+> <listitem
+><para
+>Še en način za ogled KDE Address book</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kcharselect</application
+></term
+> <listitem
+><para
+>Izbirnik znakov (prikaže vse znake, ki so na voljo v določeni pisavi, vključno s tistimi, za katere na vaši tipkovnici nimate tipk)</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdepasswd</application
+></term
+> <listitem
+><para
+>KDE vmesnik za Unixov ukaz passwd.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdessh</application
+></term
+> <listitem
+><para
+>KDE vmesnik za ssh. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdf</application
+></term
+> <listitem
+><para
+>KDE-jev vmesnik za pripomoček <application
+>df</application
+>, z dodano funkcionalnostjo</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kfloppy</application
+></term
+> <listitem
+><para
+>Program, ki omogoča formatiranje disket.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KEdit</application
+></term
+> <listitem
+><para
+>Majhen, preprost urejevalnik, podoben dobro znanemu Notepadu. Primeren je za urejevanje majhnih besedil ali kot preprost pregledovalnik tekstovnih datotek. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KFind</application
+></term
+> <listitem
+><para
+><application
+>Kfind</application
+> je grafična zamenjava za pripomoček <application
+>find</application
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KArm</application
+></term
+> <listitem
+><para
+>Časovni sledilnik. Vnesete lahko seznam ,,opravil'', poženete <application
+>KArm</application
+>ovo uro in beležil bo čas, ki ste ga porabili za označeno opravilo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KHexedit</application
+></term
+> <listitem
+><para
+>Celovit binarni urejevalnik</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KJots</application
+></term
+> <listitem
+><para
+>Majhen program, ki skrbi za beležke.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>klaptopdaemon</application
+></term
+> <listitem
+><para
+>Ponuja nadzor na akumulatorejm vašega prenosnika</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KLjettool</application
+></term
+> <listitem
+><para
+>Nadzorni pult za HP LaserJet</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Klpq</application
+></term
+> <listitem
+><para
+>Klpq je vmesnik za <application
+>lpq</application
+>, <application
+>lprm</application
+> in <application
+>lpc</application
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KNotes</application
+></term
+> <listitem
+><para
+>Uporaben in lep pripomoček za beležke.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kpm</application
+></term
+> <listitem
+><para
+> Pripomoček, ki vključuje funkcionalnost <application
+>top</application
+> in <application
+>ps</application
+> </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="frequently-asked-questions">
+<title
+>Pogosto zastavljana vprašanja o KDE </title>
+
+<epigraph>
+<attribution
+>Batman Animated Series</attribution>
+<para
+>Kaj si ti?</para>
+<para
+>Tvoja najhujša nočna mora...</para>
+</epigraph>
+
+<para
+>So vprašanja, ki se vedno znova pojavljajo na poštnih seznamih KDE. Da obdržimo promet v mejah (kar olajša branje seznamov), smo jih vključili v ta razdelek. Prosim bodite dovolj uvidevni in jih ne zastavljajte več - pomislite na gornji citat! </para>
+
+<qandaset id="faq">
+<qandaentry>
+<question
+><para
+>Kaj pomeni "KDE"?</para
+></question>
+<answer
+><para
+>KDE je kratica, ki pomeni <emphasis
+>"K Desktop Environment",</emphasis
+> namizno okolje K, ki je mišljeno kot zbirka majhnih orodij, okenskega in datotečnega upravljalnika in orodij, ki vse to povezujejo. Ustvarjeno je, da vam olajša življenje v UNIX-u. </para
+></answer>
+</qandaentry>
+<qandaentry>
+<question
+><para
+>Ne morem prevesti paketa xxx</para
+></question>
+<answer
+><para
+>Vedno se prepričajte, da imate nameščeno zadnjo različico knjižnic. Programska oprema se nenehno razvija, tako da se lahko odvisnosti spreminjanjo z enega dneva na drugega. Prav tako vam bodo morda pomagali <link linkend="source-distribution"
+>splošni namigi za prevajanje</link
+>. Drug vir težav pa je lahko ta, da uporabljate program pisan za zelo staro različico KDE, ki je odvisen od zastarelih vključnih (include) datotek. Prosim preverite datume datotek. Morali be biti novejši kot datumi vaše trenutne različice KDE. </para
+></answer>
+</qandaentry>
+<qandaentry>
+<question
+><para
+>KDE ni stabilen?</para
+></question>
+<answer
+><para
+>KDE lahko pridobite na več načinov. Uporaba prevedenih paketov v formatu rpm,deb ali tgz, označenih z ustrezno različico (<abbrev
+>npr.</abbrev
+> 2.2) je najboljši način, da poskrbite za stabilnost vašega namizja. </para>
+<para
+>Cena stabilnosti je, da je potrebno čakati na vsako novo izdajo, da lahko uživate v novih zmožnostih. Če želite najnovejšo in najboljšo programsko opremo , se boste morali morda ukvarjati z izvorno kodo, morda celo s posnetki <abbrev
+>CVS</abbrev
+>. To so dnevni posnetki vsega, na čemer delajo razvijalci in nekatere stvari so zanesljivo pokvarjene.</para>
+<para
+>NE ZANAŠAJTE SE NA POSNETKE <abbrev
+>CVS</abbrev
+>, DA BI VZDRŽEVALI DELUJOČA NAMIZJA. Lahko se boste hudo opekli!</para>
+</answer>
+</qandaentry>
+</qandaset>
+
+</chapter>
+
+<chapter id="more-help">
+<title
+>Dodatna pomoč</title>
+
+<sect1 id="mailing-lists">
+<title
+>Drugi viri pomoči </title>
+
+<para
+>Oglejte si <ulink url="http://www.kde.org"
+>spletno stran KDE</ulink
+>, kjer najdete najnovejše informacije o KDE, ki so dosegljive v spletu. Morda se boste želeli prijaviti (naročiti) v katerega izmed naših poštnih seznamov. </para>
+
+<para
+>Pošljite e-pošto na naveden naslov s <userinput
+>subscribe</userinput
+> <userinput
+>vaš e-poštni naslov</userinput
+> v predmetu (subject) sporočila, da se tako prijavite: </para>
+
+<simplelist
+> <member
+>splošna poštna lista KDE, <email
+>kde-request@kde.org</email
+> </member
+> <member
+>poštna lista razvijalcev KDE, <email
+>kde-devel-request@kde.org</email
+></member
+> <member
+>razprave o izgledu KDE (look and feel), <email
+>kde-look-request@kde.org</email
+></member
+> <member
+>KDE naznanila, <email
+>kde-announce-request@kde.org</email
+></member
+> <member
+>vprašanja o licenci KDE, <email
+>kde-licensing-request@kde.org</email
+></member
+> <member
+>uporabniška poštna lista, <email
+>kde-user-request@kde.org</email
+></member
+> <member
+>lista piscev dokumentacije KDE, <email
+>kde-doc-request@kde.org</email
+></member
+> </simplelist>
+
+</sect1>
+</chapter>
+
+<chapter id="docu-staff">
+<title
+>Epilog </title>
+
+<epigraph>
+<attribution
+>The end of Evita</attribution>
+<para
+>She had her moments, she had some style, the best show in town was the crowd, outside the Casa Rosada crying 'Eva Peron'; but that's all gone now...</para
+></epigraph>
+
+<para
+>Upamo, da se vam je zdel ta dokument uporaben, informativen in morda celo zabaven. Sledeče stvari niso potrebne za razumevanje namiznega okolja K (KDE), vendar pa jih boste morda vseeno želeli prebrati. </para>
+
+<sect1 id="the-k-documentation-staff">
+<title
+>Avtorji dokumentacije </title>
+
+<para
+>Ta uporabniški priročnik je osvežila za 2.0 in ga tudi vzdržuje Lauri Watts <email
+>vampyr@atconnex.net</email
+></para>
+
+<para
+>K temu dokumentu so prispevali še mnogi drugi.</para>
+<itemizedlist
+> <listitem
+><para
+>Pablo de Vicente <email
+>vicente@oan.es</email
+>, ki je osvežil razdelek, ki opisuje nameščanje KDE 2.0 v Debianu.</para
+></listitem
+> <listitem
+><para
+>Andreas Buschka <email
+>andi@circe.tops.net</email
+></para
+></listitem
+> <listitem
+><para
+>Robert D. Williams <email
+>rwilliam@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Poul Gerhard</para
+></listitem
+> <listitem
+><para
+>John Waalkes</para
+></listitem
+> <listitem
+><para
+>Vernon Wells</para
+></listitem
+> <listitem
+><para
+>Kay Lutz</para
+></listitem
+> <listitem
+><para
+>Stephan Kulow</para
+></listitem
+> </itemizedlist>
+</sect1>
+
+<sect1 id="we-still-need-people">
+<title
+>Še vedno rabimo ljudi! </title>
+
+<para
+>KDE je ogromen projekt in vsak, ki podpira KDE je to že spoznal. Vsi se zelo trudimo, da bi ustvarili uporabniški vmesnik, ki je preprost za uporabo in ima morda potencial, da naredi UNIX primeren za namizne PC-je. Imate možnost sodelovati v tem projektu in bili bi zelo hvaležni, če bi. Razvijalci in zainteresirani uporabniki komunicirajo preko večih poštnih list opisanih v <xref linkend="mailing-lists"/>. Če želite pomagati, prosim ne oklevajte! Še vedno iščemo ljudi, ki so pripravljeni pomagati v naslednjih oddelkih: </para>
+
+<itemizedlist
+> <listitem
+><para
+>Razvoj (knjižnice in programi)</para
+></listitem
+> <listitem
+><para
+>Dokumentacija</para
+></listitem
+> <listitem
+><para
+>Grafika</para
+></listitem
+> <listitem
+><para
+>Beta testiranje</para
+></listitem
+> <listitem
+><para
+>in seveda vse ostalo :-) </para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="legal-notices">
+<title
+>Pravne opombe </title>
+
+<para
+>Ta dokument vsebuje avtorsko zaščiten material naslednjih avtorjev: Andreas Buschka, Gerhard Poul, Robert David Williams. Vse zaščitene znamke in branded names, ki so bile omenjene so last njihovih zakonitih lastnikov. </para>
+
+</sect1>
+
+<sect1 id="sources-of-information-used-during-the-creat">
+<title
+>Viri informacij, uporabljeni pri pisanju te knjige </title>
+
+<para
+>Med pisanjem te knjige so avtorji uporabljali naslednje vire informacij: </para>
+
+<itemizedlist
+> <listitem
+><para
+>Poštne liste KDE </para
+></listitem
+> <listitem
+><para
+>Razne datoteke <filename
+>README</filename
+> in <abbrev
+>HTML</abbrev
+> datoteke sistema pomoči, ki so bile na voljo s komponentami KDE </para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="license">
+<title
+>Licenca</title>
+
+&underFDL;
+
+</sect1>
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag:nil
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+

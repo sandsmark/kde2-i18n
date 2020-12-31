@@ -1,0 +1,581 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kscore;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Handbok &kscore;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+> <address
+><email
+>jsinger@leeta.net</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@telia.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Jonathan Singer</holder>
+</copyright>
+
+<date
+>2001-06-14</date>
+<releaseinfo
+>0.01.00</releaseinfo>
+
+<abstract
+><para
+>&kscore; är ett miniprogram för panelen i KDE 2.x för att följa sportresultat.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KScore</keyword>
+<keyword
+>Sport</keyword>
+<keyword
+>resultat</keyword>
+<keyword
+>miniprogram</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+
+<title
+>Inledning</title>
+
+<screenshot
+> <screeninfo
+>&kscore; i arbete</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="ncaaf.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>&kscore; i arbete</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+<screenshot
+> <screeninfo
+>&kscore; i arbete</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="nhl.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>&kscore; i arbete</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+<screenshot
+> <screeninfo
+>&kscore; i arbete</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="premr.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>&kscore; i arbete</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Nu för tiden finns det många som talar om för dig vilka förutfattade meningar man ska ha om användare av fri programvara: <quote
+>Nördar gillar Lego.</quote
+>, <quote
+>hackare gillar skjutvapen.</quote
+>. Jag råkar gilla ishockey, och vid de sällsynta tillfällen då mina älskade Islanders vinner en match, så vill jag få reda på det omeddelbart.</para>
+
+<para
+>&kscore; är ett miniprogram för panelen i KDE 2.x för att följa sportresultat. Det laddar ner resultaten från Excite, dä alla större amerikanska proffs- och collegesporter ingår, samt många mindre ligor och de viktigaste europeiska fotbollsligorna.</para>
+
+<para
+>&kscore; är skrivet av Jonathan Singer <email
+>jsinger@leeta.net</email
+>, och är baserat på programmet <application
+><ulink url="http://home.att.net/~takuper/wmscoreboard/"
+>wmScoreboard</ulink
+></application
+>, ett dockningsbart program för WindowMaker, av Todd Kuper.</para>
+
+<sect1 id="kscore-revhistory">
+<title
+>&kscore; revisionshistorik</title>
+
+<variablelist
+> <varlistentry
+> <term
+>0.1</term
+> <listitem
+> <itemizedlist
+> <listitem
+><para
+>Första utgåvan</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+<chapter id="installation">
+<title
+>Installation</title>
+
+<sect1 id="obtain-kscore">
+<title
+>Hur man skaffar &kscore;</title>
+
+<para
+>&kscore; är en del av kdetoys-paketet och ska kompileras och installeras som anges i paketets huvudkatalog. Nya versioner av kdetoys kan hämtas på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Krav</title>
+
+<para
+>&kscore; skrevs med Qt 2.2.x och KDE 2 på en PowerCenter 150 som kör LinuxPPC 1999. Det ska fungera på vad som helst som kör KDE. Skulle du stöta på problem, var snäll rapportera dem till upphovsmannen <email
+>jsinger@leeta.net</email
+>.</para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilering och installation</title>
+
+<para
+>För att kompilera och installera &kscore; på ditt system, skriv följande i baskatalogen i distributionen av kdetoys:</para>
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+>Eftersom &kscore; använder <application
+>autoconf</application
+> och <application
+>automake</application
+> bör du inte ha några problem med att kompilera det. Skulle du stöta på problem, rapportera dem till KDE:s e-postlistor.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="using-kscore">
+<title
+>Användning</title>
+
+<sect1 id="starting-kscore">
+<title
+>Starta &kscore;</title>
+
+<para
+>För att starta &kscore; klicka med <mousebutton
+>höger</mousebutton
+> musknapp på en tom yta i KDE:s panel och välj <menuchoice
+><guisubmenu
+>Lägg till</guisubmenu
+> <guisubmenu
+>Miniprogram</guisubmenu
+> <guimenuitem
+>Sportnyheter</guimenuitem
+></menuchoice
+>. Som ett alternativ, välj <menuchoice
+><guisubmenu
+>Anpassa panel</guisubmenu
+> <guisubmenu
+>Lägg till</guisubmenu
+> <guisubmenu
+>Miniprogram</guisubmenu
+> <guimenuitem
+>Sportnyheter</guimenuitem
+></menuchoice
+> från <guimenu
+>K</guimenu
+>-menyn.</para>
+
+</sect1>
+
+<sect1 id="command-ref">
+<title
+>Hantera &kscore;</title>
+
+<sect2 id="menu-ref">
+<title
+>Menykommandon</title>
+
+<para
+>När &kscore; har startats, ska ett miniprogram visas i panelen (om panelen är full, kan du behöva rulla för att se den). För att flytta, eller ta bort den, <mousebutton
+>höger</mousebutton
+>klicka på strecken till vänster eller överst på miniprogrammet och välj <guimenuitem
+>Flytta</guimenuitem
+> eller <guimenuitem
+>Ta bort</guimenuitem
+>.</para>
+
+<para
+><mousebutton
+>Vänster</mousebutton
+>klicka på miniprogrammet för att uppdatera resultatet som visas. <mousebutton
+>Höger</mousebutton
+>klicka för att visa en meny med följande alternativ:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Inställningar</guimenuitem
+></term
+> <listitem
+><para
+><action
+>Öppnar</action
+> inställningsdialogrutan.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Uppkopplad</guimenuitem
+></term
+> <listitem
+><para
+><action
+>Sätter på eller stänger av nerladdning av resultat</action
+>. Stäng av när du inte har en aktiv nätverksanslutning.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Hjälp</guimenuitem
+></term
+> <listitem
+><para
+><action
+>Visar de här hjälpsidorna.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Om</guimenuitem
+></term
+> <listitem
+><para
+><action
+>Visar information</action
+> om &kscore;</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="settings-dialog">
+<title
+><guilabel
+>Inställningar</guilabel
+></title>
+
+	<screenshot
+> <screeninfo
+>&kscore;s inställningsdialogruta</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="settings.png" format="PNG"/> </imageobject
+> <textobject
+><phrase
+>&kscore;s inställningsdialogruta</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Inställningsdialogrutan låter dig ange följande alternativ:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Liga</guilabel
+></term
+> <listitem
+><para
+>Välj den önskade ligan från kombinationsrutan.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Lag</guilabel
+></term
+> <listitem
+><para
+>Ange trebokstavskoden för laget du vill följa. Tryck på knappen <guibutton
+>Bläddra lag</guibutton
+> för att ansluta till Excite och se de tillgängliga koderna för den valda ligan.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Textfärg</guilabel
+></term
+> <listitem
+><para
+>Välj färgen på den visade texten. Det här är användbart när panelen har en bakgrundsbild.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Uppdatera  x minut</guilabel
+></term
+> <listitem
+><para
+>Ställ in intervallet mellan uppdateringar av resultatet. (Det minimala intervallet är 10 minuter, det maximala är 300 minuter.)</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+</sect1>
+<sect1 id="closing-kscore">
+<title
+>Avsluta &kscore;</title>
+
+
+	<screenshot
+> <screeninfo
+>Ta bort &kscore; från panelen</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="close.png" format="PNG"/> </imageobject
+> <textobject
+><phrase
+>Ta bort &kscore; från panelen</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Jag är glad att meddela att jag har fått mängder med e-post från användare av &kscore;. Jag är mindre glad att meddela att de flesta frågar hur man ska ta bort det från panelen! Som med alla &kde;-miniprogram i panelen, klicka med <mousebutton
+>höger</mousebutton
+> musknapp på den vänstra kanten av miniprogrammet (övre kanten i en vertikal panel) och välj <menuchoice
+><guimenuitem
+>Ta bort</guimenuitem
+></menuchoice
+>. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="q-and-a">
+<title
+>Vanliga frågor</title>
+
+<sect1 id="error-messages">
+<title
+>Felmeddelanden</title>
+
+<para
+>Det finns två felmeddelanden som du kan råka ut för. Här är vad du kan göra åt dem.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="no_score.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> <errorname
+>Inga poäng tillgängliga</errorname
+></term
+> <listitem
+><para
+>De troligaste orsakerna är:</para
+> <variablelist
+> <varlistentry
+> <term
+>En felaktig lagkod</term
+> <listitem
+><para
+> Tryck på knappen <guibutton
+>Bläddra lag</guibutton
+> i inställningsdialogrutan för att titta på de tillgängliga lagkoderna för den valda ligan.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Inga poäng tillgängliga för valt lag</term
+> <listitem
+><para
+>Tyvärr betyder det här oftast att ditt lag inte har gått vidare. Återigen, försök med knappen <guibutton
+>Bläddra lag</guibutton
+> i inställningsdialogrutan för att titta på de tillgängliga lagkoderna för den valda ligan.</para
+></listitem
+> </varlistentry
+> </variablelist
+> <para
+>Resultaten laddas ner från <ulink url="http://sports.excite.com"
+>http://sports.excite.com</ulink
+>. Om de ändrar något i sitt format, kommer inte &kscore; att fungera längre. Var snäll och informera mig på <email
+>jsinger@leeta.net</email
+> om ett problem uppstår.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dl_fail.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <errorname
+>Hämtning misslyckades</errorname
+></term
+> <listitem
+><para
+>De troligaste orsakerna är:</para
+> <variablelist
+> <varlistentry
+> <term
+>Ingen aktiv nätverksanslutning.</term
+> <listitem
+><para
+>Om du har en uppringd förbindelse, vill du troligen att &kscore; inte ska förbli uppkopplad när din anslutning är inaktiv (avmarkera <guimenuitem
+>Uppkopplad</guimenuitem
+> i menyn).</para
+></listitem
+> </varlistentry
+> </variablelist
+> <para
+>Om Excite ändrar webbadress kan inte &kscore; ladda ner rätt sida. Återigen, var snäll och informera mig på <email
+>jsinger@leeta.net</email
+> om ett problem uppstår.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="faq">
+<title
+>Övriga frågor</title>
+
+<qandaset>
+<qandaentry>
+<question
+><para
+>Kan man lägga till en annan liga, eller resultat från en annan webbplats?</para
+></question>
+<answer
+><para
+>Jag skulle väldigt gärna lägga till mer täckning av annat än nordamerikanska resultat. Tala om för mig på <email
+>jsinger@leeta.net</email
+> vilka webbplatser du är intresserad av, så ska jag försöka lägga till dem (Jag vill också gärna höra av någon med <application
+>Perl</application
+>-kunskaper som kan hjälpa mig att skapa skript för att tolka dem).</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hur får jag &kscore; att fungera med en vertikal panel som har storleken inställt till <quote
+>extra liten</quote
+>?</para
+></question>
+<answer
+><para
+>Tyvärr har inte ens en normal panel så mycket utrymme som &kscore; verkligen skulle kunna använda. En <quote
+>mellanstor</quote
+> vertikal panel är den minsta som jag kunde få att se vettig ut.</para
+></answer>
+</qandaentry>
+</qandaset>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>Tack till och licens</title>
+
+<para
+>&kscore;</para>
+
+&underFDL;
+
+<para
+>Perl-skriptet som behandlar resultat är copyright Todd Kuper, enligt villkoren i GNU General Public License.</para>
+
+
+<para
+>Övriga filer copyright (c) 2000, Jonathan Singer och tillgängliga enligt nedanstående BSD-baserade licens. All rights reserved.</para>
+<para
+>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</para>
+<para
+>* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. * Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.</para>
+<para
+>* Neither the name of the author nor the names of other contributors may be used to endorse or promote products derived from this software without specific prior written permission. </para>
+<para
+>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</para>
+
+
+</chapter>
+</book>
+

@@ -1,0 +1,454 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kdvi;">
+ <!ENTITY % Slovenian "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+> Priročnik za &kdvi;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Markku</firstname
+> <surname
+>Hihnala</surname
+> <affiliation
+><address
+><email
+>mah@ee.oulu.fi</email
+></address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>Stefan</firstname
+> <surname
+>Kebekus</surname
+> <affiliation
+><address
+><email
+>kebekus@kde.org</email
+></address
+></affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Andrej</firstname
+><surname
+>Vernekar</surname
+><affiliation
+><address
+><email
+>andrej.vernekar@kiss.uni-lj.si</email
+></address
+></affiliation
+><contrib
+>Prevod</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-06-05</date>
+<releaseinfo
+>0.09.02</releaseinfo>
+
+<legalnotice
+>&underFDL;</legalnotice>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Markku Hihnala</holder>
+<holder
+>Stefan Kebekus</holder>
+</copyright>
+
+<abstract>
+<para
+>Ta priročnik opisuje &kdvi; različice 0.9</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>DVI</keyword>
+<keyword
+>TeX</keyword>
+<keyword
+>LaTeX</keyword>
+<keyword
+>device-independent</keyword>
+<keyword
+>pregledovalnik</keyword>
+<keyword
+>dvi pregledovalnik</keyword>
+<keyword
+>kdvi</keyword>
+<keyword
+>xdvi</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+> &kdvi; je vstavek za program kviewshell, ki omogoča &kviewshell;u prikaz datotek &DVI;, ki jih proizvede stavski sistem TeX. </para>
+
+<para
+> Več informacij o TeX in &DVI; lahko najdete na domačih straneh uporabniških skupin TeX-a. &kdvi; podpira vključevanje grafik &PostScript; in hiperpovezave. Več podrobnosti o tehničnih specifikacijah lahko najdete v datoteki <filename
+>KDVI-features.dvi</filename
+>. </para>
+
+<para
+> Za najnovejše informacije se pozanimajte na <ulink url="http://devel-home.kde.org/~kdvi"
+>domači strani kdvi</ulink
+>. </para>
+
+</chapter>
+
+<chapter id="starting">
+<title
+>Zagon &kdvi;</title>
+
+<para
+> Zaradi udobja obstaja ukaz <command
+>kdvi</command
+>, ki pokliče &kviewshell; s prednaloženim vstavkom &kdvi;. Pregledovalnik lahko tako poženete z uporabo ukaza <userinput
+><command
+>kdvi</command
+> <parameter
+>somepath/paper.dvi</parameter
+></userinput
+> ali brez imena datoteke, saj bo nato &kviewshell; omogočil odpiranje datoteke iz pogovornega okna ali menuja nazadnje uporabljenih datotek. </para>
+
+<para
+> Običajni parametri, ki jih poznajo &Qt; in &kde; programi tudi delujejo: <userinput
+><command
+>kdvi</command
+> <option
+>-style</option
+> <parameter
+>windows</parameter
+> <option
+>-display</option
+> <parameter
+>:0</parameter
+> <option
+>-geometry</option
+> <parameter
+>400x400+0+0</parameter
+> <option
+>-caption</option
+> <parameter
+>"DVI"</parameter
+></userinput
+> </para>
+
+<para
+> Za integracijo s TeX-om je &DVI; datoteka ob spremembi samodejno naložena. </para>
+
+</chapter>
+
+<chapter id="preferences">
+<title
+>Pogovorno okno <guilabel
+>Nastavitve</guilabel
+></title>
+
+<para
+> Pogovorno okno <guilabel
+>Nastavitve</guilabel
+> lahko znotraj &kviewshell; dosežete z izbiro <menuchoice
+><guimenu
+>Nastavitve</guimenu
+> <guimenuitem
+>Možnosti DVI</guimenuitem
+></menuchoice
+>. </para>
+
+<para
+> Pogovorno okno je sestavljeno iz dveh strani: <guilabel
+>Pisave</guilabel
+> in <guilabel
+>Upodobitev</guilabel
+>. </para>
+
+<sect1 id="opt-fonts">
+<title
+>Možnosti strani <guilabel
+>Pisave</guilabel
+></title>
+
+<para
+> Naslednja slika prikazuje pogovorno okno možnosti za &kdvi;. </para>
+
+<screenshot
+> <screeninfo
+>Pogovorno okno <guilabel
+>Pisave</guilabel
+></screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="optionrequester1.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Pogovorno okno <guilabel
+>Pisave</guilabel
+></phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Način Metafont</guilabel
+></term
+> <listitem
+> <para
+> Te možnosti določajo, katere pisave bo &kdvi; uporabil za upodabljanje. S skrbno optimizacijo nastavitev lahko izboljšate prikaz. Vendar pa, razen če niste strokovnjak za <command
+>MetaFont</command
+> in veste kaj delate, spreminjanje teh nastavitev ni dobra ideja.  </para
+> <para
+> Varne vrednosti so <guilabel
+>1200 dpi / Lexmark</guilabel
+> za dobro kvaliteto ali <guilabel
+>600 dpi / LaserJet 4</guilabel
+> za srednjo kvaliteto in hitrejši prikaz. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ustvari manjkajoče pisave</guilabel
+></term
+> <listitem
+> <para
+> Označite to, če želite, da &kdvi; kliče program <command
+>MetaFont</command
+> v primeru, da  kdvi želi prikazati dokumente, ki uporabljajo pisave, ki še niso pripravljene. Vsekakor boste želeli nastaviti to možnost. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="opt-rendering">
+<title
+>Možnosti <guilabel
+>upodobitve</guilabel
+></title>
+
+
+<para
+> Naslednja slika prikazuje drugo pogovorno okno možnosti za &kdvi;. </para>
+
+<screenshot
+> <screeninfo
+>Pogovorno okno <guilabel
+>upodobitve</guilabel
+></screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="optionrequester2.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Pogovorno okno <guilabel
+>upodobitve</guilabel
+></phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Prikaži postscriptne vstavke</guilabel
+></term
+> <listitem
+> <para
+> Če je označena ta možnost, bo &kdvi; prikazoval grafiko &PostScript;, ki je vključena v datoteke &DVI;. </para
+> <para
+> Če eksterna datoteka ni najdena, bo &kdvi; narisal opozorilen rdeč pravokotnik na njenem mestu. Žel je upodabljanje &PostScript;ne grafike v trenutni različici &kdvi; zelo počasno. V kasnejših različicah bomo hitrost izboljšali. Če je da možnost izklopljena, bo &kdvi; narisal sivo polje ali pa bo pustil prazen prostor. </para
+> <note
+> <para
+> Ne obstaja običajen način vključitve &PostScript; grafike v datoteko dvi. Zato se lahko zgodi, da &kdvi; ne bo znal pravilno prikazati grafike, ki deluje lepo v drugih programih. Starejše različice <command
+>xdvi</command
+> in <command
+>dvips</command
+> podpirajo izvajanje zunanjih ukazov. To je veliko varnostno tveganje in zato namenoma ni izvedeno v &kdvi;. Tehnične informacije o podprtih načinih vključevanja &PostScript;a lahko najdete v eksternem dokumentu. </para
+> </note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Hiperpovezave</guilabel
+></term
+> <listitem
+> <para
+> Označite to, če želite da &kdvi; prikazuje hiperpovezave. Ustrezni deli bedeila bodo podčrtani z modro. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="printing">
+<title
+>Tiskanje</title>
+
+<para
+> Ta različica ima nastavitveni dialog za tiskanje (dosegljiv iz dialoga tiskanja) ki vam omogoča nastavitev metode tiskanja, n-up program, imena tiskalnika in spooler ukaza. Izbira metode tiskanja izbere zunanji program, ki se bo uporabil za tiskanje.  Dosegljivi možnosti sta <command
+>dvips</command
+> in <command
+>dvilj4</command
+>. Če uporabljate <command
+>dvips</command
+>, lahko pokličete program n-up, da na list spravi 2 ali 4 strani. Izberite <command
+>psnup</command
+> (priporočljivo) ali <command
+>mpage</command
+> (bo mogoče delovalo) če imate to nameščeno na sistemu. </para>
+
+<para
+> Lahko dodate imena tiskalnikov ki bodo dosegljiva v dialogu tiskanja. </para>
+
+<para
+> Nazadje lahko spremenite spooler ukaz (privzeto je to <command
+>lpr</command
+>) ki naj bere standardni vhod. Možnost <option
+>-P</option
+> je dodana pri tiskanju na neprivzet tiskalnik. </para>
+
+<para
+> Ko ste nastavili tiskanje, lahko uporabite dialog tiskanja, kjer lahko izberete strani, ki bodo natisnjene, kateri tiskalnik ali datoteka bo uporabljen za izhod in drugo. </para>
+</chapter>
+
+<chapter id="faq">
+<title
+>Q &amp; A</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+> Zakaj &kdvi; ne prikazuje nič razen delovnega kurzorja? </para>
+</question>
+<answer>
+<para
+> Možno je, da &kdvi; išče pk-fonte na napačnem mestu, to pa lahko vzame veliko časa, posebej če to vključuje omrežno priklopljene datotečne sisteme. To lahko preverite z ukazom <command
+>strace</command
+>, spodaj pa poglejte za zdravilo. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Kaj lahko naredim, če &kdvi; ne najde mojih PK-fontov? </para>
+</question>
+<answer>
+<para
+> Popraviti morate nastavitve za ločljivost in način <command
+>Metafont</command
+>. Če to ne pomaga, poizkusite z nastavitvijo polja 'Pot do PK pisav' v Nastavitve/pisave, da bo kazal na seznam imenikov, ki naj bodo preiskani za pk-fonti: <userinput
+><filename class="directory"
+>/var/lib/texmf/fonts/pk/ljfour/</filename
+>:<filename class="directory"
+><replaceable
+>/nek/drug/kraj</replaceable
+></filename
+></userinput
+>. Lahko določite da bo &kdvi; iskal rekurzivno z dodajanjem dodatnega / na koncu imena imenika: <userinput
+>/var/lib/texmf/fonts//</userinput
+> (To deluje kot <command
+>xdvi</command
+>-jeva spremenljivka <envar
+>XDVIFONTS</envar
+>. Obstaja tudi dobra (gnu <command
+>info</command
+>) dokumentacija dosegljiva za knjižnico kpathsea, ki jo &kdvi; uporablja za iskanje fontov.) To naredi &kdvi; uporaben, če imate kakšen drug sistem tex kot pa <command
+>tetex</command
+> in nimate datoteke <filename
+>texmf.cnf</filename
+>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Kako usposobim generiranje pisav? </para>
+</question>
+<answer>
+<para
+> Če želite omogočiti samodejno ustvarjenje pisav z uporabo <command
+>MakeTeXPK</command
+>, morate priskrbeti ustrezen način <command
+>Metafont</command
+> v pogovornem oknu nastavitev. Če je samodejno generiranje pk-fontov onemogočeno (izbira), bodo manjkajoče pisave prijavljene v datoteko <filename
+>missfont.log</filename
+> v trenutnem imeniku. Dobra ideja bi bila preveriti, ali so ukazi za generiranje fontov v <filename
+>missfont.log</filename
+> pravilni, preden omogočite generacijo fontov. </para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+
+<chapter id="credits-and-license">
+<title
+>Zahvale in licence</title>
+
+<para
+>&kdvi;</para>
+
+<para
+> &kdvi; 0.9 je osnovan na samostojnem programu &kdvi; 0.4.3, ki ga je napisal Markku Hihnala. Ta program pa je osnovan na <application
+>xdvi</application
+> različice 18f, ki ima mnogo avtorjev. </para>
+
+<para
+> Avtorske pravice za dokumentacijo (copyright) 2000, 2001, Markku Hihnala <email
+>mah@ee.oulu.fi</email
+> in Stefan Kebekus <email
+>kebekus@kde.org</email
+> </para>
+
+<para
+>Prevod: Andrej Vernekar <email
+>andrej.vernekar@kiss.uni-lj.si</email
+></para>
+
+&underGPL;
+&underFDL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Namestitev</title>
+
+<para
+> &kdvi; je del modula kdegraphics, ki je del &kde;. </para>
+
+</appendix>
+
+</book>
+

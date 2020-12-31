@@ -1,0 +1,3 @@
+
+KDE_LANG=tr
+KDE_DOCS=AUTO

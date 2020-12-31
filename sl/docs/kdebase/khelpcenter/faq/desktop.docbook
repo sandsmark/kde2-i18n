@@ -1,0 +1,325 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="desktop">
+<title
+>Namizje</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Kako dodam program na namizje?</para>
+</question>
+<answer>
+<para
+>To je preprosta vaja: kliknite z &DGM; na namizju. V menuju izberite <menuchoice
+><guimenu
+>New</guimenu
+><guimenuitem
+>Program</guimenuitem
+></menuchoice
+>. Vnesite naslov programa in pojavil se bo na namizju.</para>
+<para
+>Morda boste želeli spremeniti lastnosti nove ikone, zato kliknite z &DGM; na ime programa in izberite <guimenuitem
+>Properties</guimenuitem
+>. V pogovornem oknu morate spremeniti vsaj program, ki naj se izvede in ikono. To je vse.</para
+> 
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako z namizja priklopim/odklopim napravo?</para>
+</question>
+<answer>
+<para
+>Potrebna sta dva koraka:</para>
+<procedure
+> <step performance="required"
+><para
+>Prepričajte se, da lahko priklopite/odklopite napravo. Običajno lahko naprave priklaplja le root. Če &kde; ne poganjate kot root (in tega raje ne počnite), morate nastaviti pravice uporabnikov tako, da bodo lahko priklopili napravo v <filename
+>/etc/fstab</filename
+>. To pomeni, da morate dodati možnostim datotečnega sistema, ki ga želite priklopiti možnost <option
+>user</option
+>.</para
+> <para
+>Da lahko na primer priklopite disketnik, mora vaš <filename
+>/etc/fstab</filename
+> vsebovati:</para
+> <screen>
+/dev/fd0   /floppy   msdos   noauto,user,sync 0 0
+</screen
+> </step
+> <step performance="required"
+> <para
+>Za datotečni sistem datoteko <filename
+>.desktop</filename
+>. Zgled za datoteko <filename
+>.desktop</filename
+> za napravo je:</para
+> <screen>
+# KDE Config File
+[KDE Desktop Entry]
+UnmountIcon=3floppy_unmount.xpm
+MountPoint=/floppy
+Icon=3floppy_mount.xpm
+Dev=/dev/fd0
+ReadOnly=0
+FSType=default
+Type=FSDevice
+Comment=Floppy Disc
+</screen
+> </step
+> </procedure>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako lahko uporabim ohranjevalnik zaslona za ozadje?</para>
+</question>
+<answer>
+<para
+>Za ozadje je možno namesto slike uporabiti ohranjevalnik zaslona. To storite tako, da pokličete katerikoli ohranjevalnik zaslona s parametrom <option
+>-inroot</option
+>, na primer <command
+>kswarm.kss <option
+>-inroot</option
+> &amp;</command
+>. Večina ohranjevalnikov zaslona bo izgledala najbolje, če boste za barvo ozadja vzeli črno. Vendar pa utegne uporaba ohranjevalnika zaslona za ozadje požreti nekaj časa CPU in X....</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kje se nahajajo ikone?</para>
+</question>
+<answer>
+<para
+>Ikone lahko najdete le v <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/icons</filename
+> ali <filename class="directory"
+>$<envar
+>HOME</envar
+>/.kde/share/icons</filename
+>. Da lahko uporabite ikone, ki se nahajajo na drugih lokacijah, jih morate prepisati v enega izmed zgoraj omenjenih fiksnih lokacij &kde; ali pa narediti simbolne povezave.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako lahko kot ne-root spremenim standardne menujske izbire?</para>
+</question>
+<answer>
+<para
+>Poskusite spremeniti dovoljenja in/ali lastništvo datotek v <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/applnk</filename
+>. Alternativno lahko ustanovite zaupno skupino (<abbrev
+>npr.</abbrev
+> friends) in poskusite <command
+>chgrp <option
+>-R friends $<envar
+>KDEDIR</envar
+>/share/applnk</option
+>; chmod <option
+>-R g+w $<envar
+>KDEDIR</envar
+>/share/applnk</option
+></command
+> in postavite vse uporabnike, ki jim zaupate, v skupino friends. Upoštevajte, da boste za to še vedno rabili privilegije superuporabnika. Če teh ne morete pridobiti, potem si boste morali urediti vaš osebni menu.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako lahko uporabim drsno kolo miške v &kde;?</para>
+</question>
+<answer>
+<para
+>Podpora za miške s koleščkom je na voljo od &Qt; 2.0 dalje, tako da bo &kde; zasnovan na njih samodejno podpiral uporabo drsnega koleščka. Če uporabljate ne-&kde; programe, kot je na primer &Emacs;, poskusite pridobiti <application
+>IMWheel</application
+> z <ulink url="http://jonatkins.org/imwheel/"
+>http://jonatkins.org/imwheel/</ulink
+>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kaj pravzaprav sploh je imenik <filename class="directory"
+>Templates</filename
+>?</para>
+</question>
+<answer>
+<para
+>Imenik <filename class="directory"
+>Templates</filename
+> vsebuje elemente, ki jih lahko preprosto ustvarite vsepovsod (na namizju ali v oknu datotečnega upravljalnika) z izbiro <guisubmenu
+>New</guisubmenu
+> iz kontekstnega menuja (menu <mousebutton
+>desnega</mousebutton
+> klika) na mestu, kjer želite, da naj bo.</para>
+<para
+>V imenik <filename class="directory"
+>Templates</filename
+> lahko postavite tako datoteke kot podimenike in samodejno se bodo pojavili v podmenuju <guisubmenu
+>New</guisubmenu
+>. Ko jih izberete iz podmenuja se prepišejo na trenutno lokacijo.</para>
+<para
+>To je tako, kot da bi odprli imenik <filename class="directory"
+>Templates</filename
+> in iz njega prepisali elemente, le da je nekoliko preprostejše. Privzeto naseljujejo imenik <filename class="directory"
+>Templates</filename
+> le datoteke <filename
+>.desktop</filename
+>. Te datoteke so tam zato, da vam omogočajo takojšnji pričetek ustvarjanja naprav, programov, &URL; povezav in novih zvrsti &MIME;, vendar pa lahko tja postavite kar želite.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Zakaj ne morem usposobiti sistemskega zvoka, za na primer odpiranje oken?</para>
+</question>
+<answer>
+<para
+>Sistemski zvoki trenutno na ne-FreeBSD in ne-&Linux; sistemih ne delajo. Težavo se skuša odpraviti. Če uporabljate FreeBSD ali &Linux;, potem ste našli hrošča, zato ga prosim sporočite.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako zaženem program na določeno namizje?</para>
+</question>
+<answer>
+<para
+>&kde; 1.1 in novejši vsebujejo program po imenu &kstart;. V datoteki <filename
+>.kdelnk</filename
+> (<filename
+>.desktop</filename
+> za &kde; 2) ga lahko uporabite tako:</para>
+<screen>
+Name=Netscape
+Exec=kstart "netscape" -window ".*Netscape.*" -desktop 2 -maximize
+BinaryPattern=netscape;
+Icon=netscape.xpm
+Path=
+Type=Application
+Terminal=0
+</screen>
+<para
+>Ali pa poženete le naslednje: <command
+>kstart <option
+>"netscape" -desktop 2 -activate</option
+></command
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Poigral sem se s pisavami v Nadzornem središču &kde;, vendar pa so te še vedno premajhne. Kaj lahko storim?</para>
+</question>
+<answer>
+<para
+>Mnogi uporabniki privzeto uporabljajo pisave ločljivosti 75 <acronym
+>dpi</acronym
+>. Če imate nameščene pisave 100 <acronym
+>dpi</acronym
+>, poskrbite, da ima datoteka <filename
+>XF86Config</filename
+> te pisave naštete pred pisavami 75 <acronym
+>dpi</acronym
+>. Korak za korakom bomo opisali, kako to naredite:</para>
+<procedure
+> <step performance="required"
+><para
+>Odprite <filename
+>/etc/X11/XF86Config</filename
+> s pomočjo vašega najljubšega urejevalnika.</para
+></step
+> <step performance="required"
+><para
+>Pri vrhu je več vrstic obsegajoč seznam pisav: type1, speedo, <abbrev
+>itd.</abbrev
+>, na dnu pa sta dva vnosa: 75dpi in 100dpi. Zamenjajte njun vrstni red. In ko že počnete ravno to, premaknite še pisave Type 1 na dno seznama (ali pa nekam pod 75 in 100 <acronym
+>dpi</acronym
+>). To prav tako poskrbi za izboljšanje!</para
+></step
+> </procedure>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Je možno razširiti menuje namiznih ikon?</para>
+</question>
+<answer>
+<para
+>Da. Dodati morate le applnk za zahtevan ukaz v <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/applnk</filename
+>, ali pa uporabiti &kmenuedit;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Se lahko znebim ikon <guiicon
+>Trash</guiicon
+>/<guiicon
+>Templates</guiicon
+>/<guiicon
+>Autostart</guiicon
+>?</para>
+</question>
+<answer>
+<para
+>Da. Odprite <application
+>Nadzorno središče &kde;</application
+> in izberite <guisubmenu
+>Namizje</guisubmenu
+> (pod <guimenu
+>Videz in občutek</guimenu
+> v levem oknu. Tu lahko vnesete nove poti za te elemente in &kde; jih bo samodejno premaknil na nov naslov.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kje moram shraniti datoteke, če želim, da se pojavijo neposredno na namizju?</para>
+</question>
+<answer>
+<para
+><filename class="directory"
+>$<envar
+>HOME</envar
+>/Desktop</filename
+>. Potem ko ste shranili datoteke, boste morda morali osvežiti namizje.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

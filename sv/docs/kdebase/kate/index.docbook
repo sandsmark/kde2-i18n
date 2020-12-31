@@ -1,0 +1,1357 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kate;"
+><!-- replace kapp here -->
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Swedish "INCLUDE"
+><!-- change language only here -->
+<!-- Do not define any other entities; instead, use the entities
+from kde-genent.entities and $LANG/user.entities. -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book lang="&language;">
+<title
+>Handbok &kate;</title>
+
+<bookinfo>
+<authorgroup
+>   
+<author
+> <firstname
+>Seth</firstname
+> <surname
+>Rothberg</surname
+> <affiliation
+><address
+><email
+>sethmr@bellatlantic.net</email
+></address
+></affiliation
+> </author>
+</authorgroup>
+
+<othercredit role="translator"
+> <firstname
+>Johan</firstname
+> <surname
+>Thelmén</surname
+> <affiliation
+><address
+><email
+>jth@home.se</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+
+<copyright>
+<year
+>2000</year>
+<year
+>2001</year>
+<holder
+>Seth M. Rothberg</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!-- Date and version information of the documentation
+Don't forget to include this last date and this last revision number, we
+need them for translation coordination !
+Please respect the format of the date (DD/MM/YYYY) and of the version
+(V.MM.LL), it could be used by automation scripts.
+Do NOT change these in the translation. -->
+
+<date
+>2001-05-30</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kate; är en editor för programmerare. Den kräver KDE 2.2 eller senare.</para>
+
+<para
+>Denna handbok gäller för &kate; version 1.0</para>
+</abstract>
+
+<!-- This is a set of Keywords for indexing by search engines.
+Please at least include KDE, the KDE package it is in, the name
+of your application, and a few relevant keywords. -->
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>Kate</keyword>
+<keyword
+>text</keyword>
+<keyword
+>editor</keyword>
+<keyword
+>programmerare</keyword>
+<keyword
+>programmering</keyword>
+<keyword
+>projekt</keyword>
+<keyword
+>MDI</keyword>
+<keyword
+>Multi</keyword>
+<keyword
+>Dokument</keyword>
+<keyword
+>Gränssnitt</keyword>
+<keyword
+>terminal</keyword>
+<keyword
+>konsoll</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduktion</title>
+
+<para
+> Välkommen till &kate;, en texteditor för programmerare till &kde; 2.2 eller senare. Några av finesserna med &kate; är inställbar syntaxbelysning för programmeringsspråk som C, C++, <acronym
+>HTML</acronym
+> och bashskript, möjlighet att skapa och underhålla projekt, hantera flera öppna dokument (multiple document interface) (<acronym
+>MDI</acronym
+>) och en inbyggd terminalemulator. </para>
+
+<para
+> Men &kate; är mer än en texteditor för programmerare. Möjligheten att öppna flera filer samtidigt gör den lämplig för redigering av inställningsfiler i tex &UNIX;-system.  Denna text skrevs ursprungligen med &kate;. </para>
+</chapter>
+
+<chapter id="fundamentals">
+<title
+>Grunderna</title>
+
+<para
+> Har du använt en ordbehandlare tidigare kommer du inte få några problem med &kate;. I nästa två avsnitt, <link linkend="starting-kate"
+>Starta &kate; </link
+> och <link linkend="working-with-kate"
+>Arbeta med &kate;</link
+> kommer vi visa dig allt du behöver för att snabbt komma igång. </para>
+
+<sect1 id="starting-kate">
+<title
+>Starta &kate;</title>
+
+<para
+> Du kan starta &kate; från <guimenu
+>KDE:s programmeny</guimenu
+> eller från kommandoraden. </para>
+
+<sect2 id="starting-from-the-menu">
+<title
+>Från menyn</title>
+<para
+> Öppna <acronym
+>KDE</acronym
+>:s programmeny genom att klicka på den <guiicon
+>stora K</guiicon
+>-ikonen längst ner till vänster på skärmen. Då kommer <guimenu
+>programmenyn</guimenu
+> att dyka upp. Flytta pekaren uppåt till undermenyn <guimenu
+>Editorer</guimenu
+>. Det kommer då fram en lista med editorer. Välj sedan <guimenuitem
+>&kate;</guimenuitem
+>. </para>
+
+<para
+> De filer som var öppna när &kate; avslutades kommer att automatiskt öppnas om du inte har ändrat den inställningen. Se <link linkend="configure"
+>Anpassa &kate;</link
+> för att se hur man använder denna funktion. </para>
+
+</sect2>
+
+<sect2 id="starting-from-the-command-line">
+<title
+>Från kommandoraden</title>
+
+<para
+> Du kan starta &kate; genom att skriva namnet på kommandoraden. Lägger man till ett filnamn som argument som i exemplet nedan kommer den filen att öppnas eller skapas. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate</command
+> <option
+><replaceable
+>minfil.txt</replaceable
+></option
+></userinput>
+</screen
+> </informalexample>
+
+<para
+> Har du en aktiv Internetanslutning och rättigheter, kan du utnyttja det transparenta nätverksstödet i &kde; för att öppna filer på Internet. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate</command
+> <option
+><replaceable
+>ftp://ftp.kde.org/pub/kde/README_FIRST</replaceable
+></option
+></userinput>
+</screen
+> </informalexample>
+
+<sect3 id="command-line-options">
+<title
+>Argument på kommandoraden</title>
+<para
+>&kate; godtar följande argument på kommandoraden:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help</option
+></userinput
+></term
+> <listitem
+> <para
+> Visar de vanligaste argumenten. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-qt</option
+></userinput
+></term
+> <listitem
+> <para
+> Ändrar hur &kate; fungerar med &Qt;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-kde</option
+></userinput
+></term
+> <listitem
+> <para
+> Ändrar hur &kate; fungerar med &kde;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-all</option
+></userinput
+></term
+> <listitem
+> <para
+> Alla argument för kommandoraden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--author</option
+></userinput
+></term
+> <listitem
+> <para
+> Visar upphovsmännen till &kate; i terminalfönstret. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--version</option
+></userinput
+></term
+> <listitem
+> <para
+> Visar versioner av &Qt;, &kde; och &kate;. Samma gäller <userinput
+><command
+>kate</command
+> <option
+>-V</option
+></userinput
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--licence</option
+></userinput
+></term
+> <listitem
+> <para
+> Visar licensen. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+</sect2>
+
+<sect2 id="drag-and-drop">
+<title
+>Drag och släpp</title>
+<para
+> &kate; använder &kde;:s protokoll för drag och släpp. Man kan dra och släppa filer på &kate; från skrivbordet, &konqueror; eller någon ftp-plats som är öppnad i något av &konqueror;s fönster. </para>
+</sect2>
+</sect1>
+
+<sect1 id="working-with-kate">
+<title
+>Arbeta med &kate;</title>
+<para
+> <link linkend="quick-start"
+>Snabbstart</link
+> visar dig hur enkelt du kan göra inställningar med fyra enkla alternativ ställa in flera kraftfulla specialiteter i &kate;.<link linkend="keystroke-commands"
+> Snabbtangenter</link
+> visar några förvalda snabbtangentgenvägar för de som inte kan eller vill använda musen. </para>
+
+<sect2 id="quick-start">
+<title
+>Snabbstart</title>
+
+<para
+> Avsnittet beskriver menyvalen i <guimenu
+>Inställningsmenyn</guimenu
+>. Då kan du snabbt göra inställningarna så att &kate; fungerar precis som du vill. </para>
+
+<para
+> När du startat &kate; för första gången ser man två fönster. Ovanför finns en verktygsrad med standardikoner. Samt menyraden ovanför denna. </para>
+
+<para
+> Fönstret till vänster är ett verktygsfält som är flyttbart. Det kombinerar fillistan och filväljaren i ett fönster. För att välja mellan de två klickar man på flikarna överst i fönstret. </para>
+
+<para
+> Har du startat &kate; med en fil, kommer det högra fönstret visa denna fil för redigering och i fillistan kommer filnamnet att visas. Via filväljarfönstret kan man öppna fler filer. </para>
+
+<para
+> Fillist- och filväljarfönstret kan stängas och öppnas via menyn <guimenu
+>Inställningar</guimenu
+>. Denna meny kommer visa dig kraften och flexibiliteten i &kate;. Nu kommer vi att titta på fyra menyval. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Visa <accel
+>V</accel
+>erktygsrad</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Visar eller gömmer verktygsraden.  </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenuitem
+>Visa fillistan</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Visar eller gömmer fillistan. Då fönstret för fillistan eller filväljaren inte är öppet kommer &kate; öppna verktygsfönstret som ett separat odockat fönster. För att docka fönstret klicka på de två övre tunna parallella linjerna och genom att hålla ner vänster musknapp. Drag till editor fönstret i &kate; och släpp vänster musknapp när du tycker att det ligger bra till. </para
+> <tip
+> <para
+> När du tagit tag i de parallella linjerna riktigt kommer muspekaren att bytas mot ett kors av fyra pilar medan du drar verktygsfältet. </para
+> </tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Visa filväljare</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Visar eller gömmer filväljaren. Detta menyval är samma som <guimenuitem
+>Visa fillista</guimenuitem
+> förutom att filväljarfliken är överst. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Visa <accel
+>K</accel
+>onsoll</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Visar eller gömmer en konsoll i  nedre delen av &kate;. Med andra ord får du en kommandorad inbäddad i programmet. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="keystroke-commands">
+<title
+>Snabbtangentkommandon</title>
+
+<para
+> Många av snabbtangenterna i &kate; är konfigurerbara i menyn <link linkend="settings"
+>Inställningar</link
+>. Vanligtvis har &kate; följande snabbtangenter. </para>
+
+<informaltable>
+<tgroup cols="2">
+<tbody
+> <row
+><entry
+><para
+><keycap
+>Infoga (Insert)</keycap
+></para
+></entry
+> <entry
+><para
+> Skiftar mellan lägena Infoga och Skriv över. I läget Infoga kommer skrivna tecken infogas och skjuta efterföljande text till höger om markören. När man skriver ett tecken i läget Skriv över kommer tecknet alldeles till höger om markören ersättas av det du skrev.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Pil vänster</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Flyttar markören ett tecken till vänster </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Pil höger</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyttar markören ett tecken till höger </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Pil upp</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyttar markören en rad upp </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Pil ner</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyttar markören en rad ner </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Sida upp (Page Up)</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyttar markören upp en sida </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Sida ner (Page Down)</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Flyttar markören ned en sida </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Backsteg (Backspace)</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Tar bort tecknet till vänster om markören </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Hem (Home)</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyttar markören till början av raden </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>End</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Flyttar markören till slutet på raden </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ta bort (Delete)</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Tar bort tecknet till höger om markören eller markerad text.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Skift</keycap
+><keycap
+>Pil vänster</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Markerar ett tecken till vänster </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Skift</keycap
+><keycap
+>Pil höger</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Markerar ett tecken till höger </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Hjälp</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Skift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="whats-this"
+>Vad är det här? </link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find"
+> Sök</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F3</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find-again"
+> Sök igen</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+> Ctrl</keycap
+><keycap
+>B</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Skapar ett bokmärke</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Kopierar den markerade texten till klippbordet. </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> <link linkend="new"
+>Nytt</link
+> dokument</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="print"
+>Skriv ut</link
+> </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Avslutar - Stänger aktuell editor </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+> Ctrl</keycap
+><keycap
+>R</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="replace"
+> Ersätt</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+> Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Sparar filen</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Klistrar in </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Tar bort markerad text och kopierar den till klippbordet. </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="undo"
+>Ångrar</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Skift</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="redo"
+>Gör om</link
+></para
+></entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-entries">
+<title
+>Menyposter</title>
+<sect1 id="file-menu">
+<title
+>Menyn <guimenu
+>Arkiv</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <anchor id="new"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>y</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Skapar ett nytt dokument</action
+> i redigeringsfönstret. Det nya filnamnet <emphasis
+>Namnlös</emphasis
+> visas i <guibutton
+>fillistan</guibutton
+> till vänster. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Ö<accel
+>p</accel
+>pna</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Öppna</action
+>r filväljaren i &kde; där du kan välja vilken fil du ska öppna. </para
+> <para
+> Fildialogfönstret Öppna kan man också använda som en enkel variant av &konqueror;. Markera filer genom att klicka på filnamnet med vänster musknapp. Dubbelklicka på ett filnamn för att öppna denna fil direkt. När du markerat ett filnamn kan du trycka på <guibutton
+>OK</guibutton
+> för att öppna denna fil. </para
+> <tip
+> <para
+> Markera flera filer genom att hålla ned <keycap
+>Ctrl</keycap
+> eller <keycap
+>Skift</keycap
+> knappen samtidigt som vänster musknapp . <keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><mousebutton
+>Vänster</mousebutton
+> </keycombo
+> klick markerar en fil i taget. <keycombo action="simul"
+> <keycap
+>Skift</keycap
+><mousebutton
+>Vänster</mousebutton
+> </keycombo
+> klick markerar filerna mellan markeringarna. </para
+> </tip
+> <para
+> Klickar man på en katalog öppnas den och innehållet visas. Markerar man en fil kommer den förhandsgranskas i fönstret till höger. </para
+> <para
+> Använd knapparna och listboxen i verktygsraden ovanför fildialogfönstret för att navigera i filsystemet eller ändra egenskaperna för dialogrutan. </para
+> <para
+> Under filvalsfönstret finns Platsfältet. Där kan du skriva filnamnet på filen du vill redigera. Du kan välja från de senaste använda filerna genom att klicka på pilen till höger i fältet. För att öppna flera filer samtidigt måste man "citera" varje filnamn. </para
+> <para
+> Under platsfältet finns filterfältet. Här kan du skriva in en söksträng för vilka filer som ska visas i filvalsfönstret. Till exempel skriv <literal role="extension"
+>*.txt</literal
+> och tryck <keycap
+>Enter</keycap
+> då kommer bara filer som bara slutar på <literal role="extension"
+>.txt</literal
+> att visas. Du kan välja bland de senaste söksträngarna genom att trycka på pilen till höger i filterfältet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-recent"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Öppna s<accel
+>e</accel
+>naste</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Öppnar en undermeny med senast redigerade filer. Väljer du en fil kommer den att <action
+>öppnas</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>para</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Sparar din fil</action
+>. Viktigt kommando, använd det ofta. Är filen ny och <emphasis
+>Namnlös</emphasis
+> kommer istället för <guimenuitem
+>Spara</guimenuitem
+> att <guimenuitem
+>Spara som</guimenuitem
+> att användas. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-as"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Spara s<accel
+>o</accel
+>m</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Detta öppnar dialogrutan för att spara filen. Här kan du också <action
+>ge filen ett nytt namn</action
+>. Dialogrutan Spara som fungerar precis som dialogrutan Öppna. Du kan navigera i filsystemet, förhandsgranska och filtrera med söksträngar. </para
+> <para
+> Skriv filnamnet för filen du ska spara i platsfältet och tryck på knappen <guibutton
+>OK</guibutton
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-all"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Spara A<accel
+>l</accel
+>la</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Sparar alla öppna filer</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="reload"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+><accel
+>Å</accel
+>terinladda (Uppdatera)</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Återinladdar aktuell fil genom att öppna den från disk igen</action
+>. Detta är användbart om du har haft filen öppen i &kate; länge och något annat program har ändrat innehållet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-with"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Ö<accel
+>p</accel
+>pna med</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Öppnar aktuell fil i annat program. I undermenyn <action
+>väljer du vilket program du vill öppna filen i</action
+>. Aktuell fil kommer fortfarande att vara öppen i &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="print"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Skriv <accel
+>u</accel
+>t...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Skriver ut aktuell fil</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Stän<accel
+>g</accel
+></guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Stänger aktuell fil</action
+>. Har du gjort förändringar och inte sparat dessa, kommer du att få en fråga om du vill spara ändringarna innan &kate; stänger filen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close-all"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>täng alla</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Stänger alla filer som du har öppna</action
+> i &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="new-window"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Nytt <accel
+>f</accel
+>önster</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Öppnar ytterligare en kopia av &kate; fönstret</action
+>. Den nya kopian är identiskt med original kate. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="quit"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>vsluta</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Avslutar &kate;</action
+> och alla filer som redigerades. Har du osparade ändringar, får du frågor om att spara dessa. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="configuring-kate">
+<title
+>Anpassa Kate</title>
+<para
+> <anchor id="settings"/> <anchor id="configure"/> <anchor id="whats-this"/> <anchor id="find"/> <anchor id="find-again"/> <anchor id="replace"/> <anchor id="undo"/> <anchor id="redo"/> Detta avsnitt kommer att visa alla inställningar till &kate;. </para>
+</chapter>
+
+<chapter id="credits">
+
+<!-- Include credits for the programmers, documentation writers, and
+contributors here. The license for your software should then be included
+below the credits with a reference to the appropriate license file
+included in the KDE distribution. -->
+
+<title
+>Tack till och Licens</title>
+
+<para
+> &kate; Copyright 2000, 2001, Christoph Cullmann. </para>
+
+<!-- To save you some work, here's Kate's author list (I could mark it -->
+<!-- up too if you want, I just didn't want to interfere too much :) -->
+
+<!-- 
+Kate was written by
+Christoph Cullmann <cullmann@kde.org>
+Anders Lund <anders@alweb.dk>
+Joseph Wenninger <jowenn@bigfoot.com>
+Michael Bartl <michael.bartl1@chello.at>
+Phlip <phlip_cpp@my-deja.com>
+Waldo Bastian <bastian@kde.org>
+Matt Newell <newellm@proaxis.com>
+Michael McCallum <gholam@xtra.co.nz>
+Jochen Wilhemly <digisnap@cs.tu-berlin.de>
+Michael Koch <koch@kde.org>
+Christian Gebauer <gebauer@bigfoot.com>
+Simon Hausmann <hausmann@kde.org>
+Glen Parker <glenebob@nwlink.com>
+Scott Manson <sdmanson@alltel.net>
+John Firebaugh <jfire@uclink.berkeley.edu>
+-->
+
+<para
+> Dokumentation copyright 2000,2001 Seth Rothberg, <email
+>sethmr@bellatlantic.net</email
+> </para>
+
+<para
+>Översättning Johan Thelmén <email
+>jth@linux.nu</email
+> 2001-07-13</para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underGPL;               <!-- GPL License -->
+
+</chapter>
+
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-namecase-general: t
+sgml-namecase-entity: nil
+sgml-general-insert-case: lower
+sgml-minimize-attributes: nil
+sgml-omittag: nil
+End:
+-->
+
+
+

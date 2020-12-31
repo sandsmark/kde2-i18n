@@ -1,0 +1,1479 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kontour;;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Manuel de &kontour;</title>
+<mediaobject
+> <imageobject
+><imagedata fileref="logo.png"/></imageobject
+> <textobject
+><phrase
+>Logo de &kontour;</phrase
+></textobject
+> </mediaobject>
+<author
+> <firstname
+>Hagen</firstname
+> <surname
+>Höpfner</surname
+> <affiliation
+> <address
+><email
+>Hagen.Hoepfner@gmx.de</email
+></address
+> </affiliation
+> </author>
+<date
+>1999-11-08</date>
+<releaseinfo
+>0.07.01</releaseinfo>
+<abstract>
+<para
+>Ce manuel décrit &kontour; Version 0.7.1 par Kai-Uwe Sattler.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Kontour</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<para
+>Le but du projet &kontour; est de créer un logiciel de dessin vectoriel doté d'une interface comparable à Corel Draw&reg; ou Adobe Illustrator&reg;.  </para>
+
+<sect1 id="about-the-author">
+<title
+>À propos de l'auteur</title>
+
+<para
+>L'auteur de &kontour; est Kai-Uwe Sattler.  </para>
+</sect1>
+
+<sect1 id="history-of-kontour">
+<title
+>Histoire de &kontour;</title>
+
+<para
+>De la page officielle de &kontour;&nbsp;:</para>
+
+<para
+>«&nbsp;J'ai commencé ce projet parce que j'étais fatigué de toujours lancer Windows afin d'utiliser un utilitaire de dessin moderne pour dessiner des illustrations pour des rapports ou des présentations. Maintenant, les librairies Qt et le projet KDE offrent une base parfaite pour ce genre d'application pour Linux, mais aussi pour les autres Unix.&nbsp;» </para>
+
+<para
+>Chronologie des révisions&nbsp;: </para>
+
+<para
+><itemizedlist
+> <listitem
+> <para
+>25/03/1998 Première version d'essai disponible </para
+> </listitem
+> <listitem
+> <para
+>21/04/1998 Deuxième version d'essai disponible </para
+> </listitem
+> <listitem
+> <para
+>23/04/1998 instantané 0.2.1 (Seulement suppression de bogues) </para
+> </listitem
+> <listitem
+> <para
+>
+>02/06/1998 instantané 0.3 disponible </para
+> </listitem
+> <listitem
+> <para
+>10/08/1998 instantané 0.4 disponible </para
+> </listitem
+> <listitem
+> <para
+>28/08/1998 instantané 0.4.1 disponible </para
+> </listitem
+> <listitem
+> <para
+>06/11/1998 instantané 0.5 disponible </para
+> </listitem
+> <listitem
+> <para
+>05/01/1999 instantané 0.6 disponible </para
+> </listitem
+> <listitem
+> <para
+>29/01/1999 instantané 0.6.1 disponible (Seulement suppression de bogues) </para
+> </listitem
+> <listitem
+> <para
+>09/02/1999 instantané 0.6.2 disponible </para
+> </listitem
+> <listitem
+> <para
+>24/02/1999 instantané 0.6.3 disponible </para
+> </listitem
+> <listitem
+> <para
+>06/04/1999 instantané 0.6.4 disponible (Seulement suppression de bogues) </para
+> </listitem
+> <listitem
+> <para
+>09/04/1999 instantané 0.6.5 disponible (Seulement suppression de bogues)</para
+> </listitem
+> <listitem
+> <para
+>15/07/1999 instantané 0.7 disponible</para
+> </listitem
+> <listitem
+> <para
+>19/10/1999 instantané 0.7.1 disponible</para
+> </listitem
+> </itemizedlist
+> </para>
+</sect1>
+
+<sect1 id="about-the-handbook">
+<title
+>À propos de ce manuel</title>
+
+<para
+>Ce manuel se réfère principalement à la version isolée de &kontour;. Il ne contient pas d'informations spéciales relatives à &kontour; comme composant de KOffice. Malgré cela, les informations présentées ici s'appliquent aussi pour la plupart au composant KOffice. </para>
+
+<para
+>Ce document est une traduction de la version originale par Hagen Höpfner. </para>
+
+<para
+>Vous trouverez la version originale sur <ulink url="http://www.cs.uni-magdeburg.de/~hoepfner/kde.html"
+>sa page personnelle</ulink
+>.</para>
+
+<para
+>Version originale en allemand&nbsp;: Hagen Höpfner,<ulink url="mailto:Hagen.Hoepfner@gmx.de"
+>Hagen.Hoepfner@gmx.de</ulink
+></para>
+
+<para
+>Traduction anglaise&nbsp;: Ben Skelton, <ulink url="mailto:skeltobc@elec.canterbury.ac.nz"
+>skeltobc@elec.canterbury.ac.nz</ulink
+> and Winter Laite, <literal
+><ulink url="mailto:winlaite@lobo.net"
+>winlaite@lobo.net</ulink
+></literal
+></para>
+</sect1>
+</chapter>
+
+<chapter id="installation">
+<title
+>Installation</title>
+
+<sect1 id="how-to-obtain-kontour">
+<title
+>Comment obtenir &kontour;</title>
+
+<para
+>La version la plus récente de &kontour; se trouve sur le serveur CVS sur le <ulink url="http://www.kde.org"
+>le site Internet de KDE</ulink
+>.</para>
+</sect1>
+
+<sect1 id="system-requirements">
+<title
+>Ce qu'il vous faut avant d'installer</title>
+
+<para
+>&kontour; est toujours en très forte phase de développement et utilise généralement les dernières versions stables des paquetages susmentionnés. Ces paquetages nécessitent eux-mêmes une configuration matérielle qui ne sera pas répétée ici.</para>
+
+<para
+>Pour l'installation, il vous faut les paquetages suivants&nbsp;: </para>
+
+<para
+><itemizedlist
+> <listitem
+> <para
+>KDE 1.1</para
+> </listitem
+> <listitem
+> <para
+>QT 1.41</para
+> </listitem
+> <listitem
+> <para
+>gcc 2.8.x ou egcs 1.x</para
+> </listitem
+> </itemizedlist
+> </para>
+</sect1>
+
+<sect1 id="compilation-and-installation">
+<title
+>Compilation et installation</title>
+
+<para
+>Pour compiler le code source de &kontour;, suivez ces instructions&nbsp;: </para>
+
+<para
+><orderedlist
+><listitem
+> <para
+>Dépaquetez l'archive tar <literal
+>tar xfvz &kontour;.tar.gz</literal
+></para
+> </listitem
+> <listitem
+> <para
+>Allez dans le dossier du code source <literal
+>cd &kontour;</literal
+></para
+> </listitem
+> <listitem
+> <para
+>Vérifiez les dépendances et créez les Makefiles <literal
+>./configure</literal
+></para
+> </listitem
+> <listitem
+> <para
+>Compilez le code source <literal
+>make all</literal
+></para
+> </listitem
+> </orderedlist
+> </para>
+
+<para
+>Si l'utilisateur a les droits du super-utilisateur (ROOT), il peut installer &kontour; dans les dossiers de KDE en saisissant <literal
+>make install</literal
+></para>
+
+<para
+>Kontour a été installé avec succès sur les plates-formes suivantes&nbsp;:</para>
+
+<para
+><itemizedlist
+> <listitem
+> <para
+>RedHat 5.1 (Hagen Höpfner)</para
+> </listitem
+> <listitem
+> <para
+>RedHat 5.2 (Hagen Höpfner)</para
+> </listitem
+> <listitem
+> <para
+>SuSE 6.0 (Hagen Höpfner) </para
+> </listitem
+> <listitem
+> <para
+>SuSE 6.1 Cebit Beta (Hagen Höpfner)</para
+> </listitem
+> <listitem
+> <para
+>SuSE 6.1 (Hagen Höpfner)</para
+> </listitem
+> <listitem
+> <para
+>SuSE 6.2 (Joachim Ansorg) </para
+> </listitem
+> </itemizedlist
+> </para>
+
+<para
+>Si vous rencontrez des problèmes, adressez vous à Hagen.</para>
+</sect1>
+
+<sect1 id="installation-of-binary-packages">
+<title
+>Installation d'exécutables</title>
+
+<para
+>L'installation de paquetages pré-compilés sous Linux dépend du format de ceux-ci. &kontour; est disponible en paquetages rpm et deb. Pour réussir votre installation, assurez-vous de choisir le bon format pour votre système. Premièrement, quelques définitions&nbsp;: </para>
+
+<para
+><itemizedlist
+> <listitem
+> <para
+><literal
+>NOMFICHIER</literal
+> = nom du fichier paquetage (par ex.&nbsp;: <literal
+>&kontour;&lowbar;0.6.5-1&lowbar;i386.deb</literal
+>)</para
+> </listitem
+> <listitem
+> <para
+><literal
+>NOMPAQUETAGE</literal
+> = nom du paquetage créé (habituellement <literal
+>&kontour;</literal
+>)</para
+> </listitem
+> </itemizedlist
+> </para>
+
+<sect2 id="rpm">
+<title
+>rpm</title>
+
+<para
+>Pour installer un paquetage <literal
+>rpm</literal
+>, utiliser la commande<literal
+>rpm -i NOMFICHIER</literal
+>. Vous pourrez désinstaller le paquetage en saisissant <literal
+>rpm -e NOMPAQUETAGE</literal
+>.</para>
+</sect2>
+
+<sect2 id="deb">
+<title
+>deb</title>
+
+<para
+>Pour les paquetages <literal
+>deb</literal
+>, la commande d'installation est <literal
+>dpkg -i NOMFICHIER</literal
+> et la désinstallation se fait avec <literal
+>dpkg -r NOMPAQUETAGE</literal
+>.</para>
+
+<para
+>Dans les deux cas, les privilèges du super-utilisateur (ROOT) seront certainement nécessaires.</para>
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="usage">
+<title
+>Utilisation</title>
+
+<sect1 id="some-general-remarks-">
+<title
+>Quelques remarques d'ordre général  </title>
+
+<para
+>L'utilisation de &kontour; est intuitive et facile à apprendre. Elle est très semblable aux autres programmes graphiques. &kontour; utilise <link linkend="shortcut"
+>les raccourcis claviers</link
+> qui sont <ulink url="http://www.kde.org/standards.html"
+>les standards KDE</ulink
+>.</para>
+
+<para
+>De plus, enfoncer la touche Ctrl en bougeant la souris force un mouvement équivalent dans toutes les directions. Par exemple, appuyer sur la touche Ctrl en dessinant un rectangle dessine un carré.</para>
+
+<para
+>Certaines fonctions peuvent, bien sûr, être utilisée sur plus d'un item à la fois.</para>
+</sect1>
+
+<sect1 id="drawing-2d-primitives">
+<title
+>Dessiner des primitives 2D</title>
+
+<para
+>La procédure pour dessiner n'importe quelle primitive 2D comprend les étapes suivantes&nbsp;: </para>
+
+<para
+><orderedlist
+><listitem
+> <para
+>Choisissez le type d'objet que vous voulez dessiner</para
+> </listitem
+> <listitem
+> <para
+>Dessinez l'objet</para
+> </listitem
+> </orderedlist
+> </para>
+
+<para
+>La deuxième étape varie suivant chaque primitive 2D différente. Donc, elles sont expliquées séparément dans la suite, où les opérations sont montrées avec l'icône du bouton qui doit être cliqué pour choisir cette fonction.  </para>
+
+<sect2 id="fh">
+<title
+>Outil à main levée</title>
+
+<para
+> <mediaobject
+><imageobject
+><imagedata fileref="freehand.png" format="PNG"/></imageobject
+></mediaobject
+> Pour dessiner à main levée, on procède comme suit&nbsp;: </para>
+
+<para
+><orderedlist
+><listitem
+> <para
+>Cliquez du bouton gauche (et gardez appuyé) sur le canevas à l'endroit où la ligne doit commencer.</para
+> </listitem
+> <listitem
+> <para
+>Dessinez la ligne en déplaçant la souris en maintenant le bouton gauche enfoncé.</para
+> </listitem
+> <listitem
+> <para
+>Lâchez le bouton gauche quand le point final de la ligne est atteint.</para
+> </listitem
+> </orderedlist
+> </para>
+</sect2>
+
+<sect2 id="polyline-tool">
+<title
+>Outil ligne brisée</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="line.png" format="PNG"/></imageobject
+></mediaobject
+> Avec l'outil ligne brisée, on peut dessiner des lignes brisées et des polygones.  </para>
+
+<sect3 id="li">
+<title
+>Lignes simples</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="line.png" format="PNG"/></imageobject
+></mediaobject
+> Pour dessiner une ligne&nbsp;: <orderedlist
+><listitem
+> <para
+>Cliquez avec le bouton gauche de la souris sur le canevas au point où la ligne doit débuter.  </para
+> </listitem
+> <listitem
+> <para
+>Relâchez le bouton gauche et dessinez la ligne en déplaçant la souris.  </para
+> </listitem
+> <listitem
+> <para
+>Cliquez avec le bouton droit de la souris sur le canevas au point où la ligne doit finir.</para
+> </listitem
+> </orderedlist
+> </para>
+</sect3>
+
+<sect3 id="pf">
+<title
+>Lignes brisées</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="line.png" format="PNG"/></imageobject
+></mediaobject
+> Une ligne brisée est une série de lignes jointives. Pour dessiner une ligne brisée, procédez comme suit&nbsp;: <orderedlist
+><listitem
+> <para
+>Cliquez avec le bouton gauche de la souris au point où la ligne brisée doit commencer</para
+> </listitem
+> <listitem
+> <para
+>Relâchez le bouton gauche et dessinez la première ligne</para
+> </listitem
+> <listitem
+> <para
+>Cliquez avec le bouton gauche de la souris au point où la ligne en cours finit et où la suivante commence </para
+> </listitem
+> <listitem
+> <para
+>Relâchez le bouton gauche de la souris et dessinez la ligne suivante  </para
+> </listitem
+> <listitem
+> <para
+>Continuez comme précédemment jusqu'à ce que la ligne finale soit dessinée, puis terminez en cliquant avec le bouton droit.</para
+> </listitem
+> </orderedlist
+> </para>
+</sect3>
+
+<sect3 id="gp">
+<title
+>Polygones</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="line.png" format="PNG"/></imageobject
+></mediaobject
+> Pour dessiner un polygone, commencez comme pour une ligne brisée. Pour clore le polygone, enfoncez la touche Maj au moment de cliquer avec le bouton droit. Une ligne commençant au dernier clic gauche et finissant au premier clic gauche sera automatiquement dessinée. </para>
+</sect3>
+</sect2>
+
+<sect2 id="be">
+<title
+>Outil courbe de Bezier</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="bezier.png" format="PNG"/></imageobject
+></mediaobject
+> Dessiner une courbe de Bezier est souvent un problème&nbsp;; cependant &kontour; facilite la chose. Procédez comme suit&nbsp;: <orderedlist
+><listitem
+> <para
+>Cliquez avec le bouton gauche de la souris sur le canevas au point d'origine de la courbe de Bézier </para
+> </listitem
+> <listitem
+> <para
+>Déterminez l'élévation du segment de courbe à ce point avec la ligne d'aide - cliquez avec le bouton gauche quand vous êtes satisfait  </para
+> </listitem
+> <listitem
+> <para
+>Cliquez avec le bouton gauche au point final de ce segment de ligne  </para
+> </listitem
+> <listitem
+> <para
+>Positionnez la ligne d'aide pour achever l'élévation désirée&nbsp;; si d'autres segments de courbe doivent être dessinés, cliquez avec le bouton gauche de la souris. Autrement, cliquez avec le bouton droit pour terminer la courbe.</para
+> </listitem
+> </orderedlist
+> </para>
+</sect2>
+
+<sect2 id="rectangle-tool">
+<title
+>Outil Rectangle</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="rect.png" format="PNG"/></imageobject
+></mediaobject
+> Pour dessiner un rectangle&nbsp;:<orderedlist
+><listitem
+><para
+>Cliquez avec le bouton gauche (et tenez) sur le canevas au point où un coin du rectangle doit être placé.</para
+></listitem
+><listitem
+><para
+>Dessinez le rectangle en déplaçant la souris en tenant le bouton gauche </para
+></listitem
+><listitem
+><para
+>Relâchez le bouton gauche pour terminer le rectangle</para
+></listitem
+> </orderedlist
+> Pour dessiner un carré, enfoncez la touche Ctrl avant de commencer à dessiner le rectangle. </para>
+</sect2>
+
+<sect2 id="regular-polygon-tool">
+<title
+>Outil de polygone régulier</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="polygon.png" format="PNG"/></imageobject
+></mediaobject
+> Cet outil permet le dessin facile de triangles équilatéraux, carrés et polygones réguliers de plus grand nombre de côtés. Il est plus facile d'utiliser cet outil que la ligne brisée pour dessiner des polygones réguliers La procédure est la suivante&nbsp;: </para>
+
+<para
+><orderedlist
+><listitem
+> <para
+>Faites un double clic gauche sur le bouton d'outil de polygone régulier  </para
+> </listitem
+> <listitem
+> <para
+>Une boîte de dialogue s'ouvre, proposant les réglages des paramètres <inlinemediaobject
+><imageobject
+><imagedata fileref="polygon-setup.png" format="PNG"/></imageobject
+></inlinemediaobject
+> </para
+> </listitem
+> <listitem
+> <para
+>Introduisez les paramètres ad hoc </para
+> </listitem
+> <listitem
+> <para
+>Cliquez avec le bouton gauche sur le bouton OK quand c'est fait </para
+> </listitem
+> <listitem
+> <para
+>Cliquez avec le bouton gauche (et maintenez) sur le canevas au point d'origine *  </para
+> </listitem
+> <listitem
+> <para
+>Zoomez le polygone à la taille désirée en bougeant la souris en maintenant le bouton gauche enfoncé  </para
+> </listitem
+> <listitem
+> <para
+>Relâchez le bouton gauche quand la taille désirée est atteinte</para
+> </listitem
+> </orderedlist
+> * Dans ce cas, le point d'origine est arbitraire. Pour un positionnement précis, utilisez l'outil de sélection.</para>
+</sect2>
+
+<sect2 id="el">
+<title
+>Outil Ellipse</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="ellipse.png" format="PNG"/></imageobject
+></mediaobject
+> Pour dessiner une ellipse, procédez comme suit&nbsp;:<orderedlist
+><listitem
+><para
+>Cliquez avec le bouton gauche (et tenez) sur un coin de la boîte limitante * de l'ellipse</para
+></listitem
+><listitem
+><para
+>Dessinez l'ellipse en bougeant la souris tout en tenant enfoncé le bouton gauche de la souris</para
+></listitem
+><listitem
+><para
+>Relâchez le bouton gauche quand l'ellipse a la taille désirée</para
+></listitem
+></orderedlist
+>Si un cercle doit être dessiné au lieu d'une ellipse, enfoncez le bouton Ctrl avant de dessiner l'ellipse. </para>
+
+<para
+>* La boîte limitante est un rectangle qui est juste assez grand pour contenir l'ellipse - les bords du rectangle sont tangents (parallèles aux axes x et y) de l'ellipse.  </para>
+</sect2>
+
+<sect2 id="text-tool">
+<title
+>Outil texte</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="text.png" format="PNG"/></imageobject
+></mediaobject
+> Cet outil ajoute de texte à votre dessin &kontour;. Les étapes sont les suivantes&nbsp;:<orderedlist
+><listitem
+><para
+> Cliquez avec le bouton gauche sur le canevas là où le texte doit commencer </para
+></listitem
+><listitem
+><para
+>Saisissez le texte</para
+></listitem
+></orderedlist
+>L'outil texte est actif tant que vous n'avez pas choisi un autre outil, ou un nouveau point sur le canevas pour saisir du texte supplémentaire comme à l'étape&nbsp;1. </para>
+</sect2>
+</sect1>
+
+<sect1 id="transformation-of-2d-primitives">
+<title
+>Transformation de primitives 2D</title>
+
+<para
+>&kontour; offre des outils qui vous autorisent à modifier facilement les primitives dessinées, comme zoomer, tourner et déplacer. Cette section décrit comment réaliser ces transformations.  </para>
+
+<sect2 id="rotation">
+<title
+>Rotation</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="pfeil.png" format="PNG"/></imageobject
+></mediaobject
+> Il s'agit des rotations autour d'un point central. Procédez comme suit&nbsp;: <orderedlist
+><listitem
+> <para
+>Cliquez avec le bouton gauche sur l'objet qui doit tourner. Le cadre de sélection apparaît autour de l'objet. Cliquez à nouveau avec le bouton gauche, et le cadre de transformation apparaît.  </para
+> </listitem
+> <listitem
+> <para
+>Cliquez avec le bouton gauche (et tenez) sur l'une des flèches de coin et tournez l'objet en bougeant la souris tout en tenant le bouton gauche.</para
+> </listitem
+> <listitem
+> <para
+>Relâchez le bouton de la souris</para
+> </listitem
+> </orderedlist
+> </para>
+</sect2>
+
+<sect2 id="scaling">
+<title
+>Zoomer</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="pfeil.png" format="PNG"/></imageobject
+></mediaobject
+> Le mode zoom permet d'augmenter ou de réduire la taille d'un objet. Pour zoomer un objet&nbsp;:<orderedlist
+><listitem
+><para
+>Cliquez avec le bouton gauche sur l'objet qui doit être zoomé. Le cadre de sélection apparaît.</para
+> </listitem
+><listitem
+><para
+>Cliquez avec le bouton gauche (et maintenez) sur un point du cadre de sélection dans la direction où l'objet doit être zoomé. </para
+></listitem
+><listitem
+><para
+>Zoomez l'objet en déplaçant la souris avec le bouchon gauche tenu enfoncé. </para
+></listitem
+><listitem
+><para
+>Relâchez le bouton.</para
+></listitem
+></orderedlist
+>Le zoom proportionnel peut être fait en tenant enfoncé le bouton Ctrl durant la troisième étape.  </para>
+</sect2>
+
+<sect2 id="shifting">
+<title
+>Déplacement</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="pfeil.png" format="PNG"/></imageobject
+></mediaobject
+> Pour déplacer un objet, procédez comme suit&nbsp;:<orderedlist
+><listitem
+><para
+>Cliquez avec le bouton gauche sur l'objet qui doit être déplacé</para
+></listitem
+><listitem
+><para
+>Avec le bouton gauche de la souris enfoncé, déplacez la souris pour repositionner l'objet</para
+></listitem
+><listitem
+><para
+>Relâchez le bouton gauche</para
+></listitem
+></orderedlist
+>Si vous tenez enfoncée la touche Ctrl, l'objet sera déplacé horizontalement ou verticalement seulement.</para>
+</sect2>
+
+<sect2 id="modifying-an-object">
+<title
+>Modifier un objet</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="point.png" format="PNG"/></imageobject
+></mediaobject
+> Dans les précédentes sections, les transformations de la totalité des objets a été présentée. Nous allons maintenant nous intéresser aux manipulations sur des parties d'objets. NOTE&nbsp;: avant que l'objet ne puisse être modifié, il doit être sélectionné en utilisant l'outil de sélection.  </para>
+
+<sect3 id="moving-points">
+<title
+>Déplacement des noeuds</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="movepoint.png" format="PNG"/></imageobject
+></mediaobject
+> Pour déplacer des points individuels dans un objet&nbsp;: <orderedlist
+><listitem
+> <para
+>Cliquez avec le bouton gauche (et tenez enfoncé) sur le noeud qui doit être déplacé  </para
+> </listitem
+> <listitem
+> <para
+>Avec le bouton gauche maintenu enfoncé, déplacez la souris pour repositionner le noeud.  </para
+> </listitem
+> <listitem
+> <para
+>Relâchez le bouton de la souris</para
+> </listitem
+> </orderedlist
+> </para>
+</sect3>
+
+<sect3 id="adding-points">
+<title
+>Ajouter des noeuds</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="newpoint.png" format="PNG"/></imageobject
+></mediaobject
+> Cet outil ajoute des points de contrôle à un objet. Pour ajouter un noeud, cliquez avec le bouton gauche sur l'objet à l'endroit où vous désirez le nouveau point de contrôle. </para>
+</sect3>
+
+<sect3 id="removing-points">
+<title
+>Enlever des noeuds</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="rmpoint.png" format="PNG"/></imageobject
+></mediaobject
+> Avec cet outil, on peut détruire les points de contrôle d'un objet---cliquez simplement avec le bouton gauche sur un noeud pour le supprimer. </para>
+</sect3>
+
+<sect3 id="filling-objects">
+<title
+>Emplir des objets</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="pfeil.png" format="PNG"/></imageobject
+></mediaobject
+> Pour emplir un objet de couleur, sélectionnez l'objet et cliquez avec le bouton gauche sur la couleur voulue dans la palette de couleurs. Si la couleur désirée n'est pas dans la palette ou si vous voulez peindre avec du dessin, procédez comme suit&nbsp;:<orderedlist
+><listitem
+><para
+>Sélectionnez l'objet à emplir.</para
+></listitem
+><listitem
+><para
+>Cliquez avec le bouton droit sur l'objet---un menu contextuel apparaît. </para
+></listitem
+><listitem
+><para
+>Sélectionnez le menu «&nbsp;Propriétés&nbsp;». </para
+></listitem
+><listitem
+><para
+>Sélectionnez l'onglet «&nbsp;Emplir&nbsp;» dans la boîte de dialogue. </para
+></listitem
+><listitem
+><para
+>Choisissez d'emplir avec une couleur unie, un dessin ou une couleur dégradée.</para
+></listitem
+></orderedlist
+>NOTE&nbsp;: pensez à choisir une couleur en cliquant les boutons de couleurs dans la boîte de dialogue ou bien il pourrait apparaître qu'il n'y a pas de remplissage.  </para>
+</sect3>
+</sect2>
+</sect1>
+
+<sect1 id="positioning-objects">
+<title
+>Placer les objets</title>
+
+<para
+>&kontour; offre de nombreuses manières de placer les objets. </para>
+
+<sect2 id="grid">
+<title
+>Grille</title>
+
+<para
+>La grille est une aide qui autorise l'utilisateur à travailler avec précision sur un dessin. Le comportement de la grille peut être contrôlé au moyen de trois fonctions (les parenthèses montrent les menus utilisés pour accéder aux fonctions)&nbsp;: <orderedlist
+><listitem
+><para
+>Montrer la grille (Affichage -&gt; Montrer grille), montre la grille dans le dessin. </para
+></listitem
+><listitem
+><para
+>Aligner sur la grille (Orientation -&gt; Coller à la grille),les objets suivent maintenant la grille.</para
+></listitem
+><listitem
+><para
+>Réglage de la grille (Orientation -&gt; Grille), configure la grille.</para
+> </listitem
+></orderedlist
+>Les première et deuxième fonctions peuvent être effectuées durant le réglage de distance de la grille en actionnant les boutons dans la boîte de dialogue de réglage de grille.  </para>
+</sect2>
+
+<sect2 id="helplines">
+<title
+>Lignes de guidage</title>
+
+<para
+>Les lignes de guidage fournissent un mécanisme supplémentaire à la grille quand un dessin précis est requis. L'avantage d'utiliser des lignes de guidage est que la distance entre les lignes de guidage peut varier. La procédure pour les lignes de guidage est identique à celle de la grille.</para>
+</sect2>
+
+<sect2 id="aligning-objects">
+<title
+>Aligner les objets</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="pfeil.png" format="PNG"/></imageobject
+></mediaobject
+> Cette fonction autorise l'alignement des objets en se respectant l'un l'autre et/ou de la page. Par exemple, un groupe d'objets peuvent être alignés de telle manière que leurs côtés gauches sont tous en ligne ou qu'ils soient distribués régulièrement sur toute la page. Choisissez les objets qui doivent être alignés et cliquez avec le bouton droit de la souris, sélectionnez «&nbsp;Aligner&nbsp;» du menu et la boîte de dialogue suivante apparaît&nbsp;:</para>
+
+<mediaobject
+><imageobject
+><imagedata fileref="align" format="PNG"/></imageobject
+></mediaobject>
+
+<para
+>NOTE&nbsp;: au moment où j'écris ces lignes, les fonctions d'alignement n'ont pas toutes été implémentées. J'espère qu'elles seront ajoutées bientôt. </para>
+</sect2>
+
+<sect2 id="aligning-text-along-a-path">
+<title
+>Aligner le texte le long d'un chemin</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="pfeil.png" format="PNG"/></imageobject
+></mediaobject
+> Si le chemin (en fait, un dessin quelconque) est déjà dessiné, on procède comme ceci&nbsp;: <orderedlist
+><listitem
+> <para
+>Sélectionnez le texte qui doit épouser la forme du dessin </para
+> </listitem
+> <listitem
+> <para
+>Choisissez «&nbsp;Texte le long du chemin&nbsp;» du menu «&nbsp;Arranger&nbsp;» </para
+> </listitem
+> <listitem
+> <para
+>Sélectionner l'objet qui doit être utilisé comme chemin avec un clic gauche (le bouton droit permet d'abandonner).</para
+> </listitem
+> </orderedlist
+> </para>
+
+<para
+>Les objets suivants peuvent être utilisés comme chemin&nbsp;: <itemizedlist
+> <listitem
+> <para
+><link linkend="fh"
+>Lignes à main levée</link
+></para
+> </listitem
+> <listitem
+> <para
+><link linkend="li"
+>Lignes</link
+>,<link linkend="pf"
+>Polylignes</link
+>,<link linkend="gp"
+>Polygones</link
+> </para
+> </listitem
+> <listitem
+> <para
+><link linkend="be"
+>Courbes de Bezier  </link
+></para
+> </listitem
+> <listitem
+> <para
+><link linkend="el"
+>Ellipses</link
+></para
+> </listitem
+> </itemizedlist
+> </para>
+</sect2>
+
+<sect2 id="grouping-of-objects">
+<title
+>Grouper les Objets&nbsp;:</title>
+
+<para
+>Les objets individuels peuvent être groupés ensemble. Ceci est utile si l'on veut assembler plusieurs objets pour les traiter ensuite comme un objet unique. Les objets sont groupés comme suit&nbsp;:<orderedlist
+><listitem
+><para
+>Sélectionnez les objets à grouper. De multiples objets peuvent être sélectionnés en les enfermant dans une boîte de sélection en utilisant l'outil de sélection et/ou en sélectionnant des objets en appuyant sur la touche MAJ. </para
+> </listitem
+><listitem
+><para
+>Choisissez «&nbsp;Grouper&nbsp;» du menu «&nbsp;Arranger&nbsp;».</para
+></listitem
+></orderedlist
+>Un objet groupé peut être séparé en ses constituants en sélectionnant le groupe et en choisissant «&nbsp;Dissocier&nbsp;» du menu «&nbsp;Arranger&nbsp;».  </para>
+</sect2>
+</sect1>
+
+<sect1 id="the-layer-concept">
+<title
+>Le concept de calque</title>
+
+<sect2 id="what-are-layers">
+<title
+>Que sont les calques&nbsp;?</title>
+
+<para
+>Les calques peuvent être imaginés comme des couches de papier transparent avec différents composants de l'ensemble dessinés sur chaque couche. Ensemble, les calques forment le dessin complet, mais chaque calque peut être édité séparément. Les calques sont contrôlés par les boîtes de dialogues des calques (Affichage -&gt; Calques...). Chaque calque a trois caractéristiques, représentées par des icônes en forme d'oeil, de stylo et d'imprimante respectivement&nbsp;:  </para>
+
+<para
+><itemizedlist
+> <listitem
+> <para
+>Visible&nbsp;: rend in/visible.</para
+> </listitem
+> <listitem
+> <para
+>Éditable&nbsp;: détermine si des changements peuvent être faits au calque. </para
+> </listitem
+> <listitem
+> <para
+>Imprimable&nbsp;: autorise l'impression du calque.</para
+> </listitem
+> </itemizedlist
+> </para>
+</sect2>
+
+<sect2 id="working-with-layers">
+<title
+>Travailler avec des calques</title>
+	<para
+></para>
+</sect2>
+</sect1>
+
+<sect1 id="working-with-files">
+<title
+>Travailler avec des fichiers</title>
+
+<sect2 id="saving-files">
+<title
+>Enregistrer des fichiers</title>
+
+<para
+>Il y a deux principales manières d'enregistrer un fichier&nbsp;: soit par le menu «&nbsp;Fichier&nbsp;», soit en cliquant sur l'icône disquette. Si vous venez de créer le dessin sur lequel vous travaillez et ne l'avez pas encore enregistré, il vous sera proposé une boîte de dialogue où vous pouvez choisir un nom. Cela arrivera quelle que soit celle des deux méthodes que vous utilisiez.</para>
+
+<mediaobject
+><imageobject
+><imagedata fileref="save_dialog.png" format="PNG"/></imageobject
+></mediaobject>
+
+<para
+>Si le fichier a déjà un nom, il sera utilisé à moins que vous ne choisissiez le menu «&nbsp;Enregistrer sous&nbsp;». Vous devriez TOUJOURS utiliser l'extension <literal 
+>.kil</literal
+>. C'est la seule manière de s'assurer que &kontour; n'aura pas de problème lorsqu'il voudra retrouver le fichier.</para>
+</sect2>
+
+<sect2 id="loading-files">
+<title
+>Charger des fichiers</title>
+
+<para
+>Comme pour enregistrer, il y a deux moyens de charger un fichier. Vous pouvez cliquer sur l'icône correspondante ou vous pouvez utiliser l'item «&nbsp;Ouvrir&nbsp;» du menu «&nbsp;Fichier&nbsp;». Les deux méthodes ouvrent une boîte de dialogue«&nbsp;Ouvrir&nbsp;».</para>
+
+<mediaobject
+><imageobject
+><imagedata fileref="open_dialog.png" format="PNG"/></imageobject
+></mediaobject>
+
+<para
+>Comme cette boîte de dialogue est conforme aux standards KDE, nous n'expliquerons pas le fonctionnement de chaque bouton. Si vous avez choisi le fichier que vous voulez ouvrir, une pré-visualisation apparaît dans la moitié droite de la fenêtre. Vous pouvez maintenant le charger en double-cliquant sur le nom du fichier ou en cliquant sur le bouton «&nbsp;OK&nbsp;».</para>
+</sect2>
+
+<sect2 id="importing-and-exporting-files">
+<title
+>Importer et Exporter des fichiers</title>
+
+<para
+>Malheureusement peut-être, une mesure de la valeur d'un programme semble être le nombre de formats d'autres programmes qu'il reconnaît. Ceci, cependant, montre le degré de flexibilité d'un logiciel&nbsp;; de tels filtres d'import/export sont nécessaires. &kontour; peut importer un certain nombre de formats de fichiers&nbsp;: <itemizedlist
+><listitem
+><para
+>Dessins &kontour; (.kil&nbsp;)</para
+></listitem
+><listitem
+><para
+>Dessins XFig (.fig&nbsp;)</para
+></listitem
+><listitem
+><para
+>Windows Metafiles (.wmf&nbsp;) </para
+></listitem
+><listitem
+><para
+>Images GIF (.gif&nbsp;)</para
+></listitem
+><listitem
+><para
+>Images JPEG (.jpg&nbsp;)</para
+></listitem
+><listitem
+><para
+>Images PNG (.png&nbsp;)</para
+></listitem
+><listitem
+><para
+>Bitmaps X11 </para
+></listitem
+><listitem
+><para
+>Pixmaps X11 (.xpm&nbsp;)</para
+></listitem
+></itemizedlist
+>&kontour; peut exporter des fichiers dans les formats suivants&nbsp;: <itemizedlist
+> <listitem
+> <para
+>Images GIF (.gif&nbsp;)</para
+> </listitem
+> <listitem
+> <para
+>Pixmaps X11 (.xpm&nbsp;)  </para
+> </listitem
+> <listitem
+> <para
+>Postscript Encapsulé (.eps&nbsp;)  </para
+> </listitem
+> <listitem
+> <para
+>Images PPM (.ppm&nbsp;)</para
+> </listitem
+> </itemizedlist
+> </para>
+
+<sect3 id="importing">
+<title
+>Importer</title>
+
+<para
+>Importer des objets dans une image &kontour; ne fonctionne pas de la même manière pour tous les formats, malheureusement. Vous trouverez la plupart des filtres d'importation dans le menu «&nbsp;Outils&nbsp;». Le sous-menu «&nbsp;Insérer un clipart&nbsp;» vous permet d'insérer des fichiers <literal
+>.wmf</literal
+>. Les filtres pour les images orientées pixel sont dans le sous-menu «&nbsp;insérer un Bitmap&nbsp;». Pour importer des dessins XFig ou d'autres dessins &kontour;, vous devez utiliser l'item «&nbsp;Insérer un composant&nbsp;» du menu «&nbsp;Fichier&nbsp;». Leurs boîtes de dialogues sont semblables à celles de l'ouverture de fichiers.</para>
+</sect3>
+
+<sect3 id="exporting">
+<title
+>Exporter</title>
+
+<para
+>Par le menu «&nbsp;Fichier&nbsp;», item «&nbsp;Exporter&nbsp;», vous obtenez la boîte de dialogue&nbsp;:</para>
+
+<mediaobject
+><imageobject
+><imagedata fileref="export.png" format="PNG"/></imageobject
+></mediaobject>
+
+<para
+>Ceci est très semblable à la boîte de dialogue pour enregistrer les fichiers. La seule différence est le fait que vous pouvez choisir le format dans lequel vous voulez sauvegarder.</para>
+</sect3>
+</sect2>
+
+<sect2 id="printing-files">
+<title
+>Imprimer des fichiers</title>
+	<para
+></para>
+</sect2>
+</sect1>
+
+<sect1 id="undo--redo">
+<title
+>Annuler/Refaire</title>
+
+<para
+>Les précédentes opérations dans les dessins peuvent être facilement annulées en utilisant «&nbsp;Annuler&nbsp;» du menu «&nbsp;Édition&nbsp;». Si l'action annulée doit être refaite, cela peut être fait en utilisant «&nbsp;Refaire&nbsp;». &kontour; se souvient de toutes les étapes depuis le début du dessin. On doit cependant considérer que «&nbsp;Annuler&nbsp;» et «&nbsp;Refaire&nbsp;» ne se font que dans l'ordre où les opérations ont été faites dans le dessin.</para>
+</sect1>
+
+<sect1 id="zoom-tool">
+<title
+>Outil Zoom</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="zoom.png" format="PNG"/></imageobject
+></mediaobject
+> Le changement de taille peut se faire de deux manières. La plus simple est d'utiliser la boîte déroulante appelée par la barre principale pour choisir le niveau d'agrandissement, dont la valeur par défaut est 100&percnt;. La seconde méthode est d'utiliser la loupe dans la barre d'outils. Cliquer avec le bouton gauche de la souris sur le canevas avec l'outil zoom augmente l'agrandissement jusqu'au niveau suivant. Les niveaux de grossissement sont&nbsp;:</para>
+
+<para
+><itemizedlist
+> <listitem
+> <para
+>50&percnt; </para
+> </listitem
+> <listitem
+> <para
+>100&percnt; </para
+> </listitem
+> <listitem
+> <para
+>150&percnt; </para
+> </listitem
+> <listitem
+> <para
+>200&percnt; </para
+> </listitem
+> <listitem
+> <para
+>400&percnt; </para
+> </listitem
+> <listitem
+> <para
+>600&percnt; </para
+> </listitem
+> <listitem
+> <para
+>800&percnt; </para
+> </listitem
+> <listitem
+> <para
+>1000&percnt;</para
+> </listitem
+> </itemizedlist
+> </para>
+</sect1>
+
+<sect1 id="handling-colours">
+<title
+>Manipuler les couleurs</title>
+
+<para
+><mediaobject
+><imageobject
+><imagedata fileref="pfeil.png" format="PNG"/></imageobject
+></mediaobject
+> La manipulation des couleurs dans &kontour; est très simple. Généralement, un clic gauche sur une couleur de la palette change la couleur des contours ou du texte, des objets sélectionnés. Si la couleur désirée n'est pas dans la palette, procédez comme suit&nbsp;:  </para>
+
+<para
+><orderedlist
+><listitem
+> <para
+>Sélectionnez les objets dont la couleur doit être changée.</para
+> </listitem
+> <listitem
+> <para
+>Cliquez avec le bouton droit sur l'objet et choisissez «&nbsp;Propriétés&nbsp;» du menu.  </para
+> </listitem
+> <listitem
+> <para
+>Choisissez de changer la couleur de remplissage ou du contour dans la boîte de dialogue. </para
+> </listitem
+> <listitem
+> <para
+>Appuyez sur le bouton «&nbsp;couleur&nbsp;» et la boîte de dialogue suivante apparaît&nbsp;: <inlinemediaobject
+><imageobject
+><imagedata fileref="colour.png" format="PNG"/></imageobject
+></inlinemediaobject
+> </para
+> </listitem
+> <listitem
+> <para
+>Cliquez avec le bouton gauche dans la fenêtre multicolore et choisissez la couleur désirée en déplaçant la souris.  </para
+> </listitem
+> <listitem
+> <para
+>Relâchez le bouton gauche.  </para
+> </listitem
+> <listitem
+> <para
+>Cliquez avec le bouton gauche (et maintenez) sur le petit triangle près de la fenêtre d'échelle de gris à la droite de la fenêtre multicolore.</para
+> </listitem
+> <listitem
+> <para
+>Sélectionnez la brillance désirée en déplaçant la souris de bas en haut.  </para
+> </listitem
+> <listitem
+> <para
+>Relâchez le bouton gauche.  </para
+> </listitem
+> <listitem
+> <para
+>La couleur peut être sauvegardée dans la palette de couleurs personnalisées en cliquant sur un des carrés de couleur personnalisée et en cliquant sur le bouton Ajouter aux couleurs personnalisées (Ceci est facultatif).  </para
+> </listitem
+> <listitem
+> <para
+>Cliquez sur OK.</para
+> </listitem
+> </orderedlist
+> Sinon, les valeurs HSV et RGB peuvent être entrées directement dans la boîte de dialogue en cliquant dans le champ approprié, en saisissant la valeur et en enfonçant la touche Entrée.  </para>
+</sect1>
+
+<sect1 id="changing-the-standard-parameters">
+<title
+>Changer les paramètres standards</title>
+
+<sect2 id="global-parameters">
+<title
+>Paramètres globaux</title>
+
+<sect3 id="page-layout">
+<title
+>Mise en page</title>
+	  <para
+></para>
+</sect3>
+
+<sect3 id="units">
+<title
+>Unités</title>
+	  <para
+></para>
+</sect3>
+</sect2>
+
+<sect2 id="default-drawing-parameters">
+<title
+>Paramètres des dessins par défaut</title>
+
+<para
+>Les paramètres des dessins par défaut, tels que la couleur de remplissage, l'épaisseur et le style peuvent être réglées en changeant les paramètres sans avoir sélectionné d'objet. Ces paramètres seront enregistrés pour être utilisés au prochain démarrage de &kontour;.  </para>
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="frequently-asked-questions">
+<title
+>Questions Fréquemment Posées</title>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+>Question&nbsp;:</term
+> <listitem
+> <para
+>Comment utiliser les fichiers EPS exportés de &kontour;, dans LATEX&nbsp;?</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Réponse&nbsp;:</term
+> <listitem
+> <para
+>Ceci est possible en utilisant l'option <emphasis
+>clip</emphasis
+> (<literal
+>\epsfig&lcub;file=graphics.eps, width=9cm,clip= &rcub;</literal
+>)</para
+> <para
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Question&nbsp;:</term
+> <listitem
+> <para
+>Comment importer un texte ASCII dans un document &kontour;&nbsp;?</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Réponse&nbsp;:</term
+> <listitem
+> <para
+>L'importation de texte est effectuée en faisant du copier/coller. Copiez le texte depuis un éditeur de texte. Dans &kontour;, sélectionnez «&nbsp;Coller&nbsp;» dans le menu Édition et positionnez le texte comme désiré.</para
+> <para
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Question&nbsp;:</term
+> <listitem
+> <para
+>Je ne trouve pas de paquetage &kontour; dans ma distribution SuSE&nbsp;!</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Réponse&nbsp;:</term
+> <listitem
+> <para
+>SuSE n'a pas compilé les différentes applications dans des paquetages séparés. Utilisez le paquetage complet.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+</chapter>
+
+<chapter id="appendix">
+<title
+>Appendice</title>
+
+<sect1 id="shortcut">
+<title
+>Raccourcis claviers</title>
+
+<para
+>Certaines fonctions peuvent être appliquées à plusieurs objets sélectionnés. Ceci est noté «&nbsp;Objets sélectionnés&nbsp;» dans la colonne «&nbsp;Signification&nbsp;».  </para>
+
+<para
+><screen
+>Touches&nbsp;:            Signification&nbsp;: 
+-------------	----------
+CTRL-A		Aligne les objets sélectionnés
+CTRL-PageBas	Déplace les objets sélectionnés en arrière d'un niveau
+CTRL-PageHaut	Déplace les objets sélectionnés en avant d'un niveau
+CTRL-C		Copie les objets sélectionnés
+CTRL-D		 Duplique les objets sélectionnés
+CTRL-G 		Groupe les objets sélectionnés
+CTRL-N 		Crée un nouveau dessin 
+CTRL-O 		Ouvre un nouveau dessin
+CTRL-P 		Imprime 
+CTRL-Q 		Quitte &kontour;
+CTRL-S 		Enregistre le dessin en cours
+CTRL-U 		Dégroupe les objets sélectionnés
+CTRL-V 		Colle les objets du presse-papiers 
+CTRL-W 		Coupe les objets sélectionnés
+CTRL-X 		Ferme le dessin en cours
+CTRL-Y 		Bascule «&nbsp;Coller à la grille&nbsp;»
+CTRL-Z 		Annuler
+DEL		Détruire les objets sélectionnés
+F1 		Aide
+Maj-PageBas		Déplace les objets sélectionnés vers l'arrière
+Maj-PageHaut		Déplace les objets sélectionnés vers l'avant
+</screen
+> </para>
+</sect1>
+
+<sect1 id="to-do">
+<title
+>À faire</title>
+
+<sect2 id="handbook">
+<title
+>Manuel</title>
+
+<para
+>Il y a sûrement bien plus de choses qui pourraient être dites dans ce manuel. Voici une petite liste&nbsp;: <itemizedlist
+><listitem
+><para
+>Corriger l'orthographe et la grammaire ;-)</para
+></listitem
+><listitem
+><para
+>Aligner les objets </para
+></listitem
+><listitem
+><para
+>Calques </para
+></listitem
+><listitem
+><para
+>Imprimer</para
+></listitem
+></itemizedlist
+>Les suggestions et erreurs concernant ce manuel en général devraient être envoyées directement à <ulink url="mailto:Hagen.Hoepfner@gmx.de"
+>Hagen</ulink
+>. Les traductions peuvent être envoyées à <ulink url="mailto:skeltobc@elec.canterbury.ac.nz"
+>Ben</ulink
+>. </para>
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="copyright">
+<title
+>Copyright</title>
+
+<para
+><screen
+>&kontour; est Copyright 1998-99 Kai-Uwe Sattler,kus@iti.cs.uni-magdeburg.de.
+
+Ce programme est un logiciel libre&nbsp;; vous pouvez le redistribuer et/ou le modifier selon les termes de la Licence Publique GNU (GPL) telle que publiée par la Free Software Foundation&nbsp;; soit la version 2 de la Licence, ou (à votre choix) toute version ultérieure. Ce programme est distribué dans l'espoir qu'il sera utile, mais SANS AUCUNE GARANTIE&nbsp;; même sans la garantie implicite de MERCANTIBILITE ou de CONVENANCE POUR UN BUT PARTICULIER. Reportez-vous à la Licence Générale Publique GNU pour plus de détails.Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme&nbsp;; si ce n'est pas le cas, écrivez à la Free Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+</screen
+> </para>
+</chapter>
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+sgml-general-insert-case: lower
+End:
+-->
+

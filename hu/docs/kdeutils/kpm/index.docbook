@@ -1,0 +1,1485 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kpm;">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Hungarian "INCLUDE" > <!-- change language only here -->
+ 
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>&kpm; kézikönyv</title>
+
+<authorgroup>
+<author>
+<firstname>Morgan</firstname>
+<othername>N.</othername>
+<surname>Sandquist</surname>
+<affiliation>
+<address><email>morgan@pipeline.com</email></address>
+</affiliation>
+</author>
+
+<author>
+<firstname>Mario</firstname>
+<surname>Weilguni</surname>
+<affiliation>
+<address><email>mweilguni@kde.org</email></address>
+</affiliation>
+</author>
+
+<othercredit role="developer">
+<firstname>Mario</firstname>
+<surname>Weilguni</surname>
+<affiliation>
+<address><email>mweilguni@kde.org</email></address>
+</affiliation>
+<contrib>Fejlesztő</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname>Mattias</firstname>
+<surname>Engdeg&aring;rd</surname>
+<affiliation>
+<address><email>f91-men@nada.kth.se</email></address>
+</affiliation>
+<contrib>Fejlesztő</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation>
+<address><email>vampyr@atconnex.net</email></address>
+</affiliation>
+<contrib>Ellenőrzés</contrib>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Árpád</firstname>
+<surname>Bíró</surname>
+<affiliation>
+<address><email>biro_arpad@hotmail.com</email></address>
+</affiliation>
+<contrib>Fordítás</contrib>
+</othercredit>
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Morgan N. Sandquist</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>14/12/2000</date>
+<releaseinfo>2.00.00</releaseinfo>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdeadmin</keyword>
+<keyword>kpm</keyword>
+<keyword>folyamatkezelő</keyword>
+<keyword>top</keyword>
+</keywordset>
+
+<abstract><para>A &kpm; egy olyan eszköz, amely folyamatokról ad információt
+illetve kezeli azokat.</para></abstract>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Bevezetés</title>
+
+<para>A &kpm; a Linux alatt futó folyamatok megjelenítését illetve módosítását
+teszi lehetővé. Részletes információt ad a folyamatokról és a számítógép erőforrásainak
+használatáról (CPU, RAM, lapozóterület), továbbá általános információkkal szolgál, mint például
+a rendszer futásideje (uptime). A &kpm; használható folyamatok kilövésére is, illetve azok prioritásának
+módosítására. A rendszergazda (szuperfelhasználó) az ütemezési beállításokat is módosíthatja.</para>
+
+<para>A &kpm; <ulink url="mailto:f91-men@nada.kth.se">Mattias Engdeg&aring;rd</ulink>
+<application>qps</application> nevű programjára épül. A &kpm; és a <application>qps</application>
+közti legfőbb különbség a KDE felület. A &kpm; megfelel a legtöbb KDE-szabványnak, felhasználja
+a KDE-beállításokat tartalmazó fájlokat és munkafolyamat-kezeléssel is rendelkezik.
+A <application>qps</application> bizonyos jellemzői eltávolításra kerültek (például
+a MacOS 7-stílusú táblázatok illetve a speciális választógomb-elemek).</para>
+
+</chapter>
+
+<chapter id="using-kpm">
+<title>A &kpm; használata</title>
+
+<sect1 id="kpm-start-up">
+<title>A &kpm; indulása</title>
+
+<para>Amikor a &kpm; futása elkezdődik, megjelenítésre kerülnek a következő
+információk: rendszerterhelés, <acronym>CPU</acronym>-használat, memóriahasználat,
+lapozóterület-használat, a rendszer eddigi futásideje és a folyamatok
+összesített nézete.</para>
+
+<screenshot>
+<screeninfo>A &kpm; induláskor.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kpmstart.png" format="PNG"/></imageobject>
+<textobject><phrase>A &kpm; induláskor.</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<sect2>
+<title>Kijelzők</title>
+
+<screenshot>
+<screeninfo>&kpm; szöveges kijelzőkkel.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kpmtext.png" format="PNG"/></imageobject>
+<textobject>
+<phrase>&kpm; szöveges kijelzőkkel.</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<sect3>
+<title>Terheléskijelző</title>
+
+<para>A <guilabel>rendszerterhelési</guilabel> kijelző egy grafikon, amely
+az átlagos rendszerterhelést jeleníti meg folyamatosan.
+A <guilabel>rendszerterhelési</guilabel> grafikonra kattintva egy
+szöveges megjelenítő jelenik meg a grafikon helyén, pontosabb
+információkat nyújtva.</para>
+
+</sect3>
+
+<sect3>
+<title><acronym>CPU</acronym>-kijelző</title>
+
+<para>A <guilabel>CPU</guilabel>-kijelző egy oszlop, amely azt mutatja,
+a <acronym>CPU</acronym>-erőforrásoknak hány százalékát használják a
+<guilabel>felhasználói</guilabel>, a <guilabel>módosított prioritású</guilabel>
+illetve a <guilabel>rendszer</guilabel>-folyamatok, továbbá kijelzi
+az <guilabel>üresjárat</guilabel> mértékét. A <guilabel>CPU</guilabel>-grafikonra
+kattintva egy szöveges megjelenítő jelenik meg a grafikon helyén,
+pontosabb információkat nyújtva (százalékosan).</para>
+
+</sect3>
+
+<sect3>
+<title>Memóriakijelző</title>
+
+<para>A <guilabel>memória</guilabel>-kijelző egy oszlop, amely azt mutatja,
+a memória mekkora része van <guilabel>használatban</guilabel>, továbbá mekkora része
+<guilabel>puffer</guilabel>, <guilabel>gyorstár</guilabel> illetve <guilabel>szabad</guilabel>.
+A <guilabel>memória</guilabel>-grafikonra kattintva egy szöveges megjelenítő jelenik meg
+a grafikon helyén, pontosabb információkat nyújtva (megabájtban) illetve megjelenítve
+a rendszeren elérhető teljes memória méretét.</para>
+
+</sect3>
+
+<sect3>
+<title>Lapozóterület-kijelző</title>
+
+<para>A <guilabel>lapozóterület</guilabel>-kijelző egy oszlop, amely a használatban
+levő lapozóterület-méretet jeleníti meg.
+A <guilabel>lapozóterület</guilabel>-grafikonra kattintva egy szöveges megjelenítő
+jelenik meg a grafikon helyén, pontosabb információt nyújtva (megabájtban) illetve
+megjelenítve a rendszeren elérhető teljes lapozóterület-méretet.</para>
+
+</sect3>
+
+<sect3>
+<title>Futásidő-kijelző</title>
+
+<para>A <guilabel>futásidő</guilabel>-kijelző egy szöveges megjelenítő, amely
+azt mutatja, mennyi ideje fut a rendszer folyamatosan.</para>
+
+</sect3>
+
+</sect2>
+
+<sect2>
+<title>Folyamatlista</title>
+
+<para>Alapértelmezés szerint a folyamatlista a program indulása után
+az összes folyamatot megjeleníti a felhasználói mezőkkel.
+Beállítható, hogy csak az aktuális felhasználó folyamatai legyenek
+megjelenítve, vagy a nem-rendszergazdai folyamatok, vagy a futó
+folyamatok. A mezők esetében beállítható, hogy a feladatmezők, a
+memóriamezők vagy egyénileg kiválasztott mezők legyenek megjelenítve.
+A lista bármely mezőre rendezhető, ehhez kattintson a megfelelő
+oszlopfejlécre. Ugyanazon oszlopfejlécre való ismételt kattintás
+megfordítja a rendezési sorrendet.</para>
+
+<sect3>
+<title>Felhasználói mezők</title>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>PID</guilabel></term>
+<listitem><para>Folyamat-azonosító. Minden folyamat rendelkezik egy egyéni
+folyamat-azonosító számmal (<acronym>PID</acronym>). A folyamat-azonosító
+szám 1-től indul és felfelé halad. Egy új folyamat létrejöttekor a következő
+szabad <acronym>PID</acronym> lesz azon folyamat számára kijelölve.
+A <acronym>PID</acronym> jelenleg 16-bites előjeles egész szám, tehát
+32767-nél körbefordul a számláló.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>USER</guilabel></term>
+<listitem>
+<para>A folyamat tulajdonosa. A folyamat valódi tulajdonosának nevét jelöli.
+Ha egy folyamat érvényes felhasználó-azonosítója különbözik ezen valódi
+felhasználó-azonosítótól, ezt az azonosító után levő <guilabel>&ast;</guilabel>
+vagy <guilabel>&plus;</guilabel> jelzi. A <guilabel>&ast;</guilabel> azt jelöli, hogy
+az érvényes felhasználó a rendszergazda (ez általában olyan programot jelöl,
+amely a rendszergazdához lett rendelve a <filename>setuid</filename>-vel).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>PRI</guilabel></term>
+<listitem><para>A következő időszelet hossza. A folyamat következő időszeletének
+maximális hosszát jelöli (a jelenleg futó folyamat esetén pedig azt,
+hogy mennyi van hátra a folyamat jelenlegi időszeletéből). A szám a -20...20 intervallumra
+van vetítve, a kisebb szám hosszabb időszeletet jelez.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>NICE</guilabel></term>
+<listitem><para>Prioritás az időosztásos rendszerben. Az érték azt határozza meg,
+hogy egy folyamat futása milyen gyakorisággal van engedélyezve, illetve milyen
+hosszú az időszelete. Az érték a -20...20 intervallumba esik, az alapértelmezés a 0.
+Alacsonyabb érték esetén több <acronym>CPU</acronym>-időt kap az adott folyamat.
+Ezt az értéket csak a rendszergazda csökkentheti.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>SIZE</guilabel></term>
+<listitem>
+<para>A folyamat virtuális mérete kilobájtban. A folyamat teljes méretét jelöli.
+Ebbe beletartozik az összes programkód és adat, valamint a folyamat által használt
+megosztott könyvtárak, beleértve a háttértárolóra kilapozott memórialapokat.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>RSS</guilabel></term>
+<listitem><para>Rezidens méret kilobájtban. A folyamat azon részének mérete
+(programkód és adat), amely ténylegesen a fizikai memóriában (<acronym>RAM</acronym>)
+van, beleértve a megosztott könyvtárakat. Ez egy jó közelítést ad arra, hogy
+mennyi <acronym>RAM</acronym>-ot használ egy folyamat.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>SHARE</guilabel></term>
+<listitem><para>Megosztott memória kilobájtban. Azon memória mennyisége,
+amelyet a folyamat más folyamatokkal megosztva használ.
+Ez nem azt jelenti, hogy azon memóriát ténylegesen használja egy másik folyamat,
+hanem csak azt, hogy ez lehetséges.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>STAT</guilabel></term>
+<listitem><para>A folyamat állapota. Egy folyamat mindig a következő állapotok
+valamelyikében van:</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>R</guilabel></term>
+<listitem><para>A folyamat fut egy <acronym>CPU</acronym>-n, vagy készen áll
+a futásra.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>S</guilabel></term>
+<listitem>
+<para>A folyamat egy esemény bekövetkeztére vár (mint például I/O-művelet
+vagy időzítő).</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>D</guilabel></term>
+<listitem><para>A folyamat egy esemény bekövetkeztére vár, és nem
+megszakítható (általában: várakozás egy eszközmeghajtóban).</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>T</guilabel></term>
+<listitem><para>A folyamat le lett állítva, vagy nyomkövetés alatt áll egy másik
+folyamat által.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Z</guilabel></term>
+<listitem><para>A folyamat befejeződött, de a szülőfolyamat erről még nem
+értesült.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>W</guilabel></term>
+<listitem><para>A folyamat teljes mértékben ki lett lapozva (azaz nincsen
+memóriarezidens része). Ez érvényes a kernelfolyamatokra is, mint például
+<filename>kswapd</filename>.</para></listitem>
+</varlistentry>
+</variablelist>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>&percnt;CPU</guilabel></term>
+<listitem>
+<para><acronym>CPU</acronym>-százalék a legutóbbi frissítés óta. Azt jelöli, hogy
+a <acronym>CPU</acronym>-időnek mekkora részét használta fel a folyamat a
+&kpm; folyamat-táblázatának legutóbbi frissítése óta.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>&percnt;MEM</guilabel></term>
+<listitem><para>A felhasznált memória aránya. A teljes <acronym>RAM</acronym>-nak
+a folyamat által (rezidensen) használt százalékát jelöli. A megosztott könyvtárak
+ebben benne vannak, így ez az érték magasabbnak tűnhet a valóságosnál.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>TIME</guilabel></term>
+<listitem>
+<para>A teljes felhasznált <acronym>CPU</acronym>-idő. Jelentése: mennyi
+<acronym>CPU</acronym>-időt használt fel a folyamat, amióta el lett indítva.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>CMDLINE</guilabel></term>
+<listitem>
+<para>A parancssor, amellyel a folyamat el lett indítva. Azon parancssort
+jelöli, az átadott argumentumokat is beleértve, amely parancssor a folyamatot
+elindította. A kilapozott folyamatoknál előfordulhat, hogy csak a parancs
+neve kerül megjelenítésre, zárójelben. Ez érvényes a kernelfolyamatokra is.</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+<sect3>
+<title>Feladatmezők</title>
+
+<screenshot>
+<screeninfo>A &kpm; feladatmezői.</screeninfo>
+<mediaobject>
+<imageobject><imagedata fileref="kpmjobs.png" format="PNG"/></imageobject>
+<textobject><phrase>A &kpm; feladatmezői.</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>PID</guilabel></term>
+<listitem><para>Folyamat-azonosító. Minden folyamat rendelkezik egy egyedi
+folyamat-azonosító (<acronym>PID</acronym>) számmal. Ez a szám 1-től indul,
+és növekvő irányban halad. Amikor egy új folyamat kerül létrehozásra,
+akkor a következő nem használt <acronym>PID</acronym> lesz kijelölve a
+számára. A <acronym>PID</acronym>-k jelenleg 16-bites előjeles egész számok,
+ezért 32767-nél körbefordul a számláló.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>PPID</guilabel></term>
+<listitem><para>A szülőfolyamat azonosítója. Az 1-es sorszámú folyamat
+kivételével minden folyamatnak van pontosan 1 szülőfolyamata.
+A kivételt képező 1-es folyamat (<filename>init</filename>) a
+folyamat-hierarchia csúcsa; szülőfolyamattal nem rendelkezik.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>PGID</guilabel></term>
+<listitem><para>Folyamatcsoport-azonosító. Minden folyamat tagja egy
+folyamatcsoportnak. A folyamatcsoportok segítségével szignálok küldhetők
+több meghatározott folyamatnak, továbbá a folyamatcsoportokat a terminálok
+használhatják a bemenet olvasásának jogáról való döntésre.
+A terminállal azonos csoportba tartozó folyamatok az előtérben futnak,
+és olvashatják a bemenetet, a többi folyamat viszont szignállal lesz
+felfüggesztve, ha olvasást kísérel meg.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>SID</guilabel></term>
+<listitem><para>Munkafolyamat-azonosító. Ezek főként annak meghatározására
+vannak használva, hogy mi történjen terminál-felfüggesztések esetén.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>TTY</guilabel></term>
+<listitem><para>Vezérlő terminál. A vezérlő terminál (<acronym>tty</acronym>)
+általában azon eszköz (soros port, <acronym>pty</acronym>, <abbrev>stb.</abbrev>),
+amelyről a folyamat el lett indítva, és amelyet az bevitelhez (input) illetve
+kivitelhez (output) használ. Nem minden folyamatnak van vezérlő terminálja.
+A &kpm; megvizsgálja a <filename>/dev</filename> könyvtárat annak érdekében,
+hogy meghatározza a terminál nevét, de nem biztos, hogy ez sikerrel jár.
+Helykímélés céljából a terminálnévnek csak az utolsó 2 karaktere van megjelenítve
+(így a <filename>/dev/ttyp6</filename> <guilabel>p6</guilabel>-ként jelenik meg).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>TPGID</guilabel></term>
+<listitem><para>A terminál tulajdonosának folyamatcsoport-azonosítója.
+Egy használatban levő terminál egy folyamat tulajdonában van.
+Ez azon folyamat <guilabel>PGID</guilabel>-kódja.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>STAT</guilabel></term>
+<listitem><para>A folyamat állapota. Egy folyamat mindig a következő állapotok
+valamelyikében van:</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>R</guilabel></term>
+<listitem><para>A folyamat fut egy <acronym>CPU</acronym>-n, vagy futásra kész.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>S</guilabel></term>
+<listitem><para>A folyamat egy esemény bekövetkeztére vár (mint például I/O vagy
+egy időzítő).</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>D</guilabel></term>
+<listitem><para>A folyamat egy esemény bekövetkeztére vár, és nem megszakítható
+(általában: várakozás egy eszközmeghajtóban).</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>T</guilabel></term>
+<listitem><para>A folyamat le lett állítva, vagy egy másik folyamat által végzett
+nyomkövetés alatt áll.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>Z</guilabel></term>
+<listitem><para>A folyamat befejeződött, de a szülőfolyamat erről még nem értesült.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>W</guilabel></term>
+<listitem><para>A folyamat teljes mértékben ki lett lapozva (vagyis nincsenek olyan lapjai,
+amelyek a memóriában lennének). Ez a kernelfolyamatokra is érvényes, mint például
+<filename>kswapd</filename>.</para></listitem>
+</varlistentry>
+</variablelist>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>UID</guilabel></term>
+<listitem>
+<para>Numerikus felhasználó-azonosító. A folyamat (valódi) tulajdonosát
+jelöli.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>TIME</guilabel></term>
+<listitem><para>A teljes felhasznált <acronym>CPU</acronym>-idő. Azt jelöli,
+mennyi <acronym>CPU</acronym>-időt használt fel a folyamat, amióta el lett
+indítva.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>CMDLINE</guilabel></term>
+<listitem><para>A parancssor, amellyel a folyamat el lett indítva. Azon parancssort
+jelöli, az átadott argumentumokat is beleértve, amely parancssor a folyamatot
+elindította. A kilapozott folyamatoknál előfordulhat, hogy csak a parancs
+neve kerül megjelenítésre, zárójelben. Ez érvényes a kernelfolyamatokra is.</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+<sect3>
+<title>Memóriamezők</title>
+
+<screenshot>
+<screeninfo>A &kpm; memóriamezői.</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="kpmmemory.png" format="PNG"/></imageobject>
+<textobject><phrase>A &kpm; memóriamezői.</phrase></textobject>
+</mediaobject>
+</screenshot>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>PID</guilabel></term>
+<listitem>
+<para>Folyamat-azonosító. Minden folyamat rendelkezik egy egyedi
+folyamat-azonosító (<acronym>PID</acronym>) számmal. Ez a szám 1-től indul,
+és növekvő irányban halad. Amikor egy új folyamat kerül létrehozásra,
+akkor a következő nem használt <acronym>PID</acronym> lesz kijelölve a
+számára. A <acronym>PID</acronym>-k jelenleg 16-bites előjeles egész számok,
+ezért 32767-nél körbefordul a számláló.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>TTY</guilabel></term>
+<listitem>
+<para>Vezérlő terminál. A vezérlő terminál (<acronym>tty</acronym>)
+általában azon eszköz (soros port, <acronym>pty</acronym>, <abbrev>stb.</abbrev>),
+amelyről a folyamat el lett indítva, és amelyet az bevitelhez (input) illetve
+kivitelhez (output) használ. Nem minden folyamatnak van vezérlő terminálja.
+A &kpm; megvizsgálja a <filename>/dev</filename> könyvtárat annak érdekében,
+hogy meghatározza a terminál nevét, de nem biztos, hogy ez sikerrel jár.
+Helykímélés céljából a terminálnévnek csak az utolsó 2 karaktere van megjelenítve
+(így a <filename>/dev/ttyp6</filename> <guilabel>p6</guilabel>-ként jelenik meg).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>MAJFLT</guilabel></term>
+<listitem>
+<para>Az eddig bekövetkezett, lemezről való olvasást eredményező memóriakezelési megszakítások
+("major page faults", azaz nagyobb laphibák) száma. Laphiba (page fault) akkor fordul elő,
+amikor egy folyamat olyan memórialap olvasását illetve írását kísérli meg, amely lap nincs jelen
+a RAM-ban. Ez a fajta laphiba azt jelenti, hogy lemezhozzáférés vált szükségessé, például
+memórialapok be- illetve kilapozása.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>MINFLT</guilabel></term>
+<listitem>
+<para>Az eddig bekövetkezett, lemezről való olvasást nem eredményező memóriakezelési megszakítások
+("minor page faults", azaz kisebb laphibák) száma. Laphiba (page fault) akkor fordul elő,
+amikor egy folyamat olyan memórialap olvasását illetve írását kísérli meg, amely lap nincs jelen
+a RAM-ban, illetve amikor nem-írható lapra kísérli meg az írást. Ez a fajta laphiba azt jelenti,
+hogy lemezhozzáférés nem vált szükségessé, például "írás esetén másolandó" (copy-on-write)
+megosztott lapra való írás esetén.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>TRS</guilabel></term>
+<listitem>
+<para>A programkód rezidens mérete kilobájtban. A folyamathoz tartozó (végrehajtható)
+programkód RAM-ban levő részének méretét jelöli.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>DRS</guilabel></term>
+<listitem>
+<para>Az adatok rezidens mérete kilobájtban. A folyamathoz tartozó (nem végrehajtható kódot
+jelentő) adatok RAM-ban levő részének méretét jelöli.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>SIZE</guilabel></term>
+<listitem>
+<para>A folyamat virtuális mérete kilobájtban. A folyamat teljes méretét jelöli.
+Ebbe beletartozik az összes programkód és adat, valamint a folyamat által használt
+megosztott könyvtárak, beleértve a háttértárolóra kilapozott memórialapokat.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>SWAP</guilabel></term>
+<listitem>
+<para>A lapozóeszközön levő kilobájtok. A SIZE és az RSS értékek közti különbséget
+jelöli, vagyis azt, hogy egy folyamat mekkora része van lemezen.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>RSS</guilabel></term>
+<listitem>
+<para>Rezidens méret kilobájtban. A folyamat azon részének mérete
+(programkód és adat), amely ténylegesen a fizikai memóriában (<acronym>RAM</acronym>)
+van, beleértve a megosztott könyvtárakat. Ez egy jó közelítést ad arra, hogy
+mennyi <acronym>RAM</acronym>-ot használ egy folyamat.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>SHARE</guilabel></term>
+<listitem>
+<para>Megosztott memória kilobájtban. Azon memória mennyisége,
+amelyet a folyamat más folyamatokkal megosztva használ.
+Ez nem azt jelenti, hogy azon memóriát ténylegesen használja egy másik folyamat,
+hanem csak azt, hogy ez lehetséges.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>DT</guilabel></term>
+<listitem>
+<para>A kiíratlan (dirty) lapok száma. Azon, RAM-ban levő lapok száma (nem pedig bájtok száma),
+amelyek módosításra kerültek a legutóbbi, lemezre való írás óta.
+A kiíratlan lapokat lemezre szükséges írni, mielőtt felszabadításra kerülnek más adatok számára.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>CMDLINE</guilabel></term>
+<listitem>
+<para>A parancssor, amellyel a folyamat el lett indítva. Azon parancssort
+jelöli, az átadott argumentumokat is beleértve, amely parancssor a folyamatot
+elindította. A kilapozott folyamatoknál előfordulhat, hogy csak a parancs
+neve kerül megjelenítésre, zárójelben. Ez érvényes a kernelfolyamatokra is.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+<sect3>
+<title>Egyéb mezők</title>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>PLCY</guilabel></term>
+<listitem>
+<para>Ütemezési módszer. A "FIFO" (<guilabel>F</guilabel>) és a "Round-Robin" (<guilabel>R</guilabel>)
+módszerek valós idejű ütemezési módszerek. Az "Other" (<guilabel>O</guilabel>) módszer a normál
+Unix-os időosztásos módszer. Az <guilabel>F</guilabel> és az <guilabel>R</guilabel> típusú
+folyamatoknak 1 és 99 közti valós idejű prioritásuk van.
+Egy folyamat addig fut, amíg nincs nála nagyobb prioritású futtatható folyamat.
+A "Round-Robin" típusú folyamatok 1 időszeletnyi futás után az ő prioritásuknak megfelelő
+sorba kerülnek, utolsóként. A "FIFO" típusú folyamatok addig futnak, amíg le nem mondanak a
+CPU-időjükről (várakozó illetve blokkolt állapotba való kerüléssel) vagy amíg egy
+magasabb prioritású folyamat meg nem szerzi a futási jogot.
+Csak a rendszergazda (root) módosíthatja az ütemezési módszert.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>RPRI</guilabel></term>
+<listitem>
+<para>A valós idejű folyamatoknak ("FIFO" illetve "Round-Robin") 1 és 99 közti prioritásuk van.
+Egy folyamat a nála alacsonyabb prioritású folyamatoknál előbb kap futási jogot.
+A normál időosztásos folyamatok (<guilabel>O</guilabel> jelű módszer) prioritása mindig 0.
+Csak a rendszergazda (root) módosíthatja a valós idejű prioritást.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>FLAGS</guilabel></term>
+<listitem>
+<para>A folyamat állapotjelzői (hexadecimális). Kiegészítő információ egy folyamat
+állapotáról. Ezzel kapcsolatosan további információk találhatók a Linux kernel
+forráskódjában.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>WCHAN</guilabel></term>
+<listitem>
+<para>Azon függvény, amelynél a folyamat várakozó állapotba került. Ha a folyamat
+valaminek a megtörténtére vár, akkor ez az a kernelfüggvény, amelynél leállt a
+futása. A név elején levő "do&lowbar;" illetve "sys&lowbar;" nem kerül megjelenítésre,
+hogy a név rövidebb legyen.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>&percnt;WCPU</guilabel></term>
+<listitem>
+<para>Súlyozott CPU-százalék. A folyamat által használt CPU-idő-arány a legutóbbi
+30 másodpercre vonatkozóan átlagolva (exponenciálisan csökkenő átlag).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>START</guilabel></term>
+<listitem>
+<para>Folyamatindítás időpontja. Azon időpontot adja meg, amikor a folyamat létre lett hozva.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>COMM</guilabel></term>
+<listitem>
+<para>A folyamatot elindító parancs. Azon parancs (fájlnév), amely elindította a folyamatot.
+A hosszú nevek levágásra kerülnek.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="monitoring-resources">
+<title>Erőforrás-használat megjelenítése</title>
+
+<para>Alapértelmezés szerint a &kpm; megjeleníti a rendszererőforrás-használatot,
+beleértve az átlagos rendszerterhelést, a <acronym>CPU</acronym>-használatot,
+a memóriahasználatot, a lapozóterület-használatot és a rendszer futásidejét (uptime).
+Ezen adatok a &kpm; főablakának tetején jelennek meg több megjelenítőn.
+A megjelenítésük be- illetve kikapcsolható a
+<menuchoice><guimenu>Beállítások</guimenu><guimenuitem>Az erőforrás-információ
+megjelenítése</guimenuitem></menuchoice> menüpont kiválasztásával.
+Alapértelmezés szerint ezen megjelenítők grafikusak. Bármelyikük lecserélhető
+viszont egy precízebb szöveges megjelenítőre. Ehhez rá kell kattintani a megfelelő
+megjelenítőre, vagy módosítani kell a megjelenési tulajdonságait a
+<menuchoice><guimenu>Beállítások</guimenu><guimenuitem>Tulajdonságok</guimenuitem></menuchoice>
+menüpont használatával.</para>
+
+</sect1>
+
+<sect1 id="monitoring-processes">
+<title>Folyamatok megjelenítése</title>
+
+<para>A &kpm; megjeleníti a Linux-rendszer folyamatainak listáját. Alapértelmezés
+szerint az összes folyamatot megjeleníti. Megadható, hogy csak az aktuális
+felhasználó folyamatait jelenítse meg, vagy hogy csak a nem-rendszergazdai folyamatokat,
+vagy pedig csak a jelenleg futó folyamatokat. Ehhez a <guimenu>Nézet</guimenu>
+menü használandó, amint az <link linkend="view-processes">itt</link>
+le van írva.</para>
+
+<para>A &kpm; több mezőnyi információt jelenít meg minden folyamatról.
+Alapértelmezés szerint a legáltalánosabb folyamatmezőket jeleníti meg.
+A <guimenu>Nézet</guimenu> menüben beállítható, hogy a feladatvezérlésre
+vagy a memóriahasználatra vonatkozó mezők legyenek megjelenítve, vagy
+egyénileg kiválasztott mezők, amint az <link linkend="view-fields">itt</link>
+olvasható.</para>
+
+<para>A kiválasztott folyamatok által használt <acronym>TCP</acronym>- és
+<acronym>UDP</acronym>-aljazatok (socket-ek) listája a
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>I</keycap></keycombo>
+billentyűkombinációval illetve a
+<menuchoice><guimenu>Folyamat</guimenu><guimenuitem>A socket-ek jellemzői</guimenuitem></menuchoice>
+menüponttal jeleníthető meg.
+Egy folyamat a rá való kattintással választható ki.
+Több folyamat is kiválasztható, ehhez lenyomva kell tartani a <keycap>Shift</keycap>
+billentyűt a folyamatokra való kattintás közben.</para>
+
+</sect1>
+
+<sect1 id="managing-processes">
+<title>Folyamatkezelés</title>
+
+<para>A &kpm; háromféle folyamatkezelési funkciót tartalmaz:</para>
+
+<variablelist>
+<varlistentry>
+<term>Prioritásmódosítás</term>
+<listitem><para>A prioritásmódosítás lehetővé teszi a felhasználók számára a
+folyamataik prioritásának megváltoztatását, ahogyan ez <link linkend="renice">itt</link>
+olvasható. A <keycombo action="simul"><keycap>Ctrl</keycap><keycap>R</keycap></keycombo>
+billentyűkombináció illetve a
+<menuchoice><guimenu>Folyamat</guimenu><guimenuitem>Prioritásmódosítás</guimenuitem></menuchoice>
+menüpont használatával a felhasználók csökkenthetik a folyamataik prioritását.
+A rendszergazdának bármely folyamat prioritásának növelésére illetve csökkentésére
+lehetősége van.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Az ütemezés megváltoztatása</term>
+<listitem><para>A rendszergazda módosíthatja a folyamatok ütemezését,
+amint az <link linkend="change-scheduling">itt</link> olvasható.
+Ehhez vagy a <keycombo action="simul"><keycap>Ctrl</keycap><keycap>S</keycap></keycombo>
+billentyűkombinációt kell használni, vagy a
+<menuchoice><guimenu>Folyamat</guimenu><guimenuitem>Az ütemezés megváltoztatása</guimenuitem></menuchoice>
+menüpontot.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Szignálok</term>
+
+<listitem><para>A felhasználók a következő helyen felsorolt POSIX-szignálok közül
+bármelyiket elküldhetik a folyamataiknak: <xref linkend="posix-signals"/>.
+A rendszergazda pedig ezen szignálok közül bármelyiket elküldheti bármely
+folyamatnak. A szignálok küldésére a <guimenu>Szignál</guimenu> menüpont használható,
+amint ez a következő helyen olvasható: <xref linkend="signal-menu"/>.</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title>Parancsok</title>
+
+<sect1 id="kpm-mainwindow">
+<title>A &kpm; főablaka</title>
+
+<sect2>
+<title>A <guimenu>Fájl</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Z</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>Ikonizálás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Ikonizálja a főablakot.</action> Ikonizált állapotban
+a &kpm; sokkal kevesebb <acronym>CPU</acronym>-időt használ, mivel nincs szükség a
+folyamatlista frissítésére. Ha a <filename>KWin</filename> az ablakkezelő, akkor
+a <application>Kicker</application> paneljén egy ikon fogja kijelezni az átlagos
+rendszerterhelést. Egyéb ablakkezelő esetén (mint például fvwm) maga a &kpm;-ikon
+fogja kijelezni a terhelést attól függően, hogy az ablakkezelő hogyan van beállítva.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+</shortcut>
+<guimenu><accel>F</accel>ájl</guimenu>
+<guimenuitem>Ki<accel>l</accel>épés</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Kilép</action> a &kpm; programból. A főablak lezárásának
+illetve az eszköztáron levő <guibutton>Kilépés</guibutton> gomb lenyomásának ugyanez
+a hatása.</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>A <guimenu>Nézet</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>U</keycap></keycombo>
+</shortcut>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>A folyamatlista frissítése</guimenuitem>
+</menuchoice></term>
+<listitem>
+<para><action>Azonnali módon frissíti a folyamatlistát.</action> Főként hosszú frissítési
+időköz esetén hasznos. A művelet szintén elvégezhető az eszköztáron levő
+<guibutton>A folyamatlista frissítése</guibutton> gomb lenyomásával
+illetve a <keycap>Szóköz</keycap> billentyűvel.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term id="view-processes"><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Az összes folyamat</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Az összes folyamatot megjeleníti.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>A saját folyamatai</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Az aktuális felhasználó által indított folyamatokat jeleníti meg.</action>
+Ebbe beletartoznak azon folyamatok, amelyek más felhasználó neve alatt futnak (például
+a <filename>setuid</filename>-vel a rendszergazdához rendelt programok, amelyeket
+az aktuális felhasználó indított).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Nem rendszergazdai folyamatok</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Az összes folyamatot megjeleníti, azokat kivéve, amelyeket
+a rendszergazda indított.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Futó folyamatok</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Csak a futó folyamatokat jeleníti meg</action> (vagyis azokat,
+amelyek éppen futnak vagy a futtatási sorban vannak).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term id="view-fields"><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Felhasználói mezők</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Csak az általánosan használt folyamatmezőket jeleníti meg.</action>
+Ezek a <application>top</application> által szokásosan megjelenített mezők.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Feladatmezők</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A feladatvezérléshez leginkább kapcsolódó mezőket jeleníti
+meg.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Memóriamezők</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A memóriahasználathoz, laphibákhoz, stb. kapcsolódó mezőket jeleníti
+meg.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>N</accel>ézet</guimenu>
+<guimenuitem>Mezők kiválasztása</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Lehetővé teszi a megjelenítendő mezők egyéni
+kiválasztását.</action></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>A <guimenu>Folyamat</guimenu> menü</title>
+
+<variablelist>
+<varlistentry id="renice">
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>R</keycap></keycombo>
+</shortcut>
+<guimenu>F<accel>o</accel>lyamat</guimenu>
+<guimenuitem>Prioritásmódosítás</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>A kijelölt folyamat illetve folyamatok prioritását
+módosítja.</action> Linux alatt egy folyamatnak -20 (legmagasabb prioritás)
+és +20 (legalacsonyabb prioritás) közti prioritása (illetve nice-értéke) van.
+A nice-érték növelésének hatására kevesebb CPU-időt fog kapni az adott folyamat.
+Csak a rendszergazda csökkentheti egy folyamat nice-értékét (növelve ezzel annak
+prioritását). Ez azt jelenti, hogy egy normál felhasználó nem csökkentheti egy
+folyamat nice-értékét, még akkor sem, ha korábban megnövelte azt.
+Egy normál felhasználó csak a saját folyamatainak a prioritását módosíthatja.
+A rendszergazda bármely folyamat prioritását módosíthatja.</para></listitem>
+</varlistentry>
+
+<varlistentry id="change-scheduling">
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>s</keycap></keycombo>
+</shortcut>
+<guimenu>F<accel>o</accel>lyamat</guimenu>
+<guimenuitem>Az ütemezés megváltoztatása</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Lehetővé teszi a rendszergazda számára a kijelölt
+folyamat illetve folyamatok ütemezési módszerének megváltoztatását.</action>
+Ez a funkció felhasználja a Linux 2.0.x -ben és a későbbi kernelekben jelen levő
+POSIX.1b valós idejű kiterjesztéseket.
+A normál folyamatok <filename>SCHED&lowbar;OTHER</filename> módszerre vannak
+beállítva, és a statikus prioritásuk 0.
+A valós idejű (soft) folyamatok <filename>SCHED&lowbar;FIFO</filename> vagy
+<filename>SCHED&lowbar;RR</filename> módszert használnak, a statikus prioritásuk
+pedig 1 és 99 közt van. Ezen opció csak a rendszergazda számára elérhető.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>i</keycap></keycombo>
+</shortcut>
+<guimenu>F<accel>o</accel>lyamat</guimenu>
+<guimenuitem>A socket-ek jellemzői</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Megjelenít egy listát</action> a kijelölt folyamat illetve folyamatok
+által használt <acronym>TCP</acronym>- és <acronym>UDP</acronym>-aljazatokról
+(socket-ekről).</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="signal-menu">
+<title>A <guimenu>Szignál</guimenu> menü</title>
+
+<para>A Szignál menüben található menüpontok használatával különböző
+szignálok küldhetők az összes kijelölt folyamatnak.
+Óvatosan használandó, főleg akkor, ha több folyamat van kijelölve.
+A szabványos POSIX-szignálok magyarázata megtalálható
+<link linkend="posix-signals">itt</link>.</para>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>T</keycap></keycombo>
+</shortcut>
+<guimenu>Sz<accel>i</accel>gnál</guimenu>
+<guimenuitem>Befejezés</guimenuitem>
+</menuchoice></term>
+<listitem><para><errorcode>SIGTERM</errorcode> szignált küld a
+kijelölt folyamatnak illetve folyamatoknak.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo
+action="simul"><keycap>Ctrl</keycap><keycap>H</keycap></keycombo></shortcut>
+<guimenu>Sz<accel>i</accel>gnál</guimenu>
+<guimenuitem>Felfüggesztés</guimenuitem>
+</menuchoice></term>
+<listitem><para><errorcode>SIGHUP</errorcode> szignált küld a
+kijelölt folyamatnak illetve folyamatoknak.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Sz<accel>i</accel>gnál</guimenu>
+<guimenuitem>Megszakítás</guimenuitem>
+</menuchoice></term>
+<listitem><para><errorcode>SIGINT</errorcode> szignált küld a
+kijelölt folyamatnak illetve folyamatoknak.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo action="simul"><keycap>Ctrl</keycap><keycap>k</keycap></keycombo>
+</shortcut>
+<guimenu>Sz<accel>i</accel>gnál</guimenu>
+<guimenuitem>Kilövés</guimenuitem>
+</menuchoice></term>
+<listitem><para><errorcode>SIGKILL</errorcode> szignált küld a
+kijelölt folyamatnak illetve folyamatoknak.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Sz<accel>i</accel>gnál</guimenu>
+<guimenuitem>Egyéb</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Megjelenít egy további szignálokat tartalmazó
+listát; a szignálok elküldhetők a kijelölt folyamatnak illetve folyamatoknak.</action></para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2>
+<title>A <guimenu>Beállítások</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>Az eszköz<accel>t</accel>ár megjelenítése</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Az eszköztár megjelenítését kapcsolja be
+illetve ki.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>A paran<accel>c</accel>s elérési útjának megjelenítése</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Be- illetve kikapcsolja</action> a folyamatlistában található
+<guilabel>CMDLINE</guilabel> mezőben való parancsútvonal-megjelenítést.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>Az e<accel>r</accel>őforrás-információ megjelenítése</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Be- illetve kikapcsolja az erőforrás-kijelzőket.</action></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>A beállítások menté<accel>s</accel>e</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Elmenti a jelenlegi beállításokat.</action> Mindig a legutóbb
+elmentett beállítások lépnek érvénybe a &kpm; indításakor.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem>T<accel>u</accel>lajdonságok</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Megnyit egy párbeszédablakot</action>, amelyben
+módosíthatók a &kpm; beállításai.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu><accel>B</accel>eállítások</guimenu>
+<guimenuitem><accel>F</accel>rissítési időköz</guimenuitem>
+</menuchoice></term>
+<listitem><para><action>Megnyit egy párbeszédablakot, amelyben módosítható
+a frissítési időköz.</action></para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="signals">
+<title>Szignálok</title>
+
+<para>A következőkben a szignálok leírása olvasható, ahogyan az a
+<filename>signal(7)</filename> kézikönyv-lapon szerepel.
+Részletesebb információ az említett kézikönyv-lapon található; ez
+a következő paranccsal jeleníthető meg:</para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput><command>man</command> <option>7 signal</option></userinput>
+</screen>
+
+<sect1 id="posix-signals">
+<title>POSIX-szignálok</title>
+
+<para>A POSIX által definiált szignálok közül a &kpm; a következőket képes küldeni:</para>
+
+<variablelist>
+<varlistentry>
+<term><errorcode>SIGHUP</errorcode></term>
+<listitem><para><errorname>Felfüggesztés észlelve a vezérlő terminálon, vagy
+a vezérlő folyamat véget ért.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGINT</errorcode></term>
+<listitem><para><errorname>Megszakítás a billentyűzettől.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGQUIT</errorcode></term>
+<listitem><para><errorname>Kilépés a billentyűzettől.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGILL</errorcode></term>
+<listitem><para><errorname>Érvénytelen utasítás.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGABRT</errorcode></term>
+<listitem><para><errorname>Félbeszakítási szignál</errorname> a következőtől:
+<application>abort(3)</application>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGFPE</errorcode></term>
+<listitem><para><errorname>Lebegőpontos kivétel.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGKILL</errorcode></term>
+<listitem><para><errorname>Kilövési szignál.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGSEG</errorcode></term>
+<listitem><para><errorname>Érvénytelen memóriahivatkozás.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGPIPE</errorcode></term>
+<listitem><para><errorname>Megszakadt folyamatcső</errorname>: írás olyan csőbe (pipe),
+amely nincs olvasva.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGALRM</errorcode></term>
+<listitem><para><errorname>Időzítő szignál</errorname> a következőtől:
+<application>alarm(1)</application>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGTERM</errorcode></term>
+<listitem><para><errorname>Befejezési szignál.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGUSR1</errorcode></term>
+<listitem><para><errorname>Felhasználó által definiált szignál 1.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGUSR2</errorcode></term>
+<listitem><para><errorname>Felhasználó által definiált szignál 2.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGCHLD</errorcode></term>
+<listitem><para><errorname>Gyermekfolyamat leállítva vagy véget ért.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGCONT</errorcode></term>
+<listitem><para><errorname>Folytatás, ha le volt állítva.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGSTOP</errorcode></term>
+<listitem><para><errorname>Folyamat leállítása.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGTSTP</errorcode></term>
+<listitem><para><errorname>Leállítás a következőtől: tty.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGTTIN</errorcode></term>
+<listitem><para><errorname>tty-bemenet háttérfolyamat számára.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGTTOU</errorcode></term>
+<listitem><para><errorname>tty-kimenet háttérfolyamat számára.</errorname></para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+<sect1 id="other-signals">
+<title>Egyéb szignálok</title>
+
+<para>Ezeket a szignálokat a POSIX nem definiálja, és a &kpm; még nem támogatja:</para>
+
+<variablelist>
+<varlistentry>
+<term><errorcode>SIGTRAP</errorcode></term>
+<listitem><para><errorname>Nyomkövetés/töréspont trap (csapda).</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGIOT</errorcode></term>
+<listitem><para><errorname>IOT trap (csapda).</errorname> A <errorcode>SIGABRT</errorcode>
+szinonimája.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGBUS</errorcode></term>
+<listitem><para><errorname>Buszhiba.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorname>SIGSYS</errorname></term>
+<listitem><para><errorcode>Hibás argumentum a rutin számára (SVID).</errorcode></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorname>SIGSTKFLT</errorname></term>
+<listitem><para><errorcode>Veremhiba a segédprocesszoron (coprocessor).</errorcode></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGURG</errorcode></term>
+<listitem><para><errorname>Sürgősségi feltétel az aljazaton (socket) (4.2
+BSD).</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGIO</errorcode></term>
+<listitem><para><errorname>Az I/O most lehetséges (4.2
+BSD).</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGPOLL</errorcode></term>
+<listitem><para>A <errorcode>SIGIO</errorcode> (System V) szinonimája.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGCLD</errorcode></term>
+<listitem><para>A <errorcode>SIGCHLD</errorcode> szinonimája.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGXCPU</errorcode></term>
+<listitem><para><errorname>CPU-idő-korlát túllépve (4.2
+BSD).</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGXFSZ</errorcode></term>
+<listitem><para><errorname>Fájlméret-korlát túllépve</errorname> (4.2
+BSD).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGVTALRM</errorcode></term>
+<listitem><para><errorname>Virtuális időzítő lejárt</errorname> (4.2
+BSD).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGPROF</errorcode></term>
+<listitem><para><errorname>Profil-időzítő lejárt.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGPWR</errorcode></term>
+<listitem><para><errorname>Energiaellátási hiba</errorname> (System
+V).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGINFO</errorcode></term>
+<listitem><para>A <errorname>SIGPWR</errorname> szinonimája.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGLOST</errorcode></term>
+<listitem><para><errorname>Fájl-zárolás elveszett.</errorname></para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGWINCH</errorcode></term>
+<listitem><para><errorname>Ablak-átméretezési szignál</errorname> (4.3 BSD,
+Sun).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><errorcode>SIGUNUSED</errorcode></term>
+<listitem><para><errorname>Nem használt szignál.</errorname></para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="faq">
+<title>Kérdések és válaszok</title>
+
+<qandaset id="questions-and-answers">
+<qandaentry>
+<question><para>Miért okoz néha - látható ok nélkül - szegmenshibát a &kpm;?</para></question>
+<answer><para>A &kpm; néha szegmentációs hibával leáll, ha egynél több folyamat van
+kijelölve és a lista frissítésre kerül. Nem tisztázott, hogy ez miért történik meg.</para></answer>
+</qandaentry>
+
+<qandaentry>
+<question><para>Miért használ a &kpm; annyira sok <acronym>CPU</acronym>-időt?</para></question>
+<answer><para>A &kpm; sok <acronym>CPU</acronym>-időt fogyaszthat, ha a frissítési
+időköz túl kicsi. A program fejlesztőjének gépén (<acronym>AMD</acronym>
+K6PR200) a <acronym>CPU</acronym>-időnek nagyjából 5 százalékát használja fel
+1 másodperces frissítési időköz esetén.
+Ez nagymértékben függ a folyamatok teljes számától (nem csak a megjelenített
+folyamatokétól), és bizonyos körülmények közt ennél sokkal magasabb lehet.</para></answer>
+</qandaentry>
+
+<qandaentry>
+<question><para>Miért tűnik helytelennek a &percnt;CPU érték?</para></question>
+<answer><para>A &percnt;CPU érték rövid frissítési időköz esetén nem pontos
+az időzítő "felbontása" miatt.</para></answer>
+</qandaentry>
+
+<qandaentry>
+<question><para>Miért helytelen a <guilabel>WCHAN</guilabel> érték?</para></question>
+<answer><para>A <guilabel>WCHAN</guilabel> mező helytelen értéket jelez ki,
+ha egy folyamat egy olyan helyen került várakozó állapotba, amely kívül esik
+a <filename>System.map</filename>-ben listázottakon (például egy kernelmodulban).
+Ezekben az esetekben a <filename>System.map</filename> utolsó bejegyzése lesz
+megjelenítve (mint például <guilabel>&lowbar;end</guilabel>).</para> </answer>
+</qandaentry>
+
+<qandaentry>
+<question><para>Miért nem jelennek meg a klónozott PID-k a &kpm;-ben?</para></question>
+<answer><para>A &kpm; nem képes több, azonos <acronym>PID</acronym>-vel rendelkező
+folyamatot kezelni.
+Többszörös <acronym>PID</acronym> akkor fordulhat elő, amikor
+<literal>CLONE&lowbar;PID</literal> van használva a <function>clone()</function>
+rendszerhívással.</para></answer>
+</qandaentry>
+
+</qandaset>
+
+</chapter>
+
+<chapter id="credits">
+<title>Készítők és licenc</title>
+
+<para>&kpm;</para>
+
+<para>Program: Copyright 2000, Mario Weilguni <email>mweilguni@kde.org</email> és
+Mattias Engdeg&aring;rd <email>f91-men@nada.kth.se</email>.</para>
+
+
+<para>Dokumentáció: Copyright 2000, Morgan N. Sandquist
+<email>morgan@pipeline.com</email> és Mario Weilguni
+<email>mweilguni@kde.org</email>.</para>
+
+&underFDL;
+
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title>Telepítés</title>
+
+<sect1 id="getting-kpm">
+<title>A &kpm; megszerzése</title>
+
+<para>A &kpm; része a <ulink url="http://www.kde.org/">KDE</ulink>-nek.</para>
+
+<para>A &kpm; megtalálható a kdeadmin csomagban a következő címen: <ulink
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, amely a
+KDE Projekt fő FTP-helye.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Követelmények a &kpm; számára</title>
+
+<para>A &kpm; sikeres lefordítása érdekében szükség van a következőkre:</para>
+
+<itemizedlist>
+<listitem><para>2.0-s vagy annál újabb kernelre épülő Linux operációs rendszer.
+A &kpm; felhasználja a Linux <filename>/proc</filename> fájlrendszerét.
+(A &kpm; közvetlenül nem írható át egyéb rendszerekre, mivel minden UNIX-rendszer
+másféle módon gyűjt információt a folyamatokról.)</para></listitem>
+</itemizedlist>
+
+</sect1>
+
+<sect1 id="compilation">
+<title>Lefordítás és telepítés</title>
+
+<para>A &kpm; lefordításához és telepítéséhez gépelje be a következőket
+a &kpm;-disztribúció alapkönyvtárában:</para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>make install</command></userinput>
+</screen>
+
+<para>Mivel a &kpm; <application>autoconf</application>-ot és
+<application>automake</application>-et használ, ezért valószínűleg problémamentes
+lesz a lefordítása. Amennyiben probléma merül fel, jelentse azt be a KDE
+levelezőlistákon.</para>
+
+</sect1>
+
+</appendix>
+
+
+&documentation.index; 
+</book>
+
+
+
+
+
+
+
+
+

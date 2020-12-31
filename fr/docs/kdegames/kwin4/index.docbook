@@ -1,0 +1,703 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kwin4;">
+<!ENTITY % French "INCLUDE"
+> 
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Quatre gagnant</title>
+
+<authorgroup>
+<author
+> <firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+> <address
+><email
+>martin@heni-online.de</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+></firstname>
+<surname
+></surname>
+<contrib
+>Relecteur</contrib>
+<affiliation
+><address
+><email
+></email
+></address
+></affiliation>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Eric</firstname
+><surname
+>Bischoff</surname
+><contrib
+>Traduction française</contrib
+><affiliation
+><address
+><email
+>e.bischoff@noos.fr</email
+></address
+></affiliation
+></othercredit>
+
+</authorgroup>
+
+<date
+>2001-06-23</date>
+<releaseinfo
+>0.09.01</releaseinfo>
+
+<abstract>
+<para
+> Cette documentation décrit &kwin4; version 0.9.1</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>jeu</keyword>
+<keyword
+>plateau</keyword>
+<keyword
+>jeu de plateau</keyword>
+<keyword
+>quatre gagnant</keyword>
+<keyword
+>quatre</keyword>
+<keyword
+>quatre alignés</keyword>
+<keyword
+>win4</keyword>
+<keyword
+>kwin4</keyword>
+<keyword
+>puissance quatre</keyword>
+<keyword
+>puissance 4</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="overview">
+<title
+>Présentation générale</title>
+
+<para
+> Quatre gagnant est un jeu qui se joue à deux. </para>
+
+<para
+> Chaque joueur est représenté par une couleur (jaune ou rouge). Le but du jeu est d'obtenir quatre jetons de votre couleur alignés dans une ligne, une colonne ou en diagonal. Ceci est réalisé en plaçant les jetons dans les sets colonnes. </para>
+
+<para
+> Un jeton rempli une colonne à partir du bas, &cad; qu'elle tombera jusqu'à ce qu'elle atteigne le bas ou un autre jeton. Une fois le jeton joué, c'est au tour de l'autre joueur. </para>
+
+<para
+> Ceci est répété jusqu'à la fin du jeu, qui se produit lorsqu'un des deux joueurs a quatre jetons alignés dans une ligne, une colonne ou en diagonal, ou bien lorsque plus aucun coup n'est possible parce que le plateau est rempli. </para>
+
+</chapter>
+
+<chapter id="rules">
+<title
+>Règles du jeu</title>
+
+<para
+> Le plateau de jeu est divisé en trois parties. </para>
+
+<para
+> Le <firstterm
+>terrain de jeu</firstterm
+> est constitué d'une grille de 7 cases sur 6 qui sera remplie de jetons de bas en haut. Les cases sont coloriées dans la couleur du joueur dont c'est le tour. Au sommet de chaque rangée verticale, une flèche de couleur indique à quel endroit les derniers jetons ont été joués. </para>
+
+<para
+> La <firstterm
+>barre d'état</firstterm
+> montre quelle couleur commence en premier et quelle couleur est jouée par quel joueur (joueur, ordinateur, connexion distante). Elle montre de plus le niveau de l'ordinateur lorsqu'il joue, le nombre de tours passés ainsi que la probabilité calculée par l'ordinateur de gagner. Cette probabilité n'est calculée que lorsque l'ordinateur joue son tour. Un nombre positif signifie que le joueur a l'avantage, et un nombre négative signifie que l'ordinateur pense être meilleur. </para>
+
+<para
+> Le <firstterm
+>tableau d'affichage</firstterm
+> montre le nombre de parties gagnées, perdues ou nulles pour chaque joueur. Le nombre de jeux arrêtés (Ar) et le nombre total de parties sont également affichés. </para>
+
+</chapter>
+
+<chapter id="remote-connections">
+<title
+>Connexions distantes</title>
+
+<para
+> Il est possible de jouer à travers une connexion réseau vers un autre ordinateur. Pour ce faire, les deux joueurs sur les deux ordinateurs doivent choisir une couleur jouée par un joueur humain et l'autre jouée par le joueur distant. Qui choisit quel camp n'a pas d'importance. Si les deux joueurs choisissent de jouer avec la même couleur, les couleurs seront automatiquement interchangées par le programme de jeu. </para>
+
+<para
+> Un des ordinateurs se comportera comme le serveur de jeu. Seule cette machine peut démarrer une nouvelle partie en réseau. Par ailleurs, toutes les données de la parties seront transférées vers l'ordinateur client. Vous pouvez forcer votre ordinateur à se comporter en tant que serveur si vous ne spécifiez pas un nom d'hôte dans la boîte de dialogue des options réseau. Cette boîte de dialogue apparaît quand vous démarrez une nouvelle partie en réseau. En tant que client, vous saisissez le nom d'hôte de la machine sur laquelle le serveur de jeu tourne. Le numéro de port n'a en général pas besoin d'être changé quant à lui, mais vous pouvez saisir à peu près n'importe quelle valeur dans ce champ. </para>
+
+<para
+> Quand une connexion en réseau se met en place, il vous est demandé de saisir un nom d'hôte distant et un port. Le port peut en général rester inchangé. Mais si vous savez ce que vous faites, remplacez-le par un autre nombre, qui devra être le même pour les deux joueurs bien entendu. Le nom d'hôte doit être le nom de l'hôte distant vers lequel vous vous connectez. Seul un des deux joueurs doit fournir un nom d'hôte. L'autre n'a pas besoin de le faire, mais peut toutefois le faire. </para>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Menus</title>
+
+<sect1 id="game-menu">
+<title
+>Le menu Jeu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ouveau</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Démarre une nouvelle partie. Dans une partie en réseau, cette option n'est disponible que pour le serveur réseau. Le client réseau sera démarré automatiquement par le serveur. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>erminer la partie</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Interrompt une partie en cours. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fficher les statistiques</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Affiche les statistiques de toutes les parties jouées et permet de les réinitialiser. Ces statistiques sont normalement sauvées à la fin du jeu et comprennent le nombre de parties jouées et gagnées par joueur. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>C</accel
+>onseil</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> L'ordinateur calculera le meilleur coup possible et l'indiquera au moyen d'un petit cercle sur le terrain de jeu. La qualité de ce coup dépend du niveau choisi pour l'ordinateur. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+>Envoyer un <accel
+>m</accel
+>essage</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Lors d'une connexion à une autre partie distante, cette option permet d'envoyer un message au joueur distant. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>Q</accel
+>uitter</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Sort du programme. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="edit-menu">
+<title
+>Le menu Édition</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>É</accel
+>dition</guimenu
+> <guimenuitem
+>Annu<accel
+>l</accel
+>er</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Annule le dernier coup. Si le joueur précédent est joué par l'ordinateur, on remonte deux coups en arrière de sorte que c'est au tour du joueur humain à nouveau. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>É</accel
+>dition</guimenu
+> <guimenuitem
+>Re<accel
+>f</accel
+>aire</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Rejoue un coup annulé précédemment. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="view-menu">
+<title
+>Le menu Affichage</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Afficha<accel
+>g</accel
+>e</guimenu
+><guimenuitem
+>Afficher la ba<accel
+>r</accel
+>re d'état</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Affiche ou non la barre d'état. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="option-menu">
+<title
+>Le menu Options</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptions</guimenu
+><guisubmenu
+>Premier joueur</guisubmenu
+> </menuchoice
+></term
+> <listitem
+> <para
+> Détermine quelle couleur ou joueur joue le premier coup de la prochaine partie. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptions</guimenu
+><guisubmenu
+>Les jaunes sont joués par</guisubmenu
+> </menuchoice
+></term
+> <listitem
+> <para
+> Détermine qui joue en tant que joueur 1 (jaune). Ce peut être soit un <guimenuitem
+>Joueur</guimenuitem
+>, &cad; un joueur local utilisant la souris comme périphérique d'entrée, l'<guimenuitem
+>Ordinateur</guimenuitem
+>, &cad; que l'ordinateur choisit les coups ou <guimenuitem
+>Distant</guimenuitem
+>, &cad; qu'une connexion distante vers un autre ordinateur sera établie. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptions</guimenu
+><guisubmenu
+>Les rouges sont joués par</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Même signification que pour <guimenuitem
+>Les jaunes sont joués par</guimenuitem
+>, mais pour le deuxième joueur (rouge). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptions</guimenu
+><guisubmenu
+><accel
+>N</accel
+>iveau</guisubmenu
+> </menuchoice
+></term
+> <listitem
+> <para
+> Détermine le niveau du joueur joué par l'ordinateur. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptions</guimenu
+><guimenuitem
+>C<accel
+>h</accel
+>anger les noms...</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+> Change les noms des joueurs. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptions</guimenu
+><guimenuitem
+>Serveur de réseau</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Si cet élément de menu est coché, votre ordinateur essaye de se comporter en tant que serveur de jeu en réseau. Seul l'ordinateur se comportant en tant que serveur sera capable de démarrer un partie ou de transférer une partie démarrée vers le client. Si les deux ordinateurs veulent être serveurs, ou aucun des deux, la décision est laissée au hasard. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptions</guimenu
+><guimenuitem
+><accel
+>A</accel
+>nimations</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Active ou désactive les animations. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help">
+<title
+>Le menu <guimenuitem
+>Aide</guimenuitem
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+>Contenu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Invoque le système d'aide de &kde; en démarrant au début de ce fichier d'aide. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+>Rapport de bogue.</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Si vous trouvez une erreur dans le programme, ou si vous avez une idée sur la manière d'améliorer le jeu, cette option vous permet d'envoyer un rapport de bogue officiel à l'équipe &kde;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+>À <accel
+>p</accel
+>ropos de KWin4</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Affiche des informations sur la version et les auteurs. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+>À propos de <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Affiche la version de &kde; et d'autres informations de base. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Remerciements et licence</title>
+
+<para
+> &kwin4; </para>
+<para
+> Programme sous copyright 1995-2001 Martin Heni <email
+>martin@heni-online.de</email
+> </para>
+<para
+> Documentation copyright 2001 Martin Heni <email
+>martin@heni-online.de</email
+> </para>
+
+<para
+>Traduction de la documentation copyright 2001 Eric Bischoff <email
+>e.bischoff@noos.fr</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kwin4">
+<title
+>Comment obtenir &kwin4;</title>
+
+<para
+> &kwin4; fait partie du paquetage kdegames à l'adresse <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, le site &FTP; principal du projet &kde;. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Configuration nécessaire</title>
+
+<para
+> Pour réussir à compiler &kwin4;, il vous faut &kde; 2.0. </para>
+
+<para
+> Toutes les bibliothèques nécessaires ainsi que &kwin4; lui-même se trouvent à l'adresse <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Compilation et installation</title>
+
+<para
+> Pour compiler et installer &kwin4; sur votre système, décompactez le paquetage et tapez les commandes suivantes dans le répertoire de base de la distribution de &kwin4;&nbsp;: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>cd kdegames</userinput>
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+> Comme &kwin4; utilise <command
+>autoconf</command
+> et <command
+>automake</command
+>, vous ne devriez pas avoir de problèmes à le compiler. </para>
+
+</sect1>
+</appendix>
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

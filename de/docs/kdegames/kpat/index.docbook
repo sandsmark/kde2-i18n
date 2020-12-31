@@ -1,0 +1,617 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kpat;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+]>
+ 
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &kpat; Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Paul Olav</firstname
+> <surname
+>Tvete</surname
+> </author>
+<author
+> <firstname
+>Maren</firstname
+> <surname
+>Pakura</surname
+> </author>
+<author
+> <firstname
+>Stephan</firstname
+> <surname
+>Kulow</surname
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Mike</firstname
+><surname
+>McBride</surname>
+<contrib
+>Korrektur</contrib>
+<affiliation
+><address
+><email
+>mpmcbride7@yahoo.com</email
+></address
+></affiliation>
+</othercredit>
+
+<othercredit role="developer">
+<firstname
+>Paul Olav</firstname>
+<surname
+>Tvete</surname>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname
+>Stephan</firstname>
+<surname
+>Kulow</surname>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Stephan</firstname
+><surname
+>Kulow</surname
+><affiliation
+><address
+><email
+>coolo@kde.org</email
+></address
+></affiliation
+><contrib
+>Übersetzer</contrib
+></othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Paul Olav Tvete</holder>
+</copyright>
+<copyright>
+<year
+>2001</year>
+<holder
+>Maren Pakura</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-02-18</date>
+<releaseinfo
+>2.00.00</releaseinfo>
+<abstract>
+
+<para
+>&kpat; ist ein hochgradig süchtig machendes Spiel für &kde;</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Spiel</keyword>
+<keyword
+>Patience</keyword>
+<keyword
+>Solitaire</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+> Eine Patience zu spielen erfordert, wie der Name schon sagt: Geduld. Für einfache Spiele, in denen der Spielverlauf nur davon abhägnig ist, wie die Karten fallen, ist das auch ausreichend. </para>
+
+<para
+> Aber es gibt auch Patiencen, in denen zusätzlich strategisches planen und vorausdenken für das Gewinnen notwendig sind. </para>
+
+<para
+> Alle Spiele haben gemein, dass durch Auslegen und Ordnen nach einem Schema die Karten in eine bestimmte Reihenfolge gebracht werden müssen. </para>
+
+</chapter>
+
+<chapter id="rules">
+<title
+>Spielregeln</title>
+
+<para
+> Ein Kartenspiel enthält ein oder zwei Kartenpäckchen von 52 Karten. Jedes Kartenpäckchenenthält die vier Farben: </para>
+
+<informaltable pgwide="0" frame="none">
+<tgroup cols="2">
+<colspec colwidth="90"/>
+<colspec/>
+<tbody
+> <row valign="middle"
+> <entry
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="clubs.png"/> </imageobject
+> </inlinemediaobject
+> </entry
+> <entry
+> Kreuz </entry
+> </row
+> <row valign="middle"
+> <entry
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="spades.png"/> </imageobject
+> </inlinemediaobject
+> </entry
+> <entry
+> Pik </entry
+> </row
+> <row valign="middle"
+> <entry
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="hearts.png"/> </imageobject
+> </inlinemediaobject
+> </entry
+> <entry
+> Herz </entry
+> </row
+> <row valign="middle"
+> <entry
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="diamonds.png"/> </imageobject
+> </inlinemediaobject
+> </entry
+> <entry
+> Karo </entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+
+<para
+> Jede dieser Farben enthält wiederum die follgenden Werte: As, Zwei, Drei, Vier, Fünf, Sechs, Sieben, Acht, Neun, Zehn, Bube, Dame und König. </para>
+
+<para
+> Diese komplette Liste von Karten nennt man eine Familie. Es gibt echt Familien und unechte Familien. Die echten Familien sind alle von einer Farbe (&zb; Herz) während in unechten Familien die Farbe sich zwischen schwarz (Kreuz und Pik) und rot (Herz und Karo) abwechselt. </para>
+
+<para
+> Wenn eine Familie nicht komplett ist, nennt man sie Folge. </para>
+
+<mediaobject
+> <imageobject
+><imagedata fileref="playfield.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Das Spielfeld von &kpat;</phrase
+> </textobject
+> </mediaobject>
+
+<para
+> Es gibt nur ein paar verschiedene Elemente in einer typischen Patience. Diese sollen im folgenden vorgestellt werden. </para>
+
+<variablelist
+> <varlistentry
+><term
+>1. Talon</term
+> <listitem
+> <para
+> Am Anfang eines jeden Spiels werden die Kartenpäckchen gemischt. Aber nicht in jedem Spiel werden auch alle Karten ausgeteilt, sondern es verbleiben ein paar im Päckchen. Diese Karten werden dann verdeckt als so genannter Talon ausgelegt. Diesen erkennt man in einer Patience meist recht einfach daran, dass er der einzige Stapel ist, der die Rückseite zeigt. </para
+> <para
+> Wenn kein Stapel die Rückseite zeigt, sind alle Karten ausgeteilt und es gibt keinen Talon. Diese Patiencen sind dann meist die schwierigsten, da es keinen Zufall mehr nach dem Start der Patience gibt, sondern alles von Ihrem Geschick abhängt </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>2. Hilfsstapel</term
+> <listitem
+> <para
+> In vielen Patiencen werden Karten vom Talon zuerst auf einen Hilfsstapel gelegt,wenn man auf den Talon klickt. </para
+> <para
+> Von dort aus können die Karten (welche dann die Vorderseite zeigen) in das Spiel getan werden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>3. Basis</term
+> <listitem
+> <para
+> Die Basis ist der Ort, an dem sie alle Karten am Ende haben sollten. Wenn all ihre Karten am Ende dort in der richtigen Reihenfolge sind, haben Sie gewonnen. </para
+> <para
+> In den meisten Kartenspielen ist die Basis am Anfang leer. &kpat; verschiebt aber Karten, die in die Basis passen, automatisch, da diese Aufgabe meistens der langweile Teil einer Patience ist. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>4. Ablagen</term
+> <listitem
+> <para
+> Diese Ablagen sind der Ort an dem das eigentliche Neuordnen stattfindet. Die Regeln für diese Ablagen sind sehr verschieden von Spiel zu Spiel. Einige zeigen alle Karten auf den Ablagen, bei einigen anderen sind einige Karten verdeckt. Einige Spiele erlauben nur, einzelne Karten zu verschieben, bei anderen kann man jede Karte verschieben, usw. Für Details zu den Regeln der einzelnen Spiele, siehe auch die weiteren Abschnitte. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<sect1 id="general-use">
+<title
+>Allgemeine Bedienung</title>
+
+<para
+> Benutzung des Menüs ist zu einfach, um jetzt schon erklärt zu werden. </para>
+
+</sect1>
+
+<sect1 id="klondike">
+<title
+>Klondike <anchor id="game_klondike"/></title>
+
+
+<para
+> Klondike ist die bekannteste Patience - wahrscheinlich weil ein häufig genutztes Betriebssystem diese Patience als Standard mitliefert. Klondike wird mit einem Kartenpäckchen gespielt. </para>
+
+<para
+> Ziel des Spiels ist es, alle Karten als echte Familien steigend auf die Basis anzuordnen. Dieses gelingt problemlos, wenn alle Karten mit der Vorderseite nach oben im Spielfeld liegen. </para>
+
+<para
+> Die Spielfolgen müssen fallend angeordnet werden, wobei sich immer schwarze und rote Karten abwechseln. Es können ganze oder Teile von Sequenzen verschoben werden, wenn die erste Karte auf eine andere Ablage passt. </para>
+
+<para
+> Auf eine freie Ablage können Sie jeden beliebigen König oder jede Folge, die mit einem König startet, legen. </para>
+
+<para
+> Mit einem Klick auf den Talon wird eine Karte auf den Hilfsstapel gelegt, von wo aus sie auf die Ablagen oder die Basis bewegt werden kann. Ist der Talon leer, wird mit einem weiteren Klick der Hilfsstapel zu einen neuen Talon. So kann der Kartenstapel beliebig oft durchgesehen werden. </para>
+
+<para
+> Den Talon kann man beliebig oft durchsehen, aber Sie sollten schnellverstehen, dass Sie verloren haben, wenn sich keine Karte mehr findetund eine neue Runde im Talon dabei nichts hilft. </para>
+</sect1>
+
+<sect1 id="grandfather">
+<title
+>Großvater <anchor id="game_grandfather"/></title>
+
+
+<para
+> Erfindung von Pauls Großvater, daher erhielt diese Patience den Namen. Es sind keine anderen Patience-Spiele bekannt, die dieses Spiel implementieren. </para>
+        
+<para
+> Bei Großvater wird ein Kartenpäckchen auf sieben Ablage-Stapel ausgeteilt. Die Karten der Stapel sind nur zum Teil aufgedeckt. </para>
+
+<para
+> Ziel ist es, alle Karten als echte Familien steigend auf die Basis anzuordnen. </para>
+
+<para
+> Sie können jede Karte auf jede Ablage legen, wenn sich dadurch echte Spielfolgen bilden, die fallend sind. So kann z.B. die Pik-fünf auf eine oben liegende Herz-sechs gelegt werden, unabhänig davon, wieviele Karten auf der Pik-fünf liegen. </para>
+
+<para
+> Auf eine freie Ablage kann ein König gelegt werden (wiederum egal, wievieleKarten auf diesem König liegen) </para>
+
+<para
+> Könen keine weiteren Karten verschoben werden, kann mit [neu] zwei mal neu ausgeteilt werden, wobei alle Karten in der Basis dort bleiben. Die Karten auf den Ablagen dagegen werden neu gemischt, so dass sich neue Chancen ergeben, das Spiel zu gewinnen. </para>
+
+<para
+> Auch wenn die Regeln einfach sind und es eine Menge möglicher Züge gibt, ist das Spiel doch recht selten zu gewinnen. Trotzdem macht es Spass zu spielen (oder gerade deshalb). </para>
+</sect1>
+
+<sect1 id="aces-up">
+<title
+>Asse hoch <anchor id="game_aces_up"/></title>
+
+<para
+> Diese Patience hat sehr einfache Regeln, ist somit leicht zu spielen, aber schwer zu gewinnen. Sie wird mit einem Kartenpäckchen gespielt. Ziel des Spiels ist es, alle Karten außer den Assen auf die Basis zu legen, wobei auf jeder Ablage ein Ass zu liegen hat. </para>
+
+<para
+> Jede obere Karte, die von geringerem Wert als eine andere obere Karte und von der selben Farbe (z.B. Pik) ist, kann per Klick auf die Basis gelegt werden. </para>
+
+<para
+> Können keine weiteren Karten auf die Basis gelegt werden, wird mit einem Klick auf den Talon auf jede Ablage eine neue Karte gelegt. </para>
+
+<para
+> Ist eine Ablage frei, so kann per Klick auf eine Karte auf einer anderen Ablage diese dorthin bewegt werden. Diese Karte sollte möglichst so gewählt werden, dass danach weitere Karten auf die Basis gelegt werden können. </para>
+
+<para
+> [auto drop] ist bei dieser Patience abgestellt. </para>
+
+</sect1>
+
+<sect1 id="freecell">
+<title
+>Freecell <anchor id="game_freecell"/></title>
+
+<para
+> Freecell wird mit einem Kartenpäckchen gespielt. Im Spielfeld befinden sich links oben vier freie Zellen, daneben die Basis mit vier Positionen und darunter acht Ablagen. </para>
+
+<para
+> Ziel ist es, alle Karten als echte Familien steigend auf die Basis anzuordnen. Dieses gelingt sehr oft, da Freecell zu ca. 99,9 % lösbar ist (von den ersten 32000 Spielen ist nur eins unlösbar -11982 wenn Sie es genau wissen wollen). </para>
+
+<para
+> In den Ablagen müssen die Spielfolgen fallend, mit roten und schwarzen Karten im Wechsel, angeordnet werden. In eine freie Zelle kann nur eine einzige Karte gelegt werden. </para>
+
+<para
+> Bei einem Spielzug darf immer nur eine einzelne, oben liegende Karte verschoben werden. Sequenzen oder Teile von Sequenzen können nur verschoben werden, wenn genügend freie Zellen und/oder freie Ablagen vorhanden sind. Dabei kann jede beliebige Karte auf eine freie Position gelegt werden. </para>
+
+<para
+> Das Verschieben der Folgen wird von &kpat; unterstützt wenn es genügend Platz vorhanden ist. Die maximale Anzahl der Karten, die verschoben werden können, errechnet sich aus:</para>
+
+<sidebar
+><para
+> (#{freie Zellen} + 1) * 2<superscript
+>#{freie Ablagen}</superscript
+> </para
+></sidebar>
+
+<para
+> Um dieses Spiel zu lösen, empfiehlt es sich Karten in der Reihenfolge "auszugraben", wie sie auf die Basis gelegt werden können. Dabei sollte man versuchen, genügend Zellen und/oder Ablagen frei zu halten und unechte Familien auf den Ablagen zu bilden. </para>
+
+<para
+> Sie sollten versuchen, soviele freie Zellen und/oder Ablagen frei zu halten, so dass Sie möglichst lange Folgen bauen und verschieben können. </para>
+
+</sect1>
+
+<sect1 id="napoleons-tomb">
+<title
+>Napoleons Grab<anchor id="game_napoleons_tomb"/></title>
+
+<para
+> Napoleons Grab wird mit einem Kartenpäckchen gespielt. Ziel des Spiels ist es, alle Karten als Familien steigend auf die Basis anzuordnen, wobei die Farbe der Karte keine Rolle spielt. </para>
+
+<para
+> Die Basis besteht aus 5 Stapeln, die als X angeordnet sind. Auf den vier Ecken des X könnenSie Folgen anordnen, die mit einer Sieben anfangen und mit einem König enden. </para>
+
+<para
+> Auf der Ablage in der Mitte können Sie viermal die Folge von Sechs bis hinunter zum Asanordnen. Die Farbe spielt keine Rolle auf allen vier Ablagen. </para>
+
+<para
+> Die restlichen vier Felder des Spielfeldes können als vorübergehende Ablage für jeweils eine Karte genutzt werden. Der Talon kann nur einmal durchgesehen werden. </para>
+
+<para
+> [auto drop] ist bei dieser Patience abgestellt. </para>
+</sect1>
+
+<sect1 id="mod3">
+<title
+>Mod3<anchor id="game_mod3"/></title>
+
+<para
+> Mod-3 wird mit zwei Kartenpäckchen ohne Asse gespielt. Ziel ist es, alle Karten in den drei oberen Reihen anzuordnen. In der ersten Reihe sollen echte Abfolgen der Form 2-5-8-B, in der zweiten Reihe der Form 3-6-9-D und in der dritten Reihe der Form 4-7-10-K angeordnet werden. Hier ist die Farbe der Karte wichtig, so kann z.B. auf eine Herz-zwei nur eine Herz-fünf gelegt werden. </para>
+
+<para
+> Die unterste Reihe ist Hilfsstapel und Ablage zugleich. Auf eine leere Ablage kann eine Karte aus den oberen drei Reihen gelegt werden oder eine auf einem anderen Ablagestapel liegende. </para>
+
+<para
+> Können keine weiteren Karten verschoben werden, ergeben sich neue Möglichkeiten durch einen Klick auf den Talon. Dann wird auf jede Ablage eine neue Karte gelegt. </para>
+
+<para
+> [auto drop] ist bei dieser Patience abgestellt. </para>
+</sect1>
+
+<sect1 id="calculation">
+<title
+>Berechnung<anchor id="game_calculation"/></title>
+
+<para
+> Berechnung ist sicherlich eine Patience, mit der man erst einmal warm werden muss. Es wird einem Kartenpäckchen gespielt und das Ziel des Spiels ist es alle Karten in den vier Basisstapeln als steigende Familien anzuordnen, ohne dass es auf die Farbe ankommt. </para>
+
+<para
+> Für die Basis gelten folgende Reihenfolgen: </para>
+
+<blockquote>
+<informaltable pgwide="0">
+<tgroup cols="2">
+<tbody
+> <row
+> <entry
+>1. Spalte</entry
+> <entry
+>A-2-3-4-5-6-7-8-9-10-B-D-K</entry
+> </row
+> <row
+> <entry
+>2. Spalte</entry
+> <entry
+>2-4-6-8-10-D-A-3-5-7-9-B-K</entry
+> </row
+> <row
+> <entry
+>3. Spalte</entry
+> <entry
+>3-6-9-D-2-5-8-B-A-4-7-10-K</entry
+> </row
+> <row
+> <entry
+>4. Spalte</entry
+> <entry
+>4-8-D-3-7-B-2-6-10-A-5-9-K</entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+</blockquote>
+
+<para
+> Die oberste Karte des Talons können Sie auf jede der vier Ablagen legen. Sie sollten dies auch tun, so dass sie folgende Karten einfacher auf die Basis ablegen können. </para>
+</sect1>
+
+<sect1 id="gypsy">
+<title
+>Zigeuner<anchor id="game_gypsy"/></title>
+
+<para
+> Zigeuner wird mit zwei Kartenpäckchen gespielt. Ziel des Spiels ist es, alle Karten als echte Familien steigend auf die Basis anzuordnen. </para>
+
+<para
+> Die Spielfolgen müssen fallend angeordnet werden, wobei sich immer schwarze und rote Karten abwechseln. Es können nur Sequenzen oder einzelne Karten verschoben werden. Auf eine freie Ablage kann jede beliebige Karte oder Sequenz gelegt werden. </para>
+
+<para
+> Können keine weiteren Karten verschoben werden, ergeben sich neue Möglichkeiten durch einen Klick auf den Talon. Dann wird auf jede Ablage eine neue Karte gelegt. </para>
+
+<para
+> Durch eine häufige Benutzung von [rückgänig] ist es leichter, ein Spiel zu gewinnen. </para>
+
+</sect1>
+
+<sect1 id="forty-and-eight">
+<title
+>Vierzig und Acht<anchor id="game_forty_and_eight"/></title>
+
+<para
+> Vierzig und Acht wird mit zwei Kartenpäckchen gespielt. Ziel des Spiels ist es, alle Karten als echte Familien steigend auf die Basis anzuordnen. </para>
+
+<para
+> Die Spielfolgen müssen fallend angeordnet werden, wobei nur Herz auf Herz, Pik auf Pik, .... gelegt werden kann. </para>
+
+<para
+> Es kann nur eine einzelne oben liegene Karte pro Spielzug bewegt werden. Auf eine freie Ablage kann jede beliebige Karte gelegt werden. </para>
+
+<para
+> Mit einem Klick auf den Talon wird eine Karte auf den Hilfsstapel gelegt, von wo aus sie auf die Ablagen oder die Basis bewegt werden kann. Ist der Talon leer, wird mit einem weiteren Klick der Hilfsstapel zu einen neuen Talon. Jedoch kann der Talon kann nur zweimal durchgesehen werden. </para>
+
+<para
+> Diese Patience ist nicht wirklich einfach zu lösen, aber mit ein wenig Erfahrung werden Sie in der Lage sein, etliche Spiele zu gewinnen. Dabei bietet sich vor allem die häufigere Benutzung des Rückgängig-Features an, um Entscheidungen im Spielverlauf zu berichtigen. Häufig wird auch &kpat; die falschen Karte auf die Basis abgelegt haben, so dass Sie auch hierbei mit Rückgängig eine andere Entscheidung herbeileiten können. </para>
+</sect1>
+
+<sect1 id="simple-simon">
+<title
+>Einfach Simon<anchor id="game_simple_simon"/></title>
+
+<para
+> Einfach Simon wird mit einem Kartenpäckchen gespielt. Ziel des Spiels ist es, alle Karten als echte Familien steigend auf die Basis anzuordnen. </para>
+
+<para
+> In den Ablagen können echte und unechte fallende Sequenzen gebildet werden. Mehrere Karten können nur dann bewegt werden, wenn sie Mitglied einer echten Sequenz sind. </para>
+
+<para
+> Die Karten werden nur auf die Basis gelegt, wenn alle 13 Karten einer Farbe im Spielfeld als echte fallende Familie angeordnet wurden. </para>
+
+<tip
+> <title
+>Vorschlag</title
+> <para
+> Es empfiehlt sich möglichst früh Karten von der rechten Seite des Spielfeldes "wegzuräumen", um freie Ablagen zu schaffen. Auf eine freie Ablage kann jede Karte oder Sequenz gelegt werden. </para
+> <para
+> Mit genügend Platz kann man dann beginnen fallende Familien auf eine freie Ablage zu legen. Hat man alle Karten als so angeordnet, kann man sie anschließend der Farbe nach sortieren. </para
+> </tip>
+
+</sect1>
+
+<sect1 id="yukon">
+<title
+>Yukon<anchor id="game_yukon"/></title>
+
+<para
+> Yukon wird mit einem Kartenpäckchen gespielt. Ziel des Spiels ist es, alle Karten als echte Familien steigend auf die Basis anzuordnen. </para>
+
+<para
+> Die Spielfolgen müssen fallend angeordnet werden, wobei sich immer schwarze und rote Karten abwechseln. Man kann jede aufgedeckte Karte bewegen. So kann z.B. die Pik-fünf auf eine oben liegende Herz-sechs gelegt werden, unabhänig davon, wieviele Karten auf der Pik-fünf liegen. </para>
+
+<para
+> Auf eine freie Ablage kann jede beliebige Karte oder Sequenz gelegt werden. </para>
+</sect1>
+
+<sect1 id="grandfathers-clock">
+<title
+>Großvaters Uhr<anchor id="game_grandfathers_clock"/></title>
+
+<para
+> Großvaters Uhr ist eine einfache Patience und mit ein bißchen knobeln geht fast jedes Spiel auf. Diese Patience wird mit einem Kartenpäckchen gespielt. </para>
+
+<para
+> Ziel ist es, die Karten als echte steigende Sequenzen derart in der Basis anzuordnen, dass die Ziffern einer Uhr entstehen. Wobei Ass die Eins symbolisiert, Bube die Elf und Dame die Zwölf. </para>
+
+<para
+> Die Ablage besteht aus acht Stapeln mit je fünf Karten. In der Ablage können die Karten als fallende Sequenzen angeordnet werden, wobei die Farbe hier keine Rolle spielt. Es kann pro Spielzug nur eine einzelne Karte bewegt werden. </para>
+
+<para
+>[auto drop] ist bei dieser Patience abgestellt.</para>
+
+</sect1>
+
+<sect1 id="kings">
+<title
+>Könige<anchor id="game_kings"/></title>
+
+<para
+> Die Patience Könige wird mit zwei Kartenpäckchen gespielt. Die Karten werden so ausgeteilt, dass unter jedem Ablagestapel ein König liegt. Die Karten, die im Stapel zwischen zwei Königen liegen, werden auf den jeweils ersten gelegt. Dadurch können sehr unterschiedlich große Stapel entstehen. </para>
+
+<para
+> Ziel des Spiels ist es, alle Karten als echte Familien steigend auf die Basis (rechts im Spielfeld) anzuordnen. </para>
+
+<para
+> Die Spielfolgen müssen fallend angeordnet werden, wobei sich immer schwarze und rote Karten abwechseln. Mehrere Karten können nur dann bewegt werden, wenn sie Mitglied einer unechten Sequenz sind. </para>
+
+<para
+> In die acht ferien Zellen im oberen Spelfeld können jeweils eine einzige Karte gelegt werden. Auf eine freie Ablage kann jede beliebige Karte oder Sequenz gelegt werden. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+> &kpat; Copyright 1995-2000 Paul Olav Tvete </para>
+
+<para
+> &kpat; Copyright 2001 Stephan Kulow <email
+>coolo@kde.org</email
+> </para>
+
+<para
+> Freecell Solver von Shlomi Fish <email
+>shlomif@vipe.technion.ac.il</email
+> </para>
+
+<para
+> Dokumentation Copyright 2000 Paul Olav Tvete </para>
+
+<para
+> Documentation für KDE 2.0 von Michael McBride <email
+>mpmcbride7@yahoo.com</email
+> überarbeitet </para>
+
+<para
+> Documentation für &kpat; 2.0 (KDE 2.1) neu geschrieben von Maren Pakura <email
+>maren@kde.org</email
+> </para>
+
+<para
+>&Uuml;bersetzungen  der GUI und der Dokumentation: Stephan Kulow<email
+>coolo@kde.org</email
+></para>
+
+&underFDL;
+&underX11License;
+
+</chapter>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

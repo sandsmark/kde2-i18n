@@ -1,0 +1,289 @@
+
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="applications">
+<title
+>&kde; programi</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>&kppp;</para>
+</question>
+<answer>
+<para
+>Mnogi uporabniki poročajo o težavah pri uporabi &kppp;. Preden se še vi pritožite, preverite raje naslednje možnosti:</para>
+<itemizedlist
+> <listitem
+><para
+>Se sploh lahko povežete z vašim <acronym
+>ISP</acronym
+> brez uporabe &kppp;? Če ne, potem verjetno &kppp; sploh ni ničesar kriv.</para
+></listitem
+> <listitem
+><para
+>Ste pregledali dokumentacijo &kppp; vsaj trikrat in sledili navodilom, in namigom ob težavah?</para
+></listitem
+> </itemizedlist>
+<para
+>Do dokumentacije za &kppp; lahko dostopate preko <application
+>&kde; Help Center</application
+> ali pa greste neposredno v imenik z dokumentacijo, običajno <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/doc/HTML/default/kppp</filename
+>. Poleg tega obstaja spletna stran "How to set up kppp with ISPs in the UK" na <ulink url="http://www.kppp-archive.freeserve.co.uk/"
+>http://www.kppp-archive.freeserve.co.uk/</ulink
+>. Na koncu, ne pa nazadnje, domača stran &kppp; je na <ulink url="http://devel-home.kde.org/~kppp/"
+>http://devel-home.kde.org/~kppp/</ulink
+>.</para>
+<para
+>Če imate še vedno težave, vam bo morda pomagalo to:</para>
+<variablelist
+> <varlistentry
+><term
+>Kako v &kppp; spremeniti nastavitev &MTU;?</term
+> <listitem
+><para
+>Odprite pogovorno okno &kppp; in izberite <guibutton
+>Setup</guibutton
+>. Izberite obstoječ račun in kliknite <guibutton
+>Edit</guibutton
+> ali <guibutton
+>New</guibutton
+>, da ustvarite nov klicni račun. Izberite vez <guilabel
+>Dial</guilabel
+> in kliknite <guibutton
+>Arguments</guibutton
+>. V besedilno polje Argument vtipkajte, kar želite spremeniti (<abbrev
+>npr.</abbrev
+> <userinput
+>mtu 296</userinput
+>) in kliknite <guibutton
+>Add</guibutton
+>. Ko ste zadovoljni, kliknite <guibutton
+>Close</guibutton
+>.</para
+> <para
+>Da preverite, ali so zmožnosti "prijele", naredite eno izmed naslednjih stvari:</para
+> <itemizedlist
+> <listitem
+><para
+>V terminalskem oknu poženite <command
+>/sbin/ifconfig ppp0</command
+> in preglejte sporočeni &MTU; v izhodu. Ustrezati bi moral vaši zahtevi.</para
+></listitem
+> <listitem
+><para
+>Dodajte <option
+>debug</option
+> in <option
+>kdebug</option
+> (vsakega v ločeni vrstici) v vašo datoteko <filename
+>/etc/ppp/options</filename
+> in ponovno poženite &PPP; sejo. Razhroščevalna sporočila boste našli v <filename
+>/var/log/messages</filename
+>, vključno z &MRU; in &MTU; nastavitvami.</para
+></listitem
+> </itemizedlist
+> <para
+>Če želite, lahko nastavitve &MRU; in &MTU; dodate v datoteko <filename
+>options</filename
+> in sicer eno celovito nastavitve v eno vrstico, brez narekovajev in črtic.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>&kppp; se poveže pri nižji hitrosti kot običajno.</term
+> <listitem
+><para
+>Naslednji trik bo morda pomagal:</para
+> <itemizedlist
+> <listitem
+><para
+>Poizkusite izvesti <command
+>setserial spd_hi</command
+>.</para
+></listitem
+> <listitem
+><para
+>Privzeta vrednost &MTU; je 1500, kar je morda preveč za klicno povezavo. Poizkusite jo spremeniti na manjšo vrednost, kot je <userinput
+>296</userinput
+> or <userinput
+>576</userinput
+>.</para
+></listitem
+> <listitem
+><para
+>Poiščite v <filename class="directory"
+>$<envar
+>HOME</envar
+>/.kde/share/config</filename
+> datoteko <filename
+>kppprc</filename
+>. Preverite, da je tam dejansko definirana pravilna hitrost modema.</para
+></listitem
+> </itemizedlist
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&konsole;</para>
+</question>
+<answer>
+<variablelist
+> <varlistentry
+> <term
+>Kako se premaknem za eno stran navzgor ali navzdol?</term
+> <listitem
+><para
+>Uporabite <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Pg Up</keycap
+></keycombo
+> in <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Pg Dn</keycap
+></keycombo
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Kako preklapljam obnašanje tipk &Backspace; in <keycap
+>Delete</keycap
+>?</term
+> <listitem
+><para
+>Poglejte v menu <menuchoice
+><guimenu
+>Options</guimenu
+><guimenuitem
+>Terminal</guimenuitem
+></menuchoice
+> vašega terminalskega okna. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Kako opravim preprost "prepiši" iz &konsole; v karkoli drugega?</term
+> <listitem
+><para
+>Ko izvedem <command
+>ls</command
+>, najprej izberem s pomočjo miške želeno besedilo, pritisnem <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+>, nato aktiviram ciljni program, pokažem z miško na ustrezen del in pritisnem <keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+>. Alternativno osvetlite besedilo z vlečenjem s pritisnjenim &LGM; in prilepljajte s &SGM; (ali obema gumboma, če imate nastavljeno emulacijo tretjega gumba in uporabljate miško z dvema).</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kmail;</para>
+</question>
+<answer>
+<para
+>&kmail; ima svojo spletno stran <ulink url="http://kmail.kde.org"
+>http://kmail.kde.org</ulink
+>, kjer je na voljo <acronym
+>FAQ</acronym
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kbiff;</para>
+</question>
+<answer>
+<para
+>&kbiff; je program za obveščanje (zaznavanje) pošte in njegova domača stran je na <ulink url="http://www.granroth.org/kbiff"
+>http://www.granroth.org/kbiff</ulink
+>.</para>
+<variablelist
+> <varlistentry
+><term
+>Kako lahko en izvod &kbiff; nadzoruje dva poštna predala in ustrezno ukrepa, kadar prispe sporočilo?</term
+> <listitem
+><para
+>Dobivate v obeh poštnih predalih mnogo sporočil? Če, potem bi bilo bolje, da uporabite dva izvoda, da ju nadzorujete. Če ne, potem pojdite v vez <guilabel
+>Mailbox</guilabel
+> in kliknite na majhno ikono nabiralnika. To bo ustvarilo nov predal v tem izvodu. Sedaj bo kadarkoli kateri zmed njiju dobil novo sporočilo &kbiff; opravil vse svoje nove poštne stvari.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<!-- fixme: does ktop still exist? is this bug fixed?
+<qandaentry>
+<question>
+<para
+>&ktop;</para>
+</question>
+<answer>
+<para
+>Why can't I see anything on it?</para>
+<para
+>It is a bug, albeit easily fixed.  Just resize it by a few pixels and
+everything would be all right.</para>
+</answer>
+</qandaentry>
+-->
+
+<qandaentry>
+<question>
+<para
+>&knode;</para>
+</question>
+<answer>
+<variablelist
+> <varlistentry
+><term
+>How do I killfile someone?</term
+> <listitem
+><para
+>Ta možnost še ni izvedena, in verjetno tudi ne bo prej kot v &kde; 2.1.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Ali &knode; podpira več izbir v seznamu člankov?</term
+> <listitem
+><para
+>V trenutku pisanja še ne. Morda pa bo to izvedeno v &kde; 2.1.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

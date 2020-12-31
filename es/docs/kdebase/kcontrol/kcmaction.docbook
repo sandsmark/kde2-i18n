@@ -1,0 +1,656 @@
+<sect1 id="window-behavior">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+<othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>de Vicente</surname
+> <affiliation
+><address
+><email
+>pvicentea@nexo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit>
+</authorgroup>
+
+<date
+>2001-07-22</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>acciones</keyword>
+<keyword
+>ubicación de la ventana</keyword>
+<keyword
+>tamaño de la ventana</keyword>
+</keywordset>
+</sect1info>
+
+<title
+>Comportamiento de la ventana</title>
+
+<para
+> En la parte superior de este módulo de control puede ver tres paneles: <guilabel
+>Foco</guilabel
+>, <guilabel
+>Acciones</guilabel
+> y <guilabel
+>Avanzado</guilabel
+>. En el panel <guilabel
+>Foco</guilabel
+> puede configurar como ganan o pierden el foco las ventanas, &ie; como se activan o desactivan. Usando <guilabel
+>Acciones</guilabel
+> puede configurar el modo en el que las ventanas reaccionan a pulsaciones del ratón. Las opciones en <guilabel
+>Avanzado</guilabel
+> tienen que ver con la ubicación de ventanas, movimiento o redimensionamiento. </para>
+
+<note
+> <para
+> Por favor tenga en cuenta que la configuración de este módulo no tendrá efecto si usetd no utiliza &kwin; el administrador de ventanas nativo de &kde;. Si usted usa un administrador de ventanas diferente, por favor consulte su documentación para personalizar el comportamiento de las ventanas. </para
+> </note>
+
+<sect2 id="action-focus">
+<title
+>Foco</title>
+
+<para
+> El <quote
+>foco</quote
+> del escritorio se refiere a la ventana en la que el usuario se encuentra trabajando. La ventana con foco se conoce frecuentemente como <quote
+>ventana activa</quote
+>. </para>
+
+<sect3 id="action-focus-focuspolicy">
+<title
+>Política de focalización</title>
+
+<para
+> Hay cuatro métodos que &kde; puede utilizar para determinar el foco actual: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Pulsar para focalizar</guilabel
+></term
+> <listitem
+> <para
+> Con esta opción, usted simplemente pulsa sobre la ventana para activar la ventana. </para
+> <para
+> Todas las otras opciones dentro de esta sección no tienen efecto cuando esta opción es elegida. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Foco sigue al ratón</guilabel
+></term
+> <listitem
+> <para
+> Para cambiar el foco de una ventana, simplemente coloque el cursor sobre la ventana. Si el cursor se mueve entonces a un área del escritorio vacía, la última ventana retiene el foco. </para
+> <para
+> En otros administradores de ventanas, esto se conoce como <quote
+>Foco sucio sigue al ratón</quote
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Foco bajo el ratón</guilabel
+></term
+> <listitem
+> <para
+> La ventana bajo el cursor, tiene el foco. Si, sin embargo, el cursor está en un área del escritorio vacía, ninguna ventana estará activa. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Foco estrictamente bajo el ratón</guilabel
+></term
+> <listitem
+> <para
+>Similar a <guilabel
+>Focu bajo el ratón</guilabel
+>, pero incluso más estricta en su interpretación. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Una vez que usted ha determinado la política de foco, hay dos opciones más que puede determinar. </para>
+
+<para
+> Colocando una marca en frente de <guilabel
+>Subir automáticamente</guilabel
+>, &kde; puede pasar una ventana al frente si el ratón está sobre la ventana durante un periodo especificado de tiempo. Esto es muy útil con la opción <guilabel
+>Foco sigue al ratón</guilabel
+>. Puede determinar el retardo usando la combinación botón deslizante/casilla incrementadora. </para>
+
+<tip
+> <para
+> Configurando el retardo demasiado corto, ocasionará un disparo rápido de ventanas que puede distraerle bastante. La mayor parte de la gente trabaja con retardos de 100-300 ms. Es un valor de respuesta alto, pero le permitirá deslizarse a las esquinas de una ventana en su camino al destino sin pasar la ventana al frente. </para
+> </tip>
+
+<para
+> Si no usa <guilabel
+>Subir automáticamente</guilabel
+>, asegurese de que la opción <guilabel
+>Pulsar para subir</guilabel
+> está marcada. No es una buena idea tener las opciones <guilabel
+>Subir automáticamente</guilabel
+> y <guilabel
+>Pulsar para subir</guilabel
+> desactivadas. </para>
+</sect3>
+
+<sect3 id="action-focus-keyboard">
+<title
+>Teclado</title>
+
+<para
+> En el marco <guilabel
+>Teclado</guilabel
+> puede configurar el modo de cambio entre aplicaciones o escritorios usando <keycombo action="simul"
+> &Alt;<keycap
+>Tabulador</keycap
+></keycombo
+> o <keycombo action="simul"
+> &Ctrl;<keycap
+>Tabulador</keycap
+></keycombo
+>. </para>
+
+<para
+> El cambio de aplicaciones utilizando <keycombo action="simul"
+>&Alt; <keycap
+>Tabulador</keycap
+></keycombo
+>, &ie; manteniendo pulsado &Alt; mientras se pulsa repetidamente la tecla <keycap
+>Tabulador</keycap
+>, es posible en modo &kde; o en modo <acronym
+>CDE</acronym
+>: en modo &kde; verá una caja en medio de la pantalla mostrando las aplicaciones actualmente seleccionadas mientras todavía mantiene pulsada la tecla &Alt;. En modo <acronym
+>CDE</acronym
+> no tendrá ningún efecto de realimentación visual. </para>
+
+<para
+> Finalmente hay una opción donde puede elegir <guilabel
+>Mostrar ventanas en todos los escritorios</guilabel
+>o no. Con esto activado, el cambio de ventanas con <keycombo action="simul"
+> &Alt;<keycap
+>Tabulador</keycap
+></keycombo
+> mostrará todas las ventanas, en todos los escritorios, y le llevará al escritorio adecuado al seleccionar la ventana. Con ello desactivado, sólo las ventanas en su escritorio actual son seleccionables con <keycombo action="simul"
+> &Alt;<keycap
+>Tabulador</keycap
+></keycombo
+>, y usted debe utilizar <keycombo action="simul"
+>&Ctrl;<keycap
+>Tabulador</keycap
+></keycombo
+> para pasar por si mismo a otros escritorios. </para>
+
+</sect3>
+</sect2>
+
+<sect2 id="action-actions">
+<title
+>Acciones</title>
+
+<!-- The same functionality is in kcmmousebeh, so this is mainly copied from
+kcmmousebeh.docbook, only the introduction sentence and the ids have been
+adapted. -->
+
+<para
+> En esta ficha puede configurar lo que ocurre con una ventana al pulsar el ratón sobre ella. La ficha está dividida en 4 secciones. </para>
+
+<sect3 id="action-actions-sec1">
+<title
+><guilabel
+>Doble pulsación sobre la barra de títulos</guilabel
+></title>
+
+<para
+> Esta sección proporciona una lista desplgable única. Puede seleccionar bien <guilabel
+>Recoger</guilabel
+>, o <guilabel
+>Maximizar</guilabel
+>. </para>
+
+<para
+> Si selecciona <guilabel
+>Maximizar</guilabel
+>, &kde; maximizará la ventana siempre que pulse dos veces sobre la barra de títulos. Por otra parte, <guilabel
+>Recoger</guilabel
+>, hace que la ventana sea reduzca hasta la barra del título. Pulsando dos veces sobre la barra del título de nuevo, restaura la ventana a su tamaño normal. </para>
+
+<tip
+> <para
+> Puede conseguir que las ventanas se desplieguen con sólo situar el ratón sobre la barra de título recogida. Simplemente marque la casilla <guilabel
+>Activar sobre</guilabel
+> en la ficha <guilabel
+>Avanzado</guilabel
+> de este módulo. Este es un buen modo de reclamar espacio de escritorio cuando usted, por ejemplo, corta y pega entre un montón de ventanas. </para
+> </tip>
+
+</sect3>
+
+<sect3 id="action-actions-sec2">
+<title
+><guilabel
+>Barra de título y marco</guilabel
+></title>
+
+<para
+> Esta sección le permite determinar lo que ocurre cuando usted pulsa una sóla vez sobre la barra del título o el marco de una ventana. Advierta que puede tener diferentes acciones asociadas con la misma pulsación dependiendo de si la ventana está activa o no. </para>
+
+<para
+> Para cada combinación de botones de ratón y activo/inactivo, puede seleccionar la elección más adecuada. Las acciones son las siguientes: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Activar</guilabel
+></term
+> <listitem
+> <para
+> Activa la ventana. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Inferior</guilabel
+></term
+> <listitem
+> <para
+> Moverá la ventana al fondo de la pantalla. Esto quitará de enmedio la ventana. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nada</guilabel
+></term
+> <listitem
+> <para
+> Exactamente lo que dice. No pasa nada. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Menú de operaciones</guilabel
+></term
+> <listitem
+> <para
+> Mostrará un pequeño submenú, donde puede elegir comandos relativos a ventanas (&ie; Maximizar, Minimizar, Cerrar, &etc;). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Subir</guilabel
+></term
+> <listitem
+> <para
+> Pasará la ventana al frente. Todas las demás ventanas que se solapan con esta, quedarán ocultas <quote
+>bajo</quote
+> ella. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Cambiar subir/bajar</term
+> <listitem
+> <para
+> Subirá las ventanas que no están delante, y pasará atrás las que están delante. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+
+<sect3 id="action-actions-sec3">
+<title
+><guilabel
+>Inactivar la ventana interior</guilabel
+></title>
+
+<para
+> Esta parte del módulo, le permite configurar lo que ocurre cuando usted pulsa sobre una ventana inactiva, con cualquiera de los tres botones del ratón. </para>
+
+<para
+> Sus posibilidades son las siguientes: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Activar, subir y pasar la pulsación</guilabel
+></term
+> <listitem
+> <para
+> Esto activa la ventana pulsada activa, la sube al frente de la pantalla, y pasa una pulsación del ratón a la aplicación dentro de la ventana. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Activar y pasar la pulsación</guilabel
+></term
+> <listitem
+> <para
+> Esto activa la ventana activa y pasa una pulsación del ratón a la aplicación dentro de la ventana. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Activar</guilabel
+></term
+> <listitem
+> <para
+> Esto simplemente activa la ventana pulsada. La pulsación del ratón no se pasa a la aplicación dentro de la ventana. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Activar y subir</guilabel
+></term
+> <listitem
+> <para
+> Esta opción activa la ventana pulsada y la pasa al frente. La pulsación del ratón no se pasa a la aplicación dentro de la ventana. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="action-actions-sec4">
+<title
+><guilabel
+>Ventana interior, barra de título y marco.</guilabel
+></title>
+
+<para
+> Esta sección del fondo, le permite configurar acciones adicionales, cuando pulsa la tecla &Alt; y se realiza una pulsación del ratón sobre una ventana. </para>
+
+<para
+> Una vez más, puede seleccionar diferentes acciones para las pulsaciones de ratón <mousebutton
+>izquierda</mousebutton
+>, <mousebutton
+>central</mousebutton
+> y <mousebutton
+>derecha</mousebutton
+>. </para>
+
+<para
+>Sus posibilidades son:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Inferior</guilabel
+></term
+> <listitem
+> <para
+> Moverá la ventana al fondo de la pantalla. Esto quitará de enmedio la ventana. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Mover</guilabel
+></term
+> <listitem
+> <para
+> Le permite arrastrar la ventana seleccionada por el escritorio. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nada</guilabel
+></term
+> <listitem
+> <para
+> Exactamente lo que dice. No pasa nada. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Subir</guilabel
+></term
+> <listitem
+> <para
+> Pasará la ventana al frente. Todas las demás ventanas que se solapan con esta, quedarán ocultas <quote
+>bajo</quote
+> ella. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Redimensionar</guilabel
+></term
+> <listitem
+> <para
+> Le permite cambiar el tamaño de la ventana seleccionada. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Cambiar subir/bajar</guilabel
+></term
+> <listitem
+> <para
+> Subirá las ventanas que no están delante, y pasará atrás las que están delante. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="action-advanced">
+<title
+>Avanzado</title>
+
+<para
+> En la ficha <guilabel
+>Advanzado</guilabel
+> puede ajustar más refinadamente el comportamiento de la ventana. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Mostrar contenido de ventanas al mover</guilabel
+></term
+> <listitem
+> <para
+> Cuando esta opción está seleccionada, &kde; continuará actualizando los contenidos de la ventana mientras la mueve por la pantalla. </para
+> <para
+> Si esta opción no está seleccionada, &kde; le mostrará un rectángulo, que se moverá con el ratón. Cuando suelte el botón del ratón, &kde; restaurará los contenidos de la ventana. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Mostrar contenido de ventanas al cambiar tamaño</guilabel
+></term
+> <listitem
+> <para
+> Si esta opción está seleccionada, &kde; redimensionará los contenidos de una ventana al redimensionar esta. Si esta opción no está marcada, entonces &kde; mostrará un rectángulo mientras redimensiona, y cuando el botón del ratón sea soltado los contenidos de la ventana serán redimensionados y aparecerán en la ventana. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<tip
+> <para
+> Ambas opciones <guilabel
+>Mostrar contenidos al mover las ventanas</guilabel
+> y <guilabel
+>Mostrar contenido al redimensionar las ventanas</guilabel
+>, consumen más recursos del procesador cuando están activados. Si ve que su ordenador no responde tan rápidamente como desearía al mover o redimensionar ventanas, desactivar una o las dos propiedades aumentará la velocidad de respuesta de &kde;. </para
+> </tip>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Animar la minimización y restaurar</guilabel
+></term
+> <listitem
+> <para
+> Si esta opción está seleccionada, se mostrará una animación cuando una ventana se minimiza o restaura, para ofrecerle realimentación visual sobre lo ocurrido. Si está desactivado, una ventana minimizada simplemente desaparecerá, y una restaurada simplemente aparecerá. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Permitir mover y redimensionar ventanas maximizadas</guilabel
+></term
+> <listitem
+> <para
+> Al estar activado, los bordes de las ventanas maximizadas permanecerán activos, de modo que pueda todavía moverlos o redimensionarlos. Si están desactivados, las ventanas maximizadas se <quote
+>ajustarán a los bordes de la pantalla</quote
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ubicación</guilabel
+></term
+> <listitem
+> <para
+> La política de ubicación determina donde aparecerá una ventana en el escritorio. Por ahora, existen tres políticas diferentes: <guilabel
+>Inteligente</guilabel
+> tratará de conseguir el mínimo solapamiento de ventanas. <guilabel
+>Cascada</guilabel
+> pondrá las ventanas en cascada, <guilabel
+>Al azar</guilabel
+> usará una posición al azar. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Recogida</title
+> <varlistentry
+> <term
+><guilabel
+>Animar</guilabel
+></term
+> <listitem
+> <para
+>Si esto está activado, se mostrarán una animación al recoger o enrollar una ventana hasta sólo mostrar la barra de título.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Recogida flotante</guilabel
+></term
+> <listitem
+> <para
+> Si esta opción está seleccionada una ventana recogida se desenrrollará automáticamente cuando el cursor del ratón haya estado sobre la barra cierto tiempo. Utilice el botón deslizante para configurar el retardo de despliegue. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Bordes mágicos</title
+> <varlistentry
+> <term
+><guilabel
+>Zona de adhesión de bordes</guilabel
+></term
+> <listitem
+> <para
+>Los bordes mágicos le permiten <quote
+>adherir</quote
+> las ventanas a los bordes de la pantalla, y unas a otras. Esta opción determina como de cerca en pixels debería mover una ventana hasta el borde de la pantalla, para poder adherirla al borde cuando la mueve con el ratón.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zona de adhesión de ventana:</guilabel
+></term
+> <listitem
+> <para
+>Como con los bordes, esta opción determina, cuan cerca debería arrastrar una ventana hasta el borde de una ventana existente, para poder adherirla y alinearla, borde con borde con una ventana existente.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Adherir ventanas sólo cuando se solapen</guilabel
+></term
+> <listitem
+> <para
+>Esta opción modifica el elemento anterior, de modo que sólo ventanas que usted ha soltado solpandose con otra ventana, y con el borde dentro del área mágica, se adherirán al borde. Si activa esto, puede configurar una zona mágica grande, y el solapamiento de ventanas tratará de destaparlas. Esto puede ser bastante desconcertante, así que intentelo durante un tiempo.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="action-author">
+<title
+>Sección de autores</title>
+
+<para
+>Sección escrita por: </para>
+<para
+>Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+<para
+>Jost Schenck <email
+>jost@schenck.de</email
+></para>
+<para
+>Traducido por Pablo de Vicente <email
+>pvicentea@nexo.es</email
+></para>
+
+</sect2>
+</sect1>
+
+

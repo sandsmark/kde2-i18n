@@ -1,0 +1,434 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="misc">
+<title
+>Diverse frågor</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Varför används &Qt; av &kde;?</para>
+</question>
+<answer>
+<para
+>&Qt; är ett mycket avancerad verktygslåda som tillhandahåller allt som behövs för att bygga ett modern användargränssnitt. &Qt; är skrivet i C++, och gör det därför möjligt att använda objektorienterad utveckling som garanterar effektivitet och återanvändning av kod i ett projekt av &kde;:s storlek och omfattning. Enligt vår mening finns det ingen bättre verktygslåda tillgänglig för &UNIX;-system och det skulle ha varit ett stort misstag att försöka bygga &kde; med något annat än det bästa.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Varför används inte gtk, xforms, xlib eller något annat av &kde;?</para>
+</question>
+<answer>
+<para
+>Det finns ett stort antal tillgängliga verktygslådor. För att få ett konsekvent användargränssnitt och hålla resursanvändning av t.ex. minne på ett minimum, kan &kde; bara använda en av dem. &Qt; valdes av anledningarna som nämns ovan.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Men &Qt; är väl inte fritt, eller?</para>
+</question>
+<answer>
+<para
+>Det är fritt! Från 4:e september, 2000, licensierades version 2.2 av &Qt;-biblioteken med <acronym
+>GPL</acronym
+>, på så sätt uppfylls alla aspekter av "fri programvara".</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur monterar jag filsystem (<abbrev
+>t.ex.</abbrev
+> min <hardware
+>CD-ROM-enhet</hardware
+>) i &kde;?</para>
+</question>
+<answer>
+<para
+>För att kunna montera din <hardware
+>CD-ROM-enhet</hardware
+>, måste du först (som root) lägga till följande rad i <filename
+>/etc/fstab</filename
+>:</para>
+<screen>
+/dev/cdrom     /cdrom     iso9660  ro,user,noauto,unhide
+</screen>
+<para
+>Försäkra dig om att du har en symbolisk länk från <filename class="symlink"
+>/dev/cdrom</filename
+> till den /dev/hd? som representerar din <hardware
+>CD-ROM-enhet</hardware
+> (under förutsättning att du har en &ATAPI; <hardware
+>CD-ROM-enhet</hardware
+>). Du bör se något som liknar det här när du ger kommandot <command
+>ls -l /dev/cdrom</command
+>:</para>
+<screen>
+lrwxrwxrwx   1 root     root            8 Jul 28 22:21 /dev/cdrom -> /dev/hdb
+</screen>
+<para
+>Det ovanstående kan göras med <command
+>ln -s /dev/hdb /dev/cdrom</command
+> (som root). Sist men inte minst, försäkra att en giltig monteringspunkt finns där <hardware
+>CD-ROM-enheten</hardware
+> kan monteras, till exampel:</para>
+<screen>
+% ls -la /cdrom
+total 2
+drwxrwsr-x   2 root     cdrom        1024 Sep 14  1995 ./
+drwxr-xr-x  24 root     root         1024 Dec  1 21:00 ../
+</screen>
+<para
+>Nu kan du montera den från kommandoraden genom att skriva <command
+>mount /cdrom</command
+>. Eller om du föredrar, skapa en enhetslänk i &kde; till din <hardware
+>CD-ROM-enhet</hardware
+> och placera den på ditt skrivbord. Genom att klicka på den monteras automatiskt enheten åt dig. Ok, för frågan om hur man skapar en enhetslänk i  &kde; till din <hardware
+>CD-ROM enhet</hardware
+>, var god titta i &kde;:s användarhandbok för svaret.</para>
+<para
+>Mer information om hur filsystem monteras hittar du genom att köra <command
+>man fstab</command
+> och <command
+>man mount</command
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Har &kde; terminalemulering med genomskinlig bakgrund?</para>
+</question>
+<answer>
+<para
+>Ja och nej. &konsole; har möjlighet att simulera en genomskinlig bakgrund genom att rita om bakgrunden inne i &konsole;-fönstret. Det här ger en illusion av genomskinlighet, men om du placerar &konsole; ovanpå ett annat fönster, förloras genomskinligheten. <ulink url="http://www.eterm.org"
+>Eterm</ulink
+> bör fungera bra med  &kde; om du vill ha fullständig genomskinlighet.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Finns det något sätt att få reda på olika sorts information om mitt diskinnehåll: ledigt utrymme, katalogstorlekar, <abbrev
+>etc.</abbrev
+>?</para>
+</question>
+<answer>
+<para
+>&kde;:s inställningscentral låter dig titta på varje disk och ger dig information om ledigt utrymme, använt utrymme, <abbrev
+>etc.</abbrev
+> För att avgöra hur stor en enskild katalog är, kan du använda kommandot <command
+>du</command
+>. Detaljer om hur man använder det hittar du genom att skriva <command
+>man du</command
+> på kommandoraden. Om du bara vill veta hur mycket utrymme katalogen upptar skriv bara <command
+>du <option
+>-h <replaceable
+>katalog</replaceable
+></option
+></command
+>.</para>
+
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur kan jag få &Backspace; att fungera riktigt med &kde;?</para>
+</question>
+<answer>
+<para
+>Försök köra kommandot <command
+>xmodmap <option
+>-e 'keycode 22 = BackSpace'</option
+></command
+> och se om det fixar problemet (program måste startas om för att det här ska få någon effekt). Du bör kunna skriva in det här i en av dina X-uppstartsfiler som <filename
+>.xinitrc</filename
+>.</para>
+<para
+>Eller uppgradera helt enkelt till XFree86-3.3.3.1-1 eller senare.</para>
+<para
+><note
+><para
+>Dessutom angående &Backspace;-felet (Felnummer: kb704): felet rättas på något sätt genom att skriva in följande rad i <filename
+>$<envar
+>HOME</envar
+>/.xinitrc</filename
+>: <screen>
+xmodmap -  "keysym Delete = BackSpace"
+</screen
+> </para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur skapar jag ikoner för program som inte hör till &kde; som jag kan använda i <guimenu
+>K</guimenu
+>-menyn? Var hamnar de här ikonerna (eller kdelnk)?</para>
+</question>
+<answer>
+<para
+>Skapa dem med ditt favoritprogram för att hantera bilder, till exempel <application
+>GIMP</application
+>, och lägg dem i <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/icons(/mini)</filename
+> eller <filename class="directory"
+>$<envar
+>HOME</envar
+>/.kde/share/icons(/mini)</filename
+>. Förresten, <application
+>&kde;:-ikoneditor</application
+> utvecklas av &kde;-gruppen. Mer information finns på <ulink url="http://w1.1358.telia.com/~u135800018/prog.html#KICONEDIT"
+> http://w1.1358.telia.com/~u135800018/prog.html#KICONEDIT</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur är det med &kde;-program som inte har ikoner? Hur får jag in dem i menyn?</para>
+</question>
+<answer>
+<para
+>Använd &kmenuedit;. För att komma åt det använd höger musknapp på <guibutton
+>K</guibutton
+>-knappen och välj <guimenu
+>Inställningar...</guimenu
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Har &kde; ett grafiskt &FTP;-program?</para>
+</question>
+<answer>
+<para
+>Ja, och det är inget annat än din favorit bland filhanterare, &konqueror;. Du kan dra och släppa fjärrfiler till lokala kataloger. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur avslutar jag &kde;?</para>
+</question>
+<answer>
+<para
+>Klicka helt enkelt på <guibutton
+>K</guibutton
+>-knappen och välj <guimenu
+>Logga ut</guimenu
+>. Dessutom, om du <mousebutton
+>höger</mousebutton
+>klickar på ett tomt område på skrivbordet, visas en meny som innehåller logga ut som ett av valen. <note
+><para
+>Beroende på din inställning av &X-Windows;, <keycombo action="simul"
+>&Ctrl;&Alt;&Backspace;</keycombo
+> kan också göra susen genom att avsluta X-servern, men att använda det förhindrar sessionshantering och kan inte rekommenderas.</para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Finns det ett program som tittar efter e-post hos min Internetleverantör <acronym
+>ISP</acronym
+> om och endast om jag är ansluten?</para>
+</question>
+<answer>
+<para
+>Antingen &kbiff; eller &korn; klarar av jobbet. Om du inte är anslutet, finns de bara där (på tomgång).</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Är det verkligen nödvändigt att uppgradera till den senaste versionen?</para>
+</question>
+<answer>
+<para
+>Vi rekommenderar att du alltid använder den senaste stabila versionen. Om du inte gör det, kommer det troligen att vara svårt att få svar på dina frågor. Om du har ett problem med en gammal version, är svaret troligen <quote
+>Var snäll uppgradera och försök igen</quote
+>. Observera att säkerhetsproblem också ibland fixas av nya versioner.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur kopierar och klistrar jag in i &kde;?</para>
+</question>
+<answer>
+<para
+>Den enklaste metoden är att använda din mus:</para>
+<procedure
+> <step performance="required"
+><para
+>Markera texten som du vill kopiera genom att hålla nere vänster musknapp och dra över texten.</para
+></step
+> <step performance="required"
+><para
+>Gå till destinationsområdet. Beroende på dina inställningar, kan du behöva klicka med vänster musknapp för att ge det fokus.</para
+></step
+> <step performance="required"
+><para
+>Klicka med mittenknappen för att klistra in. Om du har en mus med två knappar och emulerar en mus med tre, tryck på båda knapparna samtidigt.</para
+></step
+> </procedure>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur översätter jag &RedHat;:s standardmeny till en undermeny i <guimenu
+>K</guimenu
+>-menyn?</para>
+</question>
+<answer>
+<para
+>Klicka på <guibutton
+>K</guibutton
+>-knappen och välj <menuchoice
+><guimenu
+>System</guimenu
+><guimenuitem
+>Programfinnaren</guimenuitem
+></menuchoice
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="CVS">
+<para
+>Vad är <acronym
+>CVS</acronym
+>?</para>
+</question>
+<answer>
+<para
+>Det betyder Concurrent Versions System. Det är ett versionshanteringssystem baserat på <acronym
+>RCS</acronym
+> (Revision Control System), men ger mer funktionalitet. Det används för att underhålla källkod som är under utveckling. Det hanterar flera versioner av saker (praktiskt om du tog sönder någonting och måste gå tillbaka och hämta en fungerande gammal version), och låter människor hämta den senaste källkoden över nätet eller till och med uppdatera med nya grejor om de har rättigheter. Det är också öppen kod (du kan betala för stöd om du vill), och eftersom det är fritt är det systemet som föredras av människor som skriver mer fri programvara, såsom &kde;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Stöder &kde; dubbla skärmar (Xinerama)?</para>
+</question>
+<answer>
+<para
+>Du måste ha en flerskärms X-server (<abbrev
+>t.ex.</abbrev
+> MetroX eller XFree86 4.0 och senare) och en fönsterhanterare som förstår flera skärmar (<abbrev
+>t.ex.</abbrev
+> &windowmaker;).</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur kontrollerar jag vilken version av &kde; jag använder?</para>
+</question>
+<answer>
+<para
+>Kör igång <application
+>&kde;:s inställningscentral</application
+>. Om det inte nämns någon version på första skärmen, så använder du version 1.0 (och det är dags att uppgradera!).</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kan jag skriva kommersiell programvara för &kde;?</para>
+</question>
+<answer>
+<para
+>Du kan använda &kde;:s bibliotek för att skriva programvara med "kommersiell och begränsad källkod" samt "kommersiell och öppen källkod". Om du skriver öppen programvara kan du använda &Qt;:s fria version. Men om du skriver programvara med begränsad källkod får du inte längre använda &Qt;:s fria version, utan måste köpa &Qt;:s professionella version från Troll Tech. </para>
+<para
+>Om du vill ha mer information, var god kontakta <ulink url="http://www.trolltech.com"
+>Troll Tech</ulink
+> direkt.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur gör jag för att skapa teman och ikoner?</para>
+</question>
+<answer>
+<para
+>Titta på <ulink url="http://artist.kde.org"
+>http://artist.kde.org</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Är <application
+>KLyX</application
+>-programmet dött?</para>
+</question>
+<answer>
+<para
+>Ja. Men framtida versioner av <application
+>LyX</application
+> kommer att vara oberoende av grafiskt gränssnitt (&GUI;). Kontrollera framstegen för olika gränssnitt <ulink url="http://devel.lyx.org/guii.php3"
+>här</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur kan jag få reda på uppdateringar av utvecklingen?</para>
+</question>
+<answer>
+<para
+>Du kan vilja prenumerera på de olika tillgängliga e-postlistorna för &kde;, särskilt kde-cvs, som listar alla arkiveringar som görs i &kde;:s <acronym
+>CVS</acronym
+>-arkiv. Kontrollera <ulink url="http://lists.kde.org"
+>http://lists.kde.org</ulink
+> om du vill läsa utan att prenumerera.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+

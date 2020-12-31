@@ -1,0 +1,1369 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&knewsticker;">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE">
+
+
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &knewsticker; Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Frerich</firstname
+> <surname
+>Raabe</surname
+> <affiliation
+> <address
+><email
+>raabe@kde.org</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+> <affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+> <contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Frerich Raabe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-01-24</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract>
+<para
+> &knewsticker; ist ein Nachrichten-Miniprogramm für die &kde; 2.x Kontrollleiste ( auch als &kicker; bekannt). </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KNewsTicker</keyword>
+<keyword
+>kdenetwork</keyword>
+<keyword
+>Nachrichten-Ticker</keyword>
+<keyword
+>applet</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+> &knewsticker; ist ein Miniprogramm für die &kde; Kontrollleiste (auch bekannt als &kicker;). Es bietet einen leichten und komfortablen Zugriff auf Neuigkeiten, wie sie von vielen Nachrichtenseiten (wie <ulink url="http://slashdot.org"
+>Slashdot</ulink
+>, <ulink url="http://lwn.net"
+>Linux Weekly News</ulink
+> oder <ulink url="http://freshmeat.net"
+>Freshmeat</ulink
+>) angeboten werden. </para>
+
+<para
+> Dazu muss die Nachrichtenseite für &knewsticker; eine spezielle <acronym
+>RDF</acronym
+> oder <acronym
+>RSS</acronym
+>-Datei bereithalten, die sowohl die Titelzeilen als auch Verweise auf die zugehörigen Artikel enthält. Solche Dateien sind durchaus üblich und &knewsticker; enthält bereits eine gute Auswahl an guten Informationsquellen. </para>
+
+<sect1 id="rdffiles">
+<title
+>Kurze Information zu <acronym
+>RDF</acronym
+>-Dateien</title>
+
+<para
+> <acronym
+>RDF</acronym
+>-Dateien werden immer populärer und dieses Miniprogramm ist nicht die erste Anwendung, die sie verwendet. Was aber sind <acronym
+>RDF</acronym
+>-Dateien? Dieser Abschnitt versucht, auf diese Frage eine kurze Antwort zu geben und weitere Informationsquellen zu nennen. </para>
+
+<para
+> <acronym
+>RDF</acronym
+> ist ein Akronym für <quote
+>Resource Definition Framework </quote
+>. Es wurde vom <ulink url="http://www.w3c.org"
+>World Wide Web Consortium</ulink
+> erfunden und ist eine der ersten Anwendungen für die <ulink url="http://www.w3.org/TR/REC-xml"
+>Extended Markup Language (<acronym
+> XML</acronym
+>)</ulink
+>) gewesen. <acronym
+>RDF</acronym
+>-Dateien (sowie die sehr ähnlichen <acronym
+>RSS</acronym
+>-Dateien) definieren und beschreiben sogenannte Meta-Informationen, also Informationen über Informationen. </para>
+
+<para
+> <acronym
+>RDF</acronym
+>-Dateien können verschiedene Arten von Metadaten enthalten, also nicht nur Neuigkeiten (News). Dennoch sind sie gerade bei Nachrichtenseiten sehr populär, da sie einen klaren, einfachen und portablen Weg zur Verteilung von Neuigkeiten darstellen. Die Nachrichtenseite stellt eine <acronym
+>RDF</acronym
+>-Datei bereit, die eine Anzahl Datensätze enthält, wobei jeder der Datensätze aus einer Überschrift und einer <acronym
+>URL</acronym
+>, die auf den kompletten Artikel verweist, besteht. Daneben enthält die <acronym
+>RDF</acronym
+>-Datei auch den offiziellen Namen der Nachrichtenseite und einige andere allgemeine Informationen, die von &knewsticker; ausgewertet werden. </para>
+
+<para
+> Dies ist natürlich nur eine kurze und unvollständige Erklärung zum Konzept der <acronym
+>RDF</acronym
+>-Dateien und Metadaten. Wenn man weitere Informationen sucht, können die folgenden Verweise hilfreich sein:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><ulink url="http://www.oasis-open.org/cover/rdf.html"
+> http://www.oasis-open.org/cover/rdf.html</ulink
+></term
+> <listitem
+><para
+>Diese Seite enthält eine sehr gute Erklärung des Resource Definition Frameworks und hat außerdem eine lange Liste Verweise auf Internetseiten, die sich mit diesem Thema beschäftigen. Für das Verständnis werden keine speziellen Voraussetzungen benötigt. Weiterhin ist die Seite immer sehr aktuell. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://www.ccil.org/~cowan/XML/RDF-made-easy.html"
+> http://www.ccil.org/~cowan/XML/RDF-made-easy.html</ulink
+></term
+> <listitem
+><para
+>Hier findet man einen mehr praktischen Zugang zu Resource Definition Frameworks. Diese Seite demonstiert die Verwendung von <acronym
+>RDF</acronym
+>-Dateien und zeigt, warum und wann sie ein geeignetes Mittel sind. Der Leser sollte sich mit <ulink url="http://www.w3.org/TR/REC-xml"
+>XML 1.0</ulink
+> auskennen, wie es vom <ulink url="http://www.w3.org"
+>World Wide Web Consortium</ulink
+> definiert werden.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://www.andrew.cmu.edu/user/mingfai/rdf/"
+> http://www.andrew.cmu.edu/user/mingfai/rdf/</ulink
+></term
+> <listitem
+><para
+>Hier findet sich eine lange und vollständige Liste mit Internetseiten, die sich mit <acronym
+>RDF</acronym
+> beschäftigen. Es lohnt sich ein Lesezeichen auf diese Seite zu setzen, da sie stets aktuelle ist und damit so gut wie keine toten Verweise enthält.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://www.w3.org/RDF/"
+>http://www.w3.org/RDF/</ulink
+></term
+> <listitem
+><para
+><emphasis
+>Die</emphasis
+> Quelle direkt vom <ulink url="http://www.w3.org"
+>World Wide Web Consortium</ulink
+>. Sie enthält eine umfangreichen Liste anderer Internetseiten, als auch einen Zeitplan für die <acronym
+>RDF</acronym
+>-Entwicklung, einen Überblick über die Architektur, ein Archiv mit Artikeln über <acronym
+>RDF</acronym
+> sowie eine sorgfältig zusammengestellte Liste von Hilfsprogrammen für Entwickler, die <acronym
+>RDF</acronym
+> verwenden wollen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Wer andere Internetseiten und Dokumente über dieses Thema findet, sollte sich mit Frerich Raabe <email
+>raabe@kde.org</email
+> in Verbindung setzen, damit diese in diesen Hilfetext eingefügt werden können und für jeden eine Hilfe darstellen.</para>
+
+<para
+>Vielen Dank!</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="starting-knewsticker">
+<title
+>&knewsticker; starten</title>
+
+<screenshot
+> <screeninfo
+>Hier findet man einen Screenshot von &knewsticker; in &kde;s Kontrollleiste</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="knewsticker-kicker.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Hier findet man einen Screenshot von &knewsticker; in &kde;s Kontrollleiste</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> &knewsticker; wird wie jedes andere Miniprogramm gestartet, man fügt es einfach der Kontrollleiste hinzu ( oder einem Ableger der Haupt-Kontrollleiste). Dazu wählt man <guimenuitem
+>Newsticker</guimenuitem
+> aus dem Menü <guisubmenu
+>Miniprogramme</guisubmenu
+> von &kicker;. </para>
+
+<screenshot
+> <screeninfo
+>Hier ist ein Screenshot mit &knewsticker; in einem eigenen Ableger der Hauptkontrollleiste</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="knewsticker-childpanel.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Hier ist ein Screenshot mit &knewsticker; in einem eigenen Ableger der Hauptkontrollleiste</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Ein weiterer Weg, &knewsticker; zu verwenden, ist, ihn in einen eigenen Ableger der Kontrollleiste zu setzen. Dazu fügt man eine neue Kontrollleiste hinzu durch Auswahl von <menuchoice
+><guimenu
+>Hinzufügen</guimenu
+> <guisubmenu
+>Erweiterung</guisubmenu
+><guimenuitem
+>Abhängige Kontrollleiste</guimenuitem
+> </menuchoice
+> im Kontextmenü von &kicker;. Nun kann &knewsticker; wie oben beschrieben in diese abhängige Kontrollleiste eingefügt werden. </para>
+</chapter>
+
+<chapter id="configuration">
+<title
+>&knewsticker; einrichten</title>
+
+<para
+> Da &knewsticker; eng in das System integriert ist, gibt es mehr als eine Möglichkeit, ihn einzurichten: </para>
+
+<variablelist
+> <varlistentry
+><term
+>Über &kcontrol;</term
+><listitem
+><para
+>Man startet &kcontrol; durch Klicken auf den Knopf <inlinemediaobject
+><imageobject
+> <imagedata fileref="kcontrol-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> in der &kde; Kontrollleiste oder wählt den entsprechenden Eintrag im <guimenu
+>K</guimenu
+>-Menü. Dann wählt man das &knewsticker; Modul aus, indem man im Menü <guisubmenu
+>Persönliche Einstellungen</guisubmenu
+> den Punkt <guimenuitem
+>Newsticker</guimenuitem
+> auswählt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Mit der rechten Maustaste</term
+><listitem
+><para
+>Man kann das Kontextmenü von &knewsticker; auswählen, indem man mit der rechten Maustaste klickt oder auf den Pfeilknopf klickt und den Eintrag <guimenuitem
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="preferences-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> Preferences</guimenuitem
+> im Menü wählt.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<sect1 id="config-general">
+<title
+>Allgemeine Konfiguration</title>
+
+<sect2>
+<title
+>Globale Einstellungen</title>
+
+<screenshot
+> <screeninfo
+>So sieht die Karteikarte <guilabel
+>Allgemein</guilabel
+> aus, wenn man sie über &kcontrol; öffnet.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kcmnewsticker-general.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>So sieht die Karteikarte <guilabel
+>Allgemein</guilabel
+> aus, wenn man sie über &kcontrol; öffnet.</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Egal auf welche Weise man die Konfiguration öffnet, stets wird die erste Karteikarte mit der Überschrift <guilabel
+>Allgemein</guilabel
+> angezeigt. Hier kann die Laufgeschwindigkeit des Textes, sein Aussehen sowie weitere allgemeine Werte für das Miniprogramm eingestellt werden. Es folgt eine kurze Erläuterung der Knöpfe und Schalter dieser Karteikarte: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Zeitintervall zur Nachrichtenabfrage</guilabel
+></term
+> <listitem
+><para
+> Hier kann man festlegen, in welchen Intervallen &knewsticker; die Nachrichtenseiten nach Neuigkeiten durchsucht. Diese Einstellung hängt generell davon ab, wie schnell man Nachrichten bekommen möchte und wie sehr man dadurch das Netzwerk belasten möchte: </para
+> <itemizedlist
+> <listitem
+> <para
+> Ein geringer Wert (weniger als 15 Minuten) führt zu einer sehr schnellen Benachrichtigung über Neuigkeiten. Dadurch wird aber der Netzwerkverkehr deutlich erhöht. Daher sollten solche geringen Werte nicht für sehr populäre Nachrichtenseiten verwendet werden (wie z.B. <ulink url="http://slashdot.org"
+> Slashdot</ulink
+> oder <ulink url="http://freshmeat.net"
+>Freshmeat</ulink
+>), da sie ohnehin bereits genügend Anfragen beantworten müssen. </para
+> </listitem
+> <listitem
+> <para
+> Bei einem großen Wert (mehr als 45 Minuten) Wert wird man von Nachrichten nicht so schnell erreicht. Für nicht zeitkritische Anwendungen sollte es aber schnell genug sein. Der Vorteil eines großen Wertes ist, dass eine geinge Belastung des Netzwerkes verursacht wird. Das schont Resourcen und Nerven für den Benutzer und das System-Acministrator der abgefragten Nachrichtenseiten. </para
+> </listitem
+> </itemizedlist
+> <tip
+> <para
+> Der Standardwert (30 Minuten) ist für die meisten Fälle sinnvoll und passend. </para
+> </tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Benutzerdefinierte Namen für Nachrichtenseiten benutzen</guilabel
+></term
+> <listitem
+><para
+> Markiert man dieses Ankreuzfeld, so verwendet &knewsticker; die vom Benutzer festgelegten Namen in der Liste der Nachrichtenquellen (auf der Karteikarte <guilabel
+>Nachrichtenquellen</guilabel
+>) anstatt der von den Nachrichtenseiten selbst angegebenen Namen. Dies kann nützlich sein, falls eine Nachrichtenseite einen sehr langen Namen hat. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Endloser Lauftext</guilabel
+></term
+> <listitem
+><para
+> Markiert man dieses Feld, so läuft der Lauftext ohne Unterbrechungen. Wenn die letzte Schlagzeile angezeigt wurde, wird die erste Schlagzeile von &knewsticker; nahtlos angefügt. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nur die aktuellsten Schlagzeilen anzeigen</guilabel
+></term
+> <listitem
+><para
+> Markiert man dieses Feld, so wird von jeder Nachrichtenseite nur die aktuellste Nachricht anstatt alle verfügbaren Nachrichten angezeigt. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Erscheinungsbild</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Geschwindigkeit des Lauftextes</guilabel
+></term
+> <listitem
+><para
+> Hier wird die Geschwindigkeit des Lauftextes eingestellt. Falls man wenig Platz in der Fensterleiste ( und daher wenig Raum für den Lauftext) hat, sollte man die Geschwindigkeit etwas herabsetzen, damit man eine Möglichkeit hat, den Lauftext zu entziffern. Bei einem breiten Newsticker (und besseren Augen) kann man den Text schneller laufen lassen, damit die Wartezeit auf die nächste Schlagzeile nicht zu lang wird. </para
+> <note
+> <para
+> Der Wert legt fest, nach welcher Zeit der Text ein wenig weiterwandert, ist also antiproportional zur Laufgeschwindigkeit. Das bedeutet, größere Werte resultieren in einem langsamer laufenden Text. </para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Laufrichtung</guilabel
+></term
+> <listitem
+><para
+> Hier wird festgelegt, in welche Richtung der Text läuft, also z.B. von links, von rechts, aufwärts oder abwärts. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Schriftart</guilabel
+></term
+> <listitem
+><para
+> Man klickt auf den Knopf <quote
+>Schriftart wählen...</quote
+>, um eine Schriftart für den Lauftext auszuwählen.</para
+> <tip
+><para
+>Schriftarten sind unterschidlich schwer zu lesen, besonders wenn man sie für einen Lauftext einsetzt, daher sollte man eine Schriftart wählen, die auch in Bewegung leicht zu lesen ist. </para
+></tip
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vordergrundfarbe</guilabel
+></term
+> <listitem
+><para
+> Klickt man auf diesen Knopf, so öffnet sich ein Farbauswahldialog, der die Auswahl einer Farbe für den Vordergrund ermöglicht (also für die Farbe des Lauftextes selbst). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Hintergrundfarbe</guilabel
+></term
+> <listitem
+><para
+> Klickt man auf diesen Knopf, so öffnet sich ein Farbauswahldialog, der die Auswahl der Hintergrundfarbe des Lauftextes erlaubt. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Hervorhebungsfarbe</guilabel
+></term
+> <listitem
+><para
+> Klickt man auf diesen Knopf, so öffnet sich ein Farbauswahldialog, mit dem man die Farbe der Schlagzeilen bestimmen kann, wenn sie hervorgehoben sind, wenn sich also der Mauszeiger darüber befindet. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Hervorgehobene Schlagzeile unterstreichen</guilabel
+></term
+> <listitem
+><para
+> Markiert man dieses Ankreuzfeld, so wird die hervorgehobene Schlagzeile (also die Schlagzeile, über der sich der Mauszeiger befindet) zusätzlich unterstrichen dargestellt. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+</sect1>
+
+<sect1 id="config-newssources">
+<title
+>Einrichtung der Nachrichtenquellen</title>
+
+<screenshot
+> <screeninfo
+>So sieht die Karteikarte <guilabel
+>Nachrichtenquellen</guilabel
+> des Einrichtungsdialogs aus, wenn man sie über den Menüpunkt <guilabel
+>Einstellungen</guilabel
+> im Kontextmenü von &knewsticker; aufruft.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kcmnewsticker-newssources.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>So sieht die Karteikarte <guilabel
+>Nachrichtenquellen</guilabel
+> des Einrichtungsdialogs aus, wenn man sie über den Menüpunkt <guilabel
+>Einstellungen</guilabel
+> im Kontextmenü von &knewsticker; aufruft.</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Neben den Einstellungen auf der Karteikarte <link linkend="config-general"
+><guilabel
+>Allgemein</guilabel
+></link
+> gibt es auf der Karteikarte <guilabel
+>Nachrichtenquellen</guilabel
+> wesentlich mehr Möglichkeiten, &knewsticker; an die persönlichen Bedürfnisse anzupassen. Diese Karteikarte besteht im Wesentlichen aus einer Tabelle, die die Konfiguration der Nachrichtenseiten erlaubt, die nach Nachrichten abgesucht werden. Klickt man mir der rechten Maustaste auf einen Eintrag, so erscheint ein Kontextmenü, welches es erlaubt, den Eintrag zu löschen oder einen neuen Eintrag mit den gleichen Einstellungen einzufügen. </para>
+
+<para
+> Unten findet man zwei Knöpfe mit <inlinemediaobject
+> <imageobject
+><imagedata fileref="uparrow-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> einem Pfeil nach oben und <inlinemediaobject
+><imageobject
+> <imagedata fileref="downarrow-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> einem Pfeil nach unten. Diese zwei Knöpfe erlauben die Veränderung der Reihenfolge in der Tabelle. Das ist nützlich, wenn man eine bestimmte Reihenfolge der Nachrichtenquellen möchte. </para>
+
+<tip
+> <para
+> Wenn man das <link linkend="starting-knewsticker"
+>Miniprogramm gestartet</link
+> hat, kann man mit den Einstellungen experimentieren. Klickt man auf <guibutton
+>Anwenden</guibutton
+>, so werden die neuen Einstellungen ohne Neustart des Miniprogramms übernommen. </para
+> </tip>
+
+<sect2>
+<title
+>Eine Nachrichtenseite hinzufügen</title>
+
+<para
+> Es gibt vier verschiedene Wege, eine Nachrichtenseite <emphasis
+>hinzuzufügen</emphasis
+>: <itemizedlist
+> <listitem
+><para
+>Man kann auf den Knopf <guibutton
+>Hinzufügen</guibutton
+> unten klicken.</para
+> </listitem
+><listitem
+><para
+> Man kann mit der rechten Maustaste auf die Tabelle klicken und den Menüeintrag <guimenuitem
+>Nachrichtenquelle hinzufügen</guimenuitem
+> auswählen. Das fügt einen neuen Eintrag hinzu setzt den Namen auf <quote
+>Unbekannt</quote
+>.</para
+></listitem
+><listitem
+><para
+> Man kann mit der rechten Maustaste auf einen Tabelleneintrag klicken und aus dem Kontextmenü <guimenuitem
+>Nachrichtenquelle hinzufügen</guimenuitem
+> auswählen. Es wird ein neuer Eintrag mit den gleichen Eigenschaften wie der vorhandene Eintrag erzeugt.</para
+></listitem
+><listitem
+><para
+> Man kann eine <acronym
+>RDF</acronym
+>- oder <acronym
+>RSS</acronym
+>-Datei aus einer anderen Anwendung (wie z.B. &konqueror;) in die Tabelle ziehen. Dies fügt einen neuen Eintrag in der Liste ein, setzt den Namen auf <quote
+>Unbekannt</quote
+> und die Artikelmaximalzahl auf 10.</para
+></listitem
+></itemizedlist
+> Es gibt eigentlich noch einen dritten Weg. Man kann in &konqueror; auf eine <acronym
+>RDF</acronym
+>- oder <acronym
+>RSS</acronym
+>-Datei klicken. Dadurch wird sie automatisch zur Tabelle hinzugefügt. </para>
+</sect2>
+
+<sect2>
+<title
+>Eine Nachrichtenquelle verändern</title>
+
+<para
+> Um eine Nachrichtenquelle zu <emphasis
+>bearbeiten</emphasis
+>, kann man die Eingabefelder auf der rechten Seite verwenden, die sich im Feld <guilabel
+>Allgemein</guilabel
+> befinden. Sie sind deaktiviert, solange nicht ein Eintrag der Tabelle ausgewählt worden ist. Sobald ein Eintrag gewählt ist, werden die Felder aktiviert und die Einträge können verändert werden:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Das oberste Feld <guilabel
+>Name</guilabel
+> erlaubt die Eingabe eines Namens. Dieser Name wird verwendet, wenn das Programm keine Verbindung zur Nachrichtenseite herstellen konnte, oder wenn das Ankreuzfeld <guilabel
+>Benutzerdefinierte Namen für Nachrichtenseiten verwenden</guilabel
+> (auf der Karteikarte <guilabel
+>Allgemein</guilabel
+>) markiert wurde.</para
+></listitem
+> <listitem
+><para
+>Das Eingabefeld <guilabel
+>Quelldatei</guilabel
+> darunter erlaubt die Eingabe der <acronym
+>URL</acronym
+>, die zur <acronym
+>RDF</acronym
+>- oder <acronym
+>RSS</acronym
+>-Datei zeigt. Man kann diesen Eintrag entweder per Hand ändern oder indem man auf den Knopf auf der rechten Seite klickt. Es wird ein Dateidialog geöffnet, der die Auswahl der gewünschten Datei erlaubt.</para
+> </listitem
+> <listitem
+><para
+>Im Feld <guilabel
+>Max. Artikel</guilabel
+> schließlich kann die Anzahl der Artikel festgelegt werden, die &knewsticker; herunter laden soll. Der Standardwert ist 10 Artikel, aber es kann sinnvoll sein, diesen Wert für einige Nachrichtenseiten anzupassen.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Wenn der Wert in einem der Felder geändert wird, sind die Auswirkungen in der Tabelle sofort sichtbar.</para>
+</sect2>
+
+<sect2>
+<title
+>Eine Nachrichtenquelle entfernen</title>
+
+<para
+> Natürlich kann es vorkommen, das man eine Nachrichtenseite aus der Tabelle <emphasis
+>entfernen</emphasis
+> möchte. Dazu kann man entweder <itemizedlist
+> <listitem
+><para
+> mit der rechten Maustaste auf den Eintrag klicken und im Kontextmenü <guilabel
+>Nachrichtenquelle entfernen</guilabel
+> auswählen.</para
+></listitem
+><listitem
+><para
+> den Eintrag auswählen und dann auf den Knopf <guibutton
+>Entfernen</guibutton
+> unterhalb der Tabelle klicken. </para
+></listitem
+></itemizedlist
+> In beiden Fällen wird ein Bestätigungsdialog eingeblendet, der sicherstellt, dass nicht der falsche Eintrag entfernt wird. </para>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="using-knewsticker">
+<title
+>&knewsticker; verwenden</title>
+
+<para
+>Die Verwendung von &knewsticker; sollte keine besonderen Probleme bereiten, vorausgesetzt, dass die <link linkend="configuration"
+>Konfiguration von &knewsticker;</link
+> erfolgt ist. Egal, ob &knewsticker; teil der Kontrollleiste  oder innerhalb einer abhängigen Kontrollleiste ist, besteht er aus einem Fenster mit dem Lauftext und einem Knopf mit einem schmalen Pfeil daneben.</para>
+
+<sect1 id="applet-descr">
+<title
+>Das Miniprogramm</title>
+
+<para
+>Der Bereich (er ist standardmäßig weiß, aber seine Farbe kann im Einstellungsdialog geändert werden) mit dem laufenden Text heißt <quote
+>Lauftext</quote
+>. Hier werden die herunter geladenen Schlagzeilen (oder nur die aktuellsten Schlagzeilen) kontinuierlich angezeigt. Der Zugriff auf die zugehörigen Artikel ist sehr einfach. Ein Klick auf eine Schlagzeile startet den Internetbrowser &konqueror; mit der gewünschten Seite. Falls eine Schlagzeile gerade aus dem Bild gelaufen ist, gibt es mehrere Einflussmöglichkeiten auf den Lauftext:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Man kann mit der linken Maustaste auf den Lauftext klicken und bei gedrückter Maustaste die Maus hin- und herbewegen. Nach dem Loslassen der Maustaste läuft der Lauftext weiter.</para
+></listitem
+> <listitem
+><para
+>Wenn man über eine Maus mit <quote
+>Mausrad</quote
+> verfügt, kann man auch das Rad verwenden, um den Lauftext vor- und zurückzuspulen.</para
+> </listitem
+> </itemizedlist>
+
+<para
+> Indem man entweder mit der <mousebutton
+>rechten</mousebutton
+> Maustaste klickt oder mit der linken auf den Pfeilknopf klickt, kann man ein umfangreiches <link linkend="contextmenu-descr"
+>Kontextmenü</link
+> aufrufen. Dieses Menü enthält beinahe die gesamte Funktionalität des Miniprogramms. </para>
+
+</sect1>
+
+<sect1 id="contextmenu-descr">
+<title
+>Das Kontextmenü</title>
+
+<screenshot
+> <screeninfo
+>So sieht das Kontextmenü von &knewsticker; aus, wenn man die Standardnachrichtenquellen verwendet.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="contextmenu.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>So sieht das Kontextmenü von &knewsticker; aus, wenn man die Standardnachrichtenquellen verwendet.</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Das Kontextmenü ist aufgeteilt in zwei Teile:</para>
+
+<para
+>Der obere Teil enthält eine Liste von Einträgen, die alle ein kleines Symbol wie dieses <inlinemediaobject
+><imageobject
+> <imagedata fileref="newssite-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> neben sich haben. Dies ist die Liste der eingestellten Nachrichtenquellen. Klickt man auf einen der Einträge, öffnet sich ein Menü, das aus den Schlagzeilen dieser Nachrichtenquelle besteht. Außerdem gibt es einen Eintrag mit Namen <guilabel
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="checknews-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Nachrichten holen</guilabel
+>, der dazu dient die Schlagzeilenliste dieser Nachrichtenquelle aufzufrischen. Neben jeder Schlagzeile befindet sich entweder das Symbol <inlinemediaobject
+><imageobject
+> <imagedata fileref="oldarticle-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+>, das anzeigt, dieser Artikel wurde bereits gelesen, oder das Symbol <inlinemediaobject
+><imageobject
+> <imagedata fileref="newarticle-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+>, das auf einen ungelesenen Artikel hindeutet.</para>
+
+<para
+> Der untere Teil des Menüs enthält bisher vier Einträge (erläutert von oben nach unten):</para>
+
+<variablelist
+> <varlistentry
+><term
+><guilabel
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="checknews-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> Nachrichten holen</guilabel
+></term
+> <listitem
+><para
+>Dieser Eintrag hat das kleine Symbol <inlinemediaobject
+><imageobject
+> <imagedata fileref="checknews-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+>. Dieser Menüpunkt veranlasst &knewsticker;, die Nachrichtenquellen nach neuen Nachrichten abzusuchen.<note
+><para
+>Der interne Intervallzähler wird durch diesen Eintrag nicht auf Null gesetzt.</para
+></note
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Offline-Modus</guilabel
+></term
+> <listitem
+><para
+>Dieser Eintrag hat kein Symbol. Klickt man auf diesen Eintrag, so wird &knewsticker; in den <quote
+>Offline-Modus</quote
+> geschaltet. Der interne Intervallzähler wird angehalten und &knewsticker; lädt keine Schlagzeilen automatisch herunter. Dieser Eintrag ist nützlich, falls man seinen Computer eine Weile verlassen muss und die Internetverbindung während dieser Zeit nicht besteht. Ansonsten würden viele Fehlermeldungen auflaufen, dass die Nachrichtenseiten nicht gefunden werden konnten.<tip
+><para
+>Auch im Offline-Modus kann man explizit neue Schlagzeilen herunterladen, indem man auf den Eintrag <guilabel
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="checknews-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+>Nachrichten holen</guilabel
+> für alle Nachrichtenseiten oder für eine spezielle Nachrichtenseite klickt.</para
+></tip
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="help-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> Hilfe </guilabel
+></term
+> <listitem
+><para
+>Dieser Eintrag ist mit einem kleinen <inlinemediaobject
+> <imageobject
+><imagedata fileref="help-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> markiert. Klickt man auf diesen Eintrag, so wird die Hilfedatei zu &knewsticker; geöffnet (die sie gerade lesen). Sie enthält eine detailierte Beschreibung der Möglichkeiten und Fähigkeiten von &knewsticker;. </para
+></listitem
+></varlistentry
+> <varlistentry
+> <term
+><guilabel
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="about-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> Über</guilabel
+></term
+> <listitem
+><para
+>Dieser Eintrag ist ebenfalls mit einem kleinen <inlinemediaobject
+><imageobject
+> <imagedata fileref="about-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> markiert. Er öffnet einen kleinen Dialog, der die Mitwirkenden an &knewsticker; auflistet und Informationen über Copyright und Lizenz enthält.</para
+> </listitem
+></varlistentry
+> <varlistentry
+> <term
+><guilabel
+><inlinemediaobject
+><imageobject
+><imagedata fileref="preferences-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Einstellungen</guilabel
+></term
+> <listitem
+><para
+>Dieser Eintrag kann leicht am <inlinemediaobject
+> <imageobject
+><imagedata fileref="preferences-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> identifiziert werden. Über diesen Eintrag werden allen Einstellungen und Anpassungen für &knewsticker; vorgenommen.</para
+></listitem
+></varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Fragen und Antworten</title>
+
+&reporting.bugs;
+
+<qandaset id="faqlist">
+<qandaentry>
+<question
+><para
+>Wo finde ich die <acronym
+>RDF</acronym
+>-Datei für die Nachrichtenseite XY?</para
+></question>
+<answer
+><para
+>Es ist möglich, das die Nachrichtenseite weder eine <acronym
+>RDF</acronym
+>- noch eine <acronym
+>RSS</acronym
+>-Datei bereitstellt. Nichts desto trotz findet man unter <ulink url="http://www.webreference.com/services/news"
+>http://www.webreference.com/services/news </ulink
+> eine mehr oder weniger vollständige Liste von Nachrichtenseiten im Internet, die eine <acronym
+>RDF</acronym
+>- oder <acronym
+>RSS</acronym
+>-Datei bereitstellen. Eine weitere Quelle für <acronym
+>RDF</acronym
+>-Dateien ist <ulink url="http://www.xmltree.com"
+>http://www.xmltree.com</ulink
+>. Hier sind hunderte von <acronym
+>RDF</acronym
+>- und <acronym
+>RSS</acronym
+>-Dateien nach Sprache und Kategorie geordnet aufgeführt.</para>
+<para
+>Falls man interessante Nachrichtenseiten findet, die <acronym
+>RDF</acronym
+>- oder <acronym
+>RSS</acronym
+>-Dateien bereitstellen, sollte man diese Information an Frerich Raabe <email
+>raabe@kde.org</email
+> weitergeben. Sie können dann in spätere Versionen aufgenommen werden. Vielen Dank dafür!</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>&knewsticker;</para>
+
+<para
+>Programm Copyright 2000, 2001 Frerich Raabe <email
+>raabe@kde.org</email
+></para>
+
+<para
+>Mitwirkende:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Malte Starostik <email
+>malte.starostik@t-online.de</email
+></para
+> </listitem
+> <listitem
+><para
+>Wilco Greven <email
+>greven@linux.org</email
+></para
+> </listitem
+> </itemizedlist>
+
+
+<para
+>Dokumentation Copyright 2001 Frerich Raabe <email
+>raabe@kde.org</email
+></para>
+
+&underFDL;
+&underBSDLicense;
+
+</chapter>
+
+
+<glossary id="glossary">
+<title
+>Glossar</title>
+
+<para
+> Dieser Abschnitt dient der Erläuterung verschiedener Akronyme, die in der Dokumentation von &knewsticker; verwendet wurden. Falls Akronyme fehlen, sollte man sich an Frerich Raabe <email
+>raabe@kde.org</email
+> wenden, damit sie hinzugefügt werden. Vielen Dank! </para>
+
+<glossentry id="gloss-rdf"
+> <glossterm
+>RDF</glossterm
+> <glossdef
+><para
+>Resource Description Framework. Eine von <acronym
+>XML</acronym
+> abgeleitete Sprache zur Beschreibung von Metadaten. Üblicherweise verwendet für Artikel und andere Veröffentlichungen. Weitere Informationen zu <acronym
+>RDF</acronym
+> sind zu finden unter <link linkend="rdffiles"
+>kurze Informationen zu <acronym
+>RDF</acronym
+>-Dateien</link
+> oder direkt auf der <ulink url="http://www.w3.org/RDF/"
+>offiziellen Seite zu <acronym
+> RDF</acronym
+>-Dateien</ulink
+> beim <ulink url="http://www.w3.org"
+>World Wide Web Consortium</ulink
+>.</para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-rss"
+> <glossterm
+>RSS</glossterm
+> <glossdef
+><para
+>Die RDF Site Summary ist nach Aussagen von der offiziellen <ulink url="http://www.purl.org/rss/1.0/"
+>RSS v1.0 specification</ulink
+> eine Erweiterung der <acronym
+>RDF</acronym
+>-Sprache:</para
+> <para
+><quote
+><acronym
+>RDF</acronym
+> Site Summary (<acronym
+>RSS</acronym
+>) ist ein schlankes und erweiterbares Metadatenbeschreibungformat. <acronym
+>RSS</acronym
+> ist eine <acronym
+>XML</acronym
+>-Anwendung, entspricht dem <acronym
+>W3C</acronym
+>-Standard für <acronym
+>RDF</acronym
+> und ist durch einen <acronym
+>XML</acronym
+>-Namensraum und/oder <acronym
+>RDF</acronym
+>-basierte Modularisierung erweiterbar.</quote
+></para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-xml"
+> <glossterm
+>XML</glossterm
+> <glossdef
+><para
+>Die Extensible Markup Language ist das <quote
+>universelle Format für strukturierte Dokumente und Daten im Web</quote
+>. Es ist von <acronym
+>SGML</acronym
+> abgeleitet und an die Bedürfnisse des World Wide Web angepasst. Weitere Informationen findet man unter <ulink url="http://www.w3.org/XML/"
+>Extensible Markup Language</ulink
+> beim <ulink url="http://www.w3.org"
+>World Wide Web Consortium</ulink
+>.</para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-w3c"
+> <glossterm
+>W3C</glossterm
+> <glossdef
+><para
+>Eine Abkürzung für das <quote
+>World Wide Web Consortium</quote
+>. Nach der <ulink url="http://www.w3.org"
+>offiziellen Seite</ulink
+> des W3C entwickelt das Consortium interoperable Technologien (Spezifikationen, Rcihtlinien, Software und Hilfsprogramme), um das volle Potenzial des Web als ein Forum für Information, Kommerz, Kommunikation und allgemeinem Verständnis auszuschöpfen.</para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-url"
+> <glossterm
+>&URL;</glossterm
+> <glossdef
+><para
+>&URL; steht für <quote
+>Uniforme Resource Locator</quote
+>, einem speziell formatierten Text, der Resourcen wie Bilder, Dokumente und andere Dinge im Internet identifizieren kann. Weitere Informationen unter <ulink url="http://www.w3.org/Addressing/"
+>dieser Internetseite</ulink
+>.</para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-dcop"
+> <glossterm
+>DCOP</glossterm
+> <glossdef
+><para
+>Das Desktop COmmunication Protocol ist ein Weg für Anwendungen, mit einander zu kommunizieren. Zum Beispiel verwendet &knewsticker;s <link linkend="configuration"
+>Einrichtungsdialog</link
+> <acronym
+>DCOP</acronym
+>, um dem Miniprogramm die aktuelle Konfiguration mitzuteilen. Weitere Informationen findet man unter <ulink url="http://developer.kde.org/documentation/library/2.0-api/dcop/HOWTO.html"
+> http://developer.kde.org/documentation/library/2.0-api/dcop/HOWTO.html</ulink
+>.</para
+></glossdef
+> </glossentry>
+
+</glossary>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-knewsticker">
+<title
+>Wo bekommt man &knewsticker;</title>
+
+<para
+>&knewsticker; ist ein Teil des <ulink url="http://www.kde.org"
+>&kde;-Projektes </ulink
+>. Die aktuelle Version von &knewsticker; befindet sich im Paket kdenetwork auf <ulink url="ftp://ftp.kde.org/pub/kde"
+>ftp://ftp.kde.org/pub/kde </ulink
+>, dem &FTP;-Server des &kde;-Projektes.</para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen</title>
+<para
+>Für die Installation von &knewsticker; benötigt man mindestens &kde; 2.1.</para>
+<para
+>Falls man &knewsticker; selbst kompilieren und installieren will, benötigt man die folgenden Programme:</para>
+<itemizedlist
+> <listitem
+><para
+>g++ 2.8 / egcs 1.0.3 (oder kompatibel)</para
+></listitem
+> <listitem
+><para
+>GNU make</para
+></listitem
+> <listitem
+><para
+>autoconf 2.1</para
+></listitem
+> <listitem
+><para
+>automake 1.4</para
+></listitem
+> <listitem
+><para
+>Qt 2.2.x</para
+></listitem
+> <listitem
+><para
+>KDE 2.1</para
+></listitem
+> </itemizedlist>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilierung und Installation</title>
+
+<para
+>&knewsticker; ist ein Teil des Pakets kdenetwork von &kde; 2.1 und wird zusammen mit diesem installiert. Im allgemeinem gibt es keinen Grund für den Benutzer &knewsticker; von Hand zu kompilieren. Falls man es dennoch möchte, so verläuft die Kompilierung und Installation wie sonst auch unter &Linux; üblich durch:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>su</command
+> <option
+>-c "make install"</option
+></userinput>
+</screen>
+
+<para
+>&knewsticker; verwendet <application
+>autoconf</application
+> und <application
+>automake</application
+>, daher sollte es keine Probleme während der Kompilation geben. Falls dennoch Probleme auftreten, kann man sich an die Mailingliste der &kde;-Entwickler <email
+>kde-devel@master.kde.org</email
+> wenden.</para>
+</sect1>
+</appendix>
+
+<appendix id="develinfo">
+<title
+>Informationen für Entwickler und fortgeschrittene Benutzer</title>
+
+<para
+>&knewsticker; enthält ein augenblicklich sehr begrenztes aber wachsendes <acronym
+>DCOP</acronym
+>-Interface. Es ist nicht nur für die Kommunikation mit anderen Anwendungen notwendig sondern ermöglicht auch die Steuerung von &knewsticker; über ein Shellskript. Je mehr das Interface ausgearbeitet ist, desto umfangreicher werden die Steuerungsmöglichkeiten sein. </para>
+
+<para
+>Um diese <acronym
+>DCOP</acronym
+>-Funktionen zu nutzen, kann man entweder den Befehl<application
+>dcop</application
+> oder das komfortablere <application
+>KDCOP</application
+>-Programm verwenden. Beide sind funktionell gleich, also entscheidet lediglich der Geschmack. :-)</para>
+
+<para
+>In diesesm Kapitel wird angenommen, dass das Befehlszeilenprogramm <application
+>DCOP</application
+> verwendet wird, um &knewsticker;s <acronym
+>DCOP</acronym
+>-Funktionen zu verwenden. Man muss zunächst &knewsticker; <link linkend="starting-knewsticker"
+>starten</link
+> und dann das Folgende an der Konsole eingeben: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>[function]</option
+></userinput>
+</screen>
+
+<note
+> <para
+> If an error appears that tells you that <filename
+>dcop</filename
+> couldn't be found or executed, please check whether the file <filename
+>dcop</filename
+> exists in <filename class="directory"
+>$KDEDIR/bin</filename
+> and make sure it's permissions are appropriately set. </para
+> </note>
+
+<para
+> In that command line, just replace <quote
+>[function]</quote
+> with the respective function name, i.e. type </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>updateNews</option
+></userinput>
+</screen>
+
+<para
+> to make &knewsticker; check for new news and download them if neccessary. </para>
+
+<sect1 id="dcop-reference">
+<title
+><acronym
+>DCOP</acronym
+> Reference</title>
+<para
+> So, here's (finally) the complete list of all the <acronym
+>DCOP</acronym
+> which &knewsticker; provides: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><command
+>updateNews</command
+></term
+> <listitem
+><para
+>This function forces &knewsticker; to updates the internal list of articles (e.g. it queries the list of news sources which has been <link linkend="config-newssources"
+>configured</link
+> for new news) and downloads them when neccessary.</para
+><note
+><para
+>This also works if &knewsticker; is currently in offline mode.</para
+></note
+> <para
+>Example:</para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>updateNews</option
+></userinput>
+</screen
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>reparseConfig</command
+></term
+> <listitem
+><para
+>The <command
+>reparseConfig</command
+> command makes &knewsticker; reload it's configuration from the configuration file. This function is used by the <link linkend="configuration"
+>configuration dialog</link
+> to talk to &knewsticker; but you can use it in case you modified the configuration file by hand.</para
+> <tip
+><para
+>The configuration file is saved in <filename
+>~/.kde/share/config/knewstickerrc</filename
+></para
+></tip
+> <para
+>Example:</para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>reparseConfig</option
+></userinput>
+</screen
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>setOfflineMode [bool]</command
+></term
+> <listitem
+><para
+>You can call this function to define whether &knewsticker; is currently in the offline mode (e.g. whether &knewsticker; should query the <link linkend="config-newssources"
+>configured news sites</link
+> for new news). </para
+> <para
+>Example:</para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>setOfflineMode</option
+> <option
+>true</option
+></userinput>
+</screen
+> <para
+>to enable the offline mode, or type</para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>setOfflineMode</option
+> <option
+>false</option
+></userinput>
+</screen
+> <para
+>to disable offline mode.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+

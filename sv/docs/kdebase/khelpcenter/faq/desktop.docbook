@@ -1,0 +1,325 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="desktop">
+<title
+>Skrivbordet</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Hur lägger jag till ett program på skrivbordet?</para>
+</question>
+<answer>
+<para
+>Det här är en enkel övning: klicka på skrivbordet med höger musknapp. Välj <menuchoice
+><guimenu
+>Skapa ny</guimenu
+><guimenuitem
+>Länk till program</guimenuitem
+></menuchoice
+> i menyn. Ange programmets namn, och det visas på skrivbordet.</para>
+<para
+>Du kan vilja ändra den nya ikonens egenskaper, så klicka på programnamnet med höger musknapp och välj <guimenuitem
+>Egenskaper</guimenuitem
+>. I dialogrutan bör du åtminstone ändra programmet som körs och ikonen. Det är allt.</para
+> 
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur monterar/avmonterar jag en enhet från skrivbordet?</para>
+</question>
+<answer>
+<para
+>Det krävs två steg:</para>
+<procedure
+> <step performance="required"
+><para
+>Försäkra dig om att du har rättigheter att montera/avmontera enheten. Normalt får bara root montera/avmontera enheter. Om du inte kör &kde; som root (och det ska du förresten inte göra), så måste du ändra rättigheter så att användare får montera en enhet i <filename
+>/etc/fstab</filename
+>. Det här betyder att lägga till alternativet <option
+>user</option
+> till alternativen för filsystemet som du vill kunna montera.</para
+> <para
+>Till exempel, för att kunna montera disketten, ska din <filename
+>/etc/fstab</filename
+> innehålla:</para
+> <screen>
+/dev/fd0   /floppy   msdos   noauto,user,sync 0 0
+</screen
+> </step
+> <step performance="required"
+> <para
+>Skapa en <filename
+>.desktop</filename
+>-fil för filsystemet. Ett exempel på en <filename
+>.desktop</filename
+>-fil för en enhet är:</para
+> <screen>
+# KDE Config File
+[KDE Desktop Entry]
+UnmountIcon=3floppy_unmount.xpm
+MountPoint=/floppy
+Icon=3floppy_mount.xpm
+Dev=/dev/fd0
+ReadOnly=0
+FSType=default
+Type=FSDevice
+Comment=Diskettenhet
+</screen
+> </step
+> </procedure>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur använder jag en skärmsläckare som bakgrund?</para>
+</question>
+<answer>
+<para
+>Det är möjligt att använda en skärmsläckare istället för en bakgrundsbild. För att göra detta, starta vilken skärmsläckare som helst med parametern <option
+>-inroot</option
+>, till exempel <command
+>kswarm.kss <option
+>-inroot</option
+> &amp;</command
+>.  De flesta skärmsläckare ser bäst ut om du sätter bakgrundsfärgen till svart. Hur som helst, att använda en skärmsläckare som bakgrund kan slösa en del processor- och X-tid...</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Var lagras ikonerna?</para>
+</question>
+<answer>
+<para
+>Ikonerna finns bara i <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/icons</filename
+> eller <filename class="directory"
+>$<envar
+>HOME</envar
+>/.kde/share/icons</filename
+>. För att använda ikoner som lagrats på andra platser, måste du antingen kopiera dem till ett av de ovannämnda bestämda platserna för &kde; eller göra symboliska länkar.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur ändrar jag standardmenyvalen utan att vara root?</para>
+</question>
+<answer>
+<para
+>Försök ändra rättigheterna och/eller ägare till katalogerna och filerna i <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/applnk</filename
+>. Som ett alternativ kan du skapa en betrodd grupp (<abbrev
+>t.ex.</abbrev
+>, friends) och försöka <command
+>chgrp <option
+>-R friends $<envar
+>KDEDIR</envar
+>/share/applnk</option
+>; chmod <option
+>-R g+w $<envar
+>KDEDIR</envar
+>/share/applnk</option
+></command
+> och göra alla dina betrodda användare medlemmar i friends. Observera att du fortfarande behöver root-rättigheter för att göra ovanstående. Om det är omöjligt för dig att skaffa root-rättigheter, så måste du nöja dig med att redigera din personliga meny.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur använder jag musens hjul i &kde;?</para>
+</question>
+<answer>
+<para
+>Stöd för mushjul finns med i &Qt; 2.0 och senare, så &kde; baserat på detta kommer automatiskt att stöda användning av musens hjul. För program som inte hör till &kde; som &Emacs;, försök skaffa <application
+>IMWheel</application
+> från <ulink url="http://jonatkins.org/imwheel/"
+>http://jonatkins.org/imwheel/</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Exakt vad är <filename class="directory"
+>Templates</filename
+>-katalogen?</para>
+</question>
+<answer>
+<para
+><filename class="directory"
+>Templates</filename
+>-katalogen innehåller objekt som du lätt kan skapa var som helst (på skrivbordet eller i ett fönster i filhanteraren) genom att välja <guisubmenu
+>Skapa ny </guisubmenu
+> från den sammanhangsberoende menyn (<mousebutton
+>höger</mousebutton
+>klickmenyn) på platsen där du vill att objektet ska vara.</para>
+<para
+>Du kan placera både filer och kataloger i <filename class="directory"
+>Templates</filename
+> katalogen, och de visas automatiskt i undermenyn till <guisubmenu
+>Skapa ny</guisubmenu
+>. När du väljer dem i undermenyn, kopieras de till den aktuella platsen.</para>
+<para
+>Det här är exakt samma som att öppna <filename class="directory"
+>Templates</filename
+>-katalogen och kopiera objekten därifrån direkt, men bara något lättare. Från början finns bara <filename
+>.desktop</filename
+>-filer i <filename class="directory"
+>Templates</filename
+>-katalogen. Dessa filer finns där för att du omedelbart ska kunna börja skapa enheter, program, webblänkar och nya &MIME;-typer, men du kan lägga vad du vill där.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Varför kan jag inte få systemljud att fungera, som när fönster öppnas?</para>
+</question>
+<answer>
+<para
+>Systemljud fungerar för närvarande inte på andra system än FreeBSD och &Linux;. Detta arbetas med. Om du använder FreeBSD eller &Linux;, har du hittat ett fel, så var god rapportera det.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur startar jag program på ett särskilt skrivbord?</para>
+</question>
+<answer>
+<para
+>&kde; 1.1 och senare har ett program som heter &kstart;. Du kan använda det så här i en <filename
+>.kdelnk</filename
+>-fil (<filename
+>.desktop</filename
+>-fil för &kde; 2):</para>
+<screen>
+Name=Netscape
+Exec=kstart "netscape" -window ".*Netscape.*" -desktop 2 -maximize
+BinaryPattern=netscape;
+Icon=netscape.xpm
+Path=
+Type=Application
+Terminal=0
+</screen>
+<para
+>Eller kör bara följande: <command
+>kstart <option
+>"netscape" -desktop 2 -activate</option
+></command
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Jag har lekt med teckensnitten i &kde;:s inställningscentral men teckensnitten är fortfarande alldeles för små. Vad kan jag göra?</para>
+</question>
+<answer>
+<para
+>Många användare har 75 <acronym
+>dpi</acronym
+> teckensnitt som förval. Om du har installerat 100 <acronym
+>dpi</acronym
+> teckensnitt, försäkra dig om att din <filename
+>XF86Config</filename
+>-fil har de teckensnitten i sökvägen innan 75 <acronym
+>dpi</acronym
+> teckensnitten. Här är en steg-för-steg beskrivning hur man gör:</para>
+<procedure
+> <step performance="required"
+><para
+>Öppna <filename
+>/etc/Xll/XF86Config</filename
+> med din favoriteditor.</para
+></step
+> <step performance="required"
+><para
+>Nära toppen på filen finns flera rader som listar teckensnitt: type1, speedo, <abbrev
+>etc.</abbrev
+>, och i slutet på listan finns det två  poster: 75dpi och 100dpi. Byt ordning mellan dem. Och medan du håller på, flytta Type 1 teckensnitten till slutet på listan (eller någonstans under 75 och 100 <acronym
+>dpi</acronym
+> teckensnitten). Det ger också en förbättring!</para
+></step
+> </procedure>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Är det möjligt att utöka skrivbordets ikonmenyer?</para>
+</question>
+<answer>
+<para
+>Ja. Lägg bara till en applnk för det nödvändiga kommandot i <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/applnk</filename
+>, eller använd &kmenuedit;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kan jag bli av med <guiicon
+>Papperskorg</guiicon
+>/<guiicon
+>Templates</guiicon
+>/<guiicon
+>Autostart</guiicon
+> ikonerna?</para>
+</question>
+<answer>
+<para
+>Ja. Öppna <application
+>&kde;:s inställningscentral</application
+> och välj <guisubmenu
+>Skrivbordet</guisubmenu
+> (under <guimenu
+>Utseende &amp; känsla</guimenu
+>) i vänstra avdelningen. Här kan du skriva in nya sökvägar för dessa objekt, och &kde; flyttar dem automatiskt till de nya platserna.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Var sparar jag mina filer om jag vill att de ska synas direkt på skrivbordet?</para>
+</question>
+<answer>
+<para
+><filename class="directory"
+>$<envar
+>HOME</envar
+>/Desktop</filename
+>. Du kan behöva uppdatera ditt skrivbord efter du har sparat dina filer.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

@@ -1,0 +1,255 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd">
+
+<book lang="hu">
+<bookinfo>
+<title>KPoker kézikönyv</title>
+<authorgroup>
+<author>
+<firstname>Jochen</firstname>
+<surname>Tuchbreiter</surname>
+<affiliation>
+<address><email>whynot@mabi.de</email></address>
+</affiliation>
+</author>
+<author>
+<firstname>Andreas</firstname>
+<surname>Beckermann</surname>
+<affiliation>
+<address><email>b_mann@gmx.de</email></address>
+</affiliation>
+</author>
+<author>
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation>
+<address><email>tszanto@mol.hu</email></address>
+</affiliation>
+</author>
+</authorgroup>
+<date>11/06/2000</date>
+<releaseinfo>0.06.00</releaseinfo>
+<abstract>
+<para>Ez a segítségfájl a KPoker nevű pókerprogramhoz készült. Az utolsó
+frissítések a 0.7-es verzióhoz tartoznak.</para>
+</abstract>
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KPoker</keyword>
+<keyword>kdegames</keyword>
+<keyword>játékok</keyword>
+<keyword>játék</keyword>
+<keyword>póker</keyword>
+<keyword>kártyajátékok</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title>Bevezetés</title>
+<sect1 id="what-is-kpoker">
+<title>Mi a KPoker?</title>
+<para>A KPoker egy <ulink url="http://www.kde.org">KDE</ulink> alapú változata a közkedvelt 
+videópóker játéknak (melyet gyakran "videópókernek" is neveznek).</para>
+</sect1>
+<sect1 id="where-do-i-get-the-latest-version-of-kpoker">
+<title>Hol szerezhetem be a KPoker legújabb változatát?</title>
+<para>A legújabb verzió mindig elérhető
+<itemizedlist>
+<listitem>
+<para>a KPoker honlapján: <ulink url="http://kpokersourceforge.net/">http://kpoker.sourceforge.net/</ulink></para>
+</listitem>
+<listitem>
+<para>és a KDE honlapján: <ulink url="http://www.kde.org">http://www.kde.org</ulink></para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+</chapter>
+<chapter id="One-player-game">
+<title>Egyjátékos üzemmód</title>
+<sect1 id="how-do-i-play">
+<title>Hogyan kell játszani?</title>
+<para>A játék kezdetén $100 készpénzzel rendelkezik. Öt lapot kell húzni, majd
+ki kell jelölni közülük a megtartandókat. Ezután az eldobott lapok helyett
+új lapokat kap. A program ezután ellenőrzi, hogy van-e
+pontot érő <link linkend="hands">lapkombináció</link> és annak
+megfelelő összeget fizet ki (lásd a <link linkend="scoring">kiértékelési táblázatot</link>). Ezután minden
+kezdődik elölről öt új lap osztásával...</para>
+<para>A játék akkor ér véget, ha elfogyott a pénze vagy bezárja a programot.</para>
+</sect1>
+<sect1 id="hands">
+<title>Milyen lapkombinációk lehetségesek?</title>
+<para>A következők az érvényes lapkombinációk:
+<itemizedlist>
+<listitem>
+<para> Pár: két azonos értékű lap, legalább bubival</para>
+</listitem>
+<listitem>
+<para> Két pár: két-két (másfajta) azonos értékű pár</para>
+</listitem>
+<listitem>
+<para> Terc: három azonos értékű lap</para>
+</listitem>
+<listitem>
+<para> Póker: négy azonos értékű lap</para>
+</listitem>
+<listitem>
+<para> Full: három azonos értékű és két (másfajta) azonos értékű lap</para>
+</listitem>
+<listitem>
+<para> Sor:  öt egymás utáni értékű lap (beleértve az ász-2-3-4-5 kombinációt is)</para>
+</listitem>
+<listitem>
+<para> Flush: öt azonos színű lap</para>
+</listitem>
+<listitem>
+<para> Színsor: öt azonos színű, egymás utáni értékű lap</para>
+</listitem>
+<listitem>
+<para> Royal flush: azonos színű 10-bubi-dáma-király-ász</para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+<sect1 id="scoring">
+<title>Mennyi pénzt érnek az egyes lapkombinációk?</title>
+<para><itemizedlist>
+<listitem>
+<para> Pár: $5</para>
+</listitem>
+<listitem>
+<para> Két pár: $10</para>
+</listitem>
+<listitem>
+<para> Terc: $15</para>
+</listitem>
+<listitem>
+<para> Sor: $20</para>
+</listitem>
+<listitem>
+<para> Flush: $25</para>
+</listitem>
+<listitem>
+<para> Full: $40</para>
+</listitem>
+<listitem>
+<para> Póker: $125</para>
+</listitem>
+<listitem>
+<para> Színsor: $250</para>
+</listitem>
+<listitem>
+<para> Royal Flush: $2000</para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+</chapter>
+<chapter id="Two-player-game">
+<title>Kétjátékos üzemmód</title>
+<para>Két játékos esetén a szabályok eltérnek az <link linkend="One-player-game">egyjátékos üzemmód</link> szabályaitól.
+Négy fázisra bomlik a játék: osztás, a tét befizetése, 
+a kívánt lapok cseréje, esetleg a tét emelése, majd végül a program  
+kihirdeti a győztest, aki az összegyűlt tétet kapja.</para>
+<sect1 id="Draw">
+<title>Osztás</title>
+<para>A játék kezdetén mindkét játékos $100-t kap. Az osztás gombra kattintva 5 lapot 
+kapnak mindketten. Ez volt az első fázis.</para>
+</sect1>
+<sect1 id="Bet">
+<title>A tét befizetése</title>
+<para>A lapok megtekintése után lehet megadni a tét nagyságát,
+legalább $5, legfeljebb $20-t kell letenni. Elég rákattintani az +$5 vagy hasonló 
+feliratú gombokra.</para>
+</sect1>
+<sect1 id="Exchange">
+<title>A kívánt lapok cseréje</title>
+<para>Ezután kell kijelölni a megtartandó lapokat. Elég rájuk kattintani. Ha jó
+lapjai vannak, nem kötelező cserélni ;). Ha kész a kijelöléssel, kattintson újból az
+osztás gombra - és általában megkapja az új lapokat. 
+Ha nem kapja meg az új lapokat, az azt jelenti, hogy a számítógép emelni akarja a 
+tétet (feltehetően jó lapjai vannak). El kell fogadnia a tét emelését, 
+ha tovább akar játszani. Ha elfogadja az emelést, akkor 
+kattintson újból az osztás gombra.</para>
+</sect1>
+<sect1 id="Raise">
+<title>A tét emelése</title>
+<para>A lapok megtekintése után lehet emelni a tétet. Ez ugyanúgy történik, mint
+a <link linkend="Bet">tét befizetése</link> fázisban, ezért nem írom le még
+egyszer. Ha elkészült, kattintson az osztás gombra (amelynek felirata Megtekintés-re változik).
+</para>
+</sect1>
+<sect1 id="See">
+<title>Megtekintés/osztás</title>
+<para>A négy fázis után ez a ráadás, de lényegében ugyanaz,
+mint az első, <link linkend="Draw">osztási fázis</link>. A gép
+megmutatja a játékosok lapjait, és villogó színnel jelzi a győzelmet jelentő  
+lapokat. A győztes kapja az egész tétet. Kattintson az osztás gombra, ha <link linkend="Draw">újra szeretne játszani</link>!</para>
+<para>Megjegyzés: a villogó kártyák nem okvetlenül a legmagasabb értékű kombinációt 
+jelentik. A győztest eldöntő lap fog mindig villogni. Például ha Önnek két 
+párja van (pl.: 2-2 és 3-3) és egy villogó áasz, akkor feltehetően az ellenfélnek szintén 
+két ugyanilyen értékű párja van, de ásznál gyengébb az ötödik lapja.
+</para>
+</sect1>
+</chapter>
+<chapter id="Options">
+<title>Beállítások</title>
+<sect1 id="New-game-options">
+<title>Beállítások a játék kezdetén</title>
+<para>Új játék kezdésekor egy párbeszédablak nyílik meg. Itt lehet olyan
+beállításokat módosítani, mint például a játékos neve (alapértelmezés szerint "Ön") 
+ill. a gépi játékos neve, a kezdő pénzösszeg és az egy- vagy többjátékos mód 
+kiválasztása. Megadható, hogy ez az ablak a program indítása után automatikusan 
+megjelenjen. Ebben az esetben egy olyan gomb is megjelenik, mellyel 
+egy elmentett játékot lehet visszatölteni.</para>
+</sect1>
+<sect1 id="General-options">
+<title>Általános beállítások</title>
+<para>Ezek a beállítások két csoportra oszthatók. Az első csoport kattintással
+módosítható menüopciókat tartalmaz. Jelenleg három ilyen lehetőség van: 
+a hang ki- és bekapcsolása, a győzelmet jelentő lapok villogásának ki- és 
+bekapcsolása és a tét automatikus emelésének opciója 
+(a számítógép osztás utáni emelési lehetőségénél).</para>
+<para>A másik beállításcsoport a Beállítások menüből érhető el. Meg lehet
+adni a tét minimális és maximális értékét, az osztási késleltetést (két lap 
+kiosztása közötti időt ezredmásodpercben - 0 esetén azonnal 
+megkapja a lapokat, 5000 esetén kinő a szakálla). A módosítások a
+következő körtől érvényesek.</para>
+</sect1>
+</chapter>
+
+<chapter id="Epilogue">
+<title>Epilógus</title>
+<sect1 id="authors">
+<title>Szerzők</title>
+<para>A KPoker szerzője Jochen Tuchbreiter, <ulink url="mailto:whynot@mabi.de">whynot@mabi.de</ulink></para>
+<para>Segítettek még:
+<itemizedlist>
+<listitem>
+<para>Chris Holmes - ő bíztatott a játék megírására és néhány megjelenítési tippet adott</para>
+</listitem>
+<listitem>
+<para>John Fitzgibbon - a kártyák grafikáját készítette</para>
+</listitem>
+<listitem>
+<para>Nico Schirwing - a kártyák hátoldalát rajzolta</para>
+</listitem>
+<listitem>
+<para>Andreas Beckermann - ő most a program karbantartója</para>
+</listitem>
+</itemizedlist>
+</para>
+</sect1>
+<sect1 id="copyright">
+<title>Copyright</title>
+<para>A KPoker a GPL licenc alatt jelent meg.</para>
+</sect1>
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

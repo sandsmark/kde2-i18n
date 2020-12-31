@@ -1,0 +1,39 @@
+This directory contains the scripts used for the statistic of the
+KDE documentation, which can be found at:
+      http://mimas.germany.net:8080/kde-doc/
+The script consists of three kinds of files:
+- checkDoc.pm the engine behind all
+- common.pm the things that probably won't need changes
+- checkDoc-XX the calling programm for each language
+- comments.dat: If you want to add a comment to a file
+  (english original or translated one)
+
+The checkDoc-* PERL scripts are executed daily,
+and and its output is available at:
+   http://mimas.germany.net:8080/kde-doc/html/doc-XX.html,
+   where XX is cs, da, pt, ptBr etc.
+
+if you want to add an additional language, simply create a new checkDoc-XX file,
+in order to have a link on the start page, you have to drop me a note.
+
+Tobias, burnus@gmx.de
+
+--------------------------------------------------------------------------------
+CHANGE LOG
+99-7-16
+  Added optional support of comments (see German file, experimental)
+99--7-14
+  Added a link to the statistics of the PO(T) files
+99--7-12
+  Added Slovenian (sl)
+  Updated French i18n website address
+
+TODO:
+-- The 'others' section must be uptated to reflect the new directory structure
+-- support of subdirectory search in the single modules in order to catch some
+   files. (In the main KDE modules such as base etc. shouldn't IMO any html/sgml
+   files outside of <module>/doc/)
+   In the kdenonbeta module the algorithm must be smart enough to find the
+   sgml/html files itself
+-- Take care of the files in kde-i18n/en/docs/
+-- some cleaning must be done too.

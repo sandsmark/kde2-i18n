@@ -1,0 +1,303 @@
+#!/usr/bin/perl
+# Written by Francois-Xavier Duranceau <duranceau@free.fr>
+# and Stephan Kulow <coolo@kde.org>
+
+use Cwd;
+use File::Basename;
+
+sub read_line{
+	$line++;
+	$look_ahead = <INPUT>;
+	return $look_ahead;
+}
+
+sub get_msgstr($) {
+        local $write = $_[0];
+	my $str = "";
+	my $l = '';
+	
+	die "expected msgstr not found at $current_file:$line"
+		if( $look_ahead !~ /^\s*msgstr\s+"(.*)"/ );
+		
+#	print "trouve un msgstr (`$1')\n";
+        if ($write) {
+          print OUTPUT "$look_ahead";
+        }
+	$str = $1;
+	while( $l = read_line() ){
+                print OUTPUT "$l" if ($write);
+		return $str if($l !~ /^\s*"(.*)"/ );
+		$str .= $1;
+	}
+	return $str;
+}
+
+sub get_msgid($) {
+        local $write = $_[0];
+        my $str = "";
+        my $l = '';
+        $fuzzy = 0;
+        $no_c_format = 0;
+        $last_comment = "";
+
+	while ( $l = read_line() ) {
+		die "msgstr found when a msgid was expected ($current_file:$line)"
+			if( $l =~ /^\s*msgstr/ );
+		
+                if ( $l =~ /^\#,.*fuzzy/) {
+                        $fuzzy = 1;
+                }
+
+		if ( $l =~ /^\#,.*no-c-format/) {
+		  $no_c_format = 1;
+                }
+
+                if ( $l !~ /^\s*msgid\s+"(.*)"\s*\n/ ) {
+                  $last_comment .= $l;
+                  next;
+                }
+
+                $rstr = 'msgid "' . $1 . "\"\n";
+#               print "trouve un msgid (`$1')\n";
+                $str = $1;      
+                while( $l = read_line() ) {
+                        last if($l !~ /^\s*"(.*)"\s*\n/ );
+                        $str .= $1;
+                        $rstr .= $l;
+                       
+                }
+
+		if ($write) {
+		  foreach $msg (@toremove) {
+		    if ($str eq $msg) {
+		      $toremove = 1;
+		      return "";
+		    }
+		  }
+                  print OUTPUT $last_comment;
+                  foreach $msg (@tofuzzy) {
+                    if ($str eq $msg) {
+                      print OUTPUT "#, fuzzy\n";
+                      last;
+                    }
+                  }
+                  print OUTPUT $rstr;
+                }
+                return $str;
+       }
+       return "";
+}
+
+%plurals = 
+(
+ 'af' => 2,
+ 'az' => 1,
+ 'bg' => 2,
+ 'ca' => 2,
+ 'cs' => 3,
+ 'da' => 2,
+ 'de' => 2,
+ 'el' => 2,
+ 'en_GB' => 2,
+ 'eo' => 2,
+ 'es' => 2,
+ 'et' => 2,
+ 'fi' => 2,
+ 'fr' => 2,
+ 'he' => 2,
+ 'hu' => 1,
+ 'is' => 2,
+ 'it' => 2,
+ 'ja' => 1,
+ 'lt' => 3,
+ 'lv' => 2,
+ 'mt' => 4,
+ 'nl' => 2,
+ 'no' => 2,
+ 'no_NY' => 2,
+ 'pl' => 3,
+ 'pt' => 2,
+ 'pt_BR' => 2,
+ 'ro' => 2,
+ 'ru' => 3,
+ 'sk' => 3,
+ 'sl' => 4,
+ 'sr' => 3,
+ 'sv' => 2,
+ 'ta' => 2,
+ 'tr' => 1,
+ 'uk' => 3,
+ 'vi' => 1,
+ 'zh_CN.GB2312' => 1,
+);
+
+sub check_qt_args($$){
+	my ($msgid, $msgstr) = @_;
+	my $id_brackets = 0;
+	my $str_brackets = 0;
+        
+        if ($msgstr =~ /^_:/) {
+            print STDERR "Severe error '_:' encountered in msgstr at $current_file:$line\n";
+            return 0;
+        }
+
+	if ($msgstr =~ /^_n:/) {
+            print STDERR "Severe error '_n:' encountered in msgstr at $current_file:$line\n";
+            return 0;
+        }
+
+	if ($msgid =~ /^_n:/) {
+	  if (!$plural_forms) {
+	    print STDERR "can't find number of plural forms for $f\n";
+	    return 0;
+	  }
+	  $current_plurals = split /\\n/, $msgstr;
+	  if ($current_plurals != $plural_forms) {
+	    print STDERR "Found wrong number of plural in $current_file:$line\n";
+	    return 0;
+	  }
+	}
+
+	#print STDERR "testing $msgid vs $msgstr\n";
+
+        if ($msgid eq '%l:%M%P' || $no_c_format || $msgid =~ /^_n:/) { # exceptions
+		return 1;
+	}
+
+	while( $msgid =~ /(%\w+)/g ) {
+		my $tok = $1;
+                my $rtok = $tok;
+                while (1) {
+                  if( $msgstr =~ /$tok/ ){
+                    $msgstr =~ s/$tok//;
+                    last;
+                  }
+                  else{ 
+                    
+                    $tok =~ s/.$//;
+                  }
+                  if ($tok eq '%' || $tok eq '%0') {
+                    print STDERR "msgstr doesn't contain $rtok at $current_file:$line\n";
+                    return 0;
+                  }
+                }
+#		$msgid =~ s/$tok//;
+	}
+	if( $msgstr =~ /%\w+/ ){
+		print STDERR "remaining %... in $msgstr at $current_file:$line\n";
+		return 0;
+	}
+
+    if ($desktop_file) {
+        my $tag = $msgid;
+        $tag =~ s/=.*//;
+        if ($msgstr !~ /^$tag=/) {
+          print STDERR "Tag doesn't match in $current_file:$line\n";
+          return 0;
+        }
+    }
+	return 1;
+}
+
+my @dlist = `find . -type d | sort`;
+my $olddir = "";
+
+foreach $d (@dlist) {
+  chomp($d);
+  my @flist = `ls -1 $d/*.po 2> /dev/null`;
+
+  foreach $f (@flist) {
+        chomp($f);
+        $current_file = Cwd::realpath(dirname(cwd() . "/$f")) . "/" . basename($f);
+	# print "Processing $current_file\n";
+	if (!(dirname($current_file) eq $olddir)) {
+	  print "Processing " . dirname($current_file) . "...\n";
+	  $olddir = dirname($current_file);
+	  $plural_forms = 0;
+	  my $kdelibs_dir = $olddir;
+	  while (!($kdelibs_dir eq '/')) {
+	    if (-f "$kdelibs_dir/kdelibs.po") {
+	      $kdelibs_dir = basename(dirname($kdelibs_dir));
+	      if (defined $plurals{$kdelibs_dir}) {
+		$plural_forms = $plurals{$kdelibs_dir};
+	      } else {
+		print STDERR "no plural forms defined for $kdelibs_dir\n";
+	      }
+	      last;
+	    }
+	    $kdelibs_dir = dirname($kdelibs_dir);
+	  }
+	  if (!plural_forms) {
+	    print STDERR "no plural forms defined for $f\n";
+	  }
+	}
+        @tofuzzy = ();
+	@toremove = ();
+        if (basename($current_file) eq "desktop.po") {
+          $desktop_file = 1; 
+        } else {
+          $desktop_file = 0; 
+        }
+
+        my @msgids = ();
+       
+	open( INPUT, $f ) or die "Can't open $f!";
+	
+	my $msgid;
+	my $msgstr;
+	$line = 0;
+	
+	$msgid = get_msgid(0);
+	$msgstr = get_msgstr(0);
+	print STDERR "Warning: No header in $current_file\n" if( length($msgid));
+
+	while( 1 ) {
+		$msgid = get_msgid(0);
+		last unless length($msgid);
+		$msgstr = get_msgstr(0);
+                
+                if (!$fuzzy && length($msgstr)) {
+                  my $found = 0;
+                  foreach $m (@msgids) {
+                    if ($msgid eq $m) {
+                      print STDERR "msgid \'$msgid\' seen twice at $current_file:$line\n";
+                      push(@tofuzzy, $msgid);
+		      push(@toremove, $msgid);
+                      last;
+                    }
+                  }
+                  if (!check_qt_args($msgid, $msgstr)) {
+                    push(@tofuzzy, $msgid);
+                  }
+                  push(@msgids, $msgid);
+                }
+                
+	}
+
+        close( INPUT );
+        if (length(@tofuzzy)) {
+          open( INPUT, $f );
+          open(OUTPUT, ">$current_file.NEW");
+          
+          $msgid = get_msgid(1);
+          $msgstr = get_msgstr(1);
+          while( 1 ) {
+	    $toremove = 0;
+            $msgid = get_msgid(1);
+	    if ($toremove) {
+	      get_msgstr(0);
+	      next;
+	    }
+            if (!length($msgid)) {
+              print OUTPUT $last_comment;
+              last;
+            }
+            $msgstr = get_msgstr(1);
+          }
+          close(OUTPUT);
+          system("if cmp -s $current_file $current_file.NEW; then rm $current_file.NEW; else mv $current_file.NEW $current_file; fi");
+        }
+#	print "-----\n";
+      }
+}
+

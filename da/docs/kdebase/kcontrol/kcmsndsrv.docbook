@@ -1,0 +1,275 @@
+<sect1 id="sndserver">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-07-24</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>lydserver</keyword>
+<keyword
+>lyd</keyword>
+<keyword
+>aRts</keyword>
+</keywordset>
+</sect1info>
+
+<title
+>Lydserver</title>
+
+<para
+>Dette kontrolmodul bruges til at indstille opsætningen for &arts; lydserver (&kde;'s lydserver).</para>
+
+<sect2 id="sndserver-general">
+<title
+>Generelt</title>
+
+<para
+>Det øverste valg, der hedder <guilabel
+>Start aRts lydserver ved KDE opstart</guilabel
+>, aktiverer (eller deaktiverer) <application
+>aRts lydserver</application
+>. </para>
+
+<para
+>Resten af panelet består af tre valg for <application
+>aRts lydserver</application
+>.</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Aktivér netværksgennemsigtighed</term
+> <listitem
+> <para
+>Hvis dette er aktiveret, så vil lydforespørgsler fra netværket blive accepterede af lydserveren. Hvis det er deaktiveret vil lydserveren kun respektere forespørgsler fra den lokale computer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Udveksl sikkerheds- og reference info over X11</guilabel
+></term
+> <listitem
+><para
+>Hvis du har aktiveret netværksgennemsigtighed, så vil dette tillade dig at udveksle sikkerheds- og reference information. Hvis du er i tvivl, og du har aktiveret netværksgennemsigtighed, så bør dette afkrydses.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kør lydserver med realtids prioritet</guilabel
+></term
+> <listitem
+><para
+>Aktivering af dette vil give lydserveren prioritet over andre programmer, hvilket vil hjælpe med at løse eventuelle problemer med at levere uafbrudt lyd.</para
+> <note
+><para
+>Dette valg vil måske kræve tilladelse du ikke har som almindelig bruger.</para
+> <para
+>Dette valg afhænger også af realtidsstøtte fra dit system, som måske ikke er tilgængeligt.</para
+> <para
+>Hvis du ikke har de nødvendige tilladelser, eller dit system ikke har realtidsstøtte, så vil aktivering af dette alligevel ikke give problemer.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Autosuspendér hvis tomgang i</guilabel
+></term
+> <listitem
+> <para
+>Normalt låser &arts; lydkortenheden, så andre programmer ikke kan bruge den. Hvis du aktiverer dette, så vil &arts; suspendere sig selv hvis den ikke har været i brug et stykke tid, og tillade et vilkårligt program adgang til lyd maskinellet. Hvis &arts; modtager en anden forespørgsel så vil den holde op med at suspendere og fortsætte som normalt. Aktivering af dette valg kan forårsage en lille tøven når du starter et  &arts; program.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vis beskeder ved brug af</guilabel
+></term
+> <listitem
+> <para
+>Programmet der vil blive brugt til at vise beskeder fra &arts; serveren. Standard er <application
+>artsmessage</application
+> og det bør du nok ikke ændre medmindre du virkelig har læst  &arts; dokumentationen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Besked visning</guilabel
+></term
+> <listitem
+> <para
+>Du kan vælge hvor detaljerede de beskeder som &arts; viser dig skal være. Du kan vælge kun at se fejlbeskeder, problemløsningsbeskeder der er nyttige for udviklere (Du vil formodentlig kun ønske dette niveau hvis du er en udvikler, eller der er en der har bedt dig sætte det sådan). Eller du kan vælge at se generelle informations beskeder når &arts; gør noget såsom at suspendere sig selv. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Ved bunden af denne side er en knap der tillader dig at<guibutton
+>Teste lyd</guibutton
+>.</para>
+
+</sect2>
+
+<sect2 id="sndserver-soundio">
+<title
+>Lyd I/U</title>
+
+<para
+>Det første du kan indstille i <guilabel
+>Lyd I/U</guilabel
+> panelet er <guilabel
+>Lyd I/U metode</guilabel
+>. Det fortæller arts hvilket lydsystem der skal bruges til inddata og uddata af lyd. Aktuelle valg er  <acronym
+>ALSA</acronym
+> (Avanceret &Linux; Lyd (Sound) Arkitektur), <acronym
+>OSS</acronym
+> (Open Sound System), ingenlyd over hovedet og autodetektér. I de fleste tilfælde vil  <quote
+>Autodetektér</quote
+> være perfekt for dig.</para>
+
+<para
+>Andre valg er:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Aktivér fuld dupleks operation</guilabel
+></term
+> <listitem
+><para
+>Dette tillader lydserveren at spille og optage lyd på samme tid. Dette valg skal være aktiveret hvis du bruger programmer (såsom internet telefoner) som kræver at man kan optage og spille tilbage samtidigt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Brug brugerindstillet lydenhed</guilabel
+></term
+> <listitem
+> <para
+>Normalt falder lydserveren tilbage til at bruge enheden der hedder <filename class="devicefile"
+>/dev/dsp</filename
+> for til lyd uddata. Det skulle virke i de fleste tilfælde. En undtagelse er for eksempel hvis du bruger devfs, så skal du bruge <filename class="devicefile"
+>/dev/sound/dsp</filename
+> i stedet for. Andre alternativer er ting såsom <filename class="devicefile"
+>/dev/dsp0</filename
+> eller <filename class="devicefile"
+>/dev/dsp1</filename
+> hvis du har et lydkort der understøttet flere uddata, eller du har flere lydkort.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Brug brugerindstillet sampling rate</guilabel
+></term
+> <listitem
+> <para
+>Normalt bruger lydserveren en sampling rate på 44100 Hz som standard (<acronym
+>CD</acronym
+> kvalitet), som er understøttet på næsten alt maskinel. Hvis du bruger visse Yamaha lydkort, bliver du nødt til at indstille dette til 48000 Hz her, og hvis du bruger gamle SoundBlaster kort, som SoundBlaster Pro, bliver du måske nødt til at ændre dette til 22050 Hz. Alle andre værdier er også mulige, og kan give mening i visse sammenhænge (&ie; professional studio udstyr).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Andre brugervalg</guilabel
+></term
+> <listitem
+><para
+>Der er nogle indstillinger der bliver tilbudt af &arts; som måske ikke er tilgængelige i dette kontrolmodul, så du kan tilføje kommandolinie valg her, som vil blive givet direkte til <application
+>artsd</application
+>. Valgene vil blive vedhængte, så de vil i tvivlstilfælde overgå de valg der blev gjort i <acronym
+>GUI</acronym
+>. For at se de mulige valg, åbn et &konsole; vindue, og skriv<userinput
+><command
+>artsd</command
+> <option
+>-h</option
+></userinput
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Audio puffer størrelse (svartid)</guilabel
+></term
+> <listitem
+><para
+>Denne glider afgør hvor hurtigt lydserveren kan bruge din computers ressourcer. Jo hurtigere svartid, jo højere <acronym
+>CPU</acronym
+> belastning vil der være.</para
+> <tip
+><para
+>Jeg vil anbefale, at du starter med lydserveren sat på 250 ms, og bruger &kde; et stykke tid. Hvis du bemærker at lyden ikke virker rigtigt, så forøg dette et trin af gangen indtil problemerne forsvinder.</para
+></tip
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="sndserver-author">
+<title
+>Sektionsforfatter</title>
+
+<para
+>Denne sektion er skrevet af Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+
+<para
+>Opdateret af Jost Schenck <email
+>jost@schenck.de</email
+></para>
+
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+</sect2>
+</sect1>
+
+
+

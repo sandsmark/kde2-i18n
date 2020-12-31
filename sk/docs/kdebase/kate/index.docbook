@@ -1,0 +1,1355 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kate;"
+><!-- replace kapp here -->
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovak "INCLUDE"
+><!-- change language only here -->
+<!-- Do not define any other entities; instead, use the entities
+from kde-genent.entities and $LANG/user.entities. -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book lang="&language;">
+<title
+>Manuál pre &kate;</title>
+
+<bookinfo>
+<authorgroup
+>   
+<author
+> <firstname
+>Seth</firstname
+> <surname
+>Rothberg</surname
+> <affiliation
+> <address
+><email
+>sethmr@bellatlantic.net</email
+></address
+> </affiliation
+> </author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Stanislav</firstname
+> <surname
+>Višňovský</surname
+> <affiliation
+> <address
+><email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></address
+> </affiliation
+><contrib
+>Preklad</contrib
+></othercredit>
+
+<copyright>
+<year
+>2000</year>
+<year
+>2001</year>
+<holder
+>Seth M. Rothberg</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!-- Date and version information of the documentation
+Don't forget to include this last date and this last revision number, we
+need them for translation coordination !
+Please respect the format of the date (DD/MM/YYYY) and of the version
+(V.MM.LL), it could be used by automation scripts.
+Do NOT change these in the translation. -->
+
+<date
+>2001-05-30</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kate; je programátorský textový editor pre KDE 2.2 a vyššie.</para>
+
+<para
+>Tento manuál popisuje &kate; verzia 1.0</para>
+</abstract>
+
+<!-- This is a set of Keywords for indexing by search engines.
+Please at least include KDE, the KDE package it is in, the name
+of your application, and a few relevant keywords. -->
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>Kate</keyword>
+<keyword
+>text</keyword>
+<keyword
+>editor</keyword>
+<keyword
+>programátorský</keyword>
+<keyword
+>programovanie</keyword>
+<keyword
+>projekty</keyword>
+<keyword
+>MDI</keyword>
+<keyword
+>Multi</keyword>
+<keyword
+>Dokument</keyword>
+<keyword
+>Rozhranie</keyword>
+<keyword
+>terminál</keyword>
+<keyword
+>konzola</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Úvod</title>
+
+<para
+> Vitajte v &kate;, programátorskom textovom editore pre &kde; verzie 2.2 a vyššej. &kate; okrem iného obsahuje nastaviteľné zvýrazňovanie syntaxu od C a C++ až po <acronym
+>HTML</acronym
+> a skripty bash, možnosti pre správu projektov, rozhranie pre viac dokumentov (<acronym
+>MDI</acronym
+>), a zabudovaný emulátor terminálu. </para>
+
+<para
+> &kate; je ale viac než programátorský editor. To, že dokáže naraz otvoriť viac súborov sa hodí pre úpravu mnohých konfiguračných súborov &UNIX;. Tento dokument bol v &kate; vytvorený. </para>
+</chapter>
+
+<chapter id="fundamentals">
+<title
+>Základy</title>
+
+<para
+> Ak ste niekedy používali textový editor, nebudete mať s &kate; žiadne problémy. V nasledujúcich dvoch kapitolách <link linkend="starting-kate"
+>Spustenie &kate;</link
+> a <link linkend="working-with-kate"
+>Práca s &kate;</link
+> vám ukážeme všetko, čo potrebujete pre začiatok. </para>
+
+<sect1 id="starting-kate">
+<title
+>Spustenie &kate;</title>
+
+<para
+> &kate; môžete spustiť z <guimenu
+>Menu K</guimenu
+> alebo z príkazového riadku. </para>
+
+<sect2 id="starting-from-the-menu">
+<title
+>Z menu</title>
+<para
+> Kliknutím na <guiicon
+>veľké K</guiicon
+> v paneli v dolnej časti obrazovky otvorte menu <acronym
+>KDE</acronym
+>. Objaví sa <guimenu
+>menu programov</guimenu
+>. Presuňte sa do položky <guimenu
+>Editory</guimenu
+> a vyberte <guimenuitem
+>&kate;</guimenuitem
+>. </para>
+
+<para
+> Ak  enastavíte &kate; inak, načíta súbory, ktoré ste naposledy upravovali. Ako túto funkciu vypnúť sa dozviete v kapitole <link linkend="configure"
+>Nastavenie &kate;</link
+>. </para>
+
+</sect2>
+
+<sect2 id="starting-from-the-command-line">
+<title
+>Z príkazového riadku</title>
+
+<para
+> &kate; môžete spustiť napísaním jeho mena na príkazovom riadku. Ak zadáte aj meno súboru, tak ako je to v príklade dole, otvorí sa, alebo ak neexistuje, vytvorí sa. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate</command
+><option
+><replaceable
+>subor.txt</replaceable
+></option
+></userinput>
+</screen
+> </informalexample>
+
+<para
+> Ak máte aktívne spojenie a práva, môžete využiť podporu &kde; pre prácu so súbormi po sieti a v internete. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate</command
+><option
+><replaceable
+>ftp://ftp.kde.org/pub/kde/README_FIRST</replaceable
+></option
+></userinput>
+</screen
+> </informalexample>
+
+<sect3 id="command-line-options">
+<title
+>Možnosti príkazového riadku</title>
+<para
+>&kate; podporuje tieto možnosti na príkazovom riadku:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help</option
+></userinput
+></term
+> <listitem
+> <para
+> Zobrazí zoznam základných možností pre príkazový riadok. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-qt</option
+></userinput
+></term
+> <listitem
+> <para
+> Zobrazí zoznam možností pre zmenu spolupráce &kate; a &Qt;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-kde</option
+></userinput
+></term
+> <listitem
+> <para
+> Zobrazí zoznam možností pre zmenu spolupráce &kate; a &kde;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-all</option
+></userinput
+></term
+> <listitem
+> <para
+> Zobrazí zoznam všetkých možností. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--author</option
+></userinput
+></term
+> <listitem
+> <para
+> Vypíše do okna terminálu zoznam autorov &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--version</option
+></userinput
+></term
+> <listitem
+> <para
+> Vypíše informáciu o verzii &Qt;, &kde; a &kate;. Dostupné aj pomocou <userinput
+><command
+>kate</command
+> <option
+>-V</option
+></userinput
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--licence</option
+></userinput
+></term
+> <listitem
+> <para
+> Zobrazí informáciu o licencii. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+</sect2>
+
+<sect2 id="drag-and-drop">
+<title
+>Ťahaj a pusť</title>
+<para
+> &kate; používa protokol ťahaj a pusť z &kde;. Súbory môžete ťahať a púšťať na &kate; z plochy, z okien &konqueror; a z niektorých ftp serverov zobrazených v okne &konqueror;. </para>
+</sect2>
+</sect1>
+
+<sect1 id="working-with-kate">
+<title
+>Práca s &kate;</title>
+<para
+> <link linkend="quick-start"
+>Rýchly úvod</link
+> popisuje, ako nastaviť štyri jednoduché možnosti, ktoré umožňujú nastaviť niektoré najsilnejšie funkcie v &kate;. <link linkend="keystroke-commands"
+> Klávesové príkazy</link
+> popisuje niektoré štandardné klávesové skratky pre tých, kto nechce alebo nemôže používať myš. </para>
+
+<sect2 id="quick-start">
+<title
+>Rýchly úvod</title>
+
+<para
+> Táto kapitola popisuje niektoré z položiek v menu <guimenu
+>Nastavenia</guimenu
+>, aby ste si mohli rýchlo nastaviť &kate; tak, aby vám to vyhovovalo. </para>
+
+<para
+> Po prvom štarte &kate; sa zobrazia dve okná s bielym pozadím. Nad oknami je panel nástrojov s iormálnymi tlačidlami. A nad ním je menu. </para>
+
+<para
+> Okno vľavo je bočný panel. Kombinuje zoznam súborov a výber súborov. Kliknutím na záložku sa môžete medzi nimi prepínať. </para>
+
+<para
+> Ak ste spustili &kate; so súborom, v pravom okne bude obsah tohto súboru a v zozname súborov o bočnom paneli bude meno súboru. Pomocou výberu súborov môžete otvárať súbory. </para>
+
+<para
+> Pomocou menu <guimenu
+>Nastavenia</guimenu
+> môžete zapínať a vypínať zobrazenie zoznamu súborov a výberu súborov. Toto menu je prvý náznak flexibility editora &kate;. V tejto kapitole sa pozrieme na štyri položky z tohto menu. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Zobraziť panel <accel
+>n</accel
+>ástrojov</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Prepne zobrazenie panelu nástrojov. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenuitem
+>Zobraziť zoznam súborov</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Prepne zoznam súborov. Ak nie je okno pre ich zobrazenie otvorené, &kate; spustí bočný panel ako samostatné okno. Aby ste ho pohltili v okne, pretiahnite ho za dve tenké rovnobežky nad záložkami pomocou ľavého tlačidla myši tam, kde chcete aby bolo. </para
+> <tip
+> <para
+> Ak sa vám podarilo chytiť čiary správne, kurzor myši sa zmení na prekrížené šipky. </para
+> </tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Zobraziť výber súboru</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Prepne zobrazenie výberu súborov. Táto položka menu je rovnaká ako <guimenuitem
+>Zobraziť zoznam súborov</guimenuitem
+>, ale okno s bočným panelom bude mať navrchu zoznam súborov. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Zobraziť <accel
+>K</accel
+>onzolu</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Prepne emulátor konzole v dolnej časti okna &kate;. Inými slovami, dá vám k dispozícii príkazový riadok v rámci aplikácie. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="keystroke-commands">
+<title
+>Klávesové príkazy</title>
+
+<para
+> Veľa klávesových skratiek &kate; je možné nastaviť pomocou menu <link linkend="settings"
+>Nastavenia</link
+> Štandardne &kate; podporuje nasledujúce klávesové skratky. </para>
+
+<informaltable>
+<tgroup cols="2">
+<tbody
+> <row
+><entry
+><para
+><keycap
+>Vložiť</keycap
+></para
+></entry
+> <entry
+><para
+> Prepne medzi módom vkladania a prepisovania. Ak je editor v móde vkladania, zadané znaky bude pridávať do textu a starý textu bude posúvať vpravo do textového kurzora. Mód prepisovania spôsobí, že každý zadaný znak prepíše znak, ktorý je vpravo od kurzora.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Šipka vľavo</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Presunie kurzor o jeden znak doľava </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Šipka vpravo</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Presunie kurzor o jeden znak doprava </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Šipka hore</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Presunie kurzor o jeden riadok hore </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Šipka dolu</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Presunie kurzor o jeden riadok dolu </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Page Up</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Presunie kurzor o jednu stránku hore </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Page Down</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Presunie kurzor o jednu stránku dolu </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Backspace</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Zmaže znak vľavo od kurzora </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Home</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Presunie kurzor na začiatok riadku </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>End</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Presunie kurzor na koniec riadku </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Delete</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Zmaže znak napravo od kurzoru (alebo vybraný text)</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Šipka vľavo</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Označí jeden znak textu doľava </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Šipka vpravo</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Označí jeden znak textu doprava </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Pomocník</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="whats-this"
+>Čo je to?</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find"
+> Nájsť</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F3</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find-again"
+> Hľadá ďalej</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>B</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Nastaví značku</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Kopíruje označený text do schránky. </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> <link linkend="new"
+>Nový</link
+> dokument</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="print"
+>Tlačiť</link
+> </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Koniec - ukončí aktívnu kópiu editora </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>R</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="replace"
+> Nahradiť</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Uloží váš súbor.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Vložiť.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Odstráni označený text a skopíruje ho do schránky. </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="undo"
+>Vrátiť späť</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="redo"
+>Opakovať vrátené</link
+></para
+></entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-entries">
+<title
+>Položky menu</title>
+<sect1 id="file-menu">
+<title
+>Menu <guimenu
+>Súbor</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <anchor id="new"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ový</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Tento príkaz <action
+>vytvorí nový dokument</action
+> v editovacom okne. v <guibutton
+>Zozname súborov</guibutton
+> vľavo bude mať súbor meno <emphasis
+>Bez názvu</emphasis
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>tvoriť</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Tento príkaz <action
+>neotvorí súbor</action
+>. Spustí dialóg &kde; pre výber súboru, kde musíte vybrať súbor, ktorý chcete otvoriť. </para
+> <para
+> sialóg pre otvorenie súboru je niečo ako jednoduchá verzia prehliadača &konqueror;. Pomocou ľavého tlačidla myši môžete vybrať meno súboru. Dvojitým kliknutím ho otvoríte. Ak ste vybrali súbor, môžete ho otvoriť aj stlačením <guibutton
+>OK</guibutton
+>. </para
+> <tip
+> <para
+> Ak budete držať <keycap
+>Ctrl</keycap
+> alebo <keycap
+>Shift</keycap
+>, môžete vybrať viac súborov naraz kliknutím ľavým tlačidlom myši. Skratka <keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><mousebutton
+>Ľavé</mousebutton
+> </keycombo
+> vyberá po jednom súbore. <keycombo action="simul"
+> <keycap
+>Shift</keycap
+><mousebutton
+>Ľavé</mousebutton
+> </keycombo
+> vyberá spojitú skupinu súborov. </para
+> </tip
+> <para
+> Kliknutím na meno priečinku v okne výberu súboru zobrazí obsah tohto priečinku. Kliknutie na meno súboru zobrazí náhľad tohto súboru v pravej časti dialógu. </para
+> <para
+> Pomocou tlačidiel a rozbaľovacieho zoznamu nad oknom pre výber súboru sa môžete presúvať po súborovom systéme alebo si upraviť vlastnosti tohto dialógu. </para
+> <para
+> Pod oknom pre výber súbor je zoznam umiestnenia. Zadajte sem meno súboru, ktorý chcete upraviť. Ak kliknete na šipku vpravo, budete si môcť vybrať zo zoznamu naposledy použitých súborov. Viac súborov naraz otvoríte ich uzavretím do úvodzoviek. </para
+> <para
+> Pod zoznam umiestnenia je zoznam filtrov. Ak tam zadáte masku pre typy súborov, len tie sa budú v okne zobrazovať. Napríklad, ak zadáte <literal role="extension"
+>*.txt</literal
+> a stlačíte <keycap
+>Enter</keycap
+>, zobrazené budú iba súbory s príponou <literal role="extension"
+>.txt</literal
+>. Zoznam filtrov obsahuje zoznam naposledy použitých filtrov. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-recent"/> <menuchoice
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+>Otvoriť n<accel
+>e</accel
+>dávne</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Tento príkaz <action
+>otvorí súbor</action
+> z podmenu, ktoré obsahuje zoznam naposledy upravovaných súborov. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+>  </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>ložiť</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Tento príkaz <action
+>uloží súbor</action
+>. Používajte ho často. Ak je súbor <emphasis
+>bez mena</emphasis
+>, bude sa <guimenuitem
+>Uložiť</guimenuitem
+> chovať ako <guimenuitem
+>Uložiť ako</guimenuitem
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-as"/> <menuchoice
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+>Uložiť <accel
+>a</accel
+>ko</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Tento príkaz <action
+>uloží súbor pod iným menom</action
+>. Zobrazí dialóg pre uloženie súboru. Ten funguje podobne ako dialóg pre výber súboru. Môžete ho použiť pre prechádzanie systému súborov, zobrazovanie náhľadu existujúcich súborov alebo filtrovanie súborov pomocou masky. </para
+> <para
+> Zadajte menoapre súbor do zoznamu Umiestnenie a stlačte <guibutton
+>OK</guibutton
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-all"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+>Uložiť <accel
+>v</accel
+>šetko</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Tento príkaz <action
+>uloží všetky otvorené súbory</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="reload"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+>O<accel
+>b</accel
+>noviť</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Znovu načíta aktívny súbor z disku</action
+>. Tento príkaz sa hodí, ak iný program zmenil súbor, ktorý máte práve otvorený v &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-with"/> <menuchoice
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+>Otvoriť <accel
+>p</accel
+>omocou...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Tento príkaz vyvolá dialóg, kde môžete <action
+>vybrať inú aplikáciu, ktorá má otvoriť aktívny súbor</action
+>. Váš súbor bude ďalej otvorený v &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="print"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>lačiť</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Vytlačí aktívny súbor</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>Z</accel
+>avrieť</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Zavrie aktívny súbor</action
+>. Ak obsahuje neuložené zmeny, zobrazí sa výzva na ich uloženie. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close-all"/> <menuchoice
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>Z</accel
+>avrieť všetko</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Tento príkaz <action
+>zavrie všetky súbory, ktoré sú otvorené</action
+> v &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="new-window"/> <menuchoice
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+>Nové okno</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Otvorí nové okno &kate;</action
+>. Nová inštancia bude rovnaká ako predchádzajúca. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="quit"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>úbor</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>oniec</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Tento príkaz <action
+>zatvorí &kate;</action
+> a všetky súbory, ktoré ste práve upravovali. Ak obsahujú neuložené zmeny, zobrazí sa výzva na ich uloženie. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="configuring-kate">
+<title
+>Nastavenie Kate</title>
+<para
+> <anchor id="settings"/> <anchor id="configure"/> <anchor id="whats-this"/> <anchor id="find"/> <anchor id="find-again"/> <anchor id="replace"/> <anchor id="undo"/> <anchor id="redo"/> Táto kapitola popisuje všetky možnosti pre nastavenie &kate;. </para>
+</chapter>
+
+<chapter id="credits">
+
+<!-- Include credits for the programmers, documentation writers, and
+contributors here. The license for your software should then be included
+below the credits with a reference to the appropriate license file
+included in the KDE distribution. -->
+
+<title
+>Autori a licencia</title>
+
+<para
+> &kate; Copyright 2000, 2001, Christoph Cullmann. </para>
+
+<!-- To save you some work, here's Kate's author list (I could mark it -->
+<!-- up too if you want, I just didn't want to interfere too much :) -->
+
+<!-- 
+Kate was written by
+Christoph Cullmann <cullmann@kde.org>
+Anders Lund <anders@alweb.dk>
+Joseph Wenninger <jowenn@bigfoot.com>
+Michael Bartl <michael.bartl1@chello.at>
+Phlip <phlip_cpp@my-deja.com>
+Waldo Bastian <bastian@kde.org>
+Matt Newell <newellm@proaxis.com>
+Michael McCallum <gholam@xtra.co.nz>
+Jochen Wilhemly <digisnap@cs.tu-berlin.de>
+Michael Koch <koch@kde.org>
+Christian Gebauer <gebauer@bigfoot.com>
+Simon Hausmann <hausmann@kde.org>
+Glen Parker <glenebob@nwlink.com>
+Scott Manson <sdmanson@alltel.net>
+John Firebaugh <jfire@uclink.berkeley.edu>
+-->
+
+<para
+> Copyright dokumentácie 2000,2001 Seth Rothberg, <email
+>sethmr@bellatlantic.net</email
+> </para>
+
+<para
+>Preklad dokumentácie Stanislav Višňovský <email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underGPL;               <!-- GPL License -->
+
+</chapter>
+
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-namecase-general: t
+sgml-namecase-entity: nil
+sgml-general-insert-case: lower
+sgml-minimize-attributes: nil
+sgml-omittag: nil
+End:
+-->
+
+
+

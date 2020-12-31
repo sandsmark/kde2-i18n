@@ -1,0 +1,3584 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kbabel   "<application
+>KBabel</application
+>">
+ <!ENTITY kbabeldict   "<application
+>KBabelDict</application
+>">
+ <!ENTITY kappname "&kbabel;">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % French "INCLUDE" 
+> <!-- change language only here -->
+ 
+ 
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Le manuel de KBabel</title>
+
+<authorgroup>
+<author
+> <firstname
+>Matthias</firstname
+> <surname
+>Kiefer</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Yves</firstname
+><surname
+>Dessertine</surname
+><affiliation
+><address
+><email
+>yves.d@hrnet.fr</email
+></address
+></affiliation
+><contrib
+>Traduction française</contrib
+></othercredit>
+</authorgroup>
+
+
+<date
+>06/08/2000</date>
+<releaseinfo
+>0.05.00</releaseinfo>
+
+<abstract>
+<para
+> &kbabel; est un éditeur de fichiers PO avancé et facile à utiliser. Il possède un gestionnaire de catalogues multifonction, et de nombreuses fonctions avancées, telles que la recherche dans les catalogues, la mise en surbrillance de texte, et il vous permet de personnaliser de nombreuses options. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KBabel</keyword>
+<keyword
+>kbabel</keyword>
+<keyword
+>kdesdk</keyword>
+<keyword
+>gettext</keyword>
+<keyword
+>traduction</keyword>
+<keyword
+>i18n</keyword>
+<keyword
+>l10n</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<!-- FIXME: to review -->
+<title
+>Introduction</title>
+
+<para
+> &kbabel; est un éditeur de fichiers PO (catalogues de messages gnu gettext) avancé et facile à utiliser. Il possède de nombreuses fonctions, ce qui rend l'édition et la gestion de fichiers PO plus facile. Ceci inclut une capacité de navigation complète, des fonction d'édition étendues, des fonctions de recherche, une vérification de la syntaxe et une fonction de statistiques. Il inclut aussi un "gestionnaire de catalogues", une vue de gestionnaire de fichiers, qui vous aidera à garder une vue d'ensemble de vous fichiers PO. &kbabel; va vous aider à traduire vite tout en conservant une traduction cohérente. </para>
+<para
+> Avec le projet KDE qui ne cesse de croître, le nombre de messages PO est passé à plus de 27000 au moment de l'écriture de cette documentation. Il y a un réel besoin de rester organisé et cohérent tout au long des traductions. Envisager d'utiliser &kbabeldict; pour assister la gestion de ce grand nombre de messages et de catalogues PO. </para>
+
+</chapter>
+
+
+<chapter id="using-kbabel">
+<title
+>Utilisation de KBabel</title>
+
+<sect1 id="using-introduction">
+<!-- FIXME: to review -->
+<title
+>Introduction</title>
+<para
+> D'habitude, les messages de programme et la documentation sont écrits en anglais. Cependant, puisque l'on utilise une structure composée d'une collection d'outils et de librairies, il à été possible d'avoir les programmes favoris dans votre langue native autre que l'anglais. Le processus d'adaptation à une langue spécifique est appelé localisation. Ceci inclut la traduction de l'interface des programmes ainsi que leur documentation dans les langues dont ont besoin les utilisateurs et de faire en sorte que les entrées et les sorties répondent à des conventions particulières dans certains pays ou régions. &kbabel; est un outil qui permet de vous assister lors d'un processus d'internationalisation permettant de faire en sorte que l'interface d'une application soit disponible en plusieurs langues. </para>
+<para
+> Chaque programme soucieux de l'internationalisation met à disposition un ou plusieurs fichiers de catalogues de messages pour traduction. Leur extension est <filename
+>.pot</filename
+> et est un acronyme&nbsp;: <acronym
+>POT</acronym
+> - Portable Object Template (modèle d'objet portable). Chaque traducteur se procure une copie d'un fichier POT et commence la traduction des messages. Puis, ce fichier va devenir un fichier <acronym
+>PO</acronym
+> - Portable Object (objet portable) et ne représente qu'une seule langue. Une fois le processus de traduction terminé, ce fichier texte (qui contient souvent des caractères non-ASCII) est compilé en format binaire, lisible par la machine. C'est comme une base de données pour minimiser la recherche des messages traduits. Ce fichier porte l'extension <filename
+>.mo</filename
+> et est appelé fichier <acronym
+>MO</acronym
+> - Machine Object (objet machine). </para>
+<para
+> Une question flotte dans l'air&nbsp;: Dois-je savoir comment est l'intérieur d'un fichier PO&nbsp;? La réponse est sans aucun doute oui. Il existe des situations où un catalogue de messages devient corrompu et doit être corrigé manuellement. Le plus souvent, ce sont les conflits CVS tant détestés lorsque la traduction est coordonnée par un système de versions concurrentes. (reportez vous à la documentation du <ulink url="info:/cvs"
+>CVS</ulink
+> pour plus d'informations). &kbabel; ne peut pas vous aider beaucoup dans cette situation, mais plutôt une connaissance du CVS et des fichiers PO. Voyons comment un fichier PO est conçu. Les concepts principaux sont les marqueurs <emphasis
+>msgid</emphasis
+> et <emphasis
+>msgstr</emphasis
+>, qui sont suivies par des chaînes de type C (délimitées par des doubles guillemets). Les deux groupes débutent respectivement par msgid et msgstr. Msgid correspond au texte en anglais dans l'interface utilisateur et msgstr correspond au texte traduit. Les lignes vides et celles qui débutent par un dièse sont ignorées. Les lignes débutant par un dièse représentent des commentaires et sont un bon moyen d'indiquer dans quel fichier se trouve la chaîne en anglais à traduire ou encore des commentaires supplémentaires pour la traduction insérés par les développeurs de l'application. &kbabel; affiche les lignes de commentaires pour chaque message. Dans bien des cas, la première paire msgid-msgstr dans un fichier PO est une fausse entrée (l'en-tête du fichier PO) qui contient des informations variées à propos du fichier PO traduit&nbsp;: nom de l'application, date de la traduction, nom du traducteur et encore beaucoup plus. </para>
+</sect1>
+
+<sect1 id="using-editor">
+<!-- FIXME: to work -->
+<title
+>L'éditeur</title>
+<para
+> Voici une capture d'écran de &kbabel;. La fenêtre principale est coupée en quatre boîtes. Par souci de confort, &kbabel; possède des barres d'outils pour accélérer beaucoup d'opérations, et de nombreux raccourcis clavier existent pour les grands travailleurs. La boîte dans le coin supérieur gauche est en lecture seule et contient le champ msgid courant du fichier PO ouvert. C'est du texte anglais. La boîte dans le coin inférieur droit est le champ msgstr correspondant, et ici, vous pouvez éditer le texte traduit. Dans la partie supérieure droite de la fenêtre se trouve le panneau des commentaires, où vous pouvez voir les commentaires ajoutés pour l'entrée actuellement éditée. Il est confortable de voir comment l'entrée est traitée (chaîne de format C ou chaîne simple). Dans certains cas, vous pouvez lire des commentaires vous étant d'une grande aide, ajoutés par le développeur de l'application qui se préoccupe du travail des traducteurs et des difficultés de traduction, par exemple lorsque des termes ont une interprétation différente dans l'application. En cas de doute, les traducteurs doivent avoir une très bonne culture générale, mais certains commentaires de programmes de haute technologie semblent aider beaucoup. Un bon exemple est le projet LyX, qui utilise la terminologie TeX. D'autres utilisations sont lorsque vous avez besoin de savoir de quel fichier vient le message actuel, parce que vous souhaitez reporter une faute d'orthographe dans la chaîne anglaise d'origine. <screenshot
+> <screeninfo
+>Capture d'écran de &kbabel;</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="snap1.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot
+> </para>
+
+<para
+> La fenêtre d'édition dans la partie inférieure droite est la plus sophistiquée. Sa taille peut être ajustée au moyen de la ligne séparatrice lui longe l'espace entre elle et le panneau de commentaires. Elle est multifonctionnelle et comporte deux panneaux à onglets&nbsp;: Chercher et Contexte. L'onglet Contexte contient une vue avec barre de défilement montrant les quatre entrées précédentes et les quatre entrées suivantes de l'entrée actuelle. C'est comme si vous pouviez voir un instantané du fichier PO édité. Qu'est-ce que cela apporte-t-il&nbsp;? Il est très courant lorsque vous traduisez que beaucoup de chaînes soient en rapport à la fois avant et après, de sorte à ce que vous puissiez y jeter un oeil si vous n'avez aucun indice sur la meilleure façon de traduire l'entrée actuelle. La traduction d'interfaces de dialogue est un bon exemple, où les éléments graphiques ont avec eux un texte associé et une aide rapide "Qu'est-ce que c'est&nbsp;?". </para>
+
+<sect2 id="kbabel-features">
+<title
+>Plus de fonctions de KBabel</title>
+
+<para
+> Brièvement, je vais expliquer qu'une entrée msgid peut être dans trois états&nbsp;: </para>
+<variablelist
+> <varlistentry
+> <term
+>non traduit</term
+> <listitem
+> <para
+> qui, évidemment, signifie qu'il n'y a pas de texte traduit associé avec msgstr </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>fuzzy</term
+> <listitem
+> <para
+> <command
+>msgmerge</command
+> à essayé de trouver une meilleure chaîne traduite dans le reste des entrées du fichier PO. Ceci ne marche pas parfaitement et vous devez éditer le texte traduit pour qu'il corresponde au texte anglais actuel. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>traduit</term
+> <listitem
+> <para
+> bien sûr, cela signifie que l'entrée msgid courante est traduite. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+<para
+> L'état de l'entrée courante est indiquée par deux LEDs. Selon votre configuration, elles peuvent se trouver dans la barre d'état ou au dessus de la boîte d'édition de chaîne traduire. Toutes les deux ont une couleur personnalisable pour s'adapter à vos exigences ou vos goûts visuels. Veuillez lire la section <link linkend="preferences"
+>Préférences</link
+> pour voir comment vous pouvez ajuster ces paramètres. </para>
+
+   </sect2>
+</sect1>
+
+<sect1 id="using-catalogmanager">
+<!-- FIXME: to work -->
+<title
+>Le gestionnaire de catalogues</title>
+<anchor id="catalogmanager"/>
+<para
+> <screenshot
+> <screeninfo
+>Capture d'écran du gestionnaire de catalogues</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="snap_catalogmanager.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot
+> </para>
+<para
+> Le gestionnaire de catalogues fusionne deux dossiers en une arborescence et montre tous les fichiers PO et POT dans ces dossiers. De cette manière, vous pouvez facilement voir si un nouveau modèle à été rajouté ou supprimé. Certaines informations sur les fichiers sont aussi affichées dans le gestionnaire de catalogues&nbsp;: nombre d'entrées total, nombres d'entrées fuzzy et nombre d'entrées non traduites, la dernière révision et le dernier traducteur du fichier. </para>
+<para
+> Pour vous rendre la recherche de fichiers qui ont besoin de travail ou qui manquent plus facile, l'état des fichiers est aussi indiqué par une icône&nbsp;: </para>
+
+<itemizedlist
+> <listitem
+> <para
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="catalogmanager_ok.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Les messages de ce fichiers sont tous traduits. </para
+> </listitem
+> <listitem
+> <para
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="catalogmanager_needwork.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Certains messages dans ce fichiers sont fuzzy ou non traduites </para
+> </listitem
+> <listitem
+> <para
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="catalogmanager_missing.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Ce fichier n'existe pas dans le dossier de fichiers PO. </para
+> </listitem
+> <listitem
+> <para
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="catalogmanager_broken.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Ce fichier contient des erreurs de syntaxe. </para
+> </listitem
+> </itemizedlist>
+
+<para
+> Si une icône est marquée par cette icône <inlinemediaobject
+> <imageobject
+> <imagedata fileref="catalogmanager_nopot.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+>, comme <inlinemediaobject
+> <imageobject
+> <imagedata fileref="catalogmanager_nopot_ok.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+>, cela indique que ce fichier ou ce dossier n'existe pas dans le dossier des fichiers POT. </para>
+<para
+> Pour pouvez activer ou désactiver la marque d'un fichier en sélectionnant <menuchoice
+><guimenuitem
+>Inverser les marques</guimenuitem
+></menuchoice
+> dans le menu contextuel d'un fichier. Si vous voulez activer/désactiver ou enlever toutes les marques dans un dossier, cliquez avec le bouton droit de la souris sur ce dossier et sélectionnez <menuchoice
+><guimenuitem
+>Inverser les marques</guimenuitem
+></menuchoice
+> ou <menuchoice
+><guimenuitem
+>Enlever les marques</guimenuitem
+></menuchoice
+>. Les marques sont automatiquement sauvegardées lorsque vous quittez &kbabel;. </para>
+<para
+> Pour ouvrir un fichier, double cliquez sur le fichier, ou sélectionnez-le et pressez ou <keycap
+>Entrée</keycap
+> ou <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+>, ou sélectionnez <menuchoice
+><guimenuitem
+>Ouvrir</guimenuitem
+></menuchoice
+> depuis le menu contextuel. </para>
+<para
+> Vous pouvez configurer le gestionnaire de catalogues ou en cliquant sur <guibutton
+>Configurer...</guibutton
+> en bas ou dans la section <guilabel
+>Gestionnaire de catalogues</guilabel
+> de la boîte de dialogue de préférences. Reportez vous à la section <link linkend="preferences-catalogmanager"
+>Préférences</link
+> pour plus de détails. </para>
+</sect1>
+
+</chapter>
+
+<chapter id="dictionaries">
+<title
+>Dictionnaires</title>
+<!-- FIXME: to work -->
+<para
+> &kbabel; est fourni avec trois modes de recherche de chaînes traduites&nbsp;: Base de données des traductions, fichier de référence des PO et fichier PO auxiliaire. </para>
+
+<sect1 id="database">
+<!-- FIXME: to work -->
+<title
+>Base de données des traductions</title>
+<para
+> Vous pouvez configurer ce mode de recherche en sélectionnant <menuchoice
+> <guimenuitem
+>Configuration</guimenuitem
+> <guimenuitem
+>Configurer les dictionnaires</guimenuitem
+> <guimenuitem
+>Base de données des traductions</guimenuitem
+> </menuchoice
+> dans les menus de &kbabel;. </para>
+</sect1>
+
+<sect1 id="auxiliary">
+<title
+>Fichier PO auxiliaire</title>
+<para
+> Ce mode de recherche est fondé sur la recherche de correspondance de la chaîne originale (msgid) dans un fichier PO auxiliaire, traduit dans une autre langue. Il est très courant que les langues romaines aient des mots en commun. Idem avec les langues slaves et anglo-saxonnes. Par exemple, je veux traduire le mot "on" de <filename
+>kdelibs.po</filename
+> en roumain, mais n'ai pas d'indice. Je cherche dans le même fichier en français et trouve "actif". Dans le fichier espagnol, j'ai trouvé "activado". Donc, je conclus que la meilleure traduction roumaine serait "activ". &kbabel; automatise cette tâche. Actuellement, vous ne pouvez définir qu'un seul fichier auxiliaire dans lequel rechercher. </para>
+<para
+> Vous pouvez configurer ce mode de recherche en sélectionnant <menuchoice
+> <guimenuitem
+>Configuration</guimenuitem
+> <guimenuitem
+>Configurer les dictionnaires</guimenuitem
+> <guimenuitem
+>Auxiliaire PO</guimenuitem
+> </menuchoice
+> dans les menus de &kbabel;. Dans la boîte de dialogue "Configurer le dictionnaire auxiliaire PO", vous pouvez sélectionner le chemin d'accès vers le fichier PO auxiliaire. Pour automatiser la commutation de fichier PO lorsque vous changez de fichier, il existe plusieurs variables délimités par le caractère "@" qui sont remplacées par les valeurs appropriées&nbsp;: <variablelist
+> <varlistentry
+> <term
+>@PACKAGE@</term
+> <listitem
+><para
+>Le l'application ou du paquetage actuellement traduit. Par exemple, il peut s'étendre à&nbsp;: kbabel, kdelibs, konqueror etc. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>@LANG@</term
+> <listitem
+><para
+>Le code de la langue. Par exemple, il peut s'étendre à&nbsp;: de, ro, fr etc. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>@DIRn@</term
+> <listitem
+><para
+>où "n" est un entier positif. Ceci s'étend au "n"-ième dossier compté depuis le nom du fichier (de la droite vers la gauche). </para
+></listitem
+> </varlistentry
+> </variablelist
+>. Dans la ligne d'édition est affiché le chemin d'accès actuel au fichier PO auxiliaire. À partir du moment où vous utilisez au mieux les variables dans le chemin d'accès, il est possible de choisir un chemin d'accès absolu, réel, vers un fichier PO existant. Prenons un exemple. Je suis roumain et j'ai quelques connaissances en français et je travaille sur la traduction de KDE. La première étape est de télécharger un fichier <filename
+>kde-i18n-fr.tar.bz2</filename
+> très frais depuis le <ulink url="ftp://ftp.kde.org/pub/kde/snapshots/current/kde-i18n"
+>site FTP de KDE</ulink
+> ou d'utiliser le système CVS pour recevoir sur mon disque dur une arborescence de la traduction française. Je peux le faire à <filename
+>/home/clau/cvs-cvs.kde.org/kde-i18n/fr</filename
+>. Mon dossier de source des PO est <filename
+>/home/clau/cvs-cvs.kde.org/kde-i18n/ro</filename
+>. N'oubliez pas de sélectionner "Auxiliaire PO" comme dictionnaire par défaut et de vérifier que <guilabel
+>Commencer la recherche automatiquement</guilabel
+> soit activé dans l'onglet <guilabel
+>Recherche</guilabel
+> de la boîte de dialogue "Préférences" de &kbabel;. </para>
+</sect1>
+
+<sect1 id="compendium">
+<!-- FIXME: to work -->
+<title
+>Recherche dans le fichier de référence des PO</title>
+<para
+> Vous pouvez configurer ce mode de recherche en sélectionnant <menuchoice
+> <guimenuitem
+>Configuration</guimenuitem
+> <guimenuitem
+>Configurer les dictionnaires</guimenuitem
+> <guimenuitem
+>Fichier de référence des PO</guimenuitem
+> </menuchoice
+> dans les menus de &kbabel;. </para>
+</sect1>
+
+</chapter>
+
+<chapter id="preferences">
+<!-- FIXME: to update -->
+<title
+>Boîte de dialogue de préférences</title>
+<para
+> Vous pouvez afficher la boîte de dialogue de préférences en choisissant <menuchoice
+><guimenu
+>Configuration</guimenu
+><guimenuitem
+>Configurer KBabel...</guimenuitem
+></menuchoice
+> depuis les menus de &kbabel;. Elle utilise une boîte de dialogue de configuration structurée vous permettant de trouver très facilement toutes les options sans grande recherche. La partie de gauche de la boîte de dialogue de préférences liste les catégories d'options configurables, et la partie de droite montre l'onglet correspondant à la catégorie sélectionnée. &kbabel; conserve les modifications si vous changez de catégorie, donc, finalement, lorsque vous êtes content(e), cliquez sur le bouton <guibutton
+>OK</guibutton
+>. A tout moment, vous pouvez utiliser l'aide rapide. Cliquez simplement sur le point d'interrogation dans la barre de titre, et une fois que le curseur s'est transformé en une flèche avec un point d'interrogation, cliquez sur les boutons, étiquettes, entrées pour obtenir plus d'information sur l'élément spécifié. </para>
+
+<sect1 id="preferences-identity">
+<title
+>Identité</title>
+<para
+> Cette section vous permet d'ajuster les champs standard de chaque fichier PO traduit. Ceux ci sont votre nom, adresse électronique, nom complet de la langue, adresse électronique de votre équipe de traduction. Aussi, il y a un fuseau horaire pour retracer l'heure et la date de la dernière modification du fichier PO. Vous pouvez l'indiquer comme une séquence de caractères, comme EEST ou en décalage par rapport à l'heure GMT, comme +0200 (par exemple pour la Roumanie). Cette information est utilisée lors de la mise à jour de l'en-tête. Vous pouvez trouver les options régissant si et quel(s) champs mettre à jour dans la secton <link linkend="preferences-save"
+>Enregistrer</link
+> de la boîte de dialogue de préférences. </para>
+</sect1>
+
+<sect1 id="preferences-editor">
+<title
+>Éditeur</title>
+<para
+> La catégorie de préférences de l'éditeur est divisée en trois onglets&nbsp;: <guilabel
+>Général</guilabel
+>, <guilabel
+>Aspect</guilabel
+>, <guilabel
+>Vérification d'orthographe</guilabel
+> et <guilabel
+>Polices</guilabel
+>. Tous ces options régissent le comportement de l'éditeur ainsi que son apparence. </para>
+
+<sect2 id="preferences-editor-general">
+<title
+>Général</title>
+<para
+>Ici se trouve une série de cases à cocher. La première case à cocher dans la partie du haut règle si l'état de fuzzy est automatiquement retiré lors de la première entrée de caractère dans l'éditeur de MsgStr. Lorsque cette option est désactivée, vous devrez manuellement choisir <menuchoice
+><guimenu
+>Édition</guimenu
+><guimenuitem
+> Retirer l'état de fuzzy</guimenuitem
+></menuchoice
+> ou utilisez le raccourci clavier <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>U</keycap
+></keycombo
+>. Ceci signifie que la chaîne "<literal
+>, fuzzy</literal
+>" est supprimée du commentaire de l'entrée. </para>
+<para
+> Les cases à cocher du groupe du bas sont très utiles pour vous assister non pas dans la justesse de la traduction, mais pour la logique. Beaucoup de messages représentent des entrées de menu avec les raccourcis clavier et des chaînes formatées comme en C. </para>
+<variablelist
+> <varlistentry
+> <term
+>Vérification des arguments</term
+> <listitem
+> <para
+> Lorsqu'elle est cochée, les chaînes de format C sont vérifiées dans l'original et dans la traduction pour trouver si le nombre de séquences de format est identique et dans le même ordre. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Vérification des accélérateurs</term
+> <listitem
+> <para
+> Vérifie pour trouver si le nombre de caractères accélérateurs est identique à la fois dans la chaîne originale et dans la chaîne traduite. Veuillez noter que la marque d'accélérateur est &amp;, mais pas dans toutes les boîtes à outils de programmation. Consultez la section <link linkend="preferences-miscellaneous"
+>Divers</link
+> ci-dessous pour trouver comment changer l'accélérateur clavier. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Vérifier l'identité</term
+> <listitem
+> <para
+> Ceci est une fonction pour développement du projet KDE. Les fichiers <filename
+>.desktop</filename
+> sont de simples fichiers texte qui stockent des paramètres variés sous la forme <literal
+>valeur=clé</literal
+>. Certaines de ces <literal
+>clé</literal
+> peuvent être traduites. La seule restriction est de maintenir la partie gauche de l'équation inchangée. La vérification d'équation vous permet de cibler beaucoup d'erreurs de l'algorithme fuzzy de <command
+>msgmerge</command
+>. Notez qu'il existe des situations où cette fonction génère des fausses erreurs dans certains fichiers PO. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Recherche d'informations de contexte de traduction</term
+> <listitem
+> <para
+> Certains messages originaux sont marqués avec des informations de contexte pour les rendre uniques même s'il représentent le même mot. Ceci est ainsi parce que le simple mot "Save" est traduit de nombreuses manières dans les autres langues. Les informations de contexte sont marquées par <literal
+>_:</literal
+>. Beaucoup de traducteurs inexpérimentés traduisent mêmes les informations de contexte et remplissent leurs fichiers PO de déchets. Cochez cette case pour être sûr d'être averti de ces erreurs dans les fichiers. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Bip en cas d'erreur</term
+> <listitem
+> <para
+> Votre système va émettre un bip lorsque vous changez d'entrée contenant des erreurs telles que celles décrites ci-dessus. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Changer la couleur du texte en cas d'erreur</term
+> <listitem
+> <para
+> Ceci est un autre type d'avertissement à propos des erreur dans le message actuel. Pour les personnes à l'ouïe affaiblie ou qui sont exaspérées par le bruit de la sonnerie, voici une bonne solution. Cochez cette case. Voyez aussi l'onglet <link linkend="preferences-editor-appearance"
+>Aspect</link
+> pour savoir comment changer la couleur du texte en cas d'erreur. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="preferences-editor-appearance">
+<title
+>Aspect</title>
+<para
+> Ces options vous permettent de configurer l'aspect de l'éditeur de messages. Dans la partie supérieure se trouvent quatre cases à cocher&nbsp;: </para>
+<variablelist
+> <varlistentry
+> <term
+>Colorier la syntaxe</term
+> <listitem
+><para
+> Activer cette option activera la coloration syntaxique pour les caractères spéciaux, les accélérateurs et l'arrière-plan du texte dans le visualiseur de msgid et l'éditeur de msgstr. Si vous n'avez pas d'écran monochrome ou une vue affaiblie, vous devriez activer cette option. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Colorier le fond</term
+> <listitem
+><para
+> L'arrière-plan sera colorié uniquement pour les caractères dans msgid et msgstr. Ceci inclut les espaces. Ceci est partique si vous ne voulez pas voir les guillemets de structure (voir ci-dessous) pour l'entrée de PO, vous pourrez quand même voir les espaces de début et de fin dans une ligne de texte. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Montrer les espaces par des points</term
+> <listitem
+><para
+> Si vous éprouvez le besoin de compter les espaces d'un coup d'oeil, ou que la coloration de l'arrière plan n'est pas de vos goûts, vous pouvez activer cette option pour voir les espaces par des points. Notez que ces points sont des points au centre du caractère, et non des points décimaux. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Montrer les guillemets de structure</term
+> <listitem
+><para
+> Si vous trouvez que le fait de voir les caractères de terminal dans les textes de msgid ou msgstr est mieux pour vous, alors activez cette option pour voir les guillemets de structure pour chaque ligne de texte. Même chose si votre expérience d'édition des fichiers PO avec un éditeur de texte ordinaire vous donne un sentiment de sécurité si vous pouvez voir les doubles guillemets de départ et de fin des lignes des entrées de PO. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Pour les différents éléments dans le texte édité, plusieurs choix de couleur sont disponibles pour faciliter l'édition. Les couleurs peuvent êtres changées en cliquant sur les boutons de sélection de couleur. Depuis la boîte de dialogue de sélection de couleur, vous pouvez choisir parmi les couleurs standard, les couleurs personnalisées, ou choisir une couleur de n'importe quel endroit de votre écran. </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Couleur du fond</term
+> <listitem
+><para
+> Ceci configure la couleur d'arrière-plan pour les caractères dans l'éditeur de MsgID et MsgStr. Pour l'arrière-plan d'arrière-plan générale de la boîte d'édition, vous devez utiliser le Centre de configuration de KDE. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Couleur pour les guillemets</term
+> <listitem
+><para
+> Vous pouvez ici ajuster la couleur des caractères d'échappement tels que les doubles guillemets (\") ou une nouvelle ligne (\n). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Couleur pour les erreurs de syntaxe</term
+> <listitem
+><para
+> Ceci est la couleur de toute l'entrée de texte lorsque des erreurs sont détectées lorsque vous tentez d'enregistrer un fichier PO. Les erreurs sont déclenchées lorsque msgid et msgstr ne sont pas terminés de la même façon, ou lorsque des caractères sont échappés de façon incorrecte. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Couleur pour les caractères c-format</term
+> <listitem
+><para
+> Ceci ajuste la couleur des séquences de caractères comme dans les fonctions printf ou scanf en langage C. En général, elles commencent par un signe pourcent (%) et sont suivies d'un caractère. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Couleur pour les accélérateurs claviers</term
+> <listitem
+><para
+> Les accélérateurs claviers démarrent par un caractère <quote
+>esperluette</quote
+> (&amp;) dans KDE mais si vous traduisez d'autres projets, il peut y avoir un autre caractère pour marquer les accélérateurs clavier. reportez vous à la section <link linkend="preferences-miscellaneous"
+>Divers</link
+> ci-dessous pour savoir comment changer les accélérateurs clavier. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> L'état de l'entrée éditée actuellement est marquée par trois diodes. Pour votre confort, vous pouvez choisir où placer ces diodes&nbsp;: dans la barre d'état ou dans l'éditeur (entre msgid et msgstr). Si vous avez des difficultés à distinguer certaines couleurs, ou si vous voulez être sûr de pouvoir voir les changements d'état des diodes facilement du coin de l'oeil, vous pouvez sélectionner votre couleur préférée en utilisant le bouton de sélection de couleur. </para>
+</sect2>
+
+<sect2 id="preferences-editor-spellcheck">
+<title
+>Vérification orthographique</title>
+<para
+> Vous pouvez ici ajuster vos préférences pour la vérification d'orthographe. Ceci est intéressant si vous avez un fichier de dictionnaire pour votre langue. Ci-dessous se trouvent les que vous pouvez configurer&nbsp;: </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Créer les combinaisons Radical/Affixe absentes du dictionnaire</term
+> <listitem
+><para
+> Pour les nouveaux mots ajoutés à votre dictionnaire, le moteur de vérification d'orthographe va créer les combinaisons de radical/affixe pour correspondre à plus qu'un seul mot (variations). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Considérer les mots accolés comme incorrects</term
+> <listitem
+><para
+> Si cette option est activée, les mots accolés seront traités comme étant des erreurs. Toutefois, ces situations sont très courantes en langue allemande, qui comporte un grand nombre de mots composés. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dictionnaire</term
+> <listitem
+><para
+> Vous pouvez choisir quel dictionnaire utiliser depuis la liste déroulante. Notez que vous devez installer le dictionnaire approprié pour votre langue. Vérifiez votre distribution d'ispell ou d'aspell pour savoir si vous en avez un. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Encodage</term
+> <listitem
+><para
+> Vous pouvez ici choisir l'encodage de votre texte. Cette option est transmise au vérificateur d'orthographe. Ceci est l'encodage de votre dictionnaire de mots. Reportez vous à la documentation de <ulink url="help:/kspell"
+>kspell</ulink
+> pour plus de détails. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Client</term
+> <listitem
+><para
+> Moteur de vérification d'orthographe. Actuellement&nbsp;: ispell (International Ispell) et aspell. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Se souvenir des mots ignorés</term
+> <listitem
+><para
+> Garde la trace des mots ignorés par l'utilisateur lors de la vérification orthographique des fichiers PO. Ceci est très pratique pour ignorer les abréviations ou les étranges combinaisons de lettres que vous rencontrez dans les interfaces utilisateur graphiques. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fichier pour enregistrer les mots ignorés</term
+> <listitem
+><para
+> Vous pouvez ici paramétrer l'emplacement du fichier de mots ignorés. En cliquant sur l'icône représentant un dossier à droite de la ligne d'édition, vous pouvez choisir un chemin d'accès et un nom pour le fichier de mots ignorés. La valeur par défaut est <filename
+>$(HOME)/.kde/share/apps/kbabel/spellignores</filename
+>, où <filename
+>$(HOME)</filename
+> est votre dossier personnel. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+<sect2 id="preferences-editor-fonts">
+<title
+>Polices</title>
+<para
+> Ceci est une boîte de dialogue classique de sélection de police avec un petit ajout. Vous pouvez choisir de ne voir que les polices à pas fixe, en cochant la case <guibutton
+>Ne montrer que les polices à pas fixe</guibutton
+>. Ceci est fortement recommandé pour une traduction facile. La boîte de dialogue de sélection de police vous permet d'ajuster la famille, le style et l'encodage de la police. La boîte en bas montre un aperçu de la police actuelle pour le confort de l'utilisateur. </para>
+</sect2>
+</sect1>
+
+<sect1 id="preferences-search">
+<title
+>Recherche</title>
+<para
+> La section recherche vous permet de personnaliser différents paramètres de recherche dans les chaînes précédemment traduites. </para>
+
+<sect2 id="preferences-search-general">
+<title
+>Général</title>
+<para
+> Paramètres de recherche communs pour tous les types de recherches. Si vous cocher <guibutton
+>Commencer la recherche automatiquement</guibutton
+>, la recherche sera automatiquement commencée toutes les fois que vous changez d'entrée dans l'éditeur. Pour le moment, vous pouvez choisir parmi trois possibilités. Mais puisque &kbabel; utilise des modules externes de dictionnaire, le nombre de dictionnaires disponibles dépend de ceux que vous avez installé. Avec <menuchoice
+><guimenuitem
+>Configuration</guimenuitem
+> <guimenuitem
+>Configurer les dictionnaires</guimenuitem
+> <guimenuitem
+>...</guimenuitem
+></menuchoice
+>, vous pouvez configurer chaque moteur de recherche externe. Les modules externes de dictionnaires installés par défaut sont&nbsp;: </para>
+
+<itemizedlist
+> <listitem
+><para
+> <emphasis
+>Base de données de traduction</emphasis
+>&nbsp;: Cette nouvelle méthode est toujours au stade alpha du développement et utilise &kbabeldict;, qui accompagne &kbabel;. Reportez vous à la documentation de &kbabeldict; pour plus d'informations sur la configuration du moteur de recherche. </para
+></listitem
+> <listitem
+><para
+> <emphasis
+>Fichier de référence des PO</emphasis
+>&nbsp;: Le fichier de référence des PO est un fichier PO normal, qui devrait contenir une liste de traductions standard de votre équipe de traduction. Si vous n'en avez pas, vous pouvez aussi utiliser un fichier contenant toutes les traductions déjà effectuées par votre équipe (&pex; le fichier <filename
+>$lang.messages</filename
+> du projet KDE, qui peut être trouvé à <ulink url="http://i18n.kde.org/po_overview/"
+>i18n.kde.org</ulink
+>). </para
+></listitem
+> <listitem
+><para
+> <emphasis
+>Auxiliaire PO</emphasis
+>&nbsp;: L'auxiliaire PO devrait vous aider à trouver le contexte d'une traduction en recherchant le même message dans un catalogue de messages du même paquetage, mais traduit en une autre langue. De cette façon, vous pouvez voir comment ce message est traduit dans une autre langue. </para
+></listitem
+> </itemizedlist>
+
+<para
+> Vous pouvez aussi commencer la recherche manuellement en choisissant une entrée dans le menu déroulant qui s'affiche soit en cliquant sur <menuchoice
+> <guimenu
+>Dictionnaires</guimenu
+><guimenuitem
+>Chercher du texte</guimenuitem
+> <guimenuitem
+>Fichier de référence des PO</guimenuitem
+></menuchoice
+> en en tenant le bouton de recherche de la barre d'outils enfoncé pendant un moment. </para>
+</sect2>
+
+</sect1>
+
+<sect1 id="preferences-save">
+<title
+>Enregistrer</title>
+<para
+> Cette section vous permet de modifier les options d'enregistrement des fichiers PO. Le premier groupe de cases à cocher contrôle le comportement général des actions effectuées lors d'une commande d'enregistrement du fichier PO. </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Mettre à jour l'en-tête en enregistrant</term
+> <listitem
+><para
+> Cochez cette case pour mettre à jour l'information d'en-tête du fichier à chaque fois qu'il est enregistré. L'en-tête conserve normalement des informations à propos de la date et de l'heure de la dernière modification du fichier, du dernier traducteur, etc. Vous pouvez choisir la ou les information(s) que vous voulez mettre à jour dans le groupe de cases à cocher <guilabel
+>Champs à mettre à jour</guilabel
+> en dessous. Les champs qui n'existent pas sont ajoutés à l'en-tête. Si vous voulez ajouter des champs supplémentaires à l'en-tête, vous pouvez éditer l'en-tête manuellement en choisissant <menuchoice
+><guimenu
+>Édition</guimenu
+> <guimenuitem
+>Modifier l'en-tête</guimenuitem
+></menuchoice
+> dans la fenêtre de l'éditeur. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Vérifier la syntaxe du fichier en enregistrant</term
+> <listitem
+><para
+> Cochez cette case pour vérifier automatiquement la syntaxe du fichier avec <userinput
+>msgfmt --statistics</userinput
+> lors de l'enregistrement du fichier. Vous obtiendrez uniquement un message si une erreur survient. Vous devriez laisser cette option activée, à moins que vous ne sachiez ce que vous faites. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Si vous ne voulez pas modifier certains champs de l'en-tête des fichiers PO, ou si vous voulez forcer la mise à jour de certains champs, il y a cinq cases à cocher qui contrôlent&nbsp;: date de révision, langue, encodage, dernier traducteur et table de caractères. Si un champ n'existe pas, il sera ajouté a l'en-tête. Si vous voulez ajouter d'autres informations dans l'en-tête, vous devrez éditer l'en-tête menuellement en choisissant <menuchoice
+><guimenu
+>Édition</guimenu
+><guimenuitem
+>Modifier l'en-tête</guimenuitem
+></menuchoice
+> dans la fenêtre de l'éditeur. Désactivez la case à cocher <guibutton
+>Mettre à jour l'en-tête en enregistrant</guibutton
+> au dessus si vous ne voulez pas que l'en-tête soit mis à jour. </para>
+<para
+> Pour la date et l'heure du champ d'en-tête <emphasis
+>Date de révision</emphasis
+>, vous pouvez choisir un format parmi les formats suivants&nbsp;: </para>
+
+<itemizedlist
+> <listitem
+><para
+> <emphasis
+>Format de date par défaut</emphasis
+> est le format utilisé normalement dans les fichiers PO. </para
+></listitem
+> <listitem
+><para
+> <emphasis
+>Format de date locale</emphasis
+> est le format spécifique à votre pays. </para
+></listitem
+> <listitem
+><para
+> <emphasis
+>Format de date personnalisé</emphasis
+> vous permet de définir votre format, dans lequel vous pouvez utiliser les chaînes de format de type C suivantes&nbsp;: <table
+> <title
+>Année</title
+> <tgroup cols="3"
+> <thead
+> <row
+> <entry
+>Format</entry
+><entry
+>Signification</entry
+><entry
+>Plage</entry
+> </row
+> </thead
+> <tbody
+> <row
+> <entry
+>%y</entry
+><entry
+>année</entry
+><entry
+>de 00 à 99</entry
+> </row
+> <row
+> <entry
+>%Y</entry
+><entry
+>année</entry
+><entry
+>de 0001 à 9999</entry
+> </row
+> </tbody
+> </tgroup
+> </table
+> <table
+> <title
+>Mois</title
+> <tgroup cols="3"
+> <thead
+> <row
+> <entry
+>Format</entry
+><entry
+>Signification</entry
+><entry
+>Plage</entry
+> </row
+> </thead
+> <tbody
+> <row
+> <entry
+>%m</entry
+><entry
+>mois de l'année</entry
+><entry
+>de 01 à 12</entry
+> </row
+> <row
+> <entry
+>%f</entry
+><entry
+>mois de l'année</entry
+><entry
+>de 1 à 12</entry
+> </row
+> <row
+> <entry
+>%b,%h</entry
+><entry
+>abréviation du mois</entry
+><entry
+>de Jan à Dec</entry
+> </row
+> </tbody
+> </tgroup
+> </table
+> <table
+> <title
+>Jour</title
+> <tgroup cols="3"
+> <thead
+> <row
+> <entry
+>Format</entry
+><entry
+>Signification</entry
+><entry
+>Plage</entry
+> </row
+> </thead
+> <tbody
+> <row
+> <entry
+>%j</entry
+><entry
+>jour de l'année</entry
+><entry
+>de 001 à 366</entry
+> </row
+> <row
+> <entry
+>%d</entry
+><entry
+>jour du mois</entry
+><entry
+>de 01 à 31</entry
+> </row
+> <row
+> <entry
+>%e</entry
+><entry
+>jour du mois</entry
+><entry
+>de 1 à 31</entry
+> </row
+> <row
+> <entry
+>%a</entry
+><entry
+>abréviation du jour de la semaine</entry
+><entry
+>de Sun à Sat</entry
+> </row
+> </tbody
+> </tgroup
+> </table
+> <table
+> <title
+>Heure</title
+> <tgroup cols="3"
+> <thead
+> <row
+> <entry
+>Format</entry
+><entry
+>Signification</entry
+><entry
+>Plage</entry
+> </row
+> </thead
+> <tbody
+> <row
+> <entry
+>%H</entry
+><entry
+>heure</entry
+><entry
+>de 00 à 23</entry
+> </row
+> <row
+> <entry
+>%k</entry
+><entry
+>heure</entry
+><entry
+>de 0 à 23</entry
+> </row
+> <row
+> <entry
+>%i</entry
+><entry
+>heure</entry
+><entry
+>de 1 à 12</entry
+> </row
+> <row
+> <entry
+>%I</entry
+><entry
+>heure</entry
+><entry
+>de 01 à 12</entry
+> </row
+> <row
+> <entry
+>%p</entry
+><entry
+></entry
+><entry
+>AM ou PM</entry
+> </row
+> </tbody
+> </tgroup
+> </table
+> <table
+> <title
+>Minute, seconde, fuseau horaire</title
+> <tgroup cols="3"
+> <thead
+> <row
+> <entry
+>Format</entry
+><entry
+>Signification</entry
+><entry
+>Plage</entry
+> </row
+> </thead
+> <tbody
+> <row
+> <entry
+>%M</entry
+><entry
+>minute</entry
+><entry
+>de 00 à 59</entry
+> </row
+> <row
+> <entry
+>%S</entry
+><entry
+>seconde</entry
+><entry
+>de 00 à 59</entry
+> </row
+> <row
+> <entry
+>%Z</entry
+><entry
+>fuseau horaire</entry
+><entry
+>(configuré dans les options d'identité)</entry
+> </row
+> </tbody
+> </tgroup
+> </table
+> </para
+></listitem
+> </itemizedlist>
+
+<para
+> Le dernier groupe définit les options d'encodage lors de l'enregistrement des fichiers PO. Si vous travaillez sur le projet KDE, vous devez savoir que au moins le fichier <filename
+>desktop.po</filename
+> <emphasis
+>doit</emphasis
+> être encodé au format UTF-8. La liste déroulante vous permet de sélectionner l'encodage des messages. Au moins votre réglage de langue et UTF-8 doivent être sélectionnés. Si, pour une raison quelconque, vous ne voulez pas changer accidentellement l'encodage du fichier PO actuel, activez l'option <guibutton
+>Conserver l'encodage du fichier</guibutton
+>. </para>
+</sect1>
+
+<sect1 id="preferences-catalogmanager">
+<title
+>Gestionnaire de catalogues</title>
+<para
+> Cette section vous permet d'éviter les options du gestionnaire de catalogues. </para>
+
+<sect2 id="preferences-catalogmanager-general">
+<title
+>Général</title>
+<para
+> Ici, deux lignes d'édition avec des boutons <guibutton
+>Parcourir...</guibutton
+>. Saisissez le chemin des dossiers qui contiennent respectivement tous vos fichiers PO et vos fichiers POT. Les fichiers et dossiers de ces dossiers seront fusionnés en une seule arborescence dans la fenêtre du gestionnaire de catalogues. </para>
+
+<para
+> Vous pouvez activer ou désactiver les options en dessous si vous voulez ou non&nbsp;: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guibutton
+>Ouvrir les fichiers dans une nouvelle fenêtre</guibutton
+></term
+> <listitem
+><para
+> Si cette option est active, tous les fichiers ouverts depuis le gestionnaire de catalogues seront ouverts dans une nouvelle fenêtre. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Tuer les processus en quittant</guibutton
+></term
+> <listitem
+><para
+> Si vous activez cette option, &kbabel; essaiera de tuer les processus qui ne sont pas encore terminés lors de la fermeture du programme en leur envoyant un signal pour les tuer. <note
+><para
+> Il n'est pas garanti que les processus soient tués. </para
+></note
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="preferences-catalogmanager-directories">
+<title
+>Commandes des dossiers</title>
+<para
+> Vous pouvez ici insérer des commandes que vous voulez exécuter dans les dossiers depuis le gestionnaire de catalogues. Les commandes seront alors affichées dans le sous-menu <menuchoice
+><guimenuitem
+>Commandes</guimenuitem
+></menuchoice
+> du menu contextuel du gestionnaire de catalogues. </para
+><para
+> Saisissez dans le champ <guilabel
+>Nom</guilabel
+> le nom de la commande. Le nom peut être choisi librement et n'est utilisé que pour être affiché dans le menu. Saisissez la commande dans le champ <guilabel
+>Commande</guilabel
+> que vous voulez exécuter lorsque vous sélectionnez l'entrée de menu correspondante. Cliquez alors sur le bouton <guibutton
+>Ajouter</guibutton
+> pour ajouter la commande à votre liste de commandes disponibles. Pour éditer une commande, sélectionnez-la, cliquez sur le bouton <guibutton
+>Édition</guibutton
+> et cliquez sur le bouton <guibutton
+>Ajouter</guibutton
+> une fois que vous avez terminé. Pour supprimer une commande, sélectionnez-en une depuis la liste et cliquez sur le bouton <guibutton
+>Supprimer</guibutton
+>. Si vous voulez un ordre différent dans le sous-menu contextuel, vous pouvez utiliser les boutons haut et bas. </para
+><para
+> La commande est exécutée par votre interpréteur de commandes par défaut, vous pouvez donc exécuter des commandes multiples en une fois en les séparant par un point-virgule, et vous pouvez fixer des variables d'environnement si nécessaire. Les commandes sont exécutées dans le dossier des fichiers PO que vous avez sélectionné dans le gestionnaire de catalogues. </para
+><para
+> Les chaînes suivantes seront remplacées dans la commande&nbsp;: </para>
+
+<itemizedlist
+> <listitem
+><para
+> <userinput
+>@PACKAGE@</userinput
+>&nbsp;: Le nom du dossier sans le chemin d'accès. </para
+></listitem
+> <listitem
+><para
+> <userinput
+>@PODIR@</userinput
+>&nbsp;: Le nom du dossier PO avec le chemin d'accès. </para
+></listitem
+> <listitem
+><para
+> <userinput
+>@POTDIR@</userinput
+>&nbsp;: Le nom du dossier modèles avec le chemin d'accès. </para
+></listitem
+> </itemizedlist>
+
+<para
+> Par exemple, si vous voulez exécuter <command
+>make</command
+>, puis <command
+>make install</command
+>, vous pouvez saisir, dans le champ <guilabel
+>Nom</guilabel
+>, <userinput
+>Make install</userinput
+> et, dans le champ <guilabel
+>Commande</guilabel
+>, <userinput
+>make; make install</userinput
+>. Si vous sélectionnez <menuchoice
+><guimenuitem
+>Commandes</guimenuitem
+> <guimenuitem
+>Make install</guimenuitem
+></menuchoice
+> depuis le menu contextuel d'un dossier, les commandes listées ci-dessus seront exécutées dans ce dossier. </para>
+</sect2>
+
+<sect2>
+<title
+>Commandes des fichiers</title>
+<para
+> Vous pouvez ici insérer des commandes que vous voulez exécuter sur des fichiers depuis le gestionnaire de catalogues. Les commandes seront alors affichées dans le sous-menu <menuchoice
+><guimenuitem
+>Commandes</guimenuitem
+></menuchoice
+> du menu contextuel du gestionnaire de catalogues. </para>
+
+<para
+> Saisissez dans le champ <guilabel
+>Nom</guilabel
+> le nom de la commande. Le nom peut être choisi librement et n'est utilisé que pour être affiché dans le menu. Saisissez la commande dans le champ <guilabel
+>Commande</guilabel
+> que vous voulez exécuter lorsque vous sélectionnez l'entrée de menu correspondante. Cliquez alors sur le bouton <guibutton
+>Ajouter</guibutton
+> pour ajouter la commande à votre liste de commandes disponibles. Pour éditer une commande, sélectionnez-la, cliquez sur le bouton <guibutton
+>Édition</guibutton
+> et cliquez sur le bouton <guibutton
+>Ajouter</guibutton
+> une fois que vous avez terminé. Pour supprimer une commande, sélectionnez-en une depuis la liste et cliquez sur le bouton <guibutton
+>Supprimer</guibutton
+>. Si vous voulez un ordre différent dans le sous-menu contextuel, vous pouvez utiliser les boutons haut et bas. </para
+><para
+> La commande est exécutée par votre interpréteur de commandes par défaut, vous pouvez donc exécuter des commandes multiples en une fois en les séparant par un point-virgule, et vous pouvez fixer des variables d'environnement si nécessaire. Les commandes sont exécutées dans le dossier des fichiers PO dans lequel le fichier que vous avez sélectionné dans le gestionnaire de catalogues se trouve. </para
+><para
+> Les chaînes suivantes seront remplacées dans la commande&nbsp;: </para>
+
+<itemizedlist
+> <listitem
+><para
+> <userinput
+>@PACKAGE@</userinput
+>&nbsp;: Le nom du fichier sans son chemin d'accès ni son extension. </para
+></listitem
+> <listitem
+><para
+> <userinput
+>@POFILE@</userinput
+>&nbsp;: Le nom du fichier PO avec son chemin d'accès et son extension. </para
+></listitem
+> <listitem
+><para
+> <userinput
+>@POTFILE@</userinput
+>&nbsp;: Le nom du fichier de modèle correspondant avec son chemin d'accès et son extension. </para
+></listitem
+> <listitem
+><para
+> <userinput
+>@PODIR@</userinput
+>&nbsp;: Le nom du dossier dans lequel le fichier PO se trouve, avec le chemin d'accès. </para
+></listitem
+> <listitem
+><para
+> <userinput
+>@POTDIR@</userinput
+>&nbsp;: Le nom du dossier dans lequel le fichier modèle se trouve, avec son chemin d'accès. </para
+></listitem
+> </itemizedlist>
+
+
+<para
+> Par exemple, si vous voulez fusionner le fichier modèle dans votre fichier PO, vous pouvez insérer, dans le champ <guilabel
+>Nom</guilabel
+>, <userinput
+>Fusionner</userinput
+> et, dans le champ <guilabel
+>Commande</guilabel
+>, <userinput
+>msgmerge @POFILE@ @POTFILE@ &gt; @PACKAGE@.new &amp;&amp; mv @PACKAGE@.new "@PACKAGE@.po</userinput
+>. Si vous sélectionnez alors <menuchoice
+><guimenuitem
+>Commandes</guimenuitem
+> <guimenuitem
+>Fusionner</guimenuitem
+></menuchoice
+> depuis le menu contextuel d'un fichier, le fichier PO sera fusionné avec son fichier modèle. </para>
+</sect2>
+</sect1>
+
+<sect1 id="preferences-miscellaneous">
+<title
+>Divers</title>
+<para
+> La section <guilabel
+>Divers</guilabel
+> comporte les options qui ne vont nulle part ailleurs. Il y en a actuellement deux&nbsp;: </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Marque pour les accélérateurs claviers</term
+> <listitem
+><para
+> Vous pouvez ici placer votre propre caractère qui servira de marque pour les indicateurs d'accélérateurs claviers dans la <acronym
+>GUI</acronym
+> (NdT.&nbsp;: Graphical User Interface, Interface Utilisateur Graphique). Par défaut, ce caractère est &amp; (esperluette), mais il peut varier selon les boîtes à outils. Par exemple, dans les traductions de Gnome/GTK, le tiret de soulignement <quote
+>_</quote
+> est le marqueur pour les accélérateurs clavier. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Expression régulière pour les informations de contexte</term
+> <listitem
+><para
+> Pour les utilisateurs non expérimentés, "expression régulière" paraît étrange. De toute manière, il vous est conseillé de ne changer la valeur par défaut que si vous savez ce que vous faites. Certaines boîtes à outils de programmation fournissent leur propres méthodes de description des informations de contexte. Demandez conseil à un développeur expérimenté si vous traduisez des fichiers PO autres que ceux spécifiques à KDE. Par souci d'être complet, je vais vous "traduire" la signification de l'expression régulière par défaut&nbsp;: "le texte correspond s'il commence par _: et est suivi d'un ou plusieurs caractères, avec un saut de ligne à la fin". </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+<chapter id="commands">
+<title
+>Référence des commandes</title>
+
+<sect1 id="kbabel-menu">
+<title
+>Les menus de KBabel</title>
+
+<sect2>
+<title
+>Le menu Fichier</title>
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Ouvrir...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre un fichier PO. Si le fichier actuel est modifié, il vous sera demandé si vous voulez l'enregistrer préalablement. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Récemment ouvert(s)</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Le menu listant les documents les plus utilisés est affiché, vous permettant d'ouvrir les fichiers PO récemment édités. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Enregistrer</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Enregistre le fichier PO actuel. S'il n'a pas été modifié, aucune action n'est effectuée. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Enregistrer sous...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Enregistre le fichier PO sous un nouveau nom. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Nouvelle vue</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Ouvre une nouvelle fenêtre avec le fichier actuel chargé.</action
+> Très pratique si vous devez traduire de grands fichiers, et que vous devez garder un oeil sur des chaînes précédentes. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Nouvelle fenêtre</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre une nouvelle fenêtre vide. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Quitter</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Quitte KBabel</action
+> </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2>
+<title
+>Le menu Édition</title>
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Annuler</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Annule la dernière action dans la boîte d'édition de la traduction. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>Maj</keycap
+><keycap
+>Z</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Refaire</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Rétablit la dernière action annulée dans la boîte d'édition de la traduction. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Couper</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Coupe le texte sélectionné et le déplace dans le presse-papiers. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Copier</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Copie le texte sélectionné dans le presse-papiers. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Coller</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Colle le contenu du presse-papiers à la position actuelle du curseur dans la boîte d'édition de la traduction. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Sélectionner tout</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Sélectionne tout le texte de la boîte d'édition de la traduction. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Chercher...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre la boîte de dialogue de recherche pour rechercher des chaînes dans le fichier PO actuel. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>F3</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Poursuivre la recherche</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Trouve la prochaine occurrence de la chaîne de l'action de recherche précédente. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>R</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Remplacer...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre la boîte de dialogue Remplacer pour rechercher et remplacer des chaînes dans le fichier PO actuel. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>Espace</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Copier msgid vers msgstr</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> La chaîne anglaise d'origine est copiée en dessous, dans la boîte d'édition du texte traduit. Ceci est pratique lorsque vous avez besoin de ne faire que peu ou pas de modifications dans le texte anglais d'origine (msgstr). </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Espace</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Copier le résultat de la recherche vers msgstr</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> La chaîne trouvée après la recherche de traduction est copiée dans la boîte d'édition de MsgStr. Ceci est très pratique si vous ne voulez pas travailler à traduire le même message encore et encore. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>U</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Retirer l'état de Fuzzy</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Retire l'état fuzzy pour toutes les entrées du fichier PO actuel. Vous ne devriez pas utiliser cette option sans savoir ce que vous faites. Ceci laissera probablement beaucoup de chaînes mal traduites. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Édition</guimenu
+> <guimenuitem
+>Modifier l'en-tête...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Modifie l'en-tête du fichier PO. En réalité, l'en-tête comporte plusieurs lignes, contenant des informations telles que la date de la dernière traduction, le nom et l'adresse électronique du traducteur, la langue, l'encodage du texte traduit, etc. </action
+> </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+<sect2>
+<title
+>Le menu Aller</title>
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Page préc</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Précédent</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à l'entrée précédente du fichier PO. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Page suiv</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Suivant</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à l'entrée suivante du fichier PO. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Aller à...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre une boîte de dialogue pour aller à un numéro d'entrée spécifié du fichier PO. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Première entrée</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à la première entrée du fichier PO. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Dernière entrée</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à la dernière entrée du fichier PO. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Page préc</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Fuzzy ou non traduit précédent</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à la première entrée précédente qui n'est pas traduite ou qui est marquée comme étant fuzzy. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Page suiv</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Fuzzy ou non traduit suivant</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à l'entrée suivante qui n'est pas traduite ou qui est marquée comme étant fuzzy. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>Page préc</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Fuzzy précédent</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à la première entrée fuzzy précédente. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>Page suiv</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Fuzzy suivant</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à la première entrée fuzzy suivante. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Alt</keycap
+><keycap
+>Page préc</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Non traduit précédent</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à la première entrée non traduite précédente. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Alt</keycap
+><keycap
+>Page suiv</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Non traduit suivant</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à la première entrée non traduite suivante. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Maj</keycap
+><keycap
+>Page préc</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Erreur précédente</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à l'entrée erronée précédente. Ceci arrive souvent lorsque vous oubliez d'échapper les doubles guillemets ou la fin de la chaîne originale avec le caractère "retour" (\n) et pas la chaîne traduite (et vice versa). </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Maj</keycap
+><keycap
+>Page suiv</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Erreur suivante</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à l'entrée erronée suivante. Ceci arrive souvent lorsque vous oubliez d'échapper les doubles guillemets ou la fin de la chaîne originale avec le caractère "retour" (\n) et pas la chaîne traduite (et vice versa). </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Alt</keycap
+><keycap
+>Gauche</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Retour</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à la dernière entrée vue du fichier PO. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Alt</keycap
+><keycap
+>Droite</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aller</guimenu
+> <guimenuitem
+>Suivant</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Va à l'entrée précédemment vue du fichier PO. </action
+> </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+<sect2>
+<title
+>Le menu Dictionnaires</title>
+<para
+> Notez que ce menu est dynamique. Il dépend des modules externes de dictionnaires installés. Il y en a trois par défaut. </para>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Dictionnaires</guimenu
+> <guimenuitem
+>Chercher du texte</guimenuitem
+> <guimenuitem
+>Base de données des traductions</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Commence la recherche de traduction pour le message anglais d'origine en utilisant le moteur de recherche de la base de données des traductions. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Dictionnaires</guimenu
+> <guimenuitem
+>Chercher du texte</guimenuitem
+> <guimenuitem
+>Auxiliaire PO</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Commence la recherche de traduction pour le message anglais d'origine dans le fichier PO défini par l'utilisateur. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Dictionnaires</guimenu
+> <guimenuitem
+>Chercher du texte</guimenuitem
+> <guimenuitem
+>Fichier de référence des PO</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Commence la recherche de traduction pour le message anglais d'origine dans le fichier de référence des PO (obtenu en fusionnant tous les messages traduits pour une langue). </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Dictionnaires</guimenu
+> <guimenuitem
+>Trouver le texte sélectionné</guimenuitem
+> <guimenuitem
+>Base de données des traductions</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Commence la recherche sur le texte sélectionné en utilisant le moteur de recherche de la base de données des traductions. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Dictionnaires</guimenu
+> <guimenuitem
+>Trouver le texte sélectionné</guimenuitem
+> <guimenuitem
+>Auxiliaire PO</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Commence la recherche sur le texte sélectionné en utilisant le fichier défini par l'utilisateur. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Dictionnaires</guimenu
+> <guimenuitem
+>Trouver le texte sélectionné</guimenuitem
+> <guimenuitem
+>Fichier de référence des PO</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Commence la recherche sur le texte sélectionné en utilisant le fichier de référence des PO contenant tous les messages traduits en cette langue. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Dictionnaires</guimenu
+> <guimenuitem
+>Modifier le dictionnaire</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Vous permet de modifier le contenu du dictionnaire actuel. Utile si vous trouvez des erreurs dans un dictionnaire et ne voulez pas être ennuyé par les erreurs lors de la recherche et le remplacement des chaînes.</action
+> <emphasis
+>(pas encore implémenté)</emphasis
+>. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+
+<sect2>
+<title
+>Le menu Outils</title>
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Vérification orthographique</guimenuitem
+> <guimenuitem
+>Vérification orthographique...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Affiche la boîte de dialogue de configuration de la vérification orthographique. Une fois que vous avez sélectionné les options désirées, cliquez sur le bouton OK et la boîte de dialogue normale de vérification orthographique apparaîtra. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Vérification orthographique</guimenuitem
+> <guimenuitem
+>Vérifier tout...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Commence la vérification orthographique de tous les mots du fichier PO ouvert. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Vérification orthographique</guimenuitem
+> <guimenuitem
+>Vérifier à partir du curseur...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Commence la vérification orthographique depuis la position actuelle du curseur. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Vérification orthographique</guimenuitem
+> <guimenuitem
+>Vérifier l'actuel...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Vérifie l'orthographe de l'entrée actuelle du fichier PO uniquement. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Vérification orthographique</guimenuitem
+> <guimenuitem
+>Vérifier le texte marqué...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Vérifie l'orthographe du texte sélectionné dans la boîte d'édition du MsgStr uniquement. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>T</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Validation</guimenuitem
+> <guimenuitem
+>Vérifier la syntaxe</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Vérifie la syntaxe du fichier PO actuel. Des erreurs peuvent apparaître lors de la fusion sur le CVS ou des erreurs de la part des utilisateurs lorsque la traduction est faite à la main. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>D</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Validation</guimenuitem
+> <guimenuitem
+>Vérifier les arguments</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Vérifie si le nombre d'arguments et l'ordre des types ans est le même dans les chaînes de format de type C. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>H</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Validation</guimenuitem
+> <guimenuitem
+>Vérifier les accélérateurs-clavier</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Vérifie si le nombre de caractères d'accélérateur est le même dans le texte original et dans le texte traduit. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>K</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Validation</guimenuitem
+> <guimenuitem
+>Chercher les informations de contexte traduit</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Vérifie si le fichier PO comporte des informations de contexte traduites par mégarde. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>J</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Validation</guimenuitem
+> <guimenuitem
+>Vérifier les correspondances</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Vérifie si la partie de gauche d'une chaîne traduite est la même que la partie de gauche de la chaîne originale. Les parties sont délimitées par un caractère égal. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Outils</guimenu
+> <guimenuitem
+>Gestionnaire de catalogue...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre la fenêtre du gestionnaire de catalogues. Reportez-vous à la section Gestionnaire de catalogues pour plus de détails. </action
+> </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2>
+<title
+>Le menu Configuration</title>
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Afficher la barre d'outils</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Lorsque cette option est cochée, la barre d'outils standard est affichée. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Afficher la barre d'état</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Lorsque cette option est cochée, la barre d'état du bas est affichée. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Afficher la barre de navigation</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Lorsque cette option est cochée, la barre de navigation est affichée. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Afficher les commentaires</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Lorsque cette option est cochée, la partie supérieure droite de la fenêtre principale comportant les commentaires de l'entrée actuelle sera affichée. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Afficher les outils</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Lorsque cette option est cochée, la partie inférieure droite de la fenêtre principale comportant les résultats de la recherche dans le dictionnaire sera affichée. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Raccourcis clavier</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre une boîte de dialogue de configuration des raccourcis clavier pour les actions. Ceci vous permettra de personnaliser les raccourcis clavier par défaut pour qu'ils correspondent à vos besoins. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Barres d'outils</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> La boîte de dialogue de configuration des barres d'outils standard s'ouvrira. Vous pouvez choisir quelles actions seront dans les barres d'outils et quelle barre d'outils vous personnalisez. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Configurer kBabel</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Toutes les options de configuration spécifiques à KBabel se trouvent ici.</action
+> Veuillez lire la section <link linkend="preferences"
+>Préférences</link
+> pour les sujets spécifiques à ces options de configuration. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Configurer les dictionnaires</guimenuitem
+> <guimenuitem
+>Base de données des traductions</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre la boîte de dialogue de configuration du moteur de recherche de la base de données des traductions. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Configurer les dictionnaires</guimenuitem
+> <guimenuitem
+>Auxiliaire PO</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre la boîte de dialogue de configuration du fichier PO auxiliaire. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Configuration</guimenu
+> <guimenuitem
+>Configurer les dictionnaires</guimenuitem
+> <guimenuitem
+>Fichier de référence des PO</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre la boîte de dialogue de configuration du fichier de référence des PO. </action
+> </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2>
+<title
+>Le menu Aide</title>
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>F1</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aide</guimenu
+> <guimenuitem
+>Contenu</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre le manuel de KBabel. C'est ce que vous lisez actuellement. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo
+> <keycap
+>Maj</keycap
+><keycap
+>F1</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Aide</guimenu
+> <guimenuitem
+> Qu'est-ce que c'est&nbsp;?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Le curseur se transforme en une flèche avec un point d'interrogation, et vous pouvez cliquer sur les éléments de la fenêtre principale avec. Une fenêtre d'aide rapide apparaîtra. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aide</guimenu
+> <guimenuitem
+>Informations de Gettext</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre la page man de gettext dans le centre d'aide de KDE. Ce paquetage d'outils aide dans le processus de manipulation de fichiers POT et PO. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aide</guimenu
+> <guimenuitem
+>Rapport de bogue</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Ceci ouvrira une boîte de dialogue standard de rapport de KDE.</action
+> Ceci est pratique si vous rencontrez un comportement anormal de &kbabel;. Le développeur de &kbabel; sera content de recevoir tout commentaire, souhait et rapport de bogue. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aide</guimenu
+> <guimenuitem
+>À propos de kBabel</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre une boîte de message vous informant de la version de KBabel, du nom du développeur et de son adresse de courrier électionnique. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aide</guimenu
+> <guimenuitem
+>À propos de KDE</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Ouvre une boîte de message vous informant à propos du projet KDE, qui contacter et comment vous pouvez reporter les bogues et souhaits. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aide</guimenu
+> <guimenuitem
+>À propos du dictionnaire</guimenuitem
+> <guimenuitem
+>Base de données des traductions</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Affiche une boîte de message comportant des informations sur les personnes ayant crée la recherche dans la base de données des traductions. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aide</guimenu
+> <guimenuitem
+>À propos du dictionnaire</guimenuitem
+> <guimenuitem
+>Auxiliaire PO</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Affiche une boîte de message comportant des informations sur les personnes ayant crée la recherche dans un fichier PO auxiliaire. </action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Aide</guimenu
+> <guimenuitem
+>À propos du dictionnaire</guimenuitem
+> <guimenuitem
+>Fichier de référence des PO</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+> Affiche une boîte de message comportant des informations sur les personnes ayant crée la recherche dans un fichier de référence des PO. </action
+> </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+</sect1>
+
+<sect1 id="kbabel-toolbars">
+<title
+>Les barres d'outils de KBabel</title>
+
+<sect2 id="standard-toolbar">
+<title
+>Barre principale</title>
+<variablelist
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="fileopen.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Ouvrir </term
+> <listitem
+> <para
+>Charge un fichier PO dans &kbabel; pour l'éditer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="filesave.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Enregistrer </term
+> <listitem
+> <para
+>Enregistre le fichier PO actuel si celui-ci à été modifié.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="undo.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Annuler </term
+> <listitem
+> <para
+>Annule la dernière opération.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="redo.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Refaire </term
+> <listitem
+> <para
+>Refait la dernière opération.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="editcut.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Couper </term
+> <listitem
+> <para
+>Coupe le texte sélectionné et le déplace dans le presse-papiers.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="editcopy.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Copier </term
+> <listitem
+> <para
+>Copie le texte sélectionné dans le presse-papiers.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="editpaste.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Coller </term
+> <listitem
+> <para
+>Colle le texte du presse-papiers à la position actuelle du curseur.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="find.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Chercher </term
+> <listitem
+> <para
+>Recherche une chaîne spécifiée dans le fichier PO actuel.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="previous.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Précédant </term
+> <listitem
+> <para
+>Va à l'entrée précédente du fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="next.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Suivant </term
+> <listitem
+> <para
+>Va à l'entrée suivante du fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="msgid2msgstr.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Copier msgid vers msgstr </term
+> <listitem
+> <para
+>Copie la chaîne originale vers la boîte d'édition de la chaîne traduite.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="transsearch.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Trouver le texte sélectionné </term
+> <listitem
+> <para
+>Barre d'outils déroulante pour rechercher le texte sélectionné en utilisant&nbsp;: la base de données des traductions, un auxiliaire PO, un fichier de référence des PO et d'autres modules externes de dictionnaires si disponibles.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="stop.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Arrêter la recherche </term
+> <listitem
+> <para
+>Arrête la recherche en cours.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="catalogmanager.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Gestionnaire de catalogues </term
+> <listitem
+> <para
+>Ouvre le gestionnaire de catalogue.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="navigation-toolbar">
+<title
+>Barre de navigation</title>
+<variablelist
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="previous.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Précédant </term
+> <listitem
+> <para
+>Va à l'entrée précédente du fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="next.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Suivant </term
+> <listitem
+> <para
+>Va à l'entrée suivante du fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="top.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Première entrée </term
+> <listitem
+> <para
+>Va à la première entrée du fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="bottom.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Dernière entrée </term
+> <listitem
+> <para
+>Va à la dernière entrée du fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="prevfuzzyuntrans.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Fuzzy ou non traduit précédent </term
+> <listitem
+> <para
+>Va à l'entrée fuzzy ou non traduite précédente dans le fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="nextfuzzyuntrans.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Fuzzy ou non traduit suivant </term
+> <listitem
+> <para
+>Va à l'entrée fuzzy ou non traduite suivante dans le fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="prevfuzzy.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Fuzzy précédent </term
+> <listitem
+> <para
+>Va à l'entrée fuzzy précédente dans le fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="nextfuzzy.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Fuzzy suivant </term
+> <listitem
+> <para
+>Va à l'entrée fuzzy suivante dans le fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="prevuntranslated.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Non traduit précédent </term
+> <listitem
+> <para
+>Va à l'entrée non traduite précédente dans le fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="nextuntranslated.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Non traduit suivant </term
+> <listitem
+> <para
+>Va à l'entrée non traduite suivante dans le fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="preverror.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Erreur précédente </term
+> <listitem
+> <para
+>Va à l'entrée erronée précédente dans le fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="nexterror.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Erreur suivante </term
+> <listitem
+> <para
+>Va à l'entrée erronée suivante dans le fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="back.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Retour </term
+> <listitem
+> <para
+>Va à la dernière entrée vue du fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <inlinemediaobject
+> <imageobject
+> <imagedata fileref="forward.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> Suivant </term
+> <listitem
+> <para
+>Va à l'entrée précédemment vue du fichier PO.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="status-bar">
+<title
+>Barre d'état</title>
+<variablelist
+> <varlistentry
+> <term
+>Actuel</term
+> <listitem
+> <para
+>Message actuel dans le fichier PO édité.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Total</term
+> <listitem
+> <para
+>Nombre de message total dans le fichier PO.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fuzzy</term
+> <listitem
+> <para
+>Nombre de messages marqués comme fuzzy. Ils doivent être révisés et traduits si nécessaire.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Non traduits</term
+> <listitem
+> <para
+>Nombre de messages qui n'ont pas encore été traduits pour le moment.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>État de l'éditeur</term
+> <listitem
+> <para
+>INS - insertion, et ÉCR - écrasement. Même signification que dans tout éditeur de texte ordinaire. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>État du fichier PO</term
+> <listitem
+> <para
+>L/É - fichier en lecture-écriture, LS - fichier en lecture seule. Lorsqu'un fichier est en lecture seule, vous ne pouvez pas en modifier les entrées dans l'éditeur. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Barre de progression</term
+> <listitem
+> <para
+> D'habitude, cette barre est cachée. Elle n'est affichée que pendant l'enregistrement ou pendant la recherche dans un fichier PO, un fichier de base de données de traductions, ou autre. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+</sect1>
+</chapter>
+
+
+<chapter id="faq">
+<title
+>Questions et réponses</title>
+<qandaset>
+  <qandaentry>
+    <question>
+      <para
+> Pourquoi &kbabel; affiche-t-il des points d'interrogation lors de la saisie de caractères spécifiques à la langue&nbsp;? </para>
+    </question>
+    <answer>
+      <para
+> Ceci est un problème de réglage des locales. Essayez de quitter &kbabel; et d'ajuster la variable d'environnement "LANG" vers une locale valide pour votre langue dans un shell. Si vous utilisez <command
+>bash</command
+> saisissez <userinput
+>export LANG=&lt;changez ceci&gt;</userinput
+>. Par exemple, lorsque vous utilisez des caractères allemands, saisissez <userinput
+>export LANG=de_DE.88591</userinput
+>. Si le problème est résolu, ajoutez cette commande dans votre fichier <filename
+>~/.profile</filename
+>. </para>
+    </answer>
+  </qandaentry>
+  <qandaentry>
+    <question>
+      <para
+> Pourquoi &kbabel; affiche-t-il des points d'interrogation au lieu des caractères spécifiques à la langue après le chargement d'un fichier PO&nbsp;?</para>
+    </question>
+    <answer>
+      <para
+> Le texte comporte des caractères qui ne peuvent pas être affichés avec la police de votre système. Si vous êtes sûr que le texte ne contient pas de tels caractères, le fichier a pu être corrompu quelque part. Dans ce cas, sélectionnez le point d'interrogation dans le texte et saisissez <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+> pour rechercher tous les caractères corrompus et les remplacer. <note
+><para
+> Ne recherchez pas de vrais points d'interrogation, parce que les caractères corrompus ne sont qu'affichés comme des points d'interrogation, mais, en interne, ce sont d'autres caractères.</para
+></note
+>. Sinon, vous pouvez installer une police unicode, qui comporte tous les jeux de caractères requis. </para>
+    </answer>
+  </qandaentry>
+</qandaset>
+</chapter>
+
+<!--
+<chapter id="appendix">
+<title
+>Appendix</title>
+-->
+<glossary id="glossary">
+<title
+>Glossaire</title>
+
+<glossdiv
+><title
+>A</title>
+  <glossentry id="gloss-auxiliary"
+> <glossterm
+>Auxiliaire (fichier)</glossterm
+> <glossdef
+> <para
+> Le fichier auxiliaire est spécifique à &kbabel;. Ceci est une option pour que l'utilisateur configure un fichier PO où il recherchera par message original. Grâce à cela, si vous êtes un membre de l'équipe de traduction francophone, et que vous avez des connaissances en espagnol ou en italien, vous pouvez trouvez et configurer un fichier PO auxiliaire espagnol associé à votre fichier de traduction. Grâce à cela, vous pourrez trouver des synonymes auxquels vous n'avez pas encore pensé. </para
+> </glossdef
+> </glossentry>
+</glossdiv>
+
+<glossdiv
+><title
+>C</title>
+  <glossentry id="gloss-compendium"
+> <glossterm
+>Compendium file (fichier de référence des PO)</glossterm
+> <glossdef
+> <para
+> Ce fichier est une collection de toutes les traductions pour une langue. Ce gros fichier PO est composé des messages uniques de tous les fichiers PO d'applications. Il peut être utilisé pour compléter les chaînes non traduites ou partiellement traduites dans un fichier PO en utilisant les chaînes déjà traduites. &kbabel; utilise un tel fichier pour le moteur de recherche <quote
+>Fichier de référence des PO</quote
+>. </para
+> </glossdef
+> </glossentry>
+</glossdiv>
+
+<glossdiv
+><title
+>F</title>
+  <glossentry id="fuzzy"
+> <glossterm
+>Fuzzy</glossterm
+> <glossdef
+> <para
+> C'est un indicateur d'état généré le plus souvent par <command
+>msgmerge</command
+>. Il indique que la chaîne <acronym
+>msgstr</acronym
+> peut ne pas être correcte. Le traducteur doit la contrôler et faire des modifications si nécessaire. Après cela, l'indicateur <quote
+>fuzzy</quote
+> doit être enlevé du commentaire du message. </para
+> </glossdef
+> </glossentry>
+</glossdiv>
+
+<glossdiv
+><title
+>I</title>
+  <glossentry id="i18n"
+> <glossterm
+>Internationalisation</glossterm
+> <acronym
+>i18n</acronym
+> <glossdef
+> <para
+> L'internationalisation est l'opération rendant une application capable de supporter de multiples langues. Le mot <quote
+>internationalisation</quote
+> comporte 20 lettres et est un mot assez long. Pour le raccourcir, les gens ont commencé à n'écrire plus que la première et la dernière lettre, et, entre eux, le nombre de lettres intermédiaires (18). </para
+> <glossseealso otherterm="l10n"
+></glossseealso
+> </glossdef
+> </glossentry>
+</glossdiv>
+
+<glossdiv
+><title
+>L</title>
+  <glossentry id="l10n"
+> <glossterm
+>Localisation</glossterm
+> <acronym
+>l10n</acronym
+> <glossdef
+> <para
+> La localisation est l'opération faisant qu'une application déjà internationalisée puisse traiter les entrées et les sorties de la façon requise par certaines habitudes culturelles et de langage. Le mot <quote
+>localisation</quote
+> comporte 12 lettres et est un mot long. Par confort, les gens ont commencé à n'écrire que la première et la dernière lettre, et, entre eux, le nombre de lettres intermédiaires (10). </para
+> <glossseealso otherterm="i18n"
+></glossseealso
+> </glossdef
+> </glossentry>
+</glossdiv>
+
+<glossdiv
+><title
+>M</title>
+  <glossentry id="mofile"
+> <glossterm
+>MO (fichier)</glossterm
+> <acronym
+>MO</acronym
+> <glossdef
+> <para
+> MO signifie Machine Object. Ce fichier contient des données binaires appropriées pour une lecture par les ordinateurs. Le contenu d'un fichier MO est organisé comme une base de données pour réduire le temps de la recherche des chaînes traduites. Les fichiers MO sont obtenus en compilant les fichiers PO avec <command
+>msgfmt</command
+>. </para
+> <glossseealso otherterm="pofile"
+></glossseealso
+> <glossseealso otherterm="potfile"
+></glossseealso
+> </glossdef
+> </glossentry>
+  <glossentry id="msgid"
+> <glossterm
+>Message ID</glossterm
+> <acronym
+>msgid</acronym
+> <glossdef
+> <para
+> <acronym
+>msgid</acronym
+> est le mot clé qui introduit la chaîne originale dans un fichier PO. Il est suivi d'une chaîne de caractères de type C prenant une ou plusieurs lignes. </para
+> <glossseealso otherterm="msgstr"
+></glossseealso
+> </glossdef
+> </glossentry>
+  <glossentry id="msgstr"
+> <glossterm
+>Message String</glossterm
+> <acronym
+>msgstr</acronym
+> <glossdef
+> <para
+> <acronym
+>msgstr</acronym
+> est le mot clé qui introduit la chaîne traduite dans un fichier PO. Il est suivi d'une chaîne de caractères de type C prenant une ou plusieurs lignes. </para
+> <glossseealso otherterm="msgid"
+></glossseealso
+> </glossdef
+> </glossentry>
+</glossdiv>
+
+<glossdiv
+><title
+>P</title>
+  <glossentry id="pofile"
+> <glossterm
+>PO (fichier)</glossterm
+> <acronym
+>PO</acronym
+> <glossdef
+> <para
+> PO signifie Portable Object. Les fichiers PO contiennent des jeux de chaînes associant chaque chaîne à traduire avec sa traduction dans une langue particulière. Un fichier PO ne se rapporte qu'a une langue. Le fichier PO est dérivé d'un fichier POT et est prévu pour être édité par des humains. </para
+> <glossseealso otherterm="potfile"
+></glossseealso
+> <glossseealso otherterm="mofile"
+></glossseealso
+> </glossdef
+> </glossentry>
+  <glossentry id="potfile"
+> <glossterm
+>POT (fichier)</glossterm
+> <acronym
+>POT</acronym
+> <glossdef
+> <para
+> POT signifie Portable Object Template. Ce fichier est crée en extrayant les chaînes à traduire des fichiers sources de l'application. Un fichier POT ne contient pas de traductions, et est utilisé par chaque traducteur comme modèle. </para
+> <glossseealso otherterm="pofile"
+></glossseealso
+> <glossseealso otherterm="mofile"
+></glossseealso
+> </glossdef
+> </glossentry>
+</glossdiv>
+
+</glossary>
+
+<chapter id="credits">
+<title
+>Remerciements et licence</title>
+
+<para
+> &kbabel; </para>
+<para
+> Programme copyright 1999-2000 Matthias Kiefer <email
+>matthias.kiefer@gmx.de</email
+> </para>
+<para
+> Contributeurs&nbsp;: <itemizedlist
+> <listitem
+><para
+>Thomas Diehl <email
+>thd@kde.org</email
+></para
+> </listitem
+> <listitem
+><para
+>Stephan Kulow <email
+>coolo@kde.org</email
+></para
+> </listitem
+> </itemizedlist
+> </para>
+
+<para
+> Documentation copyright 2000 Claudiu Costin <email
+>claudiuc@geocities.com</email
+> et Matthias Kiefer <email
+>matthias.kiefer@gmx.de</email
+> </para>
+
+<para
+> Ce programme est licencié sous les termes de la <ulink url="common/gpl-license.html"
+>GNU GPL</ulink
+>. </para>
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kbabel">
+<title
+>Comment se procurer KBabel</title>
+
+<para
+> &kbabel; fait partie du projet KDE <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kbabel; peut être trouvé dans le paquetage <filename
+>kdesdk</filename
+> à <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, le site ftp principal du projet KDE. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Programmes requis</title>
+
+
+<para
+> Pour utiliser &kbabel; avec succès, vous aurez besoin d'une version actuelle de KDE 2.x. </para>
+
+<para
+> Toutes les librairies requises ainsi que &kbabel; lui même peuvent être trouvées à <ulink url="ftp://ftp.kde.org"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>. </para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Compilation et installation</title>
+
+<para
+> Pour compiler et installer &kbabel; sur votre système, saisissez les commandes suivantes dans le dossier racine de votre distribution de <filename
+>kdesdk</filename
+>&nbsp;: <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen
+> </para>
+
+<para
+>Comme &kbabel; utilise autoconf et automake, vous ne devriez avoir aucun problème lors de sa compilation. En même temps que &kbabel;, vous allez avoir le reste des outils du paquetage <filename
+>kdesdk</filename
+> installés. Si toutefois vous aviez des problèmes, veuillez les signaler à l'auteur, Matthias Kiefer <email
+>matthias.kiefer@gmx.de</email
+>.</para>
+
+</sect1>
+
+</appendix>
+
+</book>
+

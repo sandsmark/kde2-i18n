@@ -1,0 +1,1255 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kdm;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Handbok &kdm;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Neal</firstname
+> <surname
+>Crook</surname
+> <affiliation
+><address
+><email
+>nac@forth.org</email
+></address
+></affiliation
+> </author>
+<othercredit role="developer">
+<firstname
+>Steffen</firstname>
+<surname
+>Hansen</surname>
+<affiliation
+><address
+><email
+>stefh@dit.ou.dk</email
+></address
+></affiliation>
+<contrib
+>Utvecklare</contrib>
+</othercredit>
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Granskare</contrib>
+</othercredit>
+
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@telia.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Neal Crook</holder>
+</copyright>
+
+<date
+>2000-12-12</date>
+<releaseinfo
+>0.05.02</releaseinfo>
+
+<abstract>
+<para
+>Det här dokumentet beskriver &kdm;, KDE:s skärmhanterare. &kdm; kallas också <quote
+>inloggningshanteraren</quote
+>.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdm</keyword>
+<keyword
+>xdm</keyword>
+<keyword
+>skärmhanterare</keyword>
+<keyword
+>inloggningshanterare</keyword>
+</keywordset>
+</bookinfo>
+
+<!-- ********************************************************************** -->   
+<chapter id="Introduction"
+> 
+
+<title
+>Inledning</title
+> 
+
+<para
+> Inloggningshanteraren tillhandahåller ett grafiskt gränssnitt som låter dig logga in på ett system. Det begär användarnamn (inloggning) och lösenord, verifierar användarens identitet och startar en "session". &kdm; är en "drop-in" ersättning av <application
+>xdm</application
+>, X Display Manager, och är överlägsen på ett antal olika sätt.</para
+> <para
+> Inloggningshanterarens användargränssnitt består av två dialogrutor. Den huvudsakliga dialogrutan har följande funktioner:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Fältet "<guilabel
+>Användare</guilabel
+>" där du anger ditt användarnamn.</para
+></listitem
+> <listitem
+><para
+>Fältet "<guilabel
+>Lösenord</guilabel
+>" där du anger ditt lösenord.</para
+></listitem
+> <listitem
+><para
+>Ett område till vänster om fälten "<guilabel
+>Användare</guilabel
+>" och "<guilabel
+>Lösenord</guilabel
+>" som kan användas för att visa en statisk bild eller en analog klocka.</para
+></listitem
+> <listitem
+><para
+>(Valfritt) en grafisk bild av varje användare (till exempel ett inläst fotografi). Att klicka på en bild är ekvivalent med att skriva in motsvarande användarnamn i  fältet "<guilabel
+>Användare</guilabel
+>" (den här funktionen är en imitation av inloggningsrutan på IRIX).</para
+></listitem
+> <listitem
+><para
+>Kombinationsrutan "<guilabel
+>Typ av session</guilabel
+>" som låter inloggningshanteraren starta sessioner med diverse olika fönsterhanterare eller skrivbordsmiljöer som är installerade på systemet, inklusive KDE, KDE2 och GNOME.</para
+></listitem
+> <listitem
+><para
+>Knappen "<guibutton
+>Kör!</guibutton
+>" som validerar kombinationen av användarnamn/lösenord och försöker starta en session av den valda typen.</para
+></listitem
+> <listitem
+><para
+>Knappen "<guibutton
+>Rensa</guibutton
+>" som tar bort texten från fälten "<guilabel
+>Användare</guilabel
+>" och "<guilabel
+>Lösenord</guilabel
+>".</para
+></listitem
+> <listitem
+><para
+>(Valfritt) knappen  "<guibutton
+>Stäng av</guibutton
+>" som visar dialogrutan "<guibutton
+>Stäng av</guibutton
+>".</para
+></listitem
+> </itemizedlist>
+
+<para
+>Dialogrutan "<guibutton
+>Stäng av</guibutton
+>" visar ett antal knappar som gör att man kan välja ett av följande alternativ:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Stäng av</term
+> <listitem
+><para
+>Stäng av systemet på ett kontrollerat sätt, klart för att slå av strömmen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Starta om</term
+> <listitem
+><para
+>Stäng av systemet och starta om. För system som använder <application
+>Lilo</application
+>, kan du välja ett visst operativsystem att användas vid omstarten i en valfri kombinationsruta.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Starta om X-server</term
+> <listitem
+><para
+>Avsluta och starta om X-servern. Ett typiskt tillfälle då du kan behöva använda det här alternativet är om du har ändrat X11-inställningar på något sätt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Konsollinloggning</term
+> <listitem
+><para
+>Avsluta X-servern och återgå till konsolläge. Det här åstadkoms genom att ta ner systemet till körnivå 3. Ett typiskt tillfälle då systemadministratören kan behöva använda det här alternativet är innan X11-programvaran ska uppgraderas eller omkonfigureras.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Om man trycker på knappen "<guibutton
+>Ok</guibutton
+>" så påbörjas den valda åtgärden. Med knappen "<guibutton
+>Avbryt</guibutton
+>" återgår man till inloggningshanterarens vanliga dialogruta. </para>
+
+<para
+>Nästa kapitel beskriver hur inloggningshanteraren anpassas. Följande kapitel beskriver hur man anpassar systemet för att använda inloggningshanteraren, hur man bygger och installerar den från källkod och hur man kan lära sig mer om inloggningshanteraren och KDE-projektet.</para
+> 
+
+</chapter>
+
+<!-- *********************************************************************** -->
+<chapter id="Configuring-kdm">
+<title
+>Anpassa inloggningshanteraren</title>
+
+<para
+>Det här kapitlet antar att inloggningshanteraren redan är igång på ditt system, och att du helt enkelt vill ändra beteendet på något sätt. Om ditt problem är mer allvarligt, hoppa vidare till följande kapitel. </para
+> 
+
+<para
+>När inloggningshanteraren startar, läser den sina inställningar från filen <filename
+>kdmrc</filename
+>. Eftersom inloggningshanteraren måste köra innan någon användare är inloggad, hör den inte till någon särskild användare. Därför är det inte möjligt att ha en användarspecifik <filename
+>$HOME/share/config/kdmrc</filename
+> file; alla användare delar på den gemensamma versionen av <filename
+>kdmrc</filename
+>, som finns i <filename
+>$KDEDIR/share/config/kdmrc</filename
+>. Av detta följer att inloggningshanterarens inställningar bara kan ändras av användare som har skrivrättigheter till <filename
+>$KDEDIR/share/config/kdmrc</filename
+> (normalt begränsat till systemadministratörer som är inloggade som "root"). </para
+> 
+
+<!-- ** nac TODO the link to local kderc doesn't work.. I get a security ** -->
+<!-- error; yet I can point to the file manually. what should it be? --> 
+
+<para
+>Du kan titta på den aktuella <filename
+>kdmrc</filename
+>-filen på ditt system (som normalt finns i <filename
+>$KDEDIR/share/config/kdmrc</filename
+>), och du kan anpassa inloggningshanteraren genom att redigera den här filen. Som ett alternativ kan du använda det grafiska inställningsverktyget som tillhandahålls av KDE:s inställningscentral (under <menuchoice
+> <guisubmenu
+>Inställningar</guisubmenu
+> <guisubmenu
+>System</guisubmenu
+> <guimenuitem
+>Inloggningshanteraren</guimenuitem
+></menuchoice
+>), som beskrivs i <ulink url="help:/kcontrol/login-manager.html"
+>hjälpfil för inställningscentralen</ulink
+>.</para>
+
+<para
+>Resten av det här kapitlet beskriver innehållet i <literal
+>kdmrc</literal
+>-filen. Om du är nöjd med att använda den grafiska inställningsmodulen, finns det ingen anledning att läsa vidare.</para>
+
+<!-- ** nac: updated KDM keys list from code of 2000-06-06 -->
+
+<para
+>Det finns fyra sektioner i <literal
+>kdmrc</literal
+>:</para>
+
+<sect1 id="KDM">
+<title
+>KDM</title>
+<para
+>Nycklarna i den här sektionen är:</para>
+<screen
+>StdFont
+FailFont
+GreetFont
+GreetString
+SessionTypes
+LogoArea
+LogoPixmap
+ShutdownButton
+Shutdown
+Restart
+ConsoleMode
+UserView
+Users
+NoUsers
+SortUsers
+GUIStyle
+</screen>
+
+<para
+>En kort beskrivning av nycklarna:</para>
+<variablelist
+> <varlistentry
+> <term
+><parameter
+>*Font</parameter
+></term
+> <listitem
+><para
+>En teckensnittssträng formatterad så här: Courier,12,5,iso-8859-1,50,0.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>GreetString</parameter
+></term
+> <listitem
+><para
+>Titeln på inloggningshanterarens fönster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>SessionTypes</parameter
+></term
+> <listitem
+><para
+>En lista av sessionsparametrar separerade med kommatecken, som vanligtvis används för att välja en särsklid fönsterhanterare. Förvalt värde är <option
+>SessionTypes=kde,failsafe</option
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>LogoArea</parameter
+></term
+> <listitem
+><para
+>Avgör vad som syns i nedre vänstra hörnet av inloggningsfönstret. Kan antingen vara <option
+>KdmLogo</option
+> (om detta gäller visas bilden som anges av <option
+>LogoPixMap</option
+>) eller <option
+>KdmClock</option
+> (om detta gäller visas en klocka).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>LogoPixmap</parameter
+></term
+> <listitem
+><para
+>Anger bilden som ska visas i nedre vänstra hörnet av inloggningsfönstret när LogoArea=KdmLogo.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>ShutdownButton</parameter
+></term
+> <listitem
+><para
+>ShutdownButton kontrollerar när avstängningsknappen visas och kan vara en av <option
+>All</option
+> (alla), <option
+>None</option
+> (ingen), <option
+>RootOnly</option
+> (bara root) och <option
+>ConsoleOnly</option
+> (bara konsoll). Betydelsen av <option
+>All</option
+> och <option
+>None</option
+> är helt klar. Om du väljer <option
+>ConsoleOnly</option
+> kan du inte stänga av från en annan maskin. Om du väljer <option
+>RootOnly</option
+> blir du tillfrågad om root-lösenordet innan avstängningen fortsätter.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>Shutdown and Restart</parameter
+></term
+> <listitem
+><para
+>Kommandon att köra vid avstängning och omstart av systemet. (förvalt: <command
+>/sbin/halt</command
+> och <command
+>/sbin/reboot</command
+>).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>ConsoleMode</parameter
+></term
+> <listitem
+><para
+>Kommandosträngen som används av alternativet konsolläge för knappen "<guibutton
+>Stäng av</guibutton
+>". (Förvalt: <command
+>/sbin/init <option
+>3</option
+></command
+>). Det här alternativet är inte tillgängligt för BSD.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>UserView</parameter
+></term
+> <listitem
+><para
+>Om detta är satt till "<option
+>1</option
+>", visas en grafisk bild av användare i inloggningshanterarens fönster.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>Users</parameter
+></term
+> <listitem
+><para
+>En lista av användarnamn separerade med kommatecken, som visas i den grafiska användarlistan. Om <parameter
+>UserView</parameter
+> är satt till "<replaceable
+>1</replaceable
+>" och posten <parameter
+>Users</parameter
+> saknas, letar &kdm; efter användare i lösenordsfilen <filename
+>/etc/passwd</filename
+>. Användarna som visas är de som har ett riktigt namn förutom inloggningsnamnet, en hemkatalog och ett förvalt skal - de övriga hoppas över. För varje användare tittar &kdm; i <filename
+>$KDEDIR/share/apps/kdm/pics/users/</filename
+> efter en ikon. Om det finns en ikon som heter <filename
+>NN.png</filename
+>, använder &kdm; den för att visa användaren NN. Om ikonen saknas, använder &kdm; <filename
+>default.png</filename
+>. </para
+> <para
+>&kdm; kan hantera ikoner av olika storlek, men resultatet ser fult ut. Lösningen är att använda ett program som KDE:s <application
+>Pixie</application
+>, (eller GNU Image Manipulation Program, <application
+>gimp</application
+>, eller John Bradleys <application
+>XV</application
+>) för att konvertera alla bilder till samma storlek. Ett värde på 64x64 bör ge tillräcklig upplösning och passar ihop med de förvalda ikoner som tillhandahålls. Dessa program kan också användas för att överföra bilder från olika format till PNG-format.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>NoUsers</parameter
+></term
+> <listitem
+><para
+>En lista av användarnamn som inte visas, separerade med kommatecken. Använd den för att filtrera bort  "pseudoanvändare" som <literal
+>sync</literal
+> och <literal
+>shutdown</literal
+> från visningen av användare.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>SortUsers</parameter
+></term
+> <listitem
+><para
+>Om satt till "<option
+>0</option
+>", visas listan av användare i den ordning som den lästes. Förval är att visa användare i sorteringsordning.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>GUIStyle</parameter
+></term
+> <listitem
+><para
+>Kan antingen vara <option
+>Motif</option
+> eller <option
+>Windows</option
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="KDMDESKTOP">
+<title
+>KDMDESKTOP</title>
+
+<para
+>Den här sektionen är föråldrad. I tidigare versioner av &kdm; användes den för att ange bakgrundsskärm innan inloggning. Den grafiska inställningen av &kdm; kan fortfarande skapa den här sektionen, men den ignoreras av &kdm;.</para>
+
+</sect1>
+
+<sect1 id="Locale">
+<title
+>Locale</title
+> 
+
+<para
+>Den här sektionen hanteras av ett KDE-standardbibliotek. De enda nycklarna som troligen kan ha någon effekt är:</para>
+
+<screen
+>Country
+Language
+Charset
+</screen>
+
+<para
+>En kort beskrivning av nycklarna:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><parameter
+>Country</parameter
+></term
+> <listitem
+><para
+>anger landet. Titta i <filename
+>$KDEDIR/share/locale/l10n</filename
+> för en fullständig lista på landskoder som systemet stöder. Landskoden används för att hitta filen <filename
+>$KDEDIR/share/locale/l10n/country_code/entry.desktop</filename
+> som används för att tillhandahålla områdesspecifik information som tids- och datumformat och den lokala valutasymbolen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>Language</parameter
+></term
+> <listitem
+><para
+>anger språket som &kdm; använder (förvalt: <option
+>C</option
+>, som representerar amerikansk engelska). Värdet kan överskridas av miljövariablen <envar
+>KDE_LANG</envar
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>Charset</parameter
+></term
+> <listitem
+> <para
+>anger teckenkodningen som används (förvalt: <option
+>iso-8859-1</option
+>).</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<note
+><para
+>Om du ändrar nycklarna men all dialogtext förblir på engelska, betyder detta förmodligen att du inte har installerat översättningen på systemet.</para
+></note>
+
+</sect1>
+
+<sect1 id="Lilo">
+<title
+><application
+>Lilo</application
+></title
+> 
+<para
+><application
+>Lilo</application
+> (Linux Loader) är en uppstartshanterare som ofta används på GNU/Linux-system. Lilo levereras med omfattande dokumentation (se <ulink url="man:lilo"
+>man lilo</ulink
+> till att börja med). Den här sektionen anpassar mekanismer för att starta om systemet med <application
+>Lilo</application
+>. Nycklarna är:</para>
+
+<screen>
+Lilo
+LiloCommand
+LiloMap
+</screen>
+
+<para
+>En kort beskrivning av nycklarna: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><parameter
+>Lilo</parameter
+></term
+> <listitem
+><para
+>Anger om <application
+>Lilo</application
+> används för att starta om systemet (förvalt: <option
+>FALSE</option
+>). När den här nyckeln sätts till <option
+>TRUE</option
+>, innehåller avstängningsdialogrutan en extra kombinationsruta intill omstartsknappen. Den här rutan låter dig välja den kärna som ska användas när systemet startas om. Listan på kärnor skapas genom att kontrollera Lilo-mappningsfilen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>LiloCommand</parameter
+></term
+> <listitem
+> <para
+>Platsen för <application
+>Lilo</application
+>-programmet (förvalt: <filename
+>/sbin/lilo</filename
+>).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>LiloMap</parameter
+></term
+> <listitem
+><para
+>Platsen för <application
+>Lilo</application
+>s mappningsfil. Mappningsfilen hanteras av <application
+>Lilo</application
+> och innehåller en lista av kärnor (versioner av operativsystem) att starta (förvalt: <filename
+>/boot/map</filename
+>).</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<!-- ************************************************************ -->   
+<chapter id="Configuring-your-system-for-kdm">
+<title
+>Anpassa ditt system för att använda inloggningshanteraren</title>
+
+<para
+>Det här kapitlet antar att ditt system redan är anpassat för att köra X-Window systemet, och att du bara behöver anpassa det för att tillåta grafisk inloggning.</para>
+
+<sect1 id="setting-up-kdm">
+<title
+>Att ställa in &kdm;</title>
+
+<para
+>Den grundläggande inställning som avgör om din dator startar med en terminalprompter (konsolläge) eller en grafisk inloggning är den förvalda körnivån. Programmet <application
+> <ulink url="man:init"
+>/sbin/init</ulink
+></application
+> sätter körnivån beroende på innehållet i konfigurationsfilen <filename
+>/etc/inittab</filename
+>. Förvalda körnivåer som används av olika Unix-system (och olika Linux-distributioner) varierar, men om du tittar i <filename
+>/etc/inittab</filename
+> bör början på filen likna det här:</para>
+
+<screen
+># Default runlevel. The runlevels used by RHS are:
+# 0 - halt (Do NOT set initdefault to this)
+# 1 - Single user mode
+# 2 - Multiuser, without NFS
+# 3 - Full multiuser mode
+# 4 - unused
+# 5 - X11
+# 6 - reboot (Do NOT set initdefault to this)
+
+id:3:initdefault:  
+</screen>
+
+<para
+>Allt utom den sista raden av det här utdraget är kommentarer. De visar att körnivå 5 används för X11 och att körnivå 3 används för fleranvändarläge utan X11 (konsolläge). Den sista raden anger att systemets förvalda körnivå är 3 (konsolläge). Om ditt system använder grafisk inloggning för närvarande (till exempel med <application
+>xdm</application
+>) så matchar dess förvalda körnivå den som gäller för X11.</para>
+
+<para
+>Körnivån med grafisk inloggning (<application
+>xdm</application
+>) för några vanliga Linux-distributioner är:</para>
+
+<itemizedlist
+> <listitem
+><para
+>5 för Red Hat 3.x och senare, och för Mandrake</para
+></listitem
+> <listitem
+><para
+>4 för Slackware</para
+></listitem
+> <listitem
+><para
+>3 för S.u.S.E. 4.x och 5.x</para
+></listitem
+> </itemizedlist>
+
+<para
+>Det första steget i att anpassa ditt system är att försökra dig om att du kan starta &kdm; från kommandoraden. När det här väl fungerar, kan du ändra dina systeminställningar så att &kdm; startar automatiskt varje gång du startar om systemet.</para>
+
+<para
+>För att prova &kdm;, måste du först ta ditt system till en körnivå som inte kör <application
+>xdm</application
+>. För att göra detta, ge ett kommando som liknar:</para>
+
+<screen
+><command
+>/sbin/init <option
+>3</option
+></command>
+</screen>
+
+<para
+>Instället för talet "<option
+>3</option
+>" ska du ange den körnivå som är lämplig för konsolläge för ditt system.</para>
+
+<para
+>Därefter måste du hitta inställningskatalogen för <application
+>xdm</application
+>, normalt <filename
+>/etc/X11/xdm/</filename
+> eller <filename
+>/usr/X11R6/lib/X11/xdm/</filename
+>. Inställningskatalogen innehåller filen <filename
+>Xsetup_0</filename
+>. Om du byggde &kdm; från källkod och <filename
+>configure</filename
+>-steget inte kunde hitta den här katalogen, installerar det en ny version av <filename
+>Xsetup_0</filename
+> från en mall i &kdm;:s källkodsträd. Du kan infoga raden:</para
+> 
+
+<screen
+>kdmdesktop</screen>
+
+<!-- ** nac: TODO 14Jul2000 not sure whether kdmdesktop still works.
+     ** The binary still exists; it is built in kdebase/kdesktop but it
+     ** doesn't use the kdmrc file; from the source code it seems to read
+     ** the kdmdesktoprc file, which does not exist -->
+
+<para
+>i din fil för att visa någon trevlig bakgrund (bilder och bakgrundsfärger). (Jag är inte säker på att detta fungerar, det behövs helt klart inte). Om <envar
+>KDEDIR</envar
+> inte är <filename
+>/opt/kde</filename
+> kan du behöva ändra sökvägen till <filename
+>kdmdesktop</filename
+>.</para>
+
+<para
+>Om ditt system använder Pluggable Authentication Modules (<abbrev
+>PAM</abbrev
+>), som är normalt i senare Red Hat- och Mandrake-system, bör du kontrollera att din <abbrev
+>PAM</abbrev
+>-inställning tillåter inloggning via en service som heter <literal
+>xdm</literal
+>. Om du tidigare har använt <application
+>xdm</application
+> med lyckat resultat, ska du inte behöva göra några ändringar i <abbrev
+>PAM</abbrev
+>-inställningarna för att kunna använda &kdm;, <filename
+>/etc/pam.conf</filename
+> eller <filename
+>/etc/pam.d/xdm</filename
+>. Information om anpassning av <abbrev
+>PAM</abbrev
+> är utanför den här handbokens omfattning, men <abbrev
+>PAM</abbrev
+> levereras med fullständig dokumentation (försök titta i <filename
+>/usr/doc/pam*/html</filename
+>).</para>
+
+<para
+>Nu är det dags att prova inloggningshanteraren, genom att ge följande kommando:</para>
+
+<screen
+><command
+>kdm <option
+>-nodaemon</option
+></command>
+</screen>
+
+<para
+>Om du får inloggningshanterarens dialogruta och du kan logga in, är du på god väg. Det som i huvudsak kan gå fel här är att den dynamiska länkaren inte hittar de delade Qt- och KDE-biblioteken. Om du har en binärdistribution av KDE-biblioteken, försäkra dig om att &kdm; är installerad där biblioteken tror att KDE är installerad (oftast <filename
+>/opt/kde/bin</filename
+>) och försök sätta några miljövariabler att peka på dina KDE- och Qt-bibliotek. Till exempel:</para>
+
+<screen
+><command
+>export <option
+>KDEDIR=<replaceable
+>/opt/kde</replaceable
+></option
+></command>
+<command
+>export <option
+>QTDIR=<replaceable
+>/usr/lib/qt2</replaceable
+></option
+></command>
+<command
+>export <option
+>PATH=<replaceable
+>$KDEDIR/bin:$QTDIR/bin:$PATH</replaceable
+></option
+></command>
+<command
+>export <option
+>LD_LIBRARY_PATH=<replaceable
+>$KDEDIR/lib:$QTDIR/lib</replaceable
+></option
+></command>
+</screen>
+
+<para
+>Om du fortfarande inte lyckas, försök att starta <application
+>xdm</application
+> istället, för att försäkra dig om att du inte lider av allvarligare X-konfigurationsproblem.</para>
+
+<para
+>När du kan starta inloggningshanteraren med lyckat resultat, kan du börja ersätta <application
+>xdm</application
+> med &kdm;. Återigen är detta beroende på distributionen.</para>
+
+<itemizedlist
+> <listitem
+><para
+>För Redhat, redigera <filename
+>/etc/inittab</filename
+>, leta efter strängen xdm och byt ut den mot &kdm; (inklusive alla sökvägar).</para
+></listitem
+> <listitem
+><para
+>För Mandrake, startar X11-körnivån i <filename
+>/etc/inittab</filename
+> skalskriptet <filename
+>/etc/X11/prefdm</filename
+>, som är inställt att välja mellan flera olika skärmhanterare, inklusive &kdm;. Försäkra dig om att alla sökvägar är riktiga för din installation.</para
+> </listitem
+> <listitem
+><para
+>För <abbrev
+>S.u.S.E</abbrev
+>, redigera <filename
+>/sbin/init.d/xdm</filename
+> och lägg till en rad i början:</para
+> <screen
+>. /etc/rc.config
+DISPLAYMANAGER=kdm
+export DISPLAYMANAGER
+</screen
+> </listitem
+> <listitem
+><para
+>De flesta övriga distributioner är en variant av någon av dessa.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Om du inte gillar att ändra <filename
+>inittab</filename
+>, är ett alternativ att döpa om <filename
+>xdm</filename
+> till <filename
+>xdm.bak</filename
+> och göra <filename
+>xdm</filename
+> till en symbolisk länk till &kdm;.</para>
+
+<para
+>I det här läget kan du prova &kdm; igen genom att ta ditt system till körnivån som nu ska starta &kdm;. För att göra detta ge ett kommando som det här:</para>
+
+<screen
+><command
+>/sbin/init <option
+>5</option
+></command>
+</screen>
+
+<para
+>Instället för talet "<option
+>5</option
+>" ska du ange den körnivå som är lämplig för att köra X11 på ditt system.</para>
+
+<para
+>Det slutliga steget är att redigera <parameter
+>initdefault</parameter
+> posten i <filename
+>/etc/inittab</filename
+> för att ange den passande körnivån för X11.</para>
+
+<warning
+><para
+>Innan du gör den här ändringen, försäkra dig om att du har ett sätt att starta om ditt system om ett problem uppstår. Det här kan vara en "startdiskett" som tillhandahålls av din operativsystemdistribution eller en specialgjord "startdiskett" såsom <literal
+>tomsrtbt</literal
+>. Strunta i det här rådet på egen risk.</para
+></warning
+> 
+
+<para
+>När du startar om ditt system, ska du slutligen få inloggningshanterarens grafiska inloggningsruta.</para>
+
+<para
+>Om det här steget inte lyckas är det troligaste problemet att miljön som används vid uppstart skiljer sig från den som du hade när du provade på kommandoraden. Kontrollera filer som <filename
+>/etc/X11/xdm/Xsetup_0</filename
+> (och alla skript som den startar) för att vara säker på att din sökväg inte ändras utan din vetskap. Om du försöker få två versioner av KDE att existera tillsammans, var särskilt försiktig så att de inställningar som du använder för dina <envar
+>PATH</envar
+> och <envar
+>LD_LIBRARY_PATH</envar
+> miljövariabler är konsekventa, och att uppstartsskripten inte överskrider dem på något sätt.</para>
+
+</sect1>
+
+<sect1 id="different-window-managers-with-kdm">
+<title
+>Stöd för flera fönsterhanterare</title>
+
+<para
+>Huvuddialogrutan för &kdm; innehåller kombinationsrutan "<guilabel
+>Typ av session</guilabel
+>", som låter dig välja en fönsterhanterare som du vill använda för din session. Det här kapitlet beskriver de ändringar som du måste göra i konfigurationsfiler för att stöda den här funktionen.</para>
+
+<para
+>Alternativen som visas i kombinationsrutan "<guilabel
+>Sessiontyp</guilabel
+>" <ulink url="KDM"
+>anpassas</ulink
+> av poster i <literal
+>KDM</literal
+> sektionen i <filename
+>kdmrc</filename
+>.</para
+> 
+
+<para
+>När du loggar in med &kdm;, körs skalskriptet <filename
+>Xsession</filename
+>. Sessiontypen som du valt skickas vidare som en kommandoradsväljare (<filename
+>Xsession</filename
+> finns i <filename
+>/etc/X11/xdm/</filename
+> för Redhat och Mandrake, och i <filename
+>/usr/X11R6/lib/X11/xdm/</filename
+> för S.u.S.E.). Medan du avlusar, kan det vara en hjälp att lägga till följande rad till <filename
+>Xsession</filename
+>:</para>
+      
+<screen
+>echo "$0 || $1 || $2" 
+> $HOME/.Xsession_args </screen>
+
+<para
+>Hur du fortsätter nu beror på hur ditt system vanligtvis startar fönsterhanterare. Här är två olika fall, med exempel på de ändringar som du måste göra:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Fönsterhanteraren startas av kommandon inne i <filename
+>Xsession</filename
+>. I det här fallet kan du lägga till en case-sats för att starta den lämpliga fönsterhanteraren. Linux Mandrake använder den här metoden. Här är ett utdrag från filen <filename
+>Xsession</filename
+>:</para
+> <screen
+># now, we see if xdm/gdm/kdm has asked for a specific environment
+case $# in
+1)
+    case $1 in
+        kde)
+        source /opt/kde2/bin/kde1
+        exec startkde
+        ;;
+        kde2)
+        source /opt/kde2/bin/kde2
+        exec startkde
+        ;;
+    	failsafe)
+	exec xterm -geometry 80x24-0-0
+	;;
+	default)
+	;;
+	*)
+	exec /bin/sh -c "$(/usr/sbin/chksession -x=$1)"
+	;;
+     esac
+esac
+</screen
+> </listitem
+> <listitem
+><para
+>Fönsterhanteraren startas av ett annat skript som körs av <filename
+>Xsession</filename
+>. I det här fallet måste du försäkra dig om att argumenten som skickas till <filename
+>Xsession</filename
+> också skickas vidare till detta andra skript. Om fönsterhanteraren till exempel startas så här:</para
+> <screen
+><command
+>exec <option
+>$startup</option
+></command
+></screen
+> <para
+>du behöver ändra det till:</para
+> <screen
+><command
+>exec <option
+>$startup</option
+> <option
+>$@</option
+></command
+></screen
+> <para
+>Efter du har gjort den här ändringen måste du spåra genom uppstarten för att hitta stället där fönsterhanteraren startas. Ett sätt använder <filename
+>xinitrc</filename
+> för att starta fönsterhanteraren, detta tillåter att systemfilen <filename
+>/etc/X11/xinit/xinitrc</filename
+> eller en användarspecifik fil <filename
+>$HOME/.xinitrc</filename
+> används. Om du redigerar <filename
+>$HOME/.xinitrc</filename
+>, kan du vilja spara en kopia i <filename
+>/etc/skel</filename
+>, så att den läggs till automatiskt i varje användarkonto som du skapar i framtiden. Här är ett exempel på en <filename
+>xinitrc</filename
+>-fil för ett system som använder det här sättet:</para
+> <screen
+>#!/bin/bash
+#
+# .xsession/.xinitrc
+#
+# choose a window manager
+#
+
+defaultwm=kde
+#set the window manager to $1 if it was supplied
+windowmgr=${1:-$defaultwm}
+
+#start the respective window managers
+case ${windowmgr} in
+  kde|kwm|kdestart)
+	WINDOWMANAGER=startkde
+	;;
+  fvwm|fvwm2)
+	WINDOWMANAGER=fvwm2
+	;;
+
+  fvwm95)
+	WINDOWMANAGER=fvwm95
+	;;
+
+  *)    WINDOWMANAGER=windowmgr   # default for unknown wm's
+
+esac
+
+#
+# load resources
+#
+
+if [ -f /usr/X11R6/lib/X11/Xmodmap ]; then
+    xmodmap /usr/X11R6/lib/X11/Xmodmap
+fi
+
+if [ -f ~/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap
+fi
+
+if [ -f ~/.Xdefaults ]; then
+    xrdb -merge ~/.Xdefaults
+fi
+
+if [ -f ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources
+fi
+# 
+# finally start the window manager
+#
+exec $WINDOWMANAGER
+</screen
+> </listitem
+> </itemizedlist>
+
+
+</sect1>
+</chapter>
+
+<!-- *********************************************************************** -->
+<chapter id="Building-and-Installing-kdm">
+<title
+>Att bygga och installera kdm</title>
+
+<para
+>&kdm; är en del av KDE-projektet. De olika komponenterna i  KDE-projektet är uppdelade i delar som kallas paket. &kdm; ingår som en del i paketet som heter kdebase. Du kan skaffa KDE:s källkod från olika CD-skivor med Linux- och BSD-distributioner, eller genom att ladda hem den från <ulink url="http://www.kde.org"
+>www.kde.org</ulink
+> eller dess spegelplatser. Om du har ett för gammalt källkodsträd kan du använda en av KDE:s cvsup-servrar för att uppdatera det med användning av minimal nätverksbandbredd. </para>
+
+<para
+>Innan du bygger kdebase, måste du ha byggt och installerat (i den här ordningen) version 2 av Qt-biblioteket och KDE-paketen kde-qt-addon, kdesupport och kdelibs.</para>
+
+<para
+>För att kunna bygga något av det ovanstående, så måste du antingen ha X-Window systemet installerat, tillsammans med en C++ kompilator och GNU konfigureringsverktygen <application
+>configure</application
+>, <application
+>automake</application
+> och <application
+>autoconf</application
+>.</para>
+
+<para
+>Om de föregående styckena ger intryck av att vara skrivna på ett främmande språk, så har du antingen råkat hamna i en mindre lämplig del av den här handboken, eller så har du just börjat med ett stort inlärningsäventyr.</para>
+
+<para
+>Om du har lyckats uppfylla alla förutsättningar, är det inte troligt att du har några problem med att bygga och installera kdebase. &kdm; är då installerat i katalogen "<filename
+>$KDEDIR/bin</filename
+>".</para>
+
+<note
+><para
+><command
+>make <option
+>install</option
+></command
+> skriver över din tidigare <filename
+>kdmrc</filename
+>.</para
+></note>
+
+</chapter>
+
+
+<!-- *********************************************************************** -->
+<chapter id="Other-Information">
+<title
+>Övriga informationskällor</title>
+
+<para
+>Eftersom &kdm; härrör från <application
+>xdm</application
+>, kan <ulink url="man:xdm"
+>xdm-manualsidan</ulink
+> ge användbar bakgrundsinformation. För problem relaterade till X, försök med manualsidorna för <ulink url="man:X"
+>X</ulink
+> och <ulink url="man:startx"
+>startx</ulink
+>. Om du har frågor om &kdm; som inte besvaras av den här handboken, kan du dra nytta av det faktum att &kdm; tillhandahålls under villkoren i <abbrev
+>GNU</abbrev
+> Public License: genom att titta i källkoden. </para>
+
+</chapter>
+
+<!-- *********************************************************************** -->
+<chapter id="credits"
+><title
+>Tack till och licens</title>
+
+<para
+>&kdm; utgår från, och innehåller kod från, <application
+>xdm</application
+>.</para>
+
+<para
+>&kdm; 0.1 är skrivet av Matthias Ettrich. Alla senare versioner är skrivna av Steffen Hansen.</para>
+
+<para
+><application
+>Xdm</application
+> är Copyright (c) 1990, X-konsortiet.</para>
+
+<para
+>Övriga delar av &kdm;-koden är Copyright av upphovsmännen, och licenseras under villkoren i <ulink url="common/gpl-license.html"
+>GNU GPL</ulink
+>. Vem som helst får ändra &kdm; och distribuera resultatet igen, under förutsättning att upphovsmännens namn nämns.</para>
+
+<para
+>&kdm; kräver Qt-biblioteket, som är Copyright Troll Tech AS.</para>
+
+<para
+>Bidrag till dokumentation: <itemizedlist
+> <listitem
+><para
+>Dokumentation skriven av Steffen Hansen <email
+>stefh@dit.ou.dk</email
+></para
+></listitem
+> <listitem
+><para
+>Dokumentation utökad av Gregor Zumstein <email
+>zumstein@ssd.ethz.ch</email
+>. Senaste uppdatering 1998/07/09</para
+></listitem
+> <listitem
+><para
+>Dokumentation reviderad för KDE2 av Neal Crook<email
+>nac@forth.org</email
+>. Senaste uppdatering 2000/07/06</para
+></listitem
+> </itemizedlist
+></para>
+
+<para
+>Dokumentation Copyright Steffen Hansen, Gregor Zumstein och Neal Crook.</para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@telia.com</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

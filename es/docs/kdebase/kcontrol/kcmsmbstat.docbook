@@ -1,0 +1,313 @@
+<sect1 id="sambastatus">
+<sect1info>
+
+<authorgroup
+><author
+><firstname
+>Alexander</firstname
+><surname
+>Neundorf</surname
+></author>
+<othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>de Vicente</surname
+> <affiliation
+><address
+><email
+>pvicentea@nexo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit>
+</authorgroup
+> 
+
+<date
+>2001-07-22</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Samba</keyword>
+<keyword
+>información del sistema</keyword>
+</keywordset>
+</sect1info>
+<title
+>Información de estado de Samba</title>
+
+<para
+>El monitor de estado de Samba y <acronym
+>NFS</acronym
+> es un interfaz de los programas <command
+>smbstatus</command
+> y <command
+>showmount</command
+>. Smbstatus informa de las conexiones actuales de Samba, y es parte del conjunto de herramientas, que implementa el protocolo <acronym
+>SMB</acronym
+> (Session Message Block), también denominado protocolo NetBIOS o LanManager.</para>
+
+<para
+>Este protocolo se puede usar para proporcionar compartición de servicios de impresoras o de discos en una red que incluya máquinas ejecutandose en diveros tipos de &Microsoft; &Windows;.</para>
+
+<para
+><command
+>showmount</command
+> es parte del paquete de software <acronym
+>NFS</acronym
+><acronym
+>NFS</acronym
+> significa Network File System y es el método tradicional &UNIX; de compartir directorios a través de la red. En este caso se interpreta la salida de <command
+>showmount</command
+> <option
+>-a localhost</option
+>. En algunos sistemas showmount está en <filename class="directory"
+>/usr/sbin</filename
+>, compruebe si showmount está accesible desde su variable <envar
+>PATH</envar
+>.</para>
+
+<sect2 id="smb-exports">
+<title
+>Exportes</title>
+
+<para
+>En esta página puede ver una gran lista que muestra las conexiones activas de los recursos compartidos de Samba y los exportes de <acronym
+>NFS</acronym
+> de su máquina. La primera columna muestra si el recurso es una recurso compartido de Samba (<acronym
+>SMB</acronym
+>) o un exporte <acronym
+>NFS</acronym
+>. La segunda columna contiene el nombre del recurso compartido, la tercera el nombre de la máquina remota que está accediendo al recurso. El resto de las columnas sólo tienen sentido para recursos compartidos de Samba.</para>
+
+<para
+>La cuarta columna contiene el <abbrev
+>ID</abbrev
+> del usuario, que accede al recurso. Advierta que no tiene por que ser igual al <abbrev
+>ID</abbrev
+> del usuario de &UNIX;. Los mismo es aplicable a la siguiente columna, que muestra el <abbrev
+>ID</abbrev
+> del grupo del usuario.</para>
+
+<para
+>Cada conexión para cada uno de sus recursos está gestionada por un sólo proceso (<command
+>smbd</command
+>), la siguiente columna muestra el <abbrev
+>ID</abbrev
+> del proceso (<acronym
+>pid</acronym
+>) de este <command
+>smbd</command
+>. Si usted mata este proceso el usuario conectado será desconectado. Si el usuario remoto trabaja desde &Windows;, tan pronto como este proceso sea matado se creará un nuevo, de modo que apenas lo notará.</para>
+
+<para
+>La última columna muestra cuantos archivos tiene abiertos actualmente este usuario. Aquí usted sólo ve, cuantos archivos tiene <emphasis
+>abiertos</emphasis
+>, no verá cuantos abrió o copió previamente, &etc;</para>
+
+</sect2>
+
+<sect2 id="smb-imports">
+<title
+>Importes</title>
+
+<para
+> Aquí puede ver que recursos compartidos Samba y <acronym
+>NFS</acronym
+>de otras máquinas están montados en su sistema local. La primera columna muestra si se trata de un recurso Samba o <acronym
+>NFS</acronym
+>, la segunda columna muestra el nombre del recurso, y la tercera donde está montado.</para>
+
+<para
+>Como los recursos de Samba sólo puede ser montados por &Linux;, no los verá en otros <acronym
+>SO</acronym
+>'s. Los recursos <acronym
+>NFS</acronym
+>montados deberían ser visible en &Linux; (esto ha sido probado), y también debería funcionar en &Solaris; (esto no ha sido probado).</para>
+
+</sect2>
+
+<sect2 id="smb-log"
+> 
+<title
+>Registro</title
+> 
+
+<para
+>Esta página presenta los contenidos de su archivo de registro samba en un modo elegante. Si abre esta página, la lista estará vacía. Debe pulsar el botón <guibutton
+>Actualizar</guibutton
+>, entonces se leerá el archivo de registro de samba y se mostrarán los resultados. Compruebe si el archivo de registro de samba en su sistema está realmente en la dirección especificada en la línea de entrada. Si está en otro sitio o tiene otro nombre, corrijalo. Después de cambiar el nombre del archivo debe pulsar de nuevo <guibutton
+>Actualizar</guibutton
+>.</para>
+
+<para
+>Samba registra sus acciones de acuerdo con el nivel de registro (vea <filename
+>smb.conf</filename
+>). Si loglevel = 1, samba registra sólo las acciones cuando alguien se conecta a su máquina y cuando dicha conexión se cierra de nuevo.Si log level = 2, registra también cuando alguien abre un archivo y si cierra dicho archivo. Si el nivel de registro es superior a 2, se registran más operaciones.</para>
+
+<para
+>Si está interesaso en saber quien accede a su máquina, y a que archivos accede, debería fijar el nivel de registro a 2 y crear regularmente un archivo de registro nuevo de samba (&eg; configurar una tarea <command
+>cron</command
+>que una vez por semana mueva el archivo de registro de samba a otro directorio o algo similar). Si no el archivo de registro de samba se hará enorme.</para>
+
+<para
+>Con las cuatro casillas debajo de la lista grande usetd puede decidir que eventos se muestran en la lista. Debe pulsar <guibutton
+>Actualizar</guibutton
+> para ver los resultados. Si el nivel de registro de su samba es demasiado bajo, no verá todo.</para>
+
+<para
+>Pulsando sobre la cabecera de una columna puede ordenar la lista según dicha columna.</para>
+
+</sect2>
+
+
+<sect2 id="smb-statistics">
+<title
+>Estadísticas</title>
+
+<para
+>En esta página puede filtrar los contenidos de la tercera página para ciertos contenidos.</para>
+
+<para
+>Supongamos que el campo <guilabel
+>Evento</guilabel
+> (no el de la lista) se configura a <userinput
+>Conexión</userinput
+>, <guilabel
+>Servicio/Archivo</guilabel
+> se configura a <userinput
+>*</userinput
+>, <guilabel
+>Máquina/Usuario</guilabel
+> se configura a <userinput
+>*</userinput
+>, <guilabel
+>Mostrar info expandida de servicios</guilabel
+> está desactivado y <guilabel
+>Mostrar info expandida de la máquina</guilabel
+> está desactivado.</para>
+
+<para
+>Si usted pulsa ahora <guibutton
+>Actualizar</guibutton
+> verá cuan frecuentemente se abre una conexión para compartir <literal
+>*</literal
+> (&ie; cualquier recurso) desde la máquina <literal
+>*</literal
+> (&ie; desde cualquier máquina). Ahora active <guilabel
+>Mostrar info expandida de máquina</guilabel
+> y pulse <guibutton
+>Actualizar</guibutton
+> de nuevo. Ahora verá para cada máquina que concuerde con el comodin  <literal
+>*</literal
+>, cuantas conexiones abrió dicha máquina.</para>
+
+<para
+>Ahora pulse <guibutton
+>borrar</guibutton
+>.</para>
+
+<para
+>Ahore configure el campo <guilabel
+>Evento</guilabel
+> a Aceso de archivos y active <guilabel
+>Mostrar info de servicio expandida</guilabel
+> y pulse de nuevo <guibutton
+>Actualizar</guibutton
+>.</para>
+
+<para
+>Ahora verá cuan frecuentemente se accede a cada archivo individual. Si usted activa también <guilabel
+>Mostrar info expandida de la máquina</guilabel
+>, verá cuan frecuentemente cada usuario abrió cada uno de los archivos.</para>
+
+<para
+>En las líneas de entrada <guilabel
+>Servicio/Archivo</guilabel
+> y <guilabel
+>Máquina/Usuario</guilabel
+> usted puede utilizar los comodines <literal
+>*</literal
+> y <literal
+>?</literal
+> del mismo modo que usted las utiliza en la línea de comandos. Las expresiones regulares no son reconocidas.</para>
+
+<para
+>Pulsando sobre el encabezamiento de una columna puede ordenar la lista según dicha columna. De este modo puede comprobar que archivo se abrió con más frecuencia, o qué usuario abrió la mayor parte de los archivos o lo que sea.</para>
+
+</sect2>
+
+
+<sect2 id="smb-stat-author">
+<title
+>Sección de autores</title>
+
+<para
+>Copyright del módulo 2000: Michael Glauche y A. Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para>
+
+<para
+>Originalmente escrito por Michael Glauche</para>
+
+<para
+>Encargado actual: A. Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para>
+
+<itemizedlist
+> <title
+>Colaboradores</title
+> <listitem
+><para
+>Conversión al applet de kcontrol:</para
+> <para
+>Matthias Hoelzer <email
+>hoelzer@physik.uni-wurzburg.de</email
+></para
+></listitem
+> <listitem
+><para
+>Uso de KProcess en lugar de popen, y más comprobación de errores:</para
+> <para
+>David Faure <email
+>David.Faure@insa-lyon.fr</email
+></para
+></listitem
+> <listitem
+><para
+>Conversión a kcmodule, añadidas las fichas 2,3,4, error corregido:</para
+> <para
+>Alexander Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Copyright de la documentación 2000 Alexander Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para>
+
+<para
+>Documentation traducida a docbook por Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+
+<para
+>Traducido por Pablo de Vicente <email
+>pvicentea@nexo.es</email
+></para>
+
+</sect2>
+</sect1>
+
+

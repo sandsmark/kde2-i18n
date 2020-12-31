@@ -1,0 +1,341 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&pixie;">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Danish "INCLUDE" > <!-- change language only here -->
+]>
+
+
+<book lang="&language;">
+<bookinfo>
+<title>&pixie; håndbog</title>
+<authorgroup>
+<author> <firstname>Jon</firstname> <surname>Fox</surname> <affiliation><address><email>jon.fox@bigfoot.com</email></address></affiliation> </author>
+
+<othercredit role="translator"><firstname>Erik Kjær</firstname><surname>Pedersen</surname><affiliation><address><email>erik@binghamton.edu</email></address></affiliation><contrib>Oversætter</contrib></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2001</year>
+<holder>Jon Fox</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2001-05-07</date>
+<releaseinfo>0.1.00</releaseinfo>
+
+<abstract>
+<para>Denne håndbog beskriver 1.0 af &pixie;, &kde;'s billedhåndtering. </para></abstract>
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>billede</keyword>
+<keyword>viser</keyword>
+<keyword>grafik</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Indledning</title>
+
+<para> <screenshot> <screeninfo>Et skærmaftryk af &pixie;:</screeninfo> <mediaobject> <imageobject> <imagedata fileref="pixie.png" format="PNG"/> </imageobject> <textobject> <phrase>Skærmaftryk</phrase> </textobject> </mediaobject> </screenshot> </para>
+
+<para>&pixie; er en billedhåndtering for &kde;. Den kan bruges som en simpel, hurtig viser og redigerer af billeder, men den kan også bruges til at håndtere et stort antal billed "miniaturer". Den  tilbyder for øjeblikket over 30 billedeffekter og udvidelser, så vel som ekstensiv farveredigering både for hele billedet og individuelle farver. Netdesignere vil find &pixie; særlig nyttig, da den kan spille animerede GIFer og understøtter gennemsigtighed. Den tilbyder også hurtig adgang til ofte brugte mapper, via dens "HotListe" mappe-bogmærke egenskab.</para>
+</chapter>
+
+<chapter id="getting-started">
+<title>Sådan kommer vi i gang</title>
+
+<para>Som de fleste &kde; programmer kan man starte &pixie; på forskellige måder:</para>
+
+<itemizedlist> <listitem><para>ved at skrive fra en kommandolinie</para></listitem> <listitem><para>ved at starte den fra &kde; programmenuen, eller </para></listitem> <listitem><para>ved at bruge &kde;'s <quote>træk-og-slip</quote> grænseflade.</para></listitem> </itemizedlist>
+<para>Alle tre beskrives i de næste sektioner.</para>
+
+<sect1 id="startup">
+<title>Start af &pixie;</title>
+<para>Når &pixie; starter er det første du ser et billedvindue med  Pixielogoet og nogle basale instruktioner:</para>
+
+<para> <screenshot> <screeninfo>Billedvindue</screeninfo> <mediaobject> <imageobject> <imagedata fileref="startup.png" format="PNG"/> </imageobject> <textobject> <phrase>Billedvindue</phrase> </textobject> </mediaobject> </screenshot> </para>
+
+<para>For at åbne og lukke Fremviser/Redigering vinduet med menuer og kontroller, <mousebutton>højre</mousebutton> klik billedvinduet. Et nyt Fremviser/Redigering vindue kommer frem, som beskrives udførligt i denne håndbog:</para>
+
+<screenshot> <screeninfo>Fremviser Redigering</screeninfo> <mediaobject> <imageobject> <imagedata fileref="pixie.png" format="PNG"/> </imageobject> <textobject> <phrase>Skærmaftryk dialog</phrase> </textobject> </mediaobject> </screenshot>
+
+<para>Bemærk at i modsætning til de fleste &kde; programmer er Fremviser/Redigering vinduet ikke hovedvinduet for &pixie;. Du kan klikke på <guibutton>luk vindue</guibutton> knappen foroven til højre af Fremviser/Redigering vinduet, og Pixie kører bare videre. Billedvinduet er det funktionelle center for Pixie, så når du lukker billedvinduet, afslutter du  Pixie. </para>
+</sect1>
+
+<sect1 id="drag-and-drop">
+<title>Træk og slip</title>
+<para>&pixie; bruger &kde;'s træk og slip protokol. Filer kan trækkes og droppes på &pixie; fra skrivebordet, fra  &konqueror; fil-og-netsøger, eller fra et fjernt ftp-sted åbnet i et af  &konqueror;'s vinduer. </para> </sect1>
+
+<sect1 id="command-line-options">
+<title>Kommando linie indstillinger</title>
+<para>Selvom &pixie; kan startes fra &kde; programmenuen eller fra en skrivebordsikon, kan den også åbnes fra kommandolinien i et  terminalvindue. Der er nogle få nyttige valg tilgængelige for at gøre dette.</para>
+
+<sect2 id="specify-a-file">
+<title>Angiv en fil</title>
+<para>Ved at angive stien og navnet på en bestemt fil, kan brugeren få Pixie til at åbne denne fil umiddelbart efter opstart. Her er et eksempel på at åbne en eksisterende billedfil med &pixie; fra kommandolinien:</para>
+
+<informalexample> <screen><prompt>%</prompt> <userinput><command>pixie</command> <filename>./docs/min-hund.png</filename></userinput></screen> </informalexample>
+
+<para>Hvis filen du skrev ikke eksisterer endnu, opretter &pixie; en ny blank fil for dig, og bruger det navn du skrev.</para>
+</sect2>
+
+
+<sect2 id="editing-files-on-the-internet">
+<title>Redigér en fil på internettet</title>
+
+<para>&pixie; kan ovenikøbet bruges til at åbne billedfiler på internettet, hvis du har en aktiv forbindelse til internettet for øjeblikket. For eksempel, skriv kommandoen vist nedenfor for at åbne &kde;'s  hjemmesides bannerbillede i &pixie;:</para>
+
+<informalexample> <screen>
+<prompt>% </prompt><userinput><command>pixie</command> <filename>http://www.kde.org/img/full_logo.jpg</filename></userinput></screen> </informalexample>
+
+</sect2>
+
+
+<sect2>
+<title>Andre kommandolinievalg</title>
+
+<para>Følgende kommandolinievalg er tilgængelige:</para>
+<variablelist> <varlistentry> <term><command>pixie</command> <option>--help</option></term> <listitem><para>giver en liste af de mest basale valg tilgængelige fra kommandolinien</para> </listitem> </varlistentry> <varlistentry> <term><command>pixie</command> <option>--help-qt</option></term> <listitem> <para>giver en liste af de valg der er tilgængelige for at ændre den måde Pixie virker gensidigt med Qt</para> </listitem> </varlistentry> <varlistentry> <term><command>pixie</command> <option>--help-kde</option></term> <listitem><para>giver en liste af de valg der er tilgængelige for at ændre den måde  &pixie; virker gensidigt med &kde;</para> </listitem> </varlistentry> <varlistentry> <term><command>pixie</command> <option>--help-all</option></term> <listitem><para>liste af alle &pixie;'s kommandolinievalg</para></listitem> </varlistentry> <varlistentry> <term><command>pixie</command> <option>--version</option></term> <listitem><para>giver version information for &Qt;, &kde;, og &pixie;.</para></listitem> </varlistentry> <varlistentry> <term><command>pixie</command> <option>-v</option></term> <listitem><para>samme som for <option>--version</option> ovenfor.</para></listitem> </varlistentry> </variablelist>
+
+</sect2>
+</sect1>
+
+
+<sect1 id="key-bindings">
+<title>Tastebindinger</title>
+
+<para>&pixie; adlyder følgende tastebindinger.</para> <para>Som ved de fleste &kde; programmer, kan disse taster brugerindstiles fra <guisubmenu>Udseende</guisubmenu> sektionen af <guimenu>Indstillinger</guimenu> på &kde;'s programmenu.</para>
+
+<informaltable pgwide="1">
+<tgroup cols="2">
+
+<thead> <row> <entry>Tastebinding</entry> <entry>Handling</entry> </row> </thead>
+
+<tbody> <row> <entry><keycombo action="simul">&Ctrl;<keycap>O</keycap></keycombo></entry> <entry><action>Åbner en billedfil og viser den i et nyt vindue.</action></entry> </row> <row> <entry><keycombo action="simul">&Ctrl;<keycap>S</keycap></keycombo></entry> <entry><action>Gemmer fil til disk.</action></entry> </row> <row> <entry><keycombo action="simul">&Ctrl;<keycap>P</keycap></keycombo></entry> <entry><action>Udskriver billedet.</action></entry> </row> <row> <entry><keycombo action="simul">&Ctrl;<keycap>A</keycap></keycombo></entry> <entry><action>Vælger alle billeder i Fremviser/Redigering listen.</action></entry> </row> <row> <entry><keycombo action="simul">&Ctrl;<keycap>C</keycap></keycombo></entry> <entry><action>Kopierer det valgte område</action> af billedet til &kde;'s klippebord.</entry> </row> <row> <entry><keycombo action="simul">&Ctrl;<keycap>V</keycap></keycombo></entry> <entry><action>Indsætter det valgte område</action> af billede  fra &kde; klippebordet.</entry> </row> </tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+</chapter>
+
+<chapter id="toolbar-menu-entries">
+<title>Værktøjslinie og menuindgange</title>
+
+<sect1 id="viewer-editor-toolbar">
+<title>Fremviser/Redigering værktøjslinie</title>
+
+<para>Fremviser/Redigering værktøjslinien består af følgende knapper:</para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="open-save-print.png" format="PNG"/></imageobject></inlinemediaobject> <action>Åbn billedfil fra disk, gem filer og udskriv billeder</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="toggle.png" format="PNG"/></imageobject></inlinemediaobject> <action>Skift billedvindue til det næste billede på listen</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="reload.png" format="PNG"/></imageobject> </inlinemediaobject> <action>Gå tilbage til den sidst gemte version af billedfilen</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="copy-paste.png" format="PNG"/></imageobject></inlinemediaobject> <action>Kopiér og indsæt</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="sharp-bright.png" format="PNG"/></imageobject></inlinemediaobject> <action>Justér skarphed og lyshed</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="scale.png" format="PNG"/></imageobject></inlinemediaobject> <action>Skalér eller spejl billedet</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="clone.png" format="PNG"/></imageobject></inlinemediaobject> <action>Opret en ny separat kopi af billedvinduet</action></para>
+
+</sect1>
+
+<sect1 id="file">
+<title><guimenu>Fil</guimenu>menu</title>
+
+<variablelist> <varlistentry> <term><anchor id="take-a-screenshot"/><menuchoice> <guimenu><accel>F</accel>il</guimenu><guimenuitem>Tag et skærmaftryk...</guimenuitem></menuchoice></term> <listitem> <para><action>Dette får et øjebliksbillede til at blive taget, enten af et enkelt vindue eller af hele skrivebordet.</action></para> <screenshot> <screeninfo>Skærmaftryk dialog</screeninfo> <mediaobject> <imageobject> <imagedata fileref="screenshot.png" format="PNG"/> </imageobject> <textobject> <phrase>Skærmaftryk dialog</phrase> </textobject> </mediaobject> </screenshot> <para>Man kan også afkrydse en boks i denne dialog for at skjule alle &pixie; vinduer fra det resulterende øjebliksbillede. Når du har  <quote>taget</quote> et billede på denne måde, kan du redigere og gemme resultatet med &pixie;.</para> </listitem> </varlistentry> <varlistentry> <term><anchor id="slideshow"/><menuchoice> <guimenu><accel>F</accel>il</guimenu><guimenuitem>Lysbilledshow...</guimenuitem> </menuchoice></term> <listitem> <para> <action>Dette kører et lysbilledshow med alle de billeder der er åbne. </action> Når dette menupunkt bliver lukket kommer der en dialog frem der beder dig angive hvor mange sekunder der skal være mellem billederne, og om du vil at lysbilledshowet skal gentage (i løkke) eller standse. </para> <para> Hvis du vil standse et lysbilledshow der er i løkke skal du bruge Filmenuen: du vil se at lysbilledshowshow indgangen er blevet ændret til <guimenuitem>Stop lysbilledshow</guimenuitem>. </para> </listitem> </varlistentry> <varlistentry> <term><anchor id="open"/><menuchoice> <shortcut><keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo></shortcut> <guimenu><accel>F</accel>il</guimenu><guimenuitem><accel>Å</accel>bn</guimenuitem> </menuchoice></term> <listitem><para><action>Denne kommando åbner en fil.</action> Den viser en åbn-fil dialogboks, der tillader dig at navigere filsystemet og vælge den fil du ønsker at åbne.</para> <para>Åbn-fil dialogen virker som en lille filhåndtering. Klik på mapper vist i det centrale vindue for at gå ind i den mappe, og få dens indhold vist. Der er en indgang/dropned boks der tillader dig at skrive placeringen og navnet på filen direkte. Ved at klikke på pilen i siden kan du vælge fra en dropned liste af nyligt brugte steder.</para> <screenshot> <screeninfo>Åbn-fil dialog</screeninfo> <mediaobject> <imageobject> <imagedata fileref="open.png" format="PNG"/> </imageobject> <textobject> <phrase>Åbn-fil dialog</phrase> </textobject> </mediaobject> </screenshot> <para> Nedenfor er der et filter hvori du enten kan skrive direkte, eller vælge fra en dropned liste af almindelige eller nylige filtertyper. Et filter tillader filer af en type af gangen at blive vist i det centrale vindue. </para> <para>For eksempel, hvis filteret <literal role="extension">*.png</literal> blev valgt, så er det kun filer med .png endelsen der er synlige i vinduet.</para> <para>Værktøjslinien i denne dialog har <guiicon>venstre</guiicon> og <guiicon>højre</guiicon> pileknapper, der lader brugeren flytte frem og tilbage gennem tidligere valgte mapper, så vel som en <guiicon>op</guiicon> pileknap til at gå op i mappetræet. </para> <para>Knappen med det lille hus tager brugeren til sin hjemmemappe.</para> <para>Knappen med de to pile kurvet ind i hinanden opdaterer visningen af den aktuelle mappe for at vise nye filer (og fjerne slettede filer) fra dialogens filvisning.</para> <para>Bogmærke knappen lader brugeren sætte et nyt bogmærke ved den aktuelle mappe, eller gå hen til en der blev sat tidligere.</para> <para>Endelig er der en dropned boks på værktøjslinien, med en liste af nogle ofte brugte mapper.</para> <note><para>Der er også en <guiicon>Åbn</guiicon> knap på <link linkend="viewer-editor-toolbar">værktøjslinien for Fremviser/Redigerer</link> vinduet.</para></note> </listitem> </varlistentry> <varlistentry> <term><anchor id="save"/><menuchoice> <shortcut><keycombo><keycap>Ctrl</keycap><keycap>S</keycap></keycombo></shortcut> <guimenu><accel>F</accel>il</guimenu><guimenuitem><accel>G</accel>em</guimenuitem></menuchoice></term> <listitem><para><action>Dette gemmer det aktuelle billede.</action> Hvis billedet allerede er blevet gemt, så vil dette overskrive den tidligere gemte billedfiluden at stille yderligere spørgsmål.</para> <para>Hvis det er første gang det nye billede bliver gemt vil <link linkend="save-as">"Gem som..."</link> dialogen komme frem.</para> <note><para>Der er også en <guiicon>Gem</guiicon> knap på <link linkend="viewer-editor-toolbar">værktøjslinien af Fremviser/Redigerer</link> vinduet.</para></note> </listitem> </varlistentry> <varlistentry> <term><anchor id="save-as"/><menuchoice> <guimenu><accel>F</accel>il</guimenu><guimenuitem>Gem <accel>S</accel>om</guimenuitem></menuchoice></term> <listitem> <para><action>Dette tillader et dokument at blive gemt under et nyt filnavn.</action> Dette gøres ved hjælp af fil dialogboksen beskrevet ovenfor i <link linkend="open">Åbn</link> sektionen af denne hjælpefil.</para> </listitem> </varlistentry> <varlistentry> <term><anchor id="print"/><menuchoice> <guimenu><accel>F</accel>il</guimenu><guimenuitem>Udskriv...</guimenuitem> </menuchoice></term> <listitem><para><action>Dette åbner en udskriftsdialog der tillader brugeren at angive, hvor, og hvordan man vil udskrive; om der skal udskrives i farve eller i gråskala.</action> Brugeren kan vælge mellem standard <command>lp</command> eller udskrive til en fil eller en brugerindstillet kommando. Udskriftsdialogen tilbyder også et valg mellem om man vil udskrive hele dokumentet eller kun visse sider.</para> <note><para>Der er også en <guiicon>Udskriv</guiicon> knap på <link linkend="viewer-editor-toolbar">værktøjslinien af Fremviser/Redigerer</link> vinduet.</para></note> </listitem></varlistentry> <varlistentry> <term><anchor id="exit"/><menuchoice> <guimenu><accel>F</accel>il</guimenu><guimenuitem>A<accel>f</accel>slut</guimenuitem> </menuchoice></term> <listitem> <para>Dette <action>lukker</action> &pixie;.</para></listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="edit-basics">
+
+<title><guimenu>Redigér</guimenu>menuen: Det basale</title>
+
+<variablelist> <varlistentry> <term><anchor id="copy"/><menuchoice> <shortcut><keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo></shortcut> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Kopiér</guimenuitem></menuchoice></term> <listitem><para><action>Dette kopierer det valgte billede  til KDE klippebordet, så det kan indsættes et andet sted.</action> Klippebordet er en egenskab ved KDE der virker usynligt for at give en måde at  overføre data mellem programmer.</para> <note><para>Der er også en Kopiér knap på <link linkend="viewer-editor-toolbar">værktøjslinien af Fremviser/Redigerer</link> vinduet.</para></note> </listitem> </varlistentry> <varlistentry> <term><anchor id="paste"/><menuchoice> <shortcut><keycombo><keycap>Ctrl</keycap><keycap>V</keycap></keycombo></shortcut> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Indsæt</guimenuitem></menuchoice></term> <listitem><para><action>Dette vil indsætte indholdet af klippebordet ved markørens position.</action>. Klippebordet er en egenskab ved KDE der virker usynligt for at give en måde at  overføre data mellem programmer.</para> <note><para>Der er også en <guiicon>Indsæt</guiicon> knap på <link linkend="viewer-editor-toolbar">værktøjslinien af Fremviser/Redigerer</link> vinduet.</para></note> </listitem> </varlistentry> <varlistentry> <term><anchor id="select-all"/><menuchoice> <shortcut><keycombo><keycap>Ctrl</keycap><keycap>A</keycap></keycombo></shortcut> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Vælg alt</guimenuitem></menuchoice></term> <listitem><para><action>Dette vil vælge alle filer på listen i Fremviser/Redigerer.</action></para></listitem> </varlistentry> <varlistentry> <term><anchor id="unselect-all"/><menuchoice> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Afvælg alt</guimenuitem></menuchoice></term> <listitem><para><action>Dette vil afvælge alle filer på listen i Fremviser/Redigerer.</action></para></listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="edit-advanced">
+<title><guimenu>Redigér</guimenu>menuen: Avanceret redigering</title>
+
+<variablelist> <varlistentry> <term><anchor id="crop"/><menuchoice> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Beskær</guimenuitem></menuchoice></term> <listitem> <para> Denne kommando <quote>beskærer</quote> billedet, <action>ved at skære alt væk udenfor et område du vælger.</action> Du vælger et område ved brug af musen i billedvinduet. Hvis du går over i Fremviser/Redigerer vinduet og vælge <menuchoice><guimenu>Redigér</guimenu> <guimenuitem>Beskær</guimenuitem></menuchoice>, så vil billedvinduet blive skåret ned til den valgte størrelse. Det resulterende beskårede billede kan så gemmes ved at bruge <link linkend="save-as">Gem som...</link> </para> </listitem> </varlistentry> <varlistentry> <term><anchor id="scale"/><menuchoice> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Skalér...</guimenuitem></menuchoice> </term> <listitem> <para><action>Denne kommando lader dig mindske eller øge billedet til en præcis størrelse.</action> Når Skalér... er valgt åbnes en Billedstørrelse dialog som tillader dig at angive den nøjagtige størrelse af billedet i piksler:</para> <screenshot> <screeninfo>Billedstørrelse dialog</screeninfo> <mediaobject> <imageobject> <imagedata fileref="image-size.png" format="PNG"/> </imageobject> <textobject> <phrase>Billedstørrelse dialog</phrase> </textobject> </mediaobject> </screenshot> <para> Det resulterende billede er ikke beskåret, men snarere skrumpet, til den  størrelse du vælger. Hvis du ønsker at skalere billedet proportionalt uden forvrængning, så må du beregne piksel forholdet der bliver indgivet, og sørge for at det passer med det nuværende forhold brugt af billedet. For at beregne dette manualt, skal man bemærke størrelsen vist i Billedstørrelse dialogen, dividere bredden med højden og bruge denne brøk som divisor når man indgiver de nye dimensioner.</para> <para>For eksempel, i Billedstørrelse dialogen ovenfor:</para> <para>bredde / højde = 800 / 600. For at bevare proportioner når billedet skrumpes til en bredde af 500 piksler, skal man dividere 500 med (800/600) for at få 375, så det nye piksel forhold skal være 500 gange 375.</para> <para>En enklere måde at skalere billeder proportionalt, ses nedenfor <link linkend="ten-larger">10% større</link> og <link linkend="ten-smaller">10% mindre</link>.</para> <para>Man kan også skalere et billede manuelt ved simpelthen at trække det nederste højre vindueshjørne af billedvinduet til den størrelse du ønsker og så gemme resultatet. </para> </listitem> </varlistentry> <varlistentry> <term><anchor id="ten-larger"/><menuchoice> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>10% større</guimenuitem> </menuchoice> </term><listitem> <para><action>Denne kommando skalerer billedet proportionalt til at være 10% større.</action> Ligesom <link linkend="scale">Skalér</link> kommandoen, er dette en enklere måde at skalere billedet op 10% af gangen.</para> <note><para>Der er også en <guiicon>Skalér 10% større</guiicon> knap på <link linkend="viewer-editor-toolbar">værktøjlinien i Fremviser/Redigerer</link> vinduet.</para></note> </listitem> </varlistentry> <varlistentry> <term><anchor id="ten-smaller"/><menuchoice> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>10% mindre</guimenuitem> </menuchoice> </term><listitem> <para><action>Denne kommando skalerer billedet proportionalt til at være 10% mindre.</action> Ligesom <link linkend="scale">Skalér</link> kommandoen, er dette en enklere måde at skalere billedet ned 10% af gangen.</para> <note><para>Der er også en Skalér 10% mindre knap på værktøjlinien i Fremviser/Redigerer vinduet.</para></note> </listitem> </varlistentry> <varlistentry> <term><anchor id="double-size"/><menuchoice> <shortcut><keycombo><keycap>></keycap></keycombo></shortcut> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Fordobl størrelse</guimenuitem> </menuchoice> </term><listitem> <para><action>Denne kommando skalerer billedet proportionalt til 100% større.</action> Ligesom <link linkend="scale">Skalér</link> kommandoen, er dette en enklere måde at skalere billedet  100% af gangen.</para> </listitem> </varlistentry> <varlistentry> <term><anchor id="half-size"/><menuchoice> <shortcut><keycombo><keycap></keycap></keycombo></shortcut> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Halvér størrelse</guimenuitem> </menuchoice> </term><listitem> <para><action>Denne kommando skalerer billedet proportionalt til 50% mindre.</action> Ligesom <link linkend="scale">Skalér</link> kommandoen, er dette en enklere måde at skalere billedet ned 50% af gangen.</para> </listitem> </varlistentry> <varlistentry> <term><anchor id="horiz-flip"/><menuchoice> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Vandret  spejling</guimenuitem> </menuchoice> </term><listitem> <para><action>Denne kommando "spejler" billedet med 180 grader, og producerer et vandret spejlbillede af originalen.</action> </para> <note><para>Der er også en <guiicon>Vandret spejling</guiicon> knap på værktøjslinien i Fremviser/Redigering vinduet.</para></note> </listitem> </varlistentry> <varlistentry> <term><anchor id="vert-flip"/><menuchoice> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Lodret spejling</guimenuitem> </menuchoice> </term><listitem> <para><action>Denne kommando "spejler" billedet med 180 grader, og producerer et lodret spejlbillede af originalen.</action> </para> <note><para>Der er også en <guiicon>Vandret spejling</guiicon> knap på værktøjslinien i Fremviser/Redigering vinduet.</para></note> </listitem> </varlistentry> <varlistentry> <term><anchor id="rotate-45"/><menuchoice> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Rotér 45 grader</guimenuitem> </menuchoice> </term><listitem> <para><action>Denne kommando roterer billedet 45 grader med uret.</action></para> </listitem> </varlistentry> <varlistentry> <term><anchor id="invert"/><menuchoice> <guimenu><accel>R</accel>edigér</guimenu><guimenuitem>Invertér</guimenuitem> </menuchoice> </term><listitem> <para><action>Denne kommando inverterer alle farver i billedet, og producerer et resultat ligesom en farvefilm negativ.</action> </para> </listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+
+<sect1 id="configure">
+
+<title><guimenu>Indstillings</guimenu>menuen</title>
+
+<para>Indstillingsmenuen: vil blive tilføjet i en fremtidig udgave af &pixie;</para>
+
+</sect1>
+
+<sect1 id="windows">
+
+<title><guimenu>Vinduer</guimenu> menu</title>
+
+<sect2 id="thumbnail-viewer">
+<title>Miniature fremviser</title>
+
+<variablelist> <varlistentry> <term><anchor id="thumbnail-viewer-overview"/><menuchoice> <guimenu><accel>V</accel>induer</guimenu><guimenuitem>Miniature fremviser</guimenuitem></menuchoice></term> <listitem> <para> Miniatureviseren lader dig bruge &pixie; som en effektiv billedhåndtering. &pixie; kan vise billedfiler som <quote>miniature billeder</quote>, hvilket tillader dig at gennemse og bruge et stort antal billeder på en gang. </para> <para>Her er miniaturefremviserens miniature fremvisningsvindue:</para> <screenshot> <screeninfo>Miniaturer</screeninfo> <mediaobject> <imageobject> <imagedata fileref="thumbnails.png" format="PNG"/> </imageobject> <textobject> <phrase>Miniaturefremviser</phrase> </textobject> </mediaobject> </screenshot> </listitem> </varlistentry> </variablelist>
+</sect2>
+
+<sect2 id="thumbnail-viewer-toolbar">
+<title>Miniaturefremviser værktøjslinie</title>
+
+<para>værktøjslinien indeholder</para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="options.png" format="PNG"/></imageobject></inlinemediaobject> <action>Indstillings menu (beskrevet nedenfor)</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="thumb-fm.png" format="PNG"/></imageobject></inlinemediaobject> <action>Filhåndteringsknaooer, til at flytte til forældre- og hjemmemapper</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="reload.png" format="PNG"/></imageobject> </inlinemediaobject> <action>Genindlæs knap til at genopfriske visningen af mappens indhold</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="thumbgen.png" format="PNG"/></imageobject></inlinemediaobject> <action>Generér miniaturer knap, til at generere miniaturebilleder i den viste mappe</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="new-win.png" format="PNG"/></imageobject></inlinemediaobject> <action>Nyt vindue knap, som opretter en ny kopi af det aktuelle miniaturevisnings vindue</action></para>
+
+<para><inlinemediaobject><imageobject><imagedata fileref="stop.png" format="PNG"/></imageobject></inlinemediaobject> <action>Hold op med at generere miniaturer. Nyttigt når det tager længere end forventet at lave et stort antal miniaturer!</action></para>
+
+</sect2>
+
+<sect2 id="options-menu">
+<title>Miniature indstillingsmenu</title>
+<para>Hvis du åbner mere end et &pixie; miniaturevindue, kan du trække og slippe mellem dem.</para>
+
+<para>Som vist ovenfor vil du få en basal visning af dine filer uden miniaturer når du først åbner for miniaturevisningen. Dette tillader mere effektiv navigering gennem dit filsystem. Når du åbner en mappe der har billedfiler som du gerne vil se som miniature, så klik</para>
+
+<para>Der er kun en menu i dette vindue: Indstillings menuknappen indbygget i værktøjslinien.</para>
+
+<variablelist> <varlistentry> <term><anchor id="sorting"/><menuchoice> <guimenu>Indstillinger</guimenu><guimenuitem>Sortering</guimenuitem></menuchoice> </term> <listitem> <para>Denne kommando sorterer miniaturer i stigende eller aftagende rækkefølge, baseret på filnavn, størrelse eller dato.</para> </listitem> </varlistentry> <varlistentry> <term> <anchor id="thumbnail-size"/><menuchoice> <guimenu>Indstillinger</guimenu><guimenuitem>Miniaturestørrelse</guimenuitem></menuchoice> </term> <listitem> <para>Denne kommando viser disse miniaturer i tre forskellige størrelser, og sorterer dem i stigende eller aftagende rækkefølge baseret på filnavn, størrelse eller dato. Du vil skulle generere miniaturer ved brug af knappen på <link linkend="thumbnail-viewer-toolbar"> Miniatureviser værktøjslinie</link> for hver størrelse du ønsker at se. Disse miniaturer gemmes, så når du har genereret miniaturebilleder for en mappe, er de der stadig næste gang du bruger din computer. Du vil kun behøve at regenerere hvis du tilføjer nye billeder til mappen.</para> </listitem> </varlistentry> <varlistentry> <term><anchor id="img-folder-only"/><menuchoice> <guimenu>Indstillinger</guimenu><guimenuitem>Kun billeder og mapper</guimenuitem></menuchoice></term> <listitem> <para>Denne kommando filtrerer alt andet end billedfiler og mapper væk fra miniatureviseren i højre side af miniaturevinduet. Dette kan være nyttigt hvis du har en masse dokumenter og billeder i samme mappe, men kun ønsker at se billedfiler i &pixie;.</para> </listitem> </varlistentry> </variablelist>
+
+</sect2>
+
+<sect2 id="using-thumb-viewer">
+<title>Brug af miniatureviseren</title>
+
+<para>Hvis du åbner mere end et Pixie miniaturevindue, ved brug af Nyt vindue knappen på <link linkend="thumbnail-viewer-toolbar">Miniatureviserens værktøjslinie</link>, kan du trække og slippe mellem dem.</para>
+
+
+<para>Venstre side af vinduet er en Mappetræ visning, der tillader dig at navigere manuelt i dine mapper i stedet for at klikke på mapper i netsøgervinduet.</para> <para>I toppen af Mappetræet kan man vælge at skifte mellem standard trævisning, eller bruge <link linkend="hotlist">"HotListen"</link>.</para>
+
+<para>I den nedre venstre del af miniatureviseren er der et forhåndsvisnings vindue. Klik "Aktivér forhåndsvisning" for at se et billede i fuld størrelse før du indlæser det i &pixie;'s hoved billedvindue. Et enkelt klik på et billede putter det i forhåndsvisningsvinduet; et dobbeltklik indlæser det i hoved billedvinduet.</para>
+
+<para>Den højre side af miniatureviseren er miniaturesøgeren. Man kan bruge dette vindue til at håndtere sine billeder: brug søgeren til at  vælge mapper, kopiere, flytte og omdøbe filer lige i miniaturesøgeren, ved brug enten af træk og slip eller via menuerne. &pixie; kan også virke gennemsigtigt med &kde;'s filhåndtering, &konqueror;. Træk simpelthen billedfilen fra trævisningen i &pixie; til mappen du får frem i  &konqueror; filhåndteringen.</para>
+</sect2>
+
+<sect2 id="hotlist">
+<title>&pixie;'s HotListe</title>
+
+<para>Din &RMB; lænker miniaturesøgervinduet til din HotListe, og giver dig øjeblikkeligt at kopiere et vilkårligt antal billeder til ofte brugte mapper. Du kan også bruge  &RMB; til at omdøbe og slette filer, eller poppe en hurtigvisning af filegenskaber.</para>
+
+<para>Som du kan se på dette skærmaftryk, er der et faneblad i den øverste venstre del af miniatureviseren hvor du kan vælge <quote>HotListe</quote> visningen. Hvis du gør det får du, i stedet for trævisningen:</para>
+
+<screenshot> <screeninfo>Hotliste</screeninfo> <mediaobject> <imageobject> <imagedata fileref="hotlist.png" format="PNG"/> </imageobject> <textobject> <phrase>Hotliste</phrase> </textobject> </mediaobject> </screenshot>
+
+<para>Mange brugere, især dem der tager sig af netsider, har masser af billeder at sortere gennem og organisere. HotListen kan gøre denne håndtering nemmere ved at lade dig markere ofte brugte mapper og holde dem let tilgængelige for kopiering og flytning af filer, skift til mapper, osv.</para>
+
+<para>En vilkårlig mappe kan puttes i HotListen. For at gøre dette klik simpelthen med &RMB; på mappen, vælg <guimenuitem>Tilføj til HotList gruppe</guimenuitem>, og du vil blive præsenteret for en dialog der beder om navnet på HotListe indgangen. Som standard vil navnet i HotListen være det samme som navnet på mappen, men du kan kalde det hvadsomhelst du har lyst til: ethvert tegn på  dit tastatur inkluderende mellemrum er tilladt.</para>
+
+<para>Når du er færdig, er det nemt at kopiere elle flytte ting til den mappe fra et vilkårligt sted på din computer ved at trække og slippe enten fra &pixie; vinduer eller fra &kde; filhåndteringen, &konqueror;. Du kan også få adgang til HotListen ved at bruge den højre museknap på filer: </para>
+
+<para>Du vil måske bruge HotListen til at give dig hurtig adgang til din hjemmeside, eller mapperne hvor du redigerer en masse billeder. Din hjemmemappe er altid i HotListen som standard.</para>
+
+<para>Når en mappe først er i HotListen, kan du enten kopiere eller flytte filer fra hvorsomhelst på din hårde disk ved at trække dem hen på et af punkterne. Klik på et punkt skifter dig til dette punkts mappe.</para>
+</sect2>
+
+<sect2 id="im-color-editor">
+<title>Billedfarve redigering</title>
+
+<variablelist> <varlistentry> <term><anchor id="image-color-editor"/><menuchoice> <guimenu><accel>V</accel>induer</guimenu><guimenuitem>Billedfarve redigering</guimenuitem></menuchoice></term> <listitem><para><action>Denne kommando lader dig redigere billed-vide farver præcist .</action> Her er et skærmaftryk af Billedfarve redigeringen:</para> <screenshot> <screeninfo>Billedfarve redigering</screeninfo> <mediaobject> <imageobject> <imagedata fileref="image-edit.png" format="PNG"/> </imageobject> <textobject> <phrase>Hotliste</phrase> </textobject> </mediaobject> </screenshot> <para> Du kan redigere billedomfattende farver både i RGB, Dual Kanal RGB (Gul, Cyan, og Magentarød), og HSV tilstande. Træk simpelthen gliderne indtil forhåndsvisningsbilledet når de rigtige billedomfattende farver. eller klik på <guibutton>plus</guibutton> og <guibutton>minus</guibutton> knapperne på hver side gliderne for at justere værdierne i små forøgelser. For at ændre lysheden af alle farver på en gang, brug <guibutton>Lysne</guibutton> og <guibutton>Dæmp</guibutton> knapperne i højre side. </para> <para> For at vende tilbage til den oprindelige farveværdi, så klik på Genindlæs knappen i venstre side af den relevante glider. For at vende alle farveværdierne tilbage til de oprindelige værdier, klik på Vend tilbage knappen i nederste højre side af  dialogen. </para> <para> Når du er tilfreds med dine nye billed-vide farver, så tryk på <guibutton>Færdig</guibutton> knappen, og billedvinduet vil så  vise resultaterne af dine farveredigeringer. </para> </listitem></varlistentry> </variablelist>
+</sect2>
+
+<sect2 id="ind-color-editor">
+<title>Den individuelle farveredigering</title>
+
+<variablelist> <varlistentry> <term><anchor id="indiv-color-editor"/><menuchoice> <guimenu><accel>V</accel>induer</guimenu><guimenuitem>Individuel farveredigering</guimenuitem></menuchoice> </term> <listitem><para><action>Denne kommando lader dig redigere billed-vide farver præcist .</action> Her er et skærmaftryk af Billedfarve redigeringen:</para> <para>Klik på denne kommando vil først starte en skanning af alle farver der er brugt i dit billedvindue, med dialogen <computeroutput>Finder alle farveværdier...</computeroutput>. For komplicerede billeder kan denne skanning tage nogle få øjeblikke, så var tålmodig. Når dette er ovre vil du se en palet af alle farver der er i brug:</para> <screenshot> <screeninfo>Individuel farveredigering</screeninfo> <mediaobject> <imageobject> <imagedata fileref="ind-color-edit.png" format="PNG"/> </imageobject> <textobject> <phrase>Hotliste</phrase> </textobject> </mediaobject> </screenshot> <para>Du kan redigere billedomfattende farver både i RGB og HSV tilstande, selv i ikke-palet høj-farve og sand-farve billeder. Vælg den individuelle farve du ønsker at redigere, og angiv den præcise værdi eller træk gliderne indtil den individuelle farve vist i billedvinduet når den rigtige farve. Alternativt kan du bruge justeringsknapperne til venstre for gliderne til at justere værdierne lidt af gangen. </para> <para>Klik på Vend tilbage knappen forneden til venstre for dialogen, for at vende alle farveværdier tilbage til de oprindelige værdier.</para> <para>Tryk på Færdig knappen, når du er tilfreds med dine nye billedomfattende farver.</para> </listitem> </varlistentry> </variablelist>
+
+</sect2>
+</sect1>
+
+<sect1 id="effects">
+
+<title><guimenu>Effekter</guimenu> menuen</title>
+<variablelist> <varlistentry> <term><anchor id="effects-command"/> <menuchoice><guimenu>Effek<accel>t</accel>er</guimenu> <guimenuitem>...</guimenuitem></menuchoice> </term> <listitem> <para>&pixie; understøtter for øjeblikket over 30 grafiske effekter som man kan anvende på sine billeder. De fleste kan anvendes enten på hele billedet, eller til blot et område i billedvinduet valgt med musen.</para> <para>For at understøtte disse effekter, bruger &pixie; en indstiksmekanisme til at indlæse effektfiltre dynamisk.</para> <para>Den bedste måde at lære at bruge disse indstik er at prøve dem: åbn billedfilen i billedvinduet, vælg en effekt fra menuen, og se resultatet. Nogle indstik tillader dig at justere en værdi anvendt på effekten. <guimenuitem>Hvirvel</guimenuitem> effekten, for eksempel får en dialog frem der beder dig <computeroutput>Venligst vælge hvirvelgraden</computeroutput>. Eksperimentér med forskellige værdier, og lær at bruge disse kraftige effekter.</para> </listitem> </varlistentry> </variablelist>
+</sect1>
+
+<sect1 id="help">
+
+<title><guimenuitem>Hjælp</guimenuitem>menuen</title>
+<variablelist> <varlistentry> <term><anchor id="contents"/><menuchoice> <shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut> <guimenu><accel>H</accel>jælp</guimenu><guimenuitem><accel>I</accel>ndhold</guimenuitem></menuchoice></term> <listitem><para>Dette starter &kde;'s  hjælpesystem startende ved &pixie;'s hjælpesider (dette dokument).</para> </listitem> </varlistentry> <varlistentry> <term><anchor id="report-bug"/><menuchoice> <guimenu><accel>H</accel>jælp</guimenu><guimenuitem><accel>R</accel>apportér problem...</guimenuitem></menuchoice></term> <listitem><para><action>Dette gør det let at rapportere problemer i Pixie tilbage til KDE udviklingsholdet.</action></para></listitem> </varlistentry> <varlistentry> <term><anchor id="about-pixie"/><menuchoice> <guimenu><accel>H</accel>jælp</guimenu><guimenuitem><accel>O</accel>m Pixie</guimenuitem></menuchoice></term> <listitem><para><action>Dette viser version og forfatterinformation</action></para></listitem> </varlistentry> <varlistentry> <term><anchor id="about-kde"/><menuchoice> <guimenu><accel>H</accel>jælp</guimenu><guimenuitem>Om <accel>K</accel>DE</guimenuitem></menuchoice></term> <listitem><para>Dette viser  &kde; versionen og anden basal information.</para></listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+
+</chapter>
+<chapter id="credits">
+<title>Medvirkende og licens</title>
+
+<para>&pixie;</para>
+<para> Program ophavsret 2001 Daniel M. DuLey, <email>mosfet@kde.org</email> </para>
+
+
+<para>Bidragere:</para>
+<itemizedlist> <listitem><para>&pixie; logo ved <email>artwiz@artramp.org</email></para> </listitem> </itemizedlist>
+
+<para>Dansk oversættelse ved Erik Kjær Pedersen <email>erik@binghamton.edu</email></para>
+
+&underFDL;
+
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title>Kompilering og installation</title>
+
+<sect1 id="getting-pixie">
+<title>Hvordan får man fat på Pixie</title>
+
+<para> Pixie er en del af &kde; projektet <ulink url="http://www.kde.org">http://www.kde.org</ulink>. Alle krævede biblioteker såvelsom Pixie selv kan findes i kdegraphics pakken på <ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, hoved &FTP;stedet for &kde; projektet. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title>Krav</title>
+
+<para> For at kunne bruge  &pixie;, skal du have &kde; 2.1. </para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title>Kompilering og installation</title>
+
+<para> For at kompilere og installere &pixie; på dit system, skriv følgende  i basismappen for &pixie; distributionen: <screen width="40">
+<prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command> <option>install</option></userinput>
+</screen> </para>
+
+<para>Da &pixie; bruger <command>autoconf</command> og <command>automake</command>, skulle du ikke have besvær med at kompilere den. Skulle du løbe ind i problemer, så rapportér dem til  &kde; epostlisterne.</para>
+
+</sect1>
+
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

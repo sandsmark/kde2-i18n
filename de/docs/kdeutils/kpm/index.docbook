@@ -1,0 +1,2362 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kpm;" 
+> <!-- this only *seems* redundant -->
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+ 
+  
+]>
+
+<book id="kpm" lang="&language;">
+
+<bookinfo>
+
+<title
+>Das &kpm;-Handbuch</title>
+
+<authorgroup>
+
+<author
+> <firstname
+>Morgan</firstname
+> <othername
+>N.</othername
+> <surname
+>Sandquist</surname
+> <affiliation
+> <address
+><email
+>morgan@pipeline.com</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Mario</firstname
+> <surname
+>Weilguni</surname
+> <affiliation
+> <address
+><email
+>mweilguni@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Mario</firstname>
+<surname
+>Weilguni</surname>
+<affiliation>
+<address
+><email
+>mweilguni@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname
+>Mattias</firstname>
+<surname
+>Engdeg&aring;rd</surname>
+<affiliation>
+<address
+><email
+>f91-men@nada.kth.se</email
+></address>
+</affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>vampyr@atconnex.net</email
+></address>
+</affiliation>
+<contrib
+>Korrektur</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Gregor</firstname
+><surname
+>Zumstein</surname
+><contrib
+>Deutsche Übersetzung</contrib
+><affiliation
+><address
+><email
+>zumstein@ssd.ethz.ch</email
+></address
+></affiliation
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Morgan N. Sandquist</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>2.00.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeadmin</keyword>
+<keyword
+>kpm</keyword>
+<keyword
+>Prozessmanager</keyword>
+<keyword
+>top</keyword>
+</keywordset>
+
+<abstract
+><para
+>&kpm; ist ein Dienstprogramm, das Informationen über Prozesse liefert und sie verwalten kann.</para
+></abstract>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einführung</title>
+
+<para
+>Das Dienstprogramm &kpm; zeigt unter Linux die Prozesse an und erlaubt, deren Parameter zu verändern. Weiterhin werden genaue Angaben über die laufenden Prozesse und die Systemressourcen angezeigt (z.B. die Auslastung des Prozessors, des Speichers, der Auslagerungsdatei oder die Gesamtlaufzeit des Systems, etc.). Mit &kpm; können Sie Prozesse beenden und ihre Priorität bei der Zuteilung von Prozessorzeit anpassen. Der Super-User (root) kann zusätzlich Änderungen des Prozess-Ablaufplans (scheduling) vornehmen.</para>
+
+<para
+>&kpm; beruht weitestgehend auf <ulink url="mailto:f91-men@nada.kth.se"
+>Mattias Engdeg&aring;rds</ulink
+> Programm <application
+>qps</application
+>. Der Hauptunterschied zwischen &kpm; und <application
+>qps</application
+> besteht in der Verwendung der KDE-Oberfläche. &kpm; ist konform mit den meisten KDE Standards: Einstellungen werden durch KDE-typische Konfigurationsdateien vorgenommen und das Programm besitzt Sitzungsmanagement. Einige Eigenschaften von <application
+>qps</application
+> wurden jedoch entfernt, <acronym
+>z.B.</acronym
+> die Möglichkeit, Arttabellen des Mac OS7 oder besondere Ankreuz-Elemente anzeigen zu lassen. </para>
+
+</chapter>
+
+<chapter id="using-kpm">
+<title
+>Benutzung von &kpm;</title>
+
+<sect1 id="kpm-start-up">
+<title
+>&kpm; Programmstart</title>
+
+<para
+>Beim Start zeigt &kpm; Auslastung, <acronym
+>CPU</acronym
+>-Nutzung, Speichernutzung, Nutzung der Auslagerungsdatei und Gesamtlaufzeit des Systems sowie eine zusammengefasste Ansicht der Prozesse an.</para>
+
+<screenshot
+> <screeninfo
+>&kpm; nach dem Start.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kpmstart.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>&kpm; nach dem Start.</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<sect2>
+<title
+>Erläuterungen zu den Anzeigefeldern</title>
+
+<screenshot
+> <screeninfo
+>&kpm; mit der Textanzeige.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kpmtext.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>&kpm; mit der Textanzeige</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<sect3>
+<title
+>Auslastungsanzeige</title>
+
+<para
+>Die <guilabel
+>Auslastungsanzeige</guilabel
+> zeigt die durchschnittliche Systemauslastung grafisch an. Genaue Zahlen erscheinen, wenn auf das Feld Auslastungsanzeige geklickt wird.</para>
+
+</sect3>
+
+<sect3>
+<title
+><acronym
+>CPU</acronym
+>-Anzeige</title>
+
+<para
+>Die <guilabel
+>cpu</guilabel
+>-Anzeige zeigt in Prozenten die <acronym
+>CPU</acronym
+>-Ressourcen an, die von <guilabel
+>Ben</guilabel
+>utzer-, <guilabel
+>nice</guilabel
+>- und <guilabel
+>Sys</guilabel
+>tem-Prozessen verwendet werden, sowie die <guilabel
+>Leerl.</guilabel
+> (nicht verwendeten) Ressourcen. Klicken Sie auf die <guilabel
+>CPU</guilabel
+>-Anzeige, um auf Textanzeige mit exakten Prozentwerten umzuschalten.</para>
+
+</sect3>
+
+<sect3>
+<title
+>Speicheranzeige</title>
+
+<para
+>Die <guilabel
+>Speicher</guilabel
+>-Anzeige zeigt den genutzten Speicher an. Die Anzeige ist unterteilt in <guilabel
+>gebr.</guilabel
+>(gebraucht), <guilabel
+>Puffer</guilabel
+>-, <guilabel
+>zwi</guilabel
+> (zwischengespeicherter) und <guilabel
+>frei</guilabel
+>en Speicher. Klicken Sie auf <guilabel
+>Spei</guilabel
+>, um die Anzeige auf exakte Zahlen (in Megabyte) einschließlich der Gesamtspeichermenge umzuschalten.</para>
+
+</sect3>
+
+<sect3>
+<title
+>Auslagerungsspeicheranzeige</title>
+
+<para
+>Die <guilabel
+>swap</guilabel
+>-Anzeige zeigt den Anteil des genutzten Auslagerungsspeichers. Klicken Sie auf <guilabel
+>swap</guilabel
+>, um auf eine Textanzeige mit der exakten Menge in Megabyte umzuschalten. Außerdem wird die Gesamtmenge an Auslagerungsspeicher angezeigt.</para>
+
+</sect3>
+
+<sect3>
+<title
+>Gesamtlaufzeit des Systems</title>
+
+<para
+>Die <guilabel
+>läuft-seit</guilabel
+>-Anzeige zeigt an, wie lange das System bereits läuft.</para>
+
+</sect3>
+
+</sect2>
+
+<sect2>
+<title
+>Prozessliste</title>
+
+<para
+>In der Standardeinstellung zeigt die Prozessliste die Benutzerfelder aller Prozesse an. Sie kann auch so eingestellt werden, dass sie nur eigene Prozesse, Nicht-Root-Prozesse oder alle laufenden Prozesse anzeigt. Außer den Benutzerfeldern können auch die Programm- oder Speicherfelder angezeigt werden. Schließlich ist es auch möglich, eine selbst zusammengestellte Felderliste anzeigen zu lassen. Ein Klick auf einen Spaltenkopf sortiert die Prozessliste nach dieser Spalte. Ein zweiter Klick auf die gleiche Spalte kehrt die Sortierreihenfolge um.</para>
+
+<sect3>
+<title
+>Benutzerfelder</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PID</guilabel
+></term
+> <listitem
+><para
+>Prozess-ID. Jedem Prozess wird eine eigene Prozess-Identifikations-Nummer (<acronym
+>PID</acronym
+>) zugeordnet. Diese Nummer ist 1 oder größer. Wird ein neuer Prozess gestartet, so erhält dieser die nächst höhere, unbenutzte <guilabel
+>PID</guilabel
+>-Nummer. <guilabel
+>PID</guilabel
+>-Nummern sind (momentan) "16bit signed" Integer-Werte und haben einen Wert von 0 bis 32767. Dies als Information für technisch Interessierte.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>USER</guilabel
+></term
+> <listitem
+> <para
+>Prozess-Benutzer. Hierbei handelt es sich um den (wirklichen) Benutzer, der den jeweiligen Prozess gestartet hat. Falls die tatsächliche Benutzer-ID eines Prozesses sich von der wirklichen Benutzer-ID unterscheidet, wird dies von &kpm; durch ein angehängtes <guilabel
+>*</guilabel
+> oder <guilabel
+>+</guilabel
+> gekennzeichnet. Der Stern zeigt an, dass der tatsächliche Benutzer der Super-User ist (genaugenommen zeigt er an, dass das Programm <filename
+>setuid</filename
+> "root" ist).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>PRI</guilabel
+></term
+> <listitem
+><para
+>Länge des nächsten Prozessor-Zeitintervalls. Dies ist die maximale Zeit, die einem Prozess beim nächsten Aktivieren zugewiesen werden kann. (oder die maximale Restzeit des laufenden Zeitintervalls, falls der Prozess zur Zeit bearbeitet wird). Die Zahl entspricht einem Wert innerhalb einer Skala von -20 bis +20, wobei kleinere Zahlen einem längeren Zeitintervall entsprechen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>NICE</guilabel
+></term
+> <listitem
+><para
+>Der Prozessprioritätswert. Der "nice"-Wert bestimmt, wie häufig und wie lange ein Prozess laufen darf. Der Wert selbst liegt zwischen -20 und +20, wobei 0 den Standardwert darstellt. Niedrigere Zahlen weisen einem Prozess mehr Prozessorzeit zu. Das Herabsetzen von "nice"-Werten ist ausschließlich dem Super-User vorbehalten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SIZE</guilabel
+></term
+> <listitem
+> <para
+>Virtuelle Größe des Prozesses (KBytes). Dies ist die Gesamtgröße des Prozesses. Dazu gehören der gesamte Prozesscode, die Daten und die gemeinsam genutzten Bibliotheken ("shared libraries") einschließlich der Seiten, die ausgelagert sind.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>RSS</guilabel
+></term
+> <listitem
+><para
+>"resident set size" (Größe in KBytes). Hierbei handelt es sich um die Größe des Prozessteils (Code, Daten und die gemeinsam genutzte Bibliotheken), der sich tatsächlich im RAM befindet. Dieser Wert ergibt eine gute Abschätzung der RAM-Menge, die ein Prozess verwendet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SHARE</guilabel
+></term
+> <listitem
+><para
+>Gemeinsam genutzter Speicher (Größe in KByte). Dieser Wert gibt die Speichermenge an, die sich ein Prozess mit anderen Prozessen teilt oder teilen könnte. Dabei sagt dies nicht aus, dass von dieser Speichermenge auch tatsächlich irgendein Teil von anderen Prozessen verwendet wird. Der Wert gibt lediglich an, wieviel Speicher mit anderen Prozessen geteilt werden kann.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>STAT</guilabel
+></term
+> <listitem
+><para
+>Zustand eines Prozesses. Ein Prozess befindet sich immer in einem der folgenden Zustände:</para
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+>R</guilabel
+></term
+> <listitem
+><para
+>(running): Der Prozess läuft auf der CPU oder ist bereit für die Ausführung.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>S</guilabel
+></term
+> <listitem
+> <para
+>(sleeping): Der Prozess wartet auf ein Ereignis (etwa auf eine Ein-/Ausgabe oder auf den Zeitgeber).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>D</guilabel
+></term
+> <listitem
+><para
+>(uninterruptable sleep): Der Prozess wartet auf ein Ereignis, ohne dass er hierbei unterbrochen werden kann (z.B. der Wartezustand eines Gerätetreibers).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>T</guilabel
+></term
+> <listitem
+><para
+>(stopped): Der Prozess wurde beendet oder wird durch einen anderen Prozess verfolgt ("traced").</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Z</guilabel
+></term
+> <listitem
+><para
+>(zombie): Der Prozess wurde beendet, ohne dass der übergeordnete "parent"-Prozess hiervon bislang Kenntnis genommen hat.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>W</guilabel
+></term
+> <listitem
+><para
+>Der Prozess wurde komplett auf die Festplatte ausgelagert (er besitzt keine im Speicher befindlichen Seiten mehr). Dies erfolgt auch bei Kernel-Prozessen, z.B. <filename
+>kswapd</filename
+>.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&percnt;CPU</guilabel
+></term
+> <listitem
+> <para
+>Prozentuale <acronym
+>CPU</acronym
+>-Last seit der letzten Aktualisierung. Dieser Wert gibt an, wieviel <acronym
+>CPU</acronym
+>-Zeit (in Prozent) ein Prozess seit der letzten Aktualisierung der Prozessliste verwendet hat.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&percnt;MEM</guilabel
+></term
+> <listitem
+><para
+>Prozentsatz des benutzten Speichers. Dieser Wert gibt an, welcher prozentuale Anteil des gesamten <acronym
+>RAM</acronym
+>-Speichers von einem Prozess verwendet wird (ausgehend vom Wert unter "rss"). Da gemeinsam genutzte Bibliotheken ebenfalls zu der Berechnung hinzugezählt werden, handelt es sich möglicherweise um einen zu hohen Wert.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TIME</guilabel
+></term
+> <listitem
+> <para
+>Verwendete Gesamt-<acronym
+>CPU</acronym
+>-Zeit. Dies gibt an, wieviel <acronym
+>CPU</acronym
+>-Zeit ein Prozess seit seinem Start gebraucht hat.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>CMDLINE</guilabel
+></term
+> <listitem
+> <para
+>Befehlszeile, die den Prozess aufgerufen hat. Dies ist die Befehlszeile inklusive eventueller Argumente, mit der ein Prozess erzeugt wurde. Ausgelagerte Prozesse werden mitunter nur durch den in Klammern gesetzten Befehlsnamen aufgeführt (dies gilt auch für Kernel-Prozesse).</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3>
+<title
+>Programmfelder</title>
+
+<screenshot
+> <screeninfo
+>&kpm; Programmfelder.</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kpmjobs.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>&kpm; Programmfelder.</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PID</guilabel
+></term
+> <listitem
+><para
+>Prozess-ID. Jedem Prozess wird eine eigene Prozess-ID-Nummer (<acronym
+>PID</acronym
+>) zugeordnet. Diese Nummer ist 1 oder größer. Wird ein neuer Prozess gestartet, so erhält dieser die nächst höhere, unbenutzte <guilabel
+>PID</guilabel
+>-Nummer. <guilabel
+>PID</guilabel
+>-Nummern sind (momentan) "16bit signed" Integer-Werte und haben einen Wert von 0 bis 32767. Dies als Information für technisch Interessierte.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>PPID</guilabel
+></term
+> <listitem
+><para
+>"Parent"-Prozess ID. Jeder Prozess wird einem übergeordneten Prozess, dem Eltern- oder "Parent"-Prozess zugeordnet. Die einzige Ausnahme ist hierbei der allererste Prozess <filename
+>init</filename
+> mit der PID-Nummer 1. Dieser Prozess stellt quasi die Wurzel des Prozessbaumes dar und besitzt daher keinen "Parent"-Prozess.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>PGID</guilabel
+></term
+> <listitem
+><para
+>Prozess-Gruppen ID. Jeder Prozess gehört zu einer Gruppe von Prozessen. Diese Gruppen werden für die Verteilung von Prozesssignalen verwendet. Sie werden ebenfalls von Terminals eingesetzt, um über ihre Eingabeaufforderungen zu entscheiden. Prozesse, die derselben Prozessgruppe angehören, dem auch das Terminal zugeordnet ist, befinden sich im Vordergrund und besitzen somit das Recht, Lesezugriffe zu tätigen. Prozesse, die einer anderen Gruppe angehören, werden blockiert und erzeugen ein Signal, falls sie dennoch versuchen, einen Lesezugriff zu unternehmen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SID</guilabel
+></term
+> <listitem
+><para
+>Sitzungs-ID. Sitzungs-IDs werden hauptsächlich eingesetzt, um festzulegen, was bei einem Absturz des Terminals geschehen ist.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TTY</guilabel
+></term
+> <listitem
+><para
+>Verwaltendes Terminal(<acronym
+>tty</acronym
+>). Das verwaltende Terminal ist üblicherweise das Gerät (seriell Schnittstelle, pty, <acronym
+>etc.</acronym
+>.), von dem aus Prozesse gestartet werden. Dieses Terminal wird gleichzeitig für Ein- und Ausgaben verwendet. &kpm; durchsucht das <filename
+>/dev</filename
+>-Verzeichnis, um den Namen des Terminals herauszufinden. Es sind jedoch nicht alle Prozesse einem verwaltenden Terminal zugeordnet. Daher kann diese Suche erfolglos verlaufen. Um Platz zu sparen, werden nur die letzten beiden Zeichen des tty-Namens angezeigt. Das Terminal <filename
+>/dev/ttyp6</filename
+> wird beispielsweise als <guilabel
+>p6</guilabel
+> angezeigt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TPGID</guilabel
+></term
+> <listitem
+><para
+>Prozess-Gruppen ID des <acronym
+>tty</acronym
+>-Prozesses. Jedes benutzte Terminal <acronym
+>tty</acronym
+> ist einem Prozess zugeordnet. Die Prozess-Gruppen ID dieses Prozesses wird unter TPGID angezeigt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>STAT</guilabel
+></term
+> <listitem
+><para
+>Zustand eines Prozesses. Ein Prozess befindet sich immer in einem der folgenden Zustände:</para
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+>R</guilabel
+></term
+> <listitem
+><para
+>(running): Der Prozess läuft auf der CPU oder ist bereit für die Ausführung.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>S</guilabel
+></term
+> <listitem
+><para
+>(sleeping): Der Prozess wartet auf ein Ereignis (etwa auf eine Ein-/Ausgabe oder auf den Zeitgeber).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>D</guilabel
+></term
+> <listitem
+><para
+>(uninterruptable sleep): Der Prozess wartet auf ein Ereignis, ohne dass er hierbei unterbrochen werden kann (z.B. der Wartezustand eines Gerätetreibers).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>T</guilabel
+></term
+> <listitem
+><para
+>(stopped): Der Prozess wurde beendet oder wird durch einen anderen Prozess verfolgt ("traced").</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Z</guilabel
+></term
+> <listitem
+><para
+>(zombie): Der Prozess wurde beendet, ohne dass der übergeordnete "parent"-Prozess hiervon bislang Kenntnis genommen hat.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>W</guilabel
+></term
+> <listitem
+><para
+>Der Prozess wurde komplett auf die Festplatte ausgelagert (er besitzt keine im Speicher befindlichen Seiten mehr). Dies erfolgt auch bei Kernel-Prozessen, z.B. <filename
+>kswapd</filename
+>.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>UID</guilabel
+></term
+> <listitem
+> <para
+>Numerische Benutzer-ID. Dies ist die ID des (wirklichen) Benutzers, dem der Prozess gehört.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TIME</guilabel
+></term
+> <listitem
+><para
+>Verwendete Gesamt-<acronym
+>CPU</acronym
+>-Zeit. Dies gibt an, wieviel <acronym
+>CPU</acronym
+>-Zeit ein Prozess seit seinem Start gebraucht hat.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>CMDLINE</guilabel
+></term
+> <listitem
+><para
+>Befehlszeile, die den Prozess aufgerufen hat. Dies ist die Befehlszeile inklusive eventueller Argumente, mit der ein Prozess erzeugt wurde. Ausgelagerte Prozesse werden mitunter nur durch den in Klammern gesetzten Befehlsnamen aufgeführt (dies gilt auch für Kernel-Prozesse).</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3>
+<title
+>Speicherfelder</title>
+
+<screenshot
+> <screeninfo
+>&kpm; Speicherfelder</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kpmmemory.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>&kpm; Speicherfelder</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PID</guilabel
+></term
+> <listitem
+> <para
+>Prozess-Identifikation. Jedem Prozess wird eine eigene Prozess-ID-Nummer (<acronym
+>PID</acronym
+>) zugeordnet. Diese Nummer ist 1 oder größer. Wird ein neuer Prozess gestartet, so erhält dieser die nächst höhere, unbenutzte <guilabel
+>PID</guilabel
+>-Nummer. <guilabel
+>PID</guilabel
+>-Nummern sind (momentan) "16bit signed" Integer-Werte und haben einen Wert von 0 bis 32767. Dies als Information für technisch Interessierte.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TTY</guilabel
+></term
+> <listitem
+> <para
+>Verwaltendes Terminal (<acronym
+>tty</acronym
+>). Das aktive Terminal (<acronym
+>tty</acronym
+>) ist üblicherweise das Gerät (seriell Schnittstelle, pty, <acronym
+>etc.</acronym
+>.), von dem aus Prozesse gestartet werden. Dieses Terminal wird gleichzeitig für Ein- und Ausgaben verwendet. &kpm; durchsucht das <filename
+>/dev</filename
+> Verzeichnis, um den Namen des Terminals herauszufinden. Es sind jedoch nicht alle Prozesse einem aktiven Terminal zugeordnet. Daher kann diese Suche erfolglos verlaufen. Um Platz zu sparen, werden nur die letzten beiden Zeichen des tty-Namens angezeigt. Das Terminal <filename
+>/dev/ttyp6</filename
+> wird beispielsweise als <guilabel
+>p6</guilabel
+> angezeigt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>MAJFLT</guilabel
+></term
+> <listitem
+> <para
+>Anzahl der aufgetretenen schwerwiegenden Fehler ("major faults"). Ein Seitenfehler ("page fault") tritt auf, wenn ein Prozess versucht, entweder lesend oder schreibend auf eine Speicherseite zuzugreifen, die sich nicht im <acronym
+>RAM</acronym
+> befindet. Es handelt sich um einen schwerwiegenden Seitenfehler, wenn ein Zugriff auf die Festplatte benötigt wird, z.B. für Auslagerungen oder das Einlesen von Speicherseiten.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>MINFLT</guilabel
+></term
+> <listitem
+> <para
+>Anzahl der aufgetretenen leichten Fehler ("minor faults"). Ein Seitenfehler ("page fault") tritt auf, wenn ein Prozess versucht, entweder lesend oder schreibend auf eine Speicherseite zuzugreifen, die sich nicht im <acronym
+>RAM</acronym
+> befindet oder versucht, auf eine Seite zu schreiben, auf die kein Schreibzugriff möglich ist. Es handelt sich um einen leichten Fehler, wenn hierbei kein Zugriff auf die Festplatte erfolgen muss, z.B. ein Schreibzugriff auf eine mit "copy-on-write" gemeinsam benutzte Seite ("shared page").</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TRS</guilabel
+></term
+> <listitem
+> <para
+>"Text resident set size" (Größe in KByte). Hierbei handelt es sich um die Größe des Prozesstextes (der ausführbare Programmcode), der sich momentan im <acronym
+>RAM</acronym
+> befindet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>DRS</guilabel
+></term
+> <listitem
+> <para
+>"Data resident set size" (Größe in KByte). Hierbei handelt es sich um die Größe der Prozessdaten (nicht ausführbarer Programmcode), der sich momentan im <acronym
+>RAM</acronym
+> befindet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SIZE</guilabel
+></term
+> <listitem
+> <para
+>Virtuelle Größe des Prozesses (KBytes). Dies ist die Gesamtgröße des Prozesses. Dazu gehören der gesamte Prozesscode, die Daten und die gemeinsam genutzten Bibliotheken ("shared libraries") einschließlich der Seiten, die ausgelagert sind.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SWAP</guilabel
+></term
+> <listitem
+> <para
+>Umfang der Auslagerung (in KByte). Dies ist die Differenz zwischen <guilabel
+>SIZE</guilabel
+> und <guilabel
+>RSS</guilabel
+>. Mit anderen Worten sagt dieser Wert, in welchem Umfang Teile des Prozesses auf die Festplatte ausgelagert wurden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>RSS</guilabel
+></term
+> <listitem
+> <para
+>"resident set size" (Größe in KBytes). Hierbei handelt es sich um die Größe des Prozessteils (Code, Daten und die gemeinsam genutzte Bibliotheken), der sich tatsächlich im RAM befindet. Man erhält eine gute Abschätzung der RAM-Menge, die ein Prozess verwendet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SHARE</guilabel
+></term
+> <listitem
+> <para
+>Gemeinsam genutzter Speicher (Größe in KByte). Dieser Wert gibt die Speichermenge an, die sich ein Prozess mit anderen Prozessen teilt oder teilen könnte. Dabei sagt dies nicht aus, dass von dieser Speichermenge auch tatsächlich irgendein Teil von anderen Prozessen verwendet wird. Der Wert gibt lediglich an, wieviel Speicher mit anderen Prozessen geteilt werden kann.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>DT</guilabel
+></term
+> <listitem
+> <para
+>Anzahl an "dirty pages". Hierbei ist die Anzahl an <acronym
+>RAM</acronym
+>-Seiten (nicht die Anzahl Bytes!) gemeint, die seit dem letzten Zugriff auf die Festplatte verändert wurden. "Dirty pages" müssen zuerst auf die Festplatte geschrieben werden, bevor sie wieder für andere Dinge freigegeben werden können.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>CMDLINE</guilabel
+></term
+> <listitem
+> <para
+>Befehlszeile, die den Prozess aufgerufen hat. Dies ist die Befehlszeile inklusive eventueller Argumente, mit der ein Prozess erzeugt wurde. Ausgelagerte Prozesse werden mitunter nur durch den in Klammern gesetzten Befehlsnamen aufgeführt (dies gilt auch für Kernel-Prozesse).</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3>
+<title
+>Andere Felder</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PLCY</guilabel
+></term
+> <listitem
+> <para
+>Prozess-Ablaufplan ("Scheduling policy"). <acronym
+>FIFO</acronym
+> (<guilabel
+>F</guilabel
+>) und "Round-Robin" (<guilabel
+>R</guilabel
+>) sind Echtzeit-Ablaufpläne; "OTHER" (<guilabel
+>O</guilabel
+>) ist der bei UNIX übliche Ablaufplan zur Verteilung der <acronym
+>CPU</acronym
+>-Zeit. <guilabel
+>F</guilabel
+>- und <guilabel
+>R</guilabel
+>-Prozesse haben eine Echtzeitpriorität zwischen 1 und 99. Nachdem "Round-Robin" Prozesse für die Dauer einer Zeitscheibe ("time-slice") gelaufen sind, werden sie auf die letzte Position innerhalb der Warteschlange ihres Prioritätslevels gesetzt. <acronym
+>FIFO</acronym
+> Prozesse laufen solange, bis sie den Prozessor freigeben (durch das Versetzen in den Ruhezustand oder durch Blockierung) oder durch einen Prozess mit einem höheren Prioritätslevel an der weiteren Bearbeitung gehindert werden. Nur der Super-User (root) darf den Ablaufplan ("scheduling policy") verändern.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>RPRI</guilabel
+></term
+> <listitem
+> <para
+>Echtzeit-Prioritätsstufen. Echtzeit-Prozesse (<acronym
+>FIFO</acronym
+> und "Round-Robin") werden Prioritätswerte zwischen 1 und 99 zugeordnet. Ein Prozess mit einer höheren Prioritätsstufe als ein anderer wird bei der Zuteilung der CPU-Zeit bevorzugt. Normale Prozesse, die CPU-Zeit mit anderen Prozessen teilen ("policy"-Wert <guilabel
+>O</guilabel
+>) besitzen alle den Prioritätslevel 0. Nur der Super-User (root) darf die Echtzeit-Prioritätsstufen ändern. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>FLAGS</guilabel
+></term
+> <listitem
+> <para
+>Prozess-Kennzeichner ("flags", hex). Bitte sehen Sie wegen Details im Programmcode des Linux-Kernels nach.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>WCHAN</guilabel
+></term
+> <listitem
+> <para
+>Art des Schlafens eines Prozesses. Wenn ein Prozess auf ein Ereignis wartet, so wird die Art des Wartens hier angezeigt (Um den Namen abzukürzen sind die Präfixe "do_" oder "sys_" entfernt).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&percnt;WCPU</guilabel
+></term
+> <listitem
+> <para
+>Durchschnittliche, prozentuale <acronym
+>CPU</acronym
+>-Last. Hierbei handelt es sich um den über die letzten 30 Sekunden gemittelten Prozentsatz der <acronym
+>CPU</acronym
+>-Zeit, die ein Prozess verwendet hat (exponentiell abnehmender Durchschnitt).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>START</guilabel
+></term
+> <listitem
+> <para
+>Anfangszeit des Prozesses. Dieser Wert gibt an, wann der Prozess erzeugt wurde.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>COMM</guilabel
+></term
+> <listitem
+> <para
+>Befehl, der den Prozess aufgerufen hat. In diesem Feld wird der Befehl (Dateiname) angezeigt, der den Prozess erzeugt hat. Zu lange Namen werden abgeschnitten.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="monitoring-resources">
+<title
+>Überwachen der Ressourcen</title>
+
+<para
+>In der Standardeinstellung zeigt &kpm; die Ressourcennutzung, einschließlich durchschnittlicher Auslastung, <acronym
+>CPU</acronym
+>-Nutzung, Speichernutzung, Nutzung der Auslagerungsdatei und Gesamtlaufzeit des Systems. Diese Daten werden in mehreren Feldern oberhalb der Prozessliste im Hauptfenster von &kpm; angezeigt. Diese Anzeigen können Sie durch Klicken auf <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Ressourcen-Informationen anzeigen</guimenuitem
+> </menuchoice
+> ein- und ausblenden. In der Standardeinstellung sind die Anzeigen grafisch, Sie können sie aber auf präzisere Textanzeigen umschalten, indem Sie auf die jeweilige Anzeige klicken oder die Einstellungen ändern unter <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Persönliche Einstellungen...</guimenuitem
+></menuchoice
+>.</para>
+
+</sect1>
+
+<sect1 id="monitoring-processes">
+<title
+>Prozesse überwachen</title>
+
+<para
+>&kpm; zeigt im Hauptfenster eine Liste der Prozesse des Linux Systems. Standardmäßig werden alle Prozesse angezeigt. Sie können die Anzeige durch das Menü <guimenu
+>Ansicht</guimenu
+>, wie <link linkend="view-processes"
+>hier</link
+> beschrieben, einschränken auf die eigenen Prozesse, Nicht-Root-Prozesse oder die laufenden Prozesse.</para>
+
+<para
+>&kpm; zeigt zu jedem Prozess verschiedene Informationen an. Standardmäßig handelt es sich um die wichtigsten Prozessfelder. Im Menü <guimenu
+>Ansicht</guimenu
+> kann die Anzeige auch umgeschaltet werden auf eine Feldmenge, die für die Ausführungsplanung oder die Speicherbenutzung wichtig ist oder auf eine selbst zusammengestellte Feldmenge. Eine genauere Beschreibung findet sich unter <link linkend="view-fields"
+>Prozessfelder</link
+>.</para>
+
+<para
+>Schließlich können Sie eine Liste der von einem Prozess geöffneten <acronym
+>TCP</acronym
+>- und <acronym
+>UDP</acronym
+>-Sockets anzeigen lassen. Wählen Sie dazu <menuchoice
+> <shortcut
+><keycombo
+> <keycap
+>Strg</keycap
+> <keycap
+>I</keycap
+> </keycombo
+></shortcut
+> <guimenu
+>Prozess</guimenu
+><guimenuitem
+>Socket-Information</guimenuitem
+> </menuchoice
+>. Sie können den gewünschten Prozess durch Klicken auf seinen Eintrag in der Prozessliste auswählen. Mehrere Prozesse wählen Sie aus, indem Sie die <keycap
+>Umschalt</keycap
+>-Taste gedrückt halten und auf jeden gewünschten Prozess klicken.</para>
+
+</sect1>
+
+<sect1 id="managing-processes">
+<title
+>Prozesse verwalten</title>
+
+<para
+>&kpm; beherrscht drei Arten der Prozessverwaltung:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Prioritätswert setzen...</term
+> <listitem
+><para
+>Durch das Setzen des Prioritätswertes kann der Besitzer eines Prozesses dessen Priorität ändern. Eine genauere Beschreibung findet sich <link linkend="renice"
+>hier</link
+>. Durch Auswahl von <menuchoice
+><shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>R</keycap
+> </keycombo
+></shortcut
+> <guimenu
+>Prozess</guimenu
+> <guimenuitem
+>Prioritätswert setzen...</guimenuitem
+> </menuchoice
+> können Sie die Priorität ihrer Prozesse herabsetzen. Der Super-User kann zusätzlich die Priorität aller Prozesse herauf- und herabsetzen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ablaufplan ändern</term
+> <listitem
+><para
+>Der Super-User kann wie unter <link linkend="change-scheduling"
+>Ablaufplan ändern</link
+> beschrieben, den Ablaufplan von Prozessen ändern. Wählen Sie dazu <menuchoice
+><shortcut
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>S</keycap
+> </keycombo
+></shortcut
+><guimenu
+>Prozess</guimenu
+> <guimenuitem
+>Ablaufplan ändern...</guimenuitem
+></menuchoice
+> aus dem Menü aus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Signale</term
+> <listitem
+><para
+>Sie können eines der unter <link linkend="posix-signals"
+>POSIX Signale</link
+> beschriebenen Signale an einen Ihrer Prozesse senden. Der Super-User kann zusätzlich jedes dieser Signale zu jedem Prozess senden. Sie senden ein Signal, indem Sie es aus dem Menü <guimenu
+>Signal</guimenu
+> auswählen, wie unter <link linkend="signal-menu"
+>Menü Signal</link
+> beschrieben.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Befehlsreferenz</title>
+
+<sect1 id="kpm-mainwindow">
+<title
+>Das &kpm; Hauptfenster</title>
+
+<sect2>
+<title
+>Das Menü Datei</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Minimieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Minimiert das Hauptfenster</action
+>. In diesem Modus benötigt &kpm; deutlich weniger Prozessorzeit da die Prozessliste nicht aktualisiert werden muss. Falls Sie <filename
+>KWin</filename
+> als Windowmanager verwenden und die Option "An Kontrolleiste andocken" gewählt haben, sehen Sie ein kleines Symbol in der <application
+>Kontrolleiste</application
+>, das die durchschnittliche Systemauslastung darstellt. Bei anderen Windowmanagern wie fvwm zeigt das Symbol von &kpm; selbst die Systemauslastung an. Diese Darstellung hängt jedoch davon ab, wie der Windowmanager konfiguriert wurde.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Beendet</action
+> &kpm; (das Schließen des Hauptfensters führt ebenfalls zum Beenden von &kpm;).</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Das Menü Ansicht</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>U</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Prozessliste auffrischen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dieser Menüpunkt führt zu einer sofortigen Aktualisierung der Prozeßliste.</action
+> Dies ist besonders hilfreich, wenn Sie lange Zeitintervalle zwischen den automatischen Aktualisierungen ausgewählt haben. Eine sofortige Aktualisierung wird ebenfalls durch Drücken des Knopfes <guibutton
+>Prozessliste auffrischen</guibutton
+> in der Werkzeugleiste oder durch das Drücken der <keycap
+>Leertaste</keycap
+> erreicht.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term id="view-processes"
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Alle Prozesse</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt alle Prozesse an.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Eigene Prozesse</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt die vom aktuellen Benutzer gestarteten Prozesse an.</action
+> Das schließt die Prozesse ein, die unter einer anderen Benutzerkennung ausgeführt werden (z.B. <filename
+>setuid</filename
+> Super-User Programme, die vom Benutzer aufgerufen wurden).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Nicht-Root Prozesse</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt alle Prozesse außer denen des Super-Users an.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Laufende Prozesse</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Zeigt nur laufende Prozesse an (laufende oder solche, die sich in der Warteschlange für laufende Prozesse befinden).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term id="view-fields"
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Benutzerfelder</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Diese Prozessliste zeigt die wichtigsten Prozessfelder an, wie sie auch vom Programm <application
+>top </application
+> angezeigt werden.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Programmfelder</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt die wichtigsten Felder für die Prozessverwaltung("Job-Control") an.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Speicherfelder</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt Informationen über die Auslastung des Speichers, aufgetretene Seitenfehler (page faults) etc. an.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Felder auswählen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Sie können hier eine eigene Auswahl von Feldern zur Anzeige festlegen.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Das Menü Prozess</title>
+
+<variablelist
+> <varlistentry id="renice"
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+><keycap
+>Strg</keycap
+><keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>rozess</guimenu
+> <guimenuitem
+>Prioritätswert setzen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Hiermit kann die Priorität eines oder mehrerer ausgewählter Prozesse verändert werden.</action
+> Unter Linux wird jedem Prozess ein Prioritätswert (der "nice"-Wert) von -20 (höchste Priorität) bis +20 (geringste Priorität) zugeordnet. Somit führt ein größerer Prioritätslevel dazu, dass ein Prozess weniger Prozessorzeit zugeteilt bekommt. Sie dürfen jedoch nur als Super-User die Prioritätswerte verringern, um die Priorität eines Prozesses zu erhöhen. Das bedeutet, dass Sie als normaler Benutzer die Prozesspriorität nicht erhöhen dürfen - selbst, wenn Sie sie zuvor gesenkt hatten Natürlich haben Sie nur die Möglichkeit, die Priorität Ihrer eigenen Prozesse zu verändern. Als Super-User dürfen Sie die Priorität jedes Prozesses modifizieren und auch die Priorität eines Prozesses heraufsetzen.</para
+></listitem
+> </varlistentry
+> <varlistentry id="change-scheduling"
+> <term
+><menuchoice
+> <guimenu
+><accel
+>P</accel
+>rozess</guimenu
+> <guimenuitem
+>Ablaufplan ändern...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Diese Möglichkeit besitzt nur der Super-User. Mit Hilfe dieses Menüpunktes kann der Super-User den Ablaufplan (Scheduling) der ausgewählten Prozesse verändern.</action
+> Dazu werden die Posix.1b Real-Time-Erweiterungen eingesetzt, die in Linux-Kerneln ab Version 2.0.x vorhanden sind. Normale Prozesse werden auf den Wert <filename
+>SCHED_OTHER</filename
+> gesetzt und erhalten die statische Priorität 0; "soft" Real-Time Prozesse haben den Wert <filename
+>SCHED_FIFO</filename
+> oder <filename
+>SCHED_RR</filename
+> und eine statische Priorität zwischen 1 und 99.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>I</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>rozess</guimenu
+> <guimenuitem
+>Socket-Information</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Zeigt eine Liste der TCP und UDP Sockets an, die von den ausgewählten Prozessen verwendet werden.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="signal-menu">
+<title
+>Das Menü Signal</title>
+
+<para
+>Über die einzelnen Menüpunkte des Signal-Menüs können Sie Signale an alle ausgewählten Prozesse senden. Seien Sie jedoch vorsichtig hierbei - besonders, wenn Sie mehrere Prozesse ausgewählt haben. Eine Erklärung der Standard-POSIX-Signale finden sich <link linkend="posix-signals"
+>hier</link
+>.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>T</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>ignal</guimenu
+> <guimenuitem
+>Beenden (terminate)</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Sendet das Signal <errorcode
+>SIGTERM</errorcode
+> an die ausgewählten Prozesse.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>S<accel
+>i</accel
+>gnal</guimenu
+> <guimenuitem
+>Aufhängen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Sendet das Signal <errorcode
+>SIGHUP</errorcode
+> an die ausgewählten Prozesse.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Signal</guimenu
+> <guimenuitem
+>Unterbrechen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Sendet das Signal <errorcode
+>SIGINT</errorcode
+> an die ausgewählten Prozesse.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>K</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Signal</guimenu
+> <guimenuitem
+>Beenden(kill)</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Sendet das Signal <errorcode
+>SIGKILL</errorcode
+> zu den ausgewählten Prozessen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Signal</guimenu
+> <guimenuitem
+>Andere</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt eine Liste weiterer Signale, die Sie an die ausgewählten Prozesse senden können.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Das Einstellungenmenü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Werk<accel
+>z</accel
+>eugleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Blendet die Werkzeugleiste ein und aus.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>efehlspfad anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Blendet den Befehlspfad im <guilabel
+>CMDLINE</guilabel
+>-Feld der Prozessliste ein und aus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>essourcen-Informationen anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Blendet die Ressourcenanzeigen ein und aus.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Einstellungen s<accel
+>p</accel
+>eichern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert die aktuellen Einstellungen.</action
+> Diese werden jedesmal beim Start von &kpm; angewandt, bis sie von neuen Einstellungen überschrieben werden.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Persönliche <accel
+>E</accel
+>instellungen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet einen Dialog</action
+>, der die Änderung der Einstellungen von &kpm; erlaubt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>uffrischrate...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet einen Dialog zur Einstellung der Auffrischrate.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="signals">
+<title
+>Signale</title>
+
+<para
+>Die folgenden Signale werden auf der Manualseite <filename
+>signal(7)</filename
+> ausführlich erklärt. Sie können diese Manualseite folgendermaßen aufrufen:</para>
+
+<screen>
+<prompt
+>%</prompt
+> 
+<userinput
+><command
+>man</command
+><option
+>7 signal</option
+></userinput>
+</screen>
+
+<sect1 id="posix-signals">
+<title
+>POSIX-Signale</title>
+
+<para
+>Folgende Signale gehören zum POSIX-Standard und können von &kpm; gesendet werden:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><errorcode
+>SIGHUP</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Entweder wurde durch das verwaltende Terminal ein Absturz erkannt oder der aktive Prozess wurde unvorhergesehenerweise beendet.</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGINT</errorcode
+></term
+> <listitem
+><para
+><errorname
+>"Unterbrechung", durch die Tastatur aufgerufen.</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGQUIT</errorcode
+></term
+> <listitem
+><para
+><errorname
+>"Beenden", durch die Tastatur aufgerufen.</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGILL</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Unberechtigt aufgerufener Prozessorbefehl.</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGABRT</errorcode
+></term
+> <listitem
+><para
+>"Abbrechen"-Signal von "abort(3)".</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGFPE</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Gleitkomma-Fehler.</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGKILL</errorcode
+></term
+> <listitem
+><para
+>"Kill"-Signal.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGSEG</errorcode
+></term
+> <listitem
+><para
+>Ungültige Speicherreferenz.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGPIPE</errorcode
+></term
+> <listitem
+><para
+>Unterbrechung des Signalflusses: "Broken pipe: write to pipe with no readers".</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGALRM</errorcode
+></term
+> <listitem
+><para
+>Zeitgebersignal des Alarms (1).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGTERM</errorcode
+></term
+> <listitem
+><para
+>Terminationssignal.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGUSR1</errorcode
+></term
+> <listitem
+><para
+>Benutzer-definiertes Signal 1.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGUSR2</errorcode
+></term
+> <listitem
+><para
+>Benutzer-definiertes Signal 2.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGCHLD</errorcode
+></term
+> <listitem
+><para
+>Untergeordneter "Child"-Prozess wurde angehalten oder beendet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGCONT</errorcode
+></term
+> <listitem
+><para
+>Fortsetzen, falls angehalten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGSTOP</errorcode
+></term
+> <listitem
+><para
+>Prozess anhalten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGTSTP</errorcode
+></term
+> <listitem
+><para
+>Aufforderung zum Anhalten wurde am Terminal tty eingegeben.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGTTIN</errorcode
+></term
+> <listitem
+><para
+>Eingabe für einen Hintergrundprozess vom Terminal tty.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGTTOU</errorcode
+></term
+> <listitem
+><para
+>Ausgabe für einen Hintergrundprozess vom Terminal tty.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="other-signals">
+<title
+>Andere Signale</title>
+
+<para
+>Die folgenden Signale sind weder durch POSIX definiert noch bislang durch &kpm; verfügbar:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><errorcode
+>SIGTRAP</errorcode
+></term
+> <listitem
+><para
+>"Trace/breakpoint trap" - Die Falle zum Aufspüren oder für Unterbrechungen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGIOT</errorcode
+></term
+> <listitem
+><para
+>"IOT trap". Diese Falle ist ein Synonym für SIGABRT.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGBUS</errorcode
+></term
+> <listitem
+><para
+>Bus-Fehler.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorname
+>SIGSYS</errorname
+></term
+> <listitem
+><para
+>Ungültiges Argument wurde an die Routine (SVID) übergeben.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorname
+>SIGSTKFLT</errorname
+></term
+> <listitem
+><para
+>Stackfehler des Koprozessors.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGURG</errorcode
+></term
+> <listitem
+><para
+>Dringende Bedingung/Situation am Socket (4.2 BSD).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGIO</errorcode
+></term
+> <listitem
+><para
+>I/O ist jetzt möglich (4.2 BSD).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGPOLL</errorcode
+></term
+> <listitem
+><para
+>Synonym für SIGIO (System V).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGCLD</errorcode
+></term
+> <listitem
+><para
+>Synonym für SIGCHLD.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGXCPU</errorcode
+></term
+> <listitem
+><para
+>Zeitbegrenzung der CPU überschritten (4.2 BSD).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGXFSZ</errorcode
+></term
+> <listitem
+><para
+>Größenbegrenzung für die Datei überschritten (4.2 BSD).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGVTALRM</errorcode
+></term
+> <listitem
+><para
+>Virtueller Wecker (4.2 BSD).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGPROF</errorcode
+></term
+> <listitem
+><para
+>Profil-Wecker.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGPWR</errorcode
+></term
+> <listitem
+><para
+>Fehler in der Stromversorgung (System V).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGINFO</errorcode
+></term
+> <listitem
+><para
+>Synonym für SIGPWR.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGLOST</errorcode
+></term
+> <listitem
+><para
+>Datei-Sperre verloren.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGWINCH</errorcode
+></term
+> <listitem
+><para
+>Signal für die Veränderung der Fenstergröße (4.3 BSD, Sun).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGUNUSED</errorcode
+></term
+> <listitem
+><para
+>Nicht verwendetes Signal.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="faq">
+<title
+>Fragen und Antworten</title>
+
+<qandaset id="questions-and-answers">
+<qandaentry>
+<question
+><para
+>Warum stürzt &kpm; gelegentlich mit einem Segmentverletzungsfehler ab?</para
+></question>
+<answer
+><para
+>Dies geschieht, wenn mehr als ein Prozess gewählt wurde und die Tabelle aktualisiert wird. Der Grund für diesen Absturz ist bislang nicht bekannt.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Warum benötigt &kpm; so viel <acronym
+>CPU</acronym
+>-Zeit?</para
+></question>
+<answer
+><para
+>Wenn Sie &kpm; so einstellen, dass die Prozessliste häufig aktualisiert wird, so kann das Programm die Belastung der <acronym
+>CPU</acronym
+> erheblich erhöhen. Beispielsweise wird auf einem Rechner mit einem AMD K6PR200-Prozessor dieser zu ca. 5 Prozent ausgelastet, wenn die Zeitspanne zwischen den Aktualisierungen auf eine Sekunde gestellt wird. Die tatsächliche Belastung hängt jedoch stark von der Anzahl aller Prozesse ab (nicht nur der angezeigten) und kann mitunter deutlich höher ausfallen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Warum zeigt die &percnt;CPU-Anzeige falsche Daten?</para
+></question>
+<answer
+><para
+>Der "&percnt;CPU"-Wert ist bei sehr kurzen Aktualisierungsintervallen nicht präzise, da der Zeitgeber zu ungenau ist.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Warum zeigt das <guilabel
+>WCHAN</guilabel
+>-Feld falsche Werte?</para
+></question>
+<answer
+><para
+>Das <guilabel
+>WCHAN</guilabel
+>-Feld ist fehlerhaft, falls ein ruhender Prozess sich an einer Stelle ausserhalb der in der Datei <filename
+>System.map</filename
+> definierten befindet. In diesen Fällen wird der letzte Eintrag in der Datei <filename
+>System.map</filename
+> angezeigt (meistens so etwas wie <guilabel
+>_end</guilabel
+>).</para
+> </answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Warum erscheinen geklonte PIDs nicht in &kpm;?</para
+></question>
+<answer
+><para
+>&kpm; kann nicht mehr als einen Prozess mit der gleichen PID verwalten. Dieser Zustand tritt ein, wenn <filename
+>CLONE_PID</filename
+> mit dem Systemaufruf <filename
+>clone()</filename
+> verwendet wird.</para
+></answer>
+</qandaentry>
+
+</qandaset>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>&kpm;</para>
+
+<para
+>Programm Copyright 2000 Mario Weilguni <email
+>mweilguni@kde.org</email
+> und Mattias Engdeg&aring;rd <email
+>f91-men@nada.kth.se</email
+>.</para>
+
+
+<para
+>Dokumentation Copyright 2000 Morgan N. Sandquist <email
+>morgan@pipeline.com</email
+> und Mario Weilguni <email
+>mweilguni@kde.org</email
+>.</para>
+<para
+>Deutsche Übersetzung der Dokumentation Frank Schütte<email
+>F.Schuette@t-online.de</email
+>.</para>
+
+&underFDL;
+
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kpm">
+<title
+>Woher Sie &kpm; erhalten</title>
+
+<para
+>&kpm; ist Teil des <ulink url="http://www.kde.org/"
+>KDE-Projekts</ulink
+>.</para>
+
+<para
+>&kpm; gehört zum Paket KDE Dienstprogramme (kdeutils) auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, der ftp-Seite des KDE-Projekts.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen für &kpm;</title>
+
+<para
+>Folgende Voraussetzungen sind nötig, um &kpm; zu kompilieren:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Das Betriebssystem Linux mit Kernel Version 2.0 oder höher. &kpm; basiert auf dem <filename
+>proc</filename
+> Dateisystem von Linux. Leider ist dieses System nicht auf andere Betriebssysteme übertragbar, da scheinbar jedes UNIX-System einen eigenen Weg geht, um Informationen über Prozesse zu sammeln.</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilierung und Installation</title>
+
+<para
+>Geben Sie folgende Befehle im Hauptverzeichnis der &kpm;-Distribution ein, um &kpm; zu kompilieren und installieren:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make install</command>
+</screen>
+
+<para
+>Da &kpm; <application
+>autoconf</application
+> und <application
+>automake</application
+> verwendet, sollten beim Kompilieren keine Probleme auftauchen. Falls doch, teilen Sie Ihr Problem bitte auf den KDE-Mailinglisten mit.</para>
+
+</sect1>
+
+</appendix>
+
+
+&documentation.index; 
+</book>
+

@@ -1,0 +1,859 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&karm;">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &karm;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+> <address
+><email
+>jsinger@leeta.net</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Sirtaj</firstname
+> <othername
+>Singh</othername
+> <surname
+>Kang</surname
+> <affiliation
+><address
+><email
+>taj@kde.org</email
+></address
+></affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<contrib
+>Gegengelesen von</contrib>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Gregor</firstname
+><surname
+>Zumstein</surname
+><contrib
+>Deutsche Übersetzung</contrib
+><affiliation
+><address
+><email
+>zumstein@ssd.ethz.ch</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Jonathan Singer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-05</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract
+><para
+>&karm; misst die Zeit, die für verschiedene laufende Aufgaben benötigt wird.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>karm</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>zeit</keyword>
+<keyword
+>verfolger</keyword>
+<keyword
+>projekt</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+>&karm; misst die Zeit, die für verschiedene Aufgaben aufgewendet wird. Das Programm ist nützlich, wenn die für verschiedene Kunden aufgewendeten Stunden verrechnet werden müssen oder einfach nur, wenn Sie wissen möchten, wieviele Stunden am Tag Sie Doom spielen oder den Heise-Newsticker lesen.</para>
+
+<para
+>&karm; wurde von Sirtaj Singh Kang geschrieben und bedeutet in seiner Muttersprache Pandschabi "Arbeit".</para>
+
+</chapter>
+
+
+<chapter id="using-Karm">
+<title
+>Wie benutze ich &karm;</title>
+
+<sect1 id="starting">
+<title
+>Starten von &karm;</title>
+
+<para
+>Geben Sie <userinput
+><command
+>karm</command
+></userinput
+> an der Befehlszeile ein oder wählen Sie <guimenuitem
+>Persönlicher Zeiterfassung</guimenuitem
+> aus der Gruppe <guisubmenu
+>Dienstprogramme</guisubmenu
+> im <guimenu
+>KDE Startmenü </guimenu
+>. Die Standard-Befehlszeilenoptionen von Qt und KDE sind verfügbar und können mit dem Befehl <command
+>karm <option
+>--help</option
+></command
+> auf der Befehlszeile abgefragt werden.</para>
+
+</sect1>
+
+<sect1 id="general-use">
+<title
+>Allgemeine Vorgehensweise beim Gebrauch von &karm;</title>
+
+<para
+>Geben Sie die verschiedenen Aufgaben ein, die Sie verfolgen möchten.</para>
+<para
+>Um die Zeitmessung für eine Aufgabe zu starten, machen Sie einen Doppelklick auf die Aufgabe, wählen Sie <guimenuitem
+>Start</guimenuitem
+> aus dem <guimenu
+>Stoppuhr</guimenu
+>-Menü oder drücken Sie das <guiicon
+>Start</guiicon
+>-Symbol in der Werkzeugleiste. Wiederholen Sie diesen Vorgang, um die Zeitmessung zu beenden.</para>
+
+<para
+>Es können mehrere Aufgaben gleichzeitig gemessen werden.</para>
+
+<para
+>Aufgaben können beim Beenden von &karm; gespeichert und beim nächsten Gebrauch automatisch wieder geladen werden.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="interface">
+<title
+>Die Benutzeroberfläche von &karm;</title>
+
+<para
+>Das Hauptfenster von &karm; besteht aus den folgenden Komponenten: Menüleiste, Werkzeugleiste, Zeit/Aufgaben-Fenster und Statusleiste.</para>
+
+<screenshot
+> <screeninfo
+>&karm; Anzeige</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="karm.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>&karm; Anzeige</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<sect1 id="main-window">
+<title
+>Das Zeit/Aufgaben-Fenster</title>
+
+<para
+>Hier werden die verschiedenen Aufgaben angezeigt inklusive der mit dieser Aufgabe verbrachten Zeit (aktuelle Sitzung und total). Aufgaben, die gemessen werden, haben ein kleines Symbol in der Spalte Sitzungszeit.</para>
+
+<para
+>Für jede Aufgabe können Unteraufgaben erstellt werden. Ein Doppelklick auf eine Aufgabe zeigt alle Teilaufgaben an, ein weiterer Doppelklick verbirgt alle. Die Gesamtzeit einer Aufgabe setzt sich zusammen aus der Zeit aller Teilaufgaben und der eigenen Zeit.</para>
+
+</sect1>
+
+<sect1 id="menus">
+<title
+>Die &karm; Menüzeile</title>
+<sect2>
+<title
+>Das <guimenu
+>Datei</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+><shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>S<accel
+>p</accel
+>eichern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert die aktuellen Aufgaben und Teilaufgaben mitsamt allen Zeitangaben.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>D</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>rucken</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Druckt</action
+> das &karm;-Fenster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Sitzungszeit zu<accel
+>r</accel
+>ücksetzen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Die an dieser Aufgabe verbrachte Zeit wird auf Null zurückgesetzt.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Beendet</action
+> &karm;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Das <guimenu
+>Stoppuhr</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>toppuhr</guimenu
+> <guimenuitem
+>S<accel
+>t</accel
+>art</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Startet</action
+> die Zeitmessung für die ausgewählte Aufgabe.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Esc</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>toppuhr</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>topp</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Hält</action
+> die Zeitmessung für die ausgewählte Aufgabe an.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2>
+<title
+>Das <guimenu
+>Aufgaben</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>ufgabe</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>eu</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Fügt</action
+> eine neue Aufgabe hinzu.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+> <keycap
+>Alt</keycap
+> <keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>ufgabe</guimenu
+> <guimenuitem
+>Neue <accel
+>T</accel
+>eilaufgabe</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Fügt</action
+> eine neue Teilaufgabe zur ausgewählten Aufgabe hinzu.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>Entf</keycap
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>ufgabe</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>öschen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Löscht</action
+> die ausgewählte Aufgabe oder Teilaufgabe.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>E</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>ufgabe</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>earbeiten</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Den Namen oder die aufgelaufene Zeit für die ausgewählte Aufgabe <action
+>ändern.</action
+></para
+><para
+>Es gibt zwei Möglichkeiten, die Zeit zu ändern: Absolut, womit die Sitzungs- oder Gesamtzeit einer Aufgabe gesetzt wird oder aber relativ, womit ein bestimmter Zeitbetrag von Sitzungs- oder Gesamtzeit abgezogen oder ihr hinzugefügt werden kann.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2>
+<title
+>Das <guimenu
+>Einstellungen</guimenu
+>-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>astenzuordnungen vornehmen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Öffnet</action
+> einen Dialog, wo die Tastaturkürzel vom Benutzer definiert werden können.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>Arm einrichten</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Öffnet</action
+> einen Dialog, wo &karm; konfiguriert werden kann.</para
+><para
+> Der Dialog hat zwei Karteikarten. "<guilabel
+>Speichern</guilabel
+>": Dort wird der Ort, wo die Daten gespeichert werden festgehalten, darüber hinaus, ob die Aufgaben automatisch gespeichert werden sollen und wenn ja, wie oft. Die zweite Karteikarte "<guilabel
+>Untätigkeit feststellen</guilabel
+>", schaltet das Entdecken von Untätigkeit ein oder aus. Wenn diese Einstellung gewählt ist, so wird nach einer bestimmten Zeit der Untätigkeit ein Dialogfenster zur Warnung geöffnet.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2>
+<title
+>Das <guimenu
+>Hilfe</guimenu
+>-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nhalt</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Zeigt dieses Dokument an.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Umschalt</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Was ist <accel
+>d</accel
+>as?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Klicken Sie auf ein GUI-Element, um mehr darüber zu erfahren.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie über Probleme und Wünsche</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Ein einfacher Dialog, um Fehler und Erweiterungswünsche für &karm; mitzuteilen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Ü<accel
+>b</accel
+>er KArm</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Zeigt Informationen zu &karm; an</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Über <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Zeigt Informationen zu KDE an.</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+</sect1>
+
+<sect1 id="tool-bar">
+<title
+>Die Werkzeugleiste</title>
+<para
+>Die Werkzeugleiste enthält Symbole für die folgenden Befehle:</para>
+
+<note
+><para
+>(Alle verhalten sich genau gleich wie die Menübefehle)</para
+></note>
+
+<itemizedlist
+> <listitem
+><para
+><guiicon
+>Start</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Stopp</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Neu</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Neue Teilaufgabe</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Löschen</guiicon
+></para
+></listitem
+> <listitem
+><para
+><guiicon
+>Bearbeiten</guiicon
+></para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="status-bar">
+<title
+>Die Statusleiste</title>
+
+<para
+>Zeigt die in dieser Sitzung verbrachte Zeit an.</para>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Danksagung und Lizenz</title>
+
+<para
+> &karm; </para>
+
+<para
+> Copyright 1997-2000 Sirtaj Singh Kang <email
+>taj@kde.org</email
+>.</para>
+
+<para
+>Beiträge von:</para>
+<itemizedlist
+> <listitem
+><para
+>Espen Sand <email
+>espen@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Jesper Pedersen <email
+>blackie@ifad.dk</email
+></para
+></listitem
+> <listitem
+><para
+>Kalle Dalheimer <email
+>kalle@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Klarälvdalens Datakonsult AB.</para
+></listitem
+> </itemizedlist>
+
+<para
+>&karm; wurde von Harald Tveit Alvestrands nützlichem Werkzeug <application
+>Titrax</application
+> inspiriert, dessen einziger Mangel das verwendete Xt-Toolkit ist.</para>
+
+<para
+>Copyright für die Dokumentation 2000 Jonathan Singer <email
+>jsinger@leeta.net</email
+> und Sirtaj Singh Kang <email
+>taj@kde.org</email
+>.</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kapp">
+<title
+>Woher Sie &karm; erhalten</title>
+
+<para
+>&karm; ist Teil des kdeutils-Pakets und sollte wie im Hauptverzeichnis des Pakets beschrieben kompiliert und installiert werden. Neue Versionen von kdeutils finden Sie auf der Seite <ulink url="ftp://ftp.kde.org/pub/kde"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+
+<para
+>&karm; installieren Sie wie folgt:</para>
+
+<screen
+><userinput
+><command
+>cd <filename class="directory"
+>kdeutils/karm</filename
+></command
+></userinput>
+<userinput
+><command
+>./configure</command
+></userinput>
+<userinput
+><command
+>make</command
+></userinput>
+<userinput
+><command
+>su</command
+></userinput>
+<userinput
+><command
+>make install</command
+></userinput>
+</screen>
+
+</sect1>
+
+</appendix>
+
+
+&documentation.index; 
+</book>
+

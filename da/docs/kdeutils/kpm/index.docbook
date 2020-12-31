@@ -1,0 +1,2501 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kpm;" 
+> <!-- this only *seems* redundant -->
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Danish "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book id="kpm" lang="&language;">
+
+<bookinfo>
+<title
+>&kpm; håndbog</title>
+
+<authorgroup>
+
+<author
+> <firstname
+>Morgan</firstname
+> <othername
+>N.</othername
+> <surname
+>Sandquist</surname
+> <affiliation
+> <address
+><email
+>morgan@pipeline.com</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Mario</firstname
+> <surname
+>Weilguni</surname
+> <affiliation
+> <address
+><email
+>mweilguni@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Mario</firstname>
+<surname
+>Weilguni</surname>
+<affiliation>
+<address
+><email
+>mweilguni@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Udvikler</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname
+>Mattias</firstname>
+<surname
+>Engdeg&aring;rd</surname>
+<affiliation>
+<address
+><email
+>f91-men@nada.kth.se</email
+></address>
+</affiliation>
+<contrib
+>Udvikler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>lauri@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Tester</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Morgan N. Sandquist</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>2.00.00</releaseinfo>
+
+    <keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeadmin</keyword>
+<keyword
+>kpm</keyword>
+<keyword
+>proceshåndtering</keyword>
+<keyword
+>top</keyword>
+</keywordset>
+
+<abstract
+><para
+>&kpm; er et værktøj, der giver oplysninger om processer og håndterer dem.</para
+></abstract>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Indledning</title>
+
+<para
+>&kpm; tillader brugeren at se, og ændre processer under Linux. Den giver detaljeret information om processer og brugen af computer ressourcer som <acronym
+>CPU</acronym
+>, <acronym
+>RAM</acronym
+> og swap plads, så vel som generel information som hvor længe systemet har været oppe. Brugere kan bruge &kpm; til at dræbe processer og til at ændre deres prioritet. Superbrugeren kan også ændre køreplansindstillingerne.</para>
+
+<para
+>&kpm; er meget stærkt baseret på <ulink url="mailto:f91-men@nada.kth.se"
+>Mattias Engdeg&aring;rd's</ulink
+> <application
+>qps</application
+>. Hovedforskellen mellem &kpm; og <application
+>qps</application
+> er &kde; brugerfladen. &kpm; følger de fleste &kde; standarder, bruger &kde; indstillingsfiler, og har sessionshåndtering. Visse af <application
+>qps</application
+>'s egenskaber blev fjernede (som for eksempel evnen til at vise &Mac;  &OS; 7 stil tabeller eller specielle afkrydsningsboksdimser). </para>
+
+</chapter>
+
+<chapter id="using-kpm">
+<title
+>Brug af &kpm;</title>
+
+<sect1 id="kpm-start-up">
+<title
+>&kpm; opstart</title>
+
+<para
+>Når &kpm; starter er der visninger der giver belastning, <acronym
+>CPU</acronym
+> brug, hukommelsesbrug, swap brug, og oppetid, så vel som opsummerede visninger af processer.</para>
+
+<screenshot
+> <screeninfo
+>&kpm; ved opstart.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kpmstart.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>&kpm; ved opstart.</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<sect2>
+<title
+>Visninger</title>
+
+<screenshot
+> <screeninfo
+>&kpm; med tekstvisninger.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kpmtext.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>&kpm; med tekstvisninger</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<sect3>
+<title
+>Belastningsvisning</title>
+
+<para
+><guilabel
+>Belastnings</guilabel
+> visningen er en graf der indikerer gennemsnits system belastningen over tid. Klik på <guilabel
+>belastnings</guilabel
+> visningen vil ændre den til en ren tekstvisning der giver præcise tal.</para>
+
+</sect3>
+
+<sect3>
+<title
+><acronym
+>CPU</acronym
+> visning</title>
+
+<para
+><guilabel
+>Cpu</guilabel
+> visningen er en linie, der indikerer procenten af <acronym
+>CPU</acronym
+> ressourcer der bruges af <guilabel
+>bruger</guilabel
+>, <guilabel
+>nice</guilabel
+>, og <guilabel
+>sys</guilabel
+> (system) processer, så vel som <guilabel
+>tomgangs</guilabel
+> ressourcer. Klik på <guilabel
+>cpu</guilabel
+> visningen vil ændre den til en ren tekst visning, der giver præcise tal (som procenter).</para>
+
+</sect3>
+
+<sect3>
+<title
+>Hukommelsesvisning</title>
+
+<para
+><guilabel
+>Huk</guilabel
+> visningen er en linie der indikerer mængden af hukommelse <guilabel
+>brugt</guilabel
+>, <guilabel
+>buff</guilabel
+> (buffered), <guilabel
+>cache</guilabel
+> (cached), og <guilabel
+>fri</guilabel
+>. Klik på <guilabel
+>huk</guilabel
+> visningen, vil ændre den til en ren tekst visning, der giver præcise tal (i megabyte), sammen med total mængde hukommelse tilgængelig for systemet.</para>
+
+</sect3>
+
+<sect3>
+<title
+>Swap visning</title>
+
+<para
+><guilabel
+>Swap</guilabel
+> visningen er en linie, der indikerer mængden swap plads der er i brug. Klik på <guilabel
+>swap</guilabel
+> visningen, vil ændre den til en ren tekst visning, der giver præcise tal (i megabyte), og også den totale swap plads tilgængelig på systemet.</para>
+
+</sect3>
+
+<sect3>
+<title
+>Oppetid visning</title>
+
+<para
+><guilabel
+>Oppe</guilabel
+> visningen er en ren tekst visning, der viser hvor længe systemet har været kørende.</para>
+
+</sect3>
+
+</sect2>
+
+<sect2>
+<title
+>Procesliste</title>
+
+<para
+>Som standard viser proceslisten alle processer med brugerfelter ved opstart. Den kan også indstilles til kun at vise den nuværende brugers  processer, ikke-root processer, eller kørende processer, med jobfelter, hukommelsesfelter, eller et brugervalgt sæt felter. Listen kan sorteres ved et vilkårligt felt ved at klikke på søjlehovedet. Klik på søjlehovedet igen, vil vende rækkefølgen om.</para>
+
+<sect3>
+<title
+>Brugerfelter</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PID</guilabel
+></term
+> <listitem
+> <para
+>Proces <acronym
+>ID</acronym
+>. Hver proces har et entydigt proces <acronym
+>ID</acronym
+> nummer (<acronym
+>PID</acronym
+>), startende med 1 og opefter. Når en ny proces laves, vil det næste ubrugte <acronym
+>PID</acronym
+> blive tildelt. <acronym
+>PID</acronym
+>er er (for øjeblikket) 16-bit , så de starter forfra ved 32767.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>USER</guilabel
+></term
+> <listitem
+> <para
+>Processens ejer. Dette er navnet på den (egentlige) ejer af processen. Hvis det effektive bruger <acronym
+>ID</acronym
+> for en proces er forskelligt fra det egentlige bruger <acronym
+>ID</acronym
+>, bliver dette vist ved en efterfølgende <guilabel
+>&ast;</guilabel
+> eller et <guilabel
+>&plus;</guilabel
+>. <guilabel
+>&ast;</guilabel
+> bruges når den effektive bruger er super-brugeren (dette indikerer sædvanligvis et program der er sat <command
+>setuid</command
+> til <systemitem class="username"
+>root</systemitem
+>).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>PRI</guilabel
+></term
+> <listitem
+> <para
+>Længden af næste tidsstykke. Dette er den maksimale længde for processens næste tidsstykke (eller hvad der er tilbage af dens nuværende tidsstykke, hvis det er en aktuelt kørende proces). Tallet skaleres til  -20..20 intervallet, med et mindre tal visende et længere tidsstykke.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>NICE</guilabel
+></term
+> <listitem
+> <para
+>Tidsdelings prioritet. Nice værdien afgør hvor ofte en proces får lov til at køre, og længden af dens tidsstykke. Værdien er i området -20 til 20, med 0 som standard. Lavere tal giver mere <acronym
+>CPU</acronym
+> tid til en proces. Det er kun superbrugeren der kan gøre en nice værdi lavere.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SIZE</guilabel
+></term
+> <listitem
+> <para
+>Virtuel billedstørrelse for processen (i kilobyte). Dette er den totale størrelse af billedet for processen. Dette inkluderer al kode, data, og delte biblioteker brugt af processen, inkluderende sider, der er blevet swappet ud.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>RSS</guilabel
+></term
+> <listitem
+> <para
+>Resident sæt størrelse (i kilobyte). Dette er størrelsen af den del af processen (kode og data) der rent faktisk residerer i <acronym
+>RAM</acronym
+>, inkluderende delte biblioteker. Dette giver en retfærdig tilnærmelse af hvor meget <acronym
+>RAM</acronym
+> en proces bruger.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SHARE</guilabel
+></term
+> <listitem
+> <para
+>Delt hukommelse (i kilobyte). Dette er den mængde hukommelse som processen deler med andre processer. Det betyder ikke at noget af det rent faktisk bruges af en anden proces, blot at dette er muligt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>STAT</guilabel
+></term
+> <listitem
+> <para
+>Processens tilstand. På et vilkårligt tidspunkt vil processen være i en af følgende tilstande:</para
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+>R</guilabel
+></term
+> <listitem
+><para
+>Processen kører på en <acronym
+>CPU</acronym
+> eller er parat til at køre.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>S</guilabel
+></term
+> <listitem
+> <para
+>Processen venter på at en begivenhed skal ske (såsom I/U elle et tidsudløb).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>D</guilabel
+></term
+> <listitem
+><para
+>Processen venter på at en begivenhed skal finde sted, uden at kunne afbrydes (sædvanligvis en enhedsdriver).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>T</guilabel
+></term
+> <listitem
+><para
+>Processen er standset eller den bliver sporet af en anden proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Z</guilabel
+></term
+> <listitem
+><para
+>Processen er afsluttet, men forælderprocessen er ikke blevet klar over det endnu.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>W</guilabel
+></term
+> <listitem
+><para
+>Processen er fuldstændigt swappet ud (det vil sige den har ingen residente sider). Dette er også sandt for kerneprocesser, såsom <filename
+>kswapd</filename
+>.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&percnt;CPU</guilabel
+></term
+> <listitem
+> <para
+>Procent <acronym
+>CPU</acronym
+> siden sidste opdatering. Dette er hvor meget af <acronym
+>CPU</acronym
+> tiden som processen har brugt siden sidste opdatering af &kpm; procestabellen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&percnt;MEM</guilabel
+></term
+> <listitem
+><para
+>Procent hukommelse brugt. Dette er procenten af total <acronym
+>RAM</acronym
+> der bruges af processen (som resident størrelse). Delte biblioteker er inkluderede, så dette er en overdrivelse.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TIME</guilabel
+></term
+> <listitem
+> <para
+>Total <acronym
+>CPU</acronym
+> tid brugt. Dette er hvor meget <acronym
+>CPU</acronym
+> tid processen har brugt siden den blev startet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>CMDLINE</guilabel
+></term
+> <listitem
+> <para
+>Kommandolinie der startede processen, inkluderende arguments. Processer der er swappet ud vil måske blot vise kommandonavnet i parenteser. Dette er også sandt for kerneprocesser.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3>
+<title
+>Jobfelter</title>
+
+<screenshot
+> <screeninfo
+>&kpm; jobfelter.</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kpmjobs.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>&kpm; jobfelter.</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PID</guilabel
+></term
+> <listitem
+><para
+>Proces ID. Hver proces har et entydigt proces <acronym
+>ID</acronym
+> (<acronym
+>PID</acronym
+>) nummer, der starter ved 1 og går opad. Når en ny proces oprettes, vil det næste ubrugte <acronym
+>PID</acronym
+> blive tildelt. <acronym
+>PID</acronym
+>er er (for øjeblikket) 16-bit heltal, så de starter forfra omkring 32767.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>PPID</guilabel
+></term
+> <listitem
+><para
+>Forælderproces <acronym
+>ID</acronym
+>. Hver proces har en forælder proces. Undtagelsen er proces 1 (<filename
+>init</filename
+>), som er roden i proces hierarkiet; den er forældreløs.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>PGID</guilabel
+></term
+> <listitem
+><para
+>Proces gruppe <acronym
+>ID</acronym
+>. Hver proces er medlem af en proces gruppe. Proces grupper bruges til fordeling af signaler og af terminaler til at forhandle forespørgsler om deres inddata. Processer der har samme proces gruppe som terminal er i forgrunden og må læse, mens andre vil blive blokeret med et signal, hvis de forsøger at læse.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SID</guilabel
+></term
+> <listitem
+><para
+>Sessions <acronym
+>ID</acronym
+>. Sessions <acronym
+>ID</acronym
+>er bruges hovedsageligt til at afgøre hvad der sker hvis terminalen fryser.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TTY</guilabel
+></term
+> <listitem
+> <para
+>Kontrollerende <acronym
+>tty</acronym
+>. Den kontrollerende terminal (<acronym
+>tty</acronym
+>) er sædvanligvis den enhed (serielle port, <acronym
+>pty</acronym
+>, &etc;) hvorfra processen blev startet, og som den bruger til inddata og uddata. Ikke alle processer har kontrollerende terminal. &kpm; skanner <filename class="directory"
+>/dev</filename
+> mappen for at afgøre navnet på terminalen, men dette kan mislykkes. For at spare plads, er det kun de sidste to tegn af tty navnet der vises (så <filename class="devicefile"
+>/dev/ttyp6</filename
+> vises som <guilabel
+>p6</guilabel
+>).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TPGID</guilabel
+></term
+> <listitem
+><para
+>Proces gruppe <acronym
+>ID</acronym
+> for <acronym
+>tty</acronym
+> ejeren. En <acronym
+>tty</acronym
+> i brug ejes af en proces. Dette er <guilabel
+>PGID</guilabel
+> for den proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>STAT</guilabel
+></term
+> <listitem
+><para
+>Processens tilstand. På et vilkårligt tidspunkt vil processen være i en af følgende tilstande:</para
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+>R</guilabel
+></term
+> <listitem
+><para
+>Processen kører på en <acronym
+>CPU</acronym
+> eller er parat til at køre.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>S</guilabel
+></term
+> <listitem
+><para
+>Processen venter på at en begivenhed skal ske (såsom I/U elle et tidsudløb).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>D</guilabel
+></term
+> <listitem
+><para
+>Processen venter på at en begivenhed skal finde sted, uden at kunne afbrydes (sædvanligvis en enhedsdriver).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>T</guilabel
+></term
+> <listitem
+><para
+>Processen er standset eller den bliver sporet af en anden proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Z</guilabel
+></term
+> <listitem
+><para
+>Processen er afsluttet, men forælderprocessen er ikke blevet klar over det endnu.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>W</guilabel
+></term
+> <listitem
+><para
+>Processen er fuldstændigt swappet ud (det vil sige den har ingen residente sider). Dette er også sandt for kerneprocesser, såsom <filename
+>kswapd</filename
+>.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>UID</guilabel
+></term
+> <listitem
+> <para
+>Numerisk bruger <acronym
+>ID</acronym
+>. Dette er <acronym
+>ID</acronym
+> for den (egentlige) ejer af processen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TIME</guilabel
+></term
+> <listitem
+><para
+>Total <acronym
+>CPU</acronym
+> tid brugt. Dette er hvor meget <acronym
+>CPU</acronym
+> tid processen har brugt siden den blev startet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>CMDLINE</guilabel
+></term
+> <listitem
+><para
+>Kommandolinie der startede processen, inkluderende arguments. Processer der er swappet ud vil måske blot vise kommandonavnet i parenteser. Dette er også sandt for kerneprocesser.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3>
+<title
+>Hukommelsesfelter</title>
+
+<screenshot
+> <screeninfo
+>&kpm; hukommelsesfelter.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kpmmemory.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>&kpm; hukommelsesfelter.</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PID</guilabel
+></term
+> <listitem
+> <para
+>Proces <acronym
+>ID</acronym
+>. Hver proces har et entydigt proces <acronym
+>ID</acronym
+> (<acronym
+>PID</acronym
+>) nummer, startende med 1 og opefter. Når en ny proces laves, vil det næste ubrugte <acronym
+>PID</acronym
+> blive tildelt. <acronym
+>PID</acronym
+>er er (for øjeblikket) 16-bit , så de starter forfra ved 32767.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TTY</guilabel
+></term
+> <listitem
+> <para
+>Kontrollerende tty. Den kontrollerende terminal (tty) er sædvanligvis den enhed (seriel port, pty &etc;) hvorfra processen blev startet, og som den bruger til inddata og uddata. Ikke alle processer har kontrollerende terminal. &kpm; skanner <filename class="directory"
+>/dev</filename
+> mappen for at afgøre navnet på terminalen, men dette kan mislykkes. For at spare plads, er det kun de sidste to tegn af tty navnet der vises (så <filename
+>/dev/ttyp6</filename
+> vises som <guilabel
+>p6</guilabel
+>).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>MAJFLT</guilabel
+></term
+> <listitem
+> <para
+>Antal større fejl der har været. En sidefejl sker når en proces forsøger at læse eller skrive fra en hukommelsesside der ikke er til stede i <acronym
+>RAM</acronym
+>. En større sidefejl er når diskadgang er involveret, såsom swap ind og ud af hukommelsessider.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>MINFLT</guilabel
+></term
+> <listitem
+> <para
+>Antal mindre fejl der har været. En sidefejl sker når en proces forsøger at læse eller skrive fra en hukommelsesside der ikke er til stede i <acronym
+>RAM</acronym
+>. En mindre sidefejl er når diskadgang ikke er involveret, for eksempel når der skrives til en kopi-på-skriv delt side.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>TRS</guilabel
+></term
+> <listitem
+> <para
+>Tekst resident sæt størrelse (i kilobyte). Dette er størrelsen af teksten (det vil sige den kørbare kode) for processen der er tilstede i <acronym
+>RAM</acronym
+> for øjeblikket.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>DRS</guilabel
+></term
+> <listitem
+> <para
+>Data resident sæt størrelse (i kilobyte). Dette er størrelsen af data (det vil sige ikke-kørbar kode) for processen der er tilstede i <acronym
+>RAM</acronym
+> for øjeblikket.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SIZE</guilabel
+></term
+> <listitem
+> <para
+>Virtuel billedstørrelse for processen (i kilobyte). Dette er den totale størrelse af billedet for processen. Dette inkluderer al kode, data, og delte biblioteker brugt af processen, inkluderende sider, der er blevet swappet ud.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SWAP</guilabel
+></term
+> <listitem
+> <para
+>Kilobyte på swap enhed. Dette er simpelthen forskellen mellem SIZE og RSS, med andre ord hvor meget af en proces der ligger på disken.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>RSS</guilabel
+></term
+> <listitem
+> <para
+>Resident sæt størrelse (i kilobyte). Dette er størrelsen af den del af processen (kode og data) der rent faktisk residerer i <acronym
+>RAM</acronym
+>, inkluderende delte biblioteker. Dette giver en retfærdig tilnærmelse af hvor meget <acronym
+>RAM</acronym
+> en proces bruger.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>SHARE</guilabel
+></term
+> <listitem
+> <para
+>Delt hukommelse (i kilobyte). Dette er den mængde hukommelse som processen deler med andre processer. Det betyder ikke at noget af det rent faktisk bruges af en anden proces, blot at dette er muligt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>DT</guilabel
+></term
+> <listitem
+> <para
+>Antal snavsede sider. Dette er antallet af (ikke antal byte) sider i <acronym
+>RAM</acronym
+> der er blevet ændret siden de sidst blev skrevet til disken. Snavsede sider skal skrives til disken før de er frie til at blive brugt til noget andet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>CMDLINE</guilabel
+></term
+> <listitem
+> <para
+>Kommandolinie der startede processen, inkluderende arguments. Processer der er swappet ud vil måske blot vise kommandonavnet i parenteser. Dette er også sandt for kerneprocesser.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3>
+<title
+>Andre felter</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PLCY</guilabel
+></term
+> <listitem
+> <para
+>Køreplanspolitik. <acronym
+>FIFO</acronym
+> (<guilabel
+>F</guilabel
+>) og Round-Robin (<guilabel
+>R</guilabel
+>) er realtids køreplanspolitikker. Andet (<guilabel
+>O</guilabel
+>) er den normale &UNIX; tidsdelings politik. <guilabel
+>F</guilabel
+> og <guilabel
+>R</guilabel
+> processer har en realtids prioritet mellem 1 og 99. En proces vil køre så længe der ikke er en kørbar proces med højere prioritet. Round-Robin processer vil køre længden af et tidsstykke, efter hvilken de bliver placeret sidst i køen for deres prioritet. <acronym
+>FIFO</acronym
+> processer kører indtil de opgiver deres <acronym
+>CPU</acronym
+> tid (ved at sove eller blokere) eller bliver forhindrede af en proces med højere prioritet. Kun superbrugeren (root) kan ændre køreplanspolitik.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>RPRI</guilabel
+></term
+> <listitem
+> <para
+>Realtids processer (<acronym
+>FIFO</acronym
+> og Round-Robin) har prioriteter mellem 1 og 99. En proces vil gå forud for en vilkårlig anden proces der har lavere prioritet. Normal tidsdelings processer (politik <guilabel
+>O</guilabel
+>) har alle prioritet 0. Kun superbrugeren (root) kan ændre realtids prioritet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>FLAGS</guilabel
+></term
+> <listitem
+> <para
+>Procesflag (hexadecimal). Denne indeholder nogen yderligere information om tilstanden for en proces. Referér til &Linux; kerne kilde for detaljer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>WCHAN</guilabel
+></term
+> <listitem
+> <para
+>Funktion hvor processen sover. Hvis processen venter på at noget skal ske er dette kerne funktionen hvor den er. Ledende do&lowbar; eller sys&lowbar; strippes fra navnet for at gøre det kortere.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&percnt;WCPU</guilabel
+></term
+> <listitem
+> <para
+>Vægtet procent af <acronym
+>CPU</acronym
+>. Dette er procenten af <acronym
+>CPU</acronym
+> tid som processen bruger,  i gennemsnit over de sidste 30 sekunder (eksponentielt aftagende gennemsnit).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>START</guilabel
+></term
+> <listitem
+> <para
+>Tid processen startede. Dette er dengang da processen blev lavet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>COMM</guilabel
+></term
+> <listitem
+> <para
+>Kommando der startede processen. Dette er kommandoen (filnavnet) der startede processen. Lange navne bliver afkortede.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="monitoring-resources">
+<title
+>Overvågning af ressource forbrug</title>
+
+<para
+>Som standard vil &kpm; vise ressource forbrug, inkluderende gennemsnits systembelastning, <acronym
+>CPU</acronym
+> forbrug, hukommelsesforbrug, swap plads forbrug, og systemets oppetid. Disse data vil være i en række visninger henover toppen af &kpm;'s hovedvindue. Disse visninger kan blive slået til og fra ved at klikke på <menuchoice
+><guimenu
+>Opsætning</guimenu
+><guimenuitem
+>Vis ressource info</guimenuitem
+></menuchoice
+>. Disse visninger er grafiske som standard. Enhver visning kan imidlertid ændres til en mere præcis ren tekstvisning ved at klikke på den, eller ved at ændre den visningsindstillinger gennem <menuchoice
+><guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Indstillinger...</guimenuitem
+> </menuchoice
+>.</para>
+
+</sect1>
+
+<sect1 id="monitoring-processes">
+<title
+>Overvågning af processer</title>
+
+<para
+>&kpm; viser en liste af processer på vært Linux systemet. Som standard, vil den vise alle processer. Dette kan imidlertid ændres til kun at vise den nuværende brugers processer, ikke-root processer, eller aktuelt kørende processer gennem <guimenu
+>Vis</guimenu
+>, som beskrevet <link linkend="view-processes"
+>her</link
+>.</para>
+
+<para
+>&kpm; viser et antal felter med information om hver proces. Som standard, viser den de mest almindelige procesfelter. Gennem <guimenu
+>Vis</guimenu
+>, kan dette imidlertid ændres til at vise sæt af felter relevante for jobkontrol eller hukommelsesforbrug, eller et brugervalgt sæt felter, som beskrevet <link linkend="view-fields"
+>her</link
+>.</para>
+
+<para
+>Endelig kan en liste af <acronym
+>TCP</acronym
+> og <acronym
+>UDP</acronym
+> sokler brugt af den valgte proces elle de valgte processer findes ved at vælge <keycombo action="simul"
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+> eller <menuchoice
+><guimenu
+>Proces</guimenu
+><guimenuitem
+>Sokkel info</guimenuitem
+></menuchoice
+>. En proces vælges ved at klikke på den. Flere processer vælges ved at holde &Shift; nede mens der klikkes på hver af dem efter tur.</para>
+
+</sect1>
+
+<sect1 id="managing-processes">
+<title
+>Håndtering af processer</title>
+
+<para
+>&kpm; udfører tre typer proceshåndtering:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Ændr nice</term
+> <listitem
+><para
+>Ændr nice tillader brugere at ændre prioriteten for deres processer, som beskrevet  <link linkend="renice"
+>her</link
+>. Ved at vælge <keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+> eller <menuchoice
+><guimenu
+>Proces</guimenu
+> <guimenuitem
+>Ændr nice...</guimenuitem
+></menuchoice
+>, kan brugere sænke prioriteten for deres processer. Derudover kan superbrugeren øge eller sænke prioriteten for en vilkårlig proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ændring af køreplan</term
+> <listitem
+><para
+>Superbrugeren kan ændre køreplanen for processer, som beskrevet <link linkend="change-scheduling"
+>her</link
+>. Dette gøres ved enten at vælge <keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> eller <menuchoice
+><guimenu
+>Proces</guimenu
+> <guimenuitem
+>Ændr køreplan...</guimenuitem
+></menuchoice
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Signaler</term
+> <listitem
+><para
+>Brugere kan sende et vilkårligt af POSIX signalerne i listen <xref linkend="posix-signals"/> til deres processer. Derudover kan superbrugeren sende et vilkårligt af disse signaler til en vilkårlig proces. Disse signaler sendes ved brug af <guimenu
+>Signal</guimenu
+>, som beskrevet i <xref linkend="signal-menu"/>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Kommandoreference</title>
+
+<sect1 id="kpm-mainwindow">
+<title
+>Hoved &kpm; vinduet</title>
+
+<sect2>
+<title
+><guimenu
+>Fil</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>ile</guimenu
+> <guimenuitem
+>Minimér</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Minimerer hovedvinduet.</action
+> Når &kpm; er minimeret bruger den langt mindre <acronym
+>CPU</acronym
+> tid, da der ikke er noget behov for at opdatere proceslisten. Hvis &kwin; er vindueshåndteringen, vil der være en ikon i &kicker;, der viser gennemsnits systembelastningen. Under anden vindueshåndtering (så som <application
+>fvwm</application
+>), vil &kpm;'s ikon selv vise belastningen, afhængig af hvordan vindueshåndteringen er indstillet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Afslutter</action
+> &kpm;. Lukning af hovedvinduet eller tryk på <guibutton
+>Afslut</guibutton
+> på værktøjslinien har samme virkning.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+><guimenu
+>Vis</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>U</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Opfrisk procesliste</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Opdaterer proceslisten med det samme.</action
+> Dette er meget nyttigt ved lange opdateringsperioder. Det kan også gøres ved at trykke på <guibutton
+>Opfrisk procesliste</guibutton
+> på værktøjslinien eller ved at trykke på <keycap
+>Mellemrum</keycap
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term id="view-processes"
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Alle processer</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser alle processer.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Dine processer</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser processer startet af den aktuelle bruger.</action
+> Dette inkluderer de processer der kører under en anden bruger (for eksempel, setuid <systemitem class="username"
+>root</systemitem
+> programmer startet af den aktuelle bruger).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Ikke-Root processer</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser alle processer undtagen de der er startet af root.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Kørende processer</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser kun kørende processer</action
+> (det er processer kører eller som står i kø til at køre).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term id="view-fields"
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Bruger felter</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser de mest almindelige procesfelter.</action
+> Det er de felter der typisk vises af <application
+>top</application
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Job felter</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser de mest almindelige felter for jobkontrol.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Hukommelses felter</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser felter relaterede til hukommelses forbrug, sidefejl, osv.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Vælg felter...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Tillader brugervalg af felter der skal vises.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+><guimenu
+>Proces</guimenu
+> menu</title>
+
+<variablelist
+> <varlistentry id="renice"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>roces</guimenu
+> <guimenuitem
+>Ændr nice...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Ændrer prioriteten af den eller de markerede processer.</action
+>  Under &Linux; har en proces en prioritet (nice værdi) mellem -20 (højeste prioritet) og +20 (laveste prioritet), så en forøgelse af nice værdien giver en proces mindre <acronym
+>CPU</acronym
+> tid. Kun superbrugeren har tilladelse til at mindske nice værdien (øge dens prioritet). Dette betyder at en almindelig bruger ikke kan mindske nice værdien for en proces, også selvom samme bruger tidligere har øget den. En almindelig bruger har kun lov til at ændre prioriteten for sine egne processer. Superbrugeren har lov til at ændre prioriteten for en vilkårlig proces, og kun superbrugeren kan sænke nice værdien for en proces.</para
+></listitem
+> </varlistentry
+> <varlistentry id="change-scheduling"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>s</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>roces</guimenu
+> <guimenuitem
+>Ændr køreplan...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Tillader superbrugeren at ændre køreplanspolitikken for udvalgte processer.</action
+> Denne funktion bruger POSIX.1b realtids udvidelser, der er tilstede i &Linux; 2.0.x og nyere kerner. Normale processer sættes til <filename
+>SCHED&lowbar;OTHER</filename
+> og har en statisk prioritet på 0. Realtids (bløde) processer har en en politik som er <filename
+>SCHED&lowbar;FIFO</filename
+> eller <filename
+>SCHED&lowbar;RR</filename
+> og en statisk prioritet i området 1 til 99. Denne mulighed er kun tilgængelig for superbrugeren.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>i</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>P</accel
+>roces</guimenu
+> <guimenuitem
+>Sokkel info</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Viser en liste</action
+> af <acronym
+>TCP</acronym
+> og <acronym
+>UDP</acronym
+> sokler brugt af den eller de udvalgte processer.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="signal-menu">
+<title
+><guimenu
+>Signal</guimenu
+> menu</title>
+
+<para
+>Valgene i signalmenuen sender forskellige signaler til alle markerede processer. Vær omhyggelig med dette, især hvis du har markeret mere end en proces. Standard POSIX signaler bliver forklaret <link linkend="posix-signals"
+>her</link
+>.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>T</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>S<accel
+>i</accel
+>gnal</guimenu
+> <guimenuitem
+>Afslut</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Sender <errorcode
+>SIGTERM</errorcode
+> til den eller de valgte processer.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+>S<accel
+>i</accel
+>gnal</guimenu
+> <guimenuitem
+>Læg på</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Sender <errorcode
+>SIGHUP</errorcode
+> til den eller de valgte processer.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>S<accel
+>i</accel
+>gnal</guimenu
+> <guimenuitem
+>Afbryd</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Sender <errorcode
+>SIGINT</errorcode
+> til den eller de valgte processer.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>k</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>S<accel
+>i</accel
+>gnal</guimenu
+> <guimenuitem
+>Slå ihjel</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Sender <errorcode
+>SIGKILL</errorcode
+> til den eller de valgte processer.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>S<accel
+>i</accel
+>gnal</guimenu
+> <guimenuitem
+>Andet</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Præsentere en liste af andre signaler at sende til den eller de valgte processer</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+><guimenu
+>Opsætnings</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>v</accel
+>ærktøjslinie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slår visning af værktøjslinie til og fra.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>K</accel
+>ommandosti</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slår visning af kommandostien til og fra</action
+> i <guilabel
+>CMDLINE</guilabel
+> feltet af proceslisten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>R</accel
+>essource info</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slår visning af ressource info til og fra.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>em indstillinger</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gemmer den aktuelle opsætning.</action
+> Indtil et nyt sæt indstillinger er gemte, vil den gemte opsætning blive brugt næste gang &kpm; starter op.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndstillinger...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Åbner en dialog</action
+> til at ændre &kpm; indstillinger.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>pdateringsperiode...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Åbner en dialog til at ændre opdateringsperioden.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="signals">
+<title
+>Signaler</title>
+
+<para
+>Disse er signalerne som forklaret på manual siden for <literal
+>signal(7)</literal
+>. For detaljer konsultér manual siden ved at skrive:</para>
+
+<screen
+><prompt
+>%</prompt
+> <userinput
+><command
+>man</command
+> <option
+>7 signal</option
+></userinput
+></screen>
+
+<sect1 id="posix-signals">
+<title
+>POSIX Signaler</title>
+
+<para
+>Følgende signaler er definerede af POSIX og kan sendes af &kpm;:</para
+> 
+
+<variablelist
+> <varlistentry
+> <term
+><errorcode
+>SIGHUP</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Læg på detekteret på kontrollerende terminal, eller død af kontrollerende proces.</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGINT</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Afbrud fra tastatur.</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGQUIT</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Afslut fra tastatur.</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGILL</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Ulovlig instruktion.</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGABRT</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Afbryd signal</errorname
+> fra <application
+>abort(3)</application
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGFPE</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Kommatal undtagelse</errorname
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGKILL</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Slå signal ihjel</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGSEG</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Ugyldig hukommelses reference</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGPIPE</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Brudt videreledning</errorname
+>: skrev til videreledning med ingen læsere.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGALRM</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Tidsmåler signal</errorname
+> fra <application
+>alarm(1)</application
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGTERM</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Afslutnings signal</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGUSR1</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Brugerdefineret signal 1</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGUSR2</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Brugerdefineret signal 2</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGCHLD</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Barn standset eller afsluttet</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGCONT</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Fortsæt hvis standset</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGSTOP</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Stop proces</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGTSTP</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Stop sendt fra tty</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGTTIN</errorcode
+></term
+> <listitem
+><para
+><errorname
+>tty inddata for baggrundsproces</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGTTOU</errorcode
+></term
+> <listitem
+><para
+><errorname
+>tty uddata for baggrundsproces</errorname
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="other-signals">
+<title
+>Andre signaler</title>
+
+<para
+>Disse signaler er ikke defineret af POSIX, og er endnu ikke understøttede af &kpm;:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><errorcode
+>SIGTRAP</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Spore/stoppunkt fælde</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGIOT</errorcode
+></term
+> <listitem
+><para
+><errorname
+>IOT fælde</errorname
+>. Et synonym for <errorcode
+>SIGABRT</errorcode
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGBUS</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Bus fejl</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorname
+>SIGSYS</errorname
+></term
+> <listitem
+><para
+><errorcode
+>Dårligt argument til rutinen (SVID)</errorcode
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorname
+>SIGSTKFLT</errorname
+></term
+> <listitem
+><para
+><errorcode
+>Stak fejl på coprocessor</errorcode
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGURG</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Kritisk betingelse på sokkel (4.2 BSD)</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGIO</errorcode
+></term
+> <listitem
+><para
+><errorname
+>I/U nu mulig (4.2 BSD)</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGPOLL</errorcode
+></term
+> <listitem
+><para
+>Synonym for <errorcode
+>SIGIO</errorcode
+> (System V).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGCLD</errorcode
+></term
+> <listitem
+><para
+>Synonym for <errorcode
+>SIGCHLD</errorcode
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGXCPU</errorcode
+></term
+> <listitem
+><para
+><errorname
+>CPU tidsgrænse overskredet (4.2 BSD)</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGXFSZ</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Filstørrelse grænse overskredet</errorname
+> (4.2 BSD).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGVTALRM</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Virtuelt alarm ur</errorname
+> (4.2 BSD).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGPROF</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Profil alarm ur</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGPWR</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Strømafbrydelse</errorname
+> (System V).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGINFO</errorcode
+></term
+> <listitem
+><para
+>Et synonym for <errorname
+>SIGPWR</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGLOST</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Fillås tabt</errorname
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGWINCH</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Vindue størrelsesændring signal</errorname
+> (4.3 BSD, Sun).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><errorcode
+>SIGUNUSED</errorcode
+></term
+> <listitem
+><para
+><errorname
+>Ubrugt signal</errorname
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="faq">
+<title
+>Spørgsmål og svar</title>
+
+<qandaset id="questions-and-answers">
+<qandaentry>
+<question
+><para
+>Hvorfor laver &kpm; sommetider seg fault uden en oplagt grund?</para
+></question>
+<answer
+><para
+>&kpm; dør sommetider med en segmentation fejl hvis mere end en proces er markeret og listen bliver opdateret. Det er ikke klart hvorfor dette sker.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvorfor bruger &kpm; så mange <acronym
+>CPU</acronym
+> cykler?</para
+></question>
+<answer
+><para
+>&kpm; kan konsumere en masse <acronym
+>CPU</acronym
+> ressourcer opdateringsperioden er for lille. På udviklerens system (<acronym
+>AMD</acronym
+> K6PR200) bruger den nogenlunde 5 procent <acronym
+>CPU</acronym
+> tid med en opdateringsperiode på et sekund. Dette afhænger stærkt af det totale antal processer (ikke blot dem der vises) og kan være langt højere end dette under i visse situationer.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvorfor synes &percnt;CPU at være ukorrekt?</para
+></question>
+<answer
+><para
+>&percnt;CPU tallet er ikke præcist ved meget korte opdateringsperioder på grund af tidsmåler granularitet.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvorfor er <guilabel
+>WCHAN</guilabel
+> feltet ukorrekt?</para
+></question>
+<answer
+><para
+><guilabel
+>WCHAN</guilabel
+> feltet er ikke korrekt hvis en proces sover et sted udenfor dem der på listen <filename
+>System.map</filename
+> (for eksempel, i en kerne modul). I disse tilfælde, vil den sidste indgang i <filename
+>System.map</filename
+> blive vist (noget i retning af <guilabel
+>&lowbar;end</guilabel
+>).</para
+> </answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hvorfor vises klonede PIDer ikke i &kpm;?</para
+></question>
+<answer
+><para
+>&kpm; kan ikke håndtere mere end en proces med det samme <acronym
+>PID</acronym
+>. Flere <acronym
+>PID</acronym
+>er kan opstå når man bruger <literal
+>CLONE&lowbar;PID</literal
+> med <function
+>clone()</function
+> systemkaldet.</para
+></answer>
+</qandaentry>
+
+</qandaset>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Medvirkende og licens</title>
+
+<para
+>&kpm;</para>
+
+<para
+>Program ophavsret 2000 Mario Weilguni <email
+>mweilguni@kde.org</email
+> and Mattias Engdeg&aring;rd <email
+>f91-men@nada.kth.se</email
+>.</para
+> 
+
+<para
+>Dokumentation ophavsret 2000 Morgan N. Sandquist <email
+>morgan@pipeline.com</email
+> og Mario Weilguni <email
+>mweilguni@kde.org</email
+>.</para>
+
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+&underFDL;
+
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kpm">
+<title
+>Hvordan får man fat på &kpm;</title>
+
+<para
+>&kpm; er en del af <ulink url="http://www.kde.org/"
+>&kde; projektet</ulink
+>.</para>
+
+<para
+>&kpm; kan findes i kdeadmin pakken på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, hoved &FTP;-stedet for &kde; projektet.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Krav for &kpm;</title>
+
+<para
+>For at kunne kompilere &kpm;, behøver man følgende:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Et &Linux; operativsystem baseret på kerne 2.0 eller højere. &kpm; bruger &Linux;'s <filename class="directory"
+>/proc</filename
+> filsystem. (&kpm; kan uheldigvis ikke overføres til andre systemer da hvert &UNIX; system har sin egen måde at indsamle procesinformation.)</para
+> </listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilering og installation</title>
+
+<para
+>For at kompilere og installere &kpm;, skrives følgende i basismappen for &kpm; distributionen:</para>
+
+<screen
+><prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make install</command
+></userinput
+></screen>
+
+<para
+>Da &kpm; bruger <command
+>autoconf</command
+> og <command
+>automake</command
+> skulle der ikke være besvær med at kompilere den. Rapportér venligst problemer til &kde; e-post listerne.</para>
+
+</sect1>
+
+</appendix>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=0:sw=2:tw=78:noet
+-->
+

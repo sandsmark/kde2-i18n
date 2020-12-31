@@ -1,0 +1,212 @@
+<sect1 id="action">
+<sect1info>
+
+<authorgroup>
+<author>
+<firstname>Mike</firstname>
+<surname>McBride</surname>
+</author>
+</authorgroup>
+
+<date>21/10/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KControl</keyword>
+<keyword>akce</keyword>
+<keyword>umístění oken</keyword>
+<keyword>velikost oken</keyword>
+</keywordset>
+</sect1info>
+<title>Akce (Umístění okna/změna velikosti okna)</title>
+
+<sect2 id="action-intro">
+<title>Úvod</title>
+
+<para>
+Tento modul umožňuje specifikovat, jakým způsobem má KDE umisťovat nová okna
+na plochu, jak přepínat myší mezi okny a jak mají vypadat okna během přesunování.
+</para>
+
+</sect2>
+
+<sect2 id="action-use">
+<title>Použití</title>
+
+<para>Modul je rozdělen do tří částí:
+<guilabel>Okna</guilabel>, <guilabel>Způsob umisťování</guilabel> a
+<guilabel>Metoda aktivace okna</guilabel>.
+
+</para>
+
+<sect3 id="action-use-windows">
+<title>Okna</title>
+
+<para>
+Tato část modulu obsahuje tři přepínače:
+
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>
+  Implicitně pouze vertikální maximalizace
+</guilabel></term>
+<listitem><para>
+
+Zapnutí této volby způsobí, že při maximalizování okna dojde k jeho roztažení přes
+celou obrazovku pouze ve vertikálním směru. Velikost okna v horizontálním
+směru zůstane zachována. Je-li volba vypnuta, bude KDE rozšiřovat okno
+jak ve vertikálním, tak i v horizontálním směru.
+</para></listitem>
+
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Zobrazovat obsah okna při přesunu</guilabel></term>
+<listitem><para>
+Je-li tato volba zapnuta, KDE bude při přesunování okna zobrazovat jeho obsah.
+</para>  
+
+<para>
+V opačném případě budou zobrazovány pouze okraje okna. K vykreslení obsahu okna
+dojde až po ukončení přesunu (uvolněním tlačítka myši).
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Zobrazovat obsah okna při změně velikosti</guilabel></term>
+<listitem><para>
+
+Je-li volba zapnuta, KDE bude při měnění velikosti okna zobrazovat jeho obsah.
+Je-li vypnuta, budou zobrazovány pouze okraje okna a k jeho
+opětovnému vykreslení dojde až po uvolnění tlačítka myši.
+</para></listitem> 
+</varlistentry>
+</variablelist>
+
+<tip><para>
+
+Zapnutí voleb <guilabel>Zobrazovat obsah okna při přesunu</guilabel> a 
+<guilabel>Zobrazovat obsah okna při změně velikosti</guilabel> způsobí
+nárůst spotřeby procesorového času. Bude-li přesunování a měnění velikosti
+oken pomalé a trhané, vypněte obě tyto volby.
+
+</para></tip>
+
+</sect3>
+
+<sect3 id="action-use-placement">
+<title><guilabel>Způsob umisťování</guilabel></title>
+
+<para>
+Způsob umisťování určuje, v které části pracovní plochy se budou zobrazovat 
+nově vytvořená okna. Jsou tři možnosti:
+</para>
+
+<itemizedlist>
+<listitem><para><guilabel>Inteligentní</guilabel> 
+- KDE bude umisťovat okna tak, aby docházelo co nejméně k jejich překrývání
+</para></listitem>
+
+<listitem><para><guilabel>Kaskáda</guilabel> 
+- První okno umístí do levého horního rohu. Další okna budou umístěna
+  s malým posunem vpravo a dolů od tohoto rohu.
+</para></listitem>
+
+<listitem><para><guilabel>Náhodné</guilabel> 
+- Náhodné rozmísťování oken po pracovní ploše.
+</para></listitem>
+</itemizedlist>
+
+</sect3>
+
+<sect3 id="action-use-focus">
+<title><guilabel>Metoda aktivace okna</guilabel></title>
+
+<para>
+Aktivním oknem je míněno to okno, v kterém uživatel momentálně pracuje.
+</para>
+
+<para>
+KDE umožňuje nastavit čtyři způsoby aktivace okna:
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Kliknout k aktivaci</guilabel></term>
+<listitem><para>K aktivaci okna dojde po kliknutí na toto okno.
+</para>
+<para>
+Všechny ostatní volby v této části modulu nemají pro tento způsob aktivace
+žádný význam.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Aktivace okna při kontaktu s myší</guilabel></term>
+<listitem><para>
+Pro aktivaci okna stačí přemístit kurzor myši kamkoli na toto okno.
+Pokud bude myš přesunuta na pracovní plochu, zůstane naposledy
+vybrané okno aktivní.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Okno pod myší je aktivní</guilabel></term>
+<listitem><para>
+Okno, na kterém se nachází kurzor myši, je aktivní. Pokud dojde k přesunutí
+myši na pracovní plochu, žádné okno nebude aktivní.
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Pouze okno pod myší je aktivní</guilabel></term>
+<listitem><para>
+Obdoba volby <guilabel>Okno pod myší je aktivní</guilabel>, ale s mnohem
+striktnějším dodržováním.
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+Po výběru metody aktivace okna je ještě třeba nastavit další dvě volby.
+</para>
+
+<para>
+Zapnutí volby "<guilabel>Automaticky dávat do popředí</guilabel>"
+způsobí, že aktivní okno překryje všechny ostatní okna. To může být
+užitečné pro metodu <guilabel>Aktivace okna při kontaktu s myší</guilabel>.
+Pomocí přírůstkové pole nebo posuvníku můžete určit prodlevu před
+přesunutím okna do popředí.
+</para> 
+
+<tip><para>
+Nastavení příliš krátké prodlevy způsobí velmi rychlé překrývání oken.
+Většina uživatelů používá nastavení mezi 100-300 ms. S tímto nastavením
+budete mít dostatek času přesunout myš na požadované okno, aniž se aktivují
+jiná okna, přes které musíte přesunout kurzor myši.
+</para></tip>
+
+<para>
+Pokud nemáte zapnuto "<guilabel>Automaticky dávat do popředí</guilabel>", 
+ujistěte se, že je zapnuto "<guilabel>Kliknutí přesouvá do popředí</guilabel>".
+Vypnutí obou těchto voleb není příliš šťastné řešení.
+</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="action-author">
+<title>Autoři oddílu</title>
+
+<para>Tento oddíl napsal: </para>
+<para>Mike McBride <email>mpmcbride7@yahoo.com</email></para>
+
+<para>Český překlad dokumentace - Ondřej Šotek <email>ondrej.sotek@seznam.cz</email>
+</para>
+
+</sect2>
+</sect1>
+

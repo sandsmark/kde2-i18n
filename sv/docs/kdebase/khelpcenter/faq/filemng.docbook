@@ -1,0 +1,342 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="filemanager">
+<title
+>Filhanteraren</title>
+
+<para
+>Bästa valet av filhanteraren för &kde; 1.x är &kfm; medan det är &konqueror; för &kde; 2. Hemsidan för &konqueror; finns på <ulink url="http://www.konqueror.org"
+>http://www.konqueror.org</ulink
+> där ett dokument med vanliga frågor (<acronym
+>FAQ</acronym
+>) för &konqueror; finns.</para>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Hur använder jag &konqueror; som en webbläsare med en proxy?</para>
+</question>
+<answer>
+<para
+>&konqueror; kan användas med &HTTP; och &FTP; proxyservrar. För att ställa in proxyservern i &konqueror;, välj helt enkelt <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Anpassa &konqueror;...</guisubmenu
+></menuchoice
+> i &konqueror;s menyrad och gå till fliken <guilabel
+>Proxyservrar</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur kan jag ändra utseendet på en katalog i &kfm; och &konqueror;?</para>
+</question>
+<answer>
+<para
+>När de visar en katalog letar både &kfm; och &konqueror; efter en dold fil som heter <filename
+>.directory</filename
+> i katalogen. Du kan skapa en sådan fil själv för att förändra hur katalogen visas. Filen är helt enkelt en kdelnk-fil (eller <filename
+>.desktop</filename
+>-fil för &kde; 2). Till exempel:</para>
+<screen>
+# KDE Config File
+[KDE Desktop Entry]
+Name=Settings
+Name[de]=Einstellungen
+Name[pl]=Ustawienia
+MiniIcon=kcontrol.xpm
+SortOrder=Desktop,Input_Devices,KWM,Network,Information,Sound
+Icon=kcontrol.xpm
+</screen>
+<para
+>Det här är en fil som används för att beskriva katalogen Settings. Den ändrar ikonen som används för att visa katalogen, ställer in namnet (som visas) på katalogen enligt det använda språket, och ändrar ordningen som underkataloger visas i.</para>
+<para
+>För katalogerna som bygger upp <guimenu
+>K</guimenu
+>-menyn, kan du också använda &kmenuedit; för att ändra utseendet.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur kan jag göra &FTP;-överföringar som inte är anonyma med &kfm; och &konqueror;?</para>
+</question>
+<answer>
+<para
+>I normalfall när du skriver in en webbadress som <userinput
+>ftp://<replaceable
+>ftp.värddator.com</replaceable
+></userinput
+>, försöker &kfm; och &konqueror; att göra en anonym inloggning till &FTP;-servern. Om du vill logga in som en särskild användare, skriv istället in webbadressen som <userinput
+>ftp://<replaceable
+>användarnamn@ftp.värddator.com</replaceable
+></userinput
+>. &kfm; och &konqueror; frågar efter ditt lösenord och ansluter till servern.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Vad orsakar <errorname
+>KFM kan inte ansluta till "localhost"</errorname
+>?</para>
+</question>
+<answer>
+<para
+>I de flesta fall orsakas detta av en felaktigt inställd loopback rutt i ditt system.</para>
+<variablelist
+> <varlistentry
+><term
+>Hur man letar efter problemorsaken</term
+> <listitem
+> <para
+>Kontrollera om <command
+>ping localhost</command
+> ger liknande utmatning:</para
+> <screen
+><computeroutput>
+PING localhost (127.0.0.1): 56 data bytes
+64 bytes from 127.0.0.1: icmp_seq=0 ttl=64 time=0.3 ms
+64 bytes from 127.0.0.1: icmp_seq=1 ttl=64 time=0.2 ms
+64 bytes from 127.0.0.1: icmp_seq=2 ttl=64 time=0.2 ms 
+...
+</computeroutput
+></screen
+> <para
+>Om det inte gör det, är ditt loopback-gränssnitt eller rutt inte riktigt inställd.</para
+> <para
+>Utmatningen från kommandot <command
+>/sbin/route</command
+> bör innehålla rader som de följande:</para
+> <screen
+><computeroutput>
+Destination     Gateway         Genmask         Flags MSS    Window Use Ifac
+loopback        *               255.0.0.0       U     3584   0       13 lo
+</computeroutput
+></screen
+> <para
+>De viktiga fälten är Destination, Gateway, Genmask, och Iface. Det som syns ovan betyder att systemet är riktigt inställt för att skicka all loopback-trafik genom loopback-gränssnittet (lo).</para
+> <para
+>Utmatningen från kommandot <command
+>/sbin/ifconfig</command
+> bör innehålla följande rader:</para
+> <screen
+><computeroutput>
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Bcast:127.255.255.255  Mask:255.0.0.0
+          UP BROADCAST LOOPBACK RUNNING  MTU:3584  Metric:1
+</computeroutput
+></screen
+> <para
+>Det här visar att loopback-gränssnittet kör som det ska.</para
+> <para
+>Din <filename
+>/etc/hosts</filename
+> bör innehålla följande rad:</para
+> <screen>
+127.0.0.1       localhost
+</screen
+> <para
+>Det här ser till att värddatornamnet "localhost" hör ihop med ditt systems loopback-adress (127.0.0.1).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+><term
+>Att rätta de här problemen</term
+> <listitem
+> <para
+>Kör <command
+>/sbin/ifconfig <option
+>lo 127.0.0.1</option
+></command
+> följt av <command
+>/sbin/route <option
+>add -net 127.0.0.0</option
+></command
+>. Båda kommandona bör köras åt dig när du startar datorn om systemet mår bra. Om det här inte sker, kontrollera dina uppstartsfiler för nätverket i <filename class="directory"
+>/etc/rc.d</filename
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+><term
+>Om det <emphasis
+>fortfarande</emphasis
+> inte fungerar</term
+> <listitem
+> <para
+>Om inget av det här fungerar, var god skicka en fullständig rapport till <ulink url="http://bugs.kde.org"
+>&kde;:s felspårningssystem</ulink
+>. Glöm inte att nämna att du har kontrollerat alla de här sakerna.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Vad är <option
+>%i</option
+> och <option
+>%m</option
+> på kommandoraden?</para>
+</question>
+<answer>
+<para
+>De används av alla &kde;-program (eftersom de är implementerade i <classname
+>KApplication</classname
+> och alla goda &kde;-program skapar ett <classname
+>KApplication</classname
+> objekt innan de ens tittar på kommandoradens parametrar).</para>
+<para
+>En standardrad för ett &kde;-program ser ut så här: <command
+>foo <option
+>... %i %m -caption \"%c\"</option
+></command
+>. Ganska förvirrande, men det har gjorts på det här sättet för att kunna lägga till gamla program som inte stöder &kde; så enkelt som möjligt. När &kfm; och &konqueror; kör raden ovan utökar de kommandoraden till <command
+>foo <option
+>-icon någonting.xpm -miniicon någonting_mini.xpm -caption \"Foo\"</option
+></command
+>. Både ikonen och mini-ikonen samt "Foo" är egenskaper som definieras i <filename
+>.desktop</filename
+>-filen. Om ikonerna inte är definierade, får de helt enkelt namnet på den körbara filen "foo".</para>
+<para
+>På det här sättet kan en användare ändra det här med  &kmenuedit; för sina program. <option
+>-caption</option
+> är viktigt, eftersom ingen användare accepterar att menyvalet <guimenuitem
+>Editor</guimenuitem
+> kör något som heter <guilabel
+>kedit-0.9pl4-build47</guilabel
+>. Användaren förväntar sig istället ett fönster som heter <guilabel
+>Editor</guilabel
+>. Dessutom är de här namnen lokaliserade, <abbrev
+>dvs.</abbrev
+> en amerikansk användare startar <guimenuitem
+>CD-Player</guimenuitem
+> och får ett fönster som heter <guilabel
+>CD-Player</guilabel
+> medan en svensk användare startar <guimenuitem
+>CD spelare</guimenuitem
+> och får ett fönster som heter <guilabel
+>CD-spelare</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur anger jag uppstartskatalogen till &kfm; och &konqueror;?</para>
+</question>
+<answer>
+<para
+><mousebutton
+>Höger</mousebutton
+>klicka på &kfm; (eller &konqueror;) ikonen och välj <guimenuitem
+>Inställningar</guimenuitem
+>. Under fliken  <guilabel
+>Kör</guilabel
+> hittar du förmodligen något som liknar  <command
+>kfmclient folder %u file:/root</command
+>; ändra bara  <filename class="directory"
+>/root</filename
+> till var du vill att  &kfm; (eller &konqueror;) ska starta.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="nsbookmark">
+<para
+>Hur importerar jag &Netscape; bokmärken?</para>
+</question>
+<answer>
+<para
+>Det finns inget behov av att importera något alls. &Netscape;:s bokmärken är automatiskt tillgängliga i menyn <guimenu
+>Bokmärken</guimenu
+> i &konqueror; utan att du behöver göra några inställningar.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur får jag en webbplats att tro att &konqueror; är &Netscape; eller någon annan webbläsare?</para>
+</question>
+<answer>
+<para
+>Kör igång <application
+>&kde;:s inställningscentral</application
+> och välj <menuchoice
+><guimenu
+>Webbläsning</guimenu
+><guimenuitem
+>Användaragent</guimenuitem
+></menuchoice
+>. Lägg till användaragenten som du vill ha.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur ställer jag in &konqueror; att köra &Java; miniprogram (applets)?</para>
+</question>
+<answer>
+<para
+>Välj <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Anpassa &konqueror;</guisubmenu
+><guimenuitem
+>&konqueror;swebbläsare</guimenuitem
+></menuchoice
+> i &konqueror;s menyrad. Observera att du måste titta på en webbsida för att menyn <guimenu
+>Inställningar</guimenu
+> ska gå att välja. Om det inte fungerar var god titta i <ulink url="http://www.konqueror.org/konq-java.html"
+>Konqueror + Java HOWTO</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Varför kan inte &konqueror; visa &GIF; bilder?</para>
+</question>
+<answer>
+<para
+>Det beror på att du inte aktiverade stöd för &GIF; i &Qt;. Var god se <xref linkend="gif"/> för fler detaljer.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Hur byter jag namn på filer?</para>
+</question>
+<answer>
+<para
+>Högerklicka helt enkelt på filen och välj <guimenuitem
+>Byt namn</guimenuitem
+>.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

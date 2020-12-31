@@ -1,0 +1,4340 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&korganizer;">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE">
+
+  
+]>
+
+<book id="korganizer" lang="&language;">
+
+<bookinfo>
+
+<title
+>Das &korganizer;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Milos</firstname
+> <surname
+>Prudek</surname
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Cornelius</firstname>
+<surname
+>Schumacher</surname>
+<affiliation
+><address
+><email
+>schumacher@kde.org</email
+></address
+></affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="developer">
+<firstname
+>Preston</firstname>
+<surname
+>Brown</surname>
+<affiliation
+><address
+><email
+>pbrown@kde.org</email
+></address
+></affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Korrektur</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Stefan</firstname
+><surname
+>Winter</surname
+><affiliation
+><address
+><email
+>kickdown@online.de</email
+></address
+></affiliation
+><contrib
+>Deutsche &Uuml;bersetzung</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Milos Prudek</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>1.92.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KOrganizer</keyword>
+<keyword
+>kdepim</keyword>
+<keyword
+>Manager</keyword>
+<keyword
+>Zeit</keyword>
+<keyword
+>Plan</keyword>
+<keyword
+>Alarm</keyword>
+<keyword
+>Verabredung</keyword>
+</keywordset>
+
+<abstract
+><para
+>&korganizer;, der KDE-Terminplaner, ist ein einfach zu bedienender persönlicher Informationsmanager (<abbrev
+>PIM</abbrev
+>). Sie können Verabredungen, Ereignisse und Aufgaben eingeben. &korganizer; wird Sie an ausstehende Aufgaben erinnern und Ihnen dabei helfen, Ihren Zeitplan einzuhalten. </para
+></abstract>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einführung</title>
+
+<para
+>&korganizer;, der KDE-Terminplaner, ist ein persönlicher Informationsmanager (<abbrev
+>PIM</abbrev
+>). Sie können Ereignisse, Verabredungen und Aufgaben planen. &korganizer; wird Sie an ausstehende Aufgaben erinnern und Ihnen dabei helfen, Ihren Zeitplan einzuhalten.</para>
+
+<para
+>Hauptfunktionen von &korganizer;:</para>
+<para
+><itemizedlist
+> <listitem
+><para
+>Überwachung von Aufgaben und Ereignissen</para
+></listitem
+> <listitem
+><para
+>Einfaches Bearbeiten und Wechseln von einem Ereignis-Typ zum anderen</para
+></listitem
+> <listitem
+><para
+>Ereignisse können Kategorien zugeordnet werden</para
+></listitem
+> <listitem
+><para
+>Farbliche Hervorhebung von Kategorien</para
+></listitem
+> <listitem
+><para
+>Mehrere Kalender können simultan geöffnet werden</para
+></listitem
+> <listitem
+><para
+>Neu Organisieren durch Drag-and-Drop</para
+></listitem
+> <listitem
+><para
+>Mehrere Optionen, um Ereignisse zu darzustellen, die sich wiederholen</para
+></listitem
+> <listitem
+><para
+>Unterstützung von Gruppenplänen</para
+></listitem
+> <listitem
+><para
+>vCalendar-Dateiformat Unterstützung</para
+></listitem
+> <listitem
+><para
+>Kalender zusammenführen und importieren</para
+></listitem
+> <listitem
+><para
+>Komplette Palm Pilot-Synchronisierung</para
+></listitem
+> <listitem
+><para
+>Drag-and-Drop zwischen offenen Kalendern</para
+></listitem
+> <listitem
+><para
+>Zusammenarbeit mit Konqueror</para
+></listitem
+> <listitem
+><para
+>Personalisierbare Abbildungen</para
+></listitem
+> <listitem
+><para
+>Drag-and-Drop-Werkzeugleisten</para
+></listitem
+> <listitem
+><para
+>Befehlszeilenparameter</para
+></listitem
+> </itemizedlist
+></para>
+
+<para
+>Machen Sie nun einen Ausflug mit dem <link linkend="five-minute-course"
+>Fünf-Minuten-Überblick </link
+> über &korganizer; oder tauchen Sie ein in die <link linkend="installation"
+>Referenzdokumentation </link
+>.</para>
+
+<sect1 id="korg-revhistory">
+<title
+>&korganizer;-Versionsrückblick</title>
+
+<itemizedlist
+> <listitem
+><para
+>1.92 - aktuelle Ausgabe</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+</chapter>
+
+<chapter id="five-minute-course">
+<title
+>Fünf-Minuten-Überblick über &korganizer; (für Profis und Ungeduldige)</title>
+
+<para
+>Keine Zeit? Dann sind Sie hier beim Überblick über &korganizer; genau richtig.</para>
+
+<para
+>Wenn Sie vorher schon einen Informationsmanager benutzt haben, werden Sie sich bei &korganizer; wie zu Hause fühlen. Sie können neue Ereignisse eingeben, bestehende verändern, den Ereignissen Kategorien zuordnen, neue Kategorien erstellen, Listen von Mitarbeitern und ihren Aufgaben erstellen, Einladungen zu Ereignissen automatisch per E-Mail versenden und Daten mit anderen &korganizer;-Kalendern austauschen.</para>
+
+<para
+>Dieser Überblick geht davon aus, dass Sie sich mit der &kde; auskennen und dass Sie es vorziehen, auf eigene Faust zu experimentieren. Nur die Basisfunktionen von &korganizer; werden hier erläutert.</para
+> 
+
+<sect1 id="course-entering-events">
+<title
+>Eingabe von Ereignissen</title
+> 
+
+<procedure
+> <step
+><para
+>Klicken Sie auf das gewünschte Datum im Navigator.</para
+></step
+> <step
+><para
+>Klicken Sie auf <guiicon
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_view_day.png" format="PNG"/></imageobject
+></inlinemediaobject
+></guiicon
+>.</para
+></step
+> <step
+><para
+>Doppelklicken Sie auf die gewünschte Stunde in der Tagesansicht.</para
+></step
+> <step
+><para
+>Geben Sie die Details des Ereignisses ein. Benutzen Sie <guilabel
+>Allgemein</guilabel
+>, <guilabel
+>Teilnehmer</guilabel
+> und <guilabel
+>Eintrag wiederholen</guilabel
+> zum Ändern des Eintrags.</para
+></step
+> <step
+><para
+>Klicken Sie auf <guibutton
+>OK</guibutton
+> um das Ereignis zu speichern.</para
+></step
+> </procedure>
+
+</sect1>
+
+<sect1 id="course-entering-todos">
+<title
+>Eingabe von Aufgaben</title>
+
+<procedure
+> <step
+><para
+>Klicken Sie auf das gewünschte Datum im Navigator.</para
+></step
+> <step
+><para
+>Klicken Sie auf <menuchoice
+><guimenu
+>Aktionen</guimenu
+> <guimenuitem
+>Neue Aufgabe</guimenuitem
+></menuchoice
+>.</para
+></step
+> <step
+><para
+>Geben Sie die Details ein. Benutzen Sie <guilabel
+>Allgemein</guilabel
+> und <guilabel
+>Teilnehmer</guilabel
+> zum Ändern der Aufgabe.</para
+></step
+> <step
+><para
+>Klicken Sie auf <guibutton
+>OK</guibutton
+>, um die Aufgabe zu speichern.</para
+></step
+> </procedure>
+
+</sect1>
+
+<sect1 id="course-event-types">
+<title
+>Ereignistypen</title>
+
+<para
+>Es gibt zwei Arten von Einträgen in &korganizer;:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Ereignisse beginnen und enden an einem bestimmten Tag. Sie können auch genaue Start- und Endzeiten eingeben, aber das ist nicht zwingend erforderlich. Während Geschäftstreffen, Geburtstag und Kinobesuche beispielsweise genau planbare Ereignisse mit klarem zeitlichem Ablauf sind, ist ein Urlaub ein Ereignis das mehrere Tage dauert; daher ist es nicht nötig die Start- und Endzeit genau einzugeben.</para
+></listitem
+> <listitem
+><para
+>Aufgaben sind Ereignisse, die bis zu einem spätesten Zeitpunkt erledigt sein müssen, die aber auch schon früher erledigt werden können.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Selbstverständlich kann eine Aufgabe später genaue Planung erfordern. Ein Beispiel: heute ist der 1. Juli. Sie möchten innerhalb einer Woche zum Friseur. Am 3. Juli machen Sie einen Termin mit Ihrem Friseur aus. Dadurch wird die Aufgabe einem Ereignis ähnlich. </para>
+
+<para
+>&korganizer; macht das Festlegen einer genauen Zeit zu einer Aufgabe sehr einfach: Wenn Sie das Kästchen <guilabel
+>Ohne Termin</guilabel
+> <footnote
+><para
+>Das Kästchen <guilabel
+>Keine Zeit festgelegt</guilabel
+> erscheint nur, wenn Sie das Kästchen <guilabel
+>Ohne Termin </guilabel
+> deaktivieren.</para
+> </footnote
+> deaktivieren und den genauen Zeitpunkt eingeben, wird ihre Aufgabe ähnlich einem Ereignis (nur ohne Wiederholung, was aber natürlich ist, denn eine Aufgabe ist normalerweise ein einmaliges Ereignis).</para>
+
+</sect1>
+
+<sect1 id="course-rescheduling-events">
+<title
+>Ereignisse verschieben</title>
+
+<para
+>Das Verschieben von Ereignissen ist eine einfache Drag-and-Drop-Operation:</para>
+
+<procedure
+> <step
+><para
+>Gehen Sie mit dem Navigator zu dem Ereignis, das Sie verschieben möchten.</para
+></step
+> <step
+><para
+>Halten Sie die Maustaste gedrückt, ziehen Sie das Ereignis zu seinem neuen Datum bzw. seiner neuen Uhrzeit und lassen Sie dann die Maustaste los.</para
+></step
+> </procedure>
+
+<para
+>Sie sollten eine passende <link linkend="reference-menus-view"
+>Ansicht</link
+> wählen, bevor Sie dies durchführen. Nur die Tag-, Arbeitswoche- und die Wochenansicht zeigen einzelne Stunden an und sind für das Verschieben von Ereignissen geeignet, wohingegen die Monatsansicht nur die Tage anzeigt. Daher ist die Monatsansicht am besten für Langzeitereignisse wie Urlaub geeignet.</para>
+
+<para
+>Wenn Sie das Ereignis noch exakter zurechtschieben möchten, dann klicken Sie auf das Ereignis und ändern Sie Start- und Endzeit mit den Menüs (die den Tag in Viertelstunden teilen). Wenn diese Genauigkeit noch nicht ausreicht, können Sie die gewünschte Zeit auch direkt eingeben.</para
+> 
+
+</sect1
+> 
+
+<sect1 id="course-rescheduling-todos">
+<title
+>Verschieben von Aufgaben</title>
+
+<para
+>Zum Verschieben einer Aufgabe müssen Sie auf die Aufgabe im Aufgabenfenster doppelklicken.</para>
+
+<para
+>Alternativ - sofern das Hauptfenster die Aufgabenliste oder "Auflisten" anzeigt - können Sie das Ereignis dort lokalisieren und darauf doppelklicken.</para
+> 
+
+</sect1
+> 
+
+<sect1 id="course-conclusion">
+<title
+>Zusammenfassung</title>
+
+<para
+>Dieser Fünf-Minuten-Kurs hat nur die Basisfunktionen von &korganizer; aufgezeigt. Jetzt sollten Sie am besten weiterlesen, um das Meiste aus &korganizer; herausholen zu können. Falls Sie das nicht wollen, sollten Sie sich aber auf jeden Fall die <link linkend="faq"
+>FAQ</link
+> anschauen.</para>
+
+</sect1
+> 
+
+</chapter>
+
+<chapter id="config">
+<title
+>Einrichtung </title>
+
+<para
+>Das Verhalten von &korganizer; lässt sich verändern. Um das Einrichtungsfenster anzuzeigen, klicken Sie auf <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Persönliche Einstellungen...</guimenuitem
+> </menuchoice
+>. In der Beschreibung des <link linkend="reference-windows-preferences"
+>Einstellungsfensters </link
+> finden Sie weitere Informationen.</para>
+
+<para
+>Sie können auch die Werkzeugleiste verändern. Klicken Sie auf <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Werkzeugleisten einrichten...</guimenuitem
+> </menuchoice
+> und lesen Sie die <link linkend="reference-windows-config-toolbars"
+>ausführliche Beschreibung</link
+>.</para>
+
+<para
+>Die Werkzeugleisten sind auch frei verschiebbar. Bewegen Sie die Maus über die Leistenbegrenzung und ziehen Sie sie an die gewünschte neue Position.</para>
+
+<para
+>Lokalisierungsinformationen wie Datum- und Zeitformat können im <application
+>KDE-Kontrollzentrum</application
+> mit dem Modul <menuchoice
+> <guisubmenu
+>Persönliche Einstellungen</guisubmenu
+> <guimenuitem
+>Land &amp; Sprache </guimenuitem
+> </menuchoice
+> eingestellt werden. &korganizer; muss neu gestartet werden, damit Änderungen die im <application
+>KDE-Kontrollzentrum</application
+> gemacht wurden wirksam werden.</para>
+
+</chapter>
+
+<chapter id="entering-data">
+<title
+>Dateneingabe</title>
+
+<sect1 id="entering-data-events">
+<title
+>Ereignisse</title>
+
+<para
+>Ereignisse sind Termine in der Zukunft wie z.B. Geschäftstreffen, Geburtstage und Kinobesuche. Ereignisse können auch mehrere Tage dauern, z.B. ein Urlaub.</para>
+
+<para
+>Ein neues Ereignis einzugeben ist sehr einfach. Klicken Sie auf <menuchoice
+><guimenu
+>Aktionen</guimenu
+><guimenuitem
+>Neuer Eintrag</guimenuitem
+></menuchoice
+>. Ein Fenster mit den Karteikarten <guilabel
+>Allgemein</guilabel
+>, <guilabel
+>Teilnehmer</guilabel
+>, und <guilabel
+>Eintrag wiederholen</guilabel
+> erscheint. </para
+> 
+
+<para
+>Sie können Ereignisse auch auf einem anderen Weg erstellen:</para>
+
+<procedure
+> <step
+><para
+>Benutzen Sie den Navigator, um zum gewünschten Tag zu springen.</para
+></step
+> <step
+><para
+>Benutzen Sie die Ansicht-Leiste (oder das Ansicht-Menü) um die gewünschte Ansicht zu wählen. Da ihr Ereignis zu einer bestimmten Uhrzeit startet, sollten Sie eine <link linkend="reference-menus-view"
+>Ansicht</link
+> wählen die die einzelnen Stunden des Tags darstellt. Sie können Tag, Arbeitswoche oder Woche wählen (die Monatsansicht eignet sich eher für Aufgaben, siehe weiter unten).</para
+></step
+> <step
+><para
+>Doppelklicken Sie nun in der Hauptansicht auf den Tag und die Uhrzeit an dem Ihr Ereignis beginnen soll. </para
+></step
+> <step
+><para
+>Ein Fenster mit den Karteikarten<guilabel
+>Allgemein</guilabel
+>, <guilabel
+>Teilnehmer</guilabel
+> und <guilabel
+>Eintrag wiederholen</guilabel
+> erscheint. Geben Sie ihre Daten wie folgt ein:</para
+></step
+> </procedure>
+
+<sect2 id="entering-data-events-general">
+<title
+>Karteikarte Allgemein</title>
+
+<para
+>Dies ist eine detaillierte Beschreibung der einzelnen Felder und Optionen. Nicht alle Felder müssen ausgefüllt werden, einige können frei bleiben. Lesen Sie die Sektion <link linkend="entering-data-required-fields"
+>Unbedingt nötige Felder</link
+> für genauere Informationen. Und ein Bespiel zur Ereigniseingabe finden Sie in der <link linkend="examples-entering-event"
+>Ereigniseingabe</link
+> Sektion.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Besitzer:</guilabel
+></term
+> <listitem
+><para
+>Bitte beachten Sie, dass Ihr Name oberhalb des <guilabel
+>Zusammenfassung</guilabel
+> Felds angezeigt wird. Das heisst dass der Eintrag Ihnen gehört. Standardmäßig ist das der Name den Sie im Feld "Voller Name" im <application
+>KDE-Kontrollzentrum</application
+>, in <menuchoice
+> <guisubmenu
+>Persönliche Einstellungen</guisubmenu
+> <guimenuitem
+>E-Mail</guimenuitem
+></menuchoice
+> angegeben haben, Sie können ihn jedoch unter <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guisubmenu
+>Persönliche Einstellungen...</guisubmenu
+> <guisubmenu
+>Persönlich</guisubmenu
+> <guimenuitem
+>Ihr Name</guimenuitem
+></menuchoice
+> ändern.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zusammenfassung:</guilabel
+></term
+> <listitem
+><para
+>Geben Sie hier eine kurze Beschreibung des Ereignisses ein.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Anfangsdatum</guilabel
+> und <guilabel
+>Enddatum</guilabel
+></term
+> <listitem
+><para
+>Von &korganizer; vorgeschlagene Start- und Enddaten ihres Ereignisses. Standardmäßig geht &korganizer; davon aus, dass ein Ereignis an dem Tag endet, an dem es auch begonnen hat. Sie können das aber beliebig ändern. Geben Sie das Datum entweder direkt ein oder benutzen Sie die Auswahlliste. Wählen Sie bei der Zeiteingabe aus 30-Minuten-Intervallen oder geben Sie die Zeit direkt ein.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Keine Zeit festgelegt</guilabel
+></term
+> <listitem
+><para
+>Kreuzen Sie <guilabel
+>Keine Zeit festgelegt</guilabel
+> an, wenn Ihr Termin nicht an eine Uhrzeit gebunden ist.</para
+> <tip
+><para
+>Die meisten Ereignisse sind an eine Zeit gebunden. Wenn Ihr Ereignis keine genaue Zeitangabe braucht, gehört es vielleicht eher zur Gruppe der <link linkend="entering-data-to-do"
+>Aufgaben</link
+></para
+></tip
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Beginn um:</guilabel
+> und <guilabel
+>Ende um:</guilabel
+></term
+> <listitem
+><para
+>Diese Felder tauchen nur auf, wenn <guilabel
+>Keine Zeit festgelegt</guilabel
+> nicht angekreuzt ist. Ändern Sie die Zeiten nach Belieben, entweder durch direkte Eingabe oder mit dem Auswahlfeld in 30-Minuten-Intervallen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Wiederkehrender Termin</guilabel
+></term
+> <listitem
+><para
+>Kreuzen Sie das <guilabel
+>Wiederkehrender Termin</guilabel
+> Kästchen an, wenn dieser Termin regelmäßig auftritt. Sie können später den genauen Zeitplan in der <link linkend="entering-data-events-recurrence"
+>Eintrag wiederholen</link
+> Karteikarte festlegen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Erinnerung</guilabel
+></term
+> <listitem
+><para
+>Kreuzen Sie <guilabel
+>Erinnerung</guilabel
+> an, wenn &korganizer; Sie an ein Ereignis erinnern soll. &korganizer; kann auch ein bestimmtes Programm zu dieser Zeit ausführen.</para
+> <tip
+><para
+>Stellen Sie auf jeden Fall sicher, dass Sie die Ausführungsrechte für das Programm besitzen, sonst wird das Programm nicht ausgeführt.</para
+></tip
+> <para
+>Wählen Sie aus, wieviele Minuten, Stunden oder Tage vor dem Ereignis Sie erinnert werden wollen. Klicken Sie auf das <guiicon
+>Note</guiicon
+> Symbol um ein Alarmgeräusch festzulegen. Klicken Sie auf das <guiicon
+>Laufendes Männchen</guiicon
+> Symbol um ein Programm auszusuchen, das zur Alarmzeit gestartet werden soll.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zeit anzeigen als:</guilabel
+></term
+> <listitem
+><para
+>Die Dauer des Ereignisses kann als Frei oder Beschäftigt in Ihrem Terminplan angezeigt werden. Suchen Sie eines der beiden aus dem <guilabel
+>Zeit anzeigen als:</guilabel
+> Menü aus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Privat</guilabel
+></term
+> <listitem
+><para
+>Kreuzen Sie <guilabel
+>Privat</guilabel
+> an um das Ereignis als privat zu markieren. Momentan hat diese Option gar keine Auswirkungen. Sobald jedoch die Gruppenplanungsfunktionen von &korganizer; fertiggestellt sind, werden private Ereignisse nur für den Besitzer sichtbar sein. Diese Option kann ebenfalls einen Sinn haben, wenn die Kalenderdatei mit einem anderen Informationsmanager geladen wird, der das vCalendar-Format unterstützt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Details:</guilabel
+></term
+> <listitem
+><para
+>Sie können in dem großen Eingabefeld Details zu Ihrem Ereignis eingeben. Sie können dort beliebig viele Details eingeben. Einige Beispiele: Ihr Auto muss repariert werden. Dann können Sie hier auflisten, was alles repariert werden muss. Später können Sie die Liste ausdrucken und sie dem Mechaniker geben. - Wenn Sie Einkaufen wollen, können sie hier eine Einkaufsliste eintragen. Wenn Sie dann kaufen gehen, drucken Sie diese einfach aus und nehmen sie mit.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kategorien</guilabel
+></term
+> <listitem
+><para
+>Sie können einem Ereignis mehrere Kategorien zuordnen. Weitere Informationen gibt es bei der <link linkend="reference-windows-categories"
+>Beschreibung der Kategorien</link
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Wenn Sie die eingegebenen Daten bestätigen, verwerfen oder ändern möchten, können Sie das mit den <link linkend="reference-action-buttons"
+>Aktionsknöpfen</link
+> <guibutton
+>OK</guibutton
+>, <guibutton
+>Anwenden</guibutton
+> und <guibutton
+>Abbrechen</guibutton
+> tun.</para>
+
+</sect2>
+
+<sect2 id="entering-data-events-attendees">
+<title
+>Karteikarte <guilabel
+>Teilnehmer</guilabel
+></title>
+
+<para
+>Einige Ereignisse brauchen vielleicht mehrere Teilnehmer. Sie können diese Leute hier auflisten. Weitere Informationen hierzu gibt es in der <link linkend="reference-windows-attendees"
+>Teilnehmer Sektion</link
+> in der Referenz.</para>
+ 
+<para
+>Wenn Sie die eingegebenen Daten bestätigen, verwerfen oder ändern möchten, können Sie das mit den <link linkend="reference-action-buttons"
+>Aktionsknöpfen</link
+> <guibutton
+>OK</guibutton
+>, <guibutton
+>Anwenden</guibutton
+> und <guibutton
+>Abbrechen</guibutton
+> tun.</para>
+
+</sect2>
+
+<sect2 id="entering-data-events-recurrence">
+<title
+>Karteikarte <guilabel
+>Eintrag wiederholen</guilabel
+></title>
+
+<para
+>Einige Ereignisse finden regelmäßig statt. Hier können Sie einen genauen Zeitplan eingeben.</para>
+
+<warning
+><para
+>Stellen Sie sicher dass Sie <guilabel
+>Wiederkehrender Termin</guilabel
+> in der Karteikarte <link linkend="entering-data-events-general"
+>Allgemein</link
+> angekreuzt haben. Wenn nicht, sehen Sie die Nachricht "Das Ereignis wiederholt sich nicht" in der Mitte der Karteikarte <guilabel
+>Eintrag wiederholen</guilabel
+>.</para
+></warning>
+
+<para
+>Die Karteikarte ist in vier Teile geteilt: <guilabel
+>Uhrzeit der Verabredung </guilabel
+>, <guilabel
+>Wiederholung</guilabel
+>, <guilabel
+>Wiederholungszeitraum </guilabel
+>, und <guilabel
+>Ausnahmen</guilabel
+>.</para>
+
+<sect3 id="recurrence-event-time">
+<title
+><guilabel
+>Uhrzeit der Verabredung</guilabel
+></title>
+
+<para
+>Dies ist lediglich eine Kopie der Daten aus der Karteikarte <link linkend="entering-data-events-general"
+><guilabel
+>Allgemein</guilabel
+>. </link
+>Änderungen in dieser Spalte sind nur von der Karteikarte <guilabel
+>Allgemein</guilabel
+> aus möglich. Beachten Sie auch die automatisch berechnete Dauer des Ereignisses ganz rechts.</para>
+
+</sect3>
+
+<sect3 id="recurrence-recurrence-rule">
+<title
+>Wiederholung</title>
+
+<para
+>Wählen Sie aus, ob das Ereignis täglich, wöchentlich, monatlich oder jährlich auftritt. Detaillierte Beschreibung wie folgt:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Täglich</guilabel
+></term
+> <listitem
+><para
+>Geben Sie ein ob das Ereignis jeden Tag (1), jeden zweiten Tag (2) usw. auftritt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Wöchentlich</guilabel
+></term
+> <listitem
+><para
+>Geben Sie ein ob das Ereignis jede Woche (1), jede zweite Woche (2) usw. auftritt. Geben Sie auch die Tage (So ... Sa) an, an denen das Ereignis stattfindet. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Monatlich</guilabel
+></term
+> <listitem
+><para
+>Sie können ein Ereignis entweder am selben Kalendertag jeden Monats oder in einer bestimmten Woche an einem bestimmten Wochentag wiederholen lassen. Sie müssen zwischen den beiden Möglichkeiten auswählen. Standardmäßig nimmt &korganizer; an, dass Sie die Wiederholung für den Kalendertag definieren (z.B am 15.). Sie können auch das Intervall einstellen, also monatlich, alle 2 Monate usw. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Jährlich</guilabel
+></term
+> <listitem
+><para
+>Dieser Eintrag ähnelt dem von "Monatlich". Sie müssen auswählen ob das Ereignis an einem Kalendertag des Jahres auftritt (z.B. dem 250. Tag des Jahres) - "<guilabel
+>Wiederholt an diesem Tag</guilabel
+>", oder an dem Tag eines bestimmten Monats des Jahres - "<guilabel
+>Wiederholt im Monat</guilabel
+>" . Der Standard ist "Wiederholt an diesem Tag". Sie können auch hier ein Intervall wählen, also das Ereignis jährlich, jedes zweite Jahr usw. wiederholen lassen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="recurrence-recurrence-range">
+<title
+>Wiederholungszeitraum</title>
+
+<para
+>Standardmäßig werden sich wiederholende Ereignisse ewig wiederholt, es gibt keine letzte Ausführung. Das ist aber vielleicht nicht immer gewünscht, deshalb gibt es zwei Wege, wie Sie die Wiederholung beenden können: entweder mit einem Enddatum, oder durch Angabe der Gesamtzahl an Wiederholungen. In diesem Auswahlfeld können Sie die passende Methode für das Ereignis eingeben.</para>
+
+</sect3>
+
+<sect3 id="recurrence-exceptions">
+<title
+>Ausnahmen</title>
+
+<para
+>Auch bei einem perfekt geplanten Ereignis kann es Ausnahmen geben, etwa bei einem Stundenplan, der in den Ferien nicht angewendet werden soll. Daher können Sie in diesem Eingabefeld verschiedene Ausnahmen für die Wiederholungsregeln erstellen, ändern und löschen (an Zeiten, an denen das Ereignis nicht auftreten soll <emphasis
+>obwohl es geplant war</emphasis
+>). Zum Hinzufügen suchen Sie sich einfach ein Datum aus der Liste aus und klicken anschließend auf <guibutton
+>Hinzufügen</guibutton
+> um es in die Liste aufzunehmen. Um ein Datum zu löschen klicken Sie es in der Liste an und dann auf <guibutton
+>Löschen</guibutton
+>.</para>
+
+<para
+>Wenn Sie die eingegebenen Daten bestätigen, verwerfen oder ändern möchten, können Sie das mit den <link linkend="reference-action-buttons"
+>Aktionsknöpfen</link
+> <guibutton
+>OK</guibutton
+>, <guibutton
+>Anwenden</guibutton
+> und <guibutton
+>Abbrechen</guibutton
+> tun.</para>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="entering-data-to-do">
+<title
+>Aufgaben</title>
+
+<para
+>Die Aufgabenliste bietet die Möglichkeit, Nachrichten über unerledigte Dinge für Sie selbst zu hinterlassen. Aufgaben werden keinem genauen Termin zugeordnet. Es gibt Kurzzeit- und Langzeitaufgaben. Sie wollen zum Beispiel innerhalb einer Woche zum Friseur (Kurzzeit) und wollen Ihr Auto innerhalb eines Jahres verkaufen (Langzeit). Es braucht kein Alarm zu einer bestimmten Zeit loszugehen, es handelt sich nur um eine Liste mit Sachen die Sie erledigen müssen und einem Datum bis zu dem Sie spätestens fertig sein müssen (Termin).</para>
+
+<para
+>Um eine neue Aufgabe zu erstellen, klicken Sie auf <menuchoice
+><guimenu
+>Aktionen</guimenu
+><guimenuitem
+>Neue Aufgabe</guimenuitem
+></menuchoice
+>. Ein Fenster mit den Karteikarten "Allgemein" und "Teilnehmer" wird eingeblendet.</para>
+
+<para
+>Sie können Ereignisse auch auf einem anderen Weg erstellen:</para>
+
+<procedure
+> <step
+><para
+>Benutzen Sie den Navigator, um zum Termin Ihrer Aufgabe zu springen.</para
+> <note
+><para
+>Ein Termin (Fälligkeitsdatum) ist einfach nur der Tag, an dem die Aufgabe abgeschlossen sein muss. Wenn Sie beispielsweise Ihre Bücher bis zum 17. November in die Bücherei bringen müssen, dann ist dieses Datum der Termin dieser Aufgabe.</para
+> </note
+></step
+> <step
+><para
+>Wählen Sie nun mit der Ansicht-Leiste oder dem Ansicht-Menü eine Ansicht aus. Da eine Aufgabe normalerweise nicht zu einer bestimmten Zeit startet, sollten Sie eine <link linkend="reference-menus-view"
+>Ansicht</link
+> wählen, die möglichst viele Tage zeigt, zum Beispiel die Monatsanzeige. Sie könnenn aber selbstverständlich auch alle anderen Ansichten wählen.</para
+></step
+> <step
+><para
+>Klicken Sie nun im Hauptfenster auf den Termin Ihrer Aufgabe.</para
+></step
+> <step
+><para
+>Ein Fenster mit den Karteikarten <guilabel
+>Allgemein</guilabel
+> und <guilabel
+>Teilnehmer</guilabel
+> erscheint. Geben Sie nun Ihre Daten wie folgt ein:</para
+></step
+> </procedure>
+
+<sect2 id="entering-data-to-do-general">
+<title
+>Karteikarte <guilabel
+>Allgemein</guilabel
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Besitzer:</guilabel
+></term
+> <listitem
+><para
+>In dem Besitzer-Feld (über dem Zusammenfassung-Feld) steht Ihr Name. Das bedeutet, dass die Aufgabe zu Ihnen gehört. Standardmäßig ist dieser Name derselbe, der in "Voller Name" (einstellbar im <application
+>KDE-Kontrollzentrum</application
+>, in <menuchoice
+> <guisubmenu
+>Persönliche Einstellungen</guisubmenu
+> <guimenuitem
+>E-Mail</guimenuitem
+> </menuchoice
+>)steht, Sie können ihn jedoch in <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Persönliche Einstellungen...</guimenuitem
+> <guimenuitem
+>Persönlich</guimenuitem
+><guimenuitem
+>Ihr Name</guimenuitem
+> </menuchoice
+>ändern.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zusammenfassung</guilabel
+></term
+> <listitem
+><para
+>Geben Sie hier eine kurze Beschreibung des Ereignisses ein.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ohne Termin</guilabel
+></term
+> <listitem
+><para
+>Deaktivieren Sie das Kästchen <guilabel
+>Ohne Termin</guilabel
+>, wenn Ihre Aufgabe zu einem bestimmten Datum abgeschlossen sein soll. Geben Sie dann dieses Datum im <guilabel
+>Termin</guilabel
+> Feld ein.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Keine Zeit festgelegt</guilabel
+></term
+> <listitem
+><para
+>Deaktivieren Sie das Kästchen <guilabel
+>Keine Zeit festgelegt</guilabel
+>, wenn ihre Aufgabe bis zu einer bestimmten Uhrzeit fertig sein soll und geben Sie dann diese Uhrzeit ein.</para
+> <tip
+><para
+>Datum und Uhrzeit werden normalerweise nicht angezeigt, weil Aufgaben in den seltensten Fällen eine exakte Fälligkeit haben. Die meisten brauchen kein Datum, und fast keine Aufgabe braucht eine genaue Zeit. Wenn Ihre Aufgabe einen genauen Zeitpunkt braucht, dann gehört Sie vielleicht eher zur Gruppe der <link linkend="entering-data-events"
+>Ereignisse</link
+>.</para
+></tip
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Erledigt</guilabel
+></term
+> <listitem
+><para
+>Lassen Sie das Kästchen <guilabel
+>Erledigt</guilabel
+> zunächst frei. Später, wenn die Aufgabe erledigt ist, können Sie es ankreuzen. Dadurch wird ihre Aufgabe als erledigt angezeigt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Priorität</guilabel
+></term
+> <listitem
+><para
+>Weisen Sie Ihrer Aufgabe eine Priorität zu. Aufträge mit höherer Priorität stehen weiter oben in der Aufgabenliste.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Details</term
+> <listitem
+><para
+>Geben Sie hier eine ausführliche Beschreibung Ihrer Aufgabe ein.</para
+> <para
+>Ein Beispiel: Sie wollen Ihr Auto reparieren lassen. Dann können Sie hier eingeben, welche Teile repariert werden müssen. Später können Sie die Liste ausdrucken und dem Mechaniker geben. Wenn Sie Einkaufen gehen wollen, können Sie hier eine Einkaufsliste hinschreiben. Sie brauchen sie dann nur auszudrucken und zum Einkaufen mitzunehmen.</para
+> <para
+>Wenn Sie am Ende Ihrer Beschreibung ein <userinput
+>#</userinput
+> Zeichen eingeben, gefolgt von einigen Zahlen (wie <userinput
+>#002</userinput
+>), dann erscheint diese Zahl in der Aufgabenliste in der Spalte <guilabel
+>Nummerierungs-ID</guilabel
+>. Dies können Sie verwenden, um Aufgaben benutzerdefiniert zu sortieren.</para
+> <para
+>Ein Beispiel: Sie wollen Ihr Auto reparieren lassen. Dann können Sie hier eingeben, welche Teile repariert werden müssen. Später können Sie die Liste ausdrucken und dem Mechaniker geben. Wenn Sie Einkaufen gehen wollen, können Sie hier eine Einkaufsliste hinschreiben. Sie brauchen sie dann nur auszudrucken und zum Einkaufen mitzunehmen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kategorien</guilabel
+></term
+> <listitem
+><para
+>Sie können einer Aufgabe mehrere Kategorien zuweisen. Weitere Informationen dazu gibt es bei der <link linkend="reference-windows-categories"
+>Kategorien-Beschreibung</link
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Privat</guilabel
+></term
+> <listitem
+><para
+>Kreuzen Sie <guilabel
+>Privat</guilabel
+> an, um die Aufgabe als privat zu kennzeichnen. Momentan hat dieses Kästchen keine Auswirkungen. Sobald aber die Gruppenplanung in &korganizer; eingebaut ist, werden private Aufgaben nur für den Besitzer sichtbar sein. Als privat markierte Aufgaben können außerdem von anderen Informationsmanagern, die das vCalendar-Format unterstützen, genutzt werden.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Wenn Sie die eingegebenen Daten bestätigen, verwerfen oder ändern möchten, können Sie das mit den <link linkend="reference-action-buttons"
+>Aktionsknöpfen</link
+> <guibutton
+>OK</guibutton
+>, <guibutton
+>Anwenden</guibutton
+> und <guibutton
+>Abbrechen</guibutton
+> tun.</para>
+
+</sect2>
+
+<sect2 id="entering-data-to-do-attendees">
+<title
+>Karteikarte <guilabel
+>Teilnehmer</guilabel
+></title>
+
+<para
+>Einige Ereignisse brauchen vielleicht mehrere Teilnehmer. Sie können diese Leute hier auflisten. Weitere Informationen hierzu gibt es in der <link linkend="reference-windows-attendees"
+>Teilnehmer Sektion</link
+> in der Referenz.</para
+> 
+
+<para
+>Wenn Sie die eingegebenen Daten bestätigen, verwerfen oder ändern möchten, können Sie das mit den <link linkend="reference-action-buttons"
+>Aktionsknöpfen</link
+> <guibutton
+>OK</guibutton
+>, <guibutton
+>Anwenden</guibutton
+> und <guibutton
+>Abbrechen</guibutton
+> tun.</para
+> 
+
+</sect2>
+
+</sect1>
+
+<sect1 id="entering-data-required-fields">
+
+<title
+>Unbedingt nötige Felder</title>
+
+<para
+>Dieser Überblick zeigt, welche Felder unbedingt benötigt werden und welche freigelassen werden können:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Im <guilabel
+>Allgemein</guilabel
+> Kästchen sollten Sie mindestens das <guilabel
+>Zusammenfassung</guilabel
+> Feld und die Beschreibung (das große Textfeld) ausfüllen, obwohl beides nicht strikt vorgeschrieben ist. Wenn Sie das <guilabel
+>Erinnerung</guilabel
+>-Kästchen ankreuzen, sollten Sie auch eine Zeit und entweder das Geräusch oder ein auszuführendes Programm angeben.</para
+></listitem
+> <listitem
+><para
+>Die <guilabel
+>Teilnehmer</guilabel
+>-Karteikarte kann komplett leer gelassen werden.</para
+></listitem
+> <listitem
+><para
+>Die Karteikarte <guilabel
+>Eintrag wiederholen</guilabel
+> muss nur ausgefüllt werden, wenn Sie das <guilabel
+>Wiederkehrender Termin</guilabel
+>-Kästchen angekreuzt haben.</para
+></listitem
+> </itemizedlist>
+
+</sect1
+> 
+
+</chapter>
+
+<chapter id="examples">
+<title
+>Beispiele</title
+> 
+
+<sect1 id="examples-entering-event">
+<title
+>Eingabe eines neuen Ereignisses</title>
+
+<para
+>In diesem Beispiel geben Sie ein Ereignis ein. Sie müssen ein Treffen am <emphasis
+>12. Februar 2001</emphasis
+> arrangieren, weil dann Ihr neues Produkt auf den Markt kommt. Ihr Boss <emphasis
+>Joan Jackson</emphasis
+> wird das Treffen leiten, und Sie, Max Mustermann, werden das Treffen <emphasis
+>organisieren</emphasis
+>. Es wird bei dem Treffen zwei weitere <emphasis
+>Teilnehmer</emphasis
+> geben: <emphasis
+>Peter Palpatine</emphasis
+> und <emphasis
+>Kirsten Komisch</emphasis
+>. Joan gab Ihnen den Plan für das Treffen. Das Treffen beginnt um <emphasis
+>12.00 Uhr</emphasis
+> und endet um <emphasis
+>13.00 Uhr</emphasis
+>. Dieses Treffen soll jeden Montag <emphasis
+>wiederholt</emphasis
+> werden.</para>
+
+<procedure
+> <step
+><para
+>Gehen Sie mit Hilfe des Navigators zum 12.02.2001</para
+></step
+> <step
+><para
+>Klicken Sie auf <menuchoice
+> <guimenu
+>Aktionen</guimenu
+> <guimenuitem
+>Neuer Eintrag</guimenuitem
+> </menuchoice
+> </para
+></step
+> <step
+><para
+>Geben Sie eine passende Zusammenfassung ein. Es ist wichtig, eine griffige Beschreibung zu wählen, denn nur so kann effektiv gesucht werden. Ein Vorschlag wäre "<userinput
+>Treffen wegen Produktveröffentlichung</userinput
+>".</para
+></step
+> <step
+><para
+>Geben Sie nun eine detaillierte Beschreibung in das große Textfeld ein. Um das Beispiel kurz zu halten, geben Sie einfach "<userinput
+>Einleitung, Der Plan, Ende</userinput
+>" in drei Zeilen ein.</para
+></step
+> <step
+><para
+>Kreuzen Sie <guilabel
+>Wiederkehrender Termin</guilabel
+> an.</para
+></step
+> <step
+><para
+>Klicken Sie auf die Karteikarte <guilabel
+>Eintrag wiederholen</guilabel
+>.</para
+> <note
+><para
+>Die meiste Arbeit wurde schon automatisch erledigt. &korganizer; stellt standardmäßig wöchentliche Wiederholung ein. Sie werden auch feststellen, dass <guilabel
+>Kein Abschlussdatum</guilabel
+> ausgewählt ist. Das heisst, dass das Ereignis jeden Montag wiederholt wird (ab Montag, dem 12.02.2001) bis zum Ende des Universums (oder bis Sie das Ereignis löschen, je nachdem was vorher kommt). </para
+></note
+></step
+> <step
+><para
+>Da hier bereits alles richtig ist, klicken Sie nun auf die Karteikarte <guilabel
+>Teilnehmer</guilabel
+>.</para
+></step
+> <step
+><para
+>Dort sollten Sie Folgendes tun:</para
+> <substeps
+> <step
+><para
+>Im Feld <guilabel
+>Name</guilabel
+> geben Sie <userinput
+>Max Mustermann</userinput
+> ein.</para
+></step
+> <step
+><para
+>Wählen Sie <guilabel
+>Organisator</guilabel
+> als Rolle, und ändern Sie den <guilabel
+>Benötigt Vorbereitung</guilabel
+> Eintrag in <guilabel
+>Akzeptiert</guilabel
+>. Deaktivieren Sie das <guilabel
+>Antwort erbeten</guilabel
+> Kästchen.</para
+></step
+> <step
+><para
+>Klicken Sie auf <guibutton
+>Hinzufügen</guibutton
+>.</para
+></step
+> <step
+><para
+>Im Feld <guilabel
+>Name</guilabel
+> geben Sie <userinput
+>Joan Jackson</userinput
+> ein. Im Feld <guilabel
+>E-Mail-Adresse</guilabel
+> geben Sie <userinput
+>jjackson@diesefirma.de</userinput
+> ein.</para
+></step
+> <step
+><para
+>Wählen Sie <emphasis
+>Eigentümer</emphasis
+> als Rolle.</para
+></step
+> <step
+><para
+>Klicken Sie auf <guilabel
+>Hinzufügen</guilabel
+>.</para
+></step
+> <step
+><para
+>Geben Sie im <guilabel
+>Name</guilabel
+> Feld <userinput
+>Peter Palpatine</userinput
+> ein. Im Feld <guilabel
+>E-Mail-Adresse</guilabel
+> geben Sie <userinput
+>emperor@empire.gov</userinput
+> ein.</para
+></step
+> <step
+><para
+>Klicken Sie auf <guilabel
+>Hinzufügen</guilabel
+>.</para
+></step
+> <step
+><para
+>Geben Sie jetzt im <guilabel
+>Name</guilabel
+> Feld <userinput
+>Kirsten Komisch</userinput
+> ein. Im Feld <guilabel
+>E-Mail-Adresse</guilabel
+> geben Sie <userinput
+>kkomisch@diesefirma.de</userinput
+> ein.</para
+></step
+> <step
+><para
+>Klicken Sie auf <guilabel
+>Hinzufügen</guilabel
+>.</para
+></step
+> </substeps
+> </step
+> <step
+><para
+>Drücken Sie den <guilabel
+>Kategorien</guilabel
+>-Knopf.</para
+></step
+> <step
+><para
+>Wählen Sie <guilabel
+>Verabredung</guilabel
+> aus der Liste aus. Drücken Sie den <guilabel
+>Hinzufügen
+></guilabel
+>-Knopf. Klicken Sie dann auf <guibutton
+>OK</guibutton
+>.</para
+></step
+> <step
+><para
+>Sie sind jetzt wieder im Hauptfenster des Ereignisses. Prüfen Sie jetzt Ihre Eingaben in den Karteikarten <guilabel
+>Allgemein</guilabel
+>, <guilabel
+>Teilnehmer</guilabel
+> und <guilabel
+>Eintrag wiederholen</guilabel
+>. Wenn Sie zufrieden sind, klicken Sie auf <guibutton
+>OK</guibutton
+>.</para
+></step
+> </procedure>
+
+<para
+>Herzlichen Glückwunsch, Sie haben gerade Ihr erstes Ereignis programmiert!</para>
+
+</sect1
+> 
+
+</chapter>
+
+<chapter id="reference">
+<title
+>Referenz</title>
+
+<sect1 id="reference-windows">
+<title
+>Fenster</title>
+
+<para
+>Diese Sektion beschreibt die folgenden Fenster:</para>
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>Kategorien-Fenster</guilabel
+>, welches Teil vom <link linkend="entering-data-events"
+>Ereignis</link
+> und <link linkend="entering-data-to-do"
+>Aufgaben</link
+> Fenster ist.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Teilnehmer Fenster</guilabel
+>,welches ebenfalls Teil vom <link linkend="entering-data-events"
+>Ereignis</link
+> und <link linkend="entering-data-to-do"
+>Aufgaben</link
+> Fenster ist.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Werkzeugleisten einrichten Fenster</guilabel
+>, das über das Menü <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Werkzeugleisten einrichten</guimenuitem
+></menuchoice
+> erreichbar ist.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Einstellungen... Fenster</guilabel
+>, das über <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Persönliche Einstellungen...</guimenuitem
+> </menuchoice
+> zu erreichen ist.</para
+></listitem
+> </itemizedlist>
+
+<sect2 id="reference-windows-categories">
+<title
+>Kategorien</title>
+
+<para
+>Sie können einem Vorkommnis mehrere Kategorien zuweisen. Klicken Sie auf den <guilabel
+>Kategorien</guilabel
+> Knopf. Klicken Sie auf <guibutton
+>Hinzufügen</guibutton
+>, um dem Vorkommnis passende Kategorien zuzuweisen. Sie können auch eine neue Kategorie in das Feld <guilabel
+>Neue Kategorie</guilabel
+> eingeben.</para>
+
+<para
+>Die erste Kategorie, die einem Vorkommnis zugeordnet wird, hat eine besondere Bedeutung. Sie legt die Farbe des Vorkommnisses in der Kalenderansicht fest. Treffen werden grau, Ferien in rot dargestellt. Die Farben selbst können im Menü <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Persönliche Einstellungen...</guimenuitem
+> </menuchoice
+> geändert werden. Alle weiteren Kategorien, die Sie dem Vorkommnis zuweisen, haben keine besondere Bedeutung. Der <guilabel
+>Suchen...</guilabel
+>-Dialog ignoriert Kategorien.</para>
+
+<tip
+><para
+>Ein Sprachkurs an Ihrer Arbeitsstätte gehört beispielsweise zu Geschäft UND Bildung, Ihr Hochzeitstag gehört aber entweder zu Persönlich oder Besonderes - das ist Ihre Entscheidung.</para
+></tip>
+
+<para
+>Kreuzen Sie <guilabel
+>Privat</guilabel
+> an, um die Aufgabe als privat zu kennzeichnen. Momentan hat dieses Kästchen keine Auswirkungen. Sobald aber die Gruppenplanung in &korganizer; eingebaut ist, werden private Aufgaben nur für den Besitzer sichtbar sein. Als privat markierte Aufgaben können außerdem von anderen Informationsmanagern, die das vCalendar-Format unterstützen, genutzt werden.</para>
+
+</sect2>
+
+<sect2 id="reference-windows-attendees">
+<title
+>Teilnehmer</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Name</guilabel
+> Feld</term
+> <listitem
+><para
+>Hier können Sie den <guilabel
+>Namen</guilabel
+> und (darunter) die <guilabel
+>E-Mail-Adresse</guilabel
+> eingeben.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Rolle</guilabel
+></term
+> <listitem
+><para
+>Wählen Sie eine Rolle für den Teilnehmer (Gesprächspartner, Organisator, Eigentümer, Vertreter). Das Feld soll als kleine Gedächtnisstütze dienen und kann außerdem zum Sortieren verwendet werden (siehe unten).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Status</guilabel
+></term
+> <listitem
+><para
+>Wählen Sie einen Status für den Teilnehmer (Benötigt Vorbereitung, Akzeptiert, Gesendet, versuchsweise, Bestätigt, Abgelehnt, Erledigt, Delegiert). Der Status, der im Fenster angezeigt wird, gibt Ihnen schnell einen Überblick darüber, was noch getan werden muss, um das Ereignis erfolgreich zu gestalten. Es kann als Sortierkriterium benutzt werden (siehe unten).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Antwort erbeten</guilabel
+></term
+> <listitem
+><para
+>Kreuzen Sie <guilabel
+>Antwort erbeten</guilabel
+> an, wenn der Teilnehmer auf Ihren Plan antworten soll. Logischerweise bekommt der Teilnehmer dazu eine Kopie Ihres Plans per E-Mail. Ein kleiner Briefumschlag wird im Fenster angezeigt, wenn Sie diese Option nutzen. Sie macht aber erst wirklich Sinn, sobald die Gruppenplanung implementiert ist.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Hinzufügen</term
+> <listitem
+><para
+>Klicken Sie auf <guibutton
+>Hinzufügen</guibutton
+>, um die Person der Teilnehmerliste hinzuzufügen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Wiederholen Sie die o.a. Prozedur für alle Teilnehmer.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Adressbuch...</guilabel
+></term
+> <listitem
+><para
+>Wenn der Teilnehmer in Ihrem Adressbuch ist, müssen Sie seine E-Mail-Adresse nicht im Kopf haben. Klicken Sie einfach auf <guilabel
+>Adressbuch </guilabel
+> und suchen Sie den Teilnehmer aus der Liste aus. Beachten Sie, dass dies das Standard-KDE-Adressbuch ist, das auch von <application
+>KMail</application
+> benutzt wird. Es kann außerdem separat gestartet werden mit dem Befehl (<application
+>kab</application
+>).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Sortieren</guilabel
+></term
+> <listitem
+><para
+>Die Position der Teilnehmer kann verändert werden. Klicken Sie auf eine der Spaltenüberschriften (Name, E-Mail, Rolle, Status, <abbrev
+>uAwg</abbrev
+>), um die Liste nach diesem Kriterium zu sortieren.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Status ändern</term
+> <listitem
+><para
+>Wenn die Teilnehmer Ihnen antworten (den Termin annehmen, ablehnen oder delegieren), müssen Sie deren Status und eventuell weitere Informationen ändern. Wählen Sie zuerst den Teilnehmer aus der Liste aus (anklicken). Dessen Name, E-Mail und weitere Daten werden nun angezeigt. Bearbeiten Sie jetzt die Daten und den Status des Teilnehmers nach Ihren Wünschen. Wenn Sie fertig sind, klicken Sie auf den Knopf <guibutton
+>Bearbeiten</guibutton
+>, um die Änderungen zu speichern.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reference-windows-config-toolbars">
+<title
+>Werkzeugleisten einrichten</title>
+
+<para
+>&korganizer; hat zwei Werkzeugleisten: Einerseits die Hauptleiste (mit <guiicon
+>Neu</guiicon
+>, <guiicon
+>Öffnen</guiicon
+>, <guiicon
+>Speichern</guiicon
+>, <guiicon
+>Ausschneiden</guiicon
+>, <guiicon
+>Kopieren</guiicon
+>, <guiicon
+>Einfügen</guiicon
+> und Knöpfen zur <guiicon
+>Verabredung per E-Mail</guiicon
+> sowie mit Funktionen, die zu &korganizer; gehoeren, wie <guiicon
+>Suchen</guiicon
+> und <guiicon
+>Drucken</guiicon
+>) andererseits die <guiicon
+>Ansicht</guiicon
+>-Leiste (zum Auswählen zwischen <guiicon
+>Auflisten</guiicon
+>, <guiicon
+>Tag</guiicon
+>, <guiicon
+>Arbeitswoche</guiicon
+>, <guiicon
+>Woche</guiicon
+> und <guiicon
+>Monat</guiicon
+>). Sie können diese Leisten auf verschiedene Arten verändern: neue Knöpfe hinzufügen, Größe ändern, Position verändern und eine Textbeschreibung zu den Knöpfen hinzufügen.</para>
+
+<para
+>Obwohl der unten stehende Text eine Methode aufzeigt, um die Position mit dem <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Werkzeugleisten einrichten...</guimenuitem
+></menuchoice
+> Menü zu verändern, gibt es eine andere - einfachere - Methode, um die Leisten auf dem Bildschirm zu verschieben. Sie können die Leiste auch ganz einfach an ihrem linken Ende anklicken und per Drag-and-Drop an eine andere Stelle auf dem Bildschirm ziehen. Es gibt auch noch weitere einfache <link linkend="other-features-drag-and-drop"
+>Drag-and-Drop-Operationen</link
+>.</para>
+
+<sect3 id="config-toolbars-choose-toolbar">
+<title
+>Auswahl einer Leiste</title>
+
+<para
+>Zunächst müssen Sie die zu verändernde Leiste auswählen. Alle Änderungen beziehen sich auf die unter "Werkzeugleiste" angegebene Leiste. </para>
+
+</sect3>
+
+<sect3 id="config-toolbars-available-actions">
+<title
+>Verfügbare Aktionen</title>
+
+<para
+>Es gibt zwei Auswahlfelder unter dem Namen der Leiste: <guilabel
+>Verfügbare Aktionen</guilabel
+> und <guilabel
+>Aktuelle Aktionen</guilabel
+>. Mit den Links- und Rechts-Pfeilen zwischen den Auswahlfeldern können Sie Befehle von den verfügbaren zu den <guilabel
+>Aktuellen Aktionen</guilabel
+> verschieben. Die Leiste wird zukünftig alle Befehle enthalten die im <guilabel
+>Aktuelle Aktionen</guilabel
+> Feld stehen.</para>
+
+<tip
+><para
+>Weniger ist oft mehr - der Bildschirm wirkt bei wenigen Symbolen nicht so durcheinander. Wenn Sie zum Beispiel zum Ausschneiden und Einfügen Tastenkürzel benutzen, dann brauchen Sie die <guiicon
+>Ausschneiden</guiicon
+>, <guiicon
+>Kopieren</guiicon
+>- und <guiicon
+>Einfügen</guiicon
+>-Knöpfe nicht in Ihrer Werkzeugleiste.</para
+></tip>
+
+</sect3>
+
+<sect3 id="config-toolbars-text-position">
+<title
+>Textposition</title>
+
+<para
+>Standardmäßig werden keine Texte zu den Symbolen eingeblendet. Sie können dies jedoch einstellen, so dass die Texte unter oder neben den Symbolen dargestellt werden. Auch reiner Text ist möglich.</para>
+
+</sect3>
+
+<sect3 id="config-toolbars-toolbar-position">
+<title
+>Position der Werkzeugleiste</title>
+
+<para
+>Sie können Leisten oben, unten, links, oder rechts anordnen. Wenn Sie "Beweglich" auswählen, wird die Leiste außerhalb des Hauptfensters dargestellt und Sie können sie beliebig verschieben. Wenn Sie "Flach" auswählen, wird die Leiste zu einem kleinen Rechteck minimiert. Wenn Sie später auf das Rechteck klicken, kommt die Leiste wieder zum Vorschein.</para
+> 
+
+</sect3>
+
+<sect3 id="config-toolbars-icon-size">
+<title
+>Symbolgröße</title>
+
+<para
+>Sie können die Größe der Symbole ändern. Wählen Sie zwischen kleinen, mittleren und großen Symbolen.</para
+> 
+
+</sect3>
+
+</sect2>
+
+<sect2 id="reference-windows-preferences">
+<title
+>Persönliche Einstellungen...</title>
+
+<para
+>Mit diesem Dialog können Sie &korganizer; vielfältig an Ihre Bedürfnisse anpassen.</para
+> 
+
+<sect3 id="preferences-personal">
+<title
+>Persönlich</title>
+
+<para
+>Die persönlichen Optionen enthalten die Einstellungen zu Ihrer Identität und diversen anderen Dingen, die in keine andere Kategorie passen.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Ihr Name</guilabel
+></term
+> <listitem
+><para
+><guilabel
+>Ihr Name</guilabel
+> enthält zu Beginn den Namen von <menuchoice
+> <guimenuitem
+>Persönliche Einstellungen</guimenuitem
+> <guimenuitem
+>E-Mail</guimenuitem
+> </menuchoice
+> im <application
+>KDE-Kontrollzentrum </application
+>, aber Sie können natürlich einen anderen eingeben. Dieser Name wird dann als <guilabel
+>Besitzer</guilabel
+> bei Aufgaben und Ereignissen angezeigt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>E-Mail-Adresse</guilabel
+></term
+> <listitem
+><para
+>Die <guilabel
+>E-Mail-Adresse</guilabel
+> wird benutzt, um den Besitzer des Kalenders zu identifizieren. Wenn jemand anderes Ihren Kalender öffnet, kann er/sie nichts darin verändern, denn der Kalender ist dann auf nur-lesen gesetzt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zusätzlich</guilabel
+></term
+> <listitem
+><para
+><guilabel
+>Zusätzliche</guilabel
+> Informationen über Sie. Dieses Feld wird momentan nicht benutzt, Sie können es also getrost ignorieren.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kopie an Besitzer schicken, wenn Ereignisse gemailt werden</guilabel
+></term
+> <listitem
+><para
+>Falls Sie das Kästchen <guilabel
+>Kopie an Besitzer schicken, wenn Ereignisse gemailt werden</guilabel
+> ankreuzen, dann bekommen Sie eine Kopie aller E-Mails die &korganizer; in Ihrem Auftrag an Teilnehmer eines Ereignisses schickt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Automatisches Speichern</guilabel
+></term
+> <listitem
+><para
+>Wenn <guilabel
+>Automatisches Speichern</guilabel
+> aktiviert ist, wird der Kalender beim Beenden von &korganizer; automatisch ohne Rückfrage gespeichert. Außerdem wird er regelmäßig während der Sitzung gespeichert, um das Risiko von Datenverlust zu minimieren. Sie können das Speicherintervall in Minuten angeben.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Löschen bestätigen</guilabel
+></term
+> <listitem
+><para
+>Wenn Sie <guilabel
+>Löschen bestätigen</guilabel
+>ankreuzen, wird &korganizer; bei jedem Löschvorgang zuerst nachfragen. Ansonsten wird &korganizer; nie nachfragen, bevor ein Ereignis gelöscht wird.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Feier-/Freie Tage</guilabel
+></term
+> <listitem
+><para
+>Das <guilabel
+>Feier-/Freie Tage</guilabel
+> Menü legt fest, welche öffentlichen Feiertage im Kalender angezeigt werden sollen. Öffentliche Feiertage und Wochenenden werden in Rot dargestellt.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="preferences-time-and-date">
+<title
+>Zeit &amp; Datum</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Zeitzone</guilabel
+></term
+> <listitem
+><para
+><guilabel
+>Zeitzone</guilabel
+> gibt an, um wie viele Stunden Ihre lokale Zeit von der <abbrev
+>UTC</abbrev
+> (<abbrev
+>GMT</abbrev
+>) abweicht. &korganizer; kümmert sich automatisch um Sommer-/Winterzeit. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Standard-Verabredungszeit</guilabel
+></term
+> <listitem
+><para
+>Wenn Sie ein Ereignis mit <link linkend="entering-data-events"
+>Neuer Eintrag</link
+> aus dem <link linkend="actions-new-event"
+>Aktionen Menü</link
+> oder auf sonstige Weise erstellen, bei der &korganizer; nicht erkennen kann, zu welcher Uhrzeit das Ereignis beginnen soll, wird &korganizer; die hier eingegebene Uhrzeit als Startzeit annehmen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Standard-Dauer der Verabredung</guilabel
+></term
+> <listitem
+><para
+>Wenn Sie ein Ereignis mit <link linkend="entering-data-events"
+>Neuer Eintrag</link
+> aus dem <link linkend="actions-new-event"
+>Aktionen Menü</link
+> oder auf sonstige Weise, bei der &korganizer; nicht erkennen kann wie lange die Verabredung dauert, erstellen, wird &korganizer; die hier eingetragene Dauer annehmen. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Standard-Warnzeit</guilabel
+></term
+> <listitem
+><para
+>Der Wert in <guilabel
+>Standard-Warnzeit</guilabel
+> gibt an, wie weit im voraus ein Alarm zu einem Ereignis ausgelöst werden soll.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="preferences-fonts">
+<title
+>Schriftarten</title>
+
+<itemizedlist
+> <listitem
+><para
+>Klicken Sie auf <guilabel
+>Zeitleiste</guilabel
+>, um die Schriftart, Schriftgröße und Schriftstil für die Zeitleiste zu ändern.</para
+></listitem
+> <listitem
+><para
+>Klicken Sie auf <guilabel
+>Monatsanzeige</guilabel
+>, um Schriftart, Schriftgröße und Schriftstil für die Monatsanzeige zu ändern.</para
+></listitem
+> <listitem
+><para
+>Klicken Sie auf <guilabel
+>Ereignisanzeige</guilabel
+>, um Schriftart, Schriftgröße und Schriftstil für die Tages-, Wochen- und Arbeitswochenansicht zu ändern.</para
+></listitem
+> </itemizedlist>
+
+</sect3>
+
+<sect3 id="preferences-colors">
+<title
+>Farben</title>
+
+<para
+>Wählen Sie die Farben für Feiertage, Hervorhebungen und für die Ereigniskategorien aus. Sie können für jede Kategorie verschiedene Farben wählen. Zu viele Farben verwirren jedoch gewöhnlich.</para>
+
+<para
+>Sie können auch eine Standardfarbe und eine Hintergrundfarbe für die Tagesansicht wählen.</para>
+
+</sect3>
+
+<sect3 id="preferences-views">
+<title
+>Ansichten</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Tag beginnt um:</guilabel
+></term
+> <listitem
+><para
+><guilabel
+>Tag beginnt um</guilabel
+> ist die Stunde, die &korganizer; ganz oben an der Tagesansicht anzeigt. Sie können sich selbstverständlich auch die früheren Stunden anzeigen lassen, aber <guilabel
+>Tag beginnt um</guilabel
+> sollte die früheste Zeit sein, die Sie für Ereignisse verwenden, beispielsweise die Uhrzeit, zu der Sie normalerweise aufstehen oder der Beginn Ihrer Arbeitszeit.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Tägliche Ereignisse im Navigator anzeigen</guilabel
+></term
+> <listitem
+><para
+>Wenn <guilabel
+>Tägliche Ereignisse im Navigator anzeigen </guilabel
+> angekreuzt ist, werden Tage mit täglich wiederkehrenden Ereignissen im Navigator in Fettschrift angezeigt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Wöchentliche Ereignisse im Navigator anzeigen</guilabel
+></term
+> <listitem
+><para
+>Wenn <guilabel
+>Wöchentliche Ereignisse im Navigator anzeigen</guilabel
+> angekreuzt ist, werden Tage mit wöchentlich wiederkehrenden Ereignissen im Navigator in Fettschrift angezeigt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kurztipps zum Anzeigen von Ereigniszusammenfassungen einschalten</guilabel
+></term
+> <listitem
+><para
+>Wenn Ihre Zusammenfassung eines Ereignisses länger ist als angezeigt werden kann, wird die Ausgabe am rechten Rand abgeschnitten. Kreuzen Sie <guilabel
+>Kurztipps zum Anzeigen von Ereigniszusammenfassungen</guilabel
+> an, wenn Sie die ganze Zusammenfassung angezeigt bekommen wollen sobald die Maus einige Sekunden über der Zusammenfassung bleibt.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="preferences-printing">
+<title
+>Drucken</title>
+
+<para
+>Wählen Sie den passenden <guilabel
+>Druckernamen</guilabel
+> mit dem Sie unter &korganizer; drucken möchten.</para>
+
+<para
+><guilabel
+>Papierausrichtung</guilabel
+> gibt die Ausrichtung von Ausdrucken aus.Hochformat ist vertikaler Druck und Querformat ist horizontaler Druck.</para>
+
+<para
+>Das <guilabel
+>Vorschauprogramm</guilabel
+> Feld gibt an, welches Programm &korganizer; verwendet, wenn Sie <guimenuitem
+>Druckvorschau...</guimenuitem
+> aus dem <link linkend="file-print-preview"
+>Datei Menü</link
+> aufrufen. Dies ist normalerweise <application
+>kghostview</application
+>, <application
+>ghostview</application
+> oder <application
+>gv</application
+>.</para>
+
+<para
+>Um den Menüpunkt <link linkend="file-print-preview"
+><guimenuitem
+>Druckvorschau...</guimenuitem
+></link
+> verwenden zu können, brauchen Sie ein Programm, das Ausdrucke von &korganizer; als Eingabe akzeptiert und diese auf dem Bildschirm darstellen kann.. Da &korganizer; mit Hilfe der PostScript-Druckersprache druckt, brauchen Sie ein Programm, das PostScript versteht und auf Ihrem Bildschirm ausgeben kann. Die besten Ergebnisse werden (aus historischen Gründen) mit <application
+>gv</application
+>erreicht, aber das KDE-eigene Programm <application
+>kghostview</application
+> ist auch sehr ausgereift und daher der Standard. Sie können selbstverständlich trotzdem <application
+>gv</application
+> oder jede andere PostScript->Bildschirm-Software verwenden.</para>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="reference-menus">
+<title
+>Menüs</title>
+
+<para
+>Beim Start von &korganizer; erscheint das Hauptfenster. Das Fenster besteht aus mehreren Teilen: Der Menüleiste, der Werkzeugleiste, einem Monatskalender, dem Hauptfenster mit der aktuellen Ansicht und einer Aufgabenliste. Der Kalender zeigt zu Beginn das aktuelle Datum.</para>
+
+<para
+>Mit den Menüs können alle gängigen Operationen im Programm durchgeführt werden, inklusive Speichern, Laden, Hinzufügen und Löschen von Ereignissen, Druck- und weiteren Operationen.</para>
+
+<sect2 id="reference-menus-file">
+<title
+><guimenu
+>Datei</guimenu
+></title>
+
+<para
+>Das <guimenu
+>Datei</guimenu
+> Menü enthält Funktionen, die den gesamten Kalender betreffen.</para>
+
+<variablelist
+> <varlistentry id="file-new"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>n</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_file_new.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Datei</guimenu
+> <guimenuitem
+>Neu</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet ein weiteres Hauptfenster.</action
+> Das Fenster enthält zu Beginn einen namenlosen Kalender. Sie können dieses neue Fenster benutzen, um:</para
+> <itemizedlist
+> <listitem
+><para
+>denselben Kalender zweimal zu öffnen (klicken Sie auf <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Öffnen...</guimenuitem
+></menuchoice
+> und wählen Sie den selben Kalender wie im Originalfenster)</para
+></listitem
+> <listitem
+><para
+>zwei verschiedene Kalender gleichzeitig zu bearbeiten (klicken Sie auf <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Öffnen</guimenuitem
+></menuchoice
+> und wählen Sie einen anderen Kalender). </para
+></listitem
+> <listitem
+><para
+>einen neuen Kalender zu erstellen (klicken Sie auf <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Speichern</guimenuitem
+></menuchoice
+>, um Ihren Kalender mit einem Dateinamen zu speichern).</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry id="file-open"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>o</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_file_open.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Datei</guimenu
+> <guimenuitem
+>Öffnen...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet einen Dialog, in dem Sie eine vCalendar-Datei zum Öffnen auswählen können.</action
+> Wenn Sie an dem momentan geöffneten Kalender Änderungen vorgenommen haben, können Sie auswählen, ob Sie diese Änderungen speichern möchten, bevor der neue Kalender geöffnet wird.</para
+></listitem
+> </varlistentry
+> <varlistentry id="file-open-recent"
+> <term
+><menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Zuletzt geöffnete Dateien</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><guilabel
+>Zuletzt geöffnete Dateien</guilabel
+> <action
+>enthält eine kurze Liste zuletzt geöffneter Kalender und erlaubt schnellen Zugriff auf diese.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="file-save"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>s</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_file_save.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Datei</guimenu
+> <guimenuitem
+>Speichern</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Wenn Sie <guimenuitem
+>Speichern</guimenuitem
+> auswählen oder auf das <guiicon
+>Speichern</guiicon
+> Symbol klicken speichert &korganizer; <action
+>den Kalender ab und stellt sicher, dass keine Ihrer Änderungen verlorengeht</action
+>. Wenn der Kalender noch keinen Dateinamen hat, verhält sich Speichern wie <guilabel
+>Speichern unter...</guilabel
+> ..</para
+></listitem
+> </varlistentry
+> <varlistentry id="file-save-as"
+> <term
+><menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Speichern unter...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><guilabel
+>Speichern unter...</guilabel
+> <action
+>zeigt einen Dialog an, in dem Sie Ihrem Kalender einen anderen Dateinamen als den momentan zugewiesenen geben können.</action
+>. Das ist nützlich, wenn Sie an Ihrem Kalender Änderungen durchgeführt haben, diese aber von Ihrem "normalen" Kalender getrennt speichern wollen.</para
+></listitem
+> </varlistentry
+> <varlistentry id="file-close"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>w</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_file_close.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Datei</guimenu
+> <guimenuitem
+>Schließen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Schließt den momentan geöffneten Kalender. Das &korganizer; Hauptfenster bleibt danach offen, um einen anderen Kalender öffnen zu können.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="file-print"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>p</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_file_print.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Datei</guimenu
+> <guimenuitem
+>Drucken...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Wählen Sie <guimenuitem
+>Drucken...</guimenuitem
+> oder klicken Sie auf das <guilabel
+>Drucken</guilabel
+> Symbol, um <action
+>den aktuellen Kalender zu drucken</action
+>. Sie können die Anzahl der zu druckenden Tage (von Hand oder mit dem Auswahlfeld) und die Ansicht (Tag, Woche, Monat oder Aufgaben) wählen.</para
+></listitem
+> </varlistentry
+> <varlistentry id="file-print-preview"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_file_print_preview.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Datei</guimenu
+><guimenuitem
+>Druckvorschau...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Wenn Sie <guimenuitem
+>Druckvorschau...</guimenuitem
+> wählen oder auf das <guiicon
+>Druckvorschau</guiicon
+> Symbol klicken <action
+>wird der Kalender auf dem Bildschirm statt auf dem Drucker ausgegeben.</action
+>. Mit dieser Funktion können Sie prüfen ob die Ausgabe korrekt ist bevor Sie tatsächlich drucken.</para
+> <para
+>Sie können die Anzahl der zu druckenden Tage (von Hand oder mit dem Auswahlfeld) und die Ansicht (Tag, Woche, Monat oder Aufgaben) wählen.</para
+> <para
+>Das Programm zur Ausgabe der Druckvorschau können Sie im Menü <link linkend="preferences-printing"
+>Persönliche Einstellungen..., Drucken</link
+> verändern.</para
+></listitem
+> </varlistentry
+> <varlistentry id="file-print-setup"
+> <term
+><menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Druckereinrichtung...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><guilabel
+>Druckereinrichtung...</guilabel
+> öffnet den Dialog zur Einrichtung des Druckers. Hier können Sie die Druckausgabe beeinflussen. Schauen Sie sich den Abschnitt <link linkend="preferences-printing"
+>Persönliche Einstellungen..., Drucken</link
+> an für weitere Informationen zu diesem Thema.</para
+></listitem
+> </varlistentry
+> <varlistentry id="file-import-ical"
+> <term
+><menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Aus Ical importieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Wenn Sie vorher <application
+>Ical</application
+>, ein beliebtes aber veraltetes Programm für UNIX, verwendet haben, können Sie mit dieser Funktion <action
+>Ihre Ereignisse und Aufgaben direkt in &korganizer; importieren</action
+>. Dazu wird die .calendar Datei in Ihrem Persönlichen Verzeichnis ausgelesen und die Einträge dem aktuellen Kalender hinzugefügt. Wenn Fehler oder Unklarheiten beim Import auftauchen, werden Sie darüber mit einem Dialogfeld benachrichtigt.</para
+></listitem
+> </varlistentry
+> <varlistentry id="file-merge"
+> <term
+><menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Kalender zusammenführen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><guilabel
+>Kalender zusammenführen</guilabel
+> ermöglicht es Ihnen, den Inhalt einer anderen vCalendar-Datei Ihrer eigenen <action
+>hinzuzufügen</action
+>. Dies ist zum Beispiel dann sinnvoll, wenn Sie via E-Mail einige Ereignisse in einer vCalendar-Datei erhalten haben und diese in Ihrem ursprünglichen Kalender haben wollen.</para
+></listitem
+> </varlistentry
+> <varlistentry id="file-archive-old"
+> <term
+><menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Alte Einträge archivieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Von Zeit zu Zeit sollten Sie Ihre alten Einträge löschen.</action
+></para
+> <tip
+><para
+>Auf modernen Rechnern ist mehr als genug Speicherplatz. Wenn Sie allerdings Ihren &korganizer; Kalender mit einem Gerät mit wenig Speicher, z.B.einem PalmPilot synchronisieren wollen, ist das Archivieren sehr nützlich. Außerdem kann es passieren, dass &korganizer; langsamer arbeitet, wenn es zu viele Ereignisse gibt.</para
+></tip
+> <procedure
+> <step
+><para
+>Klicken Sie auf <guilabel
+>Alte Einträge archivieren</guilabel
+>.</para
+></step
+> <step
+><para
+>Geben Sie ein Datum beim <guilabel
+>Verabredungen älter als</guilabel
+> Feld ein oder benutzen Sie das Auswahlfeld, um ein Datum auszuwählen. </para
+></step
+> <step
+><para
+>Wenn Sie Archivieren wählen, müssen Sie zusätzlich einen Dateinamen für das Archiv im Feld <guilabel
+>Datei archivieren</guilabel
+> eingeben. Wenn Sie ein altes Archiv wiederverwenden wollen, klicken Sie den <guilabel
+>Durchsuchen</guilabel
+> Knopf an, um eine bestehende Archivdatei zu suchen. DIESE WIRD DANN ÜBERSCHRIEBEN, stellen Sie also sicher, dass Sie die Daten entweder nicht mehr brauchen oder eine Kopie davon haben.</para
+></step
+> </procedure
+></listitem
+> </varlistentry
+> <varlistentry id="file-export-as-web"
+> <term
+><menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Als Webseite exportieren...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Sie können den Kalender (oder Teile davon) als HTML Datei exportieren, um sie dann z.B. im WWW zu publizieren.</action
+></para
+> <procedure
+> <step
+><para
+>Klicken Sie auf <guilabel
+>Als Webseite exportieren...</guilabel
+>. Ein Fenster mit drei Karteikarten erscheint: <guilabel
+>Allgemein</guilabel
+>, <guilabel
+>Ereignis</guilabel
+>, und <guilabel
+>Aufgaben</guilabel
+>.</para
+></step
+> <step
+><para
+>Karteikarte <guilabel
+>Allgemein</guilabel
+>.</para
+> <substeps
+> <step
+><para
+>Geben Sie Anfangs- und Enddatum an (von Hand oder mit Hilfe des Auswahlfeldes).</para
+></step
+> <step
+><para
+>Wählen Sie die anzuzeigenden Typen: <guilabel
+>Ereignisliste</guilabel
+>, <guilabel
+>Aufgabenliste</guilabel
+> oder beides.</para
+></step
+> <step
+><para
+>Geben Sie den Speicherort im Feld <guilabel
+>Ausgabedatei</guilabel
+> ein. Wenn Sie eine bestehende Datei überschreiben wollen, dann klicken Sie auf den <guibutton
+>Durchsuchen</guibutton
+> Knopf, um die Datei zu suchen.</para
+></step
+> <step
+><para
+>Geben Sie in der <guilabel
+>Ereignis</guilabel
+>-Karteikarte an, ob Sie Kategorien und Teilnehmer mit exportieren wollen.</para
+></step
+> </substeps
+></step
+> <step
+><para
+><guilabel
+>Aufgaben</guilabel
+>-Karteikarte: geben Sie an, ob Sie Termine, Kategorien und Teilnehmer mit exportieren wollen.</para
+></step
+> </procedure
+></listitem
+> </varlistentry
+> <varlistentry id="file-make-active"
+> <term
+><menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Aktivieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Auch wenn Sie mehrere Kalender geöffnet haben, kann nur einer davon Alarme auslösen, nur einer ist also aktiv. Klicken Sie auf <guilabel
+>Aktivieren </guilabel
+>, um den aktuellen <action
+>Kalender zu aktivieren.</action
+></para
+> <para
+>Der aktive Kalender ist derjenige, der beim Start von &korganizer; geladen wird. Also sollten Sie, wenn Sie mit mehreren Kalendern arbeiten, Ihren Hauptkalender aktivieren.</para
+></listitem
+> </varlistentry
+> <varlistentry id="file-quit"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_file_quit.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Datei</guimenu
+> <guimenuitem
+>Beenden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Wenn Sie <guimenuitem
+>Beenden</guimenuitem
+> auswählen oder auf das <guiicon
+>Beenden</guiicon
+> Symbol klicken, <action
+>wird das &korganizer; Fenster geschlossen, Sie bekommen jedoch vorher die Möglichkeit, Ihren Kalender zu speichern wenn Sie dort Änderungen durchgeführt haben.</action
+></para
+> <para
+>Diese Funktion schließt immer nur ein &korganizer; Fenster. Wenn mehrere offen sind, müssen Sie jedes einzeln schließen.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reference-menus-edit">
+<title
+>Bearbeiten</title>
+
+<para
+>Mit dem <guilabel
+>Bearbeiten</guilabel
+> Menü können Sie Ereignisse und Aufgaben suchen und bearbeiten.</para>
+
+<para
+><guimenuitem
+>Ausschneiden</guimenuitem
+>, <guimenuitem
+>Kopieren</guimenuitem
+> und <guimenuitem
+>Einfügen</guimenuitem
+> funktionieren genau so wie bei allen anderen KDE-Programmen. Mit dem <guimenuitem
+>Suchen...</guimenuitem
+> Menüpunkt können Sie Ereignisse und Aufgaben in Ihrem gesamten Kalender suchen.</para>
+
+<variablelist
+> <varlistentry id="edit-cut"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>x</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_cut.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Bearbeiten</guimenu
+> <guimenuitem
+>Ausschneiden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Entfernt die ausgewählten Ereignisse aus dem Kalender und kopiert sie in die Zwischenablage.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-copy"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>c</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_copy.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Bearbeiten</guimenu
+> <guimenuitem
+>Kopieren</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Kopiert die ausgewählten Ereignisse in die Zwischenablage.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-paste"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_paste.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Bearbeiten</guimenu
+> <guimenuitem
+>Einfügen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><guimenuitem
+>Einfügen</guimenuitem
+> <action
+>kopiert den Inhalt der Zwischenablage in Ihren Kalender</action
+>. Die Zwischenablage muss dazu einen gültigen vCalendar enthalten, entweder durch eine Ausschneiden/Kopieren-Operation oder durch ein externes Programm. Sie werden gewarnt, wenn der Inhalt der Zwischenablage nicht im vCalendar-Format ist.</para
+> <tip
+><para
+>Sie können übrigens ohne Probleme <keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>C</keycap
+></keycombo
+> und <keycombo
+> <keycap
+>Strg</keycap
+> <keycap
+>V</keycap
+></keycombo
+> benutzen, um einen beliebigen Text mit externen Programmen im "Eintrag bearbeiten" Fenster auszutauschen. </para
+></tip
+></listitem
+> </varlistentry
+> <varlistentry id="edit-find"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_edit_find.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Bearbeiten</guimenu
+> <guimenuitem
+>Suchen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Wählen Sie <guimenuitem
+>Suchen...</guimenuitem
+> aus dem <guimenu
+>Bearbeiten</guimenu
+> Menü oder klicken Sie auf das <guiicon
+>Suchen</guiicon
+> Symbol <action
+>um die Ereigniszusammenfassungen nach einem Ereignis zu durchsuchen</action
+>. Die Suchfunktion durchsucht nur die Zusammenfassungen.</para
+> <tip
+><para
+>Sie können bei der Suche Platzhalter verwenden. Wenn Sie einen einzelnen Buchstaben nicht wissen, können Sie <userinput
+>?</userinput
+> statt des Buchstabens eingeben. Wenn Sie mehrere Buchstaben nicht wissen, benutzen Sie <userinput
+>*</userinput
+>. Wenn Sie beispielsweise ein Ereignis suchen, bei dem <emphasis
+>Arbeit</emphasis
+> irgendwo in der Mitte steht, dann sollten Sie <userinput
+>*Arbeit*</userinput
+> im Suchen-Dialog eingeben. &korganizer; wird dann Einträge wie "Ich muss zur Arbeit", "Arbeitsgruppe Wein" und ähnliche finden. Die Groß/Kleinschreibung wird dabei ignoriert.</para
+></tip
+> <para
+>Als Ergebnis liefert der Suchen-Dialog eine Liste mit den Ereignissen, die Ihren Suchkriterien entsprechen. Die angezeigten Spalten in der Liste sind die gleichen wie die Spalten in<link linkend="view-list-view"
+>Ansicht, Auflisten</link
+>.</para
+> <para
+>Die Liste mit den Suchergebnissen ist aktiv. Sie können auf einen Eintrag doppelklicken, um ihn sich anzeigen zu lassen oder zu bearbeiten. Hierzu gibt es weitere Informationen unter <link linkend="entering-data-events"
+>Ereignisse eingeben</link
+> und <link linkend="entering-data-to-do"
+>Aufgaben eingeben</link
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reference-menus-view">
+<title
+><guimenu
+>Ansicht</guimenu
+></title>
+
+<para
+>Es gibt verschiedene Ansichten, um Ihre Ereignisse und Aufgaben darzustellen, nämlich "Auflisten", "Tag", "Arbeitswoche", "Woche" und "Monat" sowie die Aufgabenliste. &korganizer; merkt sich beim Beenden automatisch, welche Ansicht zuletzt gewählt war und verwendet diese beim nächsten Start wieder.</para>
+
+<para
+>Jede Ansicht stellt Ereignisse und Aufgaben dar; je nach ausgewählter Anisicht für einen kleineren (Tagesansicht) oder oder größeren (Monatsansicht) Zeitraum. Klicken Sie einen Eintrag an, um mit ihm zu arbeiten. <mousebutton
+>Rechtsklicken</mousebutton
+> Sie auf eine Verabredung, um ihr Kontextmenü aufzurufen, das ihnen Optionen wie <guimenuitem
+>Bearbeiten</guimenuitem
+>, <guimenuitem
+>Löschen</guimenuitem
+> usw. bietet. Sie können für diese Aktionen auch das <guimenu
+>Aktionen</guimenu
+> Menü benutzen.</para>
+
+<variablelist
+> <varlistentry id="view-list-view"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_view_list.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Ansicht</guimenu
+><guimenuitem
+>Auflisten</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt Ereignisse in Listenform an.</action
+></para
+> <para
+>Diese Ansicht zeigt alle Ereignisse des Tages in einer Liste an. Jedes Ereignis wird in einer Zeile dargstellt. Die erste Spalte zeigt ein Glockensymbol, wenn diesem Ereignis ein Alarm zugeordnet wurde. Die zweite Spalte zeigt ein Symbol mit zwei Pfeilen, wenn das Ereignis sich wiederholt. Wenn Sie dann die Maus über dieses Symbol bewegen, wird ein Kurztipp angezeigt, in dem detaillierte Informationen über die Wiederholung des Ereignisses angezeigt werden. Die dritte Spalte zeigt die Start- und Endzeit an und in der vierten Spalte wird die Zusammenfassung des Ereignisses angezeigt.</para
+> <para
+>Auflisten eignet sich gut, wenn Sie an einem Tag viele Ereignisse haben und diese kompakt angezeigt bekommen wollen. Es ist auch nützlich, wenn Ihre Termine über einen größeren Zeitraum verstreut sind und die anderen Ansichten nicht alle Ereignisse darstellen können.</para
+></listitem
+> </varlistentry
+> <varlistentry id="view-day-view"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_view_day.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Ansicht</guimenu
+><guimenuitem
+>Tag</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt den Kalender in der Tagesansicht an.</action
+></para
+> <para
+>Diese Ansicht zeigt die Ereignisse des Tages chronologisch sortiert an. Sie können auch sehen, wie lange ein Ereignis dauert. Die Zeitachse wird am linken Rand dargestellt. Eine Bildlaufleiste wird am rechten Rand dargestellt, wenn nicht der ganze Tag auf einmal dargestellt werden kann (der Normalfall). Jedes Rechteck in der Ansicht stellt eine Verabredung dar. Start- und Endzeit sowie die Zusammenfassung werden ebenfalls angezeigt. Ein <guiicon
+>Glocken-Symbol</guiicon
+> wird angezeigt, wenn dem Ereignis ein Alarm zugeordnet wurde. Ein Symbol mit <guiicon
+>zwei Pfeilen</guiicon
+> wird dargestellt, wenn das Ereignis sich mehrmals wiederholt. Wenn Sie die Maus über das Pfeilsymbol bewegen, wird ein Kurztipp angezeigt, der Details über die Wiederholungen anzeigt.</para
+> <para
+>Da auf den meisten Bildschirmen nicht der ganze Tag auf einmal dargestellt werden kann, wird rechts eine Laufleiste eingeblendet, die das Rollen des Bildes ermöglicht. Auf momentan nicht sichtbare Ereignisse wird jedoch immer hingewiesen, und zwar durch ein kleines Pfeilsymbol am oberen bzw. unteren Rand.</para
+> <para
+>Die Dauer jedes Ereignisses kann mit der Maus verändert werden. Platzieren Sie einfach die Maus am oberen oder unteren Ende des Ereignisses und bewegen Sie die Maus bei gedrückter Maustaste hoch bzw herunter. Dadurch können Sie visuell die Start- und Endzeiten eines Ereignisses verändern. Das funktioniert übrigens auch in der Arbeitswochen- und Wochenansicht.</para
+> <para
+>Jedes Ereignis kann an einen anderen Zeitpunkt verschoben werden, bewegen Sie einfach die Maus auf das Ereignis und ziehen Sie es bei gedrückter Maustaste an die neue Position. Auch dies funktioniert in der Arbeitswochen- und Wochenansicht.</para
+> <para
+> Ereignisse können auch zu einem Datum geschoben werden, das in der gewählten Ansicht gerade nicht sichtbar ist. Ziehen Sie dazu das Ereignis auf das gewünschte Datum im Navigator.</para
+> <tip
+><para
+>Eine nützliche Abkürzung für das Hinzufügen von Ereignissen: Doppelklicken Sie auf einen noch freien Zeitpunkt; dadurch erzeugt &korganizer; automatisch ein Ereignis mit der Standarddauer (die Sie in "Persönliche Einstellungen..." festlegen können). Sie können sofort die Beschreibung eingeben. Die Startzeit der Ereignisse werden beim Klicken auf halbe Stunden gerundet.</para
+></tip
+> </listitem
+> </varlistentry
+> <varlistentry id="view-workweek-view"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_view_work_week.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Ansicht</guimenu
+><guimenuitem
+>Arbeitswoche </guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Stellt den Kalender in der Arbeitswochenansicht dar.</action
+></para
+> <para
+>Diese Ansicht ähnelt der Wochenansicht, allerdings werden nur die Tage Mo-Fr angezeigt.</para
+></listitem
+> </varlistentry
+> <varlistentry id="view-week-view"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_view_week.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Ansicht</guimenu
+> <guimenuitem
+>Woche</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Stellt den Kalender in der Wochenansicht dar.</action
+></para
+> <para
+>Die Wochenansicht ähnelt der Tagesansicht. Ereignisse für insgesamt sieben Tage werden nebeneinander dargestellt. Alle Funktionen der Tagesansicht stehen auch hier zur Verfügung. Schauen Sie sich für weitere Informationen die Sektion <link linkend="view-day-view"
+>Tagesansicht</link
+> an.</para
+></listitem
+> </varlistentry
+> <varlistentry id="view-month-view"
+> <term
+><menuchoice
+> <guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Monat</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Stellt den Kalender in der Monatsansicht dar.</action
+></para
+> <para
+>Die Monatsansicht zeigt die Ereignisse des aktuellen Monats in einer typischen Kalenderdarstellung an. Für jeden Tag werden so viele Ereignisse angezeigt, wie der verfügbare Platz es zulässt (wenn Sie das &korganizer; Fenster maximieren, sehen Sie also mehr Ereignisse). Informationen über Alarme und Wiederholungen werden durch die <guiicon
+>Glocke</guiicon
+> und <guiicon
+>Pfeil</guiicon
+> Symbole angezeigt, genau wie in den anderen Ansichten.</para
+> <para
+>In der Monatsansicht können Sie sich mit einer Reihe von Knöpfen am rechten Rand in der Zeit vor- und zurückbewegen. Durch Drücken der nach oben gerichteten Pfeile können Sie eine Woche, einen Monat und sogar ein Jahr zurückgehen. Die nach unten gerichteten Pfeile gehen in der Zeit vorwärts.</para
+></listitem
+> </varlistentry
+> <varlistentry id="view-todo-view"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_view_todo_list.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Ansicht</guimenu
+> <guimenuitem
+>Aufgabenliste </guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Stellt die Aufgabenliste dar.</action
+></para
+> <para
+>Die Aufgabenliste in ein Ort, an dem Sie für sich selbst Notizen hinterlassen können, um die Übersicht über die Dinge zu behalten, die Sie in nächster Zeit tun müssen. Die Aufgabenliste wird IMMER unterhalb des Navigators dargestellt. Sie können sie zusätzlich im Hauptfenster darstellen, indem Sie auf das <guilabel
+>Aufgabenliste</guilabel
+> Symbol klicken oder <menuchoice
+><guimenu
+>Ansicht</guimenu
+><guimenuitem
+>Aufgabenliste </guimenuitem
+></menuchoice
+> auswählen.</para
+> <para
+>Sie können Ihrer Aufgabe einen Termin geben, also ein Datum an dem die Aufgabe spätestens erledigt sein sollte. </para
+> <para
+>Sie können Ihren Aufgaben auch Prioritäten zuweisen, sie werden dann nach Priorität sortiert angezeigt. Je kleiner die Zahl um so höher die Priorität. Ausnahme: Null (0) ist definiert als "keine Priorität".</para
+> <para
+>Zum Erstellen einer Aufgabe klicken Sie rechts in der Aufgabenliste. Ein Menü mit der Option "Neue Aufgabe" erscheint. Wenn Sie auf eine bereits bestehende Aufgabe geklickt haben, erhalten Sie mehr Auswahlmöglichkeiten: Anzeigen der Zusammenfassung, Bearbeiten der Aufgabendetails, Löschen der gesamten Aufgabe, oder Aufgaben-Untergruppe erstellen. Sie könnten zum Beispiel eine große Aufgabe wie "Haus bauen" definieren, und dazu dann Unteraufgaben wie "Bauplatz suchen", "Architekt beauftragen", "Arbeiter anheuern" und schließlich "Einweihungsparty feiern".</para
+> <para
+>Wenn Sie <guilabel
+>Neue Aufgabe</guilabel
+> auswählen, wird eine neue Aufgabe erstellt und Sie können alle notwendigen <link linkend="entering-data-to-do"
+>Informationen</link
+> eingeben.</para
+> <para
+>Klicken Sie auf eine bestehende Aufgabe, um sie hervorzuheben. Ein Klick auf das fett gedruckte Kästchen links ändert den "Erledigt" Status der Aufgabe. Wenn Sie auf die Beschreibung der Aufgabe doppelklicken, können Sie die Details dieser Aufgabe bearbeiten.</para
+> <para
+>Sie können auch <guilabel
+>Aufräumen</guilabel
+> aus dem Kontextmenü auswählen, um alle bereits erledigten Aufgaben zu löschen. Das ist nützlich, wenn man die Liste schnell aufräumen möchte.</para
+> <para
+>Aufgaben können auch mit der Maus an eine neue Position in der Liste gezogen und sogar zwischen zwei &korganizer; Fenstern ausgetauscht werden. Lesen Sie hierzu am besten den <link linkend="other-features-drag-and-drop"
+>Überblick</link
+> über alle verfügbaren Drag-and-Drop-Operationen.</para
+></listitem
+> </varlistentry
+> <varlistentry id="view-update"
+> <term
+><menuchoice
+> <guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Aktualisieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+> <action
+>Erneuert die Bildschirmdarstellung in der ausgewählten Ansicht.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reference-menus-go">
+<title
+>Gehe zu...</title>
+
+<variablelist
+> <varlistentry id="go-previous-day"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_go_backward.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Gehe zu...</guimenu
+><guimenuitem
+>Zurück</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Blättert zurück (in der Tagesansicht einen Tag, in der Wochenansicht ein Woche usw.).</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="go-next-day"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_go_forward.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Gehe zu...</guimenu
+><guimenuitem
+>Vorwärts</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Blättert vor (in der Tagesansicht einen Tag, in der Wochenansicht ein Woche usw.).</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="go-goto-today"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_go_to_today.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Gehe zu...</guimenu
+><guimenuitem
+>Gehe zu Heute</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Geht zum aktuellen Datum.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reference-menus-actions">
+<title
+><guimenu
+>Aktionen</guimenu
+></title>
+
+<variablelist
+> <varlistentry id="actions-new-event"
+> <term
+><menuchoice
+> <guimenu
+>Aktionen</guimenu
+> <guimenuitem
+>Neuer Eintrag</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Wählen Sie <guilabel
+>Neuer Eintrag</guilabel
+>, um <action
+>ein neues Ereignis zu erstellen</action
+>. Im daraufhin erscheinenden Fenster sind die aktuelle Zeit und das aktuelle Datum voreingestellt.</para
+> <para
+>Detaillierte Informationen zum Erstellen von Ereignissen finden Sie in der <link linkend="entering-data-events"
+>Eingabe von Ereignissen</link
+> Sektion.</para
+></listitem
+> </varlistentry
+> <varlistentry id="actions-new-todo"
+> <term
+><menuchoice
+> <guimenu
+>Aktionen</guimenu
+> <guimenuitem
+>Neue Aufgabe...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Wählen Sie <guilabel
+>Neue Aufgabe...</guilabel
+>, um <action
+>eine neue Aufgabe zu erstellen</action
+>. Standardmäßig hat die Aufgabe keinen Fälligkeitstermin, Sie können jedoch einen angeben.</para
+> <para
+>Detaillierte Informationen zum Erstellen von Ereignissen finden Sie in der <link linkend="entering-data-events"
+>Eingabe von Ereignissen</link
+> Sektion.</para
+> <para
+>Das Eingabefenster für Aufgaben ähnelt dem von Ereignissen, es gibt lediglich keine Karteikarte des Typs "Eintrag wiederholen". Aufgaben sind einmalige Aktionen.</para
+></listitem
+> </varlistentry
+> <varlistentry id="actions-delete-event"
+> <term
+><menuchoice
+> <guimenu
+>Aktionen</guimenu
+> <guimenuitem
+>Verabredung löschen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><guilabel
+>Verabredung löschen</guilabel
+> <action
+>löscht das ausgewählte Ereignis oder die ausgewählte Aufgabe.</action
+> Zur Sicherheit wird normalerweise nachgefragt.</para
+> <para
+>Wenn Sie allerdings <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Persönliche Einstellungen...</guimenuitem
+> <guimenuitem
+>Persönlich</guimenuitem
+><guimenuitem
+>Löschen bestätigen</guimenuitem
+></menuchoice
+> <emphasis
+>nicht</emphasis
+> angekreuzt haben, wird der Löschvorgang ohne Nachfrage sofort durchgeführt.</para
+></listitem
+> </varlistentry
+> <varlistentry id="actions-mail-event"
+> <term
+><menuchoice
+> <guimenu
+>Aktionen</guimenu
+> <guimenuitem
+>Verabredung der E-Mail</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Die <guilabel
+>Verabredung per E-Mail</guilabel
+> Option <action
+>sendet das ausgewählte Ereignis an dessen Teilnehmer.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reference-menus-settings">
+<title
+><guimenu
+>Einstellungen</guimenu
+></title>
+
+<variablelist
+> <varlistentry id="settings-show-toolbar"
+> <term
+><menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Allgemein/Ansichten-Werkzeugleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Klicken Sie darauf, um die entsprechende Werkzeugleiste ein- oder auszublenden.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="settings-configure-toolbars"
+> <term
+><menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Werkzeugleisten einrichten...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Ein Klick hierauf öffnet das Fenster <link linkend="reference-windows-config-toolbars"
+>Werkzeugleisten einrichten </link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry id="settings-preferences"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_settings_prefs.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Einstellungen</guimenu
+><guimenuitem
+>Persönliche Einstellungen...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Dieses Fenster öffnet das Menü für die <link linkend="reference-windows-preferences"
+>Persönlichen Einstellungen</link
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reference-menus-help">
+<title
+><guimenu
+>Hilfe</guimenu
+></title>
+
+<variablelist
+> <varlistentry id="help-contents"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_help_contents.png" format="PNG"/></imageobject
+></inlinemediaobject
+>Hilfe</guimenu
+> <guimenuitem
+>Inhalt</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Mit dem Menüeintrag <menuchoice
+><guimenu
+>Hilfe</guimenu
+><guimenuitem
+>Inhalt</guimenuitem
+></menuchoice
+> und dem Hilfesymbol <action
+>öffnen Sie die Dokumentation</action
+> von &korganizer;, die Sie hier gerade lesen.</para
+></listitem
+> </varlistentry
+> <varlistentry id="help-report-bug"
+> <term
+><menuchoice
+> <guimenu
+>Hilfe</guimenu
+> <guimenuitem
+>Berichten Sie über Probleme oder Wünsche</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Wählen Sie die <guilabel
+>Berichten Sie über Probleme oder Wünsche</guilabel
+> Option, wenn Sie glauben, dass Sie einen Programmfehler in &korganizer; gefunden haben. Ein Fenster öffnet sich, in dem Sie das Problem beschreiben und einen <guilabel
+>Schweregrad</guilabel
+> angeben können. Das KDE-Team nimmt Ihre Hinweise dankbar entgegen, denn dadurch wird die Qualität der &kde; wesentlich verbessert.</para
+> <para
+>Sie können den &korganizer; Autoren auch Ihre Wünsche bezüglich des Programms mitteilen. Wählen Sie dazu einfach <guilabel
+>Wunschliste</guilabel
+> als Schweregrad, und geben Sie Ihren Wunsch ein. Wir freuen uns wirklich über Ihre Beteiligung.</para
+></listitem
+> </varlistentry
+> <varlistentry id="help-about-korganizer"
+> <term
+><menuchoice
+> <guimenu
+>Hilfe</guimenu
+> <guimenuitem
+>Über KOrganizer</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Die Option <guimenuitem
+>Über KOrganizer</guimenuitem
+> <action
+>zeigt Informationen</action
+> über &korganizer; sowie die Autorenliste an.</para
+></listitem
+> </varlistentry
+> <varlistentry id="help-about-kde"
+> <term
+><menuchoice
+> <guimenu
+>Hilfe</guimenu
+> <guimenuitem
+>Über KDE...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Wählen Sie <guilabel
+>Über KDE...</guilabel
+>, um die <action
+>Copyright-Informationen zu KDE</action
+> anzeigen zu lassen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="reference-hotkey">
+<title
+>Kurzbefehle</title>
+
+<para
+>Dies ist eine komplette Übersicht über die Tastenkürzel mit Verknüpfungen zu ihrer Funktion.</para>
+
+
+<sect2 id="reference-hotkey-sortalpha">
+<title
+>Tastenkürzel alphabetisch sortiert</title
+> 
+
+<informaltable>
+<tgroup cols="2">
+<colspec colname="hotkey"/>
+<colspec colname="desc"/>
+<thead
+> <row
+> <entry
+>Tastenkürzel</entry
+> <entry
+>Beschreibung</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>C</keycap
+> </keycombo
+></entry
+> <entry
+><link linkend="edit-copy"
+><menuchoice
+><guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Kopieren</guimenuitem
+></menuchoice
+></link
+>: Kopiert die Auswahl in die Zwischenablage</entry
+> </row
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>F</keycap
+></keycombo
+></entry
+> <entry
+><link linkend="edit-find"
+><menuchoice
+><guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Suchen</guimenuitem
+></menuchoice
+></link
+>: Sucht Daten im aktuellen Kalender</entry
+> </row
+> <row
+> <entry
+><keycap
+>F1</keycap
+></entry
+> <entry
+><link linkend="help-contents"
+><menuchoice
+><guimenu
+>Hilfe</guimenu
+> <guimenuitem
+>Inhalt</guimenuitem
+></menuchoice
+></link
+>: Zeigt die Hilfe zu &korganizer; an</entry
+> </row
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>N</keycap
+></keycombo
+></entry
+> <entry
+><link linkend="file-new"
+><menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Neu</guimenuitem
+></menuchoice
+></link
+>: Erstellt einen neuen Kalender</entry
+> </row
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>O</keycap
+></keycombo
+></entry
+> <entry
+><link linkend="file-open"
+><menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Öffnen</guimenuitem
+></menuchoice
+></link
+>: Öffnet eine Kalenderdatei im Hauptfenster</entry
+> </row
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>P</keycap
+></keycombo
+></entry
+> <entry
+><link linkend="file-print"
+><menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Drucken</guimenuitem
+></menuchoice
+></link
+>: Druckt den aktiven Kalender</entry
+> </row
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>Q</keycap
+></keycombo
+></entry
+> <entry
+><link linkend="file-quit"
+><menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Beenden</guimenuitem
+></menuchoice
+></link
+>: Beendet das Programm </entry
+> </row
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>S</keycap
+></keycombo
+></entry
+> <entry
+><link linkend="file-save"
+><menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Speichern</guimenuitem
+></menuchoice
+></link
+>: Speichert den momentan geöffneten Kalender</entry
+> </row
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>V</keycap
+></keycombo
+></entry
+> <entry
+><link linkend="edit-paste"
+><menuchoice
+><guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Einfügen</guimenuitem
+></menuchoice
+></link
+>: Fügt Daten aus der Zwischenablage ein</entry
+> </row
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>W</keycap
+></keycombo
+></entry
+> <entry
+><link linkend="file-close"
+><menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Schließen</guimenuitem
+></menuchoice
+></link
+>: Schließt den Kalender</entry
+> </row
+> <row
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>X</keycap
+></keycombo
+></entry
+> <entry
+><link linkend="edit-cut"
+><menuchoice
+><guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Ausschneiden</guimenuitem
+></menuchoice
+></link
+>: Schneidet die Auswahl aus und kopiert sie in die Zwischenablage.</entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+
+</sect2
+> 
+
+<sect2 id="reference-hotkey-sortbyfunc">
+<title
+>Tastenkürzel nach Funktion sortiert</title
+> 
+
+<informaltable>
+<tgroup cols="2">
+<colspec colname="desc"/>
+<colspec colname="hotkey"/>
+<thead
+> <row
+> <entry
+>Beschreibung</entry
+> <entry
+>Tastenkürzel</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><emphasis
+>Schließen:</emphasis
+> <link linkend="file-close"
+> <menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>:Schließen</guimenuitem
+></menuchoice
+></link
+>: Schließt den aktuellen Kalender</entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>W</keycap
+></keycombo
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Kopieren:</emphasis
+> <link linkend="edit-copy"
+> <menuchoice
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Kopieren</guimenuitem
+></menuchoice
+> </link
+>: Kopiert die Auswahl in die Zwischenablage</entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>C</keycap
+></keycombo
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Ausschneiden:</emphasis
+> <link linkend="edit-cut"
+> <menuchoice
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Ausschneiden</guimenuitem
+></menuchoice
+></link
+>: Schneidet die Auswahl aus und kopiert sie in die Zwischenablage</entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>X</keycap
+></keycombo
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Suchen:</emphasis
+> <link linkend="edit-find"
+> <menuchoice
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Suchen...</guimenuitem
+></menuchoice
+></link
+>: Sucht Daten im aktuellen Kalender</entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>F</keycap
+></keycombo
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Hilfe:</emphasis
+> <link linkend="help-contents"
+> <menuchoice
+> <guimenu
+>Hilfe</guimenu
+> <guimenuitem
+>Inhalt</guimenuitem
+></menuchoice
+></link
+>: Öffnet die &korganizer; Hilfe</entry
+> <entry
+><keycap
+>F1</keycap
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Neu:</emphasis
+> <link linkend="file-new"
+> <menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Neu</guimenuitem
+></menuchoice
+></link
+>: Erstellt einen neuen Kalender</entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>N</keycap
+></keycombo
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Öffnen:</emphasis
+> <link linkend="file-open"
+> <menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Öffnen</guimenuitem
+></menuchoice
+></link
+>: Öffnet einen bestehenden Kalender im aktuellen Fenster</entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>O</keycap
+></keycombo
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Einfügen:</emphasis
+> <link linkend="edit-paste"
+> <menuchoice
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Einfügen</guimenuitem
+></menuchoice
+></link
+>: Fügt Daten aus der Zwischenablage in den aktuellen Kalender ein</entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>V</keycap
+></keycombo
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Drucken:</emphasis
+> <link linkend="file-print"
+> <menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Drucken</guimenuitem
+> </menuchoice
+> </link
+>: Druckt den aktuellen Kalender</entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>P</keycap
+></keycombo
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Beenden:</emphasis
+> <link linkend="file-quit"
+> <menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Beenden</guimenuitem
+></menuchoice
+></link
+>: Beendet &korganizer; </entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>Q</keycap
+></keycombo
+></entry
+> </row
+> <row
+> <entry
+><emphasis
+>Speichern:</emphasis
+> <link linkend="file-save"
+> <menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Speichern</guimenuitem
+></menuchoice
+></link
+>: Speichert den aktuellen Kalender</entry
+> <entry
+><keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>S</keycap
+></keycombo
+></entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+
+</sect2
+> 
+
+</sect1>
+
+<sect1 id="reference-action-buttons">
+<title
+>Schaltknöpfe</title>
+
+<para
+>Viele Fenster enthalten Knöpfe wie <guibutton
+>Standard</guibutton
+>, <guibutton
+>Speichern</guibutton
+>, <guibutton
+>OK</guibutton
+>, <guibutton
+>Anwenden</guibutton
+> und <guibutton
+>Abbrechen</guibutton
+>. Mit diesen Knöpfen können Sie entscheiden, ob die von Ihnen eingegebenen Daten gespeichert oder verworfen werden.</para
+>  
+
+<variablelist
+> <varlistentry
+> <term
+><guibutton
+>Standard</guibutton
+></term
+> <listitem
+><para
+>Ein Druck auf den Knopf <guibutton
+>Standard</guibutton
+> führt dazu, dass alle Werte auf ihre Standardeinstellung gesetzt werden und die Änderungen des Benutzers verloren gehen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Löschen</guibutton
+></term
+> <listitem
+><para
+>Klicken Sie auf <guibutton
+>Löschen</guibutton
+>, um das Ereignis, das Sie gerade bearbeiten, komplett zu löschen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>OK</guibutton
+></term
+> <listitem
+><para
+>Beim Klicken auf <guibutton
+>OK</guibutton
+> werden Ihre Änderungen gesichert und &korganizer; schließt das Fenster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Anwenden</guibutton
+></term
+> <listitem
+><para
+>Ein Klick auf <guibutton
+>Anwenden</guibutton
+> speichert Ihre Änderungen, das Fenster bleibt jedoch noch offen für eventuelle weitere Änderungen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Abbrechen</guibutton
+></term
+> <listitem
+><para
+>Wenn Sie auf <guibutton
+>Abbrechen</guibutton
+> klicken, werden Ihre Änderungen verworfen und &korganizer; schließt das Fenster.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="vcalendar-format">
+<title
+>vCalendar-Format</title
+> 
+
+<para
+>&korganizer; ist der erste kostenlose <abbrev
+>PIM</abbrev
+> für UNIX, der den vCalendar-Standard für den Datenaustausch implementiert. Dieser herstellerunabhängige, offene Standard erlaubt es verschiedenen Programmen und Geräten, Daten ohne lizenzpflichtige Standards auszutauschen und zu synchronisieren. Die Daten werden im <abbrev
+>ASCII</abbrev
+>-Format gespeichert und sind leicht lesbar. Während einige Windows Programme eine limitierte Import/Export-Funktion von ihren eigenen Formaten zum vCalendar-Format haben, ist vCalendar &korganizer;s Standardformat, so dass der Konvertierungsschritt komplett übersprungen werden kann. Es erlaubt auch, dass Sie Ihre Daten verändern können, ohne das Programm selbst zu benutzen, ganz im Geiste anderer UNIX-Programme. </para
+> 
+
+</sect1>
+
+</chapter>
+
+<chapter id="other-features">
+<title
+>Andere Funktionen</title>
+
+<para
+>In diesem Kapitel bekommen Sie Informationen zu anderen nützlichen Funktionen in &korganizer;, zum Beispiel die Befehlszeilenparameter (wenn Sie &korganizer; von einem Prompt aufrufen), Tipps und Tricks zur Behandlung der Maus und welche Interaktion zwischen &korganizer; und <application
+>Konqueror</application
+> möglich ist.</para>
+
+<para
+>Sie bekommen außerdem Informationen über das Zusammenführen und Importieren von Daten und das Synchronisieren mit Ihrem PalmPilot(-kompatiblen) Minicomputer.</para
+> 
+
+<sect1 id="other-features-commandline-options">
+<title
+>Befehlszeilenparameter</title>
+
+<para
+>&korganizer; unterstützt selbstverständlich alle für die &kde; typischen Parameter, hat aber zusätzlich noch zwei eigene Parameter: Sie können die Ereignisse für den aktuellen Tag auflisten und eine Liste der Ereignisse für eine bestimmte Anzahl von Tagen auflisten.</para>
+
+<informaltable>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Option</entry
+> <entry
+>Beschreibung</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><option
+>--help</option
+></entry
+> <entry
+>Gibt eine kurze Hilfe zu den Optionen aus</entry
+> </row
+> <row
+> <entry
+><option
+>--help-qt</option
+></entry
+> <entry
+>Zeigt zahlreiche Qt-spezifische Optionen an</entry
+> </row
+> <row
+> <entry
+><option
+>--help-kde</option
+></entry
+> <entry
+>Zeigt zahlreiche KDE-spezifische Optionen an</entry
+> </row
+> <row
+> <entry
+><option
+>--author</option
+></entry
+> <entry
+>Gibt Namen und Adressen der &korganizer; Autoren aus</entry
+> </row
+> <row
+> <entry
+><option
+>-V</option
+>, <option
+>--version</option
+></entry
+> <entry
+>Zeigt die Versionsnummern von den Qt-Bibliotheken, der &kde; und &korganizer; an</entry
+> </row
+> <row
+> <entry
+><option
+>-l</option
+>, <option
+>--list</option
+></entry
+> <entry
+>Listet die Ereignisse für den aktuellen Tag auf</entry
+> </row
+> <row
+> <entry
+><option
+>-s</option
+>, <option
+>--show <replaceable
+>AnzTage</replaceable
+></option
+></entry
+> <entry
+>Zeigt eine Liste der Ereignisse für AnzTage an</entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable
+> 
+
+</sect1>
+
+<sect1 id="other-features-drag-and-drop">
+<title
+>Drag-and-Drop-Operationen</title>
+
+<para
+>&korganizer; kann problemlos mit der Maus kontrolliert werden. Die unterstützten Funktionen werden hier beschrieben.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Die Dauer jedes Ereignisses kann mit der Maus verändert werden. Bewegen Sie einfach den Mauszeiger an das obere oder untere Ende eines Ereignisses und ziehen Sie dann den Rand hinauf oder hinunter. So können Sie die Start- und Endzeit des Ereignisses visuell verändern. Das funktioniert in der Tages-, Arbeitswochen- und Wochenansicht.</para
+></listitem
+> <listitem
+><para
+>Jedes Ereignis kann zu einem neuen Zeitpunkt verschoben werden. Bewegen Sie den Mauszeiger über das Ereignis und ziehen Sie es auf den gewünschten Zeitpunkt. Dies funktioniert in der Tages-, Arbeitswochen- und Wochenansicht.</para
+></listitem
+> <listitem
+><para
+>Ereignisse können auch zu gerade nicht sichtbaren Tagen geschoben werden. Bewegen Sie den Mauszeiger über das Ereignis und ziehen Sie es auf den Navigator auf der linken Seite des Fensters oder auf den Navigator eines anderen &korganizer; Fensters.</para
+> <tip
+><para
+>Sie können jedoch NICHT Ereignisse von der Tagesansicht eines Kalenders in die Tagesansicht eines anderen Kalenders ziehen.</para
+></tip
+></listitem
+> <listitem
+><para
+>Die Werkzeugleisten können auf dem Bildschirm verschoben werden. Bewegen Sie die Maus an den linken Rand der Leiste und ziehen Sie sie an die gewünschte neue Position auf Ihrem Bildschirm.</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="other-features-konqueror-interaction">
+<title
+>Interaktion mit <application
+>Konqueror</application
+></title>
+
+<para
+><application
+>Konqueror</application
+> erkennt das vCalendar-Format, welches &korganizer; benutzt. Wenn Sie mit <application
+>Konqueror</application
+> eine vCalendar-Datei öffnen, wird diese <emphasis
+>innerhalb</emphasis
+> des <application
+>Konqueror</application
+> Fensters dargestellt. Sie können dort die meisten Funktionen mit Ihrem Kalender durchführen und müssen &korganizer; nicht starten. Technisch ausgedrückt nennt man das "Einbetten von vCalendar als KPart innerhalb von <application
+>Konqueror</application
+>".</para>
+
+</sect1>
+
+<sect1 id="other-features-merging-data">
+<title
+>Daten zusammenführen</title>
+
+<para
+>Sie können Daten verschiedener Kalender zusammenführen. Wählen Sie dazu <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Kalender zusammenführen...</guimenuitem
+></menuchoice
+> und suchen Sie anschließend die vCalendar-Datei aus, die Sie mit dem momentan geöffneten Kalender zusammenführen wollen.</para>
+
+</sect1>
+
+<sect1 id="other-features-import">
+<title
+>Importieren</title>
+
+<para
+>Sie können Daten des klassischen Terminplaners <application
+>Ical</application
+> importieren. Die <application
+>Ical</application
+>-Dateien müssen in Ihrem persönlichen Verzeichnis stehen. Wählen Sie <menuchoice
+> <guimenu
+>Datei</guimenu
+> <guimenuitem
+>Aus Ical importieren...</guimenuitem
+></menuchoice
+>, um diese Funktion auszuführen.</para>
+
+</sect1>
+
+<sect1 id="other-features-palm-sync">
+<title
+>Palm-Synchronisierung</title>
+
+<para
+>### wird noch geschrieben... ###</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="faq">
+<title
+>Fragen und Anworten</title>
+
+<qandaset id="faq-questions">
+<qandaentry>
+<question>
+<para
+>Kann ich meine alten <application
+>Ical</application
+>-Daten importieren?</para>
+</question>
+<answer
+><para
+>Ja. Folgen Sie den Anweisungen im Abschnitt <link linkend="file-import-ical"
+>Aus Ical importieren</link
+>.</para>
+</answer>
+</qandaentry>
+<qandaentry>
+<question>
+<para
+>Kann ich Daten aus Microsoft <application
+>Outlook</application
+> importieren?</para>
+</question>
+<answer
+><para
+>Ja, das geht. Sie müssen jedoch zunächst die Daten aus <application
+>Outlook</application
+> heraus ins vCalendar-Format exportieren. Dann müssen Sie diese Datei in Ihr persönliches Verzeichnis kopieren und auf <menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Öffnen</guimenuitem
+> </menuchoice
+> klicken, die Datei suchen und darauf doppelklicken.</para>
+</answer>
+</qandaentry>
+</qandaset>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>&korganizer;</para>
+
+<para
+>Programm Copyright 2000, Die KDE-Entwickler</para>
+
+<para
+>Beiträge von:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Cornelius Schumacher <email
+>schumacher@kde.org</email
+></para
+> </listitem
+> <listitem
+><para
+>Preston Brown <email
+>pbrown@kde.org</email
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+>Dokumentation Copyright 2000 Milos Prudek</para>
+<para
+>Deutsche &Uuml;bersetzung Copyright 2000 Stefan Winter<email
+>kickdown@online.de</email
+></para>
+
+<para
+>Die &korganizer;-Homepage befindet sich bei <ulink url="http://devel-home.kde.org/~korganiz"
+>http://devel-home.kde.org/~korganiz</ulink
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-korg">
+<title
+>Wo erhält man &korganizer;?</title>
+
+<para
+>&korganizer; ist Teil des KDE-Projekts <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &korganizer; befindet sich im kdepim-Paket unter <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, der KDE-Haupt-FTP-Seite.</para>
+
+<para
+>Klicken Sie auf das <guisubmenu
+>Anwendungen</guisubmenu
+> Menü Ihrem <guimenu
+>Start</guimenu
+> Menü um zu überprüfen ob &korganizer; bereits auf Ihrem System installiert ist. Wenn &korganizer; dort nicht steht, wurde es entweder nicht installiert oder Ihr Administrator hat es an einen anderen Ort verschoben.</para>
+
+<para
+>Die &korganizer;-Homepage befindet sich bei <ulink url="http://devel-home.kde.org/~korganiz"
+>http://devel-home.kde.org/~korganiz</ulink
+> </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Systemanforderungen</title>
+
+<para
+>&korganizer; benötigt KDE 2.0. Es beansprucht circa 2 MB Speicherplatz in Ihrem KDE-Verzeichnis. Ihre Kalender brauchen zusätzlichen Platz in Ihrem Persönlichen Verzeichnis. Sehr große Kalender verlangsamen &korganizer;, daher ist regelmäßiges Aufräumen zu empfehlen.</para>
+
+<para
+>&korganizer; braucht circa 5 MB Arbeitsspeicher, das hängt aber von Ihrer Plattform und der Größe Ihrer Kalender ab.</para>
+
+<para
+>Alle benötigten Systemdateien sind Teil der KDE-Standard-Systemdateien (kdelibs). Das KDE-Basispaket (kdebase) muss ebenfalls installiert sein, um das Programm zu lokalisieren (z.B. Datum und Uhrzeitformat. &korganizer; selbst ist im kdepim-Paket. Alle diese Pakete befinden sich auf der <ulink url="http://www.kde.org"
+>KDE-Homepage.</ulink
+>.</para>
+
+<para
+>Die &korganizer;-Homepage befindet sich bei <ulink url="http://devel-home.kde.org/~korganiz"
+>http://devel-home.kde.org/~korganiz</ulink
+>. </para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilieren und Installieren</title>
+
+<para
+>Wenn &korganizer; nicht installiert ist und Sie der Administrator des Systems sind, sollten Sie eine vorkompilierte Distribution benutzen. </para>
+
+<itemizedlist
+> <listitem
+><para
+>Wenn Ihr System mit dem RPM-Paket Format zurechtkommt, sollten Sie eine Datei namens "<filename
+>kdepim2.i386.rpm</filename
+>" oder ähnlich installieren. Der korrekte Befehl zur Installation lautet: <command
+>rpm <option
+>-i <replaceable
+>kdepim2.i386.rpm</replaceable
+></option
+></command
+>, und der richtige Befehl zum Updaten lautet: <command
+>rpm <option
+>-U <replaceable
+>kdepim2.i386.rpm</replaceable
+></option
+></command
+></para
+></listitem
+> <listitem
+><para
+>Wenn Ihr System ein anderes Paketformat benutzt, dann lesen Sie bitte die Anleitung für Ihr System.</para
+></listitem
+> <listitem
+><para
+>Wenn Sie kein vorkompiliertes Paket verwenden können, müssen Sie &korganizer; selbst aus den Programmquellen kompilieren. Suchen Sie eine Datei namens "<filename
+>kdepim2.tar.gz</filename
+>" oder ähnlich, entpacken Sie diese in ein neues Verzeichnis, und geben Sie die folgenden Befehle ein:</para
+> <screen width="40">
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen
+> </listitem
+> </itemizedlist>
+
+<para
+>Da &korganizer; <application
+>autoconf</application
+> und <application
+>automake</application
+> benutzt, sollte es eigentlich keine Probleme beim kompilieren geben. Sollten Sie auf Probleme stoßen, dann melden Sie diese an die <ulink url="http://lists.kde.org"
+>KDE-Mailing-Liste</ulink
+>.</para
+> 
+</sect1>
+
+</appendix>
+
+<glossary id="glossary">
+<title
+>Glossar</title
+> 
+
+<glossentry id="gloss-calendar-widget"
+> <glossterm
+>Kalendar Auswahlliste</glossterm
+> <glossdef
+> <para
+>Ein Werkzeug in verschiedenen Fenstern, um ein Datum anzugeben. Es wird als kleiner Knopf rechts von einem Datumsfeld angezeigt. Wenn Sie auf den Knopf klicken, sehen Sie einen Moantskalender. Drücken Sie die Pfeiltasten, um zu einem Datum zu gehen oder klicken Sie auf einen Monatsnamen oder Jahreszahl um direkt zu dem entsprechenden Monat oder Jahr zu springen.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-date-navigator"
+> <glossterm
+>Navigator</glossterm
+> <glossdef
+> <para
+>Der Kalender der in der oberen linken Ecke des &korganizer; Fensters dargestellt wird. Dies ist der Hauptweg, um zwischen Tagen zu navigieren, und diese auszuwählen. Die Knöpfe mit einem Pfeil bewegen den Kalender monatsweise vor und zurück, die Knöpfe mit den zwei Pfeilen jahresweise. Das heutige Datum wird umrahmt dargestellt. Tage mit Ereignissen werden fettgedruckt dargestellt. Wenn Sie ein Datum auswählen wollen, dann klicken Sie einfach darauf. Wenn Sie mehrere nebeneinander liegende Tage auswählen wollen, halten Sie die Strg-Taste gedrückt und klicken Sie dann nacheinander auf die gewünschten Tage. Diese Tage werden dann rechts im Hauptfenster angezeigt.</para
+> <para
+>Sich wiederholende Ereignisse werden nicht immer dargestellt; Sie können die Anzeige im Navigator unterbinden. Nähere Informationen hierzu gibt es im Kapitel <link linkend="preferences-views"
+>Ansichten</link
+>.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-due-date"
+> <glossterm
+>Termin</glossterm
+> <glossdef
+> <para
+>Ein Termin ist das Datum, an dem eine Aufgabe abgeschlossen sein muss. Wenn Sie beispielsweise die Aufgabe "Bücher bis 16. November zurückbringen" definiert haben, dann ist der 16. November der Termin für diese Aufgabe.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-group-scheduling"
+> <glossterm
+>Gruppenplanungsfunktion</glossterm
+> <glossdef
+> <para
+>Dies ist für zukünftige Versionen von &korganizer; geplant. Die Gruppenplanung wird Rollen (Teilnehmer, Besitzer, Organisator), Lösung von Zeitkonflikten, Verschicken von Gedächtnisstützen, automatisches Sammeln von Antworten und deren Auswertung enthalten. Anders ausgedrückt, können Sie Teilnehmer bestimmen, diese automatisch einladen, und als Ergebnis sehen, wer akzeptiert hat und wer nicht.</para
+> <para
+>Momentan funktionieren die Gruppenplanungsfunktionen noch nicht. Trotzdem sind bereits Ansätze im &korganizer; Programm eingebaut. Das <guilabel
+>Privat</guilabel
+> und <guilabel
+>Antwort erbeten</guilabel
+> Kästchen sowie das <guilabel
+>E-Mail</guilabel
+> Feld werden dann erst richtig sinnvoll. Diese Optionen werden übrigens detailliert im <link linkend="entering-data"
+>Eingabe von Daten</link
+> Kapitel, in der <link linkend="reference-windows-attendees"
+>Teilnehmer</link
+> Sektion und in der <link linkend="preferences-personal"
+>Persönliche Einstellungen..., Persönlich</link
+> Sektion beschrieben.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-main-panel"
+> <glossterm
+>Hauptfenster</glossterm
+> <glossdef
+> <para
+>Normalerweise der größte Teil des Bildschirms, der sich rechts vom Navigator befindet. Es zeigt die Tages-, Arbeitswochen-, Wochen- oder Monatsanscht, die Listenansicht oder die Aufgabenliste an.</para
+> <para
+>Die rechte Maustaste kann in der Listenansicht und der Aufgabenliste zum Anzeigen eines Kontextmenüs verwendet werden. Die linke Maustaste kann in jeder Ansicht verwendet werden.</para
+> </glossdef
+> </glossentry>
+
+</glossary>
+
+&documentation.index; 
+</book>
+

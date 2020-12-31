@@ -1,0 +1,476 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kdvi;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE"
+><!-- change language only here -->
+]>
+<book lang="&language;">
+  <bookinfo>
+    <title
+>Das &kdvi;-Handbuch</title>
+    <authorgroup>
+      <author
+> <firstname
+>Stefan</firstname
+> <surname
+>Kebekus</surname
+> <affiliation
+> <address
+> <email
+>kebekus@kde.org</email
+> </address
+> </affiliation
+> </author>
+      <othercredit role="translator"
+><firstname
+>Robert</firstname
+><surname
+>Gogolok</surname
+> <affiliation
+><address
+><email
+>robertgogolok@gmx.de</email
+></address
+></affiliation
+> <contrib
+>Übersetzung des Handbuchs</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Stefan</firstname
+><surname
+>Winter</surname
+> <affiliation
+><address
+><email
+>mail@stefan-winter.de</email
+></address
+></affiliation
+> <contrib
+>Übersetzung der Programmoberfl�che</contrib
+></othercredit>
+    </authorgroup>
+    
+    <copyright>
+      <year
+>2001</year>
+      <holder
+>Stefan Kebekus</holder>
+    </copyright>
+    
+    <legalnotice
+>&FDLNotice;</legalnotice>
+    
+    <date
+>2001-01-09</date>
+    <releaseinfo
+>1.0</releaseinfo>
+    
+    <abstract>
+      <para
+>Dieses Handbuch beschreibt &kdvi; Version 0.9h</para>
+    </abstract>
+    
+    <keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>Linux</keyword>
+      <keyword
+>TeX</keyword>
+      <keyword
+>DVI</keyword>
+    </keywordset>
+    
+  </bookinfo>
+  
+  <chapter id="introduction">
+    <title
+>Einleitung</title>
+    
+    <para
+>&kdvi; ist ein Plugin für das Programm &kviewshell;, das &kviewshell; erlaubt, &DVI;-Dateien anzuzeigen (<literal role="extension"
+>.dvi</literal
+>). Solche Dateien werden durch das Satzsystem TeX erzeugt. &kdvi; unterstützt einige Erweiterungen des DVI-Standards, wie z.B. &PostScript;-Grafiken oder Hyperlinks. Weitere Details, Beispiele und alle technischen Spezifikationen kann man  in der Datei <ulink url="KDVI-features.dvi"
+><filename
+>KDVI-features.dvi</filename
+></ulink
+> (für den TeX-Quelltext muss man <ulink url="KDVI-features.tex"
+>hier</ulink
+> klicken).</para>
+    
+    <para
+>Für aktuellere Informationen konsultieren Sie die <ulink url="http://devel-home.kde.org/~kdvi"
+>Homepage von kdvi</ulink
+>. </para>
+    
+    <para
+>TeX ist ein hochwertiges Satzsystem speziell für wissenschaftliche und mathematische Publikationen. Weitere Informationen über TeX und &DVI; findet man auf der <ulink url="http://www.tug.org"
+>Internetseite der TeX-Benutzer</ulink
+> oder der deutschen Seite <ulink url="http://www.dante.de"
+>Deutsche DANTE e.V.</ulink
+>. </para>
+  </chapter>
+  
+  
+  <chapter id="starting">
+    <title
+>&kdvi; starten</title>
+    
+    <para
+>In der Regel wird &kdvi; durch Klicken auf eine <literal role="extension"
+>.dvi</literal
+>-Datei im Dateimanager gestartet. Es existiert der Befehl <command
+>kdvi</command
+> , der &kviewshell; mit dem &kdvi;-Plugin aufruft. Der Betrachter kann folglich mit dem Befehl <userinput
+><command
+>kdvi</command
+> <parameter
+>beliebigerpfad/papier.dvi</parameter
+></userinput
+> gestartet werden. Der Befehl <userinput
+><command
+>kdvi</command
+> <parameter
+>beliebiger_Pfad/paper</parameter
+></userinput
+> oder <userinput
+><command
+>kdvi</command
+> <parameter
+>beliebiger_Pfad/paper.</parameter
+></userinput
+> funktioniert auch. </para>
+
+    <para
+>Die üblichen Parameter, die von &Qt;- und &kde;-Anwendngen benutzt werden, funktionieren auch: <userinput
+><command
+>kdvi</command
+> <option
+>-style</option
+> <parameter
+>windows</parameter
+> <option
+>-display</option
+> <parameter
+>:0</parameter
+> <option
+>-geometry</option
+> <parameter
+>400x400+0+0</parameter
+> <option
+>-caption</option
+> <parameter
+>"DVI"</parameter
+></userinput
+> </para>
+  </chapter>
+  
+  
+  <chapter id="print">
+    <title
+>DVI-Dateien Drucken</title>
+    
+    <para
+>&kdvi; kann DVI-Dateien über die Standarddruckbefehle von KDE drucken. Intern verwendet &kdvi; das Programm <command
+>dvips</command
+>, um für den Drucker PostScript zu erzeugen. Daher muss das Programm <command
+>dvips</command
+> auf dem Computer installiert sein, wenn man mit &kdvi; drucken will. Das Programm <command
+>dvips</command
+> verwendet seine eigenen Konfigurationesdateien und Einstellungen, die für die meisten Zwecke ausreichend sind. Falls man optimale Resultate benötigt, sollte man <command
+>dvips</command
+> manuell konfigurieren und einen Standard-MetaFont-Modus wählen, der zum eigenen Drucker passt --- auf den meisten Systemen ist eine <ulink url="info:/dvips"
+>GNU-Texinfo-Dokumentation von <command
+>dvips</command
+></ulink
+> vorhanden. Außerdem kann man nach einer Datei mit Namen <filename
+>dvips.dvi</filename
+> Ausschau halten.</para>
+  </chapter>
+
+  <chapter id="export">
+    <title
+>Eine DVI-Datei in andere Formate übertragen</title>
+
+    <para
+>Wenn man die Datei im PostScript- oder PDF-Format speichern will, sollte man nicht die Druckfunktion verwenden und die Ausgabe in eine Datei umleiten. Stattdessen sollte man die Exportfunktionen verwenden, da deren Ausgabe qualitativ hochwertiger ist, da viele der besonderen F�higkeiten des DVI-Formates erhalten bleiben und damit die Ausgabe in Programmen wie Adobe's Acrobat Reader besser aussieht. Die Exportfunktionen befinden sich im Menü <guimenu
+>Datei</guimenu
+>.</para>
+
+    <section id="export-ps">
+      <title
+>Export nach PostScript</title
+> 
+
+      <para
+>Wie zum Drucken wird das externe Programm <command
+>dvips</command
+> zur Erzeugung einer PostScript-Datei verwendet. Wenn die DVI-Datei Hyperlinks enthält, werden diese auch in die PostScript-Datei übernommen. Falls man sich auskennt und eine Ausgabe für einen speziellen Drucker erzeugen will, sollte man <command
+>dvips</command
+> manuell starten und den MetaFont-Modus selbst auswählen.</para>
+    </section>
+
+    <section id="export-pdf">
+      <title
+>Export nach PDF</title
+> 
+
+      <para
+>Um eine hochwertige PDF-Datei zu erzeugen, ruft &kdvi; das externe Programm <command
+>dvipdfm</command
+> für die Konvertierung von DVI nach PDF auf. Wenn man auf einem Computer mit einer älteren Installation von TeX arbeitet, kann es sein, dass das Programm <command
+>dvipdfm</command
+> nicht installiert ist. In diesem Fall muss man die Druckfunktion verwenden, um eine PDF-Datei zu erzeugen.</para>
+
+      <warning
+> <para
+>Es kann sein, das einige Zeichensätze in der erzeugten Datei in Adobe's Acrobat Reader erbärmlich aussehen, obwohl der Ausdruck gut aussieht und die Vorschau in ghostview in Ordnung ist. Das hat mit dem Acrobat Reader und Bitmap-Zeichensätzen zu tun. Bisher ist der einzige Ausweg, Bitmap-Zeichensätze zu vermeiden.</para>
+      </warning>
+    </section>
+  </chapter>
+  
+
+  <chapter id="preferences">
+    <title
+>Der <guilabel
+>Einstellungen</guilabel
+>-Dialog</title>
+    <anchor id="opts"
+></anchor>
+
+    <para
+>Der <guilabel
+>Einstellungen</guilabel
+>-Dialog befindet sich bei <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>DVI Einstellungen</guimenuitem
+></menuchoice
+> im Menü <guimenu
+>Einstellungen</guimenu
+>.</para>
+
+    <para
+>Der Dialog besteht aus zwei Feldern, <guilabel
+>Schriftarten</guilabel
+> und <guilabel
+>Aufbauen</guilabel
+>.</para>
+
+    <sect1 id="opt-fonts">
+      <title
+><guilabel
+>Schriftarten</guilabel
+>-Optionen</title>
+
+      <para
+>Das folgende Bild zeigt den Optionendialog von &kdvi;.</para>
+
+      <screenshot
+> <screeninfo
+>Der <guilabel
+>Schriftarten</guilabel
+>-Dialog</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="optionrequester1.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Der <guilabel
+>Schriftarten</guilabel
+>-Dialog</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+      <variablelist
+> <varlistentry
+> <term
+><guilabel
+>Metafont-Modus</guilabel
+> </term
+> <listitem
+> <para
+>Diese Option legt die Schriftart fest, die &kdvi; zur Anzeige benutzen wird. Durch sorgfältige Optimierung der Einstellungen ist es hier möglich, die Anzeige zu verbessern. Wenn Sie jedoch kein Experte in <command
+>MetaFont</command
+> sind und nicht wissen, was Sie tun, ist es nicht sinnvoll, diese Optionen zu ändern. Weitere Informationen findet man im Bereich <ulink url="faq.html#MFModes"
+>H�ufig gestellte Fragen</ulink
+> dieser Dokumentation.</para
+> <para
+>Sichere Werte sind <guilabel
+>1200 dpi / Lexmark S</guilabel
+> für gute Qualität oder <guilabel
+>600 dpi / LaserJet 4</guilabel
+> für mittlere Qualität und schnellere Darstellung.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Fehlende Schriftarten erzeugen</guilabel
+></term
+> <listitem
+> <para
+>Kreuzen Sie diese Option an, wenn Sie möchten, dass &kdvi; das Programm <command
+>MetaFont</command
+> in dem (sehr wahrscheinlichen) Fall aufruft, dass kdvi Dokumente in Schriftarten darzustellen versucht, die nicht schon vorher erzeugt wurden. Sie sollten diese Option auf jeden Fall setzen.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+    </sect1>
+
+    <sect1 id="opt-rendering">
+      <title
+><guilabel
+>Aufbauen</guilabel
+>-Optionen</title>
+
+      <para
+>Das folgende Bild zeigt das zweite Feld des &kdvi;-Dialogs.</para>
+
+      <screenshot
+> <screeninfo
+>Der <guilabel
+>Aufbauen</guilabel
+>-Dialog</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="optionrequester2.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Der <guilabel
+>Aufbauen</guilabel
+>-Dialog</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+      <variablelist
+> <varlistentry
+> <term
+><guilabel
+>PostScript-Besonderheiten anzeigen</guilabel
+></term
+> <listitem
+> <para
+>Wenn diese Option gewählt wurde, zeigt &kdvi; &PostScript;-Graphiken an, die in der &DVI; Datei eingebettet sind. Diese Option sollte ausgewählt sein.</para
+> <para
+>Wenn eine externe &PostScript;-Datei nicht gefunden werden kann, zeichnet &kdvi; eine rote Warnbox an ihre Stelle. Leider ist der Aufbau von &PostScript;-Graphiken sehr langsam in der aktuellen Version von &kdvi;. Wir werden die Geschwindigkeit in späteren Versionen verbessern. Wenn diese Option deaktiviert ist, wird &kdvi; entweder eine graue Box als Platzhalter für die Graphik anzeigen oder es wird diesen Zwischenraum leer lassen.</para
+> <note
+> <para
+>Es gibt keinen Standardweg, um &PostScript;-Graphiken in eine DVI-Datei einzubetten. Es kann deshalb passieren, dass &kdvi; eine Graphik, die mit anderen Programmen gut funktioniert,  nicht korrekt darstellen kann. Ältere Versionen von <command
+>xdvi</command
+> und <command
+>dvips</command
+> unterstützen die Ausführung von externen Befehlen. Dies ist ein hohes Sicherheitsrisiko und deshalb bewusst nicht eingebaut in &kdvi;. Technische Informationen über die Möglichkeit, &PostScript;-Unterstützung zu erhalten, kann in <ulink url="KDVI-features.dvi"
+><filename
+>KDVI-features.dvi</filename
+></ulink
+> gefunden werden. Sie möchten diese Option wahrscheinlich setzen.</para
+> </note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Verknüpfungen (Links)</guilabel
+></term
+> <listitem
+> <para
+>Kreuzen Sie dies an, wenn Sie möchten, dass &kdvi; Verknüpfungen (Hyperlinks) anzeigt. Die entsprechenden Stellen des Textes werden blau unterstrichen. Die Aktivierung dieser Einstellung ist in der Regel zu empfehlen.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+    </sect1>
+  </chapter>
+
+
+  <chapter id="faq">
+    <title
+>Häufig gestellte Fragen</title>
+
+    <qandaset>
+      <qandaentry>
+	<question id="fontgen">
+	  <para
+>Was passiert, wenn &kdvi; die Nachricht "Generating bitmap fonts" anzeigt und warum dauert es so lange?</para>
+	</question>
+	<answer>
+	  <para
+>Viele der Zeichensätze, die in einem TeX-Dokument üblicherweise verwendet werden, müssen vom MetaFont-System generiert werden. MetaFont ist eine Sprache (in den neueren TeX-Distributionen enthalten), die ähnlich zu TeX ist und aus einer Zeichsatzbeschreibung eine gerasterte Version (= <filename
+>.pk</filename
+>-Datei) des Zeichensatzes erzeugt. Diese Datei kann für die Vorschau und den Ausdruck mit Programmen wie &kdvi; verwendet werden. Metafont enthält einige Optimierungen, um das bestmögliche Druckbild zu erzeugen. Zum Beispiel enthält Metafont Informationen darüber, dass Tintenstrahldrucker runde Pixel produzieren und benachbarte Pixel mit einander verschmieren. Im Unterschied dazu sind Pixel eines Laserdrucker rechteckig und isolierte Pixel werden häufig gar nicht angezeigt.</para>
+
+	  <para
+>Solche optimierten Bitmap-Zeichensätze zu erzeugen ist sehr zeitaufwändig, besonders da TeX-Dokumente in der Regel viele unterschiedliche Zeichensätze verwenden. Daher kann man nur geduldig warten. Die meisten TeX-Distributionen speichern <filename
+>.pk</filename
+>-Dateien für eine gewisse Zeit, z.B. 100 Tage. Daher werden diese Dateien wiederverwendet, wenn man das gleiche Dokument wieder aufruft.</para>
+	</answer>
+      </qandaentry>
+
+      <qandaentry>
+	<question id="MFModes">
+	  <para
+>Was ist ein MetaFont-Modus?</para>
+	</question>
+	<answer>
+	  <para
+>Um für einen Drucker optimiert Bitmap-Dateien zu erzeugen (siehe auch die Antwort auf die erste Frage), enthält Metafont eine Datenbank mit Druckerbeschreibungen -- die Datei heißt <filename
+>modes.mf</filename
+>. Ein Metafont-Modus ist der Name eines Datenbankeintrages. Zum Beispiel gehört der Name "ljfour" zu einem Eintrag, der den LaserJet4-Drucker von Hewlett Packard beschreibt. Einem Metafont-Modus folgt in der Regel eine Nummer, die Auflösung. Der LaserJet hat zum Beispiel zwei Auflösungen, nämlich 300 dpi und 600 dpi. Daher wäre "ljfour/600" eine vollständige Beschreibung.</para>
+	</answer>
+      </qandaentry>
+
+    </qandaset>
+  </chapter>
+
+
+  <chapter id="credits-and-license">
+    <title
+>Mitwirkende und Lizenz</title>
+
+    <para
+>&kdvi;</para>
+
+    <para
+>&kdvi; 0.9h basiert auf dem eigenständigen Programm &kdvi; 0.4.3 von Markku Hihnala. Dieses Programm basiert wiederum auf <application
+>xdvi</application
+> Version 18f, welches von verschiedenen Autoren stammt.</para>
+
+    <para
+>Copyright für die Dokumentation 2001, Stefan Kebekus <email
+>kebekus@kde.org</email
+></para>
+
+    <para
+>Übersetzung des Handbuchs: Robert Gogolok <email
+>robertgogolok@gmx.de</email
+></para
+> <para
+>Übersetzung der Programmoberfläche: Stefan Winter <email
+>mail@stefan-winter.de</email
+></para>
+    
+&underGPL;
+&underFDL;
+
+  </chapter>
+
+    
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

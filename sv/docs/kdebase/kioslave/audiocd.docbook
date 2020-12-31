@@ -1,0 +1,280 @@
+<article lang="&language;" id="audiocd">
+<title
+>audiocd</title>
+<articleinfo>
+<authorgroup>
+<author
+><firstname
+>Rik</firstname
+><surname
+>Hemsley</surname
+> <affiliation
+><address
+><email
+>rik@kde.org</email
+></address
+></affiliation
+> </author>
+</authorgroup>
+
+<date
+>2001-07-14</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+</articleinfo>
+
+<para
+>Tillåter att audio-<acronym
+>CD</acronym
+> skivor behandlas som ett <quote
+>riktigt</quote
+> filsystem, där spår representeras som filer, och när de kopieras från katalogen, extraheras digitalt från <acronym
+> CD</acronym
+>:n. Det här garanterar en perfekt kopia av ljuddata.</para>
+
+<para
+>För att se hur slaven fungerar, stoppa in en audio-<acronym
+>CD</acronym
+> i din CD-ROM spelare och skriv <userinput
+>audiocd:/</userinput
+> i &konqueror;. Inom några få sekunder bör du se en lista på spår och några kataloger.</para>
+
+<para
+>En audio-<acronym
+>CD</acronym
+> har egentligen inte kataloger, men I/O-slaven tillhandahåller dem för bekvämlighetens skull. Om du tittar inne i dessa kataloger kommer du att se att de alla innehåller samma antal spår. Om du är ansluten till Internet, kommer en del kataloger visa de verkliga titlarna på spåren som filnamn.</para>
+
+<para
+>Orsaken till att de här olika katalogerna finns, är så du kan välja vilket format du vill lyssna på (eller kopiera) spåren på <acronym
+>CD</acronym
+>:n.</para>
+
+<para
+>Om du drar ett spår från <filename class="directory"
+>Ogg Vorbis</filename
+>-katalogen och släpper det i ett annat &konqueror;-fönster som är öppet och visar din hemkatalog, ser du ett förloppsfönster som visar dig att spåret extraheras från <acronym
+>CD</acronym
+>:n och sparas på en fil. Observera att Ogg Vorbis är ett komprimerat format, så filen i din hemkatalog blir väsentligt mindre än den skulle varit om du hade kopierat rådata.</para>
+
+<para
+>Mekanismen bakom det här är ganska enkel. När I/O-slaven får en begäran att hämta ett spår från <filename class="directory"
+>Ogg Vorbis</filename
+>-katalogen, börjar den extrahera digital ljuddata från <acronym
+>CD</acronym
+>:n. Medan den skickar över data till filen i din hemkatalog, kodar den det samtidigt i Ogg Vorbis-format (<acronym
+>CD</acronym
+>-ljud har inte något särskilt format från början, det är bara binär rådata).</para>
+
+<para
+>Du kan också försöka att dra en fil som slutar med <literal role="extension"
+>.wav</literal
+> och släppa den på &kde;:s mediaspelare, &noatun;. I det här fallet, är proceduren som sker bakom ridån liknande, utom att istället för att koda ljuddata i Ogg Vorbis-format, så genomgår det en mycket enkel konvertering, från binär rådata (som <literal role="extension"
+>.cda</literal
+>-filerna i toppnivåkatalogen representerar) till <quote
+>RIFF WAV</quote
+>-format, ett okomprimerat format som de flesta mediaspelare förstår.</para>
+
+<para
+>&noatun; bör helt glatt spela <literal role="extension"
+>.wav</literal
+>-filen, men om det uppstår problem, kan du försöka med att använda parametern <option
+>paranoia_level</option
+>, som förklaras nedan.</para>
+
+<variablelist
+> <title
+>Parametrar</title
+> <varlistentry
+> <term
+><option
+>device</option
+></term
+> <listitem
+> <para
+>Ställer in sökvägen till audio-<acronym
+>CD</acronym
+> enheten, t.ex. <userinput
+>audiocd:/<option
+>?device</option
+>=<parameter
+>/dev/sdc </parameter
+></userinput
+>. I/O-slaven försöker normalt hitta en <acronym
+>CD</acronym
+>-spelare med en audio-<acronym
+>CD</acronym
+> inmatad, men om den misslyckas eller om du har mer än en <acronym
+>CD</acronym
+>-spelare, kanske du vill försöka med den här parametern. Observera att inställningsdialogen låter dig ange ett normalvärde för den här parametern.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>paranoia_level</option
+></term
+> <listitem
+> <para
+>Ställ in mängden feldetektering och felkorrigering som används när data extraheras.</para
+> <variablelist
+> <varlistentry
+> <term
+>Nivå 0</term
+> <listitem
+> <para
+>Ingen detektering eller korrigering. Bara användbart om du har en perfekt <acronym
+>CD</acronym
+>-spelare (inte troligt).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Nivå 1</term
+> <listitem
+> <para
+>Aktivera grundläggande feldetektering och felkorrigering.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Nivå 2</term
+> <listitem
+> <para
+>Förvalt. Anger att bara en perfekt extrahering accepteras.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> <para
+>Observera att det finns en nackdel med nivå 2. Extraheringen kan vara mycket långsam, så att uppspelning i realtid kanske inte fungerar som den ska. Om du har en <acronym
+>CD</acronym
+> spelare med bra kvalitet (observera att dyrare inte nödvändigtvis betyder bättre kvalitet) kommer du troligen inte att råka ut för mycket långsam extrahering, men en dålig spelare kan ta dagar (!) för att extrahera ljudet från en <acronym
+>CD</acronym
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>use_cddb</option
+></term
+> <listitem
+> <para
+>Anger att namn på spåren för den använda <acronym
+>CD</acronym
+>:n slås upp med en <acronym
+>CD</acronym
+>-databas på Internet.. En audio-<acronym
+>CD</acronym
+> har inga namn på spåren, men <acronym
+>CD</acronym
+>-databasen är ett smart system som använder en speciell unik identifiering som skapas från antalet och längden på spåren på varje <acronym
+>CD</acronym
+> för att korsreferera en spårlista. Spårlistor är bidrag från Internetgemenskapen och görs tillgängliga för alla.</para
+> <para
+>Du kan skicka in dina egna spårlistor med &kscd;, som är &kde;:s <acronym
+>CD</acronym
+>-spelare.</para
+> <para
+>Det här alternativet är normalt aktiverat. Om din Internetanslutning inte är riktigt inställd, kanske du märker att <acronym
+>CD</acronym
+>-spår inte visas. Om det är fallet, kan du försöka <userinput
+>audiocd:/?<option
+> use_cddb</option
+>=<parameter
+>0</parameter
+></userinput
+> för att stänga av det här alternativet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>cddb_server</option
+></term
+> <listitem
+> <para
+>Ange Internet <acronym
+>CD</acronym
+>-databasservern som ska kontaktas. Normalt är detta <systemitem
+>freedb.freedb.org:888</systemitem
+>, vilket betyder <systemitem
+>freedb.freedb.org</systemitem
+> på port 888.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Exempel</title
+> <varlistentry
+> <term
+><userinput
+>audiocd:/?device=/dev/scd0?paranoia_level=0&amp;use_cddb=0</userinput
+></term
+> <listitem
+> <para
+>Ger en listning på alla spår på audio-<acronym
+>CD</acronym
+>:n som är inmatad i <filename class="devicefile"
+>/dev/scd0</filename
+>, som betyder den första <acronym
+>SCSI</acronym
+> CD-ROM spelaren för &Linux;. Om du kopierar spår från <acronym
+>CD</acronym
+>:n, görs digital extrahering utan felkorrigering eller detektering. Ingen Internet <acronym
+>CD</acronym
+>-databas kontaktas.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<qandaset>
+<title
+>Vanliga frågor</title>
+<qandaentry>
+<question>
+<para
+>Jag får <errorname
+>Filen eller katalogen / finns inte</errorname
+>. Hur fixar jag det? Jag har en audio-<acronym
+>CD</acronym
+> i min enhet!</para>
+</question>
+
+<answer>
+<para
+>Försök att köra <userinput
+><command
+>cdparanoia</command
+> <option
+>-vsQ</option
+></userinput
+> som dig själv (inte <systemitem class="username"
+>root</systemitem
+>). Ser du en spårlista? Om inte, försäkra dig om att du har rättigheter att komma åt <acronym
+> CD</acronym
+>-spelaren. Om du använder <acronym
+>SCSI</acronym
+>-emulering (vilket är möjligt om du har en <acronym
+>IDE</acronym
+> <acronym
+>CD</acronym
+>-inspelningsenhet) försäkra dig om att du kontrollerar rättigheterna på den generella <acronym
+>SCSI</acronym
+>-enheten, som troligen är <filename class="devicefile"
+>/dev/sg0</filename
+>, <filename class="devicefile"
+>/dev/sg1</filename
+>, etc. Om det fortfarande inte fungerar, försök att skriva <userinput
+>audiocd:/?device=/dev/sg0</userinput
+> (eller liknande) för att tala om för I/O-slaven vilken enhet som din CD-ROM är.</para
+> 
+</answer>
+</qandaentry>
+</qandaset>
+
+
+</article>
+

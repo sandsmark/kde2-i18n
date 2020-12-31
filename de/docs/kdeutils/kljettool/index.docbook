@@ -1,0 +1,668 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kljettool;">
+  <!ENTITY pjl "<filename
+>PJL</filename
+>">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &kljettool;-Handbuch</title>
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+><email
+>mpmcbride7@yahoo.com</email
+></address
+></affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Bernd Johannes</firstname>
+<surname
+>Wuebben</surname>
+<affiliation>
+<address
+><email
+>wuebben@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+<othercredit role="developer">
+<firstname
+>Espen</firstname>
+<surname
+>Sand</surname>
+<affiliation>
+<address
+><email
+>espen@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Gegengelesen von</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Gregor</firstname
+><surname
+>Zumstein</surname
+><affiliation
+><address
+><email
+>zumstein@ssd.ethz.ch</email
+></address
+></affiliation
+><contrib
+>Übersetzt von</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Mike McBride</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-10-21</date>
+<releaseinfo
+>1.01.00</releaseinfo>
+
+<abstract
+><para
+>Dieses Handbuch beschreibt &kljettool; Version 1.1</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KLJetTool</keyword>
+<keyword
+>laserjet</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+>Mit &kljettool; werden die Betriebseinstellungen von HP Laserjet-Druckern geändert. Bei einigen von HPs Druckern, wie dem Laserjet 5L und dem Laserjet 6L, können die Einstellungen nicht mehr direkt am Drucker vorgenommen werden, sondern sind vollständig von der Software gesteuert. Leider ist diese Software häufig nur für die Windows-Plattformen vorhanden. &kljettool; versucht diese Aufgabe auf den Linux/Unix-Plattformen zu lösen. Es sollte mit allen Druckern funktionieren, welche Hewlett Packards &pjl; (Printer Job Language) verstehen. Je nach Druckermodell dürften aber einige Einstellungen keine Wirkung haben.</para>
+
+<para
+>Vielen Dank, dass Sie dieses kleine Programm benutzen.</para>
+
+<para
+>Bernd Johannes Wuebben <email
+>wuebben@kde.org</email
+></para>
+</chapter>
+
+<chapter id="installation">
+<title
+>Installation</title>
+
+<sect1 id="how-to-obtain-kljettool">
+<title
+>Woher Sie &kljettool; erhalten</title>
+
+<para
+>&kljettool; ist Teil des KDE-Projektes <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kljettool; kann auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+> gefunden werden.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen</title>
+
+<para
+>Um &kljettool; erfolgreich kompilieren zu können, werden die neuesten Versionen von libkdecore und libkfm benötigt. Alle benutzten Bibliotheken (genauso wie &kljettool; selber) finden sich auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>. </para>
+</sect1>
+
+<sect1 id="compilation-and-installation">
+<title
+>Kompilierung und Installation</title>
+
+<para
+>Um &kljettool; zu kompilieren und installieren, geben Sie folgendes im obersten Verzeichnis des kdeutils-Pakets ein:</para>
+
+<screen>
+<prompt
+>%</prompt
+> <userinput
+>cd kdeutils</userinput>
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+>Da &kljettool; <application
+>autoconf</application
+> benutzt, sollten beim Kompilieren keine Probleme auftauchen. Falls doch, teilen Sie bitte Ihr Problem auf den KDE-Mailinglisten mit.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="getting-kljettool-to-work">
+<title
+>&kljettool; zum Laufen bringen</title>
+
+<para
+>Einige Linux-Distributionen haben eine Druckereinrichtung, welche die von &kljettool; erzeugten &pjl;-Dateien nicht berücksichtigt. Die Druckereinrichtung auf diesen Systemen erkennt die &pjl;-Dateien als solche nicht und versucht diese zu bearbeiten. Dies führt dazu, dass &kljettool; nicht richtig funktioniert.</para>
+
+<para
+>Dieser Abschnitt beschreibt die nötigen Vorkehrungen, um &kljettool; auf einem PRE5.0 RedHat Linux zum Laufen zu bringen (&kljettool; sollte von Anfang an funktionieren ab RedHat 5.0). Für andere Distributionen dürfte eine ähnliche Vorgehensweise hilfreich sein. Die ganze Einrichtung ist aber nicht allzu schwierig. Das einzige, was getan werden muss, ist sicherzustellen, dass die Druckereinrichtung die &pjl;-Dateien unverändert zum Drucker schickt.</para>
+    
+<para
+>Ein RedHat Linux-System erkennt von sich aus <abbrev
+>PJL</abbrev
+> nicht und versucht, damit eher merkwürdige Dinge zu machen, aber sicher nicht, Daten unverändert zum Drucker zu schicken. Dies kann dem System aber beigebracht werden.Sie sollten aber auf alle Fälle zuerst testen, ob das System funktioniert, bevor Sie diese Änderungen am System vornehmen. RedHat und andere Distributionen haben in derZwischenzeit vlelleicht bereits entsprechende Änderungen vorgenommen.</para>
+    
+<para
+>Ähnlich aufwendig wie RedHat gestaltete Distributionen können wohl auf eine ähnliche Art und Weise angepasst werden, sodass <abbrev
+>PJL</abbrev
+> (Printer Job Language) Dateien zum Drucker gesandt werden können.</para>
+
+<para
+>Auf einem RedHat-System wird das Skript <filename
+>/var/spool/lpd/lp/filter</filename
+> von <filename
+>/etc/printcap</filename
+> aus jedesmal aufgerufen, wenn etwas mit dem '<command
+>lpr</command
+>'-Befehl gedruckt wird. Der Filter ruft das Programm '<application
+>file</application
+>' mit der zu druckenden Datei auf, worauf '<application
+>file</application
+>' dem '<application
+>filter</application
+>'-Skript mitteilt, um welchen Dateityp es sich handelt (Text, HTML, PostScript, dvi...). Abhängig vom Dateityp wird ein weiteres Programm aufgerufen, das eine Ausgabe in der Druckersprache erzeugt. Das '<application
+>file</application
+>'-Programm benutzt die Datei <filename
+>/etc/magic</filename
+>, um den Typ der zu druckenden Datei festzustellen.</para>
+    
+<para
+>Für die Datei <filename
+>MeineDatei.ps</filename
+> teilt das <application
+>file</application
+>-Programm dem '<application
+>filter</application
+>'-Skript mit, dass es sich um eine PostScript-Datei handelt, worauf '<application
+>filter</application
+>' den <application
+>ghostscript</application
+>-Interpreter startet, um <filename
+>MeineDatei.ps</filename
+> in PCL 5 umzuwandeln, die Sprache, welche die Laserjet-Drucker verstehen. </para>
+
+<para
+>Unglücklicherweise erkennt ein RedHat-System <filename
+>PJL</filename
+>-Dateien nicht und versucht damit, merkwürdige Dinge zu machen, anstatt sie unverändert zum Drucker zu senden. </para>
+
+<para
+>Um &kljettool; auf einem RedHat-System zum Laufen zu bringen,müssen nur zwei Dinge gemacht werden:</para>
+
+<itemizedlist
+> <listitem
+> <para
+> Ein Zeile zur Datei <filename
+>/etc/magic</filename
+>  hinzufügen, sodass das Programm <application
+>file</application
+> eine <filename
+>PJL</filename
+>-Datei korrekt erkennt.</para
+> <para
+>Zwei Zeilen müssen zur Datei <filename
+>/etc/magic</filename
+> hinzugefügt werden, sodass &pjl;-Dateien richtig erkannt werden. Die Einträge können irgendwo in der Datei stehen:</para
+> <screen>
+# HP Printer Job Language, Bernd Wuebben (wuebben@math.cornell.edu)
+0	string		\033%-12345X	 HP PJL printer commands
+</screen
+> </listitem
+> <listitem
+><para
+>Das <filename
+>/var/spool/lpd/lp/filter</filename
+>-Skript muß wissen, was mit &pjl;-Dateien zu geschehen hat. Dazu müssen im '<application
+>filter</application
+>'-Skript zwei Zeilen hinzugefügt werden:</para
+> <screen>
+   *pjl* )
+                                             startpnt="INPUT-to-prdata";;
+</screen
+> <para
+>Aus der Dateistruktur ist leicht ersichtlich, wo die beiden Zeilen eingefügt werden müssen. Diese beiden Zeilen teilen dem Skript mit, dass es die &pjl;-Dateien unverändert an den Drucker weiterschicken soll.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Im Verzeichnis mit der Dokumentation zu &kljettool; sollten auch zwei Musterdateien mit dem <filename
+>Filter</filename
+>-Skript und der <filename
+>/etc/magic</filename
+>-Datei sein. Diese können helfen, wenn bei den oben aufgezeigten Anpassungen Probleme auftauchen sollten.</para>
+
+<para
+>Der Autor des Programms erhätl gerne Informationen darüber, was Sie machen mussten, um &kljettool; auf Ihrem System zum Laufen zu bringen. </para>
+
+</chapter>
+
+<chapter id="usage">
+<title
+>Wie benutze ich &kljettool;</title>
+
+<para
+>&kljettool; ist äußerst einfach zu bedienen. Die Verwendung der meisten Funktionen ist selbsterklärend. </para>
+    
+<sect1 id="screen">
+<title
+>&kljettool; Benutzeroberfläche</title>
+
+<para
+>Nach dem Start von &kljettool; öffnet sich ein Fenster mit fünf Seiten mit den Namen: <link linkend="printer"
+><guilabel
+>Drucker</guilabel
+></link
+>, <link linkend="paper"
+><guilabel
+>Papier</guilabel
+></link
+>, <link linkend="operations"
+><guilabel
+>Operationen</guilabel
+></link
+>, <link linkend="fonts"
+><guilabel
+>Schriftarten</guilabel
+></link
+> und <link linkend="about-tab"
+><guilabel
+>Über</guilabel
+></link
+>.</para>
+
+<screenshot
+> <screeninfo
+>&kljettool; Bildschirmabbild.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="screenshot.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Bildschirmabbild</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Unten am Rand sind vier Knöpfe:</para>
+
+<variablelist
+> <varlistentry
+><term
+><guibutton
+>Hilfe</guibutton
+></term
+> <listitem
+><para
+>Der Hilfe-Knopf öffnet dieses Dokument in einem Hilfe-Fenster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>OK</guibutton
+></term
+> <listitem
+><para
+>Mit diesem Knopf werden die Einstellungen von &kljettool; gesichert und das Fenster geschlossen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Übernehmen</guibutton
+></term
+> <listitem
+><para
+>Mit diesem Knopf werden die Einstellungen von &kljettool; gesichert, das Fenster wird aber nicht geschlossen, sodass die Einstellungen getestet und allenfalls weitere Änderungen vorgenommen werden können.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Schließen</guibutton
+></term
+> <listitem
+><para
+>Beendet das Programm, ohne Änderungen zu speichern.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<sect2 id="printer">
+<title
+><guilabel
+>Drucker</guilabel
+>-Seite</title>
+<variablelist
+> <varlistentry
+><term
+><guilabel
+>Druckqualität</guilabel
+></term
+> <listitem
+><para
+>Der Sparmodus genügt für den täglichen Gebrauch und braucht weniger Toner. Präsentation erzeugt Ausdrucke von höchster Qualität, braucht aber mehr Toner.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Auflösung</guilabel
+></term
+> <listitem
+><para
+>600 dpi ergibt eine doppelt so feine Auflösung wie 300 dpi, wird aber nicht von jedem Drucker unterstützt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Drucker</guilabel
+></term
+> <listitem
+><para
+>Wählen Sie einen von Ihnen eingerichteten Drucker. Sollte er nicht in der Liste erscheinen, erfahren Sie mehr auf der Seite <link linkend="getting-kljettool-to-work"
+>"&kljettool; zum Laufen bringen"</link
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Tonerdichte</guilabel
+></term
+> <listitem
+><para
+>Die Schwärze des Ausdrucks können sie auf Sehr hell, hell, mittel, dunkel und sehr dunkel einstellen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Auflösungsverbesserung (REt)</guilabel
+></term
+> <listitem
+><para
+>Das REt-System von HP erlaubt eine Verbesserung der Auflösung durch eine Verschiebung von Tonerpartikeln.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="paper">
+<title
+><guilabel
+>Papier</guilabel
+>-Seite</title>
+
+<variablelist
+> <varlistentry
+><term
+><guilabel
+>Papierformat</guilabel
+></term
+> <listitem
+><para
+>Erlaubt die Auswahl aus einer Vielzahl von Standardpapierformaten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Kopien</term
+> <listitem
+><para
+>Anzahl der Kopien, die gedruckt werden sollen.</para
+> <note
+><para
+>Diese Einstellung wird die Einstellungen anderer Anwendungen <emphasis
+>nicht</emphasis
+> überschreiben, es handelt sich also um einen Multiplikationsfaktor.</para
+> <para
+>(Sie können die Gesamtzahl der Kopien als Multiplikationsproblem auffassen)</para
+> <para
+>Zum Beispiel:</para
+> <para
+>In <application
+>KWord</application
+> stellen Sie ein, dass zwei Kopien gedruckt werden sollen, und in &kljettool; stellen Sie ein, dass eine Kopie gedruckt wird, so werden zwei Kopien gedruckt (2x1=2).</para
+> <para
+>Wenn Sie andererseits einstellen, dass <application
+>KWord</application
+> eine Kopie druckt und in &kljettool; zwei Kopien wählen, so werden immer noch zwei Kopien gedruckt (1x2=2).</para
+> <para
+>Und wenn Sie schließlich einstellen, dass <application
+>KWord</application
+> zwei Kopien drucken soll und auch in &kljettool; einstellen, dass zwei Kopien gedruckt werden sollen, erhalten Sie vier Kopien (2x2=4).</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Zeilen</guilabel
+></term
+> <listitem
+><para
+>Legt fest, wieviele Zeilen pro Seite gedruckt werden sollen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Ausrichtung</guilabel
+></term
+> <listitem
+><para
+>Wählen Sie zwischen Hochformat und Querformat.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Verschiedenes</guilabel
+></term
+> <listitem
+><para
+>Hier werden zwei Einstellungen vorgenommen:</para
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+>Manueller Einzug</guilabel
+></term
+> <listitem
+><para
+>Ist dieses Kästchen angekreuzt, nimmt der Drucker das Papier nicht aus dem Papierschacht, sondern aus der manuellen Papierzuführung.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Automatisch fortsetzen</guilabel
+></term
+> <listitem
+><para
+>Ist automatisch fortsetzen angekreuzt, fährt der Drucker fort zu drucken, auch wenn das Papier im gewählten Schacht ausgegangen ist. Er ändert hierzu die Papierformat-Einstellungen des Dokumentes. Im andern Fall wartet der Drucker, bis Papier nachgefüllt worden ist.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="operations">
+<title
+><guilabel
+>Operationen</guilabel
+>-Seite</title>
+
+<variablelist
+> <varlistentry
+><term
+><guilabel
+>Zeilenumbruch</guilabel
+></term
+> <listitem
+><para
+>Legt fest, welche Zeichen zum Drucker geschickt werden müssen, damit eine neue Zeile angefangen wird. Wenn Sie keine Probleme haben, sollten Sie diese Einstellung belassen, wie sie ist.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Seitenschutz</guilabel
+></term
+> <listitem
+><para
+>Setzt die Seitenschutzoption für den Drucker. Weitere Informationen hierzu finden sich im Handbuch des Druckers.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Zeit bis zum Energiesparmodus</guilabel
+></term
+> <listitem
+><para
+>Legt die Zeit fest (in Minuten), bis der Drucker in den Energiesparmodus wechselt.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="fonts">
+<title
+><guilabel
+>Schriftarten</guilabel
+>-Seite</title>
+
+<para
+>Wählen Sie Druckersprache, Symbolsatz, Schriftarten und -grössen.</para>
+
+</sect2>
+
+<sect2 id="about-tab">
+<title
+><guilabel
+>Über</guilabel
+>-Seite</title>
+
+<para
+>Hier finden sich Informationen zu Programm und Copyright.</para>
+
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Danksagung und Lizenz</title>
+<para
+> &kljettool; </para>
+<para
+> Copyright für das Programm 1997-2000 Bernd Johannes Wuebben <email
+>wuebben@kde.org</email
+> </para>
+<para
+>Beiträge von:</para>
+<itemizedlist
+><listitem
+><para
+>Espen Sand <email
+>espen@kde.org</email
+> </para
+></listitem
+></itemizedlist>
+<para
+>Dokumentation Copyright 2000 Mike McBride<email
+>mpmcbride7@yahoo.com</email
+> und Bernd Johannes Wuebben <email
+>wuebben@kde.org</email
+> </para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-omittag:t
+sgml-shorttag:t
+End:
+-->
+

@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kdebugdialog "<application
+>KDebugDialog</application
+>">
+  <!ENTITY kappname "&kdebugdialog;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>A &kdebugdialog; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>David</firstname
+> <surname
+>Faure</surname
+> <affiliation
+> <address
+><email
+>faure@kde.org</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+<date
+>2001-02-13</date>
+<releaseinfo
+>0.03.00</releaseinfo>
+
+<abstract>
+<para
+>Ez a dokumentum a &kdebugdialog; leírását tartalmazza.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KDebugDialog</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Mire használható a KDebugDialog?</title>
+
+<para
+>Ez egy olyan segédprogram, amellyel az alkalmazások futás közbeni diagnosztikai üzeneteit lehet beállítani. </para>
+
+<para
+>Ha argumentumok nélkül indítja a programot, akkor ki-be kapcsolható "kategóriák" listája jelenik meg. A kdDebug(kategória) hívások hatására csak azok az üzenetek jelennek meg a kimeneti ablakban, amelyek az engedélyezett kategóriába esnek. </para>
+
+<note
+><para
+> A kdWarning, kdError és kdFatal kategóriájú üzenetek mindig megjelennek, ezek kiírását itt nem lehet letiltani. </para
+></note>
+
+<para
+>Ha a programot a "kdebugdialog --fullmode" paranccsal indítja, akkor az üzenetek súlyossági fokától függően megadható, hogy egy kategória üzenetei hogyan jelenjenek meg. </para>
+
+<para
+> Ebben a módban a következő beállítási lehetőségek állnak rendelkezésre: <itemizedlist
+> <listitem
+> <para
+>Kimenet: ebben a kombinált listában lehet kiválasztani, hogy az üzenetek hol jelenjenek meg. A választási lehetőségek: "fájl", "üzenetablak", "parancsértelmező" (azaz: stderr) és "rendszernapló (syslog)". A végzetes hibákat csak akkor irányítsa a rendszernaplóba, ha Ön a rendszergazda. Az alapértelmezés: "üzenetablak".</para
+> </listitem
+> <listitem
+> <para
+>Fájlnév: ennek csak akkor van jelentősége, ha a "fájl" kimenetet választotta, ilyenkor itt lehet megadni a kimeneti fájl nevét (relatív az aktuális könyvtárhoz). Az alapértelmezés: kdebug.dbg.</para
+> </listitem
+> <listitem
+> <para
+>Üzenetkategória: az üzenetek csoportjai. Az itt fel nem sorolt üzenetek egyáltalán nem jelennek meg (kivéve ha az alapértelmezett üres sort hagyja meg: ebben az esetben az összes üzenet megjelenik). Több kategória is megadható egymástól vesszővel elválasztva, sőt tartományok is felsorolhatók eleje-vége formátumban. Tehát pl. a következő szöveg elfogadható: 117,214-289,356-359,221. NE használjon elválasztókaraktereket.</para
+> </listitem
+> </itemizedlist
+> </para>
+
+<para
+>Az ablak alján található a "Kilépés végzetes hiba esetén" opció. Ha bejelöli ezt, és egy "KDEBUG_FATAL" szintű üzenet érkezik, akkor az üzenet megjelenítése után a program egy SIGABRT szignál küldésével azonnal kilép. </para>
+
+<para
+>Amikor az OK gomb megnyomásával bezárja az ablakot, a módosítások azonnal érvényre jutnak és bekerülnek a kdebugrc fájlba. A Mégsem gomb megnyomásakor a módosításokat eldobja a program (az eredeti értékek lesznek érvényesek). </para>
+
+<para
+>A kdebugdialog eredeti változatát Kalle Dalheimer készítette </para>
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-general-insert-case: lower
+sgml-shorttag: t
+End:
+-->
+
+

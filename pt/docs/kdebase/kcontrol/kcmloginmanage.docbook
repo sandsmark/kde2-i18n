@@ -1,0 +1,758 @@
+<sect1 id="login-manager">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Thomas</firstname
+> <surname
+>Tanghus</surname
+> <affiliation
+><address
+><email
+>tanghus@earthling.net</email
+></address
+></affiliation
+> </author>
+<author
+> <firstname
+>Steffen</firstname
+> <surname
+>Hansen</surname
+> <affiliation
+><address
+><email
+>stefh@mip.ou.dk</email
+></address
+></affiliation
+> </author>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>jncp@rnl.ist.utl.pt</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-07-24</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>Configuração do KDM</keyword>
+<keyword
+>gestor de autenticação</keyword>
+<keyword
+>autenticação</keyword>
+</keywordset>
+</sect1info>
+<title
+>Gestor de Autenticação</title>
+
+<para
+>Usando este módulo, podes configurar o gestor de autenticações gráfico &kdm;. Podes configurar como deve fiar o ecrã de autenticação, quem tem acesso à sua utilização e quem pode desligar o computador.</para>
+
+<para
+>De modo a organizar todas estas opções, este módulo está dividido em cinco secções: <link linkend="kdmconfig-appearance"
+><guilabel
+>Aparência</guilabel
+></link
+>, <link linkend="kdmconfig-font"
+><guilabel
+>Tipo de Letra</guilabel
+></link
+>, <link linkend="kdmconfig-background"
+><guilabel
+>Fundo</guilabel
+></link
+>, <link linkend="kdmconfig-sessions"
+><guilabel
+>Sessões</guilabel
+></link
+>, <link linkend="kdmconfig-users"
+><guilabel
+>Utilizadores</guilabel
+></link
+> e <link linkend="kdmconfig-convenience"
+><guilabel
+>Conveniência</guilabel
+></link
+>.</para>
+
+<para
+>Podes alternar entre as secções usando os botões no topo do ecrã.</para>
+
+<note
+><para
+>Se não estiveres ligado neste momento como super-utilizador, terá de carregar no botão <guibutton
+>Modificar</guibutton
+>. Ser-te-á pedida então a senha de super-utilizador. Se indicares uma senha correcta poderás modificar as configurações deste módulo.</para
+></note>
+
+<sect2 id="kdmconfig-appearance">
+<title
+>Aparência</title>
+
+<para
+>Nesta página podes mudar a aparência visual do &kdm;, o gestor de autenticações gráfico do &kde;.</para>
+
+<para
+>A mensagem de boas-vindas é o título do ecrã de autenticação. Se a mensagem contiver <computeroutput
+>HOSTNAME</computeroutput
+> esta palavra será traduzida para o nome da máquina sem o domínio na qual o &kde; está instalado.</para>
+
+<para
+>Podes então optar entre mostrar a hora actual do sistema, um logotipo ou nada de especial para janela de autenticação, fazendo a tua escolha nas opções exclusivas de <guilabel
+>Área do logotipo</guilabel
+>. Usando a opção <guilabel
+>Posições</guilabel
+>, podes escolher entre centrar o conteúdo da área de logotipo ou posicioná-lo em coordenadas fixas.</para>
+
+<para
+>Se escolheste <guilabel
+>Mostrar o logotipo</guilabel
+> podes então escolhê-lo:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Larga um ficheiro de imagem no botão correspondente.</para
+> </listitem
+> <listitem
+> <para
+>Carrega no botão da imagem para seleccionar um ficheiro com a janela de selecção.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Se não especificares um logotipo então será usada o ficheiro <filename
+>$<envar
+>KDEDIR</envar
+>/share/apps/kdm/pics/kdelogo.xpm</filename
+> por omissão.</para>
+
+<para
+>Enquanto que o estilo do &kde; depende da configuração do utilizador actual, o estilo usado pelo &kdm; pode ser configurado usando a opção <guilabel
+>Estilo da interface</guilabel
+>.</para>
+
+<para
+>Por baixo desta tens duas listas onde escolher a língua e o país para a tua janela de autenticação.</para>
+
+</sect2>
+
+<sect2 id="kdmconfig-font">
+<title
+>Tipo de Letra</title>
+
+<para
+>Nesta secção do módulo podes alterar os tipos de letra usados na janela de autenticação.</para>
+
+<para
+>Podes seleccionar três tipos de letra diferentes na lista (<guilabel
+>Saudação</guilabel
+>, <guilabel
+>Falha</guilabel
+> e <guilabel
+>Standard</guilabel
+>). Quando carregares no botão <guibutton
+>Mudar o tipo de letra</guibutton
+> aparece uma janela na qual podes seleccionar as novas características para o tipo de letra.</para>
+
+<itemizedlist
+> <listitem
+> <para
+>O tipo de letra <guilabel
+>Saudação</guilabel
+> é o usado no título (a Mensagem de Boas-Vindas).</para
+> </listitem
+> <listitem
+> <para
+>O tipo de letra <guilabel
+>Falha</guilabel
+> é usado quando a autenticação falha.</para
+> </listitem
+> <listitem
+> <para
+>O tipo de letra <guilabel
+>Standard</guilabel
+> é usado nos restantes sítios na janela de autenticação.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Pode ser visto um exemplo para cada tipo de letra na área <guilabel
+>Exemplo</guilabel
+>.</para>
+
+</sect2>
+
+<sect2 id="kdmconfig-background">
+<title
+>Fundo</title>
+
+<para
+>Aqui podes mudar o fundo do ecrã que será mostrado quando um utilizador se autenticar. Podes ter uma única cor ou imagem como fundo. Se tiveres uma imagem como fundo e seleccionares o centrar desta, será usada a cor de fundo à volta da imagem se não for grande o suficiente para cobrir o ecrã por completo.</para>
+
+<para
+>As cores de fundo e os efeitos são controlados pelas opções na página <guilabel
+>Fundo</guilabel
+> e seleccionas uma imagem de fundo e o seu posicionamento nas opções da secção <guilabel
+>Papel de Parede</guilabel
+>.</para>
+
+<para
+>Para mudar a(s) cor(es) de fundo basta carregar nos botões de cores e seleccionar as novas.</para>
+
+<para
+>A lista por cima dos botões de cores disponibiliza-te diversos efeitos de mistura. Escolhe um da lista e poderás antever no pequeno monitor no topo da janela. As tuas alternativas são:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Plano</term
+> <listitem
+><para
+>Escolhendo este modo, seleccionas uma cor (com o botão <guibutton
+>Cor 1</guibutton
+>) e o fundo do ecrã é preenchido por completo com esta cor.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Padrão</term
+> <listitem
+><para
+>Escolhendo este modo, podes seleccionar duas cores (usando os dois botões de cores). </para
+> <para
+>Podes então seleccionar um padrão, carregando em <guilabel
+>Configurar</guilabel
+>. Isto abre uma nova janela, na qual terá oportunidade de seleccionar um padrão. Basta escolheres um à tua escolha e carregar em <guilabel
+>OK</guilabel
+>, para que o &kde; desenhe o padrão seleccionado com as duas cores definidas. Para mais informações sobre padrões, vê a secção <link linkend="bkgnd-patterns"
+>Fundo: Adicionar, Remover e Modificar Padrões</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Programa de Fundo</term
+> <listitem
+><para
+>Seleccionando esta opção, o &kde; poderá usar um programa externo para determinar o fundo do ecrã. Poderá ser qualquer programa à tua escolha. Para mais informações sobre esta opção, vê a secção <link linkend="bkgnd-programs"
+>Fundo: Usar um programa externo</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Gradiente Horizontal</term
+> <listitem
+><para
+>Escolhendo este modo, podes seleccionar duas cores (com ambos os botões de cores). O &kde; irá iniciar com a cor seleccionada em <guilabel
+>Cor 1</guilabel
+> no lado esquerdo do ecrã, transformando-se gradualmente na cor seleccionada em <guilabel
+>Cor 2</guilabel
+> ao chegar ao lado direito.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Gradiente Vertical</term
+> <listitem
+><para
+>Escolhendo este modo, podes seleccionar duas cores (com ambos os botões de cores). O &kde; irá iniciar com a cor seleccionada em <guilabel
+>Cor 1</guilabel
+> no topo do ecrã, transformando-se gradualmente na cor seleccionada em <guilabel
+>Cor 2</guilabel
+> ao chegar à parte inferior do mesmo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Gradiente em Pirâmide</term
+> <listitem
+><para
+>Escolhendo este modo, podes seleccionar duas cores (com ambos os botões de cores). O &kde; irá iniciar com a cor seleccionada em <guilabel
+>Cor 1</guilabel
+> em cada canto do ecrã, transformando-se gradualmente na cor seleccionada em <guilabel
+>Cor 2</guilabel
+> ao dirigir-se para o centro do ecrã.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Gradiente em Secção de Tubo</term
+> <listitem
+><para
+>Escolhendo este modo, podes seleccionar duas cores (com ambos os botões de cores). O &kde; irá iniciar com a cor seleccionada em <guilabel
+>Cor 1</guilabel
+> em cada canto do ecrã, transformando-se gradualmente na cor seleccionada em <guilabel
+>Cor 2</guilabel
+> ao dirigir-se para o centro. O <quote
+>aspecto</quote
+> deste gradiente é diferente do piramidal.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Gradiente Elíptico</term
+> <listitem
+><para
+>Escolhendo este modo, podes seleccionar duas cores (com ambos os botões de cores). O &kde; irá iniciar com a cor seleccionada em <guilabel
+>Cor 2</guilabel
+> no centro do ecrã, transformando-se gradualmente na cor seleccionada em <guilabel
+>Cor 1</guilabel
+> com um padrão elíptico.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>O botão de configuração só é necessário se seleccionares <guilabel
+>Programa de fundo</guilabel
+> ou <guilabel
+>Padrão</guilabel
+>. Nestes casos, aparecerá uma outra janela para as configurações específicas.</para>
+<para
+><emphasis
+>Papel de Parede</emphasis
+></para>
+<para
+>Para seleccionares uma nova imagem de fundo, em primeiro lugar selecciona a secção <guilabel
+>Papel de parede</guilabel
+>, onde podes seleccionare uma imagem da lista <guilabel
+>Papel de parede</guilabel
+> ou seleccionar <guibutton
+>Escolher...</guibutton
+> e seleccionar uma imagem da janela de selecção de ficheiros.</para>
+
+<para
+>A imagem pode ser mostrada de seis maneiras diferentes:</para>
+<variablelist
+> <varlistentry
+> <term
+>Nenhum papel de parede</term
+> <listitem
+><para
+>Não é mostrada nenhuma imagem. Só as cores de fundo.</para
+> </listitem
+></varlistentry
+> <varlistentry
+> <term
+>Centrado</term
+> <listitem
+><para
+>A imagem será centrada no ecrã. As cores de fundo serão usadas em todos os locais que a imagem não cobre.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Mosaico</term
+> <listitem
+><para
+>A imagem será replicada até preencher o ecrã completo. A primeira imagem será colocada no canto superior esquerdo do ecrã, e replicada para baixo e para a direita.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Mosaico Centrado</term
+> <listitem
+><para
+>A imagem será replicada até preencher o ecrã completo. A primeria imagem será colocada no centro do ecrã, e replicada para cima, para baixo, para a esquerda e para a direita.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Centrado Esticado</term
+> <listitem
+><para
+>A imagem será colocada no centro do ecrã. Será escalada de modo a caber no ecrã, mas mantendo as proporções da imagem original. Isto originará uma imagem não distorcida. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Escalado</term
+> <listitem
+><para
+>A imagem será escalada de modo a caber no ecrã, ocupando a área toda até aos quatro cantos.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="kdmconfig-sessions">
+<title
+>Sessões</title>
+
+<para
+><guilabel
+>Permitir desligar</guilabel
+></para>
+<para
+>Utiliza esta lista para escolheres quem pode desligar o sistema:</para>
+<itemizedlist
+> <listitem
+> <para
+><guilabel
+>Ninguém</guilabel
+>: Ninguém pode desligar o computador através do &kdm;. Precisas de estar autenticado e executar o comando respectivo.</para
+> </listitem
+> <listitem
+> <para
+><guilabel
+>Todos</guilabel
+>: Toda a gente pode desligar o computador com o &kdm;.</para
+> </listitem
+> <listitem
+><para
+><guilabel
+>Só o root</guilabel
+>: precisas de indicar ao &kdm; a senha do <systemitem
+>root</systemitem
+> para desligares o computador.</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Só a consola</guilabel
+>: O utilizador precisa de estar nesta consola para desligar o computador.</para
+></listitem
+> </itemizedlist>
+
+<para
+><emphasis
+>Comandos</emphasis
+></para>
+<para
+>Utiliza estes 3 campos para definir o comando exacto para desligar.</para>
+<para
+>O comando de desligar está pré-definido como:</para>
+
+<para
+><command
+>/sbin/shutdown</command
+></para>
+
+<para
+>O comando para reiniciar está pré-definido como:</para>
+
+<para
+><command
+>/sbin/reboot</command
+></para>
+
+<para
+>O modo de Consola (que reinicia o computador como um terminal só de consola) está pré-definido como:</para>
+
+<para
+><command
+>/sbin/init <option
+>3</option
+></command
+></para>
+
+<para
+>Quando o <guilabel
+>Mostrar as opções de arranque</guilabel
+> estiver activo, o &kdm; irá disponibilizar-te opções na reinicialização para o gestor de arranque lilo. Para essa opção funcionar, tens de indicar a localização exacta do comando <command
+>lilo</command
+> e do ficheiro 'map' do lilo.</para>
+
+
+<sect3 id="kdmconfig-sess">
+<title
+>Tipos de sessão</title>
+
+<para
+>Define quais os tipos de sessão disponíveis na janela de autenticação.</para>
+
+<para
+> Para mais informações sobre este assunto vê o <filename class="directory"
+>/etc/X11/xdm/Xsession</filename
+> para descobrir os teus ficheiros de configuração do <application
+>xdm</application
+>. Vê também as <ulink url="man:xdm"
+>páginas 'man' do xdm</ulink
+>, especialmente a secção SESSION PROGRAM</para
+> <para
+>Para adicionares uma sessão, indica o seu nome no campo <guilabel
+>Novo tipo</guilabel
+>, e carrega em <guibutton
+>Adicionar novo</guibutton
+>. </para>
+
+<para
+>Para removeres uma sessão, selecciona a sessão da lista e carrega em <guibutton
+>Remover</guibutton
+>.</para>
+
+</sect3>
+
+</sect2>
+
+
+<sect2 id="kdmconfig-users">
+<title
+>Utilizadores</title>
+
+<para
+>Aqui podes alterar a forma como os utilizadores são representados na janela de autenticação.</para>
+
+<para
+>À medida que vês esta janela, encontrarás três listas (Utilizadores restantes, utilizadores seleccionados e utilizadores escondidos). Também verás um botão de imagem e um conjunto de opções do lado direito da janela.</para>
+
+<para
+>A primeira coisa que deves decidir é se vais mostrar os utilizadores ou não.</para>
+
+
+<para
+>Se escolheres mostrar os utilizadores, então a janela de autenticação irá mostrar as imagens (as quais seleccionarás) de uma lista de utilizadores. Quando alguém estiver prestes a autenticar-se, selecciona o nome/imagem do seu utilizador e é-lhes permitido o acesso. </para>
+
+<para
+>Se optares por não os mostrar, então a janela de autenticação será mais tradicional. Os utilizadores terão de introduzir o seu nome e a senha para ganhar acesso. Esta é a maneira preferida se tiveres muitos utilizadores neste terminal.</para>
+
+<sect3 id="kdmconfig-showusers">
+<title
+>Para mostrar (e ordenar) ou não os utilizadores</title>
+
+<para
+>Do lado direito da janela existem duas opções:</para>
+
+<para
+>Se <guilabel
+>Mostrar os utilizadores</guilabel
+> estiver seleccionado, optaste por mostrar as imagens dos utilizadores, em vez de os obrigar a escrever o seu nome.</para>
+
+<para
+>Se o <guilabel
+>Ordenar os utilizadores</guilabel
+> estiver seleccionado, então a lista de utilizadores estará ordenada alfabeticamente na janela de autenticação. Caso contrário, estes serão ordenados pela mesma ordem que se encontra nesta página. Se o <guilabel
+>Mostrar os utilizadores</guilabel
+> não estiver seleccionado, isto não terá efeito.</para>
+
+</sect3>
+
+<sect3 id="kdmconfig-whichusers">
+<title
+>Como determinar quais os utilizadores a mostrar e a esconder</title>
+
+<para
+>Por baixo do botão da imagem do utilizador e por cima da opção <guilabel
+>Mostrar os utilizadores</guilabel
+> existe um conjunto com duas opções exclusivas:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Mostrar só os utilizadores seleccionados: se esta opção estiver seleccionada, só os utilizadores contidos na lista <guilabel
+>Utilizadores seleccionados</guilabel
+> serão mostrados na janela de autenticação. Se o <guilabel
+>Mostrar os utilizadores</guilabel
+> não estiver seleccionado, isto não terá efeito.</para
+></listitem
+> <listitem
+><para
+>Todos menos os escondidos: Se esta opção estiver seleccionada, todos os utilizadores serão listados, <emphasis
+>excepto</emphasis
+> aqueles que estão contidos na lista <guilabel
+>Utilizadores escondidos</guilabel
+>. Se o <guilabel
+>Mostrar os utilizadores</guilabel
+> não estiver seleccionado, isto não terá efeito. </para
+></listitem
+> </itemizedlist>
+
+</sect3>
+
+<sect3 id="kdmconfig-select">
+<title
+>Seleccionar os utilizadores</title>
+
+<para
+>A página contém três listas. A maior à esquerda mostra todos os utilizadores reais do sistema.</para>
+
+<para
+>A lista em cima à direita mostra os utilizadores seleccionados e a de baixo mostra os utilizadores que não queremos mostrar na janela de autenticação.</para>
+
+<para
+>Para moveres um utilizador de uma lista para outra carregas no nome deste na lista e seleccionas <guibutton
+>&gt;&gt;</guibutton
+> para o moveres da lista da esquerda para a direita ou em <guibutton
+>&lt;&lt;</guibutton
+> para o moveres da lista à direita para a esquerda.</para>
+
+</sect3>
+
+<sect3 id="kdmconfig-image">
+<title
+>Imagens</title>
+
+<note
+><para
+>Esta secção do manual só se aplica se o <guilabel
+>Mostrar os utilizadores</guilabel
+> estiver seleccionado. Se não estiver, este botão de imagem não terá efeito.</para
+></note>
+
+<para
+>Cada utilizador do sistema pode ser representado por uma imagem. A imagem do utilizador é mantida num ficheiro chamado <filename
+>$<envar
+>KDEDIR</envar
+>/share/apps/kdm/pics/users/$<envar
+>USER</envar
+>.xpm.</filename
+> Se o utilizador não tiver esse ficheiro então será usado em alternativa o <filename
+>$<envar
+>KDEDIR</envar
+>/share/apps/kdm/pics/users/default.xpm</filename
+>.</para>
+
+<para
+>Para atribuires uma nova imagem a um utilizador selecciona-o numa das listas e larga um ficheiro de imagem no botão de imagem ou selecciona uma nova no selector de imagens.</para>
+
+<para
+>Se não estiver nenhum utilizador seleccionado ser-te-á perguntado se queres mudar a imagem por omissão.</para>
+
+<para
+>A substituição é realizada por um processo do &konqueror; de modo a que se a imagem já existir ser-te-á pedido pelo &konqueror; se a queres substituir. Se o confirmares, a imagem será substituída - <emphasis
+>NÃO</emphasis
+> terás de carregar no botão <guibutton
+>Aplicar</guibutton
+>.</para>
+
+</sect3>
+</sect2>
+
+
+<sect2 id="kdmconfig-convenience">
+<title
+>Conveniência</title>
+
+<para
+>Na secção <guilabel
+>Conveniência</guilabel
+> podes configurar algumas opções para facilitar as pessoas preguiçosas, como a auto-autenticação ou a desactivação de senhas.</para>
+
+<important
+><para
+>Pensa muito bem antes de utilizares estas opções. Todas as opções na secção <guilabel
+>Conveniência</guilabel
+> é adequada para comprometer a segurança do teu sistema. Na prática, estas opções devem só ser usadas no ambiente completamente não-crítico, &eg; um computador pessoal em casa. </para
+></important>
+
+<sect3 id="loginmanager-convenience-autologin">
+<title
+>Autenticação Automática</title>
+
+<para
+>A autenticação automática dará a toda a gente acesso a uma certa conta no teu sistema sem teres de te autenticar. Podes activá-la usando a opção <guilabel
+>Activar a autenticação automática</guilabel
+>.</para>
+
+<para
+>A autenticação automática vem com duas variantes: a <guilabel
+>autenticação automática real</guilabel
+> funciona como tu esperas que funcioe, &ie;, o &kdm; irá ligar-se automaticamente sem esperar nenhuma intervenção do utilizador. Activa isto usando a opção <guilabel
+>Autenticação automática real</guilabel
+>. Se esta opção não estiver activa, o &kdm; irá iniciar normalmente, permitindo-te autenticar como qualquer utilizador, e só fará a autenticação automática se matares o servidor X, &eg; carregando em <keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>Backspace</keycap
+></keycombo
+>.</para>
+
+<para
+>Podes seleccionar a conta a usar para a autenticação automática na lista em baixo.</para>
+
+</sect3>
+
+<sect3 id="loginmanager-convenience-nopasswd">
+<title
+>Ligação sem senha</title>
+
+<para
+>Com esta opção, podes permitir a certos utilizadores autenticarem-se sem terem de indicar a sua senha. Activa esta opção usando a opção <guilabel
+>Activar as ligações sem senha</guilabel
+>.</para>
+
+<para
+>Por baixo desta opção verás uma lista de utilizadores para os quais é necessária a senha, assim como uma lista (vazia por omissão) de utilizadores que não precisam de indicar uma senha. Quando a opção <guilabel
+>Activar as ligações sem senha</guilabel
+> estiver seleccionada, podes mover os utilizadores de uma lista para a outra, seleccionando-os e carregando nos botões <guibutton
+>&gt;&gt;</guibutton
+> e <guibutton
+>&lt;&lt;</guibutton
+>.</para>
+
+<important
+><para
+>Mais uma vez, esta opção só deve ser utilizada num ambiente seguro. Se a activares num sistema mais público deves ter em atenção que só os utilizadores com restrições de acesso elevadas devem ligar-se sem senha, como o <systemitem
+>guest</systemitem
+>.</para
+></important>
+
+</sect3>
+
+
+<sect3 id="loginmanager-convenience-misc">
+<title
+>Diversos</title>
+
+<para
+>A opção <guilabel
+>Ligar automaticamente outra vez depois de abortar o X</guilabel
+> permite-te evitar o procedimento de autenticação quando o teu servidor X estoirar acidentalmente. A opção <guilabel
+>Mostrar o utilizador anterior</guilabel
+> irá mostrar o nome do último utilizador introduzido no campo correspondente do &kdm;. Alguns administradores de sistemas consideram até isto uma falha de segurança possível, porque os atacantes potenciais passam a conhecer pelo menos um utilizador válido.</para>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="loginmanager-author">
+<title
+>Autor da Secção</title>
+
+<para
+>Esta secção foi escrita por: </para
+> <para
+>Mike McBride <email
+>mpmcbride7@yahoo.com</email
+>, Thomas Tanghus<email
+>tanghus@earthling.net</email
+> e Steffen Hansen <email
+>stefh@mip.ou.dk</email
+>. Actualizada por Jost Schenck <email
+>jost@schenck.de</email
+>. </para>
+
+<para
+>Tradução de José Nuno Coelho Pires <email
+>jncp@rnl.ist.utl.pt</email
+></para>
+
+</sect2>
+</sect1>
+
+

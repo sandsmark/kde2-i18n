@@ -1,0 +1,349 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ksokoban;">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &ksokoban;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Anders</firstname
+> <surname
+>Widell</surname
+> <affiliation
+> <address
+><email
+>awl@hem.passagen.se</email
+></address
+> </affiliation
+> </author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Maren</firstname
+><surname
+>Pakura</surname
+><affiliation
+><address
+><email
+>maren@kde.org</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Anders Widell</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-16</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract>
+<para
+> &ksokoban; ist die KDE-Implementation des Japanischen-Warenhaus-Arbeiter-Spiels &quot;sokoban&quot;.Dieses dokument beschreibt &ksokoban; Version 0.4.0. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>Spiel</keyword>
+<keyword
+>Sokoban</keyword>
+<keyword
+>KSokoban</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+> Dieses Spiel wurde ursprünglich in Japan in den frühen achtziger Jahren erfunden und gewann dort einen Computerspielwettbewerb. "Sokoban" ist Japanisch und bedeutet "Warenlagerhalter". Die Idee ist, dass Sie ein Halter des Warenlagers sind, der versucht Kisten an die richtigen Stellen im Warenlager zu schieben. </para>
+
+<para
+> Das Problem dabei ist, Sie können die Kisten nicht ziehen oder darüber gehen. Wenn Sie nicht vorsichtig genug sind, können einige der Kisten an den falschen Stellen stecken bleiben oder Ihren Weg versperren. </para>
+
+<para
+> Es kann ganz schön schwierig werden, einen Raum zu lösen. Aber wenn man den Schwierigkeitsgrad steigern will, kann man dies mit einer Minimierung der Anzahl der benötigten Bewegungen und/oder Verschiebungen, die man zur Beendigung braucht, versuchen. </para>
+
+<para
+> Damit das Spiel kleinen Kindern (jünger als 10) mehr Spaß macht, sind einige Sammlungen mit einfacheren Räumen bei &ksokoban; integriert. Diese sind im Menü Raum-Sammlungen mit <emphasis
+>(easy)</emphasis
+> markiert. Natürlich, können diese Räume auch Erwachsenen Spaß machen, z.B. wenn Sie sich nicht zuviel geistiger Anstrengung aussetzen wollen. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Spielanleitung</title>
+
+<para
+> Das Ziel des Spieles ist es, alle roten Edelsteine in die Zielfelder zu schieben. Diese enthalten grüne, glasige Kugeln. </para>
+
+<para
+> Benutzen Sie die Pfeiltasten oder die Maus um sich zu bewegen. Wenn Sie mit den Pfeiltasten oder der mittleren Maustaste gegen einen Edelstein kommen und nichts auf der Gegenseite blockiert, verschieben Sie den Edelstein. Es ist nicht möglich, die Edelsteine zu ziehen. Daraus folgt, wenn Sie einen Edelstein in eine Ecke schieben, bleibt er dort stecken. Sie können nicht über die Edelsteine hinüber gehen. Somit können Sie sich auch in einen Teil des Labyrinths einsperren, indem Sie Ihren Weg mit Edelsteinen blockieren. Bitte beachten Sie auch, dass es nicht möglich ist, mehr als einen Edelstein zu einem Zeitpunkt zu verschieben. </para>
+
+<para
+> Wenn Sie bemerken, dass Sie die Edelsteine so verschoben haben, dass der Raum nicht mehr zu lösen ist, dann können Sie immer noch die Rückgängig-Funktion verwenden, um zu einen Zug zurückzukehren, wo Sie den Fehler noch nicht gemacht hatten. Sie können natürlich auch den Raum von Anfang an starten. </para>
+
+<sect1 id="controls">
+<title
+>Steuerung</title>
+
+<para
+> <informaltable
+> <tgroup cols="2"
+> <thead
+> <row
+><entry
+>Taste</entry
+><entry
+>Aktion</entry
+></row
+> </thead
+> <tbody
+> <row
+><entry
+>Pfeil-Tasten </entry
+><entry
+>Gehr einen Schritt in eine Richtung </entry
+></row
+> <row
+><entry
+><emphasis
+>Strg</emphasis
+> + Pfeil-Tasten </entry
+><entry
+>Gehe so weit wie möglich in eine Richtung, ohne einen Stein zu bewegen. </entry
+></row
+> <row
+><entry
+><emphasis
+>Umschalt</emphasis
+> + Pfeil-Tasten </entry
+><entry
+>Gehe so weit wie möglich in eine Richtung, bewege jeden Stein, der im Weg ist. </entry
+></row
+> <row
+><entry
+>Linke Maustaste </entry
+><entry
+>Gehe zu einem Ort im Labyrinth, der ohne Bewegen von Steinen erreicht werdn kann. </entry
+></row
+> <row
+><entry
+>Mittlere Maustaste </entry
+><entry
+>Hoch/Runter/Links/Rechts in einer geraden Linie, schubst einen Stein vor sich her. </entry
+></row
+> <row
+><entry
+>Rechte Maustaste oder <emphasis
+>U</emphasis
+> </entry
+><entry
+>Macht die letzte Aktion rückgängig. </entry
+></row
+> <row
+><entry
+><emphasis
+>R</emphasis
+> </entry
+><entry
+>Stellt die letzte rückgängig gemachte Aktion wieder her. </entry
+></row
+> <row
+><entry
+><emphasis
+>N</emphasis
+> </entry
+><entry
+>Gehe in den nächsten Raum der aktuellen Raum-Sammlung </entry
+></row
+> <row
+><entry
+><emphasis
+>P</emphasis
+> </entry
+><entry
+>Gehe in den vorherigen Raum der aktuellen Raum-Sammlung </entry
+></row
+> <row
+><entry
+><emphasis
+>Esc</emphasis
+> </entry
+><entry
+>Startet den Raum neu </entry
+></row
+> <row
+><entry
+><emphasis
+>Q</emphasis
+> </entry
+><entry
+>Beendet das Spiel </entry
+></row
+> </tbody
+> </tgroup
+> </informaltable
+> </para>
+</sect1>
+
+<sect1 id="loading-external-levels">
+<title
+>Laden von externen Räumen</title>
+
+<para
+> &ksokoban; hat die Fähigkeit externe Räume aus Text-Dateien zu lesen. Diese Räume können mit <menuchoice
+> <guimenu
+>Spiel</guimenu
+> <guimenuitem
+>Lade Räume..</guimenuitem
+> </menuchoice
+> geladen werden oder durch die Angabe der Raum-URL als  Befehlszeilenargument, wenn &ksokoban; aus der Shell gestartet wird. </para>
+
+<para
+> Die externen Räume müssen mit den Standard-Zeichen gweschreiben sein, die in der nachfolgenden Tabelle dargestellt sind. Wenn eine Datei mehr als einen Raum enthält, sollten sie durch leere Zeilen getrennt sein. Die Datei kann auch Text zwischen den Räumen enthalten. </para>
+
+<para
+> <informaltable
+> <tgroup cols="2"
+> <thead
+> <row
+><entry
+>Zeichen</entry
+><entry
+>Bedeutung</entry
+></row
+> </thead
+> <tbody
+> <row
+><entry
+>#</entry
+><entry
+>Mauer</entry
+></row
+> <row
+><entry
+><emphasis
+>(Leerzeichen)</emphasis
+></entry
+><entry
+>Leeres Feld</entry
+></row
+> <row
+><entry
+>.</entry
+><entry
+>Ziel-Feld</entry
+></row
+> <row
+><entry
+>$</entry
+><entry
+>Edelstein auf leerem Feld</entry
+></row
+> <row
+><entry
+>*</entry
+><entry
+>Edelstein auf Ziel-Feld</entry
+></row
+> <row
+><entry
+>@</entry
+><entry
+>Startposition auf leerem Feld</entry
+></row
+> <row
+><entry
+>+</entry
+><entry
+>Startposition auf Ziel-Feld</entry
+></row
+> </tbody
+> </tgroup
+> </informaltable
+> </para>
+
+<para
+> Unten ist der erste Raum in der <emphasis
+>Microban</emphasis
+>Raum-Sammlung als Text dargestellt: </para>
+
+<para
+> <screen>
+####
+# .#
+#  ###
+#*@  #
+#  $ #
+#  ###
+####
+</screen
+> </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+> &ksokoban; Copyright &copy; 1998-2000 von Anders Widell &lt;<ulink url="mailto:awl@hem.passagen.se"
+>awl@hem.passagen.se</ulink
+>&gt;. Die neuesten Informationen über &ksokoban;, finden Sie auf der &ksokoban;-Homepage auf <ulink url="http://hem.passagen.se/awl/ksokoban/"
+> http://hem.passagen.se/awl/ksokoban/</ulink
+> </para>
+
+<para
+> Das Hintergrundbild "sterned" wurde von <ulink url="http://www.gimp.org/"
+>Gimp</ulink
+> übernommen. Alle anderen Grafiken wurden von Anders Widell &lt;<ulink url="mailto:d95-awi@nada.kth.se"
+>d95-awi@nada.kth.se</ulink
+>&gt; unter Benutzung des Raytracers <ulink url="http://www.povray.org/"
+>Povray</ulink
+> erstellt. </para>
+
+<para
+> Alle zur Zeit enthaltenen Sokoban-Räume wurden von David W. Skinner erstellt &lt;<ulink url="mailto:sasquatch@bentonrea.com"
+> sasquatch@bentonrea.com</ulink
+>&gt;. Sie können sich seine Sokoban-Seite auf <ulink url="http://bentonrea.com/~sasquatch/sokoban/"
+> http://bentonrea.com/~sasquatch/sokoban/</ulink
+> ansehen. </para>
+
+<para
+>Deutsche Übersetzung von Maren Pakura <email
+>maren@kde.org</email
+></para>
+&underFDL;
+&underGPL;
+</chapter>
+
+&documentation.index; 
+</book>
+

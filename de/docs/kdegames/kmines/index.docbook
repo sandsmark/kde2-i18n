@@ -1,0 +1,964 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmines;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here --> 
+  
+   
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &kmines;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Nicolas</firstname
+> <surname
+>Hadacek</surname
+> <affiliation
+><address
+><email
+>hadacek@kde.org</email
+></address
+></affiliation
+> </author>
+<author
+> <firstname
+>Michael</firstname
+> <surname
+>McBride</surname
+> <affiliation
+><address
+><email
+>mmcbride@ematic.org</email
+></address
+></affiliation
+> </author>
+<othercredit role="developer">
+<firstname
+>Nicolas</firstname>
+<surname
+>Hadacek</surname>
+<affiliation>
+<address
+><email
+>hadacek@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Korrektur</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Maren</firstname
+><surname
+>Pakura</surname
+><affiliation
+><address
+><email
+>maren@kde.org</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Nicolas Hadacek, Michael McBride</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-02-03</date>
+<releaseinfo
+>2.00.10</releaseinfo>
+
+<abstract
+><para
+>&kmines; ist die KDE-Version des klassischen Minesweeper-Spiels.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Spiel</keyword>
+<keyword
+>Minesweeper</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einführung</title>
+
+<para
+>&kmines; ist das klassische Minesweeper-Spiel. Sie müssen alle leeren Felder entdecken, ohne dabei eine Mine explodieren zu lassen.</para>
+
+<para
+>Wenn Sie ein Feld aufdecken, erscheint eine Zahl. Diese zeigt an, wieviele Minen dieses Feld umgeben. Wenn keine Mine in den Nachbarfeldern vorhanden ist, werden diese automatisch aufgedeckt. Während des Aufdeckens von leeren Feldern erweist es sich als <emphasis
+>sehr</emphasis
+> nützlich, eine Fahne auf die Felder, die Minen enthalten, zu stellen.</para>
+
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Spielanleitung</title>
+
+<para
+>Sie müssen zum Spielen Ihre Maus mit drei Tasten benutzen. (Bei Mäusen mit zwei Tasten können Sie die dritte Taste mit einem gleichzeitigen Klick der rechten und linken Maustaste simulieren). Hier sind die Details beschrieben:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Die linke Taste deckt eine Feld auf. Befindet sich unter diesem Feld eine Bombe, wird sie explodieren und das Spiel ist beendet. </para
+> <para
+>Ist keine Bombe unter dem Feld, erscheint eine Nummer.Die Nummer gibt die Anzahl der benachbarten Felder an, unter denen eine Bombe liegt. Sie fragen unter welchen Feldern? Das ist der Sinn des Spiels.</para
+> <para
+>Für jedes Feld (mit Ausnahme des Randes und der Ecken) gibt es 8 Nachbarfelder.</para
+> <para
+>Wenn in keinem benachbarten Feld eine Bombe ist, dann erscheint ein leeres Feld und alle Nachbarfelder werden automatisch aufgedeckt.</para
+> <note
+><para
+>Ein Linksklick auf ein Feld mit Fahne ist sicher und es geschieht nichts.</para
+></note
+></listitem
+> <listitem
+><para
+>Die <mousebutton
+>rechte Maustaste</mousebutton
+> markiert ein Feld als Mine (rote Fahne) oder, wenn diese Option aktiviert ist, als unsicher (Fragezeichen). Das Fragezeichen kann nützlich sein, wenn Sie sich über die Positionen der Minen nicht sicher sind.</para
+></listitem
+> <listitem
+><para
+>Die <mousebutton
+>mittlere Maustaste</mousebutton
+> versucht, die acht umgebenden Felder aufzudecken, wenn dort bereits die richtige Anzahl von Feldern als Minenfeld markiert sind. Dies ist sehr nützlich, da das viel schneller geht, als alle Felder einzeln aufzudecken. </para
+> <warning
+><para
+>Wenn aber ihre Fahnen nicht richtig stehen, so wird eine Mine explodieren.</para
+></warning
+></listitem
+> <listitem
+><para
+>In dem Sie auf den <guiicon
+>gelben Smiley</guiicon
+> drücken, starten Sie ein neues Spiel.</para
+></listitem
+> </itemizedlist>
+
+<note
+><para
+>das sind die Standard-Einstellungen. Die Maustasten können neu zugeordnet werden. Weitere Informationen erhalten Sie unter dem Abschnitt: <link linkend="prefs"
+>Spiel Einstellungen</link
+>.</para
+></note>
+
+<sect1 id="screen"
+><title
+>Das &kmines;-Hauptfenster</title>
+
+<screenshot
+> <screeninfo
+>Das &kmines;-Hauptfenster</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kmines1.png" format="PNG"/></imageobject
+> </mediaobject
+> </screenshot
+>   
+
+<para
+>Das &kmines;-Hauptfenster besteht aus:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Ein Feld zeigt die Anzahl der der Bomben an, die noch gekennzeichnet werden müssen. Wenn Sie eine Fahne setzen, verringert sich die Anzahl um eins.</para
+> <note
+><para
+>Dieses Feld entscheidet nicht, ob Sie Ihre Fahne richtig oder falsch gesetzt haben, sondern nur wieviele Minen Sie theoretisch noch markieren müssen, bis Sie fertig sind.</para
+></note
+> <para
+>In diesem Beispiel sind 10 Minen markiert.</para
+></listitem
+> <listitem
+><para
+>Der gelbe Smiley. Klicken Sie darauf und ein neues Spiel wird gestartet. Wenn Sie ein Spiel verlieren wird der Smiley traurig.</para
+></listitem
+> <listitem
+><para
+>Das rechte Feld zeigt an, wie lange Sie spielen. Die kürzeste Zeit für jede Spielstufe wird in die Bestenliste eingetragen.</para
+></listitem
+> <listitem
+><para
+>Das Spielfeld.Die Größe ist von der Wahl der Schwierigkeitsstufe abhängig. In diesem Beispiel besteht es aus 64 Feldern. Hier spielen Sie das Spiel.</para
+></listitem
+> <listitem
+><para
+>Die Statusleiste unten im Fenster. In diesem Beispiel zeigt es an: <guilabel
+>Spiel angehalten</guilabel
+></para
+></listitem
+> </itemizedlist>
+</sect1>
+</chapter>
+
+<chapter id="prefs"
+><title
+>Einstellungen</title>
+<para
+>Die Einstellungen für &kmines;, kann man durch die Wahl von <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>KMines einrichten...</guimenuitem
+> </menuchoice
+> vornehmen. Dies öffnet ein Dialogfenster.</para>
+
+<screenshot
+> <screeninfo
+>Einstellungen für &kmines;</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kmines2.png" format="PNG"/></imageobject
+> </mediaobject
+> </screenshot
+>  
+
+<para
+>Dieses Dialogfeld ist in zwei Tabulatoren aufgeteilt.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Allgemeine Einstellungen</guilabel
+></term
+> <listitem
+><para
+>Die oberste Option, mit dem Namen <guilabel
+>Kästchengröße</guilabel
+> legt die Größe eines jeden Feldes im Spielfeld fest. Standardmäßig sind sie klein. Wenn Sie mit einem hoch auflösenden Monitor arbeiten, können Sie die die Kästchengröße erhöhen.</para
+> <para
+>Die nächste Option, das Ankreuzfeld <guilabel
+>?-Markierungen aktivieren</guilabel
+> legt fest, ob Sie Felder als <quote
+>fragwürdig</quote
+> markieren können. Ist diese Option angekreuzt, dann können Sie durch einen Rechtsklick mit der Maus zuerst eine Fahne auf ein Feld setzten. bei einem weiteren Klick erscheint ein <guiicon
+>?</guiicon
+>, um anzuzeigen, dass Sie sich hier nicht ganz sicher sind, ob eine Bombe unter diesem Feld liegt. Klicken Sie erneut, dann verschwindet das Fragezeichen.</para
+> <para
+>Ist diese Option nicht angekreuzt, dann wird durch einen Rechtsklick mit der Maus die Fahne auf das Feld gesetzt. Ein zweiter Klick, lässt die Fahne verschwinden. Das Fragezeichen wird Übersprungen.</para
+> <para
+>Die nächste Option, das Ankreuzfeld <guilabel
+>Tastatur aktivieren</guilabel
+> legt fest, ob die Tastatur-Tastenkürzel während des Spielens funktionieren.</para
+> <note
+><para
+>Die einzigen betroffenen Tastatur-Tastenkürzel sind die, die für das Spielen verantwortlich sind. Tastenkombinationen, wie zum Beispiel <guimenuitem
+>neues Spiel</guimenuitem
+> und <guimenuitem
+>Beenden</guimenuitem
+> funktionieren weiterhin, unabhängig von der Wahl dieser Option.</para
+></note
+> <para
+>Im letzten Abschnitt dieses Tabulators können sie die Belegung der Maustasten verändern. Ihre Möglichkeiten sind:</para
+> <variablelist
+> <varlistentry
+> <term
+>Aufdecken</term
+> <listitem
+><para
+>Das wird den Inhalt des Kästchens aufdecken. Wenn darunter keine Bombe ist, erscheint eine Nummer. Ist eine Bombe in dem Feld, dann wird sie explodieren und das Spiel ist beendet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Markierung an/aus</term
+> <listitem
+><para
+>Klicken Sie mit dieser Taste auf ein Kästchen, dann wird es mit einer Fahne markiert oder die Fahne entfernt. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Automatisch aufdecken</term
+> <listitem
+><para
+>Klicken Sie mit dieser Taste auf ein Kästchen, dann werden automatisch alle benachbarten Kästchen aufgedeckt, die nicht durch Fahnen markiert sind. Wenn eines der Nachbarfelder eine Bombe enthält, wird sie explodieren und das Spiel ist beendet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>?-Markierung aktivieren an/aus</term
+> <listitem
+><para
+>Klicken Sie mit dieser Taste auf ein Kästchen, dann wird es mit einem Fragezeichen markiert oder das Fragezeichen entfernt.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Farbeinstellungen</guilabel
+></term
+> <listitem
+><para
+>Dieses Dialogfeld erlaubt Ihnen die Farben des Spielfeldes anzupassen. Um die Farbe anzupassen klicken Sie einfach auf auf die Farbe neben der Beschreibung und wählen Sie dann die neue Farbe aus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Änderungen speichern</term
+> <listitem
+><para
+>Sind Ihre Änderungen vollständig, dann klicken Sie einfach auf "<guibutton
+>OK</guibutton
+>" , um sie zu speichern.</para
+> <para
+>Wenn Sie die Änderungen rückgängig machen wollen, klicken Sie auf "<guibutton
+>Abbrechen</guibutton
+>", um ihre Änderungen zu verwerfen.</para
+> <para
+>Wenn Sie auf "<guilabel
+>Standards</guilabel
+>" und die ursprünglichen Einstellungen werden wieder hergestellt. Klicken Sie dann auf "<guilabel
+>OK</guilabel
+>", um diese Einstellungen zu speichern.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+
+</chapter>
+
+<chapter id="command">
+<title
+>Befehle/Tastaturkürzel</title>
+
+<para
+>Hier werden die Menüeinträge kurz beschrieben.</para>
+
+<sect1 id="game-menu">
+<title
+>Das <guimenu
+>Spiel</guimenu
+>-Menü</title>
+
+<para
+>Das <guimenu
+>Spiel</guimenu
+>-Menü besteht aus 5 Optionen.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>eues Spiel</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Startet ein neues Spiel.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>H</keycap
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+>Bestenliste...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Zeigt die Bestenliste (die kürzeste Zeit) für jeden Schwierigkeitsgrad an.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>u</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+>Pa<accel
+>u</accel
+>se</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Hält das Spiel an. Das versteckt das Spielfeld (kein schummeln) und es erscheint ein Knopf, den Sie drücken können, wenn Sie weiterspielen wollen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>rucken...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Druckt das Spielfeld.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Beendet</action
+> &kmines;</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="settings-menu"
+><title
+><guimenu
+>Einstellungen</guimenu
+>-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>enüleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Ist ein Häkchen vor dieser Option, dann ist die Menüleiste zu sehen, ansonsten wird die Menüleiste versteckt.</para
+> <note
+><para
+>Um die Menüleiste wieder herzustellen, klicken Sie außerhalb des Spielfeldes mit der rechten Maustaste. Dann erscheint ein kleines Untermenü. In diesem Untermenü können Sie einfach <guimenuitem
+>Menüleiste anzeigen</guimenuitem
+> auswählen und die Menüleiste ist wieder zu sehen.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>astenzuordnungen vornehmen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Hier können die Tastenbelegungen für &kmines; der Menüeinträge geändert werden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>KMines ein<accel
+>r</accel
+>ichten...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Hier können Sie das Spiel einrichten. Wenn Sie dazu weitere Informationen wünschen, sehen Sie sich den Abschnitt <link linkend="prefs"
+>Spiel Einstellungen</link
+> an.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guisubmenu
+>Spielstufe auswählen</guisubmenu
+> </menuchoice
+></term
+> <listitem
+><para
+>Hier können Sie die Größe des Spielfeldes und damit die Schwierigkeitsstufe wählen.</para
+> <para
+>Es gibt drei Standard-Spielstufen<guimenuitem
+>Leicht</guimenuitem
+> (64 Felder, 10 Minen), <guimenuitem
+>Normal</guimenuitem
+> (256 Felder, 40 Minen) und <guimenuitem
+>Experte</guimenuitem
+> (480 Felder, 99 Minen). Es gibt auch die Möglichkeit unter <guimenuitem
+>Benutzerdefiniert...</guimenuitem
+> eine individuelle Feldgröße zu wählen.</para
+> <para
+>Wenn Sie <guimenuitem
+>Benutzerdefiniert...</guimenuitem
+> wählen erscheint ein Dialogfenster, wo Sie die Breite (die Anzahl der Kästchen horizontal), die Hohe (die Anzahl der Kästchen vertikal) und die Anzahl der Minen einstellen können, in dem Sie die Balken benutzen oder die Zahl direkt eingeben.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+><guimenu
+>Hilfe</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="contents"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+><guimenuitem
+><accel
+>I</accel
+>nhalt</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Startet das &kde; Hilfesystem mit der &kmines; Hilfeseite (dieses Dokument).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="bug"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Umschalt</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+><guimenuitem
+>Was ist <accel
+>d</accel
+>as?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Zum Mauszeiger kommt ein Fragezeichen dazu. Wenn Sie damit auf ein Objekt innerhalb des &kmines;-Fensters klicken, erscheint ein Hilfefenster mit passenden Informationen (wenn es dazu welche gibt).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="whats-this"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+><guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie Probleme und Wünsche...</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Falls Sie eine gute Idee für eine zukünftige Version des Spiels haben oder das Spiel abstürzt, können sie hier einen Fehlerbericht an den Autor schicken.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kmines"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+><guimenuitem
+><accel
+>Ü</accel
+>ber KMines</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dies wird die Informationen über Versionsnummer und den Autor des Spiels anzeigen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kde"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+><guimenuitem
+>über <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Gibt Versionsnummer und grundlegende Informationen zu &kde; aus.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="keys"
+><title
+>Standard-Tastenbelegungen</title>
+<para
+>Die folgende Tabelle zeigt die Standard-Tastenbelegung.</para>
+
+
+<table>
+<title
+>Menü-Tastenbelegungen</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Tastenkombination</entry
+><entry
+>Aktion</entry
+></row
+></thead>
+<tbody
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Pfeile</keycap
+></keycombo
+></entry
+><entry
+>Bewegt den Cursor im Spielfeld.</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+></keycombo
+></entry
+><entry
+>Deckt automatisch alle benachbarten Felder auf, die nicht durch eine Fahne gekennzeichnet sind.</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>N</keycap
+></keycombo
+></entry
+><entry
+>Neues Spiel</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>P</keycap
+></keycombo
+></entry
+><entry
+>Spiel anhalten</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>P</keycap
+></keycombo
+></entry
+><entry
+>Spiel drucken</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+></entry
+><entry
+>Beendet &kmines;</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Inhalt der Hilfe</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Umschalt</keycap
+><keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Was ist das Hilfe</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Umschalt</keycap
+></keycombo
+></entry
+><entry
+>Mine aufdecken</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Leertaste</keycap
+></keycombo
+></entry
+><entry
+>Mine markieren</entry
+></row
+> </tbody>
+</tgroup>
+</table>
+
+<para
+>Diese Tastenbelegungen können mit <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Tastenbelegungen zuordnen</guimenuitem
+> </menuchoice
+> eingestellt werden.</para>
+
+</sect1>
+
+</chapter>
+<chapter id="credits"
+><title
+>Mitwirkende und Lizenz</title>
+ 
+<para
+> &kmines; </para>
+<para
+> Copyright für das Programm 1996-2000 Nicolas Hadacek <email
+>hadacek@kde.org</email
+></para>
+<para
+>Copyright für die Dokumentation 2000 Nicolas Hadacek <email
+>hadacek@kde.org</email
+></para>
+<para
+>Dokumentation für KDE 2.0 von Michael McBride <email
+>mpmcbride7@yahoo.com</email
+> überarbeitet</para>
+<para
+>Deutsche Übersetzung von Maren Pakura <email
+>maren@kde.org</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter
+>                  
+
+<appendix id="installation">
+<title
+>Installation</title>
+ 
+<sect1 id="getting-kapp">
+<title
+>Woher Sie &kmines; erhalten?</title>
+ 
+<para
+>&kmines; ist Teil des KDE-Projekts <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kmines; befindet sich im kdegames-Paket unter <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, der KDE-Haupt-FTP-Seite. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Übersetzung und Installation</title>
+ 
+<para
+>Um &kmines; auf ihrem System zu übersetzen und zu installieren, schreiben Sie das folgende in das Hauptverzeichnis in der kdegames-Distribution: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>cd kdegames</userinput>
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+>Da &kmines; <application
+>autoconf</application
+> und <application
+>automake</application
+> benutzt, sollten Sie keine Probleme haben, es zu übersetzen. Wenn Sie doch Probleme finden, schreiben Sie bitte an die &kde; Mailing-Liste.</para>
+ 
+</sect1
+>         
+</appendix>
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+

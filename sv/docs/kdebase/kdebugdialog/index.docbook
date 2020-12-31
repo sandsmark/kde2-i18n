@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kdebugdialog "<application
+>KDebugDialog</application
+>">
+  <!ENTITY kappname "&kdebugdialog;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Handbok för avlusningsinställningar</title>
+
+<authorgroup>
+<author
+> <firstname
+>David</firstname
+> <surname
+>Faure</surname
+> <affiliation
+> <address
+><email
+>faure@kde.org</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@telia.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-02-13</date>
+<releaseinfo
+>0.03.00</releaseinfo>
+
+<abstract>
+<para
+>Det här dokumentet beskriver avlusningsinställningar.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KDebugdialog</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Vad är avlusningsinställningar</title>
+
+<para
+>Det är en dialogruta för att hantera diagnostikmeddelanden vid körning. </para>
+
+<para
+>Om du helt enkelt startar "kdebugdialog", ser du en lista på "ytor", som du kan aktivera eller stänga av. Ett anrop till kdDebug(yta) i koden visar bara någonting i avlusningsutmatningen om ytan är aktiverat. </para>
+
+<note
+><para
+> Observera att kdWarning, kdError och kdFatal alltid visas, de kontrolleras INTE av de här inställningarna. </para
+></note>
+
+<para
+>Om du startar med "kdebugdialog --fullmode", kan du definiera separat för varje utskriftsnivå vad som ska göras med diagnostikmeddelanden för den nivån, för varje avlusningsyta. </para>
+
+<para
+> I det fullständiga läget, finns följande inställningar tillgängliga: <itemizedlist
+> <listitem
+> <para
+>Utdata till: I den här kombinationsrutan kan du välja var meddelanden ska skrivas ut. Du kan välja "Arkiv", "Meddelanderuta", "Skal" (vilket betyder standard felutmatning) och "Systemlogg". Skicka inte allvarliga fel till systemloggen om du inte är systemadministratör själv. Förvalt värde är "Meddelanderuta".</para
+> </listitem
+> <listitem
+> <para
+>Filnamn: Det här är bara relevant när du har valt "Arkiv" som utmatning och anger namnet på filen (som tolkas relativt till den nuvarande katalogen). Förvalt värde är kdebug.dbg.</para
+> </listitem
+> <listitem
+> <para
+>Avlusningsyta: Ytorna som ska skrivas ut. Varje meddelande som inte nämns här kommer helt enkelt inte skrivas ut (om inte det här fältet förblir tomt, vilket är förvalt, och betyder att alla meddelanden ska skrivas ut). Du kan ange flera ytor separerade med kommatecken här, och du kan också använda ytintervall med syntaxen start-slut. På så sätt kan en giltig post vara: 117,214-289,356-359,221. Använd inte blanktecken.</para
+> </listitem
+> </itemizedlist
+> </para>
+
+<para
+>Bortsett från det här kan du ackså markera rutan "Avbryt vid allvarliga fel". I detta fall, om ett diagnostikmeddelande med nivån "KDEBUG_FATAL" skrivs ut, så avbryts programmet med en SIGABRT efter meddelandet har skrivits ut. </para>
+
+<para
+>Om du stänger dialogrutan med Ok, börjar ändringarna gälla omedelbart, och sparas i kdebugrc. Om du trycker på Avbryt, så slängs dina ändringar och de tidigare återställs. </para>
+
+<para
+>Tack till Kalle Dalheimer för originalversionen av avlusningsinställningar </para>
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-general-insert-case: lower
+sgml-shorttag: t
+End:
+-->
+
+

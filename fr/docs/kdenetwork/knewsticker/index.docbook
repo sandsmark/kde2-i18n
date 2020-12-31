@@ -1,0 +1,1365 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&knewsticker;">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % French "INCLUDE">
+
+
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Le manuel de &knewsticker;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Frerich</firstname
+> <surname
+>Raabe</surname
+> <affiliation
+> <address
+><email
+>raabe@kde.org</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Yves</firstname
+><surname
+>Dessertine</surname
+><affiliation
+><address
+><email
+>yves.d@hrnet.fr</email
+></address
+></affiliation
+><contrib
+>Traduction française</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Frerich Raabe</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-01-24</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract>
+<para
+> &knewsticker; est un applet téléscripteur de nouvelles pour le tableau de bord de &kde; 2.x (connu aussi sous le nom de &kicker;). </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KNewsTicker</keyword>
+<keyword
+>kdenetwork</keyword>
+<keyword
+>téléscripteur de nouvelles</keyword>
+<keyword
+>applet</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<para
+> &knewsticker; est un applet pour le tableau de bord de &kde; 2.x (connu aussi sous le nom de &kicker;) qui fournit un moyen facile et commode d'accéder aux nouvelles reportées par de nombreux sites de nouvelles (tels <ulink url="http://slashdot.org"
+>Slashdot</ulink
+>, <ulink url="http://lwn.net"
+>Linux Weekly News</ulink
+> ou <ulink url="http://freshmeat.net"
+>Freshmeat</ulink
+>). </para>
+
+<para
+> Pour y parvenir, &knewsticker; requiert un fichier spécial <acronym
+>RDF</acronym
+> ou <acronym
+>RSS</acronym
+> de la part des sites de nouvelles, qui contient les titres des nouvelles ainsi que les liens correspondant aux articles complets. De tels fichiers sont très courants ces temps, et &knewsticker; est fourni avec une sélection de bonnes sources de nouvelles fournissant de tels fichiers. </para>
+
+<sect1 id="rdffiles">
+<title
+>Brève information à propos des fichiers <acronym
+>RDF</acronym
+></title>
+
+<para
+> Les fichiers <acronym
+>RDF</acronym
+> sont en train de devenir de plus en plus populaires ces derniers temps, et cet applet n'est pas la première application les utilisant. Mais que sont les fichiers <acronym
+>RDF</acronym
+>&nbsp;? Cette section tente de donner une réponse courte à ces questions, ainsi que des liens vers d'autres sources pour une référence complémentaire. </para>
+
+<para
+> <acronym
+>RDF</acronym
+> est l'acronyme de <quote
+>Resource Definition Framework </quote
+>. Il a été inventé par le <ulink url="http://www.w3c.org"
+>World Wide Web Consortium</ulink
+> et est une des premières applications du <ulink url="http://www.w3.org/TR/REC-xml"
+>Extended Markup Language (<acronym
+> XML</acronym
+>)</ulink
+>). Les fichiers <acronym
+>RDF</acronym
+> (ainsi que les très similaires fichiers <acronym
+>RSS</acronym
+>) définissent et décrivent des données appelées méta-données &cad; l'information à propos de l'information. </para>
+
+<para
+> Les fichiers <acronym
+>RDF</acronym
+> peuvent être utilisés pour tous les types de méta-données, et pas uniquement des nouvelles. Cependant, ils sont devenus très populaires parmi les sites de nouvelles, parce qu'ils fournissent un moyen propre, simple et portable de distribuer des nouvelles. Les sites de nouvelles fournissent un fichier <acronym
+>RDF</acronym
+> qui contient en fait un jeu d'enregistrements, et chaque enregistrement est composé d'un titre et d'un <acronym
+>URL</acronym
+> pointant vers l'article complet. En plus de cela, le fichier <acronym
+>RDF</acronym
+> contient aussi le nom officiel de site de nouvelles ainsi que d'autres informations générales qui sont lues et interprétées par &knewsticker;. </para>
+
+<para
+> Bien sûr, ceci n'est qu'un essai d'explication court et fortement incomplet des idées basiques derrière les fichiers <acronym
+>RDF</acronym
+> et les meta-données. Si vous êtes intéressé par ce sujet, vous pourriez vouloir suivre les liens qui pointent vers des sources complémentaires et plus complètent sur ce sujet&nbsp;:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><ulink url="http://www.oasis-open.org/cover/rdf.html"
+> http://www.oasis-open.org/cover/rdf.html</ulink
+></term
+> <listitem
+><para
+>Cette page est une bonne description du Resource Definition Framework et fournit une grande liste de liens vers d'autres sites traitant de ce sujet. Aucune connaissance spéciale n'est nécessaire pour comprendre cette page, et elle est très à jour. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://www.ccil.org/~cowan/XML/RDF-made-easy.html"
+> http://www.ccil.org/~cowan/XML/RDF-made-easy.html</ulink
+></term
+> <listitem
+><para
+>Ici vous trouverez un point de vue plus pratique sur le Resource Definition Framework. Cette page démontre l'usage des fichiers <acronym
+>RDF</acronym
+> et montre pourquoi et quand ils sont appropriés. Le lecteur devrait être familier avec le standard <ulink url="http://www.w3.org/TR/REC-xml"
+>XML 1.0</ulink
+> défini par le <ulink url="http://www.w3.org"
+>World Wide Web Consortium</ulink
+> avant de lire ce texte.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://www.andrew.cmu.edu/user/mingfai/rdf/"
+> http://www.andrew.cmu.edu/user/mingfai/rdf/</ulink
+></term
+> <listitem
+><para
+>Ceci est une liste de sites traitant de fichiers <acronym
+>RDF</acronym
+> grande et très complète. Vous pouvez envisager de conserver l'adresse de cette page dans vos signets pour une référence complémentaire, elle est aussi assez à jour et ne liste virtuellement aucun lien mort.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://www.w3.org/RDF/"
+>http://www.w3.org/RDF/</ulink
+></term
+> <listitem
+><para
+><emphasis
+>La</emphasis
+> source qui fait autorité directement depuis le <ulink url="http://www.w3.org"
+>World Wide Web Consortium</ulink
+>. Elle comprend une liste de liens complète vers d'autres sites sur le sujet ainsi qu'un historique du développement du <acronym
+>RDF</acronym
+>, une vue d'ensemble de l'architecture, une archive contenant des articles à propos du <acronym
+>RDF</acronym
+>, ainsi qu'une liste soigneusement élaborée d'outils destinés aux développeurs qui auraient l'intention de travailler avec du <acronym
+>RDF</acronym
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Si vous trouvez d'autres sites ou documents sur ce sujet, n'hésitez pas à les envoyer à Frerich Raabe <email
+>raabe@kde.org</email
+> de sorte à ce qu'ils puissent être inclus dans ce document et qu'ils aident tout le monde.</para>
+
+<para
+>Merci beaucoup&nbsp;!</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="starting-knewsticker">
+<title
+>Démarrage de &knewsticker;</title>
+
+<screenshot
+> <screeninfo
+>Voici une capture d'écran de &knewsticker; dans le tableau de bord de &kde;</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="knewsticker-kicker.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Voici une capture d'écran de &knewsticker; dans le tableau de bord de &kde;</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> &knewsticker; est démarré comme n'importe quel autre applet &kicker;, vous avez juste à l'ajouter dans le tableau de bord (ou dans un mini tableau de bord). Pour cela, choisissez simplement <guimenuitem
+>Téléscripteur</guimenuitem
+> dans le sous-menu <guisubmenu
+>Applet</guisubmenu
+> de &kicker;. </para>
+
+<screenshot
+> <screeninfo
+>Voici une capture d'écran de &knewsticker; dans son propre mini tableau de bord.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="knewsticker-childpanel.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Voici une capture d'écran de &knewsticker; dans son propre mini tableau de bord.</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Une autre bonne façon d'utiliser &knewsticker; est de le placer dans son propre mini tableau de bord. Ajoutez simplement un mini tableau de bord en sélectionnant <menuchoice
+><guimenu
+>Ajouter</guimenu
+><guisubmenu
+>Extension</guisubmenu
+><guimenuitem
+>Mini tableau de bord</guimenuitem
+></menuchoice
+> depuis le menu contextuel de &kicker;. Maintenant, vous pouvez simplement changer &knewsticker; dans le mini tableau de bord comme expliqué ci-dessus. </para>
+</chapter>
+
+<chapter id="configuration">
+<title
+>Configuration de &knewsticker;</title>
+
+<para
+> Comme l'un des objectifs de &knewsticker; est une intégration étroite dans le système, il y a plus d'une façon d'ajuster la manière dont il travaille. </para>
+
+<variablelist
+> <varlistentry
+><term
+>Avec le &kcontrol;</term
+><listitem
+><para
+>Lancez le &kcontrol; en cliquant sur le bouton <inlinemediaobject
+><imageobject
+> <imagedata fileref="kcontrol-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> dans le tableau de bord de &kde; ou choisissez l'entrée correspondante dans le menu <guimenu
+>K</guimenu
+>. Puis, explorez le module &knewsticker; dans la vue arborescente sur la gauche en choisissant <guimenuitem
+>Afficheur de nouvelles</guimenuitem
+> dans le sous-menu <guisubmenu
+>Personnalisation</guisubmenu
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Avec le &BDS;</term
+><listitem
+><para
+>Vous pouvez faire apparaître le menu contextuel de &knewsticker; en cliquant dessus avec le &BDS; ou en cliquant sur le bouton comportant une flèche et en choisissant l'entrée marquée <guimenuitem
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="preferences-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> Préférences</guimenuitem
+> dans le menu.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<sect1 id="config-general">
+<title
+>Configuration générale</title>
+
+<sect2>
+<title
+>Options générales</title>
+
+<screenshot
+> <screeninfo
+>Voici à quoi ressemble l'onglet <guilabel
+>Général</guilabel
+> de la boîte de dialogue préférences, lorsqu'il elle est ouverte depuis le &kcontrol;.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kcmnewsticker-general.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Voici à quoi ressemble l'onglet <guilabel
+>Général</guilabel
+> de la boîte de dialogue préférences, lorsqu'il elle est ouverte depuis le &kcontrol;.</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Quelque soit la manière que vous avez choisi pour accéder à la boîte de dialogue de configuration, nous vous présenterons le premier onglet de la boîte de dialogue préférences, appelé <guilabel
+>Général</guilabel
+>. Ici, vous pouvez définir à quelle vitesse le texte doit défiler, à quoi il doit ressembler, ainsi que d'autres options de l'applet. Voici une brève information sur ce que régissent les cases à cocher et les boutons de cet onglet&nbsp;: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Intervalle des requêtes de nouvelles</guilabel
+></term
+> <listitem
+><para
+> Vous pouvez ici définir l'intervalle de temps entre deux requêtes des serveurs de nouvelles pour les titres des nouvelles. Cela dépend généralement de la vitesse à laquelle vous voulez être informé des nouvelles et de quelle charge vous voulez placer sur le réseau.&nbsp;: </para
+> <itemizedlist
+> <listitem
+> <para
+> Une valeur faible (moins de 15 minutes) vous permet d'être informé très rapidement des nouvelles si vous le voulez ou le nécessitez. Veuillez noter que cela augmente considérablement la charge du réseau. Toutefois, de tels intervalles courts ne devraient pas être utilisés si vous interrogez des serveurs de nouvelles très populaires (tels que <ulink url="http://slashdot.org"
+>Slashdot</ulink
+> ou <ulink url="http://freshmeat.net"
+>Freshmeat</ulink
+>), puisqu'ils ont généralement déjà de travail en traitant les requêtes entrantes. </para
+> </listitem
+> <listitem
+> <para
+> Une valeur élevée (plus de 45 minutes) ne vous permettra pas d'être informé des nouvelles aussi rapidement. Ceci est recommandé pour des applications pour lesquelles le temps n'est pas critique. L'aspect positif est que seule une toute petite charge est placée sur le réseau&nbsp;; ceci économise les ressources et les nerfs, pour vous et les administrateurs système des serveur de nouvelles que vous interrogez. </para
+> </listitem
+> </itemizedlist
+> <tip
+> <para
+> La valeur par défaut (30 minutes) devrait être appropriée et raisonnable dans la majorité des cas. </para
+> </tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Utiliser les noms personnalisés pour les nouveaux sites</guilabel
+></term
+> <listitem
+><para
+> Cochez cette case pour faire en sorte à ce que l'afficheur de nouvelles utilise les noms que vous avez spécifié dans la liste des sources de nouvelles (disponible sur l'onglet appelé <guilabel
+>Sources de nouvelles</guilabel
+>) au lieu de ceux reportés par les serveurs de nouvelles eux-mêmes. Ceci peut être pratique pour les serveurs de nouvelles qui reportent un nom très long ou inutile. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Défilement indéfini</guilabel
+></term
+> <listitem
+><para
+> Cochez cette case pour éviter cet arrêt horrible à la fin du défilement (lorsque tous les titres sont apparus une fois). Si le défilement indéfini est activé et que le dernier titre à été affiché, &knewsticker; va attacher le premier titre à la fin du texte qui défile. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Faire défiler seulement les titres les plus récents</guilabel
+></term
+> <listitem
+><para
+> Cochez cette case pour afficher seulement les titres les plus récents de chaque serveur de nouvelles, au lieu d'afficher tous les titres disponibles sur tous les serveurs de nouvelles. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>Options de défilement</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Vitesse de défilement</guilabel
+></term
+> <listitem
+><para
+> Cette glissière vous permet de définir à quelle vitesse le texte doit défiler. Si vous avez relativement peu d'espace dans votre barre des tâches, (et toutefois un afficheur de nouvelles plutôt petit), vous devriez probablement régler cette valeur sur une valeur plus faible, de sorte à ce que vous ayez une chance de lire les titres. Pour les afficheurs de nouvelles plus larges (et les meilleurs yeux), une vitesse de défilement du texte plus importante est probablement plus appropriée pour que vous ayez à attendre le prochain titre le moins longtemps possible. </para
+> <note
+> <para
+> Cette valeur détermine le temps au bout duquel le texte doit défiler un petit peu, &cad; que cette valeur n'est pas proportionnelle. Cela signifie que des valeurs plus petites font défiler le texte plus rapidement. </para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Direction du déplacement</guilabel
+></term
+> <listitem
+><para
+> Ces options vous permettent de définir dans quelle direction le texte doit défiler, &pex; vers le haut, vers la droite, vers le haut ou vers le bas. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Police</guilabel
+></term
+> <listitem
+><para
+> Cliquez sur le bouton à droite intitulé "Choisir la police..." pour choisir la police qui va être utilisée pour le texte qui défile.</para
+> <tip
+><para
+>Certaines polices sont plus difficiles à lire que d'autres, et plus particulièrement lorsqu'elles sont utilisées pour un texte qui défile. Vous devriez donc choisir une police facilement lisible même lorsqu'elle est en mouvement. </para
+></tip
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Couleur de l'avant-plan</guilabel
+></term
+> <listitem
+><para
+> Cliquez sur ce bouton pour ouvrir une boîte de dialogue pratique de sélection de couleur qui vous permettra de choisir la couleur utilisée pour l'avant-plan du texte qui défile (&cad; la couleur du texte lui-même). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Couleur du fond</guilabel
+></term
+> <listitem
+><para
+> Cliquez sur ce bouton pour ouvrir une boîte de dialogue pratique de sélection de couleur qui vous permettra de choisir la couleur utilisée pour l'arrière-plan du texte qui défile. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Couleur de surbrillance</guilabel
+></term
+> <listitem
+><para
+> Cliquez sur ce bouton pour ouvrir une boîte de dialogue pratique de sélection de couleur qui vous permettra de choisir la couleur utilisée pour les titres mis en surbrillance (lorsque passez le pointeur de la souris dessus). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Souligner les titres en surbrillance</guilabel
+></term
+> <listitem
+><para
+> Cochez cette case pour que le titre actuellement mis en surbrillance (&cad; le titre qui est actuellement sous le pointeur de la souris) soit souligné. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+</sect1>
+
+<sect1 id="config-newssources">
+<title
+>Configuration des sources de nouvelles</title>
+
+<screenshot
+> <screeninfo
+>Voici à quoi peut ressembler l'onglet <guilabel
+>Sources de nouvelles</guilabel
+> de la boîte de dialogue de préférences lorsqu'elle est appelée avec l'option <guilabel
+>Préférences</guilabel
+> du menu contextuel de &knewsticker;.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kcmnewsticker-newssources.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Voici à quoi peut ressembler l'onglet <guilabel
+>Sources de nouvelles</guilabel
+> de la boîte de dialogue de préférences lorsqu'elle est appelée avec l'option <guilabel
+>Préférences</guilabel
+> du menu contextuel de &knewsticker;.</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> En plus des options disponibles sur l'onglet <link linkend="config-general"
+> <guilabel
+>Général</guilabel
+></link
+>, il y a encore d'autres moyens de personnaliser &knewsticker; de sorte à ce qu'il corresponde à vos besoins, disponibles sur l'onglet <guilabel
+>Sources des nouvelles</guilabel
+>. Cette page est composée principalement d'un tableau qui vous permet de ménager et de maintenir la liste des sites de nouvelles que &knewsticker; interroge. Cliquez sur n'importe quelle entrée avec le &BDS; pour ouvrir un menu contextuel vous permettant de supprimer l'entrée actuelle, ou d'ajouter une entrée avec les propriétés de l'entrée sélectionnée. </para>
+
+<para
+> En bas, vous trouverez aussi deux boutons avec une <inlinemediaobject
+> <imageobject
+><imagedata fileref="uparrow-icon.png" format="PNG"/> </imageobject
+></inlinemediaobject
+> flèche vers le haut et un autre avec une <inlinemediaobject
+><imageobject
+> <imagedata fileref="downarrow-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> flèche vers le bas. Ces deux boutons vous permettent de déplacer les entrées vers le haut ou vers le bas, ce qui est pratique si vous voulez définir un ordre spécifique dans lequel &knewsticker; doit charger les nouvelles des sites. </para>
+
+<tip
+> <para
+> Si <link linkend="starting-knewsticker"
+>l'applet est démarré</link
+>, vous pouvez jouer avec ces paramètres maintenant. Cliquez sur <guilabel
+>Appliquer</guilabel
+> pour faire en sorte que l'applet utilise les nouveaux paramètres immédiatement. Vous n'avez pas à le redémarrer. </para
+> </tip>
+
+<sect2>
+<title
+>Ajout d'un site de nouvelles</title>
+
+<para
+> Il y a quatre moyens d'<emphasis
+>ajouter</emphasis
+> un site de nouvelles à la liste&nbsp;: <itemizedlist
+> <listitem
+><para
+>Vous pouvez cliquer sur le bouton intitulé <guilabel
+>Ajouter</guilabel
+> en bas.</para
+></listitem
+> <listitem
+><para
+>Vous pouvez cliquer avec le &BDS; dans le tableau et sélectionner <guimenuitem
+>Ajouter une source de nouvelles</guimenuitem
+>. Ceci ajoute une nouvelle entrée et ajuste son nom sur <quote
+>Inconnu</quote
+>.</para
+></listitem
+> <listitem
+><para
+>Vous pouvez cliquer avec le &BDS; sur n'importe quelle entrée de la liste et choisir <guimenuitem
+>Ajouter une source de nouvelles</guimenuitem
+> pour ajouter une nouvelle entrée ayant les mêmes propriétés que l'entrée sur laquelle vous avez cliqué.</para
+></listitem
+> <listitem
+><para
+>Vous pouvez glisser-déposer n'importe quel fichier <acronym
+>RDF</acronym
+> ou <acronym
+>RSS </acronym
+> depuis une autre application (telle que &konqueror;) sur le tableau. Ceci ajoute une nouvelle entrée à la liste, ajuste son nom sur <quote
+>Inconnu</quote
+> et ajuste le nombre maximum d'articles à 10.</para
+></listitem
+> </itemizedlist
+> Il y a actuellement une autre, cinquième façon d'ajouter un site de nouvelles à la liste&nbsp;: vous pouvez cliquer sur n'importe quel fichier <acronym
+>RDF</acronym
+> ou <acronym
+>RSS</acronym
+> dans le gestionnaire de fichiers &konqueror; pour qu'il soit immédiatement ajouté à la liste. </para>
+</sect2>
+
+<sect2>
+<title
+>Modification d'un site de nouvelles existant</title>
+
+<para
+> Pour <emphasis
+>éditer</emphasis
+> une entrée existante dans la liste, vous pouvez utiliser les zones de texte à droite, qui sont dans la boîte intitulée <guilabel
+>Général</guilabel
+>. Ils sont normalement désactivés tant que vous n'avez pas sélectionné d'entrée dans la liste. Dès que vous en avez sélectionné une, les zones de texte sont normalement activées et vous pouvez éditer les propriétés du site de nouvelles sélectionné comme vous le souhaitez&nbsp;:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Le champ le plus en haut intitulé <guilabel
+>Nom&nbsp;:</guilabel
+> vous permet d'éditer le nom du site de nouvelles. Le nom défini ici sera utilisé si l'applet est incapable de se connecter au site de nouvelles, ou si la case à cocher <guilabel
+>Utiliser les noms personnalisés pour les nouveaux sites</guilabel
+> (dans l'onglet <guilabel
+>Général</guilabel
+>) est cochée.</para
+></listitem
+> <listitem
+><para
+>Le champ situé en dessous vous permet d'éditer l'<acronym
+>URL</acronym
+> qui pointe vers le fichier <acronym
+>RDF</acronym
+> ou <acronym
+>RSS</acronym
+> qui va être utilisé pour cette entrée. Vous pouvez changer cette chaîne de caractères soit à la main (&cad; en saisissant dans le champ) ou en cliquant sur le petit bouton sur la droite (qui comporte une icône de dossier). Ce bouton ouvre une fenêtre de sélection fichier pratique qui vous permet de parcourir les fichiers pour trouver le fichier désiré.</para
+> </listitem
+> <listitem
+><para
+>En dernière position se trouve un champ pour définir le nombre d'articles que &knewsticker; doit télécharger et conserver depuis le site de nouvelles. La valeur par défaut est de 10 articles, mais il pourrait être raisonnable d'ajuster cette valeur pour certains sites de nouvelles.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Lorsque vous changez le texte ou la valeur de l'un de ces champs, vous pouvez voir le changement prendre effet immédiatement dans la liste.</para>
+</sect2>
+
+<sect2>
+<title
+>Suppression d'un site de nouvelles</title>
+
+<para
+> Vous voudrez évidemment un jour <emphasis
+>supprimer</emphasis
+> un site de nouvelles de votre liste. Pour cela, vous pouvez soit <itemizedlist
+> <listitem
+><para
+>cliquer avec le &BDS; sur l'entrée que vous voulez supprimer et choisir <guilabel
+>Effacer la source de nouvelles</guilabel
+> depuis le menu contextuel.</para
+></listitem
+> <listitem
+><para
+>sélectionner l'entrée que vous voulez supprimer avec le &BGS; et cliquer sur le bouton en bas de la liste intitulé <guilabel
+>Supprimer</guilabel
+>.</para
+></listitem
+> </itemizedlist
+> Dans les deux cas, une boîte de dialogue de confirmation apparaîtra. Assurez-vous de ne pas avoir sélectionné une mauvaise entrée. </para>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="using-knewsticker">
+<title
+>Utilisation de &knewsticker;</title>
+
+<para
+>L'utilisation de &knewsticker; est assez simple et ne devrait pas vous poser de gros problèmes, en partant du fait que vous avez déjà <link linkend="configuration"
+>configuré &knewsticker;</link
+>. Peu importe si vous lancez &knewsticker; dans le tableau de bord ou dans un mini tableau de bord, il apparaît toujours comme une surface avec un texte en défilement et un bouton avec une petite flèche à coté de celui-ci.</para>
+
+<sect1 id="applet-descr">
+<title
+>L'applet</title>
+
+<para
+>La surface (elle est blanche par défaut, mais vous pouvez changer la couleur d'arrière-plan facilement en utilisant la boîte de dialogue de préférences) avec le texte en défilement est appelée <quote
+>afficheur de nouvelles</quote
+>. Il fait défiler les titres téléchargés en continu (ou uniquement les titres les plus récents) et vous donne un accès facile aux articles. Si vous voyez un article intéressant, cliquez simplement dessus pour ouvrir le navigateur Web &konqueror;, affichant l'article complet appartenant au titre sur lequel vous avez cliqué. Si vous sentez qu'un titre potentiellement intéressant vient juste de défiler hors de votre vue, vous disposez de plusieurs moyens d'influencer le défilement&nbsp;:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Vous pouvez cliquer sur l'afficheur de nouvelles avec le &BGS; et déplacer la souris (tout en gardant le &BGS; appuyé). L'afficheur de nouvelles retrouvera son défilement habituel une fois que vous relâcherez le &BGS;.</para
+></listitem
+> <listitem
+><para
+>Si vous avez une souris appelée <quote
+>souris à molette</quote
+>, vous pouvez utiliser la molette de votre souris pour faire défiler les titres vers l'avant ou l'arrière.</para
+> </listitem
+> </itemizedlist>
+
+<para
+> Il existe aussi un <link linkend="contextmenu-descr"
+>menu contextuel</link
+> très puissant, auquel vous pouvez accéder soit en cliquant avec le &BDS; sur l'afficheur de nouvelles, ou en cliquant sur le bouton comportant une flèche avec le &BGS;. Ce menu contextuel est la partie la plus intéressante de l'applet, parce qu'il contient à peu près toutes les fonctionnalités. </para>
+
+</sect1>
+
+<sect1 id="contextmenu-descr">
+<title
+>Le menu contextuel</title>
+
+<screenshot
+> <screeninfo
+>Voici à quoi ressemble le menu contextuel de &knewsticker;, si vous utilisez uniquement les sites de nouvelles par défaut.</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="contextmenu.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Voici à quoi ressemble le menu contextuel de &knewsticker;, si vous utilisez uniquement les sites de nouvelles par défaut.</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Le menu contextuel est principalement scindé en deux parties&nbsp;:</para>
+
+<para
+>La partie supérieure montre la liste des entrées, chaque entrée ayant une icône telle que celle-ci <inlinemediaobject
+><imageobject
+> <imagedata fileref="newssite-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> à coté d'elle. Cette liste représente la liste des sites de nouvelles actuellement configurés. Vous pouvez cliquer sur n'importe quelle source de nouvelles pour ouvrir un autre menu qui contient une liste des titres disponibles pour ce site de nouvelles en particulier ainsi qu'une entrée intitulée <guilabel
+> <inlinemediaobject
+><imageobject
+><imagedata fileref="checknews-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Vérifier les nouvelles</guilabel
+> pour rafraîchir la liste des titres pour ce site de nouvelles. Chacun des titres a une icône <inlinemediaobject
+><imageobject
+> <imagedata fileref="oldarticle-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> à côté de lui indiquant que vous avez déjà lu cet article ou l'icône <inlinemediaobject
+><imageobject
+> <imagedata fileref="newarticle-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> au cas où vous ne l'auriez pas encore lu.</para>
+
+<para
+> La partie inférieure montre actuellement quatre entrées (expliquées de haut en bas)&nbsp;:</para>
+
+<variablelist
+> <varlistentry
+><term
+><guilabel
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="checknews-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> Vérifier les nouvelles</guilabel
+></term
+> <listitem
+><para
+>Cette entrée comporte une petite <inlinemediaobject
+><imageobject
+> <imagedata fileref="checknews-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> à côté d'elle. Si vous voulez forcer &knewsticker; à vérifier si les sites de nouvelles configurés ont des nouveaux articles, vous pouvez cliquer ici.<note
+><para
+>Ceci ne réinitialise pas le chronomètre interne qui interroge les sites de nouvelles automatiquement en suivant un intervalle pour savoir s'il existe de nouveaux articles.</para
+></note
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Mode déconnexion</guilabel
+></term
+> <listitem
+><para
+>Cette entrée de menu n'a pas d'icône associée. Cliquez sur cette entrée pour activer un <quote
+>mode déconnexion</quote
+> spécial, qui met le chronomètre de vérification de nouvelles en pause et empêche le téléchargement automatique de nouveaux titres. Le mode déconnexion devient pratique si vous devez laisser votre ordinateur un moment pendant lequel votre système n'est pas connecté à Internet, parce qu'il vous épargne tous les messages d'erreur qui apparaissent lorsque l'ordinateur ne peut pas se connecter à l'un des sites de nouvelles.<tip
+><para
+>Vous pouvez forcer un rechargement pour un seul site de nouvelles aussi bien que pour tous les sites de nouvelles en sélectionnant l'entrée <guilabel
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="checknews-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> Vérifier les nouvelles</guilabel
+> respective.</para
+></tip
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="help-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> Aide </guilabel
+></term
+> <listitem
+><para
+>Cette entrée est marquée par un petit <inlinemediaobject
+> <imageobject
+><imagedata fileref="help-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+>. Le fait de cliquer sur cette entrée ouvrira la documentation de &knewsticker; (que vous êtes en train de lire en ce moment) qui détaille toutes les fonctions et capacités de &knewsticker;. </para
+></listitem
+></varlistentry
+> <varlistentry
+> <term
+><guilabel
+><inlinemediaobject
+><imageobject
+> <imagedata fileref="about-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> À propos</guilabel
+></term
+> <listitem
+><para
+>Cette entrée est, elle aussi, marquée par un petit <inlinemediaobject
+><imageobject
+> <imagedata fileref="about-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+>. La sélectionner ouvre une petite boîte de dialogue qui liste les contributeurs à &knewsticker; ainsi que le copyright et la licence.</para
+> </listitem
+></varlistentry
+> <varlistentry
+> <term
+><guilabel
+><inlinemediaobject
+><imageobject
+><imagedata fileref="preferences-icon.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Préférences</guilabel
+></term
+> <listitem
+><para
+>Cette entrée est facilement reconnaissable grâce à l'icône <inlinemediaobject
+> <imageobject
+><imagedata fileref="preferences-icon.png" format="PNG"/></imageobject
+> </inlinemediaobject
+> à côté d'elle. Sélectionnez cette entrée pour ouvrir la boîte de dialogue de préférences qui vous permet de personnaliser toutes les propriétés de &knewsticker;.</para
+></listitem
+></varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Questions fréquemment posées</title>
+
+&reporting.bugs;
+
+<qandaset id="faqlist">
+<qandaentry>
+<question
+><para
+>Où puis-je trouver un fichier <acronym
+>RDF</acronym
+> pour un site de nouvelles XY&nbsp;:</para
+></question>
+<answer
+><para
+>Il est actuellement possible que le site de nouvelles auquel vous vous référerez ne fournit aucun fichier <acronym
+>RDF</acronym
+> ou <acronym
+>RSS</acronym
+>&nbsp;! Néanmoins, vous pouvez vous rendre à <ulink url="http://www.webreference.com/services/news"
+>http://www.webreference.com/services/news </ulink
+> pour trouver une liste plus ou moins complète de sites proposant un fichier <acronym
+>RDF</acronym
+> ou <acronym
+>RSS</acronym
+>. Une autre merveilleuse source de fichiers <acronym
+>RDF</acronym
+> est <ulink url="http://www.xmltree.com"
+>http://www.xmltree.com</ulink
+>, où vous pouvez trouver des centaines de fichiers <acronym
+>RDF</acronym
+> et <acronym
+>RSS</acronym
+>, triés par langue et/ou par sujet. </para>
+<para
+>Si vous trouvez des sites de nouvelles intéressants fournissant de tels fichiers, n'hésitez pas à les envoyer à Frerich Raabe <email
+>raabe@kde.org </email
+> de sorte à ce qu'ils puissent êtres inclus dans les prochaines versions. Merci&nbsp;!</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+<title
+>Crédits et licence</title>
+
+<para
+>&knewsticker;</para>
+
+<para
+>Programme copyright 2000, 2001 par Frerich Raabe <email
+>raabe@kde.org</email
+></para>
+
+<para
+>Contributeurs&nbsp;:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Malte Starostik <email
+>malte.starostik@t-online.de</email
+></para
+> </listitem
+> <listitem
+><para
+>Wilco Greven <email
+>greven@linux.org</email
+></para
+> </listitem
+> </itemizedlist>
+
+
+<para
+>Documentation copyright 2001 par Frerich Raabe <email
+>raabe@kde.org</email
+></para>
+
+&underFDL;
+&underBSDLicense;
+
+</chapter>
+
+
+<glossary id="glossary">
+<title
+>Glossaire</title>
+
+<para
+> Ce chapitre est prévu pour expliquer les différents acronymes qui ont été utilisés tout au long de la documentation de &knewsticker;. Si vous sentez que certains acronymes ou termes sont absents, n'hésitez pas à envoyer un courrier électronique à Frerich Raabe <email
+>raabe@kde.org</email
+> de sorte à ce qu'ils puissent être ajoutés. Merci. </para>
+
+<glossentry id="gloss-rdf"
+> <glossterm
+>RDF</glossterm
+> <glossdef
+><para
+>Resource Description Framework. Un langage dérivé du <acronym
+>XML</acronym
+> qui décrit les métadonnées. Souvent utilisé pour les articles et autres publications. Pour des informations plus détaillées sur les fichiers <acronym
+>RDF</acronym
+>, vous pouvez consulter la section <link linkend="rdffiles"
+>brève information à propos des fichiers <acronym
+>RDF</acronym
+></link
+>, ou vous rendre directement à la <ulink url="http://www.w3.org/RDF/"
+>page officielle du format <acronym
+>RDF</acronym
+></ulink
+> sur le site du <ulink url="http://www.w3.org"
+>World Wide Web Consortium</ulink
+>.</para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-rss"
+> <glossterm
+>RSS</glossterm
+> <glossdef
+><para
+>Le sommaire de site RDF ("RDF Site Summary") est actuellement une extension du langage <acronym
+>RDF</acronym
+>. D'après la <ulink url="http://www.purl.org/rss/1.0/"
+>spécification officielle RSS v1.0</ulink
+>&nbsp;:</para
+> <para
+><quote
+><acronym
+>RDF</acronym
+> Site Summary (<acronym
+>RSS</acronym
+>) est un format de description et de publication de métadonnées léger, extensible et multi-utilisations. Le <acronym
+>RSS</acronym
+> est une application du <acronym
+>XML</acronym
+>, conforme à la Spécification <acronym
+>RDF</acronym
+> du <acronym
+>W3C</acronym
+> et est extensible par espace de nom <acronym
+>XML</acronym
+> et/ou modularisation fondée sur le <acronym
+>RDF</acronym
+>.</quote
+></para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-xml"
+> <glossterm
+>XML</glossterm
+> <glossdef
+><para
+>Le langage balisé extensible ("eXtensible Markup Language") est <quote
+>le format universel pour les documents et données structurés sur le Web</quote
+>. C'est un dérivé du <acronym
+>SGML</acronym
+> adapté aux besoins du Web. Vous pouvez vous rendre à la page du<ulink url="http://www.w3.org/XML/"
+>Extensible Markup Language</ulink
+> sur le site Internet du <ulink url="http://www.w3.org"
+>World Wide Web Consortium</ulink
+> pour plus d'informations.</para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-w3c"
+> <glossterm
+>W3C</glossterm
+> <glossdef
+><para
+>Une abréviation pour <quote
+>World Wide Web Consortium</quote
+>. D'après la <ulink url="http://www.w3.org"
+>page officielle</ulink
+> du W3C, <quote
+>Le World Wide Web Consortium (<acronym
+>W3C</acronym
+>) développe des technologies interopérables (spécifications, directives, logiciels, et outils) pour pousser le Web à son potentiel maximum comme forum pour le commerce, la communication, et le savoir collectif</quote
+>.</para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-url"
+> <glossterm
+>&URL;</glossterm
+> <glossdef
+><para
+>&URL; signifie <quote
+>Uniforme Resource Locator</quote
+>, une chaîne de caractères d'un format spécial pouvant référencer des ressources telles des images, des documents et d'autres choses sur Internet. Veuillez vous référer à la <ulink url="http://www.w3.org/Addressing/"
+>page Web</ulink
+> s'y rapportant pour des informations plus détaillées à ce sujet.</para
+></glossdef
+> </glossentry>
+<glossentry id="gloss-dcop"
+> <glossterm
+>DCOP</glossterm
+> <glossdef
+><para
+>Le protocole de communication de bureau ("Desktop COmmunication Protocol") est une façon pour les applications de communiquer entre elles. Par exemple, <link linkend="configuration"
+>la boîte de dialogue de configuration</link
+> de &knewsticker; utilise <acronym
+>DCOP</acronym
+> pour indiquer à l'applet lui-même la configuration courante. Pour des informations plus détaillées à propos de <acronym
+>DCOP</acronym
+>, vous pouvez vous rendre à <ulink url="http://developer.kde.org/documentation/library/2.0-api/dcop/HOWTO.html"
+> http://developer.kde.org/documentation/library/2.0-api/dcop/HOWTO.html</ulink
+> pour une explication complète du <acronym
+>DCOP</acronym
+>.</para
+></glossdef
+> </glossentry>
+
+</glossary>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-knewsticker">
+<title
+>Comment obtenir &knewsticker;</title>
+
+<para
+>&knewsticker; fait partie du projet &kde; <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. Vous trouverez la version actuelle de &knewsticker; dans le paquetage kdenetwork à <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, le site &FTP; principal du projet &kde;.</para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Programmes requis</title>
+<para
+>Si vous voulez installer &knewsticker;, vous aurez besoin d'au moins une installation de &kde; 2.1.</para>
+<para
+>Si vous avez l'intention de compiler et installer &knewsticker; vous-même, vous devrez vous assurer que les programmes suivants sont présents sur votre système&nbsp;:</para>
+<itemizedlist
+> <listitem
+><para
+>g++ 2.8 / egcs 1.0.3 (ou compatible)</para
+></listitem
+> <listitem
+><para
+>GNU make</para
+></listitem
+> <listitem
+><para
+>autoconf 2.1</para
+></listitem
+> <listitem
+><para
+>automake 1.4</para
+></listitem
+> <listitem
+><para
+>Qt 2.2.x</para
+></listitem
+> <listitem
+><para
+>KDE 2.1</para
+></listitem
+> </itemizedlist>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Compilation et installation</title>
+
+<para
+>&knewsticker; fait partie du paquetage kdenetwork de &kde; 2.1 et est installé en même temps que celui-ci. En général, il n'y a aucun besoin pour l'utilisateur de compiler le code source de &knewsticker; à la main. Si vous avez toutefois l'intention de procéder ainsi ou que vous n'avez que le code source disponible, l'installation et la compilation se font, comme d'habitude sous Linux, en saisissant&nbsp;:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>su</command
+> <option
+>-c "make install"</option
+></userinput>
+</screen>
+
+<para
+>&knewsticker; utilise <application
+>autoconf</application
+> et <application
+>automake</application
+>, aucun problème de devrait donc survenir pendant le processus de compilation. Si toutefois vous rencontriez le moindre problème, veuillez prendre contact avec la liste de diffusion des développeurs de &kde; <email
+>kde-devel@master.kde.org</email
+>.</para>
+</sect1>
+</appendix>
+
+<appendix id="develinfo">
+<title
+>Informations pour les développeurs et les utilisateurs avancés</title>
+
+<para
+>&knewsticker; n'est muni que d'une interface <acronym
+>DCOP</acronym
+> relativement limitée mais en constante augmentation. Elle n'est pas seulement utilisée pour communiquer avec d'autres applications, mais il est aussi bien possible de contrôler &knewsticker; à l'aide d'un script shell. Plus l'interface est étendue, plus elle deviendra pratique et plus &knewsticker; sera flexible et contrôlable depuis un script. </para>
+
+<para
+>Pour utiliser les fonctions <acronym
+>DCOP</acronym
+>, vous pouvez soit utiliser l'application en ligne de commandes <application
+>dcop</application
+>, ou utiliser l'application plus conviviale <application
+>KDCOP</application
+>. Les deux applications fournissent les mêmes fonctionnalitées, le programme que vous préférerez est donc uniquement une question de goût. :-)</para>
+
+<para
+>Ce chapitre part du principe que vous utilisez le programme en ligne de commandes <application
+>dcop</application
+>. Pour accéder aux fonctions <acronym
+>DCOP</acronym
+> de &knewsticker;, assurez-vous que &knewsticker; est <link linkend="starting-knewsticker"
+>lancé</link
+> et saisissez quelque chose comme cela dans la console&nbsp;: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>[fonction]</option
+></userinput>
+</screen>
+
+<note
+> <para
+> Si un message d'erreur apparaît disant que <filename
+>dcop</filename
+> est introuvable, veuillez vérifier que le fichier <filename
+>dcop</filename
+> existe dans <filename class="directory"
+>$KDEDIR/bin</filename
+> et assurez-vous que ses permissions ont correctement configurées. </para
+> </note>
+
+<para
+> Dans cette ligne de commande, remplacez simplement <quote
+>[fonction]</quote
+> par le nom de la fonction, &pex; tapez </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>updateNews</option
+></userinput>
+</screen>
+
+<para
+> pour faire en sorte que &knewsticker; vérifie s'il y a des nouveaux articles et les télécharge si nécessaire. </para>
+
+<sect1 id="dcop-reference">
+<title
+>Référence <acronym
+>DCOP</acronym
+></title>
+<para
+> Voici (pour finir) une liste complète de toutes les fonctions <acronym
+>DCOP</acronym
+> que &knewsticker; fournit&nbsp;: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><command
+>updateNews</command
+></term
+> <listitem
+><para
+>Cette fonction force &knewsticker; à mettre à jour sa liste d'articles interne (&cad; qu'il interroge les serveurs de nouvelles <link linkend="config-newssources"
+>configurés</link
+> dans sa liste et télécharge les nouveaux articles si nécessaire.</para
+><note
+><para
+>Ceci fonctionne également si &knewsticker; est en mode déconnexion.</para
+></note
+> <para
+>Exemple&nbsp;:</para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>updateNews</option
+></userinput>
+</screen
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>reparseConfig</command
+></term
+> <listitem
+><para
+>La commande <command
+>reparseConfig</command
+> fait en sorte que &knewsticker; recharge sa configuration depuis le fichier de configuration. Cette fonction est utilisée par la <link linkend="configuration"
+>boîte de dialogue de configuration</link
+> pour demander communiquer avec &knewsticker;, mais vous pouvez l'utiliser au cas où vous auriez modifié le fichier de configuration à la main.</para
+> <tip
+><para
+>Le fichier de configuration est sauvegardé dans <filename
+>~/.kde/share/config/knewstickerrc</filename
+></para
+></tip
+> <para
+>Exemple&nbsp;:</para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>reparseConfig</option
+></userinput>
+</screen
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>setOfflineMode [bool]</command
+></term
+> <listitem
+><para
+>Vous pouvez appeler cette fonction pour définir si &knewsticker; est actuellement en mode déconnexion ou non (&cad; si &knewsticker; doit interroger les <link linkend="config-newssources"
+>sites de nouvelles configurés</link
+> pour de nouveaux articles. </para
+> <para
+>Exemple&nbsp;:</para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>setOfflineMode</option
+> <option
+>true</option
+></userinput>
+</screen
+> <para
+>pour activer le mode déconnexion, ou tapez</para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>dcop</command
+> <option
+>knewsticker</option
+> <option
+>KNewsTicker</option
+> <option
+>setOfflineMode</option
+> <option
+>false</option
+></userinput>
+</screen
+> <para
+>pour désactiver le mode déconnexion.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+

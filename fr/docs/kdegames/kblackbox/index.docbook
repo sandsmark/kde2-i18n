@@ -1,0 +1,836 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kblackbox;">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % French "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Le manuel du jeu &kblackbox;</title>
+    
+<authorgroup>
+<author
+> <firstname
+>Robert</firstname
+> <surname
+>Cimrman</surname
+> <affiliation
+> <address
+><email
+>cimrman3@students.zcu.cz</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Philip</firstname
+> <surname
+>Rodrigues</surname
+> <affiliation
+><address
+><email
+>phil.rod@ntlworld.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Robert</firstname>
+<surname
+>Cimrman</surname>
+<affiliation>
+<address
+><email
+>cimrman3@students.zcu.cz</email
+></address>
+</affiliation>
+<contrib
+>Développeur</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>lauri@kde.org</email
+></address
+></affiliation>
+<contrib
+>Relecture</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Éric</firstname
+> <surname
+>Bischoff</surname
+><contrib
+>Traduction française</contrib
+></othercredit
+> 
+<othercredit role="translator"
+><firstname
+>Ludovic</firstname
+> <surname
+>Grossard</surname
+> <contrib
+>Mise à jour et relecture de la traduction française</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>1998</year
+><year
+>2000</year>
+<holder
+>Robert Cimrman</holder>
+</copyright>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Philip Rodrigues</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-05-31</date>
+<releaseinfo
+>0.03.00</releaseinfo>
+
+<abstract
+><para
+>&kblackbox; est un superbe jeu de logique en mode graphique, inspiré du blackbox de <application
+>emacs</application
+>.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KBlackBox</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>boîte noire</keyword>
+<keyword
+>jeu</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="what-is-kblackbox">
+<title
+>Qu'est-ce que &kblackbox;&nbsp;?</title>
+
+<para
+>&kblackbox; est un superbe :-) jeu de logique en mode graphique, inspiré du blackbox de <application
+>emacs</application
+>. La majeure partie de cette documentation est basée sur l'aide originale de la version <application
+>emacs</application
+>. </para>
+
+<para
+>&kblackbox; est un jeu consistant à localiser dans un quadrillage des objets cachés. Votre adversaire (ici, le générateur de nombres aléatoires) a caché plusieurs billes dans la boîte. En lançant des rayons dans la boîte et en regardant à quel endroit ils en ressortent, il est possible d'en déduire la position des billes cachées. Moins vous utilisez de rayons pour y parvenir et meilleur (plus petit) est votre score.</para>
+
+</chapter>
+
+<chapter id="game-description">
+<title
+>Description du jeu</title>
+
+<para
+>Dans la première partie de cette section, vous trouverez une description du plateau de jeu. La seconde partie se rapporte aux actions du joueur et, finalement, les règles formelles du jeu sont exposées dans la troisième partie.</para>
+
+<sect1 id="game-board-descritpion">
+<title
+>Description du plateau de jeu</title>
+
+<para
+>On trouve les types d'objets suivants sur le plateau de jeu&nbsp;: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Cases noires</interface
+></term
+> <listitem
+><para
+>La boîte noire. Vous y marquez les positions où vous pensez que les billes se trouvent.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Cases vertes</interface
+></term
+> <listitem
+><para
+>Il s'agit des lasers, qui envoient des rayons de lumière si on les déclenche.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Cases gris clair</interface
+></term
+> <listitem
+><para
+>Aucun intérêt, c'est juste la bordure.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Billes bleues</interface
+></term
+> <listitem
+><para
+>Vous pensez sans doute <quote
+>Il fallait bien en mettre&nbsp;!</quote
+>. Elles indiquent les positions où vous suspectez qu'une bille se trouve dans la boîte noire.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Billes couleur cyan</interface
+></term
+> <listitem
+><para
+>Indiquent les positions correctes des billes.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Billes rouges</interface
+></term
+> <listitem
+><para
+>Indiquent les positions mal estimées.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Cases brunes</interface
+></term
+> <listitem
+><para
+>Couleur de marquage</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<note
+><para
+>Les noms de couleurs utilisés ici ne servent qu'à identifier les différents types d'objets dans les explications du présent texte. Il <emphasis
+>se pourrait</emphasis
+> qu'elles <emphasis
+>ne correspondent pas</emphasis
+> aux couleurs réellement affichées sur votre écran. Pour dire les choses plus simplement&nbsp;: la boîte noire est au centre, autour ce sont les lasers, et autour d'eux, c'est la bordure. Avec ces informations, vous pouvez ajuster les couleurs vous-même :-) </para
+></note>
+
+</sect1>
+
+<sect1 id="user-interaction">
+<title
+>Actions du joueur</title>
+
+<para
+>Le curseur peut être déplacé autour de la boîte au moyen des touches standards de déplacement du curseur ou de la souris. Le déclenchement des lasers ou le marquage des positions s'effectue au moyen du bouton <mousebutton
+>gauche</mousebutton
+> de la souris, ou en appuyant sur les touches <keycap
+>Retour chariot</keycap
+> ou <keycap
+>Entrée</keycap
+>.</para>
+
+<para
+>Vous pouvez également marquer les emplacements où aucune bille ne peut se trouver. Appuyez simplement sur le bouton de <mousebutton
+>droite</mousebutton
+> de la souris. Ceci vous aidera souvent à trouver un endroit où une bille peut se trouver. Pour effacer toutes les marques (bleues ou brunes), appuyez sur le bouton de <mousebutton
+>gauche</mousebutton
+> de la souris. Les marques brunes ne peuvent pas effacer les bleues. Ainsi, vous ne risquez pas d'effacer les marques bleues (positions estimées) par accident lorsque vous utilisez le bouton de <mousebutton
+>droite</mousebutton
+> de la souris. </para>
+
+<para
+>Quand vous pensez avoir trouvé la configuration correcte des billes, appuyez sur le bouton <mousebutton
+>central</mousebutton
+> de la souris. Vous saurez alors si vous avez trouvé ou pas, et vous connaîtrez votre score. Ce score est égal au nombre de lettres et de nombres situés autour de la boîte, plus cinq pour chaque bille incorrectement placée. Si vous avez mal placé une bille, elle sera indiquée en rouge et la position correcte sera indiquée en cyan.</para>
+
+</sect1>
+
+<sect1 id="game-rules">
+<title
+>Règles du jeu</title>
+
+<para
+>Vous devez localiser les billes cachées dans la boîte noire. Vos moyens sont limités. Vous ne pouvez que déclencher les lasers situés autour de la boîte. Il y a trois possibilités lorsque vous envoyez un rayon dans la boîte&nbsp;: </para>
+
+<anchor id="detour"/>
+<variablelist
+> <varlistentry
+> <term
+>Déviation</term
+> <listitem
+><para
+>Le rayon est dévié et émerge quelque part ailleurs. Sur le plateau de jeu, les déviations sont repérées par des paires de nombres - un à l'endroit où le rayon a été envoyé, et l'autre à l'endroit où il est ressorti.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Réflexion</term
+> <listitem
+><para
+>Le rayon est réfléchi et émerge à l'endroit même où il a été émis. Sur le plateau de jeu, les réflexions sont repérées par la lettre <guilabel
+>R</guilabel
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Collision</term
+> <listitem
+><para
+>Le rayon frappe une bille de plein fouet et est absorbé. Il ne réémerge pas de la boîte. Sur le plateau de jeu, les collisions sont repérées par la lettre <guilabel
+>H</guilabel
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Les règles qui régissent le cheminement des rayons sont simples et s'expliquent plus aisément en montrant quelques exemples.</para>
+
+<para
+>Lorsqu'un rayon arrive au voisinage d'une bille, il est dévié de quatre-vingt-dix degrés. Les rayons peuvent être déviés plusieurs fois. Sur le diagramme ci-dessous, les tirets représentent des positions vides et la lettre <guilabel
+>O</guilabel
+> représente une bille. Les points d'entrée et de sortie de chaque rayon sont marqués par des nombres comme décrit au paragraphe <link linkend="detour"
+>Déviation</link
+> ci-dessus. Notez que les points d'entrée et de sortie sont toujours interchangeables. Le signe <guilabel
+>*</guilabel
+> indique le chemin suivi par le rayon.</para>
+
+<para
+>Remarquez les positions de la bille et les déviations de quatre-vingt-dix degrés qu'elle cause.</para>
+
+<screen>
+1                                            
+- * - - - - - -         - - - - - - - -         - - - - - - - -       
+- * - - - - - -         - - - - - - - -         - - - - - - - -       
+1 * * - - - - - -         - - - - - - - -         - O - - - - O -       
+- - O - - - - -         - - O - - - - -         - - * * * * - -
+- - - - - - - -         - - - * * * * * 2     3 * * * - - * - -
+- - - - - - - -         - - - * - - - -         - - - O - * - -      
+- - - - - - - -         - - - * - - - -         - - - - * * - -       
+- - - - - - - -         - - - * - - - -         - - - - * - O -       
+2                         3
+</screen>
+
+<para
+> Comme mentionné précédemment, une réflexion se produit lorsqu'un rayon émerge à l'endroit même d'où il est parti. Ceci peut se produire pour différentes raisons&nbsp;: </para>
+
+<screen>
+- - - - - - - -         - - - - - - - -          - - - - - - - -
+- - - - O - - -         - - O - O - - -          - - - - - - - -
+R * * * * - - - -         - - - * - - - -          O - - - - - - -
+- - - - O - - -         - - - * - - - -        R - - - - - - - -
+- - - - - - - -         - - - * - - - -          - - - - - - - -
+- - - - - - - -         - - - * - - - -          - - - - - - - -
+- - - - - - - -       R * * * * - - - -          - - - - - - - -
+- - - - - - - -         - - - - O - - -          - - - - - - - -</screen>
+
+<para
+>Dans le premier exemple, le rayon est dévié vers le bas par la bille supérieure, puis immédiatement vers la gauche par celle du dessous, et, finalement, il revient jusqu'à son point de départ. Le second exemple est similaire. Le troisième exemple est un peu curieux, mais s'explique si on prend en considération que le rayon ne peut tout simplement pas entrer dans la boîte. On peut aussi considérer que le rayon a été dévié vers le bas et est immédiatement ressorti de la boîte.</para>
+
+<para
+>Une collision se produit lorsqu'un rayon frappe une bille de plein fouet&nbsp;:</para>
+
+<screen>
+- - - - - - - -         - - - - - - - -          - - - - - - - -
+- - - - - - - -         - - - - - - - -          - - - - O - - -
+- - - - - - - -         - - - - O - - -        H * * * * - - - -
+- - - - - - - -       H * * * * O - - -          - - - * - - - -
+- - - - - - - -         - - - - O - - -          - - - O - - - -
+H * * * O - - - -         - - - - - - - -          - - - - - - - -
+- - - - - - - -         - - - - - - - -          - - - - - - - -
+- - - - - - - -         - - - - - - - -          - - - - - - - -</screen>
+
+<para
+>Prenez soin de comparer le second exemple de collision avec le premier exemple de réflexion.</para>
+
+</sect1>
+</chapter>
+<chapter id="gui-description">
+<title
+>Description de l'interface graphique</title>
+
+<sect1 id="game-menu">
+<title
+>Le menu <guimenu
+>Jeu</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ouveau</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Démarre un nouveau jeu (et abandonne le précédent, s'il y en a un).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>bandonner</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Montre l'emplacement des billes.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>olution</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Vérifie qu'une position a été estimée pour chaque bille. Si c'est le cas, termine le jeu, calcule le score et indique les véritables positions des billes. Le bouton <mousebutton
+>central</mousebutton
+> de la souris a une fonction identique. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>aille normale</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Redimensionne la fenêtre principale, afin qu'elle s'adapte parfaitement à son contenu. C'est utile dans le cas où vous changez accidentellement la taille de la fenêtre...</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>Q</accel
+>uitter</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Sort de &kblackbox;</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Le menu <guimenu
+>Configuration</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guisubmenu
+><accel
+>D</accel
+>imension</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>Fixe la taille du plateau de jeu (boîte noire). Vous pouvez choisir parmi <guimenuitem
+>8 x 8</guimenuitem
+>, <guimenuitem
+>10 x 10</guimenuitem
+> et <guimenuitem
+>12 x 12</guimenuitem
+>. La valeur par défaut est <guimenuitem
+>8 x 8</guimenuitem
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guisubmenu
+><accel
+>B</accel
+>illes</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>Fixe le nombre de billes dans la boîte noire. Vous avez le choix entre <guimenuitem
+>4</guimenuitem
+> (la valeur par défaut), <guimenuitem
+>6</guimenuitem
+> et <guimenuitem
+>8</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>utoriel</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Active ou désactive le mode tutoriel, dans lequel vous pouvez voir la position réelle des billes. Notez que vous devez démarrer un nouveau jeu pour que les changements soient appliqués.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+>Le menu <guimenuitem
+>Aide</guimenuitem
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+><guimenuitem
+>Conten<accel
+>u</accel
+></guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Invoque le système d'aide de &kde; à la page de &kblackbox; (ce document).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Maj</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+><guimenuitem
+><accel
+>Q</accel
+>u'est-ce-que c'est&nbsp;?</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Change le curseur en la combinaison d'une petite flèche et d'un point d'interrogation. En cliquant sur des éléments de &kblackbox; avec cette flèche, une fenêtre d'aide (si elle existe pour cet élément) s'ouvre et affiche une explication sur la fonction de cet élément.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>apport de bogue</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Rapporte une erreur, ou demande une fonctionnalité aux auteurs de &kblackbox;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+><guimenuitem
+>À <accel
+>p</accel
+>ropos de KBlackBox</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Affiche des informations sur la version et les auteurs</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+><guimenuitem
+>À propos de <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Affiche la version de &kde; ainsi que d'autres informations de base.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="toolbar">
+<title
+>La barre d'outils</title>
+
+<screenshot
+> <screeninfo
+>Barre d'outils de &kblackbox;</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kblackboxtbar.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+>La barre d'outils de &kblackbox; offre un accès rapide aux fonctions les plus utilisées. De gauche à droite, les icônes sont&nbsp;:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guiicon
+>Quitter</guiicon
+></term
+> <listitem
+><para
+>Sort de &kblackbox;</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Nouveau</guiicon
+></term
+> <listitem
+><para
+>Démarre une nouvelle partie.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Abandonner</guiicon
+></term
+> <listitem
+><para
+>Montre l'emplacement des billes.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Arrête la partie</guiicon
+></term
+> <listitem
+><para
+>Vérifie qu'une position a été estimée pour chaque bille. Si c'est le cas, termine le jeu, calcule le score et indique les véritables positions des billes. Le bouton <mousebutton
+>central</mousebutton
+> de la souris a une fonction identique. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Remerciements et licence</title>
+
+<para
+>&kblackbox;</para>
+
+<para
+>Copyright 1998-2000 Robert Cimrman, <email
+>cimrman3@students.zcu.cz</email
+></para>
+
+<para
+>Documentation par Robert Cimrman. Mise à jour et convertie au format Docbook pour KDE 2.0 par Lauri Watts <email
+>lauri@kde.org</email
+></para>
+
+<para
+> Mainteneur actuel&nbsp;: Philip Rodrigues <email
+>phil.rod@ntlworld.com</email
+> </para>
+
+<para
+>Traduction française par Éric Bischoff <email
+>e.bischoff@noos.fr</email
+></para
+> 
+<para
+>Mise à jour et relecture par Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+> </para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<para
+> &kblackbox; fait partie du projet &kde; <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kblackbox; se trouve dans le paquetage kdegames à l'adresse <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, le site &FTP; principal du projet &kde;. </para>
+
+<sect1 id="compilation">
+<title
+>Compilation et installation</title>
+
+<para
+> Pour compiler and installer &kblackbox; sur votre système, saisissez les commandes suivantes dans le dossier de base de la distribution de kdegames&nbsp;:</para>
+<screen width="40">
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make install</command>
+</screen>
+
+
+<para
+>Comme &kblackbox; utilise <application
+>autoconf</application
+> et <application
+>automake</application
+>, vous ne devriez pas avoir de problèmes à  le compiler. Si c'était toutefois le cas, veuillez les rapporter aux listes de discussion de &kde;.</para
+> 
+
+</sect1>
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

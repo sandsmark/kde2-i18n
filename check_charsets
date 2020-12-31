@@ -1,0 +1,132 @@
+#!/usr/bin/perl
+# checks the po files to not have conflicting charset entries
+# then the main charset
+
+$\ = "\n";
+
+$verbose = 1;
+$permissive = 1;
+$fix = 0;
+
+my $out = "/tmp/iconv.output";
+my %CHARSET;
+my %missing;
+my %ok;
+
+chomp(my $pwd = `pwd`);
+
+$subdirs="*";
+$subdirs=$ARGV[0] if ($#ARGV == 0);
+
+foreach $dir (<$subdirs/messages>) { #>
+    chdir("$pwd/$dir");
+
+    my ($lang) = $dir =~ m|(.*?)/|;
+    my ($e) = map { simpl($_) } `cat charset 2>/dev/null`;
+
+    $e =~ /tscii/ and next; # don't know how to handle tscii
+    $e ||= 'unknown';
+
+    my %l;
+    my @files = map { chomp; s|\./||; $_ } `find . -name "*.po"` or next;
+    foreach (@files) {
+	my ($c) = `grep charset $_` =~ m,charset=([^\\"\n]+),;
+	if (/desktop.po/ && simpl($c) == 'utf8') {
+		next;
+	}
+	if (!$c) {
+	    $missing{"$dir/$_"} = 1;
+	    $c = $e;
+	} else {
+	    $ok{"$dir/$_"} = simpl($c);
+	}
+	
+	push @{$l{simpl($c)}}, m,([^/]*\.po),;
+    }
+    my $warn = sub {
+	print "$lang\t", 
+	  ($verbose ? join(", ", @{$l{$_}}) : int(@{$l{$_}}) . " po"),
+	  " wants $_ (main charset is $e)" foreach keys %l;
+    };
+
+    if ($fix) {
+	$l{utf8} = 1; # add utf8, seems to be used quite a lot
+	delete $l{bad};
+	my @charsets = keys %l;
+	@charsets == 0 and die; # argh!
+	@charsets == 1 and next; # no need
+
+	foreach my $f (@files) {
+	    my @ok = grep {
+		system("iconv -f $_ -t unicode $f >$out 2>/dev/null");
+		$? == 0
+	    } @charsets;
+	    if (@ok > 1) {
+		@ok = $ok{"$dir/$f"} if grep { $ok{"$dir/$f"} eq $_ } @ok;
+	    }
+	    if (@ok > 1 && grep { isTwoByte($_) } @ok) {
+		my $c = q(perl -ne 'BEGIN{$/=\1} if (ord > 128) { $l++ } elsif ($l) { $t += $l; $nb++; $l = 0 } END { $nb or exit 1; print $t/$nb, " $t/$nb\n" }') . " $f";
+		my ($ratio) = `$c`;
+		if ($?) {
+		    @ok = (grep { $_ eq $e } @ok) ? $e : $ok[0]; # take one, if possible take the chosen charset
+		} elsif ($ratio > 1.8) {
+		    @ok = grep { isTwoByte($_) } @ok;
+		} elsif ($ratio < 1.1) {
+		    @ok = grep { !isTwoByte($_) } @ok;
+		}
+	    }
+	    @ok == 0 and print "ERROR: no good charset for $dir/$f (charset test are ", join(", ", @charsets), ")";
+	    @ok  > 1 and print "ERROR: multiple charset match for $dir/$f (charset that match are ", join(", ", @ok), ")";
+	    if (@ok == 1) {
+		$ok[0] ne $ok{"$dir/$f"} and print "setting charset from ", $ok{"$dir/$f"}, " to ", @ok, " for $dir/$f";
+		if ($ok[0] ne $e) {
+		    print "converting $dir/$f from $ok[0] to $e";
+#		    system("iconv -f $ok[0] -t $e $f >$out && mv -f $out $f");
+		}
+	    }
+	}
+    } else {
+	if ($e && !$l{$e}) {
+	    print "$lang\tWRONG CHARSET $e (should be ", join(" or ", keys %l), ")";
+	    &$warn if keys(%l) > 1 || $verbose;
+	} elsif ($l{$e} && @{$l{$e}} < (map { @$_ } values %l) / 2) {
+	    print "$lang\tBAD MAIN CHARSET $e (charsets are ", join(", ", keys %l), ")";
+	    &$warn;
+	} else {
+	    delete $l{$e};
+	    &$warn if $verbose;
+	}
+    }
+}
+
+if (!$permissive) {
+    print;
+    print;
+    print "bad charset=CHARSET for ", join(" ", keys %CHARSET) if %CHARSET;
+    print "missing charset= for ", join(" ", keys %missing) if %missing;
+}
+
+sub simpl {
+    local ($_) = @_;
+    chomp;
+    $_ = lc $_;
+    s/(iso|euc|utf)-/$1/;
+    s/utf8.*/utf8/;
+    s/utf-8/utf8/;
+    if ($permissive) {
+        s/^\s+//;
+	s/iso08859/iso8859/;
+	s/iso\d{4}/iso8859/;
+        s/gb2312.*/gbk/;
+        s/iso /iso/;
+    }
+    $_ = 'iso8859-1' if $_ eq 'iso' || $_ eq 'latin1';
+    $_ = 'iso8859-9' if $_ eq 'iso8859-9n';
+    s/iso8859/iso-8859/;
+    $_;
+}
+
+sub isTwoByte {
+    my ($c) = @_;
+    $c =~ /gb|viscii|jis|big5/;
+}

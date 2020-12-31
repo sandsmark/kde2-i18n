@@ -1,0 +1,703 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kwin4;">
+<!ENTITY % Danish "INCLUDE"
+> 
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Fire vinder</title>
+
+<authorgroup>
+<author
+> <firstname
+>Martin</firstname
+> <surname
+>Heni</surname
+> <affiliation
+> <address
+><email
+>martin@heni-online.de</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+></firstname>
+<surname
+></surname>
+<contrib
+>Tester</contrib>
+<affiliation
+><address
+><email
+></email
+></address
+></affiliation>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+
+</authorgroup>
+
+<date
+>2001-06-23</date>
+<releaseinfo
+>0.09.01</releaseinfo>
+
+<abstract>
+<para
+> Denne dokumentation beskriver &kwin4; version 0.9.1</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>spil</keyword>
+<keyword
+>bræt</keyword>
+<keyword
+>brætspil</keyword>
+<keyword
+>fire vinder</keyword>
+<keyword
+>fire</keyword>
+<keyword
+>fire på række</keyword>
+<keyword
+>win4</keyword>
+<keyword
+>kwin4</keyword>
+<keyword
+>forbind fire</keyword>
+<keyword
+>forbind 4</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="overview">
+<title
+>Overblik</title>
+
+<para
+> Fire vinder er et spil for to spillere. </para>
+
+<para
+> Hver spiller er repræsenteret ved en farve (gul og rød). Spillets formål er at få fire forbundne brikker i din farve i én række, søjle eller vilkårlig diagonal. Dewtte gøres ved at placere en af dine brikker i en vilkårlig af de syv søjler. </para>
+
+<para
+> En brik vil begynde at fylde søjlen fra bunden og op, &ie; den vil falde ned indtil den når bundniveauet eller en anden sten. Efter et træk er gjort er det den anden spillers tur. </para>
+
+<para
+> Dette gentages indtil spillet er forbi, hvilket sker når en af spillerne har fire brikker i en række, søjle eller diagonal eller der ikke er flere mulige træk fordi brættet er fyldt op. </para>
+
+</chapter>
+
+<chapter id="rules">
+<title
+>Regler</title>
+
+<para
+> Brættet er opdelt i tre områder. </para>
+
+<para
+> <firstterm
+>spillebrættet</firstterm
+> er konstrueret af 7x6 felter der fyldes fra top til bund. Felterne markeres med den farve som spilleren der gjorde trækket. På af hver søjle er der en farvet pil der viser hvor den sidste brik er lagt. </para>
+
+<para
+> <firstterm
+>statusvisningen</firstterm
+> viser hvilken farve spiller starter, og hvilken farve er spillet af hvem (spiller, computer, fjern forbindelse). Den viser endvidere niveauet af computermodstanderen, antallet af gjorte træk, så vel computerens beregnede chance for at vinde. Denne chance beregnes kun hvis computermodstanderen foretager et træk. Et positivt tal betyder at spilleren har en fordel, et negativt at computeren mener den er bedre. </para>
+
+<para
+> <firstterm
+>tabelvisning</firstterm
+> viser antallet af vundne, tabte og uafgjorte  kampe for begge spillere. Også antallet af afbrudte kampe (Brk) og det totale antal kampe vises. </para>
+
+</chapter>
+
+<chapter id="remote-connections">
+<title
+>Fjernforbindelser</title>
+
+<para
+> Det er muligt at spille spillet over et netværk med en anden computer. For at gøre dette skal begge spillere på begge computere vælge en farve spillet af et menneske og en spillet af en fjernspiller. Hvem der vælger hvad er ligegyldig. Det er ovenikøbet ligegyldigt om de begge vælger den samme farve, da dette automatisk bliver ordnet af spillet. </para>
+
+<para
+> En af computerne vil fungere som server. Det er kun den der kan starte et nyt netværksspil. Alle dens spildata vil blive overført til klient computeren. Du kan tvinge din computer til at være server hvis du ikke indgiver et værtsnavn i netværksdialogen. Denne dialog popper op hvis du starter et netværksspil. Som klient indgiver du værtsnavnet på den maskine hvor serveren kører. Porten skal sædvanligvis ikke ændres, men du kan indgive næsten et vilkårligt tal her. </para>
+
+<para
+> Når en netværksforbindelse er bygget bliver du bedt om at indgive en fjernvært og en port. Porten kan du normalt blot lade være urørt. Men hvis du ved hvad du gør kan du erstatte den med et andet tal, der naturligvis skal være det samme for begge spillere. Værtsnavnet skal være det navnet på den fjernvært som du forbinder til. Kun en af de to spillere skal indgive et værtsnavn, den anden kan, men behøver det ikke. </para>
+
+</chapter>
+
+<chapter id="menus">
+<title
+>Menuer</title>
+
+<sect1 id="game-menu">
+<title
+>Spilmenu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>yt spil</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Starter et nyt spil. I et netværksspil er dette valg kun tilgængeligt for netværksserveren. Netværksklienten bliver automatisk startet af serveren. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut spil</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Afbryder et kørende spil. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>is statistik...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Viser statistik for spillet og tillader at nulstille den. Denne statistik gemmes sædvanligvis når spillet er slut, og viser hvor meget der er spillet og hvor meget hver enkel har vundet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>ink</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Computeren vil beregne det bedst mulige træk og markere det med en lille cirkel på brættet. Hvor godt trækket er afhænger af computerens niveau. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+>Send <accel
+>b</accel
+>esked</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Hvis du er forbundet til et andet spil i en fjernsession, tillader dette valg dig at sende en besked til fjernspilleren. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Afslutter programmet. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="edit-menu">
+<title
+>Redigérmenu</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>For<accel
+></accel
+>tryd</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Fortryd sidste træk. Hvis den forrige spiller er computeren vil to træk tages tilbage så det er spilerens tur igen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>Om<accel
+>g</accel
+>ør</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Genspil et træk der er blevet gjort om. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="view-menu">
+<title
+>Visningsmenu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isning</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>is statuslinie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Slå visning af statuslinie til og fra. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="option-menu">
+<title
+>Indstillingsmenu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guisubmenu
+>Startspiller</guisubmenu
+> </menuchoice
+></term
+> <listitem
+> <para
+> Afgør hvilken farve spiller har for det første træk i næste spil. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guisubmenu
+>Gul spillet af</guisubmenu
+> </menuchoice
+></term
+> <listitem
+> <para
+> Vælger hvem der skal være spiller 1 (gul). Det kan enten være <guimenuitem
+>spiller</guimenuitem
+>, &ie; en lokal spiller der bruger musen som inddata enhed, <guimenuitem
+>computeren</guimenuitem
+>, &ie; computeren spiller denne spiller eller <guimenuitem
+>fjern</guimenuitem
+>, &ie; en fjernforbindelse til en anden computer vil blive bygget. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guisubmenu
+>Rød spilletaf</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Samme som <guimenuitem
+>Spiller 1 spillet af</guimenuitem
+> men for spiller 2 (rød). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guisubmenu
+><accel
+>N</accel
+>iveau</guisubmenu
+> </menuchoice
+></term
+> <listitem
+> <para
+> Vælger niveauet for computerspilleren. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guimenuitem
+>Ændr <accel
+>n</accel
+>avne...</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+> Ændr navnene på spillerne. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>I</accel
+>ndstillinger</guimenu
+> <guimenuitem
+>Netværksserver</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Hvis dette menupunkt er valgt prøver din computer at opføre sig som netværksserver. Dette betyder naturligvis kun noget hvis du spiller et netværksspil. Kun  computeren der agerer server vil være i stand til at starte et nyt spil eller overføre et startet spil til klientens side. Hvis begge computere ønsker at være servere eller ingen af dem vælges en tilfældigt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>Indstillinger</accel
+></guimenu
+> <guimenuitem
+><accel
+>A</accel
+>nimeringer</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Slår animeringer til og fra. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help">
+<title
+><guimenuitem
+>Hjælp</guimenuitem
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+>Indhold</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Dette starter &kde;'s hjælpesystem startende med toppen af denne hjælpefil. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+>Rapportér problem.</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Hvis du finder en fejl i programmet, eller du har en ide til en forbedring af spillet kan du klikke her for at sende en officiel problemrapport til &kde; holdet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>m KWin4</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Dette viser version og forfatter information. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Dette viser &kde; version og anden basal information. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Medvirkende og licens</title>
+
+<para
+> &kwin4; </para>
+<para
+> Program ophavsret 1995-2001 Martin Heni <email
+>martin@heni-online.de</email
+> </para>
+<para
+> Dokumentation ophavsret 2001 Martin Heni <email
+>martin@heni-online.de</email
+> </para>
+
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kwin4">
+<title
+>Hvordan får man fat på &kwin4;</title>
+
+<para
+> &kwin4; findes i kdegames pakken på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, som er hoved &ftp;-stedet for &kde; projektet. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Krav</title>
+
+<para
+> For at kunne kompilere &kwin4;, har du brug for &kde; 2.0 </para>
+
+<para
+> Alle nødvendige biblioteker så vel som &kwin4; kan findes på <ulink url="ftp://ftp.kde.org"
+>ftp://ftp.kde.org/pub/kde</ulink
+>.</para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilering og installation</title>
+
+<para
+> For at kompilere og installere &kwin4; på dit system, åbn pakken og skriv følgende kommandoer i basismappen for &kwin4; distributionen: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>cd kdegames</userinput>
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+> Da &kwin4; bruger <command
+>autoconf</command
+> og <command
+>automake</command
+> skulle der ikke være problemer med at kompilere den. </para>
+
+</sect1>
+</appendix>
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:t
+End:
+-->
+

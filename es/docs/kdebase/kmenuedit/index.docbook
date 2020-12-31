@@ -1,0 +1,851 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmenuedit;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+
+<title
+>El manual de &kmenuedit;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Milos</firstname
+> <surname
+>Prudek</surname
+> <affiliation
+><address
+><email
+>milos.prudek@worldonline.cz</email
+> </address
+></affiliation
+> </author>
+
+<othercredit role="reviewer"
+>
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Revisor</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Pablo</firstname
+><surname
+>de Vicente</surname
+><affiliation
+><address
+><email
+>pvicentea@nexo.es</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Milos Prudek</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>0.00.01</releaseinfo>
+
+<abstract
+><para
+>&kmenuedit; permite la edición del menú principal de &kde;. </para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Editor de menús de KDE</keyword>
+<keyword
+>kmenuedit</keyword>
+<keyword
+>aplicación</keyword>
+<keyword
+>programa</keyword>
+<keyword
+>menú</keyword>
+<keyword
+>kicker</keyword>
+
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+
+<para
+>&kmenuedit; permite la edición del menú principal de &kde;.</para>
+
+<para
+>&kmenuedit; se puede iniciar bien pulsando con el botón derecho del ratón <inlinemediaobject
+><imageobject
+><imagedata fileref="i_k_button.png" format="PNG"/></imageobject
+></inlinemediaobject
+> sobre el botón <guiicon
+>K</guiicon
+>, o eligiendo <guimenuitem
+>Editar menú</guimenuitem
+> desde el submenú <guisubmenu
+>Sistema</guisubmenu
+> del menú <guimenu
+>Principal</guimenu
+>.</para>
+
+<para
+>&kmenuedit; le permite:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Ver y editar el menú <guimenu
+>principal</guimenu
+> actual</para
+></listitem
+> <listitem
+><para
+><guimenuitem
+>Cortar</guimenuitem
+>, <guimenuitem
+>Copiar</guimenuitem
+> y <guimenuitem
+>pegar</guimenuitem
+> elementos del menú</para
+></listitem
+> <listitem
+><para
+>Crear y borrar submenús</para
+></listitem
+> </itemizedlist>
+
+<sect1 id="kmenuedit-revhistory">
+<title
+>&kmenuedit; Revisión histórica</title>
+
+<itemizedlist
+> <listitem
+><para
+>0.0.1 - versión actual</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="using-kmenuedit">
+<title
+>Utilizando &kmenuedit;</title>
+
+<para
+>El panel izquierdo de aplicaciones muestra la estructura del menú <guimenu
+>Principal</guimenu
+>. Cuando usted navega por elementos del panel izquierdo, el panel derecho muestra información detallada del elemento del menú resaltado.</para>
+
+<para
+>La información detallada del panel derecho está dividida en dos pestañas: <guilabel
+>General</guilabel
+> y <guilabel
+>Avanzado</guilabel
+>.</para
+> 
+
+<sect1 id="details-general">
+<title
+>Información general del programa</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Nombre</guilabel
+></term
+> <listitem
+><para
+>Este es el nombre de su programa tal y como aparece en el menú <guimenu
+>Principal</guimenu
+>. Puede ser diferente del nombre real del ejecutable.Por ejemplo el nombre del ejecutable de <command
+>mc</command
+> es "<application
+>Midnight Commander</application
+>".</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Comentario</guilabel
+></term
+> <listitem
+><para
+>Describa en este campo el programa con mayor detalle. Esto es totalmente opcional.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Comando</guilabel
+></term
+> <listitem
+><para
+>Este es el nombre del programa ejecutable. Asegurese de que tiene permiso para ejecutar este programa.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Tipo</guilabel
+></term
+> <listitem
+><para
+>Este campo es similar al campo de Comentario. Describa aquí el tipo de su programas</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ruta de trabajo</guilabel
+></term
+> <listitem
+><para
+>Especifique la ruta de trabajo del programa. Esta será la ruta actual cuando el programa se inicie. No necesita ser igual a la ubicación del ejecutable.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Lista de iconos</guilabel
+></term
+> <listitem
+><para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="icon_sets.png" format="PNG"/></imageobject
+></inlinemediaobject
+> Pulse sobre este icono para mostrar una selección de iconos. Elija un icono para su programa.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ejecutar en terminal</guilabel
+></term
+> <listitem
+><para
+>Debe seleccionar esta opción si su programa requiere emulador de terminal para ejecutarse. Esto se aplica a <link linkend="gloss-console-application"
+>aplicaciones de consola</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Opciones del terminal</guilabel
+></term
+> <listitem
+><para
+>Ponga todas las opciones de terminal en este campo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ejecutar como un usuario diferente</guilabel
+></term
+> <listitem
+><para
+>Si desea ejecutar este programa como un usuario diferente (usted no), seleccione esta casilla, y proporcione el nombre de usuario en el campo <guilabel
+>Usuario</guilabel
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1
+> 
+
+<sect1 id="details-advanced">
+<title
+>Información avanzada de programa</title>
+
+<para
+>Puede asignar un acceso rápido especial de teclado para iniciar su programa.</para>
+
+<procedure
+> <step
+><para
+>Pulse el botón <guibutton
+>Cambiar</guibutton
+></para
+></step
+> <step
+><para
+>Elija <guilabel
+>Tecla personalizada</guilabel
+>.</para
+></step
+> <step
+><para
+>Seleccione las casillas <guilabel
+>MAYUSCULAS</guilabel
+>, <guilabel
+>CONTROL</guilabel
+>, y <guilabel
+>ALT</guilabel
+> según lo que desee.</para
+></step
+> <step
+><para
+>Pulse el botón vacío a la derecha de la casilla <guilabel
+>ALT</guilabel
+> y pulse la tecla de su teclado que desea asociar con su programa.</para
+></step
+> <step
+><para
+>Pulse el botón <guibutton
+>Aceptar</guibutton
+></para
+></step
+> </procedure>
+
+</sect1
+> 
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Menú Referencia</title>
+
+<variablelist
+> <varlistentry id="file-new-item"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_new_item.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+>Nuevo <accel
+>e</accel
+>lemento</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Añade un nuevo elemento</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="file-new-submenu"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_new_submenu.png" format="PNG"/></imageobject
+></inlinemediaobject
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>uevo submenú</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Añade un nuevo submenú</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="file-quit"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>alir</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Sale</action
+> de &kmenuedit;.</para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-cut"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_cut.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+>C<accel
+>o</accel
+>rtar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Corta el elemento acual de elemento hasta el portapapeles.</action
+> Si desea mover el elemento del menú, debería primero cortarlo hasta el portapapeles, moverlo al lugar de destino usando el panel izquierdo, y usar la función <guimenuitem
+>Pegar</guimenuitem
+> para pegar el elemento de menú desde el portapapeles.</para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-copy"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_copy.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+><accel
+>C</accel
+>opiar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Copia el elemento de menú actual hasta el portapapeles</action
+>. Más tarde puede usar la función <guimenuitem
+>Pegar</guimenuitem
+> para pegar el elemento del menú pegado desde el portapapeles hasta su destino. Puede pegar el mismo elemento muchas veces.</para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-paste"
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_paste.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>egar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Pegar el elemento del menú desde el portapapeles</action
+> a la ubicación actualmente seleccionada en el menú <guimenu
+>Principal</guimenu
+>. Puede utilizar primero <guimenuitem
+>Cortar</guimenuitem
+> o <guimenuitem
+>Copiar</guimenuitem
+> antes de que pueda <guimenuitem
+>Pegar</guimenuitem
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry id="edit-delete"
+> <term
+><menuchoice
+> <guimenu
+><inlinemediaobject
+><imageobject
+><imagedata fileref="i_delete.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>elete</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Borra el elemento de menú actualmente seleccionado.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry id="help-contents"
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>yuda</guimenu
+> <guimenuitem
+><accel
+>C</accel
+>ontenidos</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Elija <menuchoice
+><guimenu
+>Ayuda</guimenu
+> <guimenuitem
+>Contenidos</guimenuitem
+> </menuchoice
+> o pulse el icono de Ayuda de contenidos para <action
+>mostrar páginas de ayuda</action
+> de &kmenuedit; que ahora está leyendo.</para
+></listitem
+> </varlistentry
+> <varlistentry id="help-report-bug"
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>yuda</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nformar de error</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Elija <guilabel
+>Informar de error</guilabel
+> si cree que usted ha descuierto un error en &kmenuedit;. <action
+>Se mostrará una ventana de informe de errores</action
+>. Decida como de molesto es el error, e indiquelo en los botones de <guilabel
+>gravedad</guilabel
+>. El equipo de KDE le agradece sus informes de error, porque contribuyen significativamente a mejorar &kde;.</para
+> <para
+>También puede solicitar a los autores de &kmenuedit; añadir propiedades adicionales al programa. Simplemente elija <guilabel
+>Lista de deseos</guilabel
+> como grado de gravedad, e introduzca su deseo. Esperamos con ganas recibir sus ideas.</para
+></listitem
+> </varlistentry
+> <varlistentry id="help-about-kmenuedit"
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>yuda</guimenu
+> <guimenuitem
+>A<accel
+>c</accel
+>cerca del editor de menú de KDE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Elija <guilabel
+>Acerca del editor de menús de KDE</guilabel
+> para <action
+>mostrar información de copyright</action
+> acerca de &kmenuedit;, y la lista de autores.</para
+></listitem
+> </varlistentry
+> <varlistentry id="help-about-kde"
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>yuda</guimenu
+> <guimenuitem
+>Acerca de <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Elija <guilabel
+>Acerca de KDE</guilabel
+> para <action
+>mostrar información del copyright</action
+> acerca de &kde;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<glossary id="glossary">
+<title
+>Glosario</title
+> 
+
+<glossentry id="gloss-terminal-emulator"
+> <glossterm
+>Emulador de terminal</glossterm
+> <glossdef
+> <para
+>El emulador de terminal es simplemente un intérprete de comandos en ventana, esto se conoce como "ventana de línea de comando" en algunos entornos. Si desea utilizar el intérprete de comandos, debería conocer al menos algunos de los comandos de nivel de sistema para su sistema operativo.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-applet"
+> <glossterm
+>Applet</glossterm
+> <glossdef
+><para
+>Una pequeña aplicación que ocupa muy poca memoria y espacio de pantalla, y al mismo tiempo le ofrece información útil o proporciona un acceso rápido de control. Por ejemplo el applet <application
+>Reloj</application
+> muestra el tiempo actual y la fecha (e incluso un calendario mensual si lo pulsa), y un applet <application
+>Monitor del sistema</application
+> muestra el grado de ocupación de su máquina en tiempo real.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-legacy-application"
+> <glossterm
+>Aplicación heredada</glossterm
+> <glossdef
+> <para
+>Una aplicación X que no se escribió para &kde;. Algunas aplicaciones se ejecutan bien en KDE. Sin embargo, no se les enviará automáticamente mensaje de finalización cuando apague su sesión KDE. Por tanto no debe olvidar guardar los documentos abiertos en estas aplicaciones antes de salir de &kde;. </para
+> <para
+>Además, muchas de estas aplicaciones no soportan copiado y pegado desde aplicaciones que cumplen los requisitos de KDE. El navegador Netscape 4.x es un buen ejemplo de tales aplicaciones <footnote
+><para
+>Algunas aplicaciones <ulink url="http://www.gnome.org"
+>GNOME</ulink
+> pueden proporcionar interoperatividad limitada con &kde;.</para
+></footnote
+>.</para
+> </glossdef
+> </glossentry>
+
+<glossentry id="gloss-console-application"
+> <glossterm
+>Aplicación de consola</glossterm
+> <glossdef
+> <para
+>Aplicación originalmente escrita para entornos no gráficos, solo tipo texto. Estas aplicaciones se ejecutan bien en KDE. Deben ejecutarse dentro de un emulador de consola como <application
+>Konsole</application
+>. No reciben aviso automático de finalización cuando usted termina su sesión KDE. Por tanto debe no olvidar guardar los documentos abiertos en estas aplicaciones antes de salir de &kde;.</para
+> <para
+>Las aplicaciones de consola soportan la copia y pegado de las aplicaciones válidas de KDE. Simplemente marque el texto en la aplicación de consola con su ratón, cambie a la aplicación KDE y pulse <keycombo
+><keycap
+>Ctrl</keycap
+> <keycap
+>V</keycap
+></keycombo
+> para pegar el texto. Si desea copia desde una aplicación KDE a una aplicación de consola, primero marque el texto con su ratón, pulse <keycombo
+><keycap
+>Ctrl</keycap
+> <keycap
+>C</keycap
+></keycombo
+>, cambie a la aplicación de consola y pulse el botón central de su ratón<footnote
+><para
+>Si su ratón no dispone de botón central, debe pulsar los botones <mousebutton
+>izquierdo</mousebutton
+> y <mousebutton
+>derecho</mousebutton
+> simultáneamente Esto se denomina "emulación del botón central" y debe estar soportado po su sistema oprativo para que funcione.</para
+></footnote
+>.</para
+> </glossdef
+> </glossentry>
+
+</glossary>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Créditos y licencia</title>
+
+<para
+> &kmenuedit; </para>
+<para
+>Copyright del programa 2000, Los desarrolladores de KDE</para>
+<para
+>Colaboradores:</para>
+<itemizedlist
+> <listitem
+><para
+>Matthias Ettrich <email
+>ettrich@kde.org</email
+></para
+> </listitem
+> <listitem
+><para
+>Daniel M. Duley <email
+>mosfet@kde.org</email
+></para
+> </listitem
+> <listitem
+><para
+>Matthias Elter <email
+>elter@kde.org</email
+></para
+> </listitem
+> <listitem
+><para
+>Preston Brown <email
+>pbrown@kde.org</email
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+>Copyright de la documentación 2000 Milos Prudek</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Instalación</title>
+
+<sect1 id="getting-kmenuedit">
+<title
+>Cómo obtener &kmenuedit;</title>
+
+<para
+> &kmenuedit; es parte del proyecto &kde; <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kmenuedit; puede encontrarse en el paquete kdebase en <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, el servidor ftp del proyecto &kde;. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Compilación e Instalación</title>
+
+<para
+>Para compilar e instalar &kmenuedit; en su sistema, introduzca lo siguiente en el directorio principal de su distribución de kdebase:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>Como &kmenuedit; utiliza <application
+>autoconf</application
+> y <application
+>automake</application
+> no debería tener problemas compilandolo.Si encuentra problemas por favor informe de ellos en las listas de correo de &kde;.</para>
+
+</sect1>
+
+</appendix>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

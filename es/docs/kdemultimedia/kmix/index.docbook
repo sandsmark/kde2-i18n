@@ -1,0 +1,511 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmix;">
+  <!ENTITY % Spanish "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>El manual de &kmix;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Matt</firstname
+> <surname
+>Johnston</surname
+> <affiliation
+> <address
+><email
+>mattj@flashmail.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Stefan</firstname>
+<surname
+>Schimanski</surname>
+<affiliation
+><address
+><email
+>1Stein@gmx.de</email
+></address
+></affiliation>
+<contrib
+>Desarrollador</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Revisor</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Salvador</firstname
+><surname
+>Gimeno Zanón</surname
+><affiliation
+><address
+><email
+>salgiza@jazzfree.com</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>1999</year
+><year
+>2000</year>
+<holder
+>Matt Johnston &amp; Christian Esken</holder>
+</copyright>
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-09-11</date>
+<releaseinfo
+>1.03.00</releaseinfo>
+
+<abstract
+><para
+>&kmix; es una aplicación que le permite cambiar el volumen de su tarjeta de sonido.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KMix</keyword>
+<keyword
+>kdemultimedia</keyword>
+<keyword
+>sonido</keyword>
+<keyword
+>volumen</keyword>
+<keyword
+>mezclador</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+
+<para
+>&kmix; es el programa de mezclas de KDE para tarjetas de sonido. Aunque pequeño, está lleno de funcionalidades. El programa le ofrecerá controles para cada una de sus tarjetas de sonido.</para>
+
+<para
+>&kmix; soporta una gran variedad de plataformas y controladores de sonido. La versión 1.9 funciona con:</para>
+
+<itemizedlist
+> <listitem
+><para
+> Todas las plataformas que utilicen Open Sound System. Concretamente, se ha probado en FreeBSD, NetBSD y BSDI.</para
+></listitem
+> <listitem
+><para
+> Máquinas basadas en Solaris.</para
+></listitem
+> <listitem
+><para
+> Máquinas basadas en IRIX.</para
+></listitem
+> <listitem
+><para
+> El controlador de sonido ALSA.</para
+></listitem
+> <listitem
+><para
+> Máquinas basadas en HP-UX.</para
+></listitem
+> </itemizedlist>
+
+</chapter>
+
+<chapter id="working-with-kmix">
+<title
+>Trabajar con &kmix;</title>
+
+<para
+>El uso de &kmix; es bastante intuitivo. Cada dispositivo de mezclas que su tarjeta ofrezca aparece representado por un deslizador de volumen. Los dispositivos mono tendrán un solo deslizador, mientras que los dispositivos estéreo pueden tener uno o más, dependiendo de lo que seleccione. Además, existe un deslizador para controlar el balance de los altavoces en la zona inferior de la ventana de &kmix;. Si tiene más de una tarjeta de sonido, cada una aparecerá en su propia pestaña.</para>
+
+<sect1 id="volume-sliders">
+<title
+>Deslizadores de volumen</title>
+
+<para
+>Los deslizadores de volumen tienen un menú contextual, accesible mediante la pulsación del botón derecho en el deslizador o en el icono del dispositivo (en la parte superior). Pueden aparecer hasta tres entradas en el menú, pero sólo se mostrarán aquellas que sean aplicables.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Silenciado</guilabel
+></term
+> <listitem
+><para
+>Habilita o deshabilita el sonido del dispositivo</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Separar canales</guilabel
+></term
+> <listitem
+><para
+>Muestra uno o dos deslizadores. Sólo está disponible con dispositivos estéreo. El deslizador de la derecha controla el volumen derecho y el de la izquierda el volumen izquierdo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Origen de grabación</guilabel
+></term
+> <listitem
+><para
+>Selecciona el dispositivo como origen de las grabaciones. Sólo es aplicable a dispositivos desde los que se pueda grabar. Esta opción también se puede seleccionar pulsando en el botón rojo situado debajo del deslizador (si aparece).</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="panning-slider">
+<title
+>Balance de los altavoces</title>
+
+<para
+>Con este deslizador puede controlar la distribución de volumen entre el altavoz derecho y el izquierdo. Este deslizador es un regulador global, que afecta a todos los dispositivos estereo (los dispositivos mono son ignorados). Por omisión, está en la posición central. Arrastrando el deslizador a la izquierda baja el volumen del altavoz derecho y viceversa, por supuesto, puede que ocurra al revés si sus altavoces no están correctamente colocados.</para
+> 
+
+</sect1>
+
+<sect1 id="configuration-options">
+<title
+>Opciones de configuración</title>
+
+<para
+>Si el icono de &kmix; aparece en la bandeja del sistema, puede pulsar en él con el botón derecho para cambiar sus preferencias. Las opciones son:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Empotrar en el panel</guilabel
+></term
+> <listitem
+><para
+>minimiza el programa a un icono en la bandeja del sistema</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>El botón de cerrar sólo esconde la ventana - sin cerrar KMix</guilabel
+></term
+> <listitem
+><para
+>Cuando se cierra la ventana de &kmix; sólo minimiza el programa, sin cerrarlo.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Mostrar marcas</guilabel
+></term
+> <listitem
+><para
+>Muestra unas líneas para marcar la posición de los deslizadores.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Mostrar etiquetas</guilabel
+></term
+> <listitem
+><para
+>Muestra una etiqueta por cada uno de los dispositivos de sonido. Independientemente de que esta opción esté activada o no, si mantiene el ratón encima del icono de cualquier dispositivo, también obtendrá esta información.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+
+</chapter>
+
+<chapter id="control-panel">
+<title
+>Configuración de <application
+>KControl</application
+></title>
+
+<sect1 id="config-opt">
+<title
+>Opciones de configuración</title>
+
+<para
+>Puede configurar diversas opciones de &kmix; desde <application
+>KControl</application
+>, seleccionando <guimenuitem
+>Mezclador</guimenuitem
+> en la sección <guimenu
+>Sonido</guimenu
+>:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Guardar los volúmenes actuales</guilabel
+></term
+> <listitem
+><para
+>Guarda la configuración de sonido actual, para poder cargarla después.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Cargar volúmenes</guilabel
+></term
+> <listitem
+><para
+>Permite cargar una configuración de volúmenes guardada previamente.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Cargar volúmenes al arrancar</guilabel
+></term
+> <listitem
+><para
+>Carga automáticamente la última configuración de volúmenes al arrancar KDE.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Número máximo de mezcladores a buscar</guilabel
+></term
+> <listitem
+><para
+>Indica cuantas tarjetas de sonido debería buscar &kmix; cuando arranque. Seleccione un número bajo para acelerar el tiempo de arranque de &kmix;</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Número máximo de dispositivos a buscar por mezclador.</guilabel
+></term
+> <listitem
+><para
+>Indica cuantos dispositivos buscar por cada tarjeta de sonido. Igual que antes, seleccione un valor bajo para acelerar &kmix;</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="installation">
+<title
+>Instalación</title>
+
+<sect1 id="getting-kmix">
+<title
+>Como obtener &kmix;</title>
+
+<para
+>&kmix; es parte del proyecto KDE <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kmix; puede encontrarse dentro del paquete kdemultimedia en <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, el servidor ftp principal del proyecto KDE. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Requerimientos</title>
+
+<para
+>Obviamente, &kmix; sólo es útil si tiene una tarjeta de sonido. &kmix; soporta un elevado número de plataformas y controladores de sonido:</para>
+
+<itemizedlist
+> <listitem
+><para
+> Todas las plataformas que utilicen Open Sound System. Concretamente, se ha probado en FreeBSD, NetBSD y BSDI.</para
+></listitem
+> <listitem
+><para
+> Máquinas basadas en Solaris.</para
+></listitem
+> <listitem
+><para
+> Máquinas basadas en IRIX.</para
+></listitem
+> <listitem
+><para
+> El controlador de sonido ALSA.</para
+></listitem
+> <listitem
+><para
+> Máquinas basadas en HP-UX.</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Compilación e instalación</title>
+
+<para
+>Para compilar e instalar &kmix; en su sistema, escriba lo siguiente en el directorio base de la distribución kdemultimedia:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen>
+
+<para
+>Gracias a que &kmix; utiliza <application
+>autoconf</application
+> y <application
+>automake</application
+> no debería tener problemas compilándolo. Si encontrara algún fallo, por favor, informe de ello a las listas de correo de KDE.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Créditos y licencia</title>
+
+<para
+>&kmix;</para>
+
+<para
+>Programa copyright 2000 Stefan Schimanski <email
+>1Stein@gmx.de</email
+></para>
+
+<para
+>Contribuidores:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Christian Esken <email
+>esken@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Stefan Schimanski <email
+>1Stein@gmx.de</email
+></para
+></listitem
+> <listitem
+><para
+>Paul Kendall <email
+>paul@orion.co.nz</email
+> - Porte a SGI</para
+></listitem
+> <listitem
+><para
+>Sebestyen Zoltan <email
+>szoli@digo.inf.elte.hu</email
+> - Arreglos para FreeBSD</para
+></listitem
+> <listitem
+><para
+>Faraut Jean-Louis <email
+>jlf@essi.fr</email
+> - Arreglos para Solaris</para
+></listitem
+> <listitem
+><para
+>Nick Lopez <email
+>kimo_sabe@usa.net</email
+> - Porte a ALSA</para
+></listitem
+> <listitem
+><para
+>Helge Deller <email
+>deller@gmx.de</email
+> - Porte a HP-UX</para
+></listitem
+> <listitem
+><para
+>Lennart Augustsson <email
+>augustss@cs.chalmers.se</email
+> - Arreglos para *BSD</para
+></listitem
+> </itemizedlist>
+
+<para
+>Documentación copyright 2000 Matt Johnston <email
+>mattj@flashmail.com</email
+></para>
+
+<para
+>Basada en la documentación de Christian Esken <email
+>esken@kde.org</email
+></para>
+ 
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

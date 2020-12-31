@@ -1,0 +1,241 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&ksirtet;">
+ <!ENTITY % German "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+ 
+ 
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &ksirtet;-Handbuch</title>
+<authorgroup>
+<author
+> <firstname
+>Nicolas</firstname
+> <surname
+>Hadacek</surname
+> </author>
+</authorgroup>
+
+<!-- weiss es nicht -->
+
+<copyright>
+<year
+>1999</year
+><year
+>2000</year>
+<holder
+>Nicolas Hadacek</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-16</date>
+<releaseinfo
+>1.01.10</releaseinfo>
+
+<abstract>
+<para
+>Dieses Programm ist eine Implementierung des sehr bekannten Spiels Tetris. Sie müssen die fallenenden Teile zu ganzen Zeilen formen.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Spiel</keyword>
+<keyword
+>Tetris</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einführung</title>
+
+<para
+> Dieses Programm ist ein Klone des bekannten Spiels <command
+>Tetris</command
+>, bei dem Sie die herunter fallenden Steine zu vollständigen Zeilen zusammenbauen müssen, die dann entfernt werden. Dazu können Sie die fallenden Steine drehen und verschieben. Das Spiel ist beendet, wenn keine Steine mehr fallen können, z.B. wenn die unvollständigen Zeilen bis ganz nach oben reichen. </para>
+
+<para
+> Jedesmal wenn Sie zehn Zeilen entfernt haben, kommen Sie in die nächste Spielstufe und die Steine fallen schneller (um genau zu sein, fallen die Steine jede <literal
+>1/(1+Spielstufe)</literal
+> Sekunde um eine Zeile). </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Wie man KSirtet spielt</title>
+
+<sect1 id="handling-the-falling-piece">
+<title
+>Steuerung der fallenden Steine</title>
+
+<para
+> Das Spiel benutzt die Tastatur, um die Rotation, die Verschiebung und das Fallenlassen der Steine zu steuern. Die Tastenbelegung können Sie über den Eintrag <guimenuitem
+>Tastenbelegung</guimenuitem
+> im Menü <guimenu
+>Einstellungen</guimenu
+> einstellen. </para>
+
+</sect1>
+<sect1 id="how-to-gain-points">
+<title
+>Wie man Punkte macht</title>
+
+<para
+>Es gibt zwei Möglichkeiten, Punkte zu erzielen:</para>
+
+<itemizedlist
+> <listitem
+> <para
+> Beim Fallenlassen der Steine erhalten Sie die Anzahl von Punkten, die der Höhe entspricht, von der Sie den Stein fallen gelassen haben. Das sind zwar jedesmal nicht viel, aber mehr als man denkt, vor allem in niedrigen Spielstufen (in denen die Steine langsam fallen). </para
+> </listitem
+> <listitem
+> <para
+> Der größte Teil der Punkte erhalten Sie durch Entfernen von Zeilen. Es ist sehr wichtig zu wissen, dass Sie sehr viel mehr Punkte erhalten, wenn Sie mehrere Zeilen auf einmal entfernen. Das Entfernen von vier Zeilen auf einmal nennt man <emphasis
+>Tetris</emphasis
+>: Sie erhalten die maximale Menge an Punkten. </para
+> <para
+> Sie erhalten 40 Punkte für das Entfernen einer Zeile, 100 für zwei Zeilen, 300 für drei Zeilen und 1200 für einen Tetris. Diese Zahlen müssen außerdem mit der aktuellen Spielstufe multipliziert werden. Wenn Sie vier Zeilen in der Spielstufe 10 entfernen, erhalten Sie 12000 Punkte !! </para
+> </listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="options">
+<title
+>Einstellungen</title>
+
+<para
+> Menüeintrag <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>KSirtet einstellen</guimenuitem
+></menuchoice
+> öffnet den <guilabel
+>Einstellungen</guilabel
+> Dialog. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Zeigt den Schatten des Steins</guilabel
+></term
+> <listitem
+> <para
+> Zeigt oder verbirgt die Schatten der fallenden Steine am unteren Ende der Spielfläche. Dieser Schatten kann helfen, Fehler beim Positionieren der Steine zu vermeiden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zeige nächsten Stein</guilabel
+></term
+> <listitem
+> <para
+> Bestimmt, ob der Stein, der als Nächstes erscheinen wird, angezeigt wird. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Animationen einschalten</guilabel
+></term
+> <listitem
+> <para
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Blockgrösse</guilabel
+></term
+> <listitem
+> <para
+> Lässt Sie die Grösse der Blöcke einstellen (und erweitert das Spielfeld, so dass es passt. Die Standardgrösse ist 15 (Pixel). </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="multiplayer">
+<title
+>Mehrspieler-Spiel</title>
+
+<para
+> Die Option <guimenuitem
+>Mehrspieler-Spiel</guimenuitem
+> erlaubt es Ihnen, gegen Spieler auf dem gleichen Computer und/oder auf anderen Computer im Netzwerk zu spielen. Sie können außerdem gegen einen KI(künstliche Intelligenz)-Spieler spielen, der aber momentan nicht sehr clever ist. </para>
+
+<para
+> Grundsätzlich funktioniert ein Mehrspieler-Spiel so, dass ein Spieler unvollständige Zeilen zum Boden des Spiels eines anderen Spielers sendet, wenn er Zeilen entfernt: Keine für eine entfernte Zeile, eine unvollständige Zeile für zwei entfernte Zeilen usw. </para>
+
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>Danksagung und Lizenz</title>
+
+<sect1 id="developers">
+<title
+>Entwickler</title>
+
+<para
+><literal
+>Erik Eng</literal
+> - Schrieb die Tetris-Quellen</para>
+<para
+><literal
+><ulink url="mailto:hadacek@kde.org"
+>Nicolas Hadacek</ulink
+></literal
+></para>
+</sect1>
+
+<sect1 id="authors">
+<title
+>Autoren</title>
+<para
+><literal
+><ulink url="mailto:hadacek@kde.org"
+>Nicolas Hadacek</ulink
+></literal
+></para>
+<para
+><literal
+><ulink url="mailto:rwilliams@kde.org"
+>Robert Williams</ulink
+></literal
+> - Redakteur</para>
+
+<!-- weiss nicht -->
+
+&underFDL;
+&underGPL;
+</sect1>
+
+
+</chapter>
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

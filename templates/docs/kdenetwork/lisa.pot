@@ -1,0 +1,834 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid	""
+msgstr	"Project-Id-Version: PACKAGE VERSION\n"
+	"POT-Creation-Date: 2001-02-09 01:25+0100\n"
+	"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+	"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+	"Language-Team: LANGUAGE <LL@li.org>\n"
+	"MIME-Version: 1.0\n"
+	"Content-Type: text/plain; charset=utf-8\n"
+	"Content-Transfer-Encoding: ENCODING\n"
+
+#: index.docbook:14
+msgid	"The &lisa; Handbook"
+msgstr	""
+
+#: index.docbook:17
+msgid	"<firstname>Alexander</firstname> <surname>Neundorf</surname> "
+	"<affiliation> <address><email>neundorf@kde.org</email></address> "
+	"</affiliation>"
+msgstr	""
+
+#: index.docbook:25
+msgid	"ROLES_OF_TRANSLATORS"
+msgstr	""
+
+#: index.docbook:31
+msgid	"Alexander Neundorf"
+msgstr	""
+
+#: index.docbook:38
+msgid	"&lisa; is intended to provide a kind of <quote>network "
+	"neighbourhood</quote>, but only relying on the TCP/IP protocol "
+	"stack, no <acronym>SMB</acronym> or anything else required."
+msgstr	""
+
+#: index.docbook:42
+msgid	"This is the handbook to both the <acronym>LAN</acronym> Information "
+	"Server (&lisa;) and the Restricted <acronym>LAN</acronym> "
+	"Information Server (&reslisa;)"
+msgstr	""
+
+#: index.docbook:49
+msgid	"<keyword>KDE</keyword>"
+msgstr	""
+
+#: index.docbook:50
+msgid	"kdenetwork"
+msgstr	""
+
+#: index.docbook:51
+msgid	"<keyword>LAN</keyword>"
+msgstr	""
+
+#: index.docbook:52
+msgid	"network"
+msgstr	""
+
+#: index.docbook:53
+msgid	"network neighborhood"
+msgstr	""
+
+#: index.docbook:59
+msgid	"Introduction"
+msgstr	""
+
+#: index.docbook:61
+msgid	"&lisa; is intended to provide a kind of <quote>network "
+	"neighbourhood</quote>, but only relying on the TCP/IP protocol "
+	"stack, no smb or whatever."
+msgstr	""
+
+#: index.docbook:65
+msgid	"It is completely independent from &kde;/&Qt;."
+msgstr	""
+
+#: index.docbook:67
+msgid	"The list of running hosts is provided via <acronym>TCP</acronym> "
+	"port 7741."
+msgstr	""
+
+#: index.docbook:70
+msgid	"&lisa; supports two ways of finding hosts:"
+msgstr	""
+
+#: index.docbook:72
+msgid	"You give &lisa; a range of <acronym>IP</acronym> addresses, then "
+	"&lisa; will send <acronym>ICMP</acronym> echo requests to all given "
+	"<acronym>IP</acronym> addresses, and wait for the answers."
+msgstr	""
+
+#: index.docbook:72
+msgid	"You can tell &lisa; to execute <command>nmblookup</command> "
+	"<option>\"*</option>. The command line tool "
+	"<command>nmblookup</command> must be installed from the Samba "
+	"package. <command>nmblookup</command> <option>\"*\"</option> sends a "
+	"broadcast to the attached networks, and all hosts running "
+	"<acronym>SMB</acronym> services will answer this broadcast."
+msgstr	""
+
+#: index.docbook:92
+msgid	"How it works"
+msgstr	""
+
+#: index.docbook:94
+msgid	"In the configuration file you provide a range of IP-addresses which "
+	"&lisa; should check to see whether they are running."
+msgstr	""
+
+#: index.docbook:97
+msgid	"In the most simple case this could be your network "
+	"address/subnetmask, then &lisa; would check every possible host of "
+	"your network to see if it is running."
+msgstr	""
+
+#: index.docbook:101
+msgid	"The hosts are checked using <acronym>ICMP</acronym> echo requests. "
+	"To be able to send and receive <acronym>ICMP</acronym> echo requests "
+	"and replies the program has to open a so-called <quote>raw "
+	"socket</quote>. Therefore it needs <systemitem "
+	"class=\"username\">root</systemitem> privileges. This socket is "
+	"opened right after the start of the program, after successfully "
+	"opening the socket root privileges are dropped immediatly (see "
+	"<filename>main.cpp</filename> and "
+	"<filename>strictmain.cpp</filename>)."
+msgstr	""
+
+#: index.docbook:111
+msgid	"If you configure &lisa; so that it also uses "
+	"<command>nmblookup</command>, it will <literal>popen(\"nmblookup "
+	"\\\"*\\\"\")</literal> and then parse the results."
+msgstr	""
+
+#: index.docbook:115
+msgid	"Since the <acronym>ICMP</acronym> requests and the broadcasts can "
+	"cause some network traffic if there are more than one such server "
+	"running in one network, the servers cooperate with each other. "
+	"Before they start pinging (or <command>nmblookup</command>), they "
+	"send a broadcast on port 7741."
+msgstr	""
+
+#: index.docbook:121
+msgid	"If somebody answers this broadcast, they will retrieve the complete "
+	"list of running hosts via <acronym>TCP</acronym> port 7741 from this "
+	"host and will not start to ping (or <command>nmblookup</command>)."
+msgstr	""
+
+#: index.docbook:126
+msgid	"If nobody answers, the host which sent the broadcast will start "
+	"pinging the hosts (or <command>nmblookup</command>) and then open a "
+	"socket which listens for the mentioned broadcasts. If the host "
+	"received an answer to his broadcast, it won't have the socket for "
+	"listening to the broadcasts open. So usually exactly one of the "
+	"servers will have this socket open and only this one will actually "
+	"ping (or <command>nmblookup</command>) the hosts."
+msgstr	""
+
+#: index.docbook:134
+msgid	"In other words, the servers are lazy, they work like <quote>I will "
+	"only do something if nobody else can do it for me</quote>."
+msgstr	""
+
+#: index.docbook:137
+msgid	"There is another feature which reduces the network load."
+msgstr	""
+
+#: index.docbook:139
+msgid	"Let's say you configured &lisa; to update every 10 minutes. Now you "
+	"don't access your server very often. If nobody accesses the server "
+	"for the last update period, the server will update (either itself or "
+	"from the one which actually does the work) and then double its "
+	"update period, &ie; the next update will happen after 20 minutes."
+msgstr	""
+
+#: index.docbook:145
+msgid	"This will happen 4 times, so if nobody accesses the server with "
+	"update period 10 minutes for a long time, its update interval will "
+	"increase up to 160 minutes, almost three hours. If then somebody "
+	"accesses the data from the server, he will get an old list ( up to "
+	"160 minutes old). With accessing the server will reset its update "
+	"interval to its initial value, &ie; 10 minutes and immediatly start "
+	"updating if the last update is more than these 10 minutes over. This "
+	"means if you get a very old list, you can try some seconds later "
+	"again and you should get a current version."
+msgstr	""
+
+#: index.docbook:155
+msgid	"This will have fast effect for the servers, which don't ping (or "
+	"nmblookup) theirselves, since only one user usually accesses them, "
+	"and it will have less effect for the server which does the pinging "
+	"(or <command>nmblookup</command>), since this server is accessed "
+	"from all other servers in the network."
+msgstr	""
+
+#: index.docbook:161
+msgid	"This way it is possible that many hosts in a network run this "
+	"server, but the net load will remain low. For the user it is not "
+	"neccessary to know wether there is a server (&ie; a name server or "
+	"fileserver or whatever) in the network which also runs &lisa;. He "
+	"can always run &lisa; locally and &lisa; will detect if there is "
+	"one, transparently to the user."
+msgstr	""
+
+#: index.docbook:168
+msgid	"The first client for &lisa; is an ioslave for &kde; 2, so the user "
+	"can enter there <userinput>lan://localhost/</userinput> or "
+	"<userinput>lan:/</userinput>, which will both contact &lisa; on the "
+	"own system."
+msgstr	""
+
+#: index.docbook:173
+msgid	"If there is a machine which runs all the time and the user knows "
+	"that this machine also runs &lisa;, he can use his &lisa; client "
+	"directly with this server (would be with the mentioned ioslave "
+	"<userinput>lan://the_server_name/</userinput>)."
+msgstr	""
+
+#: index.docbook:178
+msgid	"If you don't want that your &lisa; takes part in the broadcasting, "
+	"but always does the pinging itself, make it use another port with "
+	"the command line option <option>--port</option> or "
+	"<option>-p</option>. This is not recommended!"
+msgstr	""
+
+#: index.docbook:183
+msgid	"If you send <command>SIGHUP</command> to &lisa;, it will reread its "
+	"configfile. If you send <command>SIGUSR1</command> to &lisa;, it "
+	"will print some status information to stdout."
+msgstr	""
+
+#: index.docbook:187
+msgid	"The data provided over the socket has a simple format: "
+	"<computeroutput>&lt;decimal ip address in network byte "
+	"order&gt;&lt;one space 0x20&gt;&lt;full name of the host&gt;&lt;a "
+	"terminating '\\0'&gt;&lt;newline '\\n'&lt;</computeroutput> and the "
+	"last line <computeroutput>0 succeeded&lt;'\\n'&gt;</computeroutput>"
+msgstr	""
+
+#: index.docbook:196
+msgid	"For example,"
+msgstr	""
+
+#: index.docbook:198
+msgid	"17302538 some_host.whatever.de\n"
+	"18285834 linux.whatever.de\n"
+	"17827082 nameserver.whatever.de\n"
+	"0 succeeded"
+msgstr	""
+
+#: index.docbook:203
+msgid	"This should make it easy parseable."
+msgstr	""
+
+#: index.docbook:205
+msgid	"If there are very strict security rules in your network, some people "
+	"might consider the pinging a potential attack. If you have problems "
+	"with this, try the restricted version, &reslisa;."
+msgstr	""
+
+#: index.docbook:212
+msgid	"&reslisa;"
+msgstr	""
+
+#: index.docbook:214
+msgid	"If you hav very strict security rules in your network or you don't "
+	"want to have another port open or whatever, you can use &reslisa;."
+msgstr	""
+
+#: index.docbook:218
+msgid	"With &reslisa; you can't ping whole networks and address ranges, you "
+	"can give &reslisa; up to currently 64 hosts by their names in its "
+	"config file. These will be pinged. You are still able to use "
+	"<command>nmblookup</command>."
+msgstr	""
+
+#: index.docbook:223
+msgid	"&reslisa; will also only provide the information over a unix domain "
+	"socket, &ie; not over the network. The name of the socket is "
+	"<filename>/tmp/resLisa-YourLoginname</filename> so &reslisa; can be "
+	"savely run by more users on one machine."
+msgstr	""
+
+#: index.docbook:228
+msgid	"Since it should also not produce a security risk of any kind it is "
+	"safe to install &reslisa; setuid <systemitem "
+	"class=\"username\">root</systemitem>. <systemitem "
+	"class=\"username\">root</systemitem> privileges will be dropped "
+	"right after startup (see <filename>strictmain.cpp</filename>), they "
+	"are only needed to create a raw socket for sending the "
+	"<acronym>ICMP</acronym> echo requests."
+msgstr	""
+
+#: index.docbook:236
+msgid	"It will also not send or receive broadcasts. The first client for "
+	"this is also an ioslave for &kde; 2 (<userinput>rlan:/</userinput> "
+	"in &konqueror; for example.)"
+msgstr	""
+
+#: index.docbook:243
+msgid	"The Configuration File"
+msgstr	""
+
+#: index.docbook:245
+msgid	"Now an example config file:"
+msgstr	""
+
+#: index.docbook:247
+msgid	"PingAddresses = "
+	"192.168.100.0/255.255.255.0;192.168.100.10-192.168.199.19;192.168.200"
+	".1;192-192.168-168.100-199.0-9;\n"
+	"PingNames = bb_mail;\n"
+	"AllowedAddresses = 192.168.0.0/255.255.0.0\n"
+	"BroadcastNetwork = 192.168.100.0/255.255.255.0\n"
+	"SearchUsingNmblookup = 1                #also try nmblookup\n"
+	"FirstWait = 30                          #30 hundredth seconds\n"
+	"SecondWait = -1                         #only one try\n"
+	"#SecondWait = 60                         #try twice, and the second "
+	"time wait 0.6 seconds\n"
+	"UpdatePeriod = 300                      #update after 300 secs\n"
+	"DeliverUnnamedHosts = 0                 #don't publish hosts without "
+	"name\n"
+	"MaxPingsAtOnce = 256                    #send up to 256 ICMP echo "
+	"requests at once"
+msgstr	""
+
+#: index.docbook:262
+msgid	"PingAddresses"
+msgstr	""
+
+#: index.docbook:264
+msgid	"This is probably the most important entry."
+msgstr	""
+
+#: index.docbook:266
+msgid	"Here you say which addresses will be pinged. You can specify "
+	"multiple ranges, they are divided by semicolons."
+msgstr	""
+
+#: index.docbook:269
+msgid	"There are four possible ways to define addresses:"
+msgstr	""
+
+#: index.docbook:271
+msgid	"net address/network mask"
+msgstr	""
+
+#: index.docbook:271
+msgid	"192.168.100.0/255.255.255.0, &ie; an <acronym>IP</acronym> address "
+	"and the assigned network mask."
+msgstr	""
+
+#: index.docbook:271
+msgid	"This doesn't have to be the network address and netmask of your "
+	"machine. For example, if you have 10.0.0.0/255.0.0.0 as your own "
+	"address, you could specify 10.1.2.0/255.255.255.0 if you are only "
+	"interested in these addresses. The combination <acronym>IP</acronym> "
+	"address-network mask must be divided by a slash <quote>/</quote> and "
+	"the address does not have to be a real network address, it can also "
+	"be a host address of the desired network, &ie; 10.12.34.67/255.0.0.0 "
+	"is the same as 10.0.0.0/255.0.0.0 ."
+msgstr	""
+
+#: index.docbook:271
+msgid	"a range of <acronym>IP</acronym> addresses"
+msgstr	""
+
+#: index.docbook:271
+msgid	"For example: 192.168.100.10-192.168.199.19"
+msgstr	""
+
+#: index.docbook:271
+msgid	"An <acronym>IP</acronym>-address where pinging will start and an "
+	"<acronym>IP</acronym>-address where pinging will end."
+msgstr	""
+
+#: index.docbook:271
+msgid	"Both addresses must be divided by a <quote>-</quote>."
+msgstr	""
+
+#: index.docbook:271
+msgid	"In this example this would produce 199-100+1=100, 100*256=25.600, "
+	"25.600+(19-10+1)=25.590 addresses"
+msgstr	""
+
+#: index.docbook:271
+msgid	"An <acronym>IP</acronym> address, as represented by ranges of each "
+	"of the four decimal numbers"
+msgstr	""
+
+#: index.docbook:271
+msgid	"An <acronym>IP</acronym> address can be represented by its four "
+	"decimal numbers, and you can specify ranges four each of these four "
+	"numbers: 192-192.169-171.100-199.0-9"
+msgstr	""
+
+#: index.docbook:271
+msgid	"In this example all <acronym>IP</acronym> addresses with first "
+	"number 192, second number from 168 to 168, third number from 100 up "
+	"to 199 and last number from 0 up to 9 will be pinged. This would "
+	"give 1*1*100*10=1.000 addresses."
+msgstr	""
+
+#: index.docbook:271
+msgid	"This is probably only useful in very seldom cases. Here you have to "
+	"provide ranges for every four numbers, always divided by "
+	"<quote>-</quote>."
+msgstr	""
+
+#: index.docbook:271
+msgid	"Single <acronym>IP</acronym> addresses or host names"
+msgstr	""
+
+#: index.docbook:271
+msgid	"The <acronym>IP</acronym> address or host name of any machine you "
+	"are particularly interested in."
+msgstr	""
+
+#: index.docbook:333 index.docbook:343
+msgid	"It is also valid to leave this entry empty."
+msgstr	""
+
+#: index.docbook:338
+msgid	"PingNames"
+msgstr	""
+
+#: index.docbook:340
+msgid	"Here you can additionally specify hosts to ping using their names. "
+	"The names have to be divided by semicolons."
+msgstr	""
+
+#: index.docbook:348
+msgid	"AllowedAddresses"
+msgstr	""
+
+#: index.docbook:350
+msgid	"This is also very important. &lisa; will only ping addresses, accept "
+	"clients and answer broadcasts from addresses, which are covered by "
+	"the addresses given in this line. You can add up to 32 network "
+	"addresses/network masks or single addresses. Divide them by ; and "
+	"don't put empty space between the addresses!"
+msgstr	""
+
+#: index.docbook:356
+msgid	"For example, 192.168.0.0/255.255.0.0;192.169.0.0"
+msgstr	""
+
+#: index.docbook:358
+msgid	"A complete network and a single address are valid. Always make this "
+	"as strict as possible, usually your network address/subnetmask is a "
+	"good choice."
+msgstr	""
+
+#: index.docbook:365
+msgid	"BroadcastNetwork"
+msgstr	""
+
+#: index.docbook:367
+msgid	"This entry contains exactly one network address/subnet mask. To this "
+	"network broadcasts will be sent. Usually this should be your own "
+	"network address/subnetmask, for example: 192.168.0.0/255.255.0.0"
+msgstr	""
+
+#: index.docbook:374
+msgid	"SearchUsingNmblookup"
+msgstr	""
+
+#: index.docbook:376
+msgid	"Here you can give <parameter>0</parameter> or "
+	"<parameter>1</parameter>. <parameter>1</parameter> means that &lisa; "
+	"will execute <command>nmblookup</command> <option>\"*\"</option> and "
+	"parse the output from this command. This produces less network "
+	"traffic than the pinging, but you will only get hosts which have a "
+	"<acronym>SMB</acronym> service running (&Windows; machines or "
+	"machines running samba)."
+msgstr	""
+
+#: index.docbook:384
+msgid	"If you enable this option and also give <acronym>IP</acronym> "
+	"addresses to ping, then <command>nmblookup</command> will be "
+	"executed first and then the pinging will start. Then only addresses "
+	"will be pinged, which were not already delivered from "
+	"<command>nmblookup</command>. This should slightly decrease the "
+	"network load."
+msgstr	""
+
+#: index.docbook:394
+msgid	"FirstWait"
+msgstr	""
+
+#: index.docbook:396
+msgid	"If &lisa; pings, &ie; if it sends the <acronym>ICMP</acronym> echo "
+	"requests, it sends a bunch of requests at once, and the it will wait "
+	"for the number of hundredth seconds you specify here. Usually values "
+	"from 5 to 50 should be good, the maximum is 99 (gives 0.99 seconds, "
+	"a very long time). Try to make this value as small as possible while "
+	"still finding all running hosts."
+msgstr	""
+
+#: index.docbook:406
+msgid	"SecondWait"
+msgstr	""
+
+#: index.docbook:408
+msgid	"After &lisa; has sent the echo requests the first time, it can be "
+	"possible that some hosts were not found. To improve the results, "
+	"&lisa; can ping a second time. This time it will only ping hosts, "
+	"from which it didn't receive answers. If you have good results with "
+	"pinging only once, you can disable the second time with setting "
+	"SecondWait to <userinput>-1</userinput>."
+msgstr	""
+
+#: index.docbook:415
+msgid	"Otherwise it might be a good idea to make this value a little bit "
+	"bigger than the value for <option>FirstWait</option>, since the "
+	"hosts which were not found on the first try, are probably slower or "
+	"further away so they might take some milliseconds longer to answer. "
+	"Usually values from 5 to 50 should be good or -1 to disable the "
+	"second scan. The maximum is 99 (gives 0.99 seconds, a very long "
+	"time)."
+msgstr	""
+
+#: index.docbook:425
+msgid	"UpdatePeriod"
+msgstr	""
+
+#: index.docbook:427
+msgid	"This is the interval after which &lisa; will update. After this time "
+	"&lisa; will again ping or <command>nmblookup</command> or get the "
+	"list of hosts from the &lisa; server which actually does the pinging."
+msgstr	""
+
+#: index.docbook:432
+msgid	"Valid values are between 30 seconds and 1800 seconds (half an hour). "
+	"If you have a big network, don't make the interval too small (to "
+	"keep network load low). Values from 300 to 900 seconds (5 to 15 "
+	"minutes) might be a good idea."
+msgstr	""
+
+#: index.docbook:437
+msgid	"Keep in mind that the update period is doubled if nobody accesses "
+	"the server, up to 4 times, so the interval will become 16 times the "
+	"value given here and will be reseted to the value given here if "
+	"somebody accesses the server."
+msgstr	""
+
+#: index.docbook:445
+msgid	"DeliverUnnamedHosts"
+msgstr	""
+
+#: index.docbook:447
+msgid	"If an answer to an echo request from an IP address was received, "
+	"were &lisa; could not determine a name, it will be only delivered "
+	"over the port if you set this to 1."
+msgstr	""
+
+#: index.docbook:451
+msgid	"I am not really sure if this is a useful feature, but maybe there "
+	"are some infrastructure devices in your network without assigned "
+	"names, so they don't have to be published. Set this to 0 if you want "
+	"to keep them secret ;-) If unsure, say 0."
+msgstr	""
+
+#: index.docbook:459
+msgid	"MaxPingsAtOnce"
+msgstr	""
+
+#: index.docbook:461
+msgid	"When sending the pings (echo requests), &lisa; sends a bunch of "
+	"these at once and then waits for the answers. By default there are "
+	"256 pings sent at once, usually you should not need the change this "
+	"value. If you make it much bigger, the internal receive buffers for "
+	"the answers to the echo requests may become to small, if you make it "
+	"to small, the updating will be slower."
+msgstr	""
+
+#: index.docbook:471
+msgid	"Three more example files"
+msgstr	""
+
+#: index.docbook:474
+msgid	"FIXME"
+msgstr	""
+
+#: index.docbook:476
+msgid	"You are member of a small network with 24 bit network mask, &ie; up "
+	"to 256 hosts:"
+msgstr	""
+
+#: index.docbook:479
+msgid	"PingAddresses = 192.168.100.0/255.255.255.0\n"
+	"AllowedAddresses = 192.168.100.0/255.255.255.0\n"
+	"BroadcastNetwork = 192.168.100.0/255.255.255.0\n"
+	"SearchUsingNmblookup = 0                         #don't use "
+	"nmblookup\n"
+	"FirstWait = 20                                   #20 hundredth "
+	"seconds\n"
+	"SecondWait = 30                                  #30 hundredth "
+	"seconds on the seconds try\n"
+	"UpdatePeriod = 300                               #update after 300 "
+	"secs\n"
+	"DeliverUnnamedHosts = 0                          #don't publish "
+	"hosts without name"
+msgstr	""
+
+#: index.docbook:493
+msgid	"Configuration file for hosts running <acronym>SMB</acronym> only"
+msgstr	""
+
+#: index.docbook:496
+msgid	"You are only interested in hosts running <acronym>SMB</acronym> "
+	"services and you don't have routers in your network:"
+msgstr	""
+
+#: index.docbook:499
+msgid	"AllowedAddresses = 192.168.100.0/255.255.255.0\n"
+	"BroadcastNetwork = 192.168.100.0/255.255.255.0\n"
+	"SearchUsingNmblookup = 1                #use nmblookup\n"
+	"UpdatePeriod = 300                      #update after 300 secs\n"
+	"DeliverUnnamedHosts = 0                 #don't publish hosts without "
+	"name"
+msgstr	""
+
+#: index.docbook:509
+msgid	"Configuration file using both <command>nmblookup</command> and "
+	"pinging"
+msgstr	""
+
+#: index.docbook:512
+msgid	"The same network, but here both nmblookup and pinging is used."
+msgstr	""
+
+#: index.docbook:515
+msgid	"PingAddresses = 192.168.100.0/255.255.255.0\n"
+	"PingNames = bb_mail\n"
+	"AllowedAddresses = 192.168.0.0/255.255.0.0\n"
+	"BroadcastNetwork = 192.168.100.0/255.255.255.0\n"
+	"SearchUsingNmblookup = 1                #also try nmblookup\n"
+	"FirstWait = 30                          #30 hundredth seconds\n"
+	"SecondWait = -1                         #only one try\n"
+	"#SecondWait = 60                         #try twice, and the second "
+	"time wait 0.6 seconds\n"
+	"UpdatePeriod = 300                      #update after 300 secs\n"
+	"DeliverUnnamedHosts = 0                 #don't publish hosts without "
+	"name\n"
+	"MaxPingsAtOnce = 256                    #send up to 256 ICMP echo "
+	"requests at once"
+msgstr	""
+
+#: index.docbook:532
+msgid	"Configuration file for &reslisa;"
+msgstr	""
+
+#: index.docbook:534
+msgid	"And now a configuration file for &reslisa;, PingAddresses is not "
+	"used by &reslisa;, neither is BroadcastNetwork."
+msgstr	""
+
+#: index.docbook:537
+msgid	"PingNames = bb_mail;some_host;some_other_host\n"
+	"AllowedAddresses = 192.168.0.0/255.255.0.0\n"
+	"SearchUsingNmblookup = 1                # use nmblookup\n"
+	"FirstWait = 30                          #30 hundredth seconds\n"
+	"SecondWait = -1                         #only one try\n"
+	"#SecondWait = 60                         #try twice, and the second "
+	"time wait 0.6 seconds\n"
+	"UpdatePeriod = 300                      #update after 300 secs\n"
+	"DeliverUnnamedHosts = 1                 #also publish hosts without "
+	"name\n"
+	"MaxPingsAtOnce = 256                    #send up to 256 ICMP echo "
+	"requests at once"
+msgstr	""
+
+#: index.docbook:554
+msgid	"Command Line Options and Other Usage"
+msgstr	""
+
+#: index.docbook:556
+msgid	"The following command line options are supported:"
+msgstr	""
+
+#: index.docbook:558
+msgid	"<option>-v</option>, <option>--version</option>"
+msgstr	""
+
+#: index.docbook:558
+msgid	"Prints brief version information."
+msgstr	""
+
+#: index.docbook:558
+msgid	"<option>-h</option>, <option>--help</option>"
+msgstr	""
+
+#: index.docbook:558
+msgid	"Gives an overview of the command line options"
+msgstr	""
+
+#: index.docbook:558
+msgid	"<option>-u</option>, <option>--unix</option>"
+msgstr	""
+
+#: index.docbook:558
+msgid	"Search at first for "
+	"<filename>$<envar>HOME</envar>/.lisarc</filename>, then for "
+	"<filename>/etc/lisarc</filename>. This is the default behaviour."
+msgstr	""
+
+#: index.docbook:558
+msgid	"<option>-k</option>, <option>--kde1</option>"
+msgstr	""
+
+#: index.docbook:558
+msgid	"Search first for "
+	"<filename>$<envar>HOME</envar>/.kde/share/config/lisarc</filename>, "
+	"then for "
+	"<filename>$<envar>KDEDIR</envar>/share/config/lisarc</filename>."
+msgstr	""
+
+#: index.docbook:558
+msgid	"<option>-K</option>, <option>--kde2</option>"
+msgstr	""
+
+#: index.docbook:558
+msgid	"Looks for the file <filename>lisarc</filename> in every directory "
+	"returned by running <userinput><command>kde-config</command> "
+	"<option>--path</option> <parameter>config</parameter></userinput>"
+msgstr	""
+
+#: index.docbook:558
+msgid	"<option>-c</option>, "
+	"<option>--config=</option><parameter>FILE</parameter>"
+msgstr	""
+
+#: index.docbook:558
+msgid	"Read <parameter>FILE</parameter> and no other configuration file."
+msgstr	""
+
+#: index.docbook:558
+msgid	"<option>-p</option>, <option>--port</option> "
+	"<parameter>PORTNR</parameter>"
+msgstr	""
+
+#: index.docbook:558
+msgid	"Start the server on this portnumber. If you use this, &lisa; won't "
+	"be able to cooperate with other &lisa;'s on the network. This option "
+	"is not available for &reslisa;"
+msgstr	""
+
+#: index.docbook:622
+msgid	"If you send the Hangup-Signal to &lisa; or &reslisa;, it will reread "
+	"its configuration file (<userinput><command>killall</command> "
+	"<option>-HUP lisa</option></userinput>)."
+msgstr	""
+
+#: index.docbook:626
+msgid	"If you send the User1-Signal to &lisa; or &reslisa;, it will print "
+	"some status information to the standard output "
+	"(<userinput><command>killall</command> <option>-USR1 "
+	"lisa</option></userinput>). You won't see anything if the console "
+	"from which &lisa;/&reslisa; was started has terminated."
+msgstr	""
+
+#: index.docbook:637
+msgid	"Credits and Licenses"
+msgstr	""
+
+#: index.docbook:639
+msgid	"&lisa; and &reslisa; copyright 2000, 2001, Alexander Neundorf"
+msgstr	""
+
+#: index.docbook:644
+msgid	"CREDIT_FOR_TRANSLATORS"
+msgstr	""
+
+#: index.docbook:646
+msgid	"Have fun, Alexander Neundorf <email>neundorf@kde.org</email>"
+msgstr	""
+
+#: index.docbook:654
+msgid	"Installation"
+msgstr	""
+
+#: index.docbook:656
+msgid	"&lisa; and &reslisa; need a libstdc++ (it uses only the string-class "
+	"from it), it <emphasis>does not</emphasis> need either &Qt; nor "
+	"&kde;."
+msgstr	""
+
+#: index.docbook:660
+msgid	"FIXME (c/p usual KDE installation instructions"
+msgstr	""
+
+#: index.docbook:663
+msgid	"Other Requirements"
+msgstr	""
+
+#: index.docbook:665
+msgid	"Both &reslisa; and &lisa; open a so called <quote>raw socket</quote> "
+	"to send and receive <acronym>ICMP</acronym> echo requests (pings). "
+	"To do this, they need <systemitem "
+	"class=\"username\">root</systemitem> priveleges."
+msgstr	""
+
+#: index.docbook:671
+msgid	"&lisa; offers a service on <acronym>TCP</acronym> port 7741, and "
+	"should be installed by <systemitem "
+	"class=\"username\">root</systemitem> and started when the system "
+	"comes up. It depends greatly on your &OS; how to achieve this."
+msgstr	""
+
+#: index.docbook:676
+msgid	"&reslisa; is intended to be started per user, it doesn't offer "
+	"anything to the network. It needs to be installed setuid <systemitem "
+	"class=\"username\">root</systemitem>."
+msgstr	""
+
+#: index.docbook:680
+msgid	"If you use the <userinput>rlan</userinput> ioslave from &kde; 2, "
+	"&reslisa; can be started automatically."
+msgstr	""
+
+#: index.docbook:683
+msgid	"&lisa; reads the file <filename>lisarc</filename>, &reslisa; reads "
+	"the file <filename>reslisarc</filename>. If you want to be able to "
+	"configure both from &kcontrol;, you have to start them using the "
+	"command line switch <option>-K</option>."
+msgstr	""
+
+#: index.docbook:688
+msgid	"For more information where they look for configuration files read "
+	"the chapter on <xref linkend=\"command-line-options\"/>."
+msgstr	""

@@ -1,0 +1,1036 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ktron;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>A &ktron; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Fabian</firstname
+> <surname
+>Dal Santo</surname
+> <affiliation
+> <address
+><email
+>linuxgnu@yahoo.com.au</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Matthias</firstname>
+<surname
+>Kiefer</surname>
+<affiliation>
+<address
+><email
+>matthias.kiefer@gmx.de</email
+></address>
+</affiliation>
+<contrib
+>Fejlesztő</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>lauri@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Lektor</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>1999</year>
+<year
+>2000</year>
+<holder
+>Matthias Keifer</holder>
+</copyright>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Fabian Dal Santo</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-04-03</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract>
+<para
+> A &ktron; a <quote
+>Tron</quote
+> játék egy &kde;-alapú változata, mely egyedül vagy egy másik játékos ellen is játszható. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>KTron</keyword>
+<keyword
+>játék</keyword>
+<keyword
+>tron</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+
+<para
+> A &ktron; a népszerű Tron játék egy változata a <ulink url="http://www.kde.org"
+>KDE grafikus környezet</ulink
+> alá. Játszható a gép vagy egy másik játékos ellen is. </para>
+
+<para
+> A játék célja minél tovább életben maradni. Ennek érdekében el kell kerülni a fallal, a saját vagy az ellenfél vonalával való ütközést. </para>
+
+</chapter>
+
+<chapter id="playing-ktron">
+<title
+>A játék menete</title>
+
+<sect1 id="playing-ktron-rules">
+<title
+>Játékszabályok</title>
+
+<para
+> A játék megkezdése után a játékosok folyamatosan mozgásban maradnak (az esetleges szünetet kivéve). Irányváltoztatással kell elkerülni a tárgyakkal és a többi játékossal való összeütközést, és akadályozni lehet az ellenfél mozgását. A sebességet meg lehet növelni a gyorsítási billentyű lenyomva tartásával. </para>
+
+<warning
+><para
+>Ha az aktuális mozgási iránnyal szembe próbál mozdulni, akkor saját magával fog összeütközni.</para
+></warning>
+
+<para
+> A játék megkezdéséhez az összes nem gépi játékosnak meg kell nyomnia valamelyik kurzorbillentyűt. Ez az irány lesz a mozgás kezdeti iránya. </para>
+
+<para
+> A játék felfüggesztéséhez válassza a <guimenuitem
+>Szünet/Folytatás</guimenuitem
+> menüpontot a <guimenu
+>Játék</guimenu
+> menüből vagy használja a hozzárendelt gyorsbillentyűt (lásd: <link linkend="keys"
+>Az alapértelmezett billentyűparancsok</link
+>). A játék automatikusan megáll, ha a főablak elveszti a fókuszt, tehát ha például átvált egy másik ablakra. </para>
+
+<para
+>A játék folytatásához válassza a <guimenuitem
+>Szünet/Folytatás</guimenuitem
+> menüpontot vagy használja a gyorsbillentyűt. A játék folytatásához az is elegendő, ha valamelyik játékos megnyomja az egyik kurzorbillentyűt. Figyelem: a mozgás ebbe az irányba fog elkezdődni! </para>
+
+
+<para
+>Egy játék több körből áll, és akkor ér véget, ha az egyik játékosnak legalább kilenc pontja van, legalább kettővel több, mint az ellenfélnek. Az aktuális pontszám mindig látható az állapotsorban. </para>
+
+</sect1>
+
+<sect1 id="computerplayer">
+<title
+>A gépi játékos</title>
+
+<para
+> A számítógép irányíthatja csak az egyik vagy akár mindkét játékost. Három erősségi fokozat választható: gyenge, közepes és erős.</para>
+
+<itemizedlist
+> <listitem
+> <para
+>A leggyengébb fokozaton a program nem törődik az ellenféllel, csak a saját mozgásával törődik. Ezt az algoritmust használta az xtron-1.1.</para
+> </listitem
+> <listitem
+> <para
+>A többi szinten az algoritmus kifinomultabb, megpróbálja akadályozni az ellenfél mozgását, ha az közel kerül.</para
+> </listitem
+> </itemizedlist>
+
+<note
+><para
+>Lásd a <link linkend="settings-menu"
+><guimenu
+>Beállítások</guimenu
+> menü</link
+> részt a gépi játékos paramétereivel kapcsolatban. </para
+></note>
+
+</sect1>
+
+<sect1 id="using-keyboard">
+<title
+>A billentyűzet használata</title>
+
+<para
+> Minden játékos öt billenytűt kezelhet, négy irányváltásra, egy gyorsításra szolgál. </para>
+
+<para
+> Az iránymódosító billentyűket nem kell nyomva tartani, a forduláshoz elég a megfelelő billentyűt egyszer megnyomni. </para>
+
+<para
+> A gyorsítás azonban csak addig tart, amíg a gyorsítóbillentyű le van nyomva, eleresztésekor a sebesség visszaváltozik normálissá. </para>
+
+<note
+><para
+> A <link linkend="settings-menu"
+><guimenu
+>Beállítások</guimenu
+> menü</link
+> részben található az alapértelmezett billentyűparancsok megváltoztatásának leírása. </para
+></note>
+</sect1>
+</chapter>
+
+<chapter id="command">
+<title
+>A parancsok felsorolása</title>
+
+<para
+>Most következik az egyes menüpontok részletes felsorolása.</para>
+
+<sect1 id="game-menu">
+<title
+>A <guimenu
+>Játék</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+>Ú<accel
+>j</accel
+> játék</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Elkezd egy új játékot.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>zünet/folytatás</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Felfüggeszti a játék futását.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+>S<accel
+>z</accel
+>erkesztés</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kilépés a programból.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+
+<sect1 id="settings-menu">
+<title
+>A <guimenu
+>Beállítások</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Az ál<accel
+>l</accel
+>apotsor megjelenítése</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ki-be kapcsolja az állapotsort.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>A billentyűparancsok <accel
+>b</accel
+>eállítása</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megjeleníti a standard billentyűparancs-beállító ablakot.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>épi játékos</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Itt lehet beállítani a gépi játékosok számát és erősségét, a választható lehetőségek: <guimenuitem
+>Gyenge</guimenuitem
+>, <guimenuitem
+>Közepes</guimenuitem
+> és <guimenuitem
+>Erős</guimenuitem
+></para
+> <para
+>A számítógép irányíthat egy vagy két játékost is.</para
+> <para
+>A <guimenuitem
+>gyenge</guimenuitem
+> erősségnél a gép nem figyeli az ellenfelet, a mozgás véletlenszerű. <guimenuitem
+>Közepes</guimenuitem
+> és <guimenuitem
+>Erős</guimenuitem
+> szinten viszont már  igyekszik meggátolni az ellenfél mozgását.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Se<accel
+>b</accel
+>esség</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> <action
+>Itt lehet kiválasztani a játék gyorsaságát</action
+>, a leglassabb az <guimenuitem
+>1</guimenuitem
+>-es, a leggyorsabb a <guimenuitem
+>10</guimenuitem
+>-es szint. A sebesség alapértelmezett értéke: <guimenuitem
+>5</guimenuitem
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>inézet</guimenuitem
+> <guimenuitem
+>A kirajzolás <accel
+>s</accel
+>tílusa</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> <action
+>Ez határozza meg a játékosok grafikus megjelenését</action
+>. A választási lehetőségek: <guimenuitem
+>térhatású vonal</guimenuitem
+>, <guimenuitem
+>térhatású téglalapok</guimenuitem
+>, <guimenuitem
+>vonal</guimenuitem
+> és <guimenuitem
+>körök</guimenuitem
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>inézet</guimenuitem
+> <guimenuitem
+>Az <accel
+>1</accel
+>. játékos színe...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> <action
+>Itt lehet beállítani az 1. játékos színét (színválasztó ablakban).</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>inézet</guimenuitem
+> <guimenuitem
+>A <accel
+>2</accel
+>. játékos színe...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> <action
+>Itt lehet beállítani a 2. játékos színét (színválasztó ablakban).</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>inézet</guimenuitem
+> <guimenuitem
+><accel
+>H</accel
+>áttérszín...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> <action
+>Itt lehet beállítani a háttér színét (színválasztó ablakban).</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>inézet</guimenuitem
+> <guimenuitem
+>Há<accel
+>t</accel
+>térkép...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> <action
+>Itt lehet beállítani a háttérképet (párbeszédablakban).</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Mé<accel
+>r</accel
+>et</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> <action
+>A játékosok megjelenítési méretét határozza meg</action
+>, 5 fokozat választható a <guimenuitem
+>nagyon kicsi</guimenuitem
+>től a <guimenuitem
+>nagyon nagy</guimenuitem
+>ig. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Egyéb...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+> Megjelenít egy párbeszédablakot, melyben a következő beállítások találhatók: </para
+> <itemizedlist
+> <listitem
+> <para
+> <action
+>Meg lehet változtatni a játékosok nevét</action
+> tetszőleges módon. </para
+> </listitem
+> <listitem
+> <para
+> <action
+>Letiltható a gyorsítási lehetőség</action
+>, hogy mindkét játékos végig azonos sebességgel mozogjon.</para
+> </listitem
+> <listitem
+> <para
+> <action
+>Be lehet állítani a győzelemkor használt színt.</action
+> </para
+> </listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help">
+<title
+>A <guimenuitem
+>Segítség</guimenuitem
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+><accel
+>T</accel
+>artalom</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Elindítja a &kde; Segítséget és rááll ennek a dokumentumnak a nyitólapjára. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>Mi e<accel
+>z</accel
+>?</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Ennek hatására az egérmutató alakja egy kérdőjel és egy nyíl kombinációjává változik. Ha ezután rákattint egy elemre a program ablakán belül, megjelenik az ahhoz tartozó magyarázó szöveg (ha tartozik hozzá). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>Hiba<accel
+>b</accel
+>ejelentés</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Hibaleírás vagy kívánság elküldése a program karbantartóihoz. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>A <accel
+>K</accel
+>Tron névjegye</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Megjeleníti a program verziószámát és a szerző(k) nevét. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>A <accel
+>K</accel
+>DE névjegye</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Megjeleníti a &kde; verziószámát és még néhány más jellemzőjét. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="keys">
+<title
+>Az alapértelmezett billentyűparancsok</title>
+
+<para
+>Az alábbi táblázatokban láthatók az alapértelmezett billentyűparancsok.</para>
+
+
+<table>
+<title
+>Az 1. játékos billentyűparancsai</title>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Billentyűkombináció</entry
+> <entry
+>Művelet</entry
+></row
+></thead>
+<tbody
+> <row
+> <entry
+><keycap
+>R</keycap
+></entry
+> <entry
+>Felfelé</entry
+> </row
+> <row
+> <entry
+><keycap
+>F</keycap
+></entry
+> <entry
+>Lefelé</entry
+> </row
+> <row
+> <entry
+><keycap
+>G</keycap
+></entry
+> <entry
+>Jobbra</entry
+> </row
+> <row
+> <entry
+><keycap
+>D</keycap
+></entry
+> <entry
+>Balra</entry
+> </row
+> <row
+> <entry
+><keycap
+>A</keycap
+></entry
+> <entry
+>Gyorsítás</entry
+> </row
+> </tbody>
+</tgroup>
+</table>
+
+<table>
+<title
+>A 2. játékos billentyűparancsai</title>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Billentyűkombináció</entry
+> <entry
+>Művelet</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><keycap
+>Felfelé</keycap
+></entry
+> <entry
+>Felfelé</entry
+> </row
+> <row
+> <entry
+><keycap
+>Lefelé</keycap
+></entry
+> <entry
+>Lefelé</entry
+> </row
+> <row
+> <entry
+><keycap
+>Jobbra</keycap
+></entry
+> <entry
+>Jobbra</entry
+> </row
+> <row
+> <entry
+><keycap
+>Balra</keycap
+></entry
+> <entry
+>Balra</entry
+> </row
+> <row
+> <entry
+><keycap
+>+</keycap
+></entry
+> <entry
+>Gyorsítás</entry
+> </row
+> </tbody>
+</tgroup>
+</table>
+
+<table>
+<title
+>Általános billentyűparancsok</title>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Billentyűkombináció</entry
+> <entry
+>Művelet</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><keycap
+>P</keycap
+></entry
+> <entry
+>A játék felfüggesztése</entry
+> </row
+> <row
+> <entry
+><keycap
+>Ctrl</keycap
+> <keycap
+>N</keycap
+> </entry
+> <entry
+>Új játék</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> <entry
+>Kilépés a &ktron;-ból</entry
+> </row
+> <row
+> <entry
+><keycap
+>F1</keycap
+></entry
+> <entry
+>A segítség tartalomjegyzéke</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></entry
+> <entry
+>Mi ez?</entry
+> </row
+> </tbody>
+</tgroup>
+</table>
+
+<para
+> Ha meg szeretné változtatni ezeket a parancsokat, kattintson a <menuchoice
+> <guimenu
+>Beállítások</guimenu
+> <guimenuitem
+>A billentyűparancsok beállítása</guimenuitem
+> </menuchoice
+> menüpontra. </para>
+
+</sect1>
+
+</chapter>
+
+<!-- credits chapter done --> 
+<chapter id="credits">
+<title
+>Köszönetnyilvánítások és a licencegyezmény</title>
+
+<para
+> &ktron; </para>
+<para
+>Program Copyright: Matthias Kiefer (<email
+>matthias.kiefer@gmx.de</email
+>), 1999. </para>
+
+<para
+> Egyes kódrészeket átvettem Rhett D. Jacobs (<email
+>rhett@hotel.canberra.edu.au&gt;</email
+>) xtron-1.1 programjából. </para>
+
+<para
+> Documentation Copyright: Matthias Kiefer (<email
+>matthias.kiefer@gmx.de</email
+>), 1999. </para>
+
+<para
+>A dokumentáció frissítése a KDE 2.0-hoz: Fabian Dal Santo (<email
+>linuxgnu@yahoo.com.au</email
+>)</para>
+
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+&underFDL;
+&underGPL;
+</chapter>
+
+<!-- appendix finished -->
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+
+<sect1 id="getting-ktron">
+<title
+>A program megszerzése</title>
+
+<para
+>A &ktron; a &kde; projekt (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>) része, a kdegames csomagban található, mely letölthető innen: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, a &kde; projekt központi &FTP;-kiszolgálójáról. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Követelmények</title>
+
+<para
+> A program lefordításához szükség van a &kde; 2.0-ás vagy annál újabb változatára. Az összes szükséges programkönyvtár és a &ktron; is letölthető innen: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Lefordítás és telepítés</title>
+
+<para
+>A program lefordításához és telepítéséhez az alábbi parancsokat kell kiadni a kdegames forráscsomag alapkönyvtárában:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+><userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+><userinput
+>make</userinput>
+<prompt
+>%</prompt
+><userinput
+>make install</userinput>
+</screen>
+
+<para
+> A program fordítási szkriptjei az <application
+>autoconf</application
+> és az <application
+>automake</application
+> segítségével készültek,  kézi beállítást nem igényelnek. A felmerült problémákról küldjön üzenetet a szerzőnek, <ulink url="mailto:matthias.kiefer@gmx.de"
+>Matthias Kiefer</ulink
+>nek. </para>
+
+</sect1>
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

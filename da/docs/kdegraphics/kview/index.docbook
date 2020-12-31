@@ -1,0 +1,1839 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kview;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Danish "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>&kview; håndbog</title>
+
+<authorgroup>
+<author
+> <firstname
+>Hauke</firstname
+> <surname
+>Hildebrandt</surname
+> <affiliation
+> <address
+><email
+>hauke.hildebrandt@iup.uni-heidelberg.de</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Sirtaj</firstname>
+<othername
+>Singh</othername>
+<surname
+>Kang</surname>
+<contrib
+>Udvikler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Tester</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Hauke Hildebrandt</holder>
+</copyright>
+<!-- Translators: put here the copyright notice of the translation -->
+<!-- Put here the FDL notice.  Read the explanation in fdl-notice.docbook 
+     and in the FDL itself on how to use it. -->
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-02-01</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract
+><para
+>&kview; er et program til at se billeder med. Det er lille og hurtigt og har nogle simple billedbehandlingskommandoer. Man kan arbejde med mange forskellige grafikfil formater og konvertere sine billeder mellem dem. &kview; er ikke en fuldt udstyret billedbehandler, men den rækker til mange dagligdags opgaver (såsom at lave en god ny skrivebordsbaggrund...).</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kview</keyword>
+<keyword
+>kdegraphics</keyword>
+<keyword
+>billede</keyword>
+<keyword
+>grafik</keyword>
+<keyword
+>viser</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Indledning</title>
+
+<para
+>&kview; er en billedviser for &kde; skrivebordet. Man kan se grafik af mange forskellige formater såsom &PostScript;, <acronym
+>TIFF</acronym
+> &etc; Ved at gemme filerne i et andet format end originalen kan man nemt konvertere billeder til andre grafik formater. Derudover har &kview; nogle rare små egenskaber til at lave simpel billedbehandling, såsom at  strække/trykke sammen, rotation og filtrering. Man kan fliselægge sine billeder direkte på skrivebordet som et baggrundsbillede eller arrangere dem i et lille lysbilledshow.</para>
+
+</chapter>
+
+<chapter id="sample-session">
+<title
+>Et eksempel på en &kview; session</title>
+
+<para
+>Dette kapitel er en hurtig tur gennem mange af  &kview;'s funktioner så du kan komme hurtigt igang med at arbejde med dette program. Du vil finde en fuldstændig beskrivelse af alle tilgængelige kommandoer i senere kapitler.</para>
+
+<sect1 id="lets-go">
+<title
+>Lad os starte!</title>
+
+<para
+>Efter du har startet &kview; (ved brug af panelmenuen, eller ved at skrive <command
+>kview</command
+> på kommandolinien) kommer &kview;'s hovedvindue frem med et tomt arbejdsfelt:</para>
+
+<screenshot
+> <screeninfo
+>Start af &kview;</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="snapshot1.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Et nyt &kview; program vindue.</phrase
+></textobject
+> <caption
+><para
+>Et frisk nyt &kview; vindue</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>Kreative mennesker såsom dig og mig kan ikke lide et tomt ark så lad os hurtigt åbne et nyt billede. Vi vil imidlertid først ændre den måde &kview; ændrer størrelse på sit hovedvindue og billede efter indlæsning af et nyt: Vælg <guimenuitem
+>Indstil KView</guimenuitem
+> fra <guimenu
+>Opsætnings</guimenu
+>menuen. En dialog kommer frem:</para>
+
+<screenshot
+> <screeninfo
+>Ændring af valg</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="snapshot2.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Opsætningsdialogen.</phrase
+></textobject
+> <caption
+><para
+>Ændre størrelse eller ej</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>Vælg <quote
+>Ingen ændring af størrelse</quote
+> fra <quote
+>Ved indlæsning</quote
+> gruppeboksen. Dette betyder at hverken &kview;'s hovedvindue eller billedet vil få ændret størrelse efter indlæsning.</para>
+
+<para
+>Åbn nu <filename
+>Dasding.jpg</filename
+> som du kan finde i <filename class="directory"
+>./share/wallpapers</filename
+> undermappen af din hoved &kde; sti (muligvis <filename class="directory"
+>/opt/kde</filename
+> eller <filename class="directory"
+>/usr</filename
+>). Ahh - det ser bedre ud!</para>
+
+<screenshot
+> <screeninfo
+>Billede indlæst</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="snapshot3.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Tapetet indlæst i &kview;.</phrase
+></textobject
+> <caption
+><para
+>Et smukt billede indlæst...</para
+></caption
+> </mediaobject
+> </screenshot>
+
+</sect1>
+
+<sect1 id="selection">
+<title
+>På forkant</title>
+
+<para
+>Lad os lave et nyt baggrundstapet ud fra det indlæste billede. Vi har kun brug for &kde; logoet (gear-hjulet i højrer side), ikke hele billedet, så vælg logoet ved at tegne en boks udenom det. Tryk med  <mousebutton
+>venstre</mousebutton
+> museknap, hold den nede og flyt musen. En prikket boks kommer tilsyne som markerer dit udvalg. Gentag dette indtil du er tilfreds med dit valg. Fortsæt så med at skære det valgte område ud ved at vælge <menuchoice
+><guimenu
+>Redigér</guimenu
+><guimenuitem
+>Beskær</guimenuitem
+></menuchoice
+> fra menulinien eller dens ækvivalente genvej, <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+>. Dit arbejdsområde skulle nu se sådan ud:</para>
+
+<screenshot
+> <screeninfo
+>Beskåret billede</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="snapshot4.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Et vigtigt valg</phrase
+></textobject
+> <caption
+><para
+>Reduceret til det essentialle</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>Hvis du ikke er tilfreds med din beskæring kan du altid genoprette billedets oprindelige tilstand med <menuchoice
+><guimenu
+>Redigér</guimenu
+><guimenuitem
+>Nulstil</guimenuitem
+></menuchoice
+>, eller genvejen <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>R</keycap
+></keycombo
+>.</para>
+
+</sect1>
+
+<sect1 id="stirring-paste">
+<title
+>Rører i grøden</title>
+
+<para
+>Vi ville være kreative, ikke sandt? &kview; sørger for nogle filter funktioner til at manipulere billeder. De er (meget praktisk) placeret i  <guimenu
+>Filter</guimenu
+>menuen. Vi vil først ændre den såkaldte <quote
+>gamma faktor</quote
+>. Denne værdi påvirker mest mellemtonerne i billedet og lader de lyseste og mørkeste dele mere eller mindre uberørte. Vælg <menuchoice
+><guimenu
+>Filter</guimenu
+><guisubmenu
+>Intensitet</guisubmenu
+><guimenuitem
+>Gamma korrection</guimenuitem
+></menuchoice
+> fra menulinien. En dialogboks kommer frem. Ændr værdien til 0.4 og tryk på <guibutton
+>O.k.</guibutton
+> knappen. Billedet er noget mørkere nu:</para>
+
+<screenshot
+> <screeninfo
+>Gamma korrigeret</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="snapshot5.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Gamma korrektion</phrase
+></textobject
+> <caption
+><para
+>Efter gamma korrektion</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>For en lille smule psykedelisk effekt bruger vi lysheds funktionen. Vlag af lyshed får igen en dialog frem. Denne gang kan du indgive den nye lyshed ustrykt i procent relativt til den oprindelige værdi (så 100 procent betyder <quote
+>oprindelig værdi</quote
+>). Indgiv en værdi på <userinput
+>300.0</userinput
+> og se hvad der sker:</para>
+
+<screenshot
+> <screeninfo
+>Lysere</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="snapshot6.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Lysere end nogensinde</phrase
+></textobject
+> <caption
+><para
+>&kde; lysere end nogensinde før</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>Tilsidst gør vi billedet en smule utydeligt med <menuchoice
+><guimenu
+>Filter</guimenu
+> <guimenuitem
+>Glat</guimenuitem
+></menuchoice
+>. Anvend dette filter to eller tre gange (eller flere hvis du ikke kan holde op!). Udglatningsfilteret  reducerer kontrasten mellem nabopiksler:</para>
+
+<screenshot
+> <screeninfo
+>Glattere</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="snapshot7.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Glattere end nogensinde</phrase
+></textobject
+> <caption
+><para
+>&kde; - glat som silke</para
+> </caption
+> </mediaobject
+> </screenshot>
+</sect1>
+
+<sect1 id="cluttering-desktop">
+<title
+>Rod på dit skrivebord</title>
+
+<para
+>Før vi bruger vores mesterværk som skrivebordsbaggrund må vi hellere gemme det. For øjeblikket er vores billede et <acronym
+>JPEG</acronym
+> billede, men af en eller anden grund vil vi gemme det i <acronym
+>PNG</acronym
+> formatet. Nemt - brug blot <menuchoice
+><guimenu
+>Fil</guimenu
+><guimenuitem
+>Gem som</guimenuitem
+></menuchoice
+> og indtast et filnavn med endelsen  <literal role="extension"
+>.png</literal
+>:</para>
+
+<screenshot
+> <screeninfo
+>Gemmer</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="snapshot8.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Gemmer billedet</phrase
+></textobject
+> <caption
+><para
+>Gemmer og konverterer på én gang</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>Det store øjeblik er endelig kommet: Vælg <menuchoice
+><guimenu
+>Skrivebord</guimenu
+><guimenuitem
+>Skrivebordsflise</guimenuitem
+></menuchoice
+> og du kan beundre din utroligt kunstneriske baggrund:</para>
+
+<screenshot
+> <screeninfo
+>Baggrund</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="snapshot9.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>En ny baggrund</phrase
+></textobject
+> <caption
+><para
+>KDE - hvorsomhelst du kigger hen</para
+></caption
+> </mediaobject
+> </screenshot>
+</sect1>
+</chapter>
+
+<chapter id="commands">
+<title
+>Kommandoreference</title>
+<para
+></para>
+
+<para
+>Når man starter &kview; ser man den typiske program udlægning: et arbejdsområde der indeholder dine dokumenter (billeder i dette tilfælde), en menulinie der giver adgang til de forskellige kommandoer, en værktøjslinie med genvejsknapper for nogle af dem og en statuslinie i bunden til at vise statusbeskeder. Når du har indlæst et billede i &kview;, er der også en ekstra sammenhængsmenu tilgængelig som vises ved at klikke med højre museknap over billedet (det vidste du allerede, ikke sandt?). Nedenfor forklares alle menuindgange i den rækkefølge de findes i menulinien.</para>
+
+<sect1 id="file-menu">
+<title
+><guimenu
+>Fil</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>Å</accel
+>bn</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Åbner et nyt billede</action
+> i &kview;. Størrelsen af &kview;'s hovedvindue og billedet efter indlæsning afgøres af din opsætning. Hvis du åbner adskillige billeder, vises kun det sidste, men der er adgang til dem alle sammen ved brug af billedlisten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Åbn <accel
+>N</accel
+>ylige</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser en liste af nyligt åbnede billeder.</action
+> Valg af et af dem åbner billedet igen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>em</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gemmer det aktuelle billede</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Gem <accel
+>s</accel
+>om</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gemmer billedet under et andet navn</action
+>. Ved at vælge et nyt filformat kan man konvertere billedet til en anden grafiktype.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo
+> <keycap
+>Ctrl</keycap
+><keycap
+>W</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>uk</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lukker det aktuelt viste billede.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>dskriv</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Udskriver billedet</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>yt vindue</guimenuitem
+> </menuchoice
+></term
+><listitem
+><para
+><action
+>Opretter er nyt (tomt) programvindue.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>X</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+>Luk <accel
+>v</accel
+>indue</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lukker det aktuelt aktive vindue</action
+>. Hvis du kun har et vindue åbent afslutter dette din &kview; session.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Afslutter</action
+> &kview;. Hvis du har flere  &kview; vinduer åbne, lukkes de allesammen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="edit-menu">
+<title
+><guimenu
+>Redigér</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>Shift</keycap
+><keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>uldskærmstilstand</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+>Dette valg maksimerer  &kview; vinduet og det aktuelt viste billede så du kan kigge nærmere på det. Selv vinduesdekorationer (titellinie osv) bliver midlertidigt fjernede. Vælg dette igen for at vende tilbage til normal tilstand.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>C</keycap
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>eskær</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Hvis du har udvalgt en del af et billede (ved at tegne en boks omkring det med musen) kan du skære resten af billedet væk med dette valg. Dit billede bliver derved reduceret til det udvalgte.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><keycap
+>R</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ulstil</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Nulstiller</action
+> billedet til den oprindelige tilstand (lige efter det blev åbnet).</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="view-menu">
+<title
+><guimenu
+>Vis</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>orstør...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Åbner en dialog for <action
+>redigering af forstørrelsesfaktoren</action
+>. Denne værdi er givet i procent og refererer altid til den <emphasis
+>initiale</emphasis
+> størrelse af billedet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><keycap
+>+</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Forst<accel
+>ø</accel
+>r</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gør billedet ti procent større</action
+>. Bemærk at dette  refererer til den  <emphasis
+>aktuelle</emphasis
+> størrelse af billedet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><keycap
+>-</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Formin<accel
+>d</accel
+>sk</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Reducerer billedstørrelsen med ti procent</action
+>. Dette refererer igen til <emphasis
+>aktuel</emphasis
+> billedstørrelse.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>]</keycap
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>obbel størrelse</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Fordobler</action
+> den <emphasis
+>aktuelle</emphasis
+> billedstørrelse.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>[</keycap
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+><accel
+>H</accel
+>alvér størrelse</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Skærer billedets størrelse ned til det halve</action
+>. Som ovenfor refererer dette til <emphasis
+>aktuel</emphasis
+> billedstørrelse.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>M</keycap
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+><guimenuitem
+><accel
+>M</accel
+>aks størrelse</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Maksimerer billedstørrelsen</action
+>. Billedet skaleres til vinduesstørrelsen. Denne handling bevarer ikke proportioner.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>A</keycap
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Maks/<accel
+>a</accel
+>spekt</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Maksimerer billedstørrelsene</action
+>. Billedstørrelsen er maksimeret, men denne gang under bevarelse af proportioner.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="transform-menu">
+<title
+><guimenu
+>Transformér</guimenu
+> menuen</title>
+
+<para
+>Denne menu tilbyder kommandoer for simple geometriske operationer: rotation og reflektion.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>;</keycap
+></shortcut
+> <guimenu
+><accel
+>T</accel
+>ransformér</guimenu
+> <guimenuitem
+>Rotér <accel
+>m</accel
+>ed uret</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Roterer billedet med 90 grader med uret</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>,</keycap
+></shortcut
+> <guimenu
+><accel
+>T</accel
+>ransformér</guimenu
+> <guimenuitem
+>Rotér <accel
+>m</accel
+>od uret</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Roterer billedet med 90 mod uret</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>V</keycap
+></shortcut
+> <guimenu
+><accel
+>T</accel
+>ransformér</guimenu
+> <guimenuitem
+>Flip <accel
+>l</accel
+>odret</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Flipper billedet lodret</action
+>. Matematisk laver dette en reflektion langs billedets vandrette midterlinie.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>H</keycap
+></shortcut
+> <guimenu
+><accel
+>T</accel
+>ransformér</guimenu
+> <guimenuitem
+>Flip <accel
+>v</accel
+>andret</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Flipper billedet vandret</action
+>. Matematisk er dette en reflektion langs billedets lodrette centerlinie.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="desktop-menu">
+<title
+><guimenu
+>Skrivebord</guimenu
+> Menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>krivebord</guimenu
+> <guimenuitem
+>Skrivebords<accel
+>f</accel
+>lise</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Fliselægger dit billede som skrivebordsbaggrund.</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>krivebord</guimenu
+> <guimenuitem
+>Skrivebord <accel
+>M</accel
+>aks</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gør dit billede til tapet på skrivebordet.</action
+> Dette skalerer billedet til skrivebordets størrelse, muligvis med ændring af proportioner.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>krivebord</guimenu
+> <guimenuitem
+>Skrivebord Maks<accel
+>p</accel
+>ekt</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gør dit billede til tapet på skrivebordet.</action
+> Dette skalerer billedet til skrivebordets størrelse, men respekterer proportioner.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="images-menu">
+<title
+><guimenu
+>Billeder</guimenu
+> Menu</title>
+
+<para
+>&kview; giver nogle funktioner til simpel billedbehandling:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>illeder</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>iste...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser en liste af de aktuelt indlæste billeder.</action
+> Du kan flippe gennem billederne ved enten at dobbeltklikke på dem eller ved at bruge <guibutton
+>Forrige</guibutton
+> og <guibutton
+>Næste</guibutton
+> knapperne. <guibutton
+>Bland</guibutton
+> omarrangerer billederne i tilfældig rækkefølge, <guibutton
+>Sortér</guibutton
+> arrangerer dem alfabetisk. Tryk på <guibutton
+>Start lysbilledshow</guibutton
+> starter et lysbilledshow med de aktuelle indstillinger for interval og løkke. Derudover kan man gemme og indlæse sin billedliste ved brug af de tilsvarende knapper.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Alt</keycap
+><keysym
+>Venstre pil</keysym
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>B</accel
+>illeder</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>ilbage</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skifter til det tidligere billede i listen.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Alt</keycap
+><keysym
+>Højre pil</keysym
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>B</accel
+>illeder</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>remad</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Skifter til det næste punkt på listen.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>S</keycap
+></shortcut
+> <guimenu
+><accel
+>B</accel
+>illeder</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>ysbilledshow Til/Fra</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Starter eller stopper lysbilledshow.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="filter-menu">
+<title
+><guimenu
+>Filter</guimenu
+>menuen</title>
+
+<para
+>&kview; giver nogle funktioner til simpel billedbehandling:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ilter</guimenu
+> <guisubmenu
+><accel
+>I</accel
+>ntensitet</guisubmenu
+> <guimenuitem
+><accel
+>L</accel
+>yshed</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ændrer hvor lyst billedet er.</action
+> Indtast den nye lyshed i procent (med hensyn til den <emphasis
+>initiale</emphasis
+> værdi).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ilter</guimenu
+> <guisubmenu
+><accel
+>I</accel
+>ntensitet</guisubmenu
+> <guimenuitem
+>Gamma <accel
+>k</accel
+>orrigér...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Justerer gamma faktoren.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ilter</guimenu
+> <guimenuitem
+>Gråskala</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Konverterer et farvebillede til et gråskala billede.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>ilter</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>lat</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Udglatter billedet</action
+> ved at reducere kontrast mellem nabopiksler.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+><guimenu
+>Opsætnings</guimenu
+>menuen</title>
+<para
+>Denne menu giver valg til indstilling af &kview;, ændring af dets udseende, genveje og standard opførsel.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><keycap
+>M</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>m</accel
+>enulinie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slår menulinien til/fra.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis <accel
+>v</accel
+>ærktøjslinie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slår værktøjslinien til/fra.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Vis st<accel
+>a</accel
+>tuslinie</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Slår statuslinien til/fra.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>em opsætning</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Gemmer den aktuelle opsætning.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Indstil <accel
+>T</accel
+>astebindinger...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Åbner en dialog til at ændre tastebindinger.</action
+> Ved brug af denne indstilling kan man ændre standard tastaturgenveje for &kview;'s kommandoer eller oprette nye.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+>Indstil værktøjs<accel
+>l</accel
+>inie...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Åner en dialog til at indstille værktøjslinien.</action
+> Man kan tilføje og fjerne knapper for &kview;'s kommandoer med dette valg.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>ndstil KView...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Åbner en dialog til ændring af visse valg og dine tastebindinger</action
+>:</para
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+>Om belastning</guilabel
+></term
+> <listitem
+><para
+>Dette valg afgør om vinduet og/eller billedet vil få ændret størrelse efter et nyt billede er indlæst i &kview;. Med <guilabel
+>Ændr vinduesstørrelse</guilabel
+> aktiveret, vil &kview; vinduet få ændret størrelse, så det passer tæt omkring det indlæste billede. Bemærk at dette kan reducere hovedvinduet til et næsten lodret arrangement  af menuindgange hvis du indlæser et lille knapbillede (du kan naturligvis derefter ændre størrelse på vinduet på sædvanlig vis). Hvis dit billede er temmelig stort (målt i piksler), vil &kview; vinduet sommetider få ændret størrelse på en sådan måde, at linien med tekster flyttes fuldstændig  af skærmen. Tilsvarende ændrer, <guilabel
+>Ændr billedstørrelse</guilabel
+> størrelsen på billedet så det passer ind i &kview;'s arbejdsområde (og bevarer proportioner intakte). Og med <guilabel
+>Ingen ændring af størrelse</guilabel
+> som dit valg vil både &kview; og dit billede beholde deres størrelse.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Lysbilledfremvisning</guilabel
+></term
+> <listitem
+><para
+>Her kan du ændre parametrene for lysbilledshowet: intervallet mellem de forskellige lysbilleder, og om showet kører kontinuert i løkke.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help-menu">
+<title
+><guimenu
+>Hjælpe</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>F1</keycap
+></shortcut
+><guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndhold</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Starter KDE's hjælpesystem med KView håndbogen</action
+> - du har allerede prøvet det, har du ikke?</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+>Hvad er <accel
+>d</accel
+>ette?</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Giver en kort beskrivelse af det punkt du har valgt.</action
+> Markøren ændres til en slags  <quote
+>hjælpepeger</quote
+>. Klik blot på de ting du ikke kender til, så vil en beskrivelse af det  blive vist.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Hjælp</guimenu
+><guimenuitem
+>Rapportér problem...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Åbner KDE's problemrapport dialog.</action
+> Hvis du har fundet et problem (og måske kender du grunden og har allerede ordnet det?) så send en problemrapport så forfatterne kan tage sig af det.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>m KView</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Viser version og forfattere af KView.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Viser et standard &kde; infovindue.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="command-line">
+<title
+>Kommandolinie indstillinger</title>
+
+<para
+>&kview; kan startes direkte fra en terminal såsom &konsole; eller <application
+>xterm</application
+>. Adskillige kommandolinievalg er tilgængelige.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><command
+>kview</command
+> <option
+>--help</option
+></term
+> <listitem
+><para
+>Giver en liste af kommandolinievalg (se nedenfor).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kview</command
+> <option
+>--help-qt</option
+></term
+> <listitem
+><para
+>Viser valg specifikke for &Qt; ( <acronym
+>GUI</acronym
+> biblioteket som &kde; er baseret på).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kview</command
+> <option
+>--help-kde</option
+></term
+> <listitem
+><para
+>Viser de &kde;-specifikke valg.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kview</command
+> <option
+>--help-all</option
+></term
+> <listitem
+><para
+>Viser alle kommandolinievalg.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kview</command
+> <option
+>--author</option
+></term
+> <listitem
+><para
+>Du ønsker at sende dine varme ønsker og euforiske opmuntringer til nogen? Her er de!</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kview</command
+> <option
+>-v</option
+>, <option
+>--version</option
+></term
+> <listitem
+><para
+>Viser versionsnummer for &kview; (og for &Qt;/&kde;).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kview</command
+> <option
+>--license</option
+></term
+> <listitem
+><para
+>Viser under hvilke licenser &kview; er publiceret.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+<chapter id="credits">
+<title
+>Medvirkende og licens</title>
+
+<para
+>&kview;</para>
+
+<para
+>Program ophavsret 1997-2001 Sirtaj S. Kang <email
+>taj@kde.org</email
+></para>
+
+<para
+>KParts integration ved Simon Hausmann <email
+>shaus@neuro2.med.uni-magdeburg.de</email
+></para>
+<para
+>Vedligeholder: Matthias Kretz <email
+>kretz@kde.org</email
+></para>
+<para
+>Dokumentation ophavsret 2001 Hauke Hildebrandt <email
+>hauke.hildebrandt@iup.uni-heidelberg.de</email
+> </para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underGPL;        	 <!-- GPL License -->
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kview">
+<title
+>Hvordan får man fat på &kview;</title>
+
+<para
+>&kview; er en del af &kde; projektet og findes i kdegraphics pakken. For mere information om at få fat på og installing &kde; se venligst <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Krav</title>
+
+<para
+>Da &kview; er en del af  &kde; skrivebordet har du brug for en fungerende &kde; installation for at bruge den. Der er imidlertid nogle ekstra biblioteker som  &kview; behøver for at kunne bruge de forskellige grafikfil formater. For eksempel, for at håndtere <acronym
+>PNG</acronym
+> formatet skal &kview; bruge det tilsvarende bibliotek libpng. &kview; bruger bibliotekerne der er registrerede af kdelibs/kimgio. For øjeblikket er  libtiff, libpng og libjpeg understøttede.</para>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

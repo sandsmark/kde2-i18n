@@ -1,0 +1,656 @@
+<sect1 id="window-behavior">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-07-22</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>handlinger</keyword>
+<keyword
+>vinduesplacering</keyword>
+<keyword
+>vinduesstørrelse</keyword>
+</keywordset>
+</sect1info>
+
+<title
+>Vinduesopførsel</title>
+
+<para
+> I den øvre del af dette kontrolmodul ser man tre paneler: <guilabel
+>Fokus</guilabel
+>, <guilabel
+>Handlinger</guilabel
+> og <guilabel
+>Avanceret</guilabel
+>. I <guilabel
+>Fokus</guilabel
+> panelet kan man indstille hvordan vinduer får eller mister fokus, &ie; bliver aktive eller inaktive. Ved brug af <guilabel
+>Handlinger</guilabel
+> kan man indstille hvordan vinduer reagerer på museklik. <guilabel
+>Avanceret</guilabel
+> valg drejer sig om vinduesplacering, bevægelse og ændring af størrelse. </para>
+
+<note
+> <para
+> Husk venligst at indstillingerne i dette modul ikke får virkning hvis du ikke bruger &kde;'s indfødte vindueshåndtering, &kwin;. Hvis du bruger en anden vindueshåndtering, så referér venligst  til dens dokumentation for hvordan man brugerindstiller vinduesopførsel. </para
+> </note>
+
+<sect2 id="action-focus">
+<title
+>Fokus</title>
+
+<para
+> <quote
+>Fokus</quote
+>, på skrivebordet refererer til vinduet som brugeren arbejder på for øjeblikket. Vinduet med fokus kaldes ofte det <quote
+>aktive vindue</quote
+>. </para>
+
+<sect3 id="action-focus-focuspolicy">
+<title
+>Fokuspolitik</title>
+
+<para
+> Der er fire måder &kde; kan bruge til at afgøre den aktuelle fokus: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Klik til Fokus</guilabel
+></term
+> <listitem
+> <para
+> Med dette valg, klikker du på vinduet for at gøre vinduet aktivt. </para
+> <para
+> Alle andre valg indenfor denne sektion har ingen virkning når dette valg er gjort. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Fokus følger mus</guilabel
+></term
+> <listitem
+> <para
+> For at ændre et vindues fokus, så placér simpelthen markøren over vinduet. Hvis musemarkøren så flyttes til et område på skrivebordet uden et andet vindue, så beholder det sidste vindue fokus. </para
+> <para
+> I andre vindueshåndteringer kaldes dette sommetider <quote
+>Sjusket fokus følger mus</quote
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Fokus under mus</guilabel
+></term
+> <listitem
+> <para
+> Vinduet under musen, har fokus. Hvis musen imidlertid er i et område  af skrivebordet der ikke har vinduer, så vil intet vindue være aktivt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Fokus følger mus strengt</guilabel
+></term
+> <listitem
+> <para
+>Ligner <guilabel
+>Fokus under mus</guilabel
+>, men endnu  strengere i sin fortolkning. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Når du har besluttet dig for din fokuspolitik, er der to ekstra valg du  kan afgøre. </para>
+
+<para
+> Ved at placere et mærke foran <guilabel
+>Autohæve</guilabel
+>, kan man få &kde; til at bringe et vindue frem hvis musen er over vinduet en vis tidsperiode. Dette er meget nyttigt med  <guilabel
+>Fokus følger mus</guilabel
+> valget. Du kan afgøre længden ved at bruge glideren  bjælke/drejeboks kombinationen. </para>
+
+<tip
+> <para
+> Hvis man sætter tidslængden for kort, vil man få en vild skiften mellem vinduer som kan være meget distraherende. De fleste vil foretrække en tid på 100-300 ms. Dette er hurtigt men det vil  lade dig glide over hjørnerne af et vindue på din vej til målet uden at bringe dette vindue foran. </para
+> </tip>
+
+<para
+> Hvis du ikke bruger <guilabel
+>Autohæv</guilabel
+>, så sørg for at <guilabel
+>Klik hæv</guilabel
+> valget har et mærke foran sig. Du vil ikke blive glad for både  <guilabel
+>Autohæv</guilabel
+> og <guilabel
+>Klik hæv</guilabel
+> deaktiverede. </para>
+</sect3>
+
+<sect3 id="action-focus-keyboard">
+<title
+>Tastatur</title>
+
+<para
+> I <guilabel
+>Tastatur</guilabel
+> rammen kan man indstille hvordan man skifter mellem programmer eller skriveborde ved brug af <keycombo action="simul"
+> &Alt;<keycap
+>Tab</keycap
+></keycombo
+> eller <keycombo action="simul"
+> &Ctrl;<keycap
+>Tab</keycap
+></keycombo
+>. </para>
+
+<para
+> Skift mellem programmer ved brug af  <keycombo action="simul"
+>&Alt; <keycap
+>Tab</keycap
+></keycombo
+>, &ie; ved at holde &Alt; nede mens man gentagne gange trykker på <keycap
+>Tab</keycap
+> tasten, kan finde sted i &kde; tilstand eller i <acronym
+>CDE</acronym
+> tilstand: i &kde; tilstand ser man en boks på midten af skærmen der viser det aktuelt valgte program mens man stadig holder &Alt; tasten nede. I <acronym
+>CDE</acronym
+> tilstand får man ingen visuel tilbagemelding. </para>
+
+<para
+> Endelig er der en mulighed hvor du kan vælge <guilabel
+>Gå gennem alle vinduer på skrivebordet</guilabel
+> eller ej. Med dette aktiveret, vil skiften af vinduer med <keycombo action="simul"
+> &Alt;<keycap
+>Tab</keycap
+></keycombo
+> vise alle vinduer, på alle skriveborde, og tage dig til det passende skrivebord for det vindue du vælger. Med dette deaktiveret, kan kun vinduer på det aktuelle skrivebord  vælges med <keycombo action="simul"
+> &Alt;<keycap
+>Tab</keycap
+></keycombo
+>, og du skal selv bruge <keycombo action="simul"
+>&Ctrl;<keycap
+>Tab</keycap
+></keycombo
+> for at skifte til andre skriveborde. </para>
+
+</sect3>
+</sect2>
+
+<sect2 id="action-actions">
+<title
+>Handlinger</title>
+
+<!-- The same functionality is in kcmmousebeh, so this is mainly copied from
+kcmmousebeh.docbook, only the introduction sentence and the ids have been
+adapted. -->
+
+<para
+> I dette panel kan man indstille hvad der sker med vinduer når en mus klikkes i dem. Dette panel er opdelt i 4 sektioner. </para>
+
+<sect3 id="action-actions-sec1">
+<title
+><guilabel
+>Titellinie dobbeltklik</guilabel
+></title>
+
+<para
+> Denne sektion giver en enkel dropned boks. Man kan vælge enten <guilabel
+>Skyg</guilabel
+>, eller <guilabel
+>Maksimér</guilabel
+>. </para>
+
+<para
+> Valg af <guilabel
+>Maksimér</guilabel
+>, får &kde; til at maksimere vinduet når du dobbeltklikker på titellinien. <guilabel
+>Skyg</guilabel
+>, på den anden side, får vinduet til at blive reduceret til blot at være titellinien. Dobbeltklik på titellinien igen, gendanner vinduet til dets normale størrelse. </para>
+
+<tip
+> <para
+> Man kan få vinduer til automatisk at afskygge når man simpelthen placerer musen over deres skyggede titellinie. Afkryds blot <guilabel
+>Aktivér svævning</guilabel
+> i <guilabel
+>Avanceret</guilabel
+> fanebladet i dette modul. Dette er en storartet måde at bevare skrivebordsplads når man skærer og indsætter mellem en masse vinduer for eksempel. </para
+> </tip>
+
+</sect3>
+
+<sect3 id="action-actions-sec2">
+<title
+><guilabel
+>Titellinie og ramme</guilabel
+></title>
+
+<para
+> Denne sektion tillader at du bestemmer hvad der sker når du enkeltklikker titellinien eller rammen af et vindue. Bemærk at du kan have forskellige handlinger associeret med det samme klik afhængig af om vinduet er aktivt eller ikke. </para>
+
+<para
+> For hver kombination af museknapper og Aktiv/Inaktiv, kan man vælge det mest passende. Handlingerne er følgende: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Aktivér</guilabel
+></term
+> <listitem
+> <para
+> Gør dette vindue aktivt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Læg nederst</guilabel
+></term
+> <listitem
+> <para
+> Flytter dette vindue til bunden af skærmen. Dette får vinduet af vejen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Intet</guilabel
+></term
+> <listitem
+> <para
+> Nøjagtigt som det siger. Intet sker. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Operationsmenu</guilabel
+></term
+> <listitem
+> <para
+> Får en lille undermenu frem, hvor du kan vælge vinduesrelaterede kommandoer (&ie; Maksimér, Minimér, Luk, &etc;). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Hæv</guilabel
+></term
+> <listitem
+> <para
+> Får vinduet frem for oven på skærmen. Alle andre vinduer der går hen over dette vil være skjulte <quote
+>under</quote
+> det. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Skift mellem hæv og sænk</term
+> <listitem
+> <para
+> Dette vil hæve vinduer der ikke er foroven og sænke vinduer der allerede er foroven. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+
+<sect3 id="action-actions-sec3">
+<title
+><guilabel
+>Inaktivt Indre vindue</guilabel
+></title>
+
+<para
+> Denne del af modulet, tillader dig at indstille hvad der sker, når du klikker på et inaktivt vindue med en af de tre museknapper. </para>
+
+<para
+> Dine valg er følgende: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Aktivér, hæv og send klik videre</guilabel
+></term
+> <listitem
+> <para
+> Dette gør det klikkede vindue aktivt, får det frem foroven på skærmen og giver museklikket videre til programmet indenfor vinduet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktivér og videregiv klik</guilabel
+></term
+> <listitem
+> <para
+> Dette gør det klikkede vindue aktivt og giver museklikket videre til programmet i vinduet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktivér</guilabel
+></term
+> <listitem
+> <para
+> Dette gør simpelthen vinduet aktivt. Museklikket gives ikke videre til programmet i vinduet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aktivér og hæv</guilabel
+></term
+> <listitem
+> <para
+> Dette gør det klikkede vindue aktivt og får det frem foroven på skærmen. Museklikket gives ikke videre til programmet i vinduet. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="action-actions-sec4">
+<title
+><guilabel
+>Indre vindue, titellinie og ramme</guilabel
+></title>
+
+<para
+> Denne bundsektion, tillader dig at indstille yderligere handlinger, når &Alt; tasten er nede, og et museklik udføres i et vindue. </para>
+
+<para
+> Man kan igen vælge forskellige handlinger for <mousebutton
+>Venstre</mousebutton
+>, <mousebutton
+>Midterste</mousebutton
+> og <mousebutton
+>Højre</mousebutton
+> klik. </para>
+
+<para
+>Dine valg er:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Læg nederst</guilabel
+></term
+> <listitem
+> <para
+> Flytter dette vindue til bunden af skærmen. Dette får vinduet af vejen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Flyt</guilabel
+></term
+> <listitem
+> <para
+> Tillader dig at trække det valgte vindue rundt på skrivebordet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Intet</guilabel
+></term
+> <listitem
+> <para
+> Nøjagtigt som det siger. Intet sker. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Hæv</guilabel
+></term
+> <listitem
+> <para
+> Får vinduet frem for oven på skærmen. Alle andre vinduer der går hen over dette vil være skjulte <quote
+>under</quote
+> det. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ændr størrelse</guilabel
+></term
+> <listitem
+> <para
+> Tillader dig at ændre størrelse af det valgte vindue. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Skift mellem hæv og sænk</guilabel
+></term
+> <listitem
+> <para
+> Dette vil hæve vinduer der ikke er foroven og sænke vinduer der allerede er foroven. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+</sect2>
+
+<sect2 id="action-advanced">
+<title
+>Avanceret</title>
+
+<para
+> I <guilabel
+>Avanceret</guilabel
+> panelet kan man gøre mere avanceret finindstilling af vinduesopførslen. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Vis indhold i bevægende vinduer</guilabel
+></term
+> <listitem
+> <para
+> Når dette valg er gjort, vil &kde; hele tiden opdatere indholdet  af vinduet mens du flytter det rundt på skærmen. </para
+> <para
+> Hvis dette valg ikke er gjort, vil &kde; vise dig et rektangel, der flytter med din mus. Når du giver slip på musen, vil &kde; genoprette indholdet af vinduet. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vis indhold i vinduer der ændrer størrelse</guilabel
+></term
+> <listitem
+> <para
+> Når dette valg er gjort, vil &kde; ændre størrelse på indholdet af et  vindue mens du ændrer dets størrelse. Hvis det ikke er valgt, vil &kde; vise et rektangel mens du ændrer størrelse, og når du giver slip på museknappen, vil indholdet få ændret størrelse og vise sig i  vinduet. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<tip
+> <para
+> Både <guilabel
+>Vis indhold i bevægende vinduer</guilabel
+> og <guilabel
+>Vis indhold i vinduer der ændrer størrelse</guilabel
+> , forbruger langt flere processor ressourcer når de er aktiverede end når de ikke er. Hvis du finder at din computer ikke er reagerer så hurtigt som du kunne ønske dig, når du flytter vinduer eller ændrer størrelse, så vil deaktivering af disse egenskaber forbedre hvor hurtigt &kde; reagerer. </para
+> </tip>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Animer minimering og gendannelse</guilabel
+></term
+> <listitem
+> <para
+> Hvis dette valg er gjort, vil en animering blive vist når et vindue bliver minimeret eller gendannet, for at give dig et visuelt indtryk af  hvad der sker. Hvis det ikke er valgt vil et minimeret vindue blot  forsvinde og et gendannet vil pludselig komme til syne. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Tillad flytning ag ændring af størrelse af maksimerede vinduer</guilabel
+></term
+> <listitem
+> <para
+> Når det er aktiveret vil kanterne på maksimerede vinduer forblive aktive, så du kan stadig flytte dem rundt eller ændre størrelse på dem. Når det er , vil maksimerede vinduer sidde <quote
+>fast til skærmkanterne</quote
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Placering</guilabel
+></term
+> <listitem
+> <para
+> Placeringspolitikken afgør hvor et nyt vindue kommer frem på  skrivebordet. For øjeblikket er der tre forskellige politikker: <guilabel
+>Smart</guilabel
+> vil forsøge at vinduerne dækker minimalt for hinanden. <guilabel
+>Kaskade</guilabel
+> vil sætte  vinduerne i en kaskade, <guilabel
+>Tilfældig</guilabel
+> vil bruge en tilfældig placering. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Skygning</title
+> <varlistentry
+> <term
+><guilabel
+>Animér</guilabel
+></term
+> <listitem
+> <para
+>Hvis dette er aktiveret så vil skygning, dette at rulle et vindue op så kun titellinien ses, blive animeret.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Skyggesvæv</guilabel
+></term
+> <listitem
+> <para
+> Hvis dette valg er aktiveret vil et skygget vindue blive ikke-skygget automatisk når musemarkøren har været over titellinien et stykke tid. Brug glideren for at indstille den tid det tager at afskygge. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Magiske kanter</title
+> <varlistentry
+> <term
+><guilabel
+>Kant magnetisk zone</guilabel
+></term
+> <listitem
+> <para
+>De magiske kanter tillader dig at <quote
+>trække</quote
+> vinduer til kanten af skærmen og til hinanden som en magnet. Denne indstilling afgør hvor tæt i piksler man skal være fra kanten af skærmen, for at det skal trækkes hen til kanten når du giver slip på musen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vindues magnetisk zone</guilabel
+></term
+> <listitem
+> <para
+>Som med kanter afgør denne indstilling, hvor tæt du skal trække et vindue hen mod et andet, før det trækkes hen så de to vinduer ligger helt tæt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Magnetiske vinduer kun ved overdækning</guilabel
+></term
+> <listitem
+> <para
+>Denne indstilling ændrer det tidligere punkt, så det kun er vinduer som du giver slip på så de overdækker hinanden lidt, og med kanten inden for den magiske zone, der bliver trukket hen så kanterne passer. Hvis du slår dette til, kan du sætte den magiske zone til at være temmelig stor, hvilket vil få overdækkende vinduer til at forsøge at være ved siden af hinanden. Det kan også være temmelig irriterende, så prøv dig frem.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="action-author">
+<title
+>Sektionsforfatter</title>
+
+<para
+>Denne sektion er skrevet af: </para>
+<para
+>Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+<para
+>Jost Schenck <email
+>jost@schenck.de</email
+></para>
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+</sect2>
+</sect1>
+
+

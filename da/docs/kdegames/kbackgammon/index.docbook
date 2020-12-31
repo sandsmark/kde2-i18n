@@ -1,0 +1,838 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kbackgammon;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Danish "INCLUDE" 
+> <!-- change language only here -->
+  
+   
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>&kbackgammon; håndbog</title>
+    
+<authorgroup>
+<author
+> <firstname
+>Jens</firstname
+> <surname
+>Hoefkens</surname
+> <affiliation
+><address
+><email
+>jens@hoefkens.com</email
+></address
+></affiliation
+> </author>
+      
+<othercredit role="developer">
+<firstname
+>Bo</firstname>
+<surname
+>Thorsen</surname>
+<affiliation
+><address
+><email
+>gobo@imada.sdu.dk</email
+></address
+></affiliation>
+<contrib
+>Udvikler</contrib>
+</othercredit>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+    
+<copyright>
+<year
+>1999</year
+><year
+>2000</year>
+<holder
+>Jens Hoefkens</holder>
+</copyright>
+    
+<legalnotice
+>&FDLNotice;</legalnotice>
+    
+<date
+>2000-12-22</date>
+<releaseinfo
+>1.96.01</releaseinfo>
+    
+<abstract>
+<para
+>&kbackgammon; er et grafisk backgammon program for &kde;. Det understøtter backgammon spil med andre spillere, spil mod computermaskiner såsom &GNU; <application
+>bg</application
+> og selv netspil såsom <ulink url="http://www.fibs.com/"
+>Første Internet Backgammon Server</ulink
+>.</para>
+</abstract>
+    
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>spil</keyword>
+<keyword
+>backgammon</keyword>
+<keyword
+>FIBS</keyword>
+<keyword
+>gnubg</keyword>
+</keywordset>
+    
+</bookinfo>
+  
+  <chapter id="introduction">
+    <title
+>Indledning</title>
+    
+    <para
+>&kbackgammon; er et grafisk backgammon program. Formålet i backgammon er at flytte dine sten af brættet før din modstander gør det. Reglerne for backgammon er rigtignok en smule vanskelige (den sværeste del er tilsyneladende startopstillingen af stenene), men dette dokument vil ikke forsøge at undervise i disse regler: Kig venligst på nettet, en bog, eller (allerhelst) få en ven til at lære dig det.</para>
+
+    <para
+>&kbackgammon; tilbyder et grafisk backgammon bræt, der kan bruges næsten fuldstændigt ved brug af musen (selvom tekst kommandoer også kan bruges og det skulle være muligt at spille backgammon helt uden musen også). Derfor er &kbackgammon; nem at bruge og det tillader dig at koncentrere dig om de vigtige  aspekter af at spille backgammon.</para>
+
+    <para
+>For at spille backgammon, har man normalt brug for en modstander. &kbackgammon; tilbyder dig at spille mod hundredvis af forskellige modstandere af forskellig styrke på <ulink url="http://www.fibs.com/"
+>Første Internet Backgammon Server</ulink
+>. Hvis du foretrækker det, kan du også bruge <link linkend="engine-offline"
+>Lokal maskinen</link
+> der lader dig spille mod dig selv, eller venner der er sammen med dig ved din computer.</para>
+
+    <para
+>I den nære fremtid vil &kbackgammon; lade dig spille mod <link linkend="engine-gnubg"
+>&GNU; Backgammon</link
+>, der er et godt backgammon program der sædvanligvis kører med en grafisk front. Det spiller på <acronym
+>FIBS</acronym
+> på et niveau omkring 2000 (som er temmelig højt).</para>
+
+    <para
+>Derudover er der planer, der vil tillade spil over internet mellem to &kbackgammon; programmer (og deres respektive brugere). Endelig, så er arkitekturen for &kbackgammon; helt åben, og det er nemt at inkludere støtte for andre maskiner (hvis du er interesseret, så tag kontakt til forfatteren).</para>
+
+  </chapter>
+
+  <chapter id="use-the-board">
+    <title
+>Hvordan man bruger brættet</title>
+
+    <para
+>&kbackgammon; er centreret omkring et grafisk backgammon bræt. Dette bræt består af stenene, terningen, og kuben. Alle disse spil elementer kan manipuleres med musen på en nem måde.</para>
+
+    <para
+>Det  følgende billede viser en typisk spil situation, hvor den hvide spiller flytter fra 1 til 24 og den sorte spiller flytter fra 24 til 1. Den hvide spiller ejer for øjeblikket kuben og har netop rullet 3 og 4.</para>
+
+    <screenshot
+> <screeninfo
+>Backgammon brættet</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="board.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Brættet</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+    <para
+>En spiller der har tur, kan rulle terningen ved at dobbeltklikke på de firkanter der repræsenterer terningen eller ved at bruge den tilsvarende menuindgang eller værktøjslinieikon (hvis værktøjslinien er synlig og rulning er inkluderet i værktøjslinien).</para>
+
+    <para
+>En spiller der ejer kuben kan doble kuben, enten ved at dobbelklikke på den firkant der repræsenterer kuben, eller ved at vælge den tilsvarende menuindgang eller værktøjslinieikon (hvis værktøjslinine er synlig og kuben er inkluderet i værktøjslinien).</para>
+
+    <para
+>En spiller hvis tur det er, kan flytte brikkerne ved at  klikke på dem og flytte musemarkøren hen til det ønskede sted (mens museknappen samtidigt holdes nede). Dette kaldes at trække en brik. Afhængig af valget der er truffet i den aktuelle <link linkend="engines"
+>maskines</link
+> <link linkend="prefs"
+>indstilling</link
+>, vil trækket være gjort færdigt når det maksimale antal brikker er flyttede (det vil være mellem to og fire brikker, selvom det sædvanligvisvil være to).</para>
+
+    <para
+>Foruden at trække brikkerne, tilbyder brættet også en "korte træk egenskab". Hvis den er aktiveret i brættets indstillingsmenu, kan brikker flyttes simpelthen ved at klikke på dem. Brættet vil så automatisk flytte dem det kortest mulige stykke fra det deres felt. Hvis "korte træk egenskaben" <link linkend="prefs"
+>er aktiveret</link
+>, kan det være med enkelt eller dobbeltklik. Denne indstilling kan være meget nyttig for brugere med bærbare hvor det sommetider er svært at trække.</para>
+
+    <para
+>Endelig er brættet ikke helt uintelligent: det vil kun acceptere træk der er tilladte (baseret på den aktuelle terning). Selvom <link linkend="engine-offline"
+>ikke på nettet maskinen</link
+> tillader at dette bliver slået fra (i <guilabel
+>Redigeringstilstand</guilabel
+>), er det sædvanligvis meget nyttigt for uerfarne brugere (og avancerede spiller lægger nok ikke mærke til det). Denne egenskab kan også bruges til at fortryde et træk der er i gang. Drop blot brikken et illegalt sted.</para>
+
+  </chapter>
+
+
+  <chapter id="engines">
+    <title
+>Backgammon maskiner</title>
+    
+    <para
+>&kbackgammon; er bygget omkring backgammon brættet, der ikke ved noget om at spille backgammon. Hele infrastrukturen (rulning af terningen, osv.) der tillader backgammonspil håndteres af backgammon maskiner.</para>
+    
+    <sect1 id="engine-offline">
+      <title
+>Den lokale maskine</title>
+      
+      <para
+>Nogle ord om den lokale maskine</para>
+
+    </sect1>
+    
+    <sect1 id="engine-FIBS">
+      <title
+><acronym
+>FIBS</acronym
+> maskinen</title>
+      
+      <para
+>Nogle ord om <acronym
+>FIBS</acronym
+> maskinen</para>
+      
+    </sect1>
+    
+    <sect1 id="engine-gnubg">
+      <title
+>&GNU; Backgammon maskinen</title>
+      
+      <para
+>GNUbg maskinen eksisterer ikke endnu (på trods af den allerede har en indgang i <guilabel
+>Maskiner</guilabel
+> menuen). Derfor skal resten af dette kapitel tages med et gran salt.</para>
+      
+      <para
+>Brug af GNUbg maskinen kræver en fungerende installation af det egentlige GNUbg program. &kbackgammon; starter så GNUbg i  baggrunden og kommunikerer med det. Alt dette er usynligt for brugeren (altså skjult for brugeren) og al interaktion med GNUbg er gennem GUI elementer i &kbackgammon;.</para>
+
+      <para
+>Hvis der er andre forbedriger der kan hjælpe brugen af GNUbg fra &kbackgammon;, så kontakt venligst forfatteren af &kbackgammon; (eller endnu bedre send en patch). Nogle af de mere avancerede egenskaber vil formodentlig være stillingsanalyser og gem/genopret funktioner. Selve spillet er imidlertid det vigtigste for øjeblikket.</para>
+
+      <para
+>Én ting der aldrig vil ske, er en kombination af GNUbg og FIBS maskinen! At bruge computer programmer for at forbedre sit niveau er snyd!</para>
+
+    </sect1>
+    
+  </chapter>
+  
+  <chapter id="prefs">
+    <title
+>Spilindstillinger</title>
+    
+    <para
+>Indstillinger for &kbackgammon; sættes ved at vælge <menuchoice
+> <guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Indstillinger</guimenuitem
+> </menuchoice
+> fra menulinien. Dette vil bringe en dialogboks frem.</para>
+    
+  </chapter>
+  
+  <chapter id="command">
+    <title
+>Kommandoer/Tastaturgenveje</title>
+    
+    <para
+>De følgende sektioner beskriver kort hver indstilling i menulinien.</para>
+    
+    <sect1 id="file-menu">
+      <title
+><guimenu
+>Fil</guimenu
+>menu</title>
+      
+      <para
+>Information manglende...</para>
+      
+    </sect1>
+    
+    <sect1 id="engines-menu">
+      <title
+><guimenu
+>Maskiner</guimenu
+> menu</title>
+      
+      <para
+>Information manglende...</para>
+      
+    </sect1>
+    
+    <sect1 id="play-menu">
+      <title
+><guimenu
+>Spil</guimenu
+>menu</title>
+      
+      <para
+>Information manglende...</para>
+      
+    </sect1>
+    
+    <sect1 id="settings-menu">
+      <title
+><guimenu
+>Opsætnings</guimenu
+>menu</title>
+      
+      <para
+>Information manglende...</para>
+      
+    </sect1>
+    
+    <sect1 id="help-menu">
+      <title
+><guimenu
+>Hjælp</guimenu
+>menu</title>
+      
+      <variablelist
+> <varlistentry
+> <term
+><anchor id="contents"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndhold</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Dette starter &kde;'s  hjælp system startende med &kbackgammon; hjælpesiderne (dette dokument).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="bug"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Hvad er <accel
+>d</accel
+>ette?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Dette ændrer musemarkøren til en kombination af en pil og et spørgsmålstegn Ved at klikke på ting indenfor &kbackgammon; med denne pil vil et hjælpevindue blive åbnet (hvis der findes et for dette punkt) der forklarer vedkommendes funktion.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="whats-this"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+><accel
+>R</accel
+>apportér problem...</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Hvis du har en god idé for næste version af spillet, eller programmet bryder sammen for dig, så kan du vælge denne mulighed for at sende en problemrapport til forfatteren</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kbackgammon"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Om <accel
+>K</accel
+>Backgammon</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette viser version og forfatter information</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kde"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette viser  &kde; versionen og anden basal information.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+
+
+<sect1 id="keys"
+><title
+>Standard tastebindinger</title>
+
+<para
+>Følgende tabeller viser standard tastebindinger for &kbackgammon;.</para>
+
+
+<table>
+<title
+>Tastebindinger</title>
+<tgroup cols="2">
+<thead
+><row
+><entry
+>Tastekombination</entry
+><entry
+>Handling</entry
+></row
+></thead>
+<tbody
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+></entry
+><entry
+>Udskriv spil</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></entry
+><entry
+>Afslut &kbackgammon;</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Hjælp indholds</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></entry
+><entry
+>Hvad er dette hjælp</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Fortryd sidste træk</entry
+></row
+> <row
+><entry
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+></entry
+><entry
+>Omgør tidligere fortrudte træk</entry
+></row
+> </tbody>
+</tgroup>
+</table>
+
+<para
+>Disse tastebindiger kan ændres ved at vælge  <menuchoice
+> <guimenu
+>Opsætning</guimenu
+> <guimenuitem
+>Indstil tastebindinger</guimenuitem
+> </menuchoice
+> fra menulinien.</para>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Medvirkende og licens</title>
+ 
+<para
+>&kbackgammon;</para>
+
+<para
+>Program ophavsret 1999-2000 Jens Hoefkens <email
+>jens@hoefkens.com</email
+></para>
+
+<para
+>Dokumentation ophavsret 2000 Jens Hoefkens <email
+>jens@hoefkens.com</email
+></para>
+
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter
+>                  
+
+<appendix id="installation">
+<title
+>Installation</title>
+ 
+<sect1 id="getting-kapp"
+><title
+>Hvordan får man fat på &kbackgammon;</title>
+ 
+<para
+>&kbackgammon; er en del af &kde; projektet <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kbackgammon; findes i kdegames pakken på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, som er hoved &FTP;-stedet for &kde; projektet.</para>
+
+<para
+>Hjemmesiden for &kbackgammon; er på <ulink url="http://backgammon.sourceforge.net/"
+>http://backgammon.sourceforge.net</ulink
+>. Den vil sædvanligvis indeholde den bedst opdaterede information om programmet.</para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilering og installation</title>
+ 
+<para
+>For at kompilere og installere &kbackgammon; på dit system, skal du skrive følgende i basismappen for &kde; distributionen:</para>
+
+<screen width="40">
+  <prompt
+>%</prompt
+> <userinput
+><command
+>cd</command
+> <replaceable
+>kdegames</replaceable
+></userinput>
+  <prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+  <prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+  <prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>Da &kbackgammon;  bruger <application
+>autoconf</application
+> og <application
+>automake</application
+> skulle det ikke give problemer at kompilere den. Hvis du løber ind i problemer, så rapportér dem venligst til &kde; listerne.</para>
+ 
+</sect1
+>         
+
+</appendix>
+
+    <!-- <screenshot
+> -->
+    <!--   <screeninfo
+>&kbackgammon; Preferences</screeninfo
+> -->
+    <!--   <mediaobject
+> -->
+    <!--   <imageobject
+><imagedata fileref="kbackgammon2.png" format="PNG"/></imageobject
+> -->
+    <!-- </mediaobject
+> -->
+    <!-- </screenshot
+>   -->
+    
+    <!-- <para
+>This dialog box is divided into two tabs.</para
+> -->
+    
+    <!-- <variablelist
+> -->
+    <!-- <varlistentry
+> -->
+    <!-- <term
+><guilabel
+>Main settings</guilabel
+></term
+> -->
+<!-- <listitem
+><para
+>The top option, entitled <guilabel
+>case size</guilabel
+>, -->
+<!-- determines the size of each of the squares in the playing area.  By default, -->
+<!-- they are set small.  You can increase the size, if you are working on a very -->
+<!-- high resolution monitor.</para
+>  -->
+
+<!-- <para
+>The next option down, labelled <guilabel
+>Enable ? Mark</guilabel
+>, -->
+<!-- determines whether you can mark squares as <quote
+>questionable</quote
+>.  If -->
+<!-- there is a mark in front of this option, then right clicking the mouse will -->
+<!-- first cause a case to be flaged. If you click again on the same square, the flag -->
+<!-- will change to a <guiicon
+>?</guiicon
+>, to indicate you don't know if there is a -->
+<!-- bomb there or not.  If you click again, the square will change back to -->
+<!-- blank.</para
+> -->
+
+<!-- <para
+>If there is not a mark in front of this option, the first -->
+<!-- <mousebutton
+>right</mousebutton
+> mouse click will change the case to a red flag. -->
+<!-- The second will make it blank again, thus skipping the ? symbol.</para
+> -->
+
+<!-- <para
+>The next option down, labelled <guilabel
+>Enable keyboard</guilabel
+>, -->
+<!-- determins if the keyboard shortcuts will work while playing the game.</para
+> -->
+
+<!-- <note
+><para
+>The only keyboard shortcuts affected, are those responsible for -->
+<!-- playing the game.  Keyboard commands such as <guimenuitem
+>New -->
+<!-- Game</guimenuitem
+>, and <guimenuitem
+>Quit</guimenuitem
+>, still -->
+<!-- work, regardless of this option.</para
+></note
+> -->
+
+<!-- <para
+>The last section of this tab, allows you to change the action of each of -->
+<!-- the three mouse buttons.  Your options are:</para
+> -->
+
+<!-- <variablelist
+> -->
+<!-- <varlistentry
+> -->
+<!-- <term
+>Reveal</term
+> -->
+<!-- <listitem
+><para
+>This will reveal the contents of the case.  If there is no bomb, -->
+<!-- then a number will appear.  If there is a bomb under that case, then the bomb -->
+<!-- will explode, and the game will be over.</para
+></listitem
+> -->
+<!-- </varlistentry
+> -->
+<!-- <varlistentry
+> -->
+<!-- <term
+>Toggle Mark</term
+> -->
+<!-- <listitem
+><para
+>Clicking with this button on a case, will mark/unmark with a red -->
+<!-- flag.</para
+></listitem
+> -->
+<!-- </varlistentry
+> -->
+<!-- <varlistentry
+> -->
+<!-- <term
+>Autoreveal</term
+> -->
+<!-- <listitem
+><para
+>Clicking on a case with this button, will automatically reveal -->
+<!-- all neighboring cases, that are not marked with red flags.  If one of those -->
+<!-- neighboring cases has a bomb under it, the bomb will explode, and the game will -->
+<!-- be over.</para
+></listitem
+> -->
+<!-- </varlistentry
+> -->
+<!-- <varlistentry
+> -->
+<!-- <term
+>Toggle ? Mark</term
+> -->
+<!-- <listitem
+><para
+>Clicking with this button on a case, will mark/unmark with a -->
+<!-- question mark.</para
+></listitem
+> -->
+<!-- </varlistentry
+> -->
+<!-- </variablelist
+> -->
+<!-- </listitem
+> -->
+<!-- </varlistentry
+> -->
+<!-- <varlistentry
+> -->
+<!-- <term
+><guilabel
+>Color Settings</guilabel
+></term
+> -->
+<!-- <listitem
+><para
+>This dialog box will allow you to adjust the color of the kbackgammon -->
+<!-- screen.  To adjust, simply click the color button beside each description, and -->
+<!-- select the new color.</para
+></listitem
+> -->
+<!-- </varlistentry
+> -->
+<!-- <varlistentry
+> -->
+<!-- <term
+>Saving your changes</term
+> -->
+<!-- <listitem
+><para
+>Once your changes are complete, click -->
+<!-- "<guibutton
+>OK</guibutton
+>" to make them permenant.</para
+> -->
+<!-- <para
+>If you want to abandon your changes, click "<guibutton
+>Cancel</guibutton
+>" -->
+<!-- to abort the changes.</para
+> -->
+<!-- <para
+>If you click on "<guilabel
+>Default</guilabel
+>", the default settings will -->
+<!-- be restored.  Click "<guilabel
+>OK</guilabel
+>" to make these default changes -->
+<!-- permenant, or edit the settings some more.</para
+> -->
+<!-- </listitem
+> -->
+<!-- </varlistentry
+> -->
+<!-- </variablelist
+> -->
+
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+

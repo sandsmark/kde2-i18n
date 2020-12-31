@@ -1,0 +1,1006 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kreversi;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &kreversi;-Handbuch</title>
+
+<authorgroup>
+
+<author
+> <firstname
+>Clay</firstname
+> <surname
+>Pradarits</surname
+> <affiliation
+> <address
+><email
+>gasky@winfire.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Mario</firstname>
+<surname
+>Weilguni</surname>
+<affiliation>
+<address
+><email
+>mweilguni@sime.com</email
+></address
+></affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<contrib
+>Korrektur</contrib>
+<affiliation
+><address
+><email>
+vampyr@atconnex.net
+</email
+></address
+></affiliation>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Maren</firstname
+><surname
+>Pakura</surname
+><affiliation
+><address
+><email
+>maren@kde.org</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+
+</authorgroup>
+
+<date
+>2000-12-16</date>
+<releaseinfo
+>1.02.01</releaseinfo>
+
+<abstract
+><para
+>&kreversi; ist ein einfaches Strategiespiel für einen Spieler.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>Spiel</keyword>
+<keyword
+>KReversi</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Einleitung</title>
+
+<sect1 id="what-is-kreversi">
+<title
+>Was ist &kreversi;?</title>
+
+<para
+>&kreversi; ist ein einfaches Strategiespiel für einen Spieler, der gegen den Computer spielt. Das Spielfeld ist ein 8 mal 8 großes Quadrat, das in 64 Quadrate aufgeteilt ist. Es gibt nur eine Spielsteinart - die eine Seite ist rot, die andere blau. Falls ein Spieler einen gegnerischen Stein auf dem Brett erobert, wird dieser umgedreht und gehört diesem Spieler. Gewonnen hat, wer am meisten Steine seiner Farbe auf dem Brett hat, nachdem kein weiterer Stein mehr gesetzt werden kann.</para>
+
+</sect1>
+
+<sect1 id="object-of-the-game">
+<title
+>Ziel des Spiels</title>
+
+<para
+>Das Ziel ist es, bei Spielende die meisten Steine auf dem Spielbrett zu besitzen.</para>
+
+</sect1>
+</chapter>
+
+
+
+<chapter id="Playing">
+<title
+>Der Spielablauf</title>
+
+<sect1 id="basics"
+>                 
+<title
+>Grundlagen</title>
+
+<para
+>Ein Zug besteht darin, Spielsteine des Gegners "einzuschließen", die dann umgedreht werden und daraufhin die Farbe des Spielers zeigen. Ein Zug wird ausgeführt, indem mit der Maus an die Stelle geklickt wird, an die der neue Stein gelegt werden soll.</para
+> 
+
+<para
+>Einschließen heißt, einen Stein so auf das Brett zu setzen, dass nach dem Setzen eine Reihe (oder Reihen) der Spielsteine des Gegners an beiden Enden von Steinen des Spielers begrenzt wird. Eine Reihe kann waagerecht, senkrecht oder diagonal sein.</para>
+
+<para
+>Zu Beginn des Spiels hat jeder Spieler zwei Steine, die in der Mitte des Spielfeldes folgendermaßen angeordnet sind:</para>
+
+<screenshot
+> <screeninfo
+>Ausgangsposition bei &kreversi;</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="kreversi1.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Ausgangsposition bei &kreversi;</phrase
+></textobject
+> <caption
+><para
+>Spielfeldaufbau</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Menüleiste</interface
+></term
+> <listitem
+><para
+>Die <interface
+>Menü-Leiste</interface
+> enthält vier Menüpunkte. Das sind <link linkend="file-menu"
+>Datei</link
+>, <link linkend="game-menu"
+>Spiel</link
+>, <link linkend="settings-menu"
+>Einstellungen</link
+> und <link linkend="help-menu"
+>Hilfe</link
+>. Klicken Sie darauf oder drücken Sie <keycombo action="simul"
+><keycap
+>Alt</keycap
+><keycap
+>der unterstrichene Buchstabe</keycap
+></keycombo
+>, um in das entsprechende Menü zu gelangen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Werkzeugleisten-Menü</interface
+></term
+> <listitem
+><para
+>Bietet dem Spieler Symbole für häufig gebrauchte Tastenkombinationen und Aktionen an. Das sind <guiicon
+>Zugberechnung abbrechen</guiicon
+>, <guiicon
+>Zug zurücknehmen</guiicon
+>, <guiicon
+>Spielfeld verkleinern</guiicon
+>, <guiicon
+>Spielfeld vergrößern</guiicon
+>, <guiicon
+>Zug vorschlagen </guiicon
+> und <guiicon
+>Hilfe</guiicon
+>. Klicken Sie mit der rechten Maustaste auf ein Symbol, um es zu aktivieren.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Spielfeld</interface
+></term
+> <listitem
+><para
+>Das Spielfeld ist ein 8 mal 8 großes Quadrat, das in 64 Quadrate aufgeteilt ist. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Statusleiste</interface
+></term
+> <listitem
+><para
+>Die Statusleiste enthält die folgenden nützlichen Informationen: Wer am Zug ist, Wer welche Farbe spielt und Wieviele Spielsteine jeder Spieler hat.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="Rules">
+<title
+>Spielregeln</title>
+
+<para
+>Blau beginnt immer das Spiel.</para>
+
+<para
+>Falls Sie, wenn Sie dran sind, jedoch keinen einzigen gegnerischen Stein einschließen können, müssen Sie aussetzen, und der Gegner ist wieder dran. Falls ein Zug jedoch möglich ist, dürfen Sie nicht aussetzen.</para>
+
+<para
+>Ein Stein kann beliebig viele Spielsteine in einer oder mehreren Reihen in beliebiger Richtung einschließen - waagrecht, senkrecht oder diagonal. (Eine Reihe ist definiert als ein oder mehrere Spielsteine in einer durchgehenden geraden Linie) </para>
+
+<para
+>Sie dürfen nicht Ihre eigenen Steine mit einschließen, um die gegnerischen Steine zu erhalten.</para>
+
+<para
+>Steine können nur durch den gesetzten Stein selbst eingeschlossen werden und müssen in einer Reihe mit diesem liegen.</para>
+
+<para
+>Alle eingeschlossenen Steine müssen umgedreht werden, auch wenn der Spieler einen Vorteil davon hätte, einige nicht umzudrehen.</para>
+
+<para
+>Nachdem ein Stein auf ein Feld gesetzt wurde, kann er im Verlauf des Spieles auf kein anderes mehr gesetzt werden.</para>
+
+<para
+>Wenn keiner der Spieler mehr einen Zug machen kann, ist das Spiel beendet. Die Steine werden gezählt, und der Spieler, der am meisten Steine seiner Farbe auf dem Brett hat, gewinnt das Spiel.</para>
+
+<note
+><para
+>Hinweis: Es ist möglich, dass ein Spiel endet, bevor alle 64 Felder besetzt sind.</para
+></note>
+
+</sect1>
+
+<sect1 id="tips">
+<title
+>Strategiehinweise</title>
+
+<para
+>Versuchen Sie, die Steine nach Möglichkeit in die Ecken zu platzieren. Ihr Gegner kann diese Steine dann nicht einschließen.</para>
+
+<para
+>Vermeiden Sie es, die Steine in eines der drei den Ecken benachbarte Felder zu setzen, außer Sie sind sicher, dass Ihr Gegner nicht in der Lage ist, einen Stein in die Ecke zu setzen.</para>
+
+<para
+>Manchmal ist es sinnvoll, einige Steine dem Gegner anzubieten.</para>
+
+<para
+>Versuchen Sie, die Steine so auf das Brett zu setzen, dass der Gegner keinen Zug mehr machen kann.</para>
+
+<para
+>Versuchen Sie, Ihren Gegner zu zwingen, einen Stein in ein Feld neben einer Spielbrettecke zu setzen.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="user-interface">
+<title
+>Benutzerschnittstelle</title>
+
+<sect1 id="file-menu">
+<title
+>Das <guimenu
+>Datei</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+><guimenuitem
+><accel
+>N</accel
+>eues Spiel</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Startet ein neues Spiel.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>L</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+><guimenuitem
+>Spiel <accel
+>l</accel
+>aden</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Lädt ein gespeichertes Spiel.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+><guimenuitem
+>Spiel <accel
+>s</accel
+>peichern</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert das aktuelle Spiel.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+><guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Beendet</action
+> &kreversi;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="game-menu">
+<title
+>Das <guimenu
+>Spiel</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>piel</guimenu
+><guimenuitem
+>Zug <accel
+>v</accel
+>orschlagen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt Ihnen einen Vorschlag des Computers an.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>Esc</keycap
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+><guimenuitem
+>Zugberechnung <accel
+>a</accel
+>bbrechen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Stoppt die Tiefensuche des Rechners und Sie können den nächsten Zug des Computers setzen.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>piel</guimenu
+><guimenuitem
+>Zugberechnung <accel
+>f</accel
+>ortsetzen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Setzt das Spiel fort.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>U</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>piel</guimenu
+> <guimenuitem
+>Zug <accel
+>z</accel
+>urücknehmen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Macht Ihren letzten Zug und auch den letzten Zug des Computers rückgängig.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>piel</guimenu
+><guimenuitem
+><accel
+>S</accel
+>eiten wechseln</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Sie wechseln die Seiten und spielen die andere Farbe.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Spiel</guimenu
+><guimenuitem
+>Bestenliste zeigen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Die Bestenliste mit den Top-Ten erscheint. </action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Menü <guimenu
+>Einstellungen</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>1-7</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+><guisubmenu
+>Spielstärke</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Setzt den Schwierigkeitsgrad</action
+> von <guimenuitem
+>1</guimenuitem
+>, der einfachsten Stufe, bis <guimenuitem
+>7</guimenuitem
+>, der schwersten Stufe. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>1-7</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+><guimenuitem
+>Spielfeld ver<accel
+>k</accel
+>leinern</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Reduziert das Spielfeld um 20 Prozent.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>1-7</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+><guimenuitem
+>Spielfeld ver<accel
+>g</accel
+>rößern</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Vergrößert das Spielfeld um 20 Prozent.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guisubmenu
+>Größe einstellen</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Hier können Sie das Spielfeld verkleinern oder vergrößern.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>H</accel
+>intergrundfarbe...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Hier können Sie die Hintergrundfarbe einstellen.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guisubmenu
+>Hintergrundbild wählen</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Hier können Sie ein Hintergrundbild auswählen.</action
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>raustufen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Die Farbeinstellungen werden auf Graustufen gesetzt.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>nimationen</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Animiert die Steine während der Drehung.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guisubmenu
+>Animationsgeschwindigkeit</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>Hier können Sie die Animationsgeschwindigkeit auswählen, wobei <guimenuitem
+>1</guimenuitem
+> die schnellste und <guimenuitem
+>10</guimenuitem
+> die langsamste Geschwindigkeit ist. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help-menu">
+<title
+><guimenu
+>Hilfe</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nhalt</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Startet das &kde; Hilfesystem mit der &kreversi; Hilfeseite (dieses Dokument).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Umschalt</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+><guimenuitem
+>Was ist <accel
+>d</accel
+>as?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Dies verändert den Mauszeiger zu einer Kombination aus Pfeil und Fragezeichen. Wenn Sie auf ein Element in &kreversi; klicken, öffnet sich ein Hilfefenster für dieses Element (falls die Hilfe dafür existiert). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie Probleme oder Wünsche...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Sendet einen Problembericht an den Autor.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Ü<accel
+>b</accel
+>er KReversi</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Dies wird die Informationen über Versionsnummer und den Autor des Spiels anzeigen.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+><guimenuitem
+>Über <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Gibt Versionsnummer und grundlegende Informationen zu &kde; aus.</action
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>Programm Copyright 1998-2000 Mario Weilguni</para>
+<para
+>Mats Luthman - Entwickler der Bewegungsalgorithmen.</para>
+
+<para
+>Original-Dokumentation von Mario Weilguni</para>
+<para
+>Überarbeitet von Robert Williams</para>
+
+<para
+>Dokumentation neugeschrieben und für KDE 2.0 überarbeitet von Clay Pradarits <email
+>gasky@winfire.com</email
+></para>
+
+<para
+>Deutsche Übersetzung von Maren Pakura <email
+>maren@kde.org</email
+></para>
+
+&underFDL;
+&underGPL;
+</chapter>
+
+<appendix id="Installation">
+<title
+>Installation</title>
+
+<para
+>&kreversi; ist Teil des KDE-Projekts <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kreversi; befindet sich im kdegames-Paket unter <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, der KDE-Haupt-FTP-Seite. </para>
+
+<sect1 id="compilation-and-installation">
+<title
+>Übersetzung und Installation</title>
+
+<para
+>Um &kreversi; auf ihrem System zu übersetzen und zu installieren, schreiben Sie das folgende in das Hauptverzeichnis in der KDE-Distribution: </para>
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput
+></screen>
+
+<para
+>Da &kreversi; <application
+>autoconf</application
+> und <application
+>automake</application
+> benutzt, sollten Sie keine Probleme haben, es zu übersetzen. Wenn Sie doch Probleme finden, schreiben Sie bitte an die &kde; Mailing-Liste.</para>
+ 
+</sect1>
+</appendix>
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+
+
+
+
+
+
+
+

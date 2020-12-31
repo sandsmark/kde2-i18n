@@ -1,0 +1,514 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmix;">
+  <!ENTITY % Russian "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Справочник по &kmix;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Matt</firstname
+> <surname
+>Johnston</surname
+> <affiliation
+> <address
+><email
+>mattj@flashmail.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Stefan</firstname>
+<surname
+>Schimanski</surname>
+<affiliation
+><address
+><email
+>1Stein@gmx.de</email
+></address
+></affiliation>
+<contrib
+>Разработчик</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Редактор</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Григорий</firstname
+><surname
+>Мохин</surname
+><affiliation
+><address
+><email
+>mok@kde.ru</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>1999</year
+><year
+>2000</year>
+<holder
+>Matt Johnston &amp; Christian Esken</holder>
+</copyright>
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-09-11</date>
+<releaseinfo
+>1.03.00</releaseinfo>
+
+<abstract
+><para
+>&kmix; - это программа, с помощью которой вы можете регулировать громкость звуковой платы.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KMix</keyword>
+<keyword
+>kdemultimedia</keyword>
+<keyword
+>sound</keyword>
+<keyword
+>volume</keyword>
+<keyword
+>mixer</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Введение</title>
+
+<para
+>&kmix; - это микшер для звуковых плат, входящий в состав KDE. Это маленькая, но полнофункциональная утилита, позволяющая управлять всеми вашими звуковыми платами.</para>
+
+<para
+>&kmix; поддерживает различные платформы и драйверы. Версия 1.9 работает с:</para>
+
+<itemizedlist
+> <listitem
+><para
+> всеми платформами Open Sound System, что было проверено на Linux, FreeBSD, NetBSD и BSDI.</para
+></listitem
+> <listitem
+><para
+> Solaris.</para
+></listitem
+> <listitem
+><para
+> IRIX.</para
+></listitem
+> <listitem
+><para
+> Звуковыми драйверами ALSA.</para
+></listitem
+> <listitem
+><para
+> HP-UX.</para
+></listitem
+> </itemizedlist>
+
+</chapter>
+
+<chapter id="working-with-kmix">
+<title
+>Как работать с &kmix;</title>
+
+<para
+>Использовать &kmix; очень просто. Каждое устройство микшера, найденное на звуковой плате, представлено ползунком - регулятором громкости. Устройства моно имеют один ползунок, стерео - один или два, как вы сами пожелаете. Дополнительно к этому есть регулятор баланса внизу окна &kmix;. Если у вас несколько звуковых плат, каждая из них отображается на отдельной вкладке.</para>
+
+<sect1 id="volume-sliders">
+<title
+>Регуляторы громкости.</title>
+
+<para
+>У ползунков - регуляторов громкости - есть контекстное меню, выпадающее при нажатии правой кнопкой мыши. Всего есть три пункта меню, но из них показываются только те, которые можно выбрать</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Звук выключен</guilabel
+></term
+> <listitem
+><para
+>Отключить или включить устройство.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Разделить каналы</guilabel
+></term
+> <listitem
+><para
+>Показать один или оба ползунка. Применимо только для стерео-устройств. Правый ползунок регулирует правый канал, левый - левый.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Выбрать канал записи</guilabel
+></term
+> <listitem
+><para
+>Установить данный канал как источник записи. Применимо только для устройств, позволяющих вести через них запись. Это можно также сделать, нажав красную кнопку ниже ползунка (если она имеется).</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="panning-slider">
+<title
+>Регулятор баланса</title>
+
+<para
+>С помощью этого ползунка вы можете регулировать баланс громкости между левым и правым каналом. Этот регулятор действует на все стерео-устройства одновременно (моно-устройства игнорируются). По умолчанию ползунок располагается посередине. Перемещение ползунка влево снижает громкость правого канала, вправо -- левого. Конечно, это можно изменить, если у вас перепутаны сами колонки.</para
+> 
+
+</sect1>
+
+<sect1 id="configuration-options">
+<title
+>Общие настройки</title>
+
+<para
+>Если иконка &kmix; встроена в панель, нажав на ней правой кнопкой, вы можете настроить микшер. В меню есть следующие пункты:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Встроить в панель</guilabel
+></term
+> <listitem
+><para
+>запускать в виде иконки, встроенной в панель</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>При закрытии свертывать окно, но не выходить из KMix</guilabel
+></term
+> <listitem
+><para
+>При нажатии этой кнопки будет закрываться окно, но &kmix; остается не закрытым, а встроенным в панель.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Показать деления шкалы</guilabel
+></term
+> <listitem
+><para
+>Показывает штрихи на шкале регулятора.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Показать названия каналов</guilabel
+></term
+> <listitem
+><para
+>Показать названия каждого из устройств звуковой платы. Включен этот флажок или нет, наведя курсор на иконку устройства, вы увидите его название.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+
+</chapter>
+
+<chapter id="control-panel">
+<title
+>Настройки <application
+>Центра управления</application
+></title>
+
+<sect1 id="config-opt">
+<title
+>Общие настройки</title>
+
+<para
+>Параметры &kmix; можно настроить в <application
+>Центре управления KDE</application
+>, в модуле <guimenu
+>Звук</guimenu
+> -- <guimenuitem
+>Микшер</guimenuitem
+>:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Сохранить текущие уровни громкости</guilabel
+></term
+> <listitem
+><para
+>Сохраняет текущие уровни громкости для последующего восстановления.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Загрузить уровни громкости</guilabel
+></term
+> <listitem
+><para
+>Восстанавливает ранее сохраненные уровни громкости.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Восстановить уровни громкости при запуске KDE</guilabel
+></term
+> <listitem
+><para
+>Загружает предыдущие уровни громкости при запуске KDE</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Максимальное число опрашиваемых микшеров</guilabel
+></term
+> <listitem
+><para
+>Этот параметр определяет количество звуковых плат, которые &kmix; опрашивает при запуске. Уменьшите его значение, чтобы ускорить запуск &kmix;. Увеличьте его, если находятся не все ваши микшеры.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Максимальное число опрашиваемых устройств на один микшер</guilabel
+></term
+> <listitem
+><para
+>Этот параметр определяет, сколько устройств опрашивает &kmix; на каждой звуковой плате. Уменьшите его значение, чтобы ускорить запуск. Увеличьте его, если драйвер вашей звуковой платы предоставляет больше микшеров, чем находит &kmix;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="installation">
+<title
+>Установка</title>
+
+<sect1 id="getting-kmix">
+<title
+>Где взять &kmix;</title>
+
+<para
+>&kmix; -- приложение, которое входит в состав KDE <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kmix; входит в пакет kdemultimedia, и вы можете скачать его с сайта KDE <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Требования</title>
+
+<para
+>Очевидно, что &kmix; полезен только при наличии звуковой платы. &kmix; поддерживает различные платформы и драйверы звука:</para>
+
+<itemizedlist
+> <listitem
+><para
+> всеми платформами Open Sound System, что было проверено на Linux, FreeBSD, NetBSD и BSDI.</para
+></listitem
+> <listitem
+><para
+> Solaris.</para
+></listitem
+> <listitem
+><para
+> IRIX.</para
+></listitem
+> <listitem
+><para
+> Звуковыми драйверами ALSA.</para
+></listitem
+> <listitem
+><para
+> HP-UX.</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Сборка и установка</title>
+
+<para
+>Для компиляции и установки &kmix; на вашу систему, выполните следующие команды, находясь в каталоге, содержащем дистрибутив пакета kdemultimedia:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen>
+
+<para
+>Так как &kmix; использует <application
+>autoconf</application
+> и <application
+>automake</application
+>, у вас не должно возникнуть проблем с компиляцией. Если у вас возникнут проблемы, сообщите о них в списки рассылки KDE.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Благодарности и лицензии</title>
+
+<para
+>&kmix;</para>
+
+<para
+>Программа: copyright 2000 Stefan Schimanski <email
+>1Stein@gmx.de</email
+></para>
+
+<para
+>Благодарности</para>
+
+<itemizedlist
+> <listitem
+><para
+>Christian Esken <email
+>esken@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Stefan Schimanski <email
+>1Stein@gmx.de</email
+></para
+></listitem
+> <listitem
+><para
+>Paul Kendall <email
+>paul@orion.co.nz</email
+> - перенос на SGI</para
+></listitem
+> <listitem
+><para
+>Sebestyen Zoltan <email
+>szoli@digo.inf.elte.hu</email
+> - исправления для FreeBSD</para
+></listitem
+> <listitem
+><para
+>Faraut Jean-Louis <email
+>jlf@essi.fr</email
+> - исправления для Solaris</para
+></listitem
+> <listitem
+><para
+>Nick Lopez <email
+>kimo_sabe@usa.net</email
+> - перенос на ALSA</para
+></listitem
+> <listitem
+><para
+>Helge Deller <email
+>deller@gmx.de</email
+> - перенос на HP-UX</para
+></listitem
+> <listitem
+><para
+>Lennart Augustsson <email
+>augustss@cs.chalmers.se</email
+> - исправления для *BSD</para
+></listitem
+> </itemizedlist>
+
+<para
+>Документация: copyright 2000 Matt Johnston <email
+>mattj@flashmail.com</email
+></para>
+
+<para
+>С использованием документации Christian Esken <email
+>esken@kde.org</email
+></para>
+<para
+>Перевод на русский Григорий Мохин<email
+>mok@kde.ru</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

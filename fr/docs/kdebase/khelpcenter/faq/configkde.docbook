@@ -1,0 +1,458 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+ 
+<chapter id="configure">
+<title
+>La configuration de &kde;</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Comment choisir la langue utilisée par &kde;&nbsp;?</para>
+</question>
+<answer>
+<para
+>Il existe deux manières de choisir la langue utilisées par &kde; dans les messages qu'il affiche.</para>
+<variablelist
+> <varlistentry
+><term
+>En utilisant le <application
+>Centre de configuration de &kde;</application
+></term
+> <listitem
+><para
+>Lancez le <application
+>Centre de configuration de &kde;</application
+> et choisissez <guimenu
+>Personalisation</guimenu
+> suivi de <guimenuitem
+>Pays & langue</guimenuitem
+>. Vous pouvez y choisir votre langue et votre localisation. Si &kde; ne peut pas trouver une traduction dans la première langue souhaitée, il se retournera vers la langue par défaut. Langue qui est habituellement l'anglais (américain).</para
+> <note
+><para
+>L'utilisation du <application
+>Centre de configuration de &kde;</application
+> est la manière préférée pour choisir les langues sous &kde;.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>En utilisant les variables d'environnement <envar
+>LANG</envar
+></term
+> <listitem
+><para
+>La seconde méthode utilise la configuration locale standard de votre système. Pour changer la langue, ajustez simplement la variable d'environnement <envar
+>LANG</envar
+> en conséquence. Par exemple, si votre shell est le <application
+>bash</application
+>, exécutez <command
+>export LANG=de</command
+> pour spécifier que l'allemand est la langue utilisée.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Existe-t-il un échangeur de clavier pour les claviers internationnaux sous &kde;&nbsp;?</para>
+</question>
+<answer>
+<para
+>&kde; 1.x était distribué avec &kikbd; mais cela a été complètement supprimé et il faut utiliser <application
+>xkb</application
+> à la place.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Comment remplacer l'écran de login texte standard de &Linux; avec l'écran de login de &kde;&nbsp;?</para>
+</question>
+<answer>
+<para
+>Tout d'abord, il vous faut changer le "niveau de fonctionnement d'xdm" (niveau de fonctionnement 5 sur les systèmes &RedHat;, 3 sur S.u.S.E.) en éditant votre fichier <filename
+>/etc/inittab</filename
+>. Dans ce fichier, vous avez une ligne ressemblant à <userinput
+>id:3:initdefault:</userinput
+>. Modifiez-la en <userinput
+>id:5:initdefault:</userinput
+>. Maintenant, à la fin du fichier, mettez en commentaire la ligne suivante&nbsp;: <userinput
+>x:5:respawn:/usr/bin/X11/xdm -nodaemon</userinput
+> et remplacez-la par <userinput
+>x:5:respawn:<replaceable
+>/opt/kde/</replaceable
+>bin/kdm -nodaemon</userinput
+>. <note
+><para
+>L'emplacement de &kdm; peut différer selon les systèmes.</para
+></note
+></para>
+<para
+>Pour que les modifications prennent effet immédiatement, tapez <command
+>init 5</command
+> (pour les systèmes &RedHat;) au prompt du shell. <caution
+><para
+>Il est risqué de mettre en oeuvre un login graphique sans vérifier si tout fonctionne auparavant. Si la procédure échoue, il vous faudra beaucoup de temps avant de tout réparer.</para
+></caution
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Comment puis-je remplacer &kwm; ou &kwin; avec un quelconque gestionnaire de fenêtres compatible &kde; comme <application
+>Blackbox</application
+> ou &windowmaker;&nbsp;?</para>
+</question>
+<answer>
+<para
+>D'abord, téléchargez le code source et compilez-le. Il vous faudra probablement spécifier certaines options lors de l'éxécution du script <filename
+>configure</filename
+> pour produire les binaires compatibles &kde;. Lisez les fichiers <filename
+>README</filename
+> et <filename
+>INSTALL</filename
+> pour avoir des instructions. Ensuite, il suffit de remplacer la commande <command
+>kwm</command
+> dans le script <filename
+>startkde</filename
+> pour appeler à la place le gestionnaire de session et c'est bon. Pour &kde; 2, réécrivez la ligne qui exécute <application
+>ksmserver</application
+> dans <filename
+>startkde</filename
+> pour appeler le gestionnaire de sessions  avec l'option <option
+>--windowmanager <replaceable
+>mon_gestionnaire_de_fenêtre</replaceable
+></option
+>.</para>
+<para
+><application
+>Blackbox</application
+> est encore une possibilité supplémentaire dans la liste des gestionnaires de fenêtres pour &X-Windows;. Il est écrit en C++ et partage aucun code avec un quelconque gestionnaire de fenêtres (même si l'implantation graphique est semblable à &windowmaker;). <application
+>Blackbox</application
+> est devenu compatible avec &kde; lors de sa release 0.50.2. Veuillez visiter <ulink url="http://blackbox.alug.org/"
+>Blackbox @ alug.org</ulink
+> pour plus de plus amples informations. Vous trouverez ce site utile <ulink url="http://www.draknor.net/kbb/"
+>KBB - faire fonctionner <application
+>Blackbox</application
+> avec &kde;</ulink
+> (en anglais).</para>
+<para
+>Pour utiliser <application
+>Blackbox</application
+> avec &kde;, téléchargez l'archive tar des sources, décompactez-la, entrez dans le dossier  qui vient d'être créé, et lancez <command
+>./configure <option
+>--with-kde</option
+> ; make ; su -c 'make install'</command
+> (le paramètre <option
+>--with-kde</option
+> active le support de &kde;).</para>
+<para
+>Ensuite, éditez le script <filename
+>startkde</filename
+> comme mentionnez ci-dessus pour appeler <command
+>blackbox</command
+> à la place. Sauvez le nouveau script, par exemple, sous <filename
+>$<envar
+>KDEDIR</envar
+>/bin/startbb</filename
+> et modifiez la ligne du bas de votre fichier de démarrage du serveur X pour qu'il lance le nouveau script à la place de l'ancien. Relancer &X-Windows; et c'est parti.</para>
+<para
+>&windowmaker; est un gestionnaire de fenêtres X11 conçu pour fournir un support supplémentaire pour les applications <ulink url="http://www.gnustep.org/"
+>GNUstep</ulink
+>. Il essaye d'émuler l'apparence élégante du &GUI; &NeXTSTEP;. Il est relativement rapide, riche en fonctionnalités, et facile à configurer et à utiliser. &windowmaker; est devenu compatible avec &kde; lors de sa release 0.50.0. Veuillez visiter le <ulink url="http://www.windowmaker.org/"
+>site web officiel de Window Maker</ulink
+> pour de plus amples informations. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Comment puis-je modifier l'image de l'écran de démarrage du logo de &RedHat;&nbsp;?</para>
+</question>
+<answer>
+<para
+>&RedHat; utilise <application
+>xbanner</application
+> pour afficher son logo, donc pour le désactiver, il suffit de mettre en commentaire la ligne appelant <application
+>xbanner</application
+> dans le fichier de configuration que <application
+>xdm</application
+> lit, c'est-à-dire <filename
+>/etc/X11/xdm/Xsetup_0</filename
+> (peut être différent suivant les systèmes). Si vous désirez lancer autre chose ici, ajoutez-le à la place, par exemple <command
+><replaceable
+>/opt/kde</replaceable
+>/bin/kdmdesktop</command
+>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+
+<para
+>J'aimerais que le menu <guimenu
+>K</guimenu
+> soit affiché lorsque je clique n'importe où sur le bureau avec le &BGS;</para>
+</question>
+<answer>
+<variablelist
+> <varlistentry
+><term
+>&kde; 1.x</term
+> <listitem
+><para
+>D'abord, éditez <filename
+>$<envar
+>HOME</envar
+>/.kde/share/config/krootwmrc</filename
+> et ajoutez les deux lignes suivantes&nbsp;:</para
+> <screen>
+[MouseButtons]
+Left=Menu
+</screen
+> <para
+>Puis relancez &kde;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>&kde; 2</term
+> <listitem
+><para
+>Ouvrez le <application
+>Centre de configuration de &kde;</application
+> et choisissez <menuchoice
+><guisubmenu
+>LookNFeel</guisubmenu
+><guisubmenu
+>Bureau</guisubmenu
+> <guisubmenu
+>Général</guisubmenu
+></menuchoice
+>. Vous pouvez maintenant choisir le comportement des clics de souris sur le bureau. Pour que le menu <guimenu
+>K</guimenu
+> s'ouvre à partir d'un simple clic &BGS;, modifiez la zone de texte intitulée <guilabel
+>Bouton gauche</guilabel
+> pour indiquer <guilabel
+>Menu des applicatons</guilabel
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Comment puis-je utiliser les trois touches supplémentaires sur les claviers &Windows; sous &kde;&nbsp;?</para>
+</question>
+<answer>
+<para
+>Il vous faut configurer votre serveur X via <command
+>xmodmap</command
+> pour lier le code des touches &Windows; à des symbôles de touche de X utilisables (<command
+>xev</command
+> est votre amis&nbsp;! ).</para>
+<para
+>D'abord, créez un fichier <filename
+>$<envar
+>HOME</envar
+>/.Xmodmap</filename
+> contenant les entrées&nbsp;:</para>
+<screen>
+keycode 115=F13
+keycode 117=F15
+</screen>
+<para
+>Puis lancez <command
+>xmodmap ~/.Xmodmap</command
+>. Il fait le nécessaire pour que la touche <keycap
+>Démarrer</keycap
+> emette <keysym
+>F13</keysym
+> et pour que la touche <keycap
+>Windows</keycap
+> emette <keysym
+>F15</keysym
+>. Ensuite, lancez le <application
+>Centre de configuration de &kde;</application
+> et choisissez <menuchoice
+><guimenu
+>Raccourcis clavier</guimenu
+><guimenuitem
+>Raccourcis globaux</guimenuitem
+></menuchoice
+>. Positionnez <guilabel
+>Faire apparaître le menu K</guilabel
+> sur <keysym
+>F13</keysym
+> et <guilabel
+>Menu des opérations de fenêtres</guilabel
+> sur <keysym
+>F15</keysym
+>. C'est tout. <note
+><para
+>Le numéro 115 et 117 dépendent des claviers. Si vous n'étes pas sur, veuillez faire les vérifications nécessaires avec <command
+>xev</command
+>. De plus, la procédure ci-dessus nécessite &kde; 1.1 ou supérieure.</para
+> <para
+>&kikbd; peut faire cela aussi, mais les cartes claviers doivent être éditées. L'avantage de &kikbd; est que l'on peut choisir si l'on utilise ces cartes sur plusieurs cartes claviers personnalisées et de pouvoir passer de l'une à l'autre à chaud.</para
+> <para
+>Il serait intéressant de faire un petit script qui ferait automatiquement les modifications des cartes claviers à la demande. &kikbd; serait capable de lire/comprendre les fichiers de carte clavier pour l'utilisateur.</para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Après l'installation de &kde;, le menu de démarrage de &RedHat; a disparu&nbsp;! </para>
+</question>
+<answer>
+<para
+>Lancez simplement la commande <command
+>wmconfig <option
+>--output kde</option
+></command
+>. Elle mettra les icônes spécifiques de &RedHat; dans votre menu &kde;. Si vous le lancez dans &kde;, il vous faudra relancer le panel. Elles sont installées par défaut dans le dossier <filename class="directory"
+>applnk</filename
+> après avoir lancé la commande, mais ensuite il vous est possible de les copier-coller là où vous le désirez à l'aide de &kmenuedit;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ou puis-je trouver des informations sur les thèmes &kde;&nbsp;?</para>
+</question>
+<answer>
+<para
+>Allez voir <ulink url="http://kde.themes.org/"
+>http://kde.themes.org/</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Comment modifier des types &MIME;&nbsp;?</para>
+</question>
+<answer>
+<para
+>Si vous utilisez &kfm;, ouvrez d'abord une fenêtre &kfm; et choisissez <menuchoice
+><guimenu
+>Édition</guimenu
+><guimenuitem
+>Types mime </guimenuitem
+></menuchoice
+>. Retrouvez le type que vous désirez modifier (<abbrev
+>par.ex.</abbrev
+> text/english ou image/gif), cliquez avec le &BDS; choisissez <guimenuitem
+>Propriètés</guimenuitem
+>, puis l'onglet <guilabel
+>Exécuter</guilabel
+>, et remplissez le champ Application par défaut par ce que vous voulez.</para>
+<para
+>Si vous utilisez &konqueror;, faites ceci à la place&nbsp;: d'abord, ouvrez une fenêtre &konqueror; et choisissez <menuchoice
+><guimenu
+>Édition</guimenu
+><guimenuitem
+>Type de fichier</guimenuitem
+></menuchoice
+>. Retrouvez le type que vous désirez modifier (<abbrev
+>p.ex.</abbrev
+> text/english ou image/gif), cliquez avec le &BDS; sélectionnez <guilabel
+>Général</guilabel
+> et remplissez le champ Application par défaut par ce que vous voulez.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kde; (&kdm;) ne lit pas mon <filename
+>.bash_profile</filename
+>&nbsp;! </para>
+</question>
+<answer>
+<para
+>Et bien, <application
+>xdm</application
+> (et &kdm;) ne lance pas de shell de login, donc <filename
+>.profile</filename
+>, <filename
+>.bash_profile</filename
+>, <abbrev
+>etc.</abbrev
+> ne sont pas parcouru. Lorsque l'utilisateur se logue, <application
+>xdm</application
+> lance <command
+>Xstartup</command
+> en tant que root puis <command
+>Xsession</command
+> en tant qu'utilisateur. Donc la manipulation habituelle consiste à ajouter des déclarations dans le fichier <filename
+>Xsession</filename
+> pour parcourir la configuration utilisateur. Veuillez éditer vos fichiers <filename
+>Xsession</filename
+> et <filename
+>.xsession</filename
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Comment puis-je utiliser les polices &TrueType; sous &kde;&nbsp;?</para>
+</question>
+<answer>
+<para
+>Il vous faut installer le support des polices &TrueType; pour votre &X-Windows;. Veuillez jetez un coup d'oeil à <ulink url="http://x.themes.org/"
+>x.themes.org</ulink
+> pour les polices, et à <ulink url="http://www.dcs.ed.ac.uk/home/jec/programs/xfsft/"
+>xfsft&nbsp;: Support des polices &TrueType; sous X11</ulink
+> (en anglais) ou à la <ulink url="http://X-TT.dsl.gr.jp/"
+>Page principale du projet de serveur X-&TrueType;</ulink
+> pour les serveurs de polices.</para>
+<para
+>Si vous possédez un paquet de polices &TrueType; grâce à &Microsoft; &Windows;, éditez le fichier <filename
+>XF86Config</filename
+> pour obtenir les polices à partir du dossier de polices. Ensuite, il suffit de dire à &kde; d'utiliser ces nouvelles polices avec l'utilitaire d'administration de police.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Est-il possible de saisir, afficher et travailler avec le symbôle de l'Euro sous &kde;&nbsp;?</para>
+</question>
+<answer>
+<para
+>Oui et non. Pour des détails, regardez ici&nbsp;: <ulink url="http://monitor.blvk.ch/euro/"
+>http://monitor.blvk.ch/euro/</ulink
+>.</para>
+<!-- todo: maybe also/instead link http://www.koffice.org/kword/euro.phtml -->
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

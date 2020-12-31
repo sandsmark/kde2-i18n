@@ -1,0 +1,848 @@
+<chapter id="help-system-user-manual">
+<chapterinfo>
+<date
+>2001-05-14</date>
+<releaseinfo
+>0.08.00</releaseinfo>
+</chapterinfo>
+<title
+>KDE Hjælpesystem brugervejledning</title>
+<anchor id="help"/>
+
+<sect1 id="help-introduction">
+<title
+>KDE Hjælpesystem</title>
+	
+<para
+>&kde;'s hjælpesystem er beregnet til at gøre adgangen til de fælles &UNIX; hjælpesystemer (<application
+>man</application
+> og <application
+>info</application
+>) simpel, så vel som til den indfødte &kde; dokumentation (&XML;). </para>
+	
+<para
+> Alle basis &kde; programmer kommer fuldt dokumenterede, takket være Dokumentationsholdets indsats. Hvis du gerne vil hjælpe, så skriv venligst til Dokumentationskoordinatoren, Lauri Watts, på <email
+>lauri@kde.org</email
+> for information. Der kræves ingen erfaring, blot entusiasme og tålmodighed. </para>
+
+<para
+> Hvis du gerne vil hjælpe til med at oversætte &kde; dokumentation til dit eget sprog, så er oversættelseskoordinatoren Thomas Diehl, <email
+>thd@kde.org</email
+>, og han byder også al hjælp velkommen. Flere oplysninger, inkluderende koordinatorerne for hvert sproghold, kan findes på <ulink url="http://i18n.kde.org"
+>Internationaliserings netstedet</ulink
+>, og i <link linkend="contact"
+>Kontakt</link
+> sektionen af dette dokument. </para>
+
+<sect2 id="installation">
+<title
+>Installation</title>
+
+<para
+> &khelpcenter; er en integreret det af en &kde; basisinstallation, og den bliver installeret med hver kopi af &kde;. Den findes i kdebase pakken, og er tilgængelig fra <ulink url="ftp://ftp.kde.org/"
+>KDE &FTP; stedet</ulink
+> eller den kan findes i dit operativsystems kdebase pakke. </para>
+
+</sect2>
+</sect1>
+
+<sect1 id="invoking-help">
+<title
+>Start af hjælp</title>
+
+<para
+> &khelpcenter; kan kaldes på flere forskellige måder: </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Fra <guimenu
+>Hjælp</guimenu
+> menuen</term
+> <listitem
+> <para
+> Det mest almindelige er formodentlig indefra et program. Vælg <menuchoice
+><guimenu
+>Hjælp</guimenu
+> <guimenuitem
+>Indhold</guimenuitem
+></menuchoice
+> for at åbne programmets hjælpefil, på indholdssiden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fra <guimenu
+>K</guimenu
+> menuen</term
+> <listitem
+> <para
+> Vælg det store <guiicon
+>K</guiicon
+> i dit panel, og vælg <guimenuitem
+>Hjælp</guimenuitem
+> for at åbne &khelpcenter;, startende på standard Velkommen siden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fra panelet</term
+> <listitem
+> <para
+> &kicker; panelet indeholder som standard en ikon til at kalde &khelpcenter;. Igen i dette tilfælde vises standard Velkommen siden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Fra kommandolinien</term
+> <listitem
+> <para
+> &khelpcenter; kan startes ved brug af en <abbrev
+>URL</abbrev
+> til at vise en fil. <abbrev
+>URL</abbrev
+>er er også blevet tilføjet for <command
+>info</command
+> og <command
+>man</command
+> sider. Du kan bruge dem som følger: </para
+> <variablelist
+> <varlistentry
+> <term
+>En program hjælpefil</term
+> <listitem
+> <para
+> <command
+>khelpcenter</command
+> <option
+>help:/<replaceable
+>kedit</replaceable
+></option
+> </para
+> <para
+> Åbner &kedit; hjælpefilen på indholdssiden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>En lokal url</term
+> <listitem
+><para
+> <command
+>khelpcenter</command
+> <option
+>file:/ <replaceable
+>usr/local/src/qt/html/index.html</replaceable
+></option
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>En Man side</term
+> <listitem
+> <para
+> <command
+>khelpcenter</command
+> <option
+>man:/<replaceable
+>strcpy</replaceable
+></option
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>En Info side</term
+> <listitem
+> <para
+> <command
+>khelpcenter</command
+> <option
+>info:/<replaceable
+>gcc</replaceable
+></option
+> </para
+> </listitem
+> </varlistentry
+> </variablelist
+> <para
+> Start af <command
+>khelpcenter</command
+> uden parametre åbner standard Velkommen siden. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<!-- Interface - Basics, using Konqueror -->
+<sect1 id="interface-basics">
+<title
+>&khelpcenter; brugerfladen</title>
+
+<para
+> &khelpcenter; brugerfladen består af to dele med information. </para>
+
+<para
+> Værktøjslinierne og menuerne forklares yderligere i sektionen <xref linkend="menu-and-toolbar-ref"/>. </para>
+
+<para
+> Dokumenter indeholder deres egne navigeringsværktøjer, hvilket gør dig i stand til enten at gå igennem et dokument side for side ved brug af <guilabel
+>Næste</guilabel
+>, <guilabel
+>Forrige</guilabel
+>, <guilabel
+>Op</guilabel
+> og <guilabel
+>Hjem</guilabel
+> lænkerne, eller at bevæge dig rundt på en mindre struktureret måde ved hjælp af andre lænker. </para>
+
+<para
+> Lænker kan tage dig til andre dele af det samme dokument, eller til et andet dokument, og du kan bruge <guiicon
+>Tilbage</guiicon
+> (Venstre pil) eller <guiicon
+>Fremad</guiicon
+> (Højre pil) ikonerne på værktøjslinien til at gå igennem de dokumenter som du har kigget på i denne session. </para
+> 
+
+<para
+> De to områder viser indholdet i hjælpesystemet, og selve hjælpefilerne i henholdsvis højre og venstre side. </para>
+
+<sect2 id="contents-pane">
+<title
+><guilabel
+>Indhold</guilabel
+> området</title>
+
+<para
+> <guilabel
+>Indhold</guilabel
+> området i &khelpcenter; vises i venstre side af vinduet. Som du måske ville forvente, kan man flytte opdelingslinien så man kan læse indholdet af begge områder på en behagelig måde. </para
+> 
+
+<para
+> <guilabel
+>Indhold</guilabel
+> delen er yderligere opdelt under tre faneblade en der indeholder en <link linkend="contents-menu"
+>menu</link
+> der viser al den hjælpeinformation som &khelpcenter; kender til, den næste som gør dig i stand til at <link linkend="search"
+>Søge</link
+> efter bestemt information og den tredje der indeholder &kde;'s <link linkend="kde-glossary"
+>glosar</link
+> af udtryk. </para>
+
+<sect3 id="contents-menu">
+<title
+><guilabel
+>Indhold</guilabel
+> menuen</title>
+
+<para
+> <guilabel
+>Indhold</guilabel
+> indeholder følgende standard indgange: </para
+> 
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Indledning</guilabel
+></term
+> <listitem
+><para
+>Velkommen til &kde; - en introduktion til K skrivebordsmiljøet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Introduktion til &kde;</guilabel
+></term
+> <listitem
+> <para
+> &kde; Hurtigstart guide. Indeholder en rundtur af &kde;'s grænseflade specifik hjælp og vink til at arbejde bedre med &kde;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&kde; brugervejledning</guilabel
+></term
+> <listitem
+> <para
+> &kde;'s brugervejledning er en dybtgående udforskning af &kde;, inkluderende installation, indstilling, brugertilpasning og brug. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Program manualer</guilabel
+></term
+> <listitem
+> <para
+> Indfødt &kde; program dokumentation. Alle &kde; programmer har dokumentation i &XML; format, som bliver konverteret til HTML når du kigger på den. Denne sektion giver en liste af alle &kde; programmerne med en kort beskrivelse og en lænke til den mere fyldestgørende programdokumentation. </para
+> <para
+> Programmerne vises i en træstruktur der reflekterer standard strukturen for <guimenu
+>K</guimenu
+> menuen, hvilket gør det nemt at finde det program du kigger efter. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Unix man sider</guilabel
+></term
+> <listitem
+> <para
+> &UNIX; man sider er det traditionelle dokumentationsformat for unix systemer. De fleste programmer på dit system vil have en man side. Derudover findes der man sider for programmeringsfunktioner og filformater. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Gennemsøg infosider</guilabel
+></term
+> <listitem
+> <para
+> TeXinfo dokumentation bruges af mange &GNU; programmer, inkluderende <command
+>gcc</command
+> ( C/C++ oversætteren), <command
+>emacs</command
+>, og mange andre. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kurser</guilabel
+></term
+> <listitem
+> <para
+> Korte, opgavebaserede eller instruktive kurser. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>KDE OSS</guilabel
+></term
+> <listitem
+> <para
+> Ofte Spurgte Spørgsmål om &kde;, og deres svar. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&kde; på internettet</guilabel
+></term
+> <listitem
+> <para
+> Lænker til &kde; på nettet, både det officielle &kde; netsted og andre nyttige steder. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kontakt information</guilabel
+></term
+> <listitem
+> <para
+> Information om hvordan man kontakter &kde; udviklerne, og hvordan man kommer på &kde; mailinglisterne. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Støtte til &kde;</guilabel
+></term
+> <listitem
+> <para
+> Hvordan hjælper man, og hvordan bliver man involveret. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="search">
+<title
+><guilabel
+>Søg</guilabel
+> fanebladet</title>
+
+<para
+> Søgning kræver at du har <application
+>ht://Dig</application
+> programmet installeret. Information om installering og indstilling af  søgeindekset er tilgængelig i dokumentet. Indstilling af søgeindekset udføres i &kcontrol;, ved at vælge <menuchoice
+><guisubmenu
+>Hjælp</guisubmenu
+><guimenuitem
+>Indeks</guimenuitem
+></menuchoice
+>, og detaljeret hjælp er tilgængelig fra det modul. </para>
+
+<para
+> I dette dokument, vil vi antage at du allerede har sat dette op, og indstillet det. </para>
+
+<para
+> Søgning i hjælpefiler er nogenlunde intuitivt, indtast ord(ene) du ønsker at søge efter i tekstboksen, vælg dine tilvalg (om nogen), og tryk på <guibutton
+>Søg</guibutton
+>. Resultaterne vil komme frem i højre side. </para>
+
+<para
+>De tilgængelige tilvalg er:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Metode</guilabel
+></term
+> <listitem
+> <para
+> Vælg hvordan der skal søges efter flere ord. Hvis du vælger <guilabel
+>og</guilabel
+>, kommer der kun resultater hvis alle dine søgeudtryk er inkluderede i siden. <guilabel
+>eller</guilabel
+> giver resultater hvis <emphasis
+>et</emphasis
+> af søgeudtrykkene bliver fundet, og <guilabel
+>boolesk</guilabel
+> lader dig søge ved brug af en kombination. </para
+> <para
+> Boolesk syntaks lader dig vælge operatorerne <literal
+>AND</literal
+>, <literal
+>OR</literal
+> og <literal
+>NOT</literal
+> til at lave komplicerede søgninger. Nogle eksempler:</para
+> <variablelist
+> <varlistentry
+> <term
+><userinput
+>kat og hund</userinput
+></term
+> <listitem
+><para
+>Søger efter sider der både har ordene <userinput
+>kat</userinput
+> og <userinput
+>hund</userinput
+> i sig. Sider der kun har det ene eller det andet vil ikke blive vist.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+>kat ikke hund</userinput
+></term
+> <listitem
+><para
+>Søg efter sider med <userinput
+>kat</userinput
+> i, men vis kun dem der ikke har ordet <userinput
+>hund</userinput
+> i sig.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+>kat eller (hund ikke næse)</userinput
+></term
+> <listitem
+><para
+>Søger efter sider der indeholder <userinput
+>kat</userinput
+>, og sider som indeholder <userinput
+>hund</userinput
+> men ikke indeholder <userinput
+>næse</userinput
+>. Sider der har både <userinput
+>kat</userinput
+> og <userinput
+>næse</userinput
+> vil blive vist, sider der har alle tre ord vil ikke blive vist.</para
+></listitem
+> </varlistentry
+> </variablelist
+> <para
+>Hvis dine søgninger ikke giver de resultater du forventer, så tjek omhyggeligt at du ikke har ekskluderet det forkerte søgeled med en forkert <literal
+>NOT</literal
+> eller en forkert parantes.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Maks resultater:</guilabel
+></term
+> <listitem
+><para
+>Afgør det maksimale antal resultater der kommer fra din søgning.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Format</guilabel
+></term
+> <listitem
+><para
+>Afgør om du blot ønsker en kort lænke til siden med dine søgeudtryk, eller om du ønsker et længere sammendrag.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Sortér</guilabel
+></term
+> <listitem
+><para
+>Sortér resultaterne i rækkefølge efter <guilabel
+>Skoring</guilabel
+> (hvor tæt dine søgeudtryk passede,) alfabetisk efter <guilabel
+>Titel</guilabel
+> eller efter <guilabel
+>Dato</guilabel
+>. Valg af <guilabel
+>Omvendt rækkefølge</guilabel
+> afkrydsningsboksen, giver naturligt nok omvendt sorteringsrækkefølge af resultaterne.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Opdatér indeks</guilabel
+></term
+> <listitem
+><para
+>Opdatér søgeindekset for at medtage nye dokumenter, eller hvis du tror din database er ufuldstændig eller skadet. Dette kan tage et stykke tid.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+</sect2>
+
+<sect2 id="man-and-info">
+<title
+><application
+>Man</application
+> og <application
+>Info</application
+> sektionerne</title>
+
+<para
+>Man sider er standard unix manual sider, som har været brugt i mange år på mange operativsystemer. De er ekstremt omhyggelige, og de er det allerbedste sted at få information om de fleste linux kommandoer og programmer. Når folk siger <quote
+>RTFM</quote
+>, (Read The Fucking Manual), så er den manual der refereres til ofte man-siden.</para>
+
+<para
+>Man sider er ikke perfekte. De tenderer til at gå i dybden, men er også ekstremt tekniske, ofte skrevet af udviklere, og for udviklere. I nogle tilfælde gør dette dem noget uvenlige, og måske endda helt umulige at forstå for mange brugere. De er imidlertid den bedste kilde til solid information for de fleste kommandolinie programmer, og de er meget ofte den eneste kilde.</para>
+
+<para
+>Hvis du sommetider har undret dig over hvad tallet er når folk skriver sådan noget som man(1), betyder det den sektion af manualen punktet er i. Du vil se at &khelpcenter; bruger tallene til at opdele de virkelig mange man-sider efter deres egne sektioner, hvilket gør det lettere for dig at finde den information du kigger efter, hvis du blot bladrer.</para>
+
+<para
+>Der er også Info-sider tilgængelige, der er tænkt som en erstatning for man-siderne. Vedligeholderne af nogle programmer opdaterer ikke længere man-sider, så hvis der både er en man-side og en info-side til stede, er info-siden formodentlig den nyeste. De fleste programmer har dog det ene eller det andet. Hvis programmet du kigger efter hjælp til er et &GNU; værktøj, vil du som oftest finde at det har en info-side, ikke en man-side.</para>
+
+<sect3 id="navigation">
+<title
+>Navigering i <application
+>Info</application
+> sider</title>
+
+<para
+>Info dokumenter er arrangeret hierarkisk med hver side kaldet en knude. Alle info dokumenter har en <guilabel
+>Top</guilabel
+> knude, <abbrev
+>altså</abbrev
+> åbningssiden. Du kan vende tilbage til <guilabel
+>Toppen</guilabel
+> af et info dokument ved at trykke på <guilabel
+>Top</guilabel
+>.</para>
+
+<para
+><guibutton
+>Forrige</guibutton
+> &amp; <guibutton
+>Næste</guibutton
+> bliver brugt til at gå til forrige/næste side i det nuværende niveau af hierarkiet.</para>
+
+<para
+>Klik på et menupunkt indenfor et dokument flytter dig til et lavere niveau i hierarkiet. Du kan flytte op i hierarkiet ved at trykke på <guibutton
+>Op</guibutton
+>.</para>
+
+<para
+>Man behandles ligesom info, med  sektionsindekset som topknuden og hver man-side på niveauet neden under. Man indgange er én side lang.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="kde-glossary">
+<title
+>&kde; glossar</title>
+
+<para
+> Glossaret giver et hurtigt referencepunkt, hvor du kan slå definitioner af ord op, som du ikke kender til. Disse rangerer fra &kde; specifikke programmer og teknologier, til generelle &UNIX; computer udtryk. </para>
+
+<para
+> I venstre side vil du se en trævisning med to valg: <guilabel
+>Alfabetisk</guilabel
+> eller <guilabel
+>Efter emne</guilabel
+>. Begge indeholder de samme indgange, sorteret forskelligt, for at tillade dig hurtigt at finde det punkt der interesserer dig. </para>
+
+<para
+> Navigér ned gennem trævisningerne til venstre, så vil de punkter du vælger blive vist i højre side. </para>
+
+</sect2>
+
+<sect2 id="menu-and-toolbar-ref">
+<title
+>Menuer og værktøjslinien</title>
+
+<para
+> &khelpcenter; har en meget minimal brugerflade, som tillader dig at koncentrere dig om at få hjælp, snarere end at lære hvordan man bruger hjælpesøgeren. </para>
+
+<para
+> De ikoner der er tilgængelige i værktøjslinien er følgende: </para>
+
+<variablelist
+> <title
+>Værktøjslinie ikoner</title
+> <varlistentry
+> <term
+><guiicon
+>Udskriv</guiicon
+></term
+> <listitem
+> <para
+> Udskriver den aktuelt viste side. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Find</guiicon
+></term
+> <listitem
+> <para
+> Find et ord indenfor den aktuelt viste side. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Større skrifttype</guiicon
+></term
+> <listitem
+> <para
+> Forøger størrelsen af teksten vist i visningssiden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Mindre skrifttype</guiicon
+></term
+> <listitem
+> <para
+> Formindsk størrelsen af teksten i visningssiden. Denne ikon er kun aktiv hvis du tidligere har forstørret teksten. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Menuerne indeholder følgende indgange: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenu
+>Fil</guimenu
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+>Udskriv ramme</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Udskriver den aktuelt viste side. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>uk</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Luk og afslut &khelpcenter; </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenu
+>Redigér</guimenu
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+>Vælg <accel
+>A</accel
+>lt</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Vælger al tekst på den aktuelle side. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>ind</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Find et eller flere ord på den aktuelt synlige side. </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenu
+>Vis</guimenu
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guimenuitem
+>Vis dokument kilde</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Vis <acronym
+>HTML</acronym
+> kilden for den side du kigger på for øjeblikket. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>V</accel
+>is</guimenu
+> <guisubmenu
+>Sæt <accel
+>t</accel
+>egnsæt</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ændrer tegnsættet for den aktuelle side. Normalt skulle standardindstillingen <guimenuitem
+>Auto</guimenuitem
+> være tilstrækkelig, men hvis du har problemer med at se sider, der er skrevet på andre sprog end engelsk, vil du måske få brug for at vælge et specifikt tegnsæt i denne menu. </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+</sect1>
+
+<sect1 id="credits">
+<title
+>Medvirkende og licens</title>
+
+<para
+>&khelpcenter;</para>
+
+<para
+>Oprindeligt udviklet af Matthias Elter <email
+>me@kde.org</email
+></para>
+<para
+>Nuværende vedligeholder Matthias Hoelzer-Kluepfel <email
+>mhk@kde.org</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</sect1>
+</chapter>
+
+

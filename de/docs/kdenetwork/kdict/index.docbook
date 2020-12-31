@@ -1,0 +1,1822 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kdict;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &kdict; Handbuch </title>
+
+<authorgroup>
+<author
+> <firstname
+>Christian</firstname
+> <surname
+>Gebauer</surname
+> <affiliation
+> <address
+><email
+>gebauer@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Christian</firstname>
+<surname
+>Gebauer</surname>
+<affiliation>
+<address
+><email
+>gebauer@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+></firstname>
+<surname
+></surname>
+<affiliation
+><address
+><email
+></email
+></address
+></affiliation>
+<contrib
+>Korrektor</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+><affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+</authorgroup>
+
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Christian Gebauer</holder>
+</copyright>
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-06-02</date>
+<releaseinfo
+>0.91.0</releaseinfo>
+
+<abstract
+><para
+>&kdict; ist ein grafischer Client für das <productname
+>DICT</productname
+>-Protokoll. Es ermöglicht die Suche eines Wortes oder einer Phrase in einer Wörterbuch-Datenbank und die Anzeige der gefundenen Definitionen.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdict</keyword>
+<keyword
+>kdenetwork</keyword>
+<keyword
+>Wörterbuch</keyword>
+<keyword
+>Übersetzung</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+>&kdict; ist ein grafischer Client für das <productname
+>DICT</productname
+>-Protokoll. Es ermöglicht die Suche eines Wortes oder einer Phrase in einer Wörterbuch-Datenbank und die Anzeige der gefundenen Definitionen. &kdict; versucht sowohl eine grundlegende als auch eine erweiterte Abfrage einfach zu gestalten. Eine separate Liste stellt einen komfortablen Weg für den Umgang mit der großen Anzahl von passender Wörter, die eine erweiterte Abfrage als Ergebnis liefern kann. </para>
+
+<para
+> Der Rest von &kdict;s Benutzeroberfläche ist analog zu einem Internetbrowser gestaltet. Man kann zur Definition eines Wortes springen, indem man auf das Wort klickt. Es gibt Knöpfe für Vorwärts/Zurück, um schnell zwischen den Resultaten verschiedener Abfragen wechseln zu können. </para>
+
+<para
+> &kdict; kann den Inhalt der Zwischenablage verarbeiten, damit ist die Verbindung von &kdict; zu einem Internetbrowser oder einem Texteditor einfach.</para>
+
+<para
+>Wenn man sich hinter einem Firewall befindet, keine dauernde Verbindung zum Internet hat oder die Verbindung zum Server dict.org zu langsam ist, kann man sich einen eigenen lokalen Server einrichten. Alle nötigen Informationen befinden sich auf <ulink url="http://www.dict.org"
+>www.dict.org</ulink
+>. Die Vorteile eines lokalen Servers liegen in der höheren Zugriffsgeschwindigkeit und der Möglichkeit, weitere Datenbanken zu installieren. Dieses Handbuch enthält eine <link linkend="dictd-mini-howto"
+>Kleine Anleitung zur Installation und Verknüpfungen zu Datenbanken</link
+>.</para>
+
+</chapter>
+
+<chapter id="using-kdict">
+<title
+>Verwendung von &kdict;</title>
+
+<sect1 id="getting-started">
+<title
+>Verwendung</title>
+
+<para
+>Nachdem man &kdict; gestartet hat (durch das Kontrollleistenmenü oder durch Eingabe von <command
+>kdict</command
+> an der Befehlszeile), wird das &kdict; Hauptfenster angezeigt:</para>
+
+<screenshot
+> <screeninfo
+>Starten von &kdict;</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="mainwin.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Das Hauptfenster von &kdict;.</phrase
+></textobject
+> <caption
+><para
+>Das Hauptfenster von &kdict;.</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>Es gibt zwei unterschiedliche Methoden, ein Wort oder eine Phrase mit &kdict; nachzuschauen. Bei <link linkend="define-query"
+>Definieren</link
+> führt &kdict; eine Suche nach exakten Übereinstimmungen in den Datenbanken durch und zeigt alle Definitionen im linken Fenster an. Bei <link linkend="match-query"
+>Suchen</link
+> werden alle passenden Datenbankeinträge in der Liste auf der rechten Seite angezeigt. Aus dieser Liste kann man Einträge zur Anzeige auswählen. Diese Methode hat den Vorteil, das umfangreichere Suchstrategien wie Suche nach Präfix, Suffix und regulären Ausdrücken durchgeführt werden können.</para>
+</sect1>
+
+<sect1 id="configuration-of-the-server">
+<title
+>Einrichtung des <systemitem
+>DICT</systemitem
+>-Servers</title>
+
+<para
+>Vor der ersten Suchanfrage muss man sicherstellen, das der eingestellte Server mit den vorgenommenen Einstellungen zusammenarbeitet. Man kann Einstellungen im Dialog <link linkend="preferences"
+>Einstellungen</link
+> ändern. Der voreingestellte Server ist dict.org. Dabei handelt es sich um einen öffentlichen Server, sodass man keine Einstellungen verändern muss, wenn man eine Verbindung zum Internet besitzt.</para>
+
+<para
+>Man kann die Konfiguration testen, indem man <guimenuitem
+>Informationen zum Server</guimenuitem
+> aus dem Menü <guimenu
+>Server</guimenu
+> auswählt. Es werden einige Statusinformationen zum Server angezeigt.</para>
+
+<para
+> Nun kann man <menuchoice
+><guimenu
+>Server</guimenu
+> <guimenuitem
+>Informationen zu den Suchstrategien</guimenuitem
+></menuchoice
+> aufrufen. Es wird eine Liste der verfügbaren Datenbanken und Strategien vom Server geholt. &kdict; ist jetzt in der Lage, diese Fähigkeiten und Datenbanken in seinen Menüs anzuzeigen. (Man sollte <guimenuitem
+>Serverdaten ermitteln</guimenuitem
+> nach jedem Serverwechsel durchführen) </para>
+
+</sect1>
+
+<sect1 id="define-query">
+<title
+>Grundlegende Abfragen: Definieren</title>
+
+<para
+>Eine Definitionsabfrage sucht nach Worten/Phrasen in den ausgewählten Datenbanken, die zum gegebenen Text exakt passen. Die zugehörigen Definitionen werden im Hauptfenster angezeigt. Wenn der Server keine geeigneten Einträge findet, verwendet &kdict; eine auf Rechtschreibfehler optimierte Suchstrategie, um eine Liste ähnlicher Worte anzuzeigen.</para>
+
+<para
+>In den meisten Datenbanken sind einige Worte (besonders Synonyme) mit geschweiften Klammern <quote
+>{}</quote
+> markiert. Diese Worte werden hervorgehoben dargestellt und durch Klicken mit der linken Maustaste wird eine neue Definitionsabfrage nach diesem Wort gestellt.</para>
+
+<para
+>Man kann einen Teil des Textes mit der linken Maustaste auswählen. Die Auswahl wird automatisch in die Zwischenablage kopiert. Die ist praktisch, da durch Drücken der mittleren Maustaste irgendwo im Text eine Definitionsabfrage zum Inhalt der Zwischenablage gestartet wird. Wenn man also die Definition zu einem Wort sucht, das nicht hervorgehoben ist, markiert man es mit der linken Maustaste und drück die mittlere Maustaste, um die Definition zu erhalten.</para>
+
+<para
+>Die rechte Maustaste zeigt ein Menü, aus dem man eine Definitionsabfrage zum markierten Text, zur Zwischenablage oder dem hervorgehobenen Synonym unter dem Mauszeiger starten kann. Das Menü hat außerdem die Einträge <guimenuitem
+>Zurück</guimenuitem
+> und <guimenuitem
+>Vorwärts</guimenuitem
+>. Mit diesen Einträgen kann zwischen Abfrageresultaten gewechselt werden.</para>
+
+</sect1>
+
+<sect1 id="match-query">
+<title
+>Erweiterte Abfragen: Suchen</title>
+
+<para
+>Eine Übereinstimmungsabfrage verwendet die augenblicklich ausgewählte Suchstrategie (die Auswahlliste zur Strategie befindet sich oberhalb der Liste für passende Wörter) zur Suche nach ähnlichen Wörtern in den ausgewählten Datenbanken. Das Resultat ist eine Liste ähnlicher Wörter in der Liste im rechten Teil des Fensters. Die Einträge sind nach den Datenbanken geordnet. Es gibt jetzt mehrere Möglichkeiten:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Man kann den Knopf <guibutton
+>Alle laden</guibutton
+> (unterhalb der Liste) verwenden, um alle Definitionen zu laden. Die Anzahl der angezeigten Worte und der geladenen Definitionen kann sich unterscheiden, da in einigen Fällen zwei oder mehr Worte eine Definition gemeinsam haben. &kdict; entfernt dann die doppelten Definitionen.</para
+> </listitem
+> <listitem
+> <para
+>Mit Maus oder Tastatur kann man die interessantesten Worte in der Liste markieren und dann den Knopf <guibutton
+>Auswahl laden</guibutton
+> betätigen (unterhalb der Liste). Sollen alle Definitionen einer Datenbank geladen werden, kann man einfach den Datenbanknamen in der Liste auswählen.</para
+> </listitem
+> <listitem
+> <para
+>Wenn man auf einem Listeneintrag die Taste <keycap
+>Eingabe</keycap
+> (Tastatur) drückt oder mit der linken Maustaste doppelklickt, so ignoriert &kdict; die markierten Einträge und holt die Definition für diesen Listeneintrag. Wenn es sich dabei um einen <quote
+>root</quote
+>-Eintrag (einen Datenbanknamen) handelt, werden alle Definitionen dieser Datenbank geholt.</para
+> </listitem
+> <listitem
+> <para
+>Man kann außerdem einen Eintrag der Liste als Start für eine neue Abfrage verwenden (Menü über die rechte Maustaste).</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Ein Klick mit der mittleren Maustaste startet eine neue Übereinstimmungsabfrage mit dem Inhalt der Zwischenablage (ähnlich zum Hauptfenster).</para>
+
+<para
+>Die rechte Maustaste öffnet das Kontextmenü für einen Listeneintrag. Es hat die folgenden Einträge:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Laden</guimenuitem
+></term
+> <listitem
+><para
+>Zeigt die Definition für den aktuellen Eintrag.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Suchen</guimenuitem
+>, <guimenuitem
+>Definieren</guimenuitem
+></term
+> <listitem
+><para
+>Startet eine Übereinstimmungs-/Definitionsabfrage mit dem aktuellen Eintrag.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <guimenuitem
+>Inhalt der Zwischenablage suchen</guimenuitem
+>, <guimenuitem
+>Inhalt der Zwischenablage definieren</guimenuitem
+> </term
+> <listitem
+><para
+>Startet eine Übereinstimmungs-/Definitionsabfrage mit dem aktuellen Zwischenablageninhalt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Auswahl laden</guimenuitem
+><guimenuitem
+>Alle laden</guimenuitem
+></term
+> <listitem
+><para
+>Gleiche Funktion wie die Knöpfe unterhalb der Liste.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Liste entfalten</guimenuitem
+>, <guimenuitem
+>Liste zusammenfalten</guimenuitem
+></term
+> <listitem
+><para
+>Entfaltet alle Datenbanken bzw. faltet alle Datenbanken zusammen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="database-sets">
+<title
+>Datenbankgruppen</title>
+
+<para
+>Manchmal ist es sinnvoll, die Abfrage auf eine Untermenge aller verfügbaren Datenbanken zu beschränken, zum Beispiel alle Englisch-Deutsch-Wörterbücher. Dies erreicht man durch die Definition von <quote
+>Datenbankgruppen</quote
+>. Diese Gruppen erscheinen in der Auswahlliste als virtuelle Datenbanken.</para>
+
+<para
+>Der Dialog zur Einrichtung von Datenbankgruppen befindet sich unter <menuchoice
+><guimenu
+>Server</guimenu
+><guimenuitem
+>Datenbankgruppen bearbeiten</guimenuitem
+></menuchoice
+>  oder dem entsprechenden Symbol in der Werkzeugleiste.</para>
+
+<screenshot
+> <screeninfo
+>Datenbankgruppen</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="seteditor.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Der Datenbankgruppen-Editor.</phrase
+></textobject
+> <caption
+><para
+>Der Datenbankgruppen-Editor.</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>Dieser Dialog hat die folgenden Bestandteile:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Gruppe</guilabel
+></term
+> <listitem
+><para
+>In diesem Auswahlfeld kann man die Datenbankgruppe zur Bearbeitung auswählen. Man kann eine Gruppe umbenennen, indem man hier einen neuen Namen einträgt und dann auf <guibutton
+>Speichern</guibutton
+> drückt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Speichern</guibutton
+></term
+> <listitem
+><para
+>Speichert Änderungen an der aktuellen Gruppe. Man muss diesen Knopf verwenden, bevor man eine andere Gruppe auswählt oder den Dialog verlässt. Andernfalls werden alle Änderungen verworfen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Neue Gruppe</guibutton
+></term
+> <listitem
+><para
+>Dieser Knopf erzeugt eine neue Datenbankgruppe.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Löschen</guibutton
+></term
+> <listitem
+><para
+>Löscht die aktuelle Datenbankgruppe.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Schließen</guibutton
+></term
+> <listitem
+><para
+>Schließt den Dialog ohne die Änderungen zu speichern.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Die zwei Listen (<guilabel
+>Ausgewählte Datenbanken</guilabel
+> und <guilabel
+>Verfügbare Datenbanken</guilabel
+>) zeigen, welche Datenbanken augenblicklich zur Datenbankgruppe gehören. Mit Hilfe der Pfeiltasten können Einträge zwischen beiden Listen bewegt werden.</para
+> 
+
+<para
+>Man kann diesen Dialog geöffnet lassen und die Arbeit mit &kdict; fortsetzen. Auf diese Weise kann man die Änderungen direkt testen.</para
+> 
+
+</sect1>
+
+<sect1 id="preferences">
+<title
+>Einstellungen</title>
+
+<para
+>In den Einstellungen kann man viele Aspekte von &kdict;s Verhalten beeinflussen. Er wird geöffnet durch <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Kdict einrichten</guimenuitem
+></menuchoice
+> oder durch das entsprechende Symbol der Werkzeugleiste.</para>
+
+<screenshot
+> <screeninfo
+>&kdict; Einrichten</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="conf.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Der Dialog Einstellungen.</phrase
+></textobject
+> <caption
+><para
+>Der Dialog Einstellungen.</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>Der Dialog ist in mehrere Seiten aufgeteilt. Der Knopf <guibutton
+>Voreinstellung</guibutton
+> stellt die Standardwerte der aktuellen Seite wieder her. Der Knopf <guibutton
+>Anwenden</guibutton
+> bezieht sich auf alle Seiten. Der Knopf <guibutton
+>OK</guibutton
+> übernimmt die Änderungen und schließt den Dialog. Der Knopf <guibutton
+>Abbrechen</guibutton
+> schließt den Dialog und verwirft die Änderungen. Man kann den Einstellungsdialog geöffnet lassen und mit &kdict; weiterarbeiten. Auf diese Weise kann man Änderungen direkt testen.</para>
+
+<sect2 id="preferences-server">
+<title
+>Die Seite <guilabel
+>Server</guilabel
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Rechnername</guilabel
+></term
+> <listitem
+><para
+>Der Internetname oder die IP-Adresse des <productname
+>DICT</productname
+>-Servers.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Port</guilabel
+></term
+> <listitem
+><para
+>Die Portnummer, auf der der Server erreicht werden kann. Der Wert 2628 ist der Standardport und wird von den meisten Servern verwendet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Verbindung halten für xx Sek</guilabel
+></term
+> <listitem
+><para
+>&kdict; ist in der Lage, die Verbindung zum Server für kurze Zeit aufrechtzuerhalten. Diese Fähigkeit vermeidet die lange Anmeldeprozedur für jede Abfrage. Ein Wert von 0 Sekunden schaltet diese Fähigkeit aus. Große Werte sind nicht sinnvoll, da der <productname
+>DICT</productname
+>-Server die Verbindung nach mehreren Minuten in der Regel trennt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zeitlimit</guilabel
+></term
+> <listitem
+><para
+>Dieser Wert legt fest, wie lange &kdict; auf eine Antwort des Servers wartet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Befehlspuffer</guilabel
+></term
+> <listitem
+><para
+>Das <productname
+>DICT</productname
+>-Protokoll erlaubt dem Client, mehrere Befehle in einem Netzwerkpaket zu senden. Die Größe des internen Befehlspuffers bestimmt die Befehle, die parallel von &kdict; gesendet werden können. Diesen Wert kann man auf seine Netzwerkverbindung abstimmen. In der Regel ist das aber den Aufwand nicht wert.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Server verlangt Autorisierung</guilabel
+></term
+> <listitem
+><para
+>Dieses Ankreuzfeld muss markiert werden, wenn man dem Server Benutzername und Kennwort übermitteln will (es kann sein, dass ein Server diese Einstellung für den Zugriff auf alle Datenbanken benötigt). In diesem Fall muss in den zwei Feldern <guilabel
+>Benutzer</guilabel
+> und <guilabel
+>Passwort</guilabel
+> eine geeignete Kombination eingetragen werden.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="preferences-appearance">
+<title
+>Die Seite <guilabel
+>Erscheinungsbild</guilabel
+></title>
+
+<para
+>Auf dieser Seite kann man die Farben und Zeichensätze der Definitionsanzeige einstellen. Eine proportionale Schriftart erhöht die Lesbarkeit, zerstört aber das festgelegte Layout von Tabellen und Ähnlichem bei einigen Datenbanken.</para>
+
+<para
+>Das Auswahlfeld <guilabel
+>Zeichensatz</guilabel
+> legt den Zeichensatz fest, der zur Anzeige verwendet wird. Bei allen Datenbanken auf dict.org ist iso-8859-1 passend, aber nicht-englische Datenbanken benötigen vermutlich iso-10464-1 (Unicode).</para>
+
+</sect2>
+
+<sect2 id="preferences-layout">
+<title
+>Die Seite <guilabel
+>Gestaltung</guilabel
+></title>
+
+<para
+>Die Gestaltung der Abfrageergebnisanzeige ist bisher nicht wirklich veränderbar. Man kann aber entscheiden, wie viele Überschriften (eine Überschrift zeigt an, aus welcher Datenbank eine Definition stammt) &kdict; anzeigen soll. Die Auswahlen sollten selbsterklärend sein. Diese Einstellungen wirken sich erst aus, wenn man eine neue Abfrage startet.</para>
+
+</sect2>
+
+<sect2 id="preferences-misc">
+<title
+>Die Seite <guilabel
+>Verschiedenes</guilabel
+></title>
+
+<para
+>Auf dieser Seite kann man einige Grenzwerte einstellen, die verhindern sollen, dass &kdict; unmögliche Mengen an Speicherplatz verwendet.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Definitionen</guilabel
+></term
+> <listitem
+><para
+>Diese Einstellung begrenzt die Anzahl an Definitionen, die man in einem Schritt aus der Übereinstimmungsliste laden kann.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Resultate im Zwischenspeicher</guilabel
+></term
+> <listitem
+><para
+>Diese Zahl legt fest, wie viele frühere Resultate für schnellen Zugriff im Zwischenspeicher gehalten werden. Man kann diesen Wert auf 0 setzen, aber damit kann man nicht mehr zu alten Resultaten wechseln.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Verlaufseinträge</guilabel
+></term
+> <listitem
+><para
+>Dies ist die Anzahl an Einträgen, die von der Eingabezeile gespeichert werden. Große Werte führen zu einem langsameren Start und Programmende.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="panel-applet">
+<title
+>Das Kontrollleisten-Miniprogramm</title>
+
+<para
+>Wenn man &kdict; häufig verwendet, kann es nützlich sein, &kdict; als Miniprogramm in die Kontrollleiste einzufügen. Das erreicht man durch <menuchoice
+><guimenu
+>K-Menü</guimenu
+><guisubmenu
+>Kontrollleiste einrichten</guisubmenu
+><guisubmenu
+>Hinzufügen</guisubmenu
+><guisubmenu
+>Miniprogramm</guisubmenu
+><guimenuitem
+>Lexikon</guimenuitem
+></menuchoice
+>.</para>
+
+<screenshot
+> <screeninfo
+>Das Kontrollleisten-Miniprogramm</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="applet.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Das Kontrollleisten-Miniprogramm</phrase
+></textobject
+> <caption
+><para
+>Das Kontrollleisten-Miniprogramm</para
+></caption
+> </mediaobject
+> </screenshot>
+
+<para
+>Das Eingabefeld verhält sich wie die Eingabezeile des &kdict; Hauptfensters. Wenn man <keycap
+>Eingabe</keycap
+> betätigt, startet &kdict; und startet die Abfrage. Stattdessen kann man auch einen früheren Eintrag aus der Liste wählen.</para>
+
+<para
+>Zusätzlich enthält das Miniprogramm drei Knöpfe:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guibutton
+>C</guibutton
+></term
+> <listitem
+><para
+>Definiere den aktuellen Inhalt der Zwischenablage.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>D</guibutton
+></term
+> <listitem
+><para
+>Definiere den aktuellen Inhalte des Eingabefeldes.</para
+></listitem
+></varlistentry
+> <varlistentry
+> <term
+><guibutton
+>M</guibutton
+></term
+> <listitem
+><para
+>Starte eine Übereinstimmungsabfrage mit dem aktuellen Inhalt der Eingabezeile.</para
+></listitem
+></varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Befehlsreferenz</title>
+
+<sect1 id="file-menu">
+<title
+>Das Menü <guimenu
+>Datei</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Strg</keycap
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>s</accel
+>peichern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert das aktuelle Resultat als HTML-Datei</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Strg</keycap
+> <keycap
+>D</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>rucken</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Druckt das aktuelle Resultat.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>bfrage starten</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Startet eine Definitionsabfrage für den Inhalt der Eingabezeile.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>A<accel
+>b</accel
+>frage stoppen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Stoppt die aktuelle Abfrage.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Beendet</action
+> &kdict;.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="edit-menu">
+<title
+>Das Menü <guimenu
+>Bearbeiten</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>opieren</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+><action
+>Kopiert den aktuelle ausgewählten Text in die Zwischenablage.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Strg</keycap
+><keycap
+>C</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>A<accel
+>l</accel
+>les auswählen</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+><action
+>Wählt den gesamten Text aus.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Strg</keycap
+><keycap
+>T</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Inhalt der <accel
+>Z</accel
+>wischenablage definieren</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+><link linkend="define-query"
+>Definiert</link
+> den aktuellen Inhalt der Zwischenablage.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Inhalt der Zwischenablage su<accel
+>c</accel
+>hen</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+><action
+>Suche Datenbankeinträge</action
+> die <link linkend="match-query"
+>ähnlich</link
+> zum aktuellen Inhalt der Zwischenablage sind.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Strg</keycap
+><keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>uchen...</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+><action
+>Sucht einen Text in den angezeigten Definitionen.</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="history-menu">
+<title
+>Das Menü <guimenu
+>Verlauf</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Alt</keycap
+><keycap
+>Links</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>erlauf</guimenu
+> <guimenuitem
+><accel
+>Z</accel
+>urück</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Anzeige des vorherigen Ergebnisses.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>Alt</keycap
+><keycap
+>Rechts</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>V</accel
+>erlauf</guimenu
+> <guimenuitem
+>Vor<accel
+>w</accel
+>ärts</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Anzeige des nächsten Ergebnisses.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>erlauf</guimenu
+> <guimenuitem
+>Verlauf <accel
+>l</accel
+>öschen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Löscht die Liste der letzten Abfragen.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Am unteren Ende des Menüs <guimenu
+>Verlauf</guimenu
+> werden die letzten zehn Abfragen aufgelistet.</para>
+
+</sect1>
+
+<sect1 id="server-menu">
+<title
+>Das Menü <guimenu
+>Server</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Se<accel
+>r</accel
+>ver</guimenu
+> <guimenuitem
+>Serverdaten er<accel
+>m</accel
+>itteln</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ermittelt, welche Datenbanken und Suchstrategien</action
+> auf dem <productname
+>DICT</productname
+>-Server verfügbar sind. Man muss diesen Menüpunkt jedesmal aufrufen, nachdem man den Server gewechselt hat, damit man die Suchstrategie und Datenbank für eine Abfrage einstellen kann.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Se<accel
+>r</accel
+>ver</guimenu
+> <guimenuitem
+>Datenbank<accel
+>g</accel
+>ruppen bearbeiten...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet den <link linkend="database-sets"
+>Datenbankgruppen-Editor</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Se<accel
+>r</accel
+>ver</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nformatioen zu den Datenbanken</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Das Untermenü zeigt eine Auflistung der verfügbaren Datenbanken und kann detailierte Informationen zu jeder Datenbank abfragen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Se<accel
+>r</accel
+>ver</guimenu
+> <guimenuitem
+>Informationen zu den S<accel
+>u</accel
+>chstrategien</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt eine Liste mit kurzen Beschreibungen für jede der auf dem Server verfügbaren Suchstrategien an.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+>Se<accel
+>r</accel
+>ver</guimenu
+> <guimenuitem
+>Informationen zum Se<accel
+>r</accel
+>ver</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt einige Statusinformationen</action
+> (uptime, usw.) über den aktuellen <productname
+>DICT</productname
+>-Server an.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Das Menü <guimenu
+>Einstellungen</guimenu
+></title>
+<para
+>Dieses Menü stellt Optionen zur Einrichtung von &kdict; bereit, die Einfluss auf Erscheinungsbild, Tastenkürzel und Verhalten haben.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>W</accel
+>erkzeugleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Werkzeugleistenanzeige an/aus.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+></accel
+>tusleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Anzeige der Statusleiste an/aus.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Such<accel
+>l</accel
+>iste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Anzeige der Übereinstimmungsliste an/aus.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Suchliste <accel
+>i</accel
+>ntegrieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Anzeige der Übereinstimmungsliste innerhalb oder außerhalb des Hauptfensters um.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>astenzuordnungen vornehmen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet einen Dialog, der die Änderung der Tastenzuordnungen erlaubt.</action
+> Hier kann man die Standardtastenkürzel für die Befehle von &kdict; ändern oder neue hinzufügen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>ettings</guimenu
+> <guimenuitem
+>Werk<accel
+>z</accel
+>zeugleisten einrichten...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet einen Dialog zur Einrichtung der Werkzeuleiste.</action
+> Man kann Knöpfe für die Befehle von &kdict; hinzufügen oder löschen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Kdict ein<accel
+>r</accel
+>ichten...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet den Dialog <link linkend="preferences"
+>Einstellungen</link
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>Das Menü <guimenu
+>Hilfe</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>I<accel
+>n</accel
+>halt</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Startet das &kde; Hilfesystem und zeigt dieses Handbuch an.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie über Probleme und Wünsche</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet den &kde; Bug Report Dialog.</action
+> Wenn man einen Fehler gefunden hat (und vielleicht sogar seinen Grund weiss und ihn sogar schon behoben hat?), dann kann man eine Fehlernachricht an den Autor senden, sodass er darauf reagieren kann.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+><accel
+>Ü</accel
+>ber KDict</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt die Version und die Autoren</action
+> von &kdict; an.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Über <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Zeigt das Standard-&kde;-Informationsfenster an.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="command-line">
+<title
+>Befehlszeilenoptionen</title>
+
+<para
+>&kdict; kann direkt aus einem Terminalprogramm wie &konsole; oder <application
+>xterm</application
+> gestartet werden. Es sind verschiedene Befehlszeilenoptionen verfügbar.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><command
+>kdict</command
+> <option
+>Wort/Phrase</option
+></term
+> <listitem
+><para
+>Sucht den gegebenen Text. Eine Phrase muss man in Anführungszeichen setzen, falls die Phrase mehr als ein Wort enthält. Zum Beispiel: <command
+>kdict "In Anführungszeichen"</command
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kdict</command
+> <option
+>-c / --clipboard</option
+></term
+> <listitem
+><para
+>Starte eine Definitionsabfrage mit dem aktuellen Zwischenablageninhalt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kdict</command
+> <option
+>-v / --version</option
+></term
+> <listitem
+><para
+>Zeigt die Versionsnummer von &kdict; an (und die von &Qt;/&kde;).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kdict</command
+> <option
+>--license</option
+></term
+> <listitem
+><para
+>Zeigt an, unter welchen Lizenzen &kdict; veröffentlicht wurde.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>&kdict; unterstützt außerdem die üblichen Befehlszeilenoptionen für &kde;- und &Qt;-Programme. Eine Liste dieser Optionen erhält man durch <userinput
+><option
+>--help</option
+></userinput
+>, <userinput
+><option
+>--help-kde</option
+></userinput
+> und <userinput
+><option
+>--help-qt</option
+></userinput
+></para>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>&kdict; - Der &kde;-Wörterbuch-Client</para>
+
+<para
+>Copyright (c) 1999-2001, Christian Gebauer</para>
+<para
+>Copyright (c) 1998, Matthias H&ouml;lzer-Kl&uuml;pfel</para>
+
+<para
+>&kdict; wurde ursprünglich 1998 von Matthias H&ouml;lzer-Kl&uuml;pfel <email
+>hoelzer@kde.org</email
+>. Augenblicklich wird das Programm von Christian Gebauer <email
+>gebauer@bigfoot.com</email
+> betreut.</para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underArtisticLicense;   <!-- Artistic License -->
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kdict">
+<title
+>Wie man &kdict; bekommt</title>
+	  
+<para
+>&kdict; ist ein Teil des &kde;-Projektes und kann im Paket kdenetwork gefunden werden. Weitere Informationen zu Quellen für &kdict; und zur Installation von &kde; findet man unter <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen</title>
+
+<para
+>Neben einer funktionierenden &kde;-Installation benötigt &kdict; die Posix-Thread-Bibliothek, die unter allen modernen Unixen verfügbar ist.</para>
+</sect1>
+
+</appendix>
+
+<appendix id="dictd-mini-howto">
+<title
+>Mini-Howto: Installation eines lokalen <productname
+>DICT</productname
+>-Servers</title>
+
+<sect1 id="obtaining-dictd">
+<title
+>Herunterladen und Installieren von <command
+>dictd</command
+></title>
+
+<para
+>Zuerst muss der <command
+>dictd</command
+>-Dämon installiert werden. Der einfachste Weg zur Installation von <command
+>dictd</command
+> ist ein vorkompiliertes Paket. Solche Pakete sind sowohl in <ulink url="http://www.debian.org/"
+>Debian</ulink
+> als auch <ulink url="http://www.suse.com/"
+>SuSE</ulink
+> &Linux; enthalten. Man kann Pakete für alle auf <productname
+>RPM</productname
+> basierenden &Linux;-Distributionen unter <ulink url="http://rpmfind.net/linux/RPM/"
+>rpmfind.net</ulink
+> finden.</para>
+
+<para
+>Wenn man <command
+>dictd</command
+> selbst übersetzen will, benötigt man <ulink url="ftp://ftp.dict.org/pub/dict/dictd-1.5.5.tar.gz"
+>ftp://ftp.dict.org/pub/dict/dictd-1.5.5.tar.gz</ulink
+>. Die Übersetzung ist einfach, man entpackt das Archiv und startet nacheinander <userinput
+><command
+>./configure</command
+></userinput
+>, <userinput
+><command
+>make</command
+></userinput
+> und <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput
+> im <filename class="directory"
+>dictd</filename
+>-Verzeichnis. Mit der Option <option
+>--prefix</option
+> von configure kann <command
+>dictd</command
+> in einem anderen als dem Standardverzeichnis installiert werden. Standardmäßig wird <command
+>dictd</command
+> unter <filename class="directory"
+>/usr/local</filename
+> installiert.</para>
+
+</sect1>
+
+<sect1 id="obtaining-databases">
+<title
+>Datenbanken herunterladen</title>
+
+<para
+>Als nächstes benötigt man einige Datenbanken. Die Standarddatenbanken (webster, wordnet, jargon file, foldoc, ...) des <productname
+>DICT</productname
+>-Servers <ulink url="http://www.dict.org"
+>dict.org</ulink
+> sind unter <ulink url="ftp://ftp.dict.org/pub/dict/pre/"
+>ftp://ftp.dict.org/pub/dict/pre/</ulink
+> zu finden. Sie sind auch als <ulink url="http://www.debian.org/"
+>Debian-</ulink
+> und <ulink url="http://rpmfind.net/linux/RPM/"
+>rpm-</ulink
+> Pakete erhältlich.</para>
+
+<sect2 id="additional-databases">
+<title
+>Zusätzliche vorformatierte Datenbanken</title>
+
+<variablelist
+> <varlistentry
+> <term
+><ulink url="http://www.freedict.de/"
+>www.freedict.de</ulink
+></term
+> <listitem
+><para
+>Übersetzungswörterbücher für Africaans, Tschechisch, Dänisch, Englisch, Französisch, Deutsch, Griechisch, Ungarisch, Irisch, Italienisch, Japanisch, Lateinisch, Niederländisch, Portugiesisch, Russisch, Serbo-Kroatisch, Schwedisch, Slovakisch, Spanisch, Suaheli, Türkisch und Welsh</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://www.wh9.tu-dresden.de/~heinrich/dict/"
+>http://www.wh9.tu-dresden.de/~heinrich/dict/</ulink
+></term
+> <listitem
+><para
+>Übersetzungswörterbücher für Englisch, Französisch, Deutsch, Italienisch, Lateinisch, Portugiesisch und Spanisch.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://purl.oclc.org/NET/voko/revodict.tgz"
+>http://purl.oclc.org/NET/voko/revodict.tgz</ulink
+></term
+> <listitem
+><para
+>Esperanto-Wörterbuch</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://www.bainsware.com/obi-bio/"
+>http://www.bainsware.com/obi-bio/</ulink
+></term
+> <listitem
+><para
+><acronym
+>OBI</acronym
+>'s Online Biographical Dictionary</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><ulink url="http://www.bainsware.com/inaug/"
+>http://www.bainsware.com/inaug/</ulink
+></term
+> <listitem
+><para
+>Die offiziellen Adressen aller US-Präsidenten</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Man kann weitere Datenbanken auf der Link-Seite von <ulink url="http://www.dict.org"
+>www.dict.org</ulink
+> finden, aber die Mehrzahl davon ist nicht für <command
+>dictd</command
+> vorformatiert.</para>
+
+<para
+>Jede Datenbank besteht aus zwei Dateien. Die <literal role="extension"
+>*.index</literal
+>-Datei enthält den Index und die <literal role="extension"
+>.dict.dz</literal
+>-Datei enthält die Daten. Man muss alle Pakete in ein Verzeichnis entpacken, zum Beispiel <filename class="directory"
+>/usr/share/dict/</filename
+>.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="configuration-dictd">
+<title
+>Einrichtung</title>
+
+<para
+>Man muss zwei Konfigurationsdateien erzeugen/verändern. Beide werden im Verzeichnis <filename class="directory"
+>/etc</filename
+> (oder in einem ander Verzeichnis, falls man die Option <option
+>--prefix</option
+> verwendet hat) gespeichert.</para>
+
+<para
+><filename
+>dict.conf</filename
+> gehört zu dem grundlegenden <command
+>dict</command
+> Client. Es enthält nur eine Zeile: <userinput
+>server localhost</userinput
+>. Damit wird <command
+>dict</command
+> mitgeteilt, den lokalen Server zu verwenden.</para>
+
+<para
+><filename
+>dictd.conf</filename
+> konfiguriert den Server. Als erste muss man die Zugriffsrechte setzen: <userinput
+>access {allow localhost deny *}</userinput
+>.</para>
+
+<para
+> Dieses Beispiel erlaubt nur lokalen Zugriff und blockiert alle externen Verbindungen. Man kann mehr als eine Regel für allow und deny verwenden, zum Beispiel: <programlisting
+>access {allow localhost allow *.workgroup deny
+*}</programlisting
+> Der Datenbankbefehl legt die Position für den Index und die Daten einer Datenbank fest: </para>
+
+
+<programlisting>
+    database web1913   { data "/usr/share/dict/web1913.dict.dz"
+                         index "/usr/share/dict/web1913.index" }
+                         </programlisting>
+
+<para
+>Für jede Datenbank muss solch eine Zeile hinzugefügt werden.</para>
+
+<para
+>Nun sollte man in der Lage sein, <command
+>dictd</command
+> zu starten und sowohl mit <command
+>dict</command
+> als auch &kdict; zu verwenden.</para>
+
+<para
+>Eine komplette Beschreibung der Datei <filename
+>dictd.conf</filename
+> findet man auf der Hilfeseite (man) von <command
+>dictd</command
+>.</para>
+</sect1>
+
+<sect1 id="starting-dictd">
+<title
+><command
+>dictd</command
+> automatisch starten</title>
+
+<para
+>Wenn man den <command
+>dict</command
+>-Server häufig verwendet, sollte man ihn während des Startprozesses automatisch starten. Einige der vorkompilierten Pakete installieren ein geeignetes Skript, man kann aber auch das SYSV-Standardskript in der Quelldistribution <ulink url="ftp://ftp.dict.org/pub/dict/INITSCRIPT"
+>ftp://ftp.dict.org/pub/dict/INITSCRIPT</ulink
+> verwenden.</para>
+</sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=0:sw=2:tw=78:noet
+-->

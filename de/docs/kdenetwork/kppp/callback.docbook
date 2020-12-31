@@ -1,0 +1,223 @@
+<chapter id="callback">
+<title
+><emphasis
+>Kppp</emphasis
+> und Rückrufverbindungen</title>
+
+<para
+>Das folgende Kapitel wurde von <ulink url="mailto:mh@ap-dec717c.physik.uni-karlsruhe.de"
+>Martin Häfner</ulink
+> zur Verfügung gestellt.</para>
+
+<sect1 id="unix-callback-server">
+<title
+>Unix (Linux) Rückruf-Server</title>
+
+<para
+>Dieser Abschnitt ist eine Einführung in den Ablauf beim Aufbau einer Unix (Linux) Rückrufverbindung und wie Kppp eingestellt werden kann, um eine Verbindung mit einem Unix Rückruf-Server, speziell mit einen Skript-basierten Linux <link linkend="callback-resources"
+>Rückruf-Server</link
+>, zu erstellen.</para>
+
+<sect2>
+<title
+>Einführung in Rückrufverbindungen</title>
+
+<para
+></para>
+
+<itemizedlist
+> <listitem
+> <para
+></para
+> </listitem
+> <listitem
+> <para
+></para
+> </listitem
+> <listitem
+> <para
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+<screen>
+<userinput
+><command
+>AT&amp;S0=1</command
+></userinput>
+</screen>
+
+<para
+></para>
+
+<para
+>Das heißt, Ihr Modem nimmt einen Anruf nach einem <literal
+>RING</literal
+> an. Erinnern Sie sich, dies passiert ohne Mitwirkung einer Software auf Ihrem Rechner. Wie viele andere Wählprogramme auch, prüft <emphasis
+>Kppp</emphasis
+> ob die Verbindung vom Server beendet wurde und beendet dann die Verbindung, wenn ein <literal
+>NO CARRIER</literal
+> registriert wurde. Und das ist das nächste Problem: <literal
+>NO CARRIER</literal
+> wird auch registriert, wenn der Rückruf-Server auflegt, nachdem er weiß unter welcher Nummer er zurückrufen soll. Manche Server benutzen dafür ein spezielles Anmeldeprogramm. Wie können Sie dieses Problem lösen? Sagen Sie Ihrem Modem, dass es die ganze Zeit eine <emphasis
+>offene Leitung</emphasis
+> zeigen soll (was kein Problem bereitet, wenn der Client auflegt), indem Sie das Modemkommando benutzen:</para>
+
+<screen>
+<userinput
+><command
+>AT&amp;C0</command
+></userinput>
+</screen>
+
+<para
+>Wenn Sie das testen wollen, können Sie zuerst ein normales Terminalprogramm wie <emphasis
+>minicom</emphasis
+> benutzen und Ihren Rückruf-Server anrufen.</para>
+
+</sect2>
+
+<sect2>
+<title
+></title>
+
+<para
+> </para>
+
+<para
+></para>
+
+<procedure
+> <step
+> <para
+></para
+> <para
+></para
+> </step
+> <step
+> <para
+>Machen Sie sich jetzt ein paar Gedanken über Ihren Server. Denken Sie daran, dass Windows und Unix-Betriebssysteme unterschiedlicher Meinung sind, wie Zeilenenden in Textdateien (und Anmeldeprozeduren) aussehen: einfaches CR oder CR/LF oder LF. Falls Sie eine Verbindung zu einem Macintosh-Server aufbauen wollen, benutzen Sie <emphasis
+>CR</emphasis
+> als Zeilenende. </para
+> </step
+> <step
+> <para
+></para
+> <para
+></para
+> </step
+> <step
+> <para
+></para
+> <para
+></para
+> <para
+></para
+> <para
+></para
+> <screen
+> 
+
+</screen
+> <para
+></para
+> <para
+></para
+> <programlisting>
+
+</programlisting
+> <para
+></para
+> </step
+> </procedure>
+
+<para
+>Alle anderen Einstellungen (z.B. pppd Konfiguration oder IP-Einstellungen) sind die gleichen wie sonst auch. Denken Sie daran, dass keine spezielle Software nötig ist, um den Rückruf anzunehmen.</para>
+
+<note
+> <para
+><emphasis
+>Hinweis:</emphasis
+> <emphasis
+>Kppp</emphasis
+> Rückruf und andere Programme wie mgetty oder andere faxgetty können auf die gleiche serielle Schnittstelle zugreifen. Dabei gibt es beim Einwählen keine Probleme, da <emphasis
+>Kppp</emphasis
+> eine Sperrdatei erzeugt, die anderen getty-Programmen anzeigt, dass gerade ein anderes Programm die Leitung benutzt.</para
+> </note>
+
+</sect2>
+
+<sect2 id="callback-troubleshooting">
+<title
+>Problembeseitigung</title>
+
+<para
+>Es gibt ein paar bekannte Probleme mit <emphasis
+>Kppp</emphasis
+> im Rückruf-Modus:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Da Sie das Modem mit <literal
+>AutoAnswer</literal
+> initialisieren, müssen Sie es nach dem Verbindungsabbruch zurücksetzen. Wenn Sie das nicht tun, wird das Modem alle Anrufe für Sie annehmen.</para
+> </listitem
+> <listitem
+> <para
+> </para
+> </listitem
+> <listitem
+> <para
+><emphasis
+>Kppp</emphasis
+> kann während einer Skript-basierten Verbindung nach einer Benutzereingabe fragen. Leider fragt <emphasis
+>Kppp</emphasis
+> Sie auch nach dem Benutzernamen, wenn der Server zum zweiten Mal den Benutzernamen wissen will. Wenn Sie das abstellen wollen, müssen Sie Ihren Benutzernamen direkt in das Login-Skript schreiben (nicht sehr schön, aber es hilft).</para
+> </listitem
+> </itemizedlist>
+
+</sect2>
+
+<sect2 id="callback-resources">
+<title
+>Serversoftware im Internet</title>
+
+<para
+></para>
+
+<para
+></para>
+
+<para
+></para>
+
+</sect2>
+</sect1>
+
+<sect1 id="nt-callback">
+<title
+>Windows NT RAS Rückrufverbindungen</title>
+
+<para
+>Windows NT benutzt einen völlig verschiedenen Ansatz als der hier beschriebene (wie üblich). NT benötigt eine Erweiterung des PPP Protokolls namens CBCP (Call Back Control Protocol). <literal
+>pppd</literal
+> unterstützt dieses Protokoll, aber Sie müssen <literal
+>pppd</literal
+> dazu neu kompilieren.</para>
+
+</sect1>
+</chapter>
+

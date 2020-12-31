@@ -1,0 +1,3087 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2001-02-09 01:25+0100\n"
+"PO-Revision-Date: 2001-08-20 17:21GMT\n"
+"Last-Translator: Frank Schütte <F.Schuette@t-online.de>\n"
+"Language-Team: deutsch <kde-i18n-de@lists.kde.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 0.9.5\n"
+
+#: index.docbook:7
+msgid "&MCOP;: Object Model and Streaming"
+msgstr "&MCOP;: Objekt Modell und Streaming"
+
+#: index.docbook:11
+msgid "Overview"
+msgstr "Überblick"
+
+#: index.docbook:13
+msgid "&MCOP; is the standard &arts; uses for:"
+msgstr "&MCOP; ist der Standard, den &arts; für folgende Aufgaben verwendet:"
+
+#: index.docbook:17
+msgid "Communication between objects."
+msgstr "Kommunikation zwischen Objekten."
+
+#: index.docbook:17
+msgid "Network transparency."
+msgstr "Netzwerk-Transparenz."
+
+#: index.docbook:17
+msgid "Describing object interfaces."
+msgstr "Beschreibung von Objekt-Schnittstellen."
+
+#: index.docbook:17
+msgid "Language independancy."
+msgstr "Programmiersprachenunabhängigkeit."
+
+#: index.docbook:43
+msgid ""
+"One major aspect of &MCOP; is the <emphasis>interface description "
+"language</emphasis>, &IDL;, in which many of the &arts; interfaces and "
+"<acronym>API</acronym>s are defined in a language independent way."
+msgstr ""
+"Ein wichtiger Aspekt von &MCOP; ist die <emphasis> Interface Description "
+"Language</emphasis> , &IDL;, in der viele der Schnittstellen (Interfaces) "
+"und <acronym>API</acronym>s von &arts; sprachunabhängig definiert worden "
+"sind."
+
+#: index.docbook:49
+msgid ""
+"To use &IDL; interfaces from C++, is compiled by the &IDL; compiler into C++ "
+"code. When you implement an interface, you derive from the skeleton class "
+"the &IDL; compiler has generated. When you use an interface, you do so using "
+"a wrapper. This way, &MCOP; can use a protocol if the object you are talking "
+"to is not local - you get network transparency."
+msgstr ""
+"&IDL;-Schnittstellen werden durch den &IDL;-Übersetzer in C++-Quelltexte "
+"übersetzt. Wenn Sie eine Schnittstelle implementieren, verwenden Sie als "
+"Grundlage das Klassenskelett, das der &IDL;-Übersetzer erstellt hat. Wenn "
+"Sie eine Schnittstelle verwenden, benutzen Sie einen Wrapper. Auf diese "
+"Weise kann &MCOP; ein Protokoll verwenden, wenn das Objekt, das Sie "
+"verwenden nicht lokal ist - Sie haben also volle Netzwerk-Transparenz."
+
+#: index.docbook:58
+msgid ""
+"This chapter is supposed to describe the basic features of the object model "
+"that results from the use of &MCOP;, the protocol, how do use &MCOP; in C++ "
+"(language binding), and so on."
+msgstr ""
+"Dieses Kapitel soll die grundlegenden Möglichkeiten des Objektmodells "
+"beschreiben, das durch die Verwendung von &MCOP;, das Protokoll selbst und "
+"seine Verwendung in C++ (Sprachbindung) entsteht. Dieses Kapitel wird nicht "
+"übersetzt, da zur Programmierung ohnehin englische Sprachkenntnisse "
+"unabdingbar sind."
+
+#: index.docbook:68
+msgid "Interfaces and &IDL;"
+msgstr "Interfaces and &IDL;"
+
+#: index.docbook:70
+msgid ""
+"Many of the services provided by &arts;, such as modules and the sound "
+"server, are defined in terms of <acronym>interfaces</acronym>. Interfaces "
+"are specified in a programming language independent format: &IDL;."
+msgstr ""
+"Many of the services provided by &arts;, such as modules and the sound "
+"server, are defined in terms of <acronym>interfaces</acronym>. Interfaces "
+"are specified in a programming language independent format: &IDL;."
+
+#: index.docbook:77
+msgid ""
+"This allows many of the implementation details such as the format of "
+"multimedia data streams, network transparency, and programming language "
+"dependencies, to be hidden from the specification for the interface. A tool, "
+"&mcopidl;, translates the interface definition into a specific programming "
+"language (currently only C++ is supported)."
+msgstr ""
+"This allows many of the implementation details such as the format of "
+"multimedia data streams, network transparency, and programming language "
+"dependencies, to be hidden from the specification for the interface. A tool, "
+"&mcopidl;, translates the interface definition into a specific programming "
+"language (currently only C++ is supported)."
+
+#: index.docbook:86
+msgid ""
+"The tool generates a skeleton class with all of the boilerplate code and "
+"base functionality. You derive from that class to implement the features you "
+"want."
+msgstr ""
+"The tool generates a skeleton class with all of the boilerplate code and "
+"base functionality. You derive from that class to implement the features you "
+"want."
+
+#: index.docbook:92
+msgid ""
+"The &IDL; used by &arts; is similar to that used by <acronym>CORBA</acronym>"
+" and <acronym>DCOM</acronym>."
+msgstr ""
+"The &IDL; used by &arts; is similar to that used by <acronym>CORBA</acronym>"
+" and <acronym>DCOM</acronym>."
+
+#: index.docbook:97
+msgid "&IDL; files can contain:"
+msgstr "&IDL; files can contain:"
+
+#: index.docbook:101
+msgid "C-style #include directives for other &IDL; files."
+msgstr "C-style #include directives for other &IDL; files."
+
+#: index.docbook:101
+msgid "Definitions of enumerated and struct types, as in C/C++."
+msgstr "Definitions of enumerated and struct types, as in C/C++."
+
+#: index.docbook:101
+msgid "Definitions of interfaces."
+msgstr "Definitions of interfaces."
+
+#: index.docbook:121
+msgid ""
+"In &IDL;, interfaces are defined much like a C++ class or C struct, albeit "
+"with some restrictions. Like C++, interfaces can subclass other interfaces "
+"using inheritance. Interface definitions can include three things: streams, "
+"attributes, and methods."
+msgstr ""
+"In &IDL;, interfaces are defined much like a C++ class or C struct, albeit "
+"with some restrictions. Like C++, interfaces can subclass other interfaces "
+"using inheritance. Interface definitions can include three things: streams, "
+"attributes, and methods."
+
+#: index.docbook:130
+msgid "Streams"
+msgstr "Streams"
+
+#: index.docbook:132
+msgid ""
+"Streams define multimedia data, one of the most important components of a "
+"module. Streams are defined in the following format:"
+msgstr ""
+"Streams define multimedia data, one of the most important components of a "
+"module. Streams are defined in the following format:"
+
+#: index.docbook:137
+msgid ""
+"[ async ] in|out [ multi ] <replaceable>type</replaceable> stream "
+"<replaceable>name</replaceable> [ , <replaceable>name</replaceable> ] ;"
+msgstr ""
+"[ async ] in|out [ multi ] <replaceable>type</replaceable> stream "
+"<replaceable>name</replaceable> [ , <replaceable>name</replaceable> ] ;"
+
+#: index.docbook:141
+msgid ""
+"Streams have a defined direction in reference to the module, as indicated by "
+"the required qualifiers in or out. The type argument defines the type of "
+"data, which can be any of the types described later for attributes (not all "
+"are currently supported). Many modules use the stream type audio, which is "
+"an alias for float since that is the internal data format used for audio "
+"stream. Multiple streams of the same type can defined in the same definition "
+"uisng comma separated names."
+msgstr ""
+"Streams have a defined direction in reference to the module, as indicated by "
+"the required qualifiers in or out. The type argument defines the type of "
+"data, which can be any of the types described later for attributes (not all "
+"are currently supported). Many modules use the stream type audio, which is "
+"an alias for float since that is the internal data format used for audio "
+"stream. Multiple streams of the same type can defined in the same definition "
+"uisng comma separated names."
+
+#: index.docbook:151
+msgid ""
+"Streams are by default synchronous, which means they are continuous flows of "
+"data at a constant rate, such as <acronym>PCM</acronym> audio. The async "
+"qualifier specifies an asynchronous stream, which is used for non-continuous "
+"data flows. The most common example of an async stream is &MIDI; messages."
+msgstr ""
+"Streams are by default synchronous, which means they are continuous flows of "
+"data at a constant rate, such as <acronym>PCM</acronym> audio. The async "
+"qualifier specifies an asynchronous stream, which is used for non-continuous "
+"data flows. The most common example of an async stream is &MIDI; messages."
+
+#: index.docbook:159
+msgid ""
+"The multi keyword, only valid for input streams, indicates that the "
+"interface supports a variable number of inputs. This is useful for "
+"implementing devices such as mixers that can accept any number of input "
+"streams."
+msgstr ""
+"The multi keyword, only valid for input streams, indicates that the "
+"interface supports a variable number of inputs. This is useful for "
+"implementing devices such as mixers that can accept any number of input "
+"streams."
+
+#: index.docbook:169
+msgid "Attributes"
+msgstr "Attributes"
+
+#: index.docbook:171
+msgid ""
+"Attributes are data associated with an instance of an interface. They are "
+"declared like member variables in C++, and can can use any of the primitive "
+"types boolean, byte, long, string, or float. You can also use user-defined "
+"struct or enum types as well as variable sized sequences using the syntax "
+"sequence&lt;type&gt;. Attributes can optionally be marked readonly."
+msgstr ""
+"Attributes are data associated with an instance of an interface. They are "
+"declared like member variables in C++, and can can use any of the primitive "
+"types boolean, byte, long, string, or float. You can also use user-defined "
+"struct or enum types as well as variable sized sequences using the syntax "
+"sequence&lt;type&gt;. Attributes can optionally be marked readonly."
+
+#: index.docbook:183
+msgid "Methods"
+msgstr "Methods"
+
+#: index.docbook:185
+msgid ""
+"As in C++, methods can be defined in interfaces. The method parameters are "
+"restricted to the same types as attributes. The keyword oneway indicates a "
+"method which returns immediately and is executed asynchronously."
+msgstr ""
+"As in C++, methods can be defined in interfaces. The method parameters are "
+"restricted to the same types as attributes. The keyword oneway indicates a "
+"method which returns immediately and is executed asynchronously."
+
+#: index.docbook:196
+msgid "Standard Interfaces"
+msgstr "Standard Interfaces"
+
+#: index.docbook:198
+msgid ""
+"Several standard module interfaces are already defined for you in &arts;, "
+"such as <interfacename>StereoEffect</interfacename>, and "
+"<interfacename>SimpleSoundServer</interfacename>."
+msgstr ""
+"Several standard module interfaces are already defined for you in &arts;, "
+"such as <interfacename>StereoEffect</interfacename>, and "
+"<interfacename>SimpleSoundServer</interfacename>."
+
+#: index.docbook:207
+msgid "Example"
+msgstr "Example"
+
+#: index.docbook:209
+msgid ""
+"A simple example of a module taken from &arts; is the constant delay module, "
+"found in the file "
+"<filename>kdemultimedia/arts/modules/artsmodules.idl</filename>. The "
+"interface definition is listed below."
+msgstr ""
+"A simple example of a module taken from &arts; is the constant delay module, "
+"found in the file "
+"<filename>kdemultimedia/arts/modules/artsmodules.idl</filename>. The "
+"interface definition is listed below."
+
+#: index.docbook:216
+msgid ""
+"interface Synth_CDELAY : SynthModule {\n"
+"        attribute float time;\n"
+"        in audio stream invalue;\n"
+"        out audio stream outvalue;\n"
+"};"
+msgstr ""
+"interface Synth_CDELAY : SynthModule {\n"
+"        attribute float time;\n"
+"        in audio stream invalue;\n"
+"        out audio stream outvalue;\n"
+"};"
+
+#: index.docbook:224
+msgid ""
+"This modules inherits from <interfacename>SynthModule</interfacename>. That "
+"interface, defined in <filename>artsflow.idl</filename>, defines the "
+"standard methods implemented in all music synthesizer modules."
+msgstr ""
+"This modules inherits from <interfacename>SynthModule</interfacename>. That "
+"interface, defined in <filename>artsflow.idl</filename>, defines the "
+"standard methods implemented in all music synthesizer modules."
+
+#: index.docbook:231
+msgid ""
+"The CDELAY effect delays a stereo audio stream by the time value specified "
+"as a floating point parameter. The interface definition has an attribute of "
+"type float to store the delay value. It defines two input audio streams and "
+"two output audio streams (typical of stereo effects). No methods are "
+"required other than those it inherits."
+msgstr ""
+"The CDELAY effect delays a stereo audio stream by the time value specified "
+"as a floating point parameter. The interface definition has an attribute of "
+"type float to store the delay value. It defines two input audio streams and "
+"two output audio streams (typical of stereo effects). No methods are "
+"required other than those it inherits."
+
+#: index.docbook:244
+msgid "More About Streams"
+msgstr "More About Streams"
+
+#: index.docbook:246
+msgid "This section covers some additional topics related to streams."
+msgstr "This section covers some additional topics related to streams."
+
+#: index.docbook:251
+msgid "Stream Types"
+msgstr "Stream Types"
+
+#: index.docbook:253
+msgid ""
+"There are various requirements for how a module can do streaming. To "
+"illustrate this, consider these examples:"
+msgstr ""
+"There are various requirements for how a module can do streaming. To "
+"illustrate this, consider these examples:"
+
+#: index.docbook:258
+msgid "Scaling a signal by a factor of two."
+msgstr "Scaling a signal by a factor of two."
+
+#: index.docbook:258
+msgid "Performing sample frequency conversion."
+msgstr "Performing sample frequency conversion."
+
+#: index.docbook:258
+msgid "Decompressing a run-length encoded signal."
+msgstr "Decompressing a run-length encoded signal."
+
+#: index.docbook:258
+msgid ""
+"Reading &MIDI; events from <filename "
+"class=\"devicefile\">/dev/midi00</filename> and inserting them into a stream."
+msgstr ""
+"Reading &MIDI; events from <filename "
+"class=\"devicefile\">/dev/midi00</filename> and inserting them into a stream."
+
+#: index.docbook:286
+msgid ""
+"The first case is the simplest: upon receiving 200 samples of input the "
+"module produces 200 samples of output. It only produces output when it gets "
+"input."
+msgstr ""
+"The first case is the simplest: upon receiving 200 samples of input the "
+"module produces 200 samples of output. It only produces output when it gets "
+"input."
+
+#: index.docbook:292
+msgid ""
+"The second case produces different numbers of output samples when given 200 "
+"input samples. It depends what conversion is performed, but the number is "
+"known in advance."
+msgstr ""
+"The second case produces different numbers of output samples when given 200 "
+"input samples. It depends what conversion is performed, but the number is "
+"known in advance."
+
+#: index.docbook:298
+msgid ""
+"The third case is even worse. From the outset you cannot even guess how much "
+"data 200 input bytes will generate (probably a lot more than 200 bytes, "
+"but...)."
+msgstr ""
+"The third case is even worse. From the outset you cannot even guess how much "
+"data 200 input bytes will generate (probably a lot more than 200 bytes, "
+"but...)."
+
+#: index.docbook:304
+msgid ""
+"The last case is a module which becomes active by itself, and sometimes "
+"produces data."
+msgstr ""
+"The last case is a module which becomes active by itself, and sometimes "
+"produces data."
+
+#: index.docbook:309
+msgid ""
+"In &arts;s-0.3.4, only streams of the first type were handled, and most "
+"things worked nicely. This is probably what you need most when writing "
+"modules that process audio. The problem with the other, more complex types "
+"of streaming, is that they are hard to program, and that you don't need the "
+"features most of the time. That is why we do this with two different stream "
+"types: synchronous and asynchronous."
+msgstr ""
+"In &arts;s-0.3.4, only streams of the first type were handled, and most "
+"things worked nicely. This is probably what you need most when writing "
+"modules that process audio. The problem with the other, more complex types "
+"of streaming, is that they are hard to program, and that you don't need the "
+"features most of the time. That is why we do this with two different stream "
+"types: synchronous and asynchronous."
+
+#: index.docbook:318
+msgid "Synchronous streams have these characteristics:"
+msgstr "Synchronous streams have these characteristics:"
+
+#: index.docbook:322
+msgid "Modules must be able to calculate data of any length, given enough input."
+msgstr "Modules must be able to calculate data of any length, given enough input."
+
+#: index.docbook:322
+msgid "All streams have the same sampling rate."
+msgstr "All streams have the same sampling rate."
+
+#: index.docbook:322
+msgid ""
+"The <function>calculateBlock()</function> function will be called when "
+"enough data is available, and the module can rely on the pointers pointing "
+"to data."
+msgstr ""
+"The <function>calculateBlock()</function> function will be called when "
+"enough data is available, and the module can rely on the pointers pointing "
+"to data."
+
+#: index.docbook:322
+msgid "There is no allocation and deallocation to be done."
+msgstr "There is no allocation and deallocation to be done."
+
+#: index.docbook:351
+msgid "Asynchronous streams, on the other hand, have this behaviour:"
+msgstr "Asynchronous streams, on the other hand, have this behaviour:"
+
+#: index.docbook:355
+msgid ""
+"Modules may produce data sometimes, or with varying sampling rate, or only "
+"if they have input from some filed escriptor. They are not bound by the rule "
+"<quote>must be able to satisfy requests of any size</quote>."
+msgstr ""
+"Modules may produce data sometimes, or with varying sampling rate, or only "
+"if they have input from some filed escriptor. They are not bound by the rule "
+"<quote>must be able to satisfy requests of any size</quote>."
+
+#: index.docbook:355
+msgid "Asynchronous streams of a module may have entirely different sampling rates."
+msgstr "Asynchronous streams of a module may have entirely different sampling rates."
+
+#: index.docbook:355
+msgid ""
+"Outgoing streams: there are explicit functions to allocate packets, to send "
+"packets - and an optional polling mechanism that will tell you when you "
+"should create some more data."
+msgstr ""
+"Outgoing streams: there are explicit functions to allocate packets, to send "
+"packets - and an optional polling mechanism that will tell you when you "
+"should create some more data."
+
+#: index.docbook:355
+msgid ""
+"Incoming streams: you get a call when you receive a new packet - you have to "
+"say when you are through with processing all data of that packet, which must "
+"not happen at once (you can say that anytime later, and if everybody has "
+"processed a packet, it will be freed/reused)"
+msgstr ""
+"Incoming streams: you get a call when you receive a new packet - you have to "
+"say when you are through with processing all data of that packet, which must "
+"not happen at once (you can say that anytime later, and if everybody has "
+"processed a packet, it will be freed/reused)"
+
+#: index.docbook:389
+msgid ""
+"When you declare streams, you use the keyword <quote>async</quote> to "
+"indicate you want to make an asynchronous stream. So, for instance, assume "
+"you want to convert an asynchronous stream of bytes into a synchronous "
+"stream of samples. Your interface could look like this:"
+msgstr ""
+"When you declare streams, you use the keyword <quote>async</quote> to "
+"indicate you want to make an asynchronous stream. So, for instance, assume "
+"you want to convert an asynchronous stream of bytes into a synchronous "
+"stream of samples. Your interface could look like this:"
+
+#: index.docbook:396
+msgid ""
+"interface ByteStreamToAudio : SynthModule {\n"
+"    async in byte stream indata;   // the asynchonous input sample stream\n"
+"\n"
+"    out audio stream left,right;   // the synchronous output sample streams\n"
+"};"
+msgstr ""
+"interface ByteStreamToAudio : SynthModule {\n"
+"    async in byte stream indata;   // the asynchonous input sample stream\n"
+"\n"
+"    out audio stream left,right;   // the synchronous output sample streams\n"
+"};"
+
+#: index.docbook:407
+msgid "Using Asynchronous Streams"
+msgstr "Using Asynchronous Streams"
+
+#: index.docbook:409
+msgid ""
+"Suppose you decided to write a module to produce sound asynchronously. Its "
+"interface could look like this:"
+msgstr ""
+"Suppose you decided to write a module to produce sound asynchronously. Its "
+"interface could look like this:"
+
+#: index.docbook:414
+msgid ""
+"interface SomeModule : SynthModule\n"
+"{\n"
+"    async out byte stream outdata;\n"
+"};"
+msgstr ""
+"interface SomeModule : SynthModule\n"
+"{\n"
+"    async out byte stream outdata;\n"
+"};"
+
+#: index.docbook:421
+msgid ""
+"How do you send the data? The first method is called <quote>push "
+"delivery</quote>. With asynchronous streams you send the data as packets. "
+"That means you send individual packets with bytes as in the above example. "
+"The actual process is: allocate a packet, fill it, send it."
+msgstr ""
+"How do you send the data? The first method is called <quote>push "
+"delivery</quote>. With asynchronous streams you send the data as packets. "
+"That means you send individual packets with bytes as in the above example. "
+"The actual process is: allocate a packet, fill it, send it."
+
+#: index.docbook:429
+msgid "Here it is in terms of code. First we allocate a packet:"
+msgstr "Here it is in terms of code. First we allocate a packet:"
+
+#: index.docbook:433
+msgid "DataPacket&lt;mcopbyte&gt; *packet = outdata.allocPacket(100);"
+msgstr "DataPacket&lt;mcopbyte&gt; *packet = outdata.allocPacket(100);"
+
+#: index.docbook:437
+msgid "The we fill it:"
+msgstr "The we fill it:"
+
+#: index.docbook:441
+msgid ""
+"// cast so that fgets is happy that it has a (char *) pointer\n"
+"char *data = (char *)packet-&gt;contents;\n"
+"\n"
+"// as you can see, you can shrink the packet size after allocation\n"
+"// if you like\n"
+"if(fgets(data,100,stdin))\n"
+"    packet-&gt;size = strlen(data);\n"
+"else\n"
+"    packet-&gt;size = 0;"
+msgstr ""
+"// cast so that fgets is happy that it has a (char *) pointer\n"
+"char *data = (char *)packet-&gt;contents;\n"
+"\n"
+"// as you can see, you can shrink the packet size after allocation\n"
+"// if you like\n"
+"if(fgets(data,100,stdin))\n"
+"    packet-&gt;size = strlen(data);\n"
+"else\n"
+"    packet-&gt;size = 0;"
+
+#: index.docbook:453
+msgid "Now we send it:"
+msgstr "Now we send it:"
+
+#: index.docbook:457
+msgid "packet-&gt;send();"
+msgstr "packet-&gt;send();"
+
+#: index.docbook:461
+msgid ""
+"This is quite simple, but if we want to send packets exactly as fast as the "
+"receiver can process them, we need another approach, the <quote>pull "
+"delivery</quote> method. You ask to send packets as fast as the receiver is "
+"ready to process them. You start with a certain amount of packets you send. "
+"As the receiver processes one packet after another, you start refilling them "
+"with fresh data, and send them again."
+msgstr ""
+"This is quite simple, but if we want to send packets exactly as fast as the "
+"receiver can process them, we need another approach, the <quote>pull "
+"delivery</quote> method. You ask to send packets as fast as the receiver is "
+"ready to process them. You start with a certain amount of packets you send. "
+"As the receiver processes one packet after another, you start refilling them "
+"with fresh data, and send them again."
+
+#: index.docbook:470
+msgid "You start that by calling setPull. For example:"
+msgstr "You start that by calling setPull. For example:"
+
+#: index.docbook:474
+msgid "outdata.setPull(8, 1024);"
+msgstr "outdata.setPull(8, 1024);"
+
+#: index.docbook:478
+msgid ""
+"This means that you want to send packets over outdata. You want to start "
+"sending 8 packets at once, and as the receiver processes some of them, you "
+"want to refill them."
+msgstr ""
+"This means that you want to send packets over outdata. You want to start "
+"sending 8 packets at once, and as the receiver processes some of them, you "
+"want to refill them."
+
+#: index.docbook:484
+msgid ""
+"Then, you need to implement a method which fills the packets, which could "
+"look like this:"
+msgstr ""
+"Then, you need to implement a method which fills the packets, which could "
+"look like this:"
+
+#: index.docbook:489
+msgid ""
+"void request_outdata(DataPacket&lt;mcopbyte&gt; *packet)\n"
+"{\n"
+"    packet-&gt;size = 1024;  // shouldn't be more than 1024\n"
+"    for(int i = 0;i &lt; 1024; i++)\n"
+"        packet-&gt;contents[i] = (mcopbyte)'A';\n"
+"    packet-&gt;send();\n"
+"}"
+msgstr ""
+"void request_outdata(DataPacket&lt;mcopbyte&gt; *packet)\n"
+"{\n"
+"    packet-&gt;size = 1024;  // shouldn't be more than 1024\n"
+"    for(int i = 0;i &lt; 1024; i++)\n"
+"        packet-&gt;contents[i] = (mcopbyte)'A';\n"
+"    packet-&gt;send();\n"
+"}"
+
+#: index.docbook:499
+msgid ""
+"Thats it. When you don't have any data any more, you can start sending "
+"packets with zero size, which will stop the pulling."
+msgstr ""
+"Thats it. When you don't have any data any more, you can start sending "
+"packets with zero size, which will stop the pulling."
+
+#: index.docbook:504
+msgid ""
+"Note that it is essential to give the method the exact name "
+"<methodname>request_<replaceable>streamname</replaceable></methodname>."
+msgstr ""
+"Note that it is essential to give the method the exact name "
+"<methodname>request_<replaceable>streamname</replaceable></methodname>."
+
+#: index.docbook:509
+msgid ""
+"We just discussed sending data. Receiving data is much much simpler. Suppose "
+"you have a simple ToLower filter, which simply converts all letters in "
+"lowercase:"
+msgstr ""
+"We just discussed sending data. Receiving data is much much simpler. Suppose "
+"you have a simple ToLower filter, which simply converts all letters in "
+"lowercase:"
+
+#: index.docbook:515
+msgid ""
+"interface ToLower {\n"
+"    async in byte stream indata;\n"
+"    async out byte stream outdata;\n"
+"};"
+msgstr ""
+"interface ToLower {\n"
+"    async in byte stream indata;\n"
+"    async out byte stream outdata;\n"
+"};"
+
+#: index.docbook:522
+msgid "This is really simple to implement; here is the whole implementation:"
+msgstr "This is really simple to implement; here is the whole implementation:"
+
+#: index.docbook:526
+msgid ""
+"class ToLower_impl : public ToLower_skel {\n"
+"public:\n"
+"    void process_indata(DataPacket&lt;mcopbyte&gt; *inpacket)\n"
+"    {\n"
+"        DataPacket&lt;mcopbyte&gt; *outpacket = "
+"outdata.allocPacket(inpacket-&gt;size);\n"
+"\n"
+"        // convert to lowercase letters\n"
+"        char *instring = (char *)inpacket-&gt;contents;\n"
+"        char *outstring = (char *)outpacket-&gt;contents;\n"
+"\n"
+"        for(int i=0;i&lt;inpacket-&gt;size;i++)\n"
+"            outstring[i] = tolower(instring[i]);\n"
+"\n"
+"        inpacket-&gt;processed();\n"
+"        outpacket-&gt;send();\n"
+"    }\n"
+"};\n"
+"\n"
+"REGISTER_IMPLEMENTATION(ToLower_impl);"
+msgstr ""
+"class ToLower_impl : public ToLower_skel {\n"
+"public:\n"
+"    void process_indata(DataPacket&lt;mcopbyte&gt; *inpacket)\n"
+"    {\n"
+"        DataPacket&lt;mcopbyte&gt; *outpacket = "
+"outdata.allocPacket(inpacket-&gt;size);\n"
+"\n"
+"        // convert to lowercase letters\n"
+"        char *instring = (char *)inpacket-&gt;contents;\n"
+"        char *outstring = (char *)outpacket-&gt;contents;\n"
+"\n"
+"        for(int i=0;i&lt;inpacket-&gt;size;i++)\n"
+"            outstring[i] = tolower(instring[i]);\n"
+"\n"
+"        inpacket-&gt;processed();\n"
+"        outpacket-&gt;send();\n"
+"    }\n"
+"};\n"
+"\n"
+"REGISTER_IMPLEMENTATION(ToLower_impl);"
+
+#: index.docbook:548
+msgid ""
+"Again, it is essential to name the method "
+"<methodname>process_<replaceable>streamname</replaceable></methodname>."
+msgstr ""
+"Again, it is essential to name the method "
+"<methodname>process_<replaceable>streamname</replaceable></methodname>."
+
+#: index.docbook:553
+msgid ""
+"As you see, for each arriving packet you get a call for a function (the "
+"<function>process_indata</function> call in our case). You need to call the "
+"<methodname>processed()</methodname>"
+" method of a packet to indicate you have processed it."
+msgstr ""
+"As you see, for each arriving packet you get a call for a function (the "
+"<function>process_indata</function> call in our case). You need to call the "
+"<methodname>processed()</methodname>"
+" method of a packet to indicate you have processed it."
+
+#: index.docbook:560
+msgid ""
+"Here is an implenetation tip: if processing takes longer (&ie; if you need "
+"to wait for soundcard output or something like that), don't call processed "
+"immediately, but store the whole data packet and call processed only as soon "
+"as you really processed that packet. That way, senders have a chance to know "
+"how long it really takes to do your work."
+msgstr ""
+"Here is an implenetation tip: if processing takes longer (&dh; if you need "
+"to wait for soundcard output or something like that), don't call processed "
+"immediately, but store the whole data packet and call processed only as soon "
+"as you really processed that packet. That way, senders have a chance to know "
+"how long it really takes to do your work."
+
+#: index.docbook:568
+msgid ""
+"As synchronization isn't so nice with asynchronous streams, you should use "
+"synchronous streams wherever possible, and asynchronous streams only when "
+"necessary."
+msgstr ""
+"As synchronization isn't so nice with asynchronous streams, you should use "
+"synchronous streams wherever possible, and asynchronous streams only when "
+"necessary."
+
+#: index.docbook:577
+msgid "Default Streams"
+msgstr "Default Streams"
+
+#: index.docbook:579
+msgid ""
+"Suppose you have 2 objects, for example an AudioProducer and an "
+"AudioConsumer. The AudioProducer has an output stream and AudioConsumer has "
+"an input one. Each time you want to connect them, you will use those 2 "
+"streams. The first use of defaulting is to enable you to make the connection "
+"without specifying the ports in that case."
+msgstr ""
+"Suppose you have 2 objects, for example an AudioProducer and an "
+"AudioConsumer. The AudioProducer has an output stream and AudioConsumer has "
+"an input one. Each time you want to connect them, you will use those 2 "
+"streams. The first use of defaulting is to enable you to make the connection "
+"without specifying the ports in that case."
+
+#: index.docbook:587
+msgid ""
+"Now suppose the teo objects above can handle stereo, and each have a "
+"<quote>left</quote> and <quote>right</quote> port. You'd still like to "
+"connect them as easily as before. But how can the connecting system know "
+"which output port to connect to which input port? It has no way to correctly "
+"map the streams. Defaulting is then used to specify several streams, with an "
+"order. Thus, when you connect an object with 2 default output streams to "
+"another one with 2 default input streams, you don't have to specify the "
+"ports, and the mapping will be done correctly."
+msgstr ""
+"Now suppose the teo objects above can handle stereo, and each have a "
+"<quote>left</quote> and <quote>right</quote> port. You'd still like to "
+"connect them as easily as before. But how can the connecting system know "
+"which output port to connect to which input port? It has no way to correctly "
+"map the streams. Defaulting is then used to specify several streams, with an "
+"order. Thus, when you connect an object with 2 default output streams to "
+"another one with 2 default input streams, you don't have to specify the "
+"ports, and the mapping will be done correctly."
+
+#: index.docbook:598
+msgid ""
+"Of course, this is not limited to stereo. Any number of streams can be made "
+"default if needed, and the connect function will check that the number of "
+"defaults for 2 object match (in the required direction) if you don't specify "
+"the ports to use."
+msgstr ""
+"Of course, this is not limited to stereo. Any number of streams can be made "
+"default if needed, and the connect function will check that the number of "
+"defaults for 2 object match (in the required direction) if you don't specify "
+"the ports to use."
+
+#: index.docbook:605
+msgid ""
+"The syntax is as follows: in the &IDL;, you can use the default keyword in "
+"the stream declaration, or on a single line. For example:"
+msgstr ""
+"The syntax is as follows: in the &IDL;, you can use the default keyword in "
+"the stream declaration, or on a single line. For example:"
+
+#: index.docbook:610
+msgid ""
+"interface TwoToOneMixer {\n"
+"    default in audio stream input1, input2;\n"
+"    out audio stream output;\n"
+"};"
+msgstr ""
+"interface TwoToOneMixer {\n"
+"    default in audio stream input1, input2;\n"
+"    out audio stream output;\n"
+"};"
+
+#: index.docbook:617
+msgid ""
+"In this example, the object will expect its two input ports to be connected "
+"by default. The order is the one specified on the default line, so an object "
+"like this one:"
+msgstr ""
+"In this example, the object will expect its two input ports to be connected "
+"by default. The order is the one specified on the default line, so an object "
+"like this one:"
+
+#: index.docbook:623
+msgid ""
+"interface DualNoiseGenerator {\n"
+"    out audio stream bzzt, couic;\n"
+"    default couic, bzzt;\n"
+"};"
+msgstr ""
+"interface DualNoiseGenerator {\n"
+"    out audio stream bzzt, couic;\n"
+"    default couic, bzzt;\n"
+"};"
+
+#: index.docbook:630
+msgid ""
+"Will make connections from <quote>couic</quote> to <quote>input1</quote>, "
+"and <quote>bzzt</quote> to <quote>input2</quote> automatically. Note that "
+"since there is only one output for the mixer, it will be made default in "
+"this case (see below). The syntax used in the noise generator is useful to "
+"declare a different order than the declaration, or selecting only a few "
+"ports as default. The directions of the ports on this line will be looked up "
+"by &mcopidl;, so don't specify them. You can even mix input and output ports "
+"in such a line, only the order is important."
+msgstr ""
+"Will make connections from <quote>couic</quote> to <quote>input1</quote>, "
+"and <quote>bzzt</quote> to <quote>input2</quote> automatically. Note that "
+"since there is only one output for the mixer, it will be made default in "
+"this case (see below). The syntax used in the noise generator is useful to "
+"declare a different order than the declaration, or selecting only a few "
+"ports as default. The directions of the ports on this line will be looked up "
+"by &mcopidl;, so don't specify them. You can even mix input and output ports "
+"in such a line, only the order is important."
+
+#: index.docbook:642
+msgid "There are some rules that are followed when using inheritance:"
+msgstr "There are some rules that are followed when using inheritance:"
+
+#: index.docbook:646
+msgid ""
+"If a default list is specified in the &IDL;, then use it. Parent ports can "
+"be put in this list as well, whether they were default in the parent or not."
+msgstr ""
+"If a default list is specified in the &IDL;, then use it. Parent ports can "
+"be put in this list as well, whether they were default in the parent or not."
+
+#: index.docbook:646
+msgid ""
+"Otherwise, inherit parent's defaults. Ordering is parent1 default1, parent1 "
+"default2..., parent2 default1... If there is a common ancestor using 2 "
+"parent branches, a <quote>virtual public</quote>-like merging is done at "
+"that default's first occurrence in the list."
+msgstr ""
+"Otherwise, inherit parent's defaults. Ordering is parent1 default1, parent1 "
+"default2..., parent2 default1... If there is a common ancestor using 2 "
+"parent branches, a <quote>virtual public</quote>-like merging is done at "
+"that default's first occurrence in the list."
+
+#: index.docbook:646
+msgid ""
+"If there is still no default and a single stream in a direction, use it as "
+"default for that direction."
+msgstr ""
+"If there is still no default and a single stream in a direction, use it as "
+"default for that direction."
+
+#: index.docbook:676
+msgid "Attribute change notifications"
+msgstr "Attribute change notifications"
+
+#: index.docbook:681
+msgid ""
+"Attribute change notifications are a way to know when an attribute changed. "
+"They are a bit comparable with &Qt;'s or Gtk's signals and slots. For "
+"instance, if you have a &GUI; element, a slider, which configures a number "
+"between 0 and 100, you will usually have an object that does something with "
+"that number (for instance, it might be controlling the volume of some audio "
+"signal). So you would like that whenever the slider is moved, the object "
+"which scales the volume gets notified. A connection between a sender and a "
+"receiver."
+msgstr ""
+"Attribute change notifications are a way to know when an attribute changed. "
+"They are a bit comparable with &Qt;'s or Gtk's signals and slots. For "
+"instance, if you have a &GUI; element, a slider, which configures a number "
+"between 0 and 100, you will usually have an object that does something with "
+"that number (for instance, it might be controlling the volume of some audio "
+"signal). So you would like that whenever the slider is moved, the object "
+"which scales the volume gets notified. A connection between a sender and a "
+"receiver."
+
+#: index.docbook:692
+msgid ""
+"&MCOP; deals with that by being able to providing notifications when "
+"attributes change. Whatever is declared as <quote>attribute</quote> in the "
+"&IDL;, can emit such change notifications, and should do so, whenever it is "
+"modified. Whatever is declared as <quote>attribute</quote> can also receive "
+"such change notifications. So for instance if you had two &IDL; interfaces, "
+"like these:"
+msgstr ""
+"&MCOP; deals with that by being able to providing notifications when "
+"attributes change. Whatever is declared as <quote>attribute</quote> in the "
+"&IDL;, can emit such change notifications, and should do so, whenever it is "
+"modified. Whatever is declared as <quote>attribute</quote> can also receive "
+"such change notifications. So for instance if you had two &IDL; interfaces, "
+"like these:"
+
+#: index.docbook:701
+msgid ""
+"interface Slider {\n"
+"         attribute long min,max;\n"
+"         attribute long position;\n"
+" };\n"
+" interface VolumeControl : Arts::StereoEffect {\n"
+"     attribute long volume; // 0..100\n"
+" };"
+msgstr ""
+"interface Slider {\n"
+"         attribute long min,max;\n"
+"         attribute long position;\n"
+" };\n"
+" interface VolumeControl : Arts::StereoEffect {\n"
+"     attribute long volume; // 0..100\n"
+" };"
+
+#: index.docbook:711
+msgid ""
+"You can connect them using change notifications. It works using the normal "
+"flowsystem connect operation. In this case, the C++ code to connect two "
+"objects would look like this:"
+msgstr ""
+"You can connect them using change notifications. It works using the normal "
+"flowsystem connect operation. In this case, the C++ code to connect two "
+"objects would look like this:"
+
+#: index.docbook:717
+msgid ""
+"#include &lt;connect.h&gt;\n"
+"using namespace Arts;\n"
+"[...]\n"
+"connect(slider,\"position_changed\",volumeControl,\"volume\");"
+msgstr ""
+"#include &lt;connect.h&gt;\n"
+"using namespace Arts;\n"
+"[...]\n"
+"connect(slider,\"position_changed\",volumeControl,\"volume\");"
+
+#: index.docbook:724
+msgid ""
+"As you see, each attribute offers two different streams, one for sending the "
+"change notifications, called "
+"<function><replaceable>attributename</replaceable>_changed</function>, and "
+"one for receiving change notifications, called "
+"<function>attributename</function>."
+msgstr ""
+"As you see, each attribute offers two different streams, one for sending the "
+"change notifications, called "
+"<function><replaceable>attributename</replaceable>_changed</function>, and "
+"one for receiving change notifications, called "
+"<function>attributename</function>."
+
+#: index.docbook:758
+msgid ""
+"It is important to know that change notifications and asynchronous streams "
+"are compatible. They are also network transparent. So you can connect a "
+"change notification of a float attribute of a &GUI; widget has to an "
+"asynchronous stream of a synthesis module running on another computer. This "
+"of course also implies that change notifications are <emphasis>not "
+"synchronous</emphasis>, this means, that after you have sent the change "
+"notification, it may take some time until it really gets received."
+msgstr ""
+"It is important to know that change notifications and asynchronous streams "
+"are compatible. They are also network transparent. So you can connect a "
+"change notification of a float attribute of a &GUI; widget has to an "
+"asynchronous stream of a synthesis module running on another computer. This "
+"of course also implies that change notifications are <emphasis>not "
+"synchronous</emphasis>, this means, that after you have sent the change "
+"notification, it may take some time until it really gets received."
+
+#: index.docbook:771
+msgid "Sending change notifications"
+msgstr "Sending change notifications"
+
+#: index.docbook:773
+msgid ""
+"When implementing objects that have attributes, you need to send change "
+"notifications whereever an attribute changes. The code for doing this looks "
+"like this:"
+msgstr ""
+"When implementing objects that have attributes, you need to send change "
+"notifications whereever an attribute changes. The code for doing this looks "
+"like this:"
+
+#: index.docbook:779
+msgid ""
+"void KPoti_impl::value(float newValue)\n"
+" {\n"
+"     if(newValue != _value)\n"
+"     {\n"
+"         _value = newValue;\n"
+"         value_changed(newValue); // &lt;- send change notification\n"
+"     }\n"
+" }"
+msgstr ""
+"void KPoti_impl::value(float newValue)\n"
+" {\n"
+"     if(newValue != _value)\n"
+"     {\n"
+"         _value = newValue;\n"
+"         value_changed(newValue); // &lt;- send change notification\n"
+"     }\n"
+" }"
+
+#: index.docbook:790
+msgid ""
+"It is strongly recommended to use code like this for all objects you "
+"implement, so that change notifications can be used by other people. You "
+"should however void sending notifications too often, so if you are doing "
+"signal processing, it is probably the best if you keep track when you sent "
+"your last notification, so that you don't send one with every sample you "
+"process."
+msgstr ""
+"It is strongly recommended to use code like this for all objects you "
+"implement, so that change notifications can be used by other people. You "
+"should however void sending notifications too often, so if you are doing "
+"signal processing, it is probably the best if you keep track when you sent "
+"your last notification, so that you don't send one with every sample you "
+"process."
+
+#: index.docbook:802
+msgid "Applications for change notifications"
+msgstr "Applications for change notifications"
+
+#: index.docbook:804
+msgid ""
+"It will be especially useful to use change notifications in conjunction with "
+"scopes (things that visualize audio data for instance), gui elements, "
+"control widgets, and monitoring. Code using this is in <filename "
+"class=\"directory\">kdelibs/arts/tests</filename>, and in the experimental "
+"artsgui implementation, which you can find under <filename "
+"class=\"directory\">kdemultimedia/arts/gui</filename>."
+msgstr ""
+"It will be especially useful to use change notifications in conjunction with "
+"scopes (things that visualize audio data for instance), gui elements, "
+"control widgets, and monitoring. Code using this is in <filename "
+"class=\"directory\">kdelibs/arts/tests</filename>, and in the experimental "
+"artsgui implementation, which you can find under <filename "
+"class=\"directory\">kdemultimedia/arts/gui</filename>."
+
+#: index.docbook:823
+msgid "The <literal role=\"extension\">.mcoprc</literal> file"
+msgstr "The <literal role=\"extension\">.mcoprc</literal> file"
+
+#: index.docbook:825
+msgid ""
+"The <literal role=\"extension\">.mcoprc</literal> file (in each user's home "
+"directory) can be used to configure &MCOP; in some ways. Currently, the "
+"following is possible:"
+msgstr ""
+"The <literal role=\"extension\">.mcoprc</literal> file (in each user's home "
+"directory) can be used to configure &MCOP; in some ways. Currently, the "
+"following is possible:"
+
+#: index.docbook:831
+msgid "GlobalComm"
+msgstr "GlobalComm"
+
+#: index.docbook:831
+msgid ""
+"The name of an interface to be used for global communication. Global "
+"communication is used to find other objects and obtain the secret cookie. "
+"Multiple &MCOP; clients/servers that should be able to talk to each other "
+"need to have a GlobalComm object which is able to share information between "
+"them. Currently, the possible values are <quote>Arts::TmpGlobalComm</quote> "
+"to communicate via <filename "
+"class=\"directory\">/tmp/mcop-<replaceable>username</replaceable></filename>"
+" directory (which will only work on the local computer) and "
+"<quote>Arts::X11GlobalComm</quote> to communicate via the root window "
+"properties on the X11 server."
+msgstr ""
+"The name of an interface to be used for global communication. Global "
+"communication is used to find other objects and obtain the secret cookie. "
+"Multiple &MCOP; clients/servers that should be able to talk to each other "
+"need to have a GlobalComm object which is able to share information between "
+"them. Currently, the possible values are <quote>Arts::TmpGlobalComm</quote> "
+"to communicate via <filename "
+"class=\"directory\">/tmp/mcop-<replaceable>username</replaceable></filename>"
+" directory (which will only work on the local computer) and "
+"<quote>Arts::X11GlobalComm</quote> to communicate via the root window "
+"properties on the X11 server."
+
+#: index.docbook:831
+msgid "TraderPath"
+msgstr "TraderPath"
+
+#: index.docbook:831
+msgid ""
+"Specifies where to look for trader information. You can list more than one "
+"directory here, and separate them with commas, like"
+msgstr ""
+"Specifies where to look for trader information. You can list more than one "
+"directory here, and separate them with commas, like"
+
+#: index.docbook:831
+msgid "ExtensionPath"
+msgstr "ExtensionPath"
+
+#: index.docbook:831
+msgid ""
+"Specifies from which directories extensions (in the form of shared "
+"libraries) are loaded. Multiple values can be specified comma seperated."
+msgstr ""
+"Specifies from which directories extensions (in the form of shared "
+"libraries) are loaded. Multiple values can be specified comma seperated."
+
+#: index.docbook:876
+msgid "An example which uses all of the above is:"
+msgstr "An example which uses all of the above is:"
+
+#: index.docbook:880
+msgid ""
+"# $HOME/.mcoprc file\n"
+"GlobalComm=Arts::X11GlobalComm\n"
+"\n"
+"# if you are a developer, it might be handy to add a directory in your home\n"
+"# to the trader/extension path to be able to add components without\n"
+"# installing them\n"
+"TraderPath=\"/opt/kde2/lib/mcop\",\"/home/joe/mcopdevel/mcop\"\n"
+"ExtensionPath=\"/opt/kde2/lib\",\"/home/joe/mcopdevel/lib\""
+msgstr ""
+"# $HOME/.mcoprc file\n"
+"GlobalComm=Arts::X11GlobalComm\n"
+"\n"
+"# if you are a developer, it might be handy to add a directory in your home\n"
+"# to the trader/extension path to be able to add components without\n"
+"# installing them\n"
+"TraderPath=\"/opt/kde2/lib/mcop\",\"/home/joe/mcopdevel/mcop\"\n"
+"ExtensionPath=\"/opt/kde2/lib\",\"/home/joe/mcopdevel/lib\""
+
+#: index.docbook:894
+msgid "&MCOP; for <acronym>CORBA</acronym> Users"
+msgstr "&MCOP; for <acronym>CORBA</acronym> Users"
+
+#: index.docbook:896
+msgid ""
+"If you have used <acronym>CORBA</acronym> before, you will see that &MCOP; "
+"is much the same thing. In fact, &arts; prior to version 0.4 used "
+"<acronym>CORBA</acronym>."
+msgstr ""
+"If you have used <acronym>CORBA</acronym> before, you will see that &MCOP; "
+"is much the same thing. In fact, &arts; prior to version 0.4 used "
+"<acronym>CORBA</acronym>."
+
+#: index.docbook:902
+msgid ""
+"The basic idea of <acronym>CORBA</acronym> is the same: you implement "
+"objects (components). By using the &MCOP; features, your objects are not "
+"only available as normal classes from the same process (via standard C++ "
+"techniques) - they also are available to remote servers transparently. For "
+"this to work, the first thing you need to do is to specify the interface of "
+"your objects in an &IDL; file - just like <acronym>CORBA</acronym> &IDL;. "
+"There are only a few differences."
+msgstr ""
+"The basic idea of <acronym>CORBA</acronym> is the same: you implement "
+"objects (components). By using the &MCOP; features, your objects are not "
+"only available as normal classes from the same process (via standard C++ "
+"techniques) - they also are available to remote servers transparently. For "
+"this to work, the first thing you need to do is to specify the interface of "
+"your objects in an &IDL; file - just like <acronym>CORBA</acronym> &IDL;. "
+"There are only a few differences."
+
+#: index.docbook:913
+msgid "<acronym>CORBA</acronym> Features That Are Missing In &MCOP;"
+msgstr "<acronym>CORBA</acronym> Features That Are Missing In &MCOP;"
+
+#: index.docbook:916
+msgid ""
+"In &MCOP; there are no <quote>in</quote> and <quote>out</quote> parameters "
+"on method invocations. Parameters are always incoming, the return code is "
+"always outgoing, which means that the interface:"
+msgstr ""
+"In &MCOP; there are no <quote>in</quote> and <quote>out</quote> parameters "
+"on method invocations. Parameters are always incoming, the return code is "
+"always outgoing, which means that the interface:"
+
+#: index.docbook:922
+msgid ""
+"// CORBA idl\n"
+"interface Account {\n"
+"  void deposit( in long amount );\n"
+"  void withdraw( in long amount );\n"
+"  long balance();\n"
+"};"
+msgstr ""
+"// CORBA idl\n"
+"interface Account {\n"
+"  void deposit( in long amount );\n"
+"  void withdraw( in long amount );\n"
+"  long balance();\n"
+"};"
+
+#: index.docbook:931
+msgid "is written as"
+msgstr "is written as"
+
+#: index.docbook:935
+msgid ""
+"// MCOP idl\n"
+"interface Account {\n"
+"  void deposit( long amount );\n"
+"  void withdraw( long amount );\n"
+"  long balance();\n"
+"};"
+msgstr ""
+"// MCOP idl\n"
+"interface Account {\n"
+"  void deposit( long amount );\n"
+"  void withdraw( long amount );\n"
+"  long balance();\n"
+"};"
+
+#: index.docbook:944
+msgid "in &MCOP;."
+msgstr "in &MCOP;."
+
+#: index.docbook:948
+msgid ""
+"There is no exception support. &MCOP; doesn't have exceptions - it uses "
+"something else for error handling."
+msgstr ""
+"There is no exception support. &MCOP; doesn't have exceptions - it uses "
+"something else for error handling."
+
+#: index.docbook:953
+msgid ""
+"There are no union types and no typedefs. I don't know if that is a real "
+"weakness, something one would desperately need to survive."
+msgstr ""
+"There are no union types and no typedefs. I don't know if that is a real "
+"weakness, something one would desperately need to survive."
+
+#: index.docbook:958
+msgid "There is no support for passing interfaces or object references"
+msgstr "There is no support for passing interfaces or object references"
+
+#: index.docbook:965
+msgid "<acronym>CORBA</acronym> Features That Are Different In &MCOP;"
+msgstr "<acronym>CORBA</acronym> Features That Are Different In &MCOP;"
+
+#: index.docbook:968
+msgid ""
+"You declare sequences as "
+"<quote>sequence<replaceable>type</replaceable></quote> in &MCOP;. There is "
+"no need for a typedef. For example, instead of:"
+msgstr ""
+"You declare sequences as "
+"<quote>sequence<replaceable>type</replaceable></quote> in &MCOP;. There is "
+"no need for a typedef. For example, instead of:"
+
+#: index.docbook:974
+msgid ""
+"// CORBA idl\n"
+"struct Line {\n"
+"    long x1,y1,x2,y2;\n"
+"};\n"
+"typedef sequence&lt;Line&gt; LineSeq;\n"
+"interface Plotter {\n"
+"    void draw(in LineSeq lines);\n"
+"};"
+msgstr ""
+"// CORBA idl\n"
+"struct Line {\n"
+"    long x1,y1,x2,y2;\n"
+"};\n"
+"typedef sequence&lt;Line&gt; LineSeq;\n"
+"interface Plotter {\n"
+"    void draw(in LineSeq lines);\n"
+"};"
+
+#: index.docbook:985
+msgid "you would write"
+msgstr "you would write"
+
+#: index.docbook:989
+msgid ""
+"// MCOP idl\n"
+"struct Line {\n"
+"    long x1,y1,x2,y2;\n"
+"};\n"
+"interface Plotter {\n"
+"    void draw(sequence&lt;Line&gt; lines);\n"
+"};"
+msgstr ""
+"// MCOP idl\n"
+"struct Line {\n"
+"    long x1,y1,x2,y2;\n"
+"};\n"
+"interface Plotter {\n"
+"    void draw(sequence&lt;Line&gt; lines);\n"
+"};"
+
+#: index.docbook:1002
+msgid "&MCOP; Features That Are Not In <acronym>CORBA</acronym>"
+msgstr "&MCOP; Features That Are Not In <acronym>CORBA</acronym>"
+
+#: index.docbook:1004
+msgid ""
+"You can declare streams, which will then be evaluated by the &arts; "
+"framework. Streams are declared in a similar manner to attributes. For "
+"example:"
+msgstr ""
+"You can declare streams, which will then be evaluated by the &arts; "
+"framework. Streams are declared in a similar manner to attributes. For "
+"example:"
+
+#: index.docbook:1010
+msgid ""
+"// MCOP idl\n"
+"interface Synth_ADD : SynthModule {\n"
+"    in audio stream signal1,signal2;\n"
+"    out audio stream outvalue;\n"
+"};"
+msgstr ""
+"// MCOP idl\n"
+"interface Synth_ADD : SynthModule {\n"
+"    in audio stream signal1,signal2;\n"
+"    out audio stream outvalue;\n"
+"};"
+
+#: index.docbook:1018
+msgid ""
+"This says that your object will accept two incoming synchronous audio "
+"streams called signal1 and signal2. Synchronous means that these are streams "
+"that deliver x samples per second (or other time), so that the scheduler "
+"will guarantee to always provide you a balanced amount of input data (&eg; "
+"200 samples of signal1 are there and 200 samples signal2 are there). You "
+"guarantee that if your object is called with those 200 samples signal1 + "
+"signal2, it is able to produce exactly 200 samples to outvalue."
+msgstr ""
+"This says that your object will accept two incoming synchronous audio "
+"streams called signal1 and signal2. Synchronous means that these are streams "
+"that deliver x samples per second (or other time), so that the scheduler "
+"will guarantee to always provide you a balanced amount of input data (&zb; "
+"200 samples of signal1 are there and 200 samples signal2 are there). You "
+"guarantee that if your object is called with those 200 samples signal1 + "
+"signal2, it is able to produce exactly 200 samples to outvalue."
+
+#: index.docbook:1032
+msgid "The &MCOP; C++ Language Binding"
+msgstr "The &MCOP; C++ Language Binding"
+
+#: index.docbook:1034
+msgid "This differs from <acronym>CORBA</acronym> mostly:"
+msgstr "This differs from <acronym>CORBA</acronym> mostly:"
+
+#: index.docbook:1038
+msgid ""
+"Strings use the C++ <acronym>STL</acronym> <classname>string</classname> "
+"class. When stored in sequences, they are stored <quote>plain</quote>, that "
+"means they are considered to be a primitive type. Thus, they need copying."
+msgstr ""
+"Strings use the C++ <acronym>STL</acronym> <classname>string</classname> "
+"class. When stored in sequences, they are stored <quote>plain</quote>, that "
+"means they are considered to be a primitive type. Thus, they need copying."
+
+#: index.docbook:1038
+msgid "longs are plain long's (expected to be 32 bit)."
+msgstr "longs are plain long's (expected to be 32 bit)."
+
+#: index.docbook:1038
+msgid ""
+"Sequences use the C++ <acronym>STL</acronym> <classname>vector</classname> "
+"class."
+msgstr ""
+"Sequences use the C++ <acronym>STL</acronym> <classname>vector</classname> "
+"class."
+
+#: index.docbook:1038
+msgid ""
+"Structures are all derived from the &MCOP; class "
+"<classname>Type</classname>, and generated by the &MCOP; &IDL; compiler. "
+"When stored in sequences, they are not stored <quote>plain</quote> , but as "
+"pointers, as otherwise, too much copying would occur."
+msgstr ""
+"Structures are all derived from the &MCOP; class "
+"<classname>Type</classname>, and generated by the &MCOP; &IDL; compiler. "
+"When stored in sequences, they are not stored <quote>plain</quote> , but as "
+"pointers, as otherwise, too much copying would occur."
+
+#: index.docbook:1074
+msgid "Implementing &MCOP; Objects"
+msgstr "Implementing &MCOP; Objects"
+
+#: index.docbook:1076
+msgid ""
+"After having them passed through the &IDL; compiler, you need to derive from "
+"the <classname>_skel</classname> class. For instance, consider you have "
+"defined your interface like this:"
+msgstr ""
+"After having them passed through the &IDL; compiler, you need to derive from "
+"the <classname>_skel</classname> class. For instance, consider you have "
+"defined your interface like this:"
+
+#: index.docbook:1082
+msgid ""
+"// MCOP idl: hello.idl\n"
+"interface Hello {\n"
+"    void hello(string s);\n"
+"    string concat(string s1, string s2);\n"
+"    long sum2(long a, long b);\n"
+"};"
+msgstr ""
+"// MCOP idl: hello.idl\n"
+"interface Hello {\n"
+"    void hello(string s);\n"
+"    string concat(string s1, string s2);\n"
+"    long sum2(long a, long b);\n"
+"};"
+
+#: index.docbook:1091
+msgid ""
+"You pass that through the &IDL; compiler by calling "
+"<userinput><command>mcopidl</command> "
+"<parameter>hello.idl</parameter></userinput>, which will in turn generate "
+"<filename>hello.cc</filename> and <filename>hello.h</filename>"
+". To implement it, you need to define a C++-class that inherits the skeleton:"
+msgstr ""
+"You pass that through the &IDL; compiler by calling "
+"<userinput><command>mcopidl</command> "
+"<parameter>hello.idl</parameter></userinput>, which will in turn generate "
+"<filename>hello.cc</filename> and <filename>hello.h</filename>"
+". To implement it, you need to define a C++-class that inherits the skeleton:"
+
+#: index.docbook:1099
+msgid ""
+"// C++ header file - include hello.h somewhere\n"
+"class Hello_impl : virtual public Hello_skel {\n"
+"public:\n"
+"    void hello(const string&amp; s);\n"
+"    string concat(const string&amp; s1, const string&amp; s2);\n"
+"    long sum2(long a, long b);\n"
+"};"
+msgstr ""
+"// C++ header file - include hello.h somewhere\n"
+"class Hello_impl : virtual public Hello_skel {\n"
+"public:\n"
+"    void hello(const string&amp; s);\n"
+"    string concat(const string&amp; s1, const string&amp; s2);\n"
+"    long sum2(long a, long b);\n"
+"};"
+
+#: index.docbook:1109
+msgid "Finally, you need to implement the methods as normal C++"
+msgstr "Finally, you need to implement the methods as normal C++"
+
+#: index.docbook:1113
+msgid ""
+"// C++ implementation file\n"
+"\n"
+"// as you see string's are passed as const string references\n"
+"void Hello_impl::hello(const string&amp; s)\n"
+"{\n"
+"    printf(\"Hello '%s'!\\n\",s.c_str());\n"
+"}\n"
+"\n"
+"// when they are a returncode they are passed as \"normal\" strings\n"
+"string Hello_impl::concat(const string&amp; s1, const string&amp; s2)\n"
+"{\n"
+"    return s1+s2;\n"
+"}\n"
+"\n"
+"long Hello_impl::sum2(long a, long b)\n"
+"{\n"
+"    return a+b;\n"
+"}"
+msgstr ""
+"// C++ implementation file\n"
+"\n"
+"// as you see string's are passed as const string references\n"
+"void Hello_impl::hello(const string&amp; s)\n"
+"{\n"
+"    printf(\"Hello '%s'!\\n\",s.c_str());\n"
+"}\n"
+"\n"
+"// when they are a returncode they are passed as \"normal\" strings\n"
+"string Hello_impl::concat(const string&amp; s1, const string&amp; s2)\n"
+"{\n"
+"    return s1+s2;\n"
+"}\n"
+"\n"
+"long Hello_impl::sum2(long a, long b)\n"
+"{\n"
+"    return a+b;\n"
+"}"
+
+#: index.docbook:1134
+msgid ""
+"Once you do that, you have an object which can communicate using &MCOP;. "
+"Just create one (using the normal C++ facilities to create an object):"
+msgstr ""
+"Once you do that, you have an object which can communicate using &MCOP;. "
+"Just create one (using the normal C++ facilities to create an object):"
+
+#: index.docbook:1139
+msgid "Hello_impl server;"
+msgstr "Hello_impl server;"
+
+#: index.docbook:1143
+msgid "And as soon as you give somebody the reference"
+msgstr "And as soon as you give somebody the reference"
+
+#: index.docbook:1147
+msgid ""
+"string reference = server._toString();\n"
+"    printf(\"%s\\n\",reference.c_str());"
+msgstr ""
+"string reference = server._toString();\n"
+"    printf(\"%s\\n\",reference.c_str());"
+
+#: index.docbook:1152
+msgid "and go to the &MCOP; idle loop"
+msgstr "and go to the &MCOP; idle loop"
+
+#: index.docbook:1156
+msgid "Dispatcher::the()-&gt;run();"
+msgstr "Dispatcher::the()-&gt;run();"
+
+#: index.docbook:1160
+msgid "People can access the thing using"
+msgstr "People can access the thing using"
+
+#: index.docbook:1164
+msgid ""
+"// this code can run anywhere - not necessarily in the same process\n"
+"// (it may also run on a different computer/architecture)\n"
+"\n"
+"    Hello *h = Hello::_fromString([the object reference printed above]);"
+msgstr ""
+"// this code can run anywhere - not necessarily in the same process\n"
+"// (it may also run on a different computer/architecture)\n"
+"\n"
+"    Hello *h = Hello::_fromString([the object reference printed above]);"
+
+#: index.docbook:1171
+msgid "and invoke methods:"
+msgstr "and invoke methods:"
+
+#: index.docbook:1175
+msgid ""
+"if(h)\n"
+"        h-&gt;hello(\"test\");\n"
+"    else\n"
+"        printf(\"Access failed?\\n\");"
+msgstr ""
+"if(h)\n"
+"        h-&gt;hello(\"test\");\n"
+"    else\n"
+"        printf(\"Access failed?\\n\");"
+
+#: index.docbook:1186
+msgid "&MCOP; Security Considerations"
+msgstr "&MCOP; Security Considerations"
+
+#: index.docbook:1188
+msgid ""
+"Since &MCOP; servers will listen on a <acronym>TCP</acronym> port, "
+"potentially everybody (if you are on the Internet) may try to connect &MCOP; "
+"services. Thus, it is important to authenticate clients. &MCOP; uses the "
+"md5-auth protocol."
+msgstr ""
+"Since &MCOP; servers will listen on a <acronym>TCP</acronym> port, "
+"potentially everybody (if you are on the Internet) may try to connect &MCOP; "
+"services. Thus, it is important to authenticate clients. &MCOP; uses the "
+"md5-auth protocol."
+
+#: index.docbook:1195
+msgid ""
+"The md5-auth protocol does the following to ensure that only selected "
+"(trusted) clients may connect to a server:"
+msgstr ""
+"The md5-auth protocol does the following to ensure that only selected "
+"(trusted) clients may connect to a server:"
+
+#: index.docbook:1200
+msgid "It assumes you can give every client a secret cookie."
+msgstr "It assumes you can give every client a secret cookie."
+
+#: index.docbook:1200
+msgid ""
+"Every time a client connects, it verifies that this client knows that secret "
+"cookie, without actually transferring it (not even in a form that somebody "
+"listening to the network traffic could find it out)."
+msgstr ""
+"Every time a client connects, it verifies that this client knows that secret "
+"cookie, without actually transferring it (not even in a form that somebody "
+"listening to the network traffic could find it out)."
+
+#: index.docbook:1217
+msgid ""
+"To give each client the secret cookie, &MCOP; will (normally) put it in the "
+"<filename class=\"directory\">mcop</filename> directory (under <filename "
+"class=\"directory\">/tmp/mcop-<envar>USER</envar>/secret-cookie</filename>"
+"). Of course, you can copy it to other computers. However, if you do so, use "
+"a secure transfer mechanism, such as <command>scp</command> (from "
+"<application>ssh</application>)."
+msgstr ""
+"To give each client the secret cookie, &MCOP; will (normally) put it in the "
+"<filename class=\"directory\">mcop</filename> directory (under <filename "
+"class=\"directory\">/tmp/mcop-<envar>USER</envar>/secret-cookie</filename>"
+"). Of course, you can copy it to other computers. However, if you do so, use "
+"a secure transfer mechanism, such as <command>scp</command> (from "
+"<application>ssh</application>)."
+
+#: index.docbook:1227
+msgid "The authentication of clients uses the following steps:"
+msgstr "The authentication of clients uses the following steps:"
+
+#: index.docbook:1231
+msgid "[SERVER] generate a new (random) cookie R"
+msgstr "[SERVER] generate a new (random) cookie R"
+
+#: index.docbook:1231
+msgid "[SERVER] send it to the client"
+msgstr "[SERVER] send it to the client"
+
+#: index.docbook:1231
+msgid "[CLIENT] read the \"secret cookie\" S from a file"
+msgstr "[CLIENT] read the \"secret cookie\" S from a file"
+
+#: index.docbook:1231
+msgid ""
+"[CLIENT] mangle the cookies R and S to a mangled cookie M using the MD5 "
+"algorithm"
+msgstr ""
+"[CLIENT] mangle the cookies R and S to a mangled cookie M using the MD5 "
+"algorithm"
+
+#: index.docbook:1231
+msgid "[CLIENT] send M to the server"
+msgstr "[CLIENT] send M to the server"
+
+#: index.docbook:1231
+msgid ""
+"[SERVER] verify that mangling R and S gives just the same thing as the "
+"cookie M received from the client. If yes, authentication is successful."
+msgstr ""
+"[SERVER] verify that mangling R and S gives just the same thing as the "
+"cookie M received from the client. If yes, authentication is successful."
+
+#: index.docbook:1273
+msgid "This algorithm should be secure, given that"
+msgstr "This algorithm should be secure, given that"
+
+#: index.docbook:1277
+msgid "The secret cookies and random cookies are <quote>random enough</quote> and"
+msgstr "The secret cookies and random cookies are <quote>random enough</quote> and"
+
+#: index.docbook:1277
+msgid ""
+"The MD5 hashing algorithm doesn't allow to find out the <quote>original "
+"text</quote>, that is the secret cookie S and the random cookie R (which is "
+"known, anyway), from the mangled cookie M."
+msgstr ""
+"The MD5 hashing algorithm doesn't allow to find out the <quote>original "
+"text</quote>, that is the secret cookie S and the random cookie R (which is "
+"known, anyway), from the mangled cookie M."
+
+#: index.docbook:1294
+msgid ""
+"The &MCOP; protocol will start every new connection with an authentication "
+"process. Basically, it looks like this:"
+msgstr ""
+"The &MCOP; protocol will start every new connection with an authentication "
+"process. Basically, it looks like this:"
+
+#: index.docbook:1299
+msgid ""
+"Server sends a ServerHello message, which describes the known authentication "
+"protocols."
+msgstr ""
+"Server sends a ServerHello message, which describes the known authentication "
+"protocols."
+
+#: index.docbook:1299
+msgid "Client sends a ClientHello message, which includes authentication info."
+msgstr "Client sends a ClientHello message, which includes authentication info."
+
+#: index.docbook:1299
+msgid "Server sends an AuthAccept message."
+msgstr "Server sends an AuthAccept message."
+
+#: index.docbook:1321
+msgid ""
+"To see that the security actually works, we should look at how messages are "
+"processed on unauthenticated connections:"
+msgstr ""
+"To see that the security actually works, we should look at how messages are "
+"processed on unauthenticated connections:"
+
+#: index.docbook:1326
+msgid ""
+"Before the authentication succeeds, the server will not receive other "
+"messages from the connection. Instead, if the server for instance expects a "
+"<quote>ClientHello</quote> message, and gets an mcopInvocation message, it "
+"will drop the connection."
+msgstr ""
+"Before the authentication succeeds, the server will not receive other "
+"messages from the connection. Instead, if the server for instance expects a "
+"<quote>ClientHello</quote> message, and gets an mcopInvocation message, it "
+"will drop the connection."
+
+#: index.docbook:1326
+msgid ""
+"If the client doesn't send a valid &MCOP; message at all (no &MCOP; magic in "
+"the message header) in the authentication phase, but something else, the "
+"connection is dropped."
+msgstr ""
+"If the client doesn't send a valid &MCOP; message at all (no &MCOP; magic in "
+"the message header) in the authentication phase, but something else, the "
+"connection is dropped."
+
+#: index.docbook:1326
+msgid ""
+"If the client tries to send a very very large message (&gt; 4096 bytes in "
+"the authentication phase, the message size is truncated to 0 bytes, which "
+"will cause that it isn't accepted for authentication) This is to prevent "
+"unauthenticated clients from sending &eg; 100 megabytes of message, which "
+"would be received and could cause the server to run out of memory."
+msgstr ""
+"If the client tries to send a very very large message (&gt; 4096 bytes in "
+"the authentication phase, the message size is truncated to 0 bytes, which "
+"will cause that it isn't accepted for authentication) This is to prevent "
+"unauthenticated clients from sending &zb; 100 megabytes of message, which "
+"would be received and could cause the server to run out of memory."
+
+#: index.docbook:1326
+msgid ""
+"If the client sends a corrupt ClientHello message (one, for which "
+"demarshalling fails), the connection is dropped."
+msgstr ""
+"If the client sends a corrupt ClientHello message (one, for which "
+"demarshalling fails), the connection is dropped."
+
+#: index.docbook:1326
+msgid ""
+"If the client send nothing at all, then a timeout should occur (to be "
+"implemented)."
+msgstr ""
+"If the client send nothing at all, then a timeout should occur (to be "
+"implemented)."
+
+#: index.docbook:1373
+msgid "&MCOP; Protocol Specification"
+msgstr "&MCOP; Protocol Specification"
+
+#: index.docbook:1376
+msgid "Introduction"
+msgstr "Einleitung"
+
+#: index.docbook:1378
+msgid ""
+"It has conceptual similarities to <acronym>CORBA</acronym>, but it is "
+"intended to extend it in all ways that are required for real time multimedia "
+"operations."
+msgstr ""
+"It has conceptual similarities to <acronym>CORBA</acronym>, but it is "
+"intended to extend it in all ways that are required for real time multimedia "
+"operations."
+
+#: index.docbook:1384
+msgid ""
+"It provides a multimedia object model, which can be used for both: "
+"communication between components in one adress space (one process), and "
+"between components that are in different threads, processes or on different "
+"hosts."
+msgstr ""
+"It provides a multimedia object model, which can be used for both: "
+"communication between components in one adress space (one process), and "
+"between components that are in different threads, processes or on different "
+"hosts."
+
+#: index.docbook:1391
+msgid ""
+"All in all, it will be designed for extremely high performance (so "
+"everything shall be optimized to be blazingly fast), suitable for very "
+"communicative multimedia applications. For instance streaming videos around "
+"is one of the applications of &MCOP;, where most <acronym>CORBA</acronym> "
+"implementations would go down to their knees."
+msgstr ""
+"All in all, it will be designed for extremely high performance (so "
+"everything shall be optimized to be blazingly fast), suitable for very "
+"communicative multimedia applications. For instance streaming videos around "
+"is one of the applications of &MCOP;, where most <acronym>CORBA</acronym> "
+"implementations would go down to their knees."
+
+#: index.docbook:1399
+msgid "The interface definitions can handle the following natively:"
+msgstr "The interface definitions can handle the following natively:"
+
+#: index.docbook:1403
+msgid "Continous streams of data (such as audio data)."
+msgstr "Continous streams of data (such as audio data)."
+
+#: index.docbook:1403
+msgid "Event streams of data (such as &MIDI; events)."
+msgstr "Event streams of data (such as &MIDI; events)."
+
+#: index.docbook:1403
+msgid "Real reference counting."
+msgstr "Real reference counting."
+
+#: index.docbook:1423
+msgid "and the most important <acronym>CORBA</acronym> gimmicks, like"
+msgstr "and the most important <acronym>CORBA</acronym> gimmicks, like"
+
+#: index.docbook:1427
+msgid "Synchronous method invocations."
+msgstr "Synchronous method invocations."
+
+#: index.docbook:1427
+msgid "Asynchronous method invocations."
+msgstr "Asynchronous method invocations."
+
+#: index.docbook:1427
+msgid "Constructing user defined data types."
+msgstr "Constructing user defined data types."
+
+#: index.docbook:1427
+msgid "Multiple inheritance."
+msgstr "Multiple inheritance."
+
+#: index.docbook:1427
+msgid "Passing object references."
+msgstr "Passing object references."
+
+#: index.docbook:1462
+msgid "The &MCOP; Message Marshalling"
+msgstr "The &MCOP; Message Marshalling"
+
+#: index.docbook:1464
+msgid "Design goals/ideas:"
+msgstr "Design goals/ideas:"
+
+#: index.docbook:1468
+msgid "Marshalling should be easy to implement."
+msgstr "Marshalling should be easy to implement."
+
+#: index.docbook:1468
+msgid "Demarshalling requires the receiver to know what type he wants to demarshall."
+msgstr "Demarshalling requires the receiver to know what type he wants to demarshall."
+
+#: index.docbook:1468
+msgid ""
+"The receiver is expected to use every information - so skipping is only in "
+"the protocol to a degree that:"
+msgstr ""
+"The receiver is expected to use every information - so skipping is only in "
+"the protocol to a degree that:"
+
+#: index.docbook:1468
+msgid ""
+"If you know you are going to receive a block of bytes, you don't need to "
+"look at each byte for an end marker."
+msgstr ""
+"If you know you are going to receive a block of bytes, you don't need to "
+"look at each byte for an end marker."
+
+#: index.docbook:1468
+msgid ""
+"If you know you are going to receive a string, you don't need to read it "
+"until the zero byte to find out it's length while demarshalling, however,"
+msgstr ""
+"If you know you are going to receive a string, you don't need to read it "
+"until the zero byte to find out it's length while demarshalling, however,"
+
+#: index.docbook:1468
+msgid ""
+"If you know you are going to receive a sequence of strings, you need to look "
+"at the length of each of them to find the end of the sequence, as strings "
+"have variable length. But if you use the strings for something useful, "
+"you'll need to do that anyway, so this is no loss."
+msgstr ""
+"If you know you are going to receive a sequence of strings, you need to look "
+"at the length of each of them to find the end of the sequence, as strings "
+"have variable length. But if you use the strings for something useful, "
+"you'll need to do that anyway, so this is no loss."
+
+#: index.docbook:1468
+msgid "As little overhead as possible."
+msgstr "As little overhead as possible."
+
+#: index.docbook:1525
+msgid "Marshalling of the different types is show in the table below:"
+msgstr "Marshalling of the different types is show in the table below:"
+
+#: index.docbook:1531
+msgid "Type"
+msgstr "Type"
+
+#: index.docbook:1531
+msgid "Marshalling Process"
+msgstr "Marshalling Process"
+
+#: index.docbook:1531
+msgid "Result"
+msgstr "Result"
+
+#: index.docbook:1539
+msgid "void"
+msgstr "void"
+
+#: index.docbook:1539
+msgid ""
+"<type>void</type> types are marshalled by omitting them, so nothing is "
+"written to the stream for them."
+msgstr ""
+"<type>void</type> types are marshalled by omitting them, so nothing is "
+"written to the stream for them."
+
+#: index.docbook:1539
+msgid "<entry></entry>"
+msgstr "<entry></entry>"
+
+#: index.docbook:1539
+msgid "long"
+msgstr "long"
+
+#: index.docbook:1539
+msgid ""
+"is marshalled as four bytes, the most significant byte first, so the number "
+"10001025 (which is 0x989a81) would be marshalled as:"
+msgstr ""
+"is marshalled as four bytes, the most significant byte first, so the number "
+"10001025 (which is 0x989a81) would be marshalled as:"
+
+#: index.docbook:1539
+msgid "0x00 0x98 0x9a 0x81"
+msgstr "0x00 0x98 0x9a 0x81"
+
+#: index.docbook:1539
+msgid "enums"
+msgstr "enums"
+
+#: index.docbook:1539
+msgid "are marshalled like <type>long</type>s"
+msgstr "are marshalled like <type>long</type>s"
+
+#: index.docbook:1539
+msgid "byte"
+msgstr "byte"
+
+#: index.docbook:1539
+msgid "is marshalled as a single byte, so the byte 0x42 would be marshalled as:"
+msgstr "is marshalled as a single byte, so the byte 0x42 would be marshalled as:"
+
+#: index.docbook:1539
+msgid "0x42"
+msgstr "0x42"
+
+#: index.docbook:1539
+msgid "string"
+msgstr "string"
+
+#: index.docbook:1539
+msgid ""
+"is marshalled as a <type>long</type>"
+", containing the length of the following string, and then the sequence of "
+"characters strings must end with one zero byte (which is included in the "
+"length counting)."
+msgstr ""
+"is marshalled as a <type>long</type>"
+", containing the length of the following string, and then the sequence of "
+"characters strings must end with one zero byte (which is included in the "
+"length counting)."
+
+#: index.docbook:1539
+msgid "include the trailing 0 byte in length counting!"
+msgstr "include the trailing 0 byte in length counting!"
+
+#: index.docbook:1539
+msgid "<quote>hello</quote> would be marshalled as:"
+msgstr "<quote>hello</quote> would be marshalled as:"
+
+#: index.docbook:1539
+msgid "0x00 0x00 0x00 0x06 0x68 0x65 0x6c 0x6c 0x6f 0x00"
+msgstr "0x00 0x00 0x00 0x06 0x68 0x65 0x6c 0x6c 0x6f 0x00"
+
+#: index.docbook:1539
+msgid "boolean"
+msgstr "boolean"
+
+#: index.docbook:1539
+msgid ""
+"is marshalled as a byte, containing 0 if <returnvalue>false</returnvalue>"
+" or 1 if <returnvalue>true</returnvalue>, so the boolean value "
+"<returnvalue>true</returnvalue> is marshalled as:"
+msgstr ""
+"is marshalled as a byte, containing 0 if <returnvalue>false</returnvalue>"
+" or 1 if <returnvalue>true</returnvalue>, so the boolean value "
+"<returnvalue>true</returnvalue> is marshalled as:"
+
+#: index.docbook:1539
+msgid "0x01"
+msgstr "0x01"
+
+#: index.docbook:1539
+msgid "float"
+msgstr "float"
+
+#: index.docbook:1539
+msgid ""
+"is marshalled after the four byte IEEE754 representation - detailed docs how "
+"IEEE works are here: <ulink "
+"url=\"http://twister.ou.edu/workshop.docs/common-tools/numerical_comp_guide/n"
+"cg_math.doc.html\">"
+"http://twister.ou.edu/workshop.docs/common-tools/numerical_comp_guide/ncg_mat"
+"h.doc.html</ulink> and here: <ulink "
+"url=\"http://java.sun.com/docs/books/vmspec/2nd-edition/html/Overview.doc.htm"
+"l\">"
+"http://java.sun.com/docs/books/vmspec/2nd-edition/html/Overview.doc.html</uli"
+"nk>. So, the value 2.15 would be marshalled as:"
+msgstr ""
+"is marshalled after the four byte IEEE754 representation - detailed docs how "
+"IEEE works are here: <ulink "
+"url=\"http://twister.ou.edu/workshop.docs/common-tools/numerical_comp_guide/n"
+"cg_math.doc.html\">"
+"http://twister.ou.edu/workshop.docs/common-tools/numerical_comp_guide/ncg_mat"
+"h.doc.html</ulink> and here: <ulink "
+"url=\"http://java.sun.com/docs/books/vmspec/2nd-edition/html/Overview.doc.htm"
+"l\">"
+"http://java.sun.com/docs/books/vmspec/2nd-edition/html/Overview.doc.html</uli"
+"nk>. So, the value 2.15 would be marshalled as:"
+
+#: index.docbook:1539
+msgid "0x9a 0x99 0x09 0x40"
+msgstr "0x9a 0x99 0x09 0x40"
+
+#: index.docbook:1539
+msgid "struct"
+msgstr "struct"
+
+#: index.docbook:1539
+msgid ""
+"A structure is marshalled by marshalling it's contents. There are no "
+"additional prefixes or suffixes required, so the structure"
+msgstr ""
+"A structure is marshalled by marshalling it's contents. There are no "
+"additional prefixes or suffixes required, so the structure"
+
+#: index.docbook:1539
+msgid ""
+"struct test {\n"
+"    string name;        // which is \"hello\"\n"
+"    long value;         // which is 10001025  (0x989a81)\n"
+"};"
+msgstr ""
+"struct test {\n"
+"    string name;        // which is \"hello\"\n"
+"    long value;         // which is 10001025  (0x989a81)\n"
+"};"
+
+#: index.docbook:1539
+msgid "would be marshalled as"
+msgstr "would be marshalled as"
+
+#: index.docbook:1539
+msgid ""
+"0x00 0x00 0x00 0x06   0x68 0x65 0x6c 0x6c\n"
+"0x6f 0x00 0x00 0x98   0x9a 0x81"
+msgstr ""
+"0x00 0x00 0x00 0x06   0x68 0x65 0x6c 0x6c\n"
+"0x6f 0x00 0x00 0x98   0x9a 0x81"
+
+#: index.docbook:1539
+msgid "sequence"
+msgstr "sequence"
+
+#: index.docbook:1539
+msgid ""
+"a sequence is marshalled by listing the number of elements that follow, and "
+"then marshalling the elements one by one."
+msgstr ""
+"a sequence is marshalled by listing the number of elements that follow, and "
+"then marshalling the elements one by one."
+
+#: index.docbook:1539
+msgid ""
+"So a sequence of 3 longs a, with a[0] = 0x12345678, a[1] = 0x01 and a[2] = "
+"0x42 would be marshalled as:"
+msgstr ""
+"So a sequence of 3 longs a, with a[0] = 0x12345678, a[1] = 0x01 and a[2] = "
+"0x42 would be marshalled as:"
+
+#: index.docbook:1539
+msgid ""
+"0x00 0x00 0x00 0x03   0x12 0x34 0x56 0x78\n"
+"0x00 0x00 0x00 0x01   0x00 0x00 0x00 0x42"
+msgstr ""
+"0x00 0x00 0x00 0x03   0x12 0x34 0x56 0x78\n"
+"0x00 0x00 0x00 0x01   0x00 0x00 0x00 0x42"
+
+#: index.docbook:1638
+msgid ""
+"If you need to refer to a type, all primitive types are referred by the "
+"names given above. Structures and enums get own names (like Header). "
+"Sequences are referred as *<replaceable>normal type</replaceable>"
+", so that a sequence of longs is <quote>*long</quote> and a sequence of "
+"Header struct's is <quote>*Header</quote>."
+msgstr ""
+"If you need to refer to a type, all primitive types are referred by the "
+"names given above. Structures and enums get own names (like Header). "
+"Sequences are referred as *<replaceable>normal type</replaceable>"
+", so that a sequence of longs is <quote>*long</quote> and a sequence of "
+"Header struct's is <quote>*Header</quote>."
+
+#: index.docbook:1649
+msgid "Messages"
+msgstr "Messages"
+
+#: index.docbook:1651
+msgid "The &MCOP; message header format is defined as defined by this structure:"
+msgstr "The &MCOP; message header format is defined as defined by this structure:"
+
+#: index.docbook:1656
+msgid ""
+"struct Header {\n"
+"    long magic;          // the value 0x4d434f50, which is marshalled as "
+"MCOP\n"
+"    long messageLength;\n"
+"    long messageType;\n"
+"};"
+msgstr ""
+"struct Header {\n"
+"    long magic;          // the value 0x4d434f50, which is marshalled as "
+"MCOP\n"
+"    long messageLength;\n"
+"    long messageType;\n"
+"};"
+
+#: index.docbook:1664
+msgid "The possible messageTypes are currently"
+msgstr "The possible messageTypes are currently"
+
+#: index.docbook:1668
+msgid ""
+"mcopServerHello\t\t= 1\n"
+" mcopClientHello\t\t= 2\n"
+" mcopAuthAccept\t\t\t= 3\n"
+" mcopInvocation\t\t\t= 4\n"
+" mcopReturn\t\t\t\t= 5\n"
+" mcopOnewayInvocation   = 6"
+msgstr ""
+"mcopServerHello\t\t= 1\n"
+" mcopClientHello\t\t= 2\n"
+" mcopAuthAccept\t\t\t= 3\n"
+" mcopInvocation\t\t\t= 4\n"
+" mcopReturn\t\t\t\t= 5\n"
+" mcopOnewayInvocation   = 6"
+
+#: index.docbook:1677
+msgid "A few notes about the &MCOP; messaging:"
+msgstr "A few notes about the &MCOP; messaging:"
+
+#: index.docbook:1682
+msgid "Every message starts with a Header."
+msgstr "Every message starts with a Header."
+
+#: index.docbook:1682
+msgid ""
+"Some messages types should be dropped by the server, as long as the "
+"authentication is not complete."
+msgstr ""
+"Some messages types should be dropped by the server, as long as the "
+"authentication is not complete."
+
+#: index.docbook:1682
+msgid ""
+"After receiving the header, the protocol (connection) handling can receive "
+"the message completely, without looking at the contents."
+msgstr ""
+"After receiving the header, the protocol (connection) handling can receive "
+"the message completely, without looking at the contents."
+
+#: index.docbook:1704
+msgid ""
+"The messageLength in the header is of course in some cases redundant, which "
+"means that this approach is not minimal regarding the number of bytes."
+msgstr ""
+"The messageLength in the header is of course in some cases redundant, which "
+"means that this approach is not minimal regarding the number of bytes."
+
+#: index.docbook:1710
+msgid ""
+"However, it leads to an easy (and fast) implementation of non-blocking "
+"messaging processing. With the help of the header, the messages can be "
+"received by protocol handling classes in the background (non-blocking), if "
+"there are many connections to the server, all of them can be served "
+"parallel. You don't need to look at the message content, to receive the "
+"message (and to determine when you are done), just at the header, so the "
+"code for that is pretty easy."
+msgstr ""
+"However, it leads to an easy (and fast) implementation of non-blocking "
+"messaging processing. With the help of the header, the messages can be "
+"received by protocol handling classes in the background (non-blocking), if "
+"there are many connections to the server, all of them can be served "
+"parallel. You don't need to look at the message content, to receive the "
+"message (and to determine when you are done), just at the header, so the "
+"code for that is pretty easy."
+
+#: index.docbook:1720
+msgid ""
+"Once a message is there, it can be demarshalled and processed in one single "
+"pass, without caring about cases where not all data may have been received "
+"(because the messageLength guarantees that everything is there)."
+msgstr ""
+"Once a message is there, it can be demarshalled and processed in one single "
+"pass, without caring about cases where not all data may have been received "
+"(because the messageLength guarantees that everything is there)."
+
+#: index.docbook:1730
+msgid "Invocations"
+msgstr "Invocations"
+
+#: index.docbook:1732
+msgid ""
+"To call a remote method, you need to send the following structure in the "
+"body of an &MCOP; message with the messageType = 1 (mcopInvocation):"
+msgstr ""
+"To call a remote method, you need to send the following structure in the "
+"body of an &MCOP; message with the messageType = 1 (mcopInvocation):"
+
+#: index.docbook:1737
+msgid ""
+"struct Invocation {\n"
+"    long objectID;\n"
+"    long methodID;\n"
+"    long requestID;\n"
+"};"
+msgstr ""
+"struct Invocation {\n"
+"    long objectID;\n"
+"    long methodID;\n"
+"    long requestID;\n"
+"};"
+
+#: index.docbook:1745
+msgid ""
+"after that, you send the parameters as structure, &eg; if you invoke the "
+"method string concat(string s1, string s2), you send a structure like"
+msgstr ""
+"after that, you send the parameters as structure, &zb; if you invoke the "
+"method string concat(string s1, string s2), you send a structure like"
+
+#: index.docbook:1750
+msgid ""
+"struct InvocationBody {\n"
+"    string s1;\n"
+"    string s2;\n"
+"};"
+msgstr ""
+"struct InvocationBody {\n"
+"    string s1;\n"
+"    string s2;\n"
+"};"
+
+#: index.docbook:1758
+msgid ""
+"if the method was declared to be oneway - that means asynchronous without "
+"return code - then that was it. Otherwise, you'll receive as answer the "
+"message with messageType = 2 (mcopReturn)"
+msgstr ""
+"if the method was declared to be oneway - that means asynchronous without "
+"return code - then that was it. Otherwise, you'll receive as answer the "
+"message with messageType = 2 (mcopReturn)"
+
+#: index.docbook:1764
+msgid ""
+"struct ReturnCode {\n"
+"    long requestID;\n"
+"    &lt;resulttype&gt; result;\n"
+"};"
+msgstr ""
+"struct ReturnCode {\n"
+"    long requestID;\n"
+"    &lt;resulttype&gt; result;\n"
+"};"
+
+#: index.docbook:1772
+msgid ""
+"where &lt;resulttype&gt; is the type of the result. As void types are "
+"omitted in marshalling, you can also only write the requestID if you return "
+"from a void method."
+msgstr ""
+"where &lt;resulttype&gt; is the type of the result. As void types are "
+"omitted in marshalling, you can also only write the requestID if you return "
+"from a void method."
+
+#: index.docbook:1778
+msgid "So our string concat(string s1, string s2) would lead to a returncode like"
+msgstr "So our string concat(string s1, string s2) would lead to a returncode like"
+
+#: index.docbook:1783
+msgid ""
+"struct ReturnCode {\n"
+"    long   requestID;\n"
+"    string result;\n"
+"};"
+msgstr ""
+"struct ReturnCode {\n"
+"    long   requestID;\n"
+"    string result;\n"
+"};"
+
+#: index.docbook:1793
+msgid "Inspecting Interfaces"
+msgstr "Inspecting Interfaces"
+
+#: index.docbook:1795
+msgid ""
+"To do invocations, you need to know the methods an object supports. To do "
+"so, the methodID 0, 1, 2 and 3 are hardwired to certain functionalities. "
+"That is"
+msgstr ""
+"To do invocations, you need to know the methods an object supports. To do "
+"so, the methodID 0, 1, 2 and 3 are hardwired to certain functionalities. "
+"That is"
+
+#: index.docbook:1801
+msgid ""
+"long _lookupMethod(MethodDef methodDef);\t\t\t\t// methodID always 0\n"
+"string _interfaceName();\t\t\t\t\t\t\t\t// methodID always 1\n"
+"InterfaceDef _queryInterface(string name);\t\t\t\t// methodID always 2\n"
+"TypeDef _queryType(string name);\t\t\t\t\t\t// methodID always 3"
+msgstr ""
+"long _lookupMethod(MethodDef methodDef);\t\t\t\t// methodID always 0\n"
+"string _interfaceName();\t\t\t\t\t\t\t\t// methodID always 1\n"
+"InterfaceDef _queryInterface(string name);\t\t\t\t// methodID always 2\n"
+"TypeDef _queryType(string name);\t\t\t\t\t\t// methodID always 3"
+
+#: index.docbook:1808
+msgid "to read that, you of course need also"
+msgstr "to read that, you of course need also"
+
+#: index.docbook:1812
+msgid ""
+"struct MethodDef {\n"
+"\tstring  methodName;\n"
+"\tstring  type;\n"
+"\tlong    flags;        // set to 0 for now (will be required for "
+"streaming)\n"
+"\tsequence&lt;ParamDef&gt; signature;\n"
+"};\n"
+"\n"
+"struct ParamDef {\n"
+"\tstring name;\n"
+"\tlong   typeCode;\n"
+"};"
+msgstr ""
+"struct MethodDef {\n"
+"\tstring  methodName;\n"
+"\tstring  type;\n"
+"\tlong    flags;        // set to 0 for now (will be required for "
+"streaming)\n"
+"\tsequence&lt;ParamDef&gt; signature;\n"
+"};\n"
+"\n"
+"struct ParamDef {\n"
+"\tstring name;\n"
+"\tlong   typeCode;\n"
+"};"
+
+#: index.docbook:1826
+msgid ""
+"the parameters field contains type components which specify the types of the "
+"parameters. The type of the returncode is specified in the MethodDef's type "
+"field."
+msgstr ""
+"the parameters field contains type components which specify the types of the "
+"parameters. The type of the returncode is specified in the MethodDef's type "
+"field."
+
+#: index.docbook:1832
+msgid ""
+"Strictly speaking, only the methods <methodname>_lookupMethod()</methodname>"
+" and <methodname>_interfaceName()</methodname>"
+" differ from object to object, while the "
+"<methodname>_queryInterface()</methodname> and "
+"<methodname>_queryType()</methodname> are always the same."
+msgstr ""
+"Strictly speaking, only the methods <methodname>_lookupMethod()</methodname>"
+" and <methodname>_interfaceName()</methodname>"
+" differ from object to object, while the "
+"<methodname>_queryInterface()</methodname> and "
+"<methodname>_queryType()</methodname> are always the same."
+
+#: index.docbook:1840
+msgid ""
+"What are those methodIDs? If you do an &MCOP; invocation, you are expected "
+"to pass a number for the method you are calling. The reason for that is, "
+"that numbers can be processed much faster than strings when executing an "
+"&MCOP; request."
+msgstr ""
+"What are those methodIDs? If you do an &MCOP; invocation, you are expected "
+"to pass a number for the method you are calling. The reason for that is, "
+"that numbers can be processed much faster than strings when executing an "
+"&MCOP; request."
+
+#: index.docbook:1847
+msgid ""
+"So how do you get those numbers? If you know the signature of the method, "
+"that is a MethodDef that describes the method, (which contains name, type, "
+"parameter names, parameter types and such), you can pass that to "
+"_lookupMethod of the object where you wish to call a method. As "
+"_lookupMethod is hardwired to methodID 0, you should encounter no problems "
+"doing so."
+msgstr ""
+"So how do you get those numbers? If you know the signature of the method, "
+"that is a MethodDef that describes the method, (which contains name, type, "
+"parameter names, parameter types and such), you can pass that to "
+"_lookupMethod of the object where you wish to call a method. As "
+"_lookupMethod is hardwired to methodID 0, you should encounter no problems "
+"doing so."
+
+#: index.docbook:1856
+msgid ""
+"On the other hand, if you don't know the method signature, you can find "
+"which methods are supported by using _interfaceName, _queryInterface and "
+"_queryType."
+msgstr ""
+"On the other hand, if you don't know the method signature, you can find "
+"which methods are supported by using _interfaceName, _queryInterface and "
+"_queryType."
+
+#: index.docbook:1864
+msgid "Type Definitions"
+msgstr "Type Definitions"
+
+#: index.docbook:1866
+msgid ""
+"User defined datatypes are described using the "
+"<structname>TypeDef</structname> structure:"
+msgstr ""
+"User defined datatypes are described using the "
+"<structname>TypeDef</structname> structure:"
+
+#: index.docbook:1871
+msgid ""
+"struct TypeComponent {\n"
+"\tstring type;\n"
+"\tstring name;\n"
+"};\n"
+"\n"
+"struct TypeDef {\n"
+"\tstring name;\n"
+"\n"
+"\tsequence&lt;TypeComponent&gt; contents;\n"
+"};"
+msgstr ""
+"struct TypeComponent {\n"
+"\tstring type;\n"
+"\tstring name;\n"
+"};\n"
+"\n"
+"struct TypeDef {\n"
+"\tstring name;\n"
+"\n"
+"\tsequence&lt;TypeComponent&gt; contents;\n"
+"};"
+
+#: index.docbook:1888
+msgid "Why &arts; Doesn't Use &DCOP;"
+msgstr "Why &arts; Doesn't Use &DCOP;"
+
+#: index.docbook:1890
+msgid ""
+"Since &kde; dropped <acronym>CORBA</acronym>"
+" completely, and is using &DCOP; everywhere instead, naturally the question "
+"arises why &arts; isn't doing so. After all, &DCOP; support is in "
+"<classname>KApplication</classname>, is well-maintained, supposed to "
+"integrate greatly with libICE, and whatever else."
+msgstr ""
+"Since &kde; dropped <acronym>CORBA</acronym>"
+" completely, and is using &DCOP; everywhere instead, naturally the question "
+"arises why &arts; isn't doing so. After all, &DCOP; support is in "
+"<classname>KApplication</classname>, is well-maintained, supposed to "
+"integrate greatly with libICE, and whatever else."
+
+#: index.docbook:1898
+msgid ""
+"Since there will be (potentially) a lot of people asking whether having "
+"&MCOP; besides &DCOP; is really necessary, here is the answer. Please don't "
+"get me wrong, I am not trying to say <quote>&DCOP; is bad</quote>"
+". I am just trying to say <quote>&DCOP; isn't the right solution for "
+"&arts;</quote> (while it is a nice solution for other things)."
+msgstr ""
+"Since there will be (potentially) a lot of people asking whether having "
+"&MCOP; besides &DCOP; is really necessary, here is the answer. Please don't "
+"get me wrong, I am not trying to say <quote>&DCOP; is bad</quote>"
+". I am just trying to say <quote>&DCOP; isn't the right solution for "
+"&arts;</quote> (while it is a nice solution for other things)."
+
+#: index.docbook:1907
+msgid ""
+"First, you need to understand what exactly &DCOP; was written for. Created "
+"in two days during the &kde;-TWO meeting, it was intended to be as simple as "
+"possible, a really <quote>lightweight</quote> communication protocol. "
+"Especially the implementation left away everything that could involve "
+"complexity, for instance a full blown concept how data types shall be "
+"marshalled."
+msgstr ""
+"First, you need to understand what exactly &DCOP; was written for. Created "
+"in two days during the &kde;-TWO meeting, it was intended to be as simple as "
+"possible, a really <quote>lightweight</quote> communication protocol. "
+"Especially the implementation left away everything that could involve "
+"complexity, for instance a full blown concept how data types shall be "
+"marshalled."
+
+#: index.docbook:1916
+msgid ""
+"Even although &DCOP; doesn't care about certain things (like: how do I send "
+"a string in a network-transparent manner?) - this needs to be done. So, "
+"everything that &DCOP; doesn't do, is left to &Qt; in the &kde; apps that "
+"use &DCOP; today. This is mostly type management (using the &Qt; "
+"serialization operator)."
+msgstr ""
+"Even although &DCOP; doesn't care about certain things (like: how do I send "
+"a string in a network-transparent manner?) - this needs to be done. So, "
+"everything that &DCOP; doesn't do, is left to &Qt; in the &kde; apps that "
+"use &DCOP; today. This is mostly type management (using the &Qt; "
+"serialization operator)."
+
+#: index.docbook:1924
+msgid ""
+"So &DCOP; is a minimal protocol which perfectly enables &kde; applications "
+"to send simple messages like <quote>open a window pointing to "
+"http://www.kde.org</quote> or <quote>your configuration data has "
+"changed</quote>. However, inside &arts; the focus lies on other things."
+msgstr ""
+"So &DCOP; is a minimal protocol which perfectly enables &kde; applications "
+"to send simple messages like <quote>open a window pointing to "
+"http://www.kde.org</quote> or <quote>your configuration data has "
+"changed</quote>. However, inside &arts; the focus lies on other things."
+
+#: index.docbook:1931
+msgid ""
+"The idea is, that little plugins in &arts; will talk involving such data "
+"structures as <quote>midi events</quote> and <quote>songposition "
+"pointers</quote> and <quote>flow graphs</quote>."
+msgstr ""
+"The idea is, that little plugins in &arts; will talk involving such data "
+"structures as <quote>midi events</quote> and <quote>songposition "
+"pointers</quote> and <quote>flow graphs</quote>."
+
+#: index.docbook:1937
+msgid ""
+"These are complex data types, which must be sent between different objects, "
+"and be passed as streams, or parameters. &MCOP; supplies a type concept, to "
+"define complex data types out of simpler ones (similar to structs or arrays "
+"in C++). &DCOP; doesn't care about types at all, so this problem would be "
+"left to the programmer - like: writing C++ classes for the types, and make "
+"sure they can serialize properly (for instance: support the &Qt; streaming "
+"operator)."
+msgstr ""
+"These are complex data types, which must be sent between different objects, "
+"and be passed as streams, or parameters. &MCOP; supplies a type concept, to "
+"define complex data types out of simpler ones (similar to structs or arrays "
+"in C++). &DCOP; doesn't care about types at all, so this problem would be "
+"left to the programmer - like: writing C++ classes for the types, and make "
+"sure they can serialize properly (for instance: support the &Qt; streaming "
+"operator)."
+
+#: index.docbook:1947
+msgid ""
+"But that way, they would be inaccessible to everything but direct C++ "
+"coding. Specifically, you could not design a scripting language, that would "
+"know all types plugins may ever expose, as they are not self describing."
+msgstr ""
+"But that way, they would be inaccessible to everything but direct C++ "
+"coding. Specifically, you could not design a scripting language, that would "
+"know all types plugins may ever expose, as they are not self describing."
+
+#: index.docbook:1954
+msgid ""
+"Much the same argument is valid for interfaces as well. &DCOP; objects don't "
+"expose their relationships, inheritance hierarchies, etc. - if you were to "
+"write an object browser which shows you <quote>what attributes has this "
+"object got</quote>, you'd fail."
+msgstr ""
+"Much the same argument is valid for interfaces as well. &DCOP; objects don't "
+"expose their relationships, inheritance hierarchies, etc. - if you were to "
+"write an object browser which shows you <quote>what attributes has this "
+"object got</quote>, you'd fail."
+
+#: index.docbook:1962
+msgid ""
+"While Matthias told me that you have a special function "
+"<quote>functions</quote> on each object that tells you about the methods "
+"that an object supports, this leaves out things like attributes "
+"(properties), streams and inheritance relations."
+msgstr ""
+"While Matthias told me that you have a special function "
+"<quote>functions</quote> on each object that tells you about the methods "
+"that an object supports, this leaves out things like attributes "
+"(properties), streams and inheritance relations."
+
+#: index.docbook:1969
+msgid ""
+"This seriously breaks applications like &artsbuilder;. But remember: &DCOP; "
+"was not so much intended to be an object model (as &Qt; already has one with "
+"<application>moc</application> and similar), nor to be something like "
+"<acronym>CORBA</acronym>, but to supply inter-application communication."
+msgstr ""
+"This seriously breaks applications like &artsbuilder;. But remember: &DCOP; "
+"was not so much intended to be an object model (as &Qt; already has one with "
+"<application>moc</application> and similar), nor to be something like "
+"<acronym>CORBA</acronym>, but to supply inter-application communication."
+
+#: index.docbook:1977
+msgid ""
+"Why &MCOP; even exists is: it should work fine with streams between objects. "
+"&arts; makes heavily use of small plugins, which interconnect themselves "
+"with streams. The <acronym>CORBA</acronym> version of &arts; had to "
+"introduce a very annoying split between <quote>the SynthModule "
+"objects</quote>, which were the internal work modules that did do the "
+"streaming, and <quote>the <acronym>CORBA</acronym> interface</quote>, which "
+"was something external."
+msgstr ""
+"Why &MCOP; even exists is: it should work fine with streams between objects. "
+"&arts; makes heavily use of small plugins, which interconnect themselves "
+"with streams. The <acronym>CORBA</acronym> version of &arts; had to "
+"introduce a very annoying split between <quote>the SynthModule "
+"objects</quote>, which were the internal work modules that did do the "
+"streaming, and <quote>the <acronym>CORBA</acronym> interface</quote>, which "
+"was something external."
+
+#: index.docbook:1987
+msgid ""
+"Much code cared about making interaction between <quote>the SynthModule "
+"objects</quote> and <quote>the <acronym>CORBA</acronym> interface</quote> "
+"look natural, but it didn't, because <acronym>CORBA</acronym> knew nothing "
+"at all about streams. &MCOP; does. Look at the code (something like "
+"<filename>simplesoundserver_impl.cc</filename>). Way better! Streams can be "
+"declared in the interface of modules, and implemented in a natural looking "
+"way."
+msgstr ""
+"Much code cared about making interaction between <quote>the SynthModule "
+"objects</quote> and <quote>the <acronym>CORBA</acronym> interface</quote> "
+"look natural, but it didn't, because <acronym>CORBA</acronym> knew nothing "
+"at all about streams. &MCOP; does. Look at the code (something like "
+"<filename>simplesoundserver_impl.cc</filename>). Way better! Streams can be "
+"declared in the interface of modules, and implemented in a natural looking "
+"way."
+
+#: index.docbook:1998
+msgid ""
+"One can't deny it. One of the reasons why I wrote &MCOP; was speed. Here are "
+"some arguments why &MCOP; will definitely be faster than &DCOP; (even "
+"without giving figures)."
+msgstr ""
+"One can't deny it. One of the reasons why I wrote &MCOP; was speed. Here are "
+"some arguments why &MCOP; will definitely be faster than &DCOP; (even "
+"without giving figures)."
+
+#: index.docbook:2005
+msgid "An invocation in &MCOP; will have a six-<quote>long</quote>-header. That is:"
+msgstr "An invocation in &MCOP; will have a six-<quote>long</quote>-header. That is:"
+
+#: index.docbook:2010
+msgid "magic <quote>MCOP</quote>"
+msgstr "magic <quote>MCOP</quote>"
+
+#: index.docbook:2010
+msgid "message type (invocation)"
+msgstr "message type (invocation)"
+
+#: index.docbook:2010
+msgid "size of the request in bytes"
+msgstr "size of the request in bytes"
+
+#: index.docbook:2010
+msgid "request ID"
+msgstr "request ID"
+
+#: index.docbook:2010
+msgid "target object ID"
+msgstr "target object ID"
+
+#: index.docbook:2010
+msgid "target method ID"
+msgstr "target method ID"
+
+#: index.docbook:2019
+msgid ""
+"After that, the parameters follow. Note that the demarshalling of this is "
+"extremely fast. You can use table lookups to find the object and the method "
+"demarshalling function, which means that complexity is O(1) [ it will take "
+"the same amount of time, no matter how many objects are alive, or how many "
+"functions are there ]."
+msgstr ""
+"After that, the parameters follow. Note that the demarshalling of this is "
+"extremely fast. You can use table lookups to find the object and the method "
+"demarshalling function, which means that complexity is O(1) [ it will take "
+"the same amount of time, no matter how many objects are alive, or how many "
+"functions are there ]."
+
+#: index.docbook:2027
+msgid "Comparing this to &DCOP;, you'll see, that there are at least"
+msgstr "Comparing this to &DCOP;, you'll see, that there are at least"
+
+#: index.docbook:2031
+msgid "a string for the target object - something like <quote>myCalculator</quote>"
+msgstr "a string for the target object - something like <quote>myCalculator</quote>"
+
+#: index.docbook:2031
+msgid "a string like <quote>addNumber(int,int)</quote> to specify the method"
+msgstr "a string like <quote>addNumber(int,int)</quote> to specify the method"
+
+#: index.docbook:2031
+msgid ""
+"several more protocol info added by libICE, and other DCOP specifics I don't "
+"know"
+msgstr ""
+"several more protocol info added by libICE, and other DCOP specifics I don't "
+"know"
+
+#: index.docbook:2040
+msgid ""
+"These are much more painful to demarshall, as you'll need to parse the "
+"string, search for the function, &etc;."
+msgstr ""
+"These are much more painful to demarshall, as you'll need to parse the "
+"string, search for the function, &etc;."
+
+#: index.docbook:2045
+msgid ""
+"In &DCOP;, all requests are running through a server "
+"(<application>DCOPServer</application>). That means, the process of a "
+"synchronous invocation looks like this:"
+msgstr ""
+"In &DCOP;, all requests are running through a server "
+"(<application>DCOPServer</application>). That means, the process of a "
+"synchronous invocation looks like this:"
+
+#: index.docbook:2051 index.docbook:2090
+msgid "Client process sends invocation."
+msgstr "Client process sends invocation."
+
+#: index.docbook:2051
+msgid ""
+"<application>DCOPserver</application> (man-in-the-middle) receives "
+"invocation and looks where it needs to go, and sends it to the "
+"<quote>real</quote> server."
+msgstr ""
+"<application>DCOPserver</application> (man-in-the-middle) receives "
+"invocation and looks where it needs to go, and sends it to the "
+"<quote>real</quote> server."
+
+#: index.docbook:2051 index.docbook:2090
+msgid "Server process receives invocation, performs request and sends result."
+msgstr "Server process receives invocation, performs request and sends result."
+
+#: index.docbook:2051
+msgid ""
+"<application>DCOPserver</application> (man-in-the-middle) receives result "
+"and ... sends it to the client."
+msgstr ""
+"<application>DCOPserver</application> (man-in-the-middle) receives result "
+"and ... sends it to the client."
+
+#: index.docbook:2051 index.docbook:2090
+msgid "Client decodes reply."
+msgstr "Client decodes reply."
+
+#: index.docbook:2086
+msgid "In &MCOP;, the same invocation looks like this:"
+msgstr "In &MCOP;, the same invocation looks like this:"
+
+#: index.docbook:2110
+msgid ""
+"Say both were implemented correctly, &MCOP;s peer-to-peer strategy should be "
+"faster by a factor of two, than &DCOP;s man-in-the-middle strategy. Note "
+"however that there were of course reasons to choose the &DCOP; strategy, "
+"which is namely: if you have 20 applications running, and each app is "
+"talking to each app, you need 20 connections in &DCOP;, and 200 with &MCOP;. "
+"However in the multimedia case, this is not supposed to be the usual setting."
+msgstr ""
+"Say both were implemented correctly, &MCOP;s peer-to-peer strategy should be "
+"faster by a factor of two, than &DCOP;s man-in-the-middle strategy. Note "
+"however that there were of course reasons to choose the &DCOP; strategy, "
+"which is namely: if you have 20 applications running, and each app is "
+"talking to each app, you need 20 connections in &DCOP;, and 200 with &MCOP;. "
+"However in the multimedia case, this is not supposed to be the usual setting."
+
+#: index.docbook:2120
+msgid ""
+"I tried to compare &MCOP; and &DCOP;, doing an invocation like adding two "
+"numbers. I modified testdcop to achieve this. However, the test may not have "
+"been precise on the &DCOP; side. I invoked the method in the same process "
+"that did the call for &DCOP;, and I didn't know how to get rid of one "
+"debugging message, so I used output redirection."
+msgstr ""
+"I tried to compare &MCOP; and &DCOP;, doing an invocation like adding two "
+"numbers. I modified testdcop to achieve this. However, the test may not have "
+"been precise on the &DCOP; side. I invoked the method in the same process "
+"that did the call for &DCOP;, and I didn't know how to get rid of one "
+"debugging message, so I used output redirection."
+
+#: index.docbook:2128
+msgid ""
+"The test only used one object and one function, expect &DCOP;s results to "
+"decrease with more objects and functions, while &MCOP;s results should stay "
+"the same. Also, the <application>dcopserver</application> process wasn't "
+"connected to other applications, it might be that if many applications are "
+"connected, the routing performance decreases."
+msgstr ""
+"The test only used one object and one function, expect &DCOP;s results to "
+"decrease with more objects and functions, while &MCOP;s results should stay "
+"the same. Also, the <application>dcopserver</application> process wasn't "
+"connected to other applications, it might be that if many applications are "
+"connected, the routing performance decreases."
+
+#: index.docbook:2136
+msgid ""
+"The result I got was that while &DCOP; got slightly more than 2000 "
+"invocations per second, &MCOP; got slightly more than 8000 invocations per "
+"second. That makes a factor of 4. I know that &MCOP; isn't tuned to the "
+"maximum possible, yet. (Comparision: <acronym>CORBA</acronym>, as "
+"implemented with mico, does something between 1000 and 1500 invocations per "
+"second)."
+msgstr ""
+"The result I got was that while &DCOP; got slightly more than 2000 "
+"invocations per second, &MCOP; got slightly more than 8000 invocations per "
+"second. That makes a factor of 4. I know that &MCOP; isn't tuned to the "
+"maximum possible, yet. (Comparision: <acronym>CORBA</acronym>, as "
+"implemented with mico, does something between 1000 and 1500 invocations per "
+"second)."
+
+#: index.docbook:2145
+msgid ""
+"If you want <quote>harder</quote> data, consider writing some small "
+"benchmark app for &DCOP; and send it to me."
+msgstr ""
+"If you want <quote>harder</quote> data, consider writing some small "
+"benchmark app for &DCOP; and send it to me."
+
+#: index.docbook:2150
+msgid ""
+"<acronym>CORBA</acronym>"
+" had the nice feature that you could use objects you implemented once, as "
+"<quote>seperate server process</quote>, or as <quote>library</quote>. You "
+"could use the same code to do so, and <acronym>CORBA</acronym> would "
+"transparently descide what to do. With &DCOP;, that is not really intended, "
+"and as far as I know not really possible."
+msgstr ""
+"<acronym>CORBA</acronym>"
+" had the nice feature that you could use objects you implemented once, as "
+"<quote>seperate server process</quote>, or as <quote>library</quote>. You "
+"could use the same code to do so, and <acronym>CORBA</acronym> would "
+"transparently descide what to do. With &DCOP;, that is not really intended, "
+"and as far as I know not really possible."
+
+#: index.docbook:2159
+msgid ""
+"&MCOP; on the other hand should support that from the beginning. So you can "
+"run an effect inside &artsd;. But if you are a wave editor, you can choose "
+"to run the same effect inside your process space as well."
+msgstr ""
+"&MCOP; on the other hand should support that from the beginning. So you can "
+"run an effect inside &artsd;. But if you are a wave editor, you can choose "
+"to run the same effect inside your process space as well."
+
+#: index.docbook:2165
+msgid ""
+"While &DCOP; is mostly a way to communicate between apps, &MCOP; is also a "
+"way to communicate inside apps. Especially for multimedia streaming, this is "
+"important (as you can run multiple &MCOP; objects parallely, to solve a "
+"multimedia task in your application)."
+msgstr ""
+"While &DCOP; is mostly a way to communicate between apps, &MCOP; is also a "
+"way to communicate inside apps. Especially for multimedia streaming, this is "
+"important (as you can run multiple &MCOP; objects parallely, to solve a "
+"multimedia task in your application)."
+
+#: index.docbook:2172
+msgid ""
+"Although &MCOP; does not currently do so, the possibilities are open to "
+"implement quality of service features. Something like <quote>that &MIDI; "
+"event is really really important, compared to this invocation</quote>. Or "
+"something like <quote>needs to be there in time</quote>."
+msgstr ""
+"Although &MCOP; does not currently do so, the possibilities are open to "
+"implement quality of service features. Something like <quote>that &MIDI; "
+"event is really really important, compared to this invocation</quote>. Or "
+"something like <quote>needs to be there in time</quote>."
+
+#: index.docbook:2179
+msgid ""
+"On the other hand, stream transfer can be integrated in the &MCOP; protocol "
+"nicely, and combined with <acronym>QoS</acronym> stuff. Given that the "
+"protocol may be changed, &MCOP; stream transfer should not really get slower "
+"than conventional <acronym>TCP</acronym> streaming, but: it will be easier "
+"and more consistent to use."
+msgstr ""
+"On the other hand, stream transfer can be integrated in the &MCOP; protocol "
+"nicely, and combined with <acronym>QoS</acronym> stuff. Given that the "
+"protocol may be changed, &MCOP; stream transfer should not really get slower "
+"than conventional <acronym>TCP</acronym> streaming, but: it will be easier "
+"and more consistent to use."
+
+#: index.docbook:2187
+msgid ""
+"There is no need to base a middleware for multimedia on &Qt;. Deciding so, "
+"and using all that nice &Qt;-streaming and stuff, will easily lead to the "
+"middleware becoming a &Qt;-only (or rather &kde;-only) thing. I mean: as "
+"soon as I'll see the Gnomes using &DCOP;, too, or somthing like that, I am "
+"certainly proven wrong."
+msgstr ""
+"There is no need to base a middleware for multimedia on &Qt;. Deciding so, "
+"and using all that nice &Qt;-streaming and stuff, will easily lead to the "
+"middleware becoming a &Qt;-only (or rather &kde;-only) thing. I mean: as "
+"soon as I'll see the Gnomes using &DCOP;, too, or somthing like that, I am "
+"certainly proven wrong."
+
+#: index.docbook:2195
+msgid ""
+"While I do know that &DCOP; basically doesn't know about the data types it "
+"sends, so that you could use &DCOP; without using &Qt;, look at how it is "
+"used in daily &kde; usage: people send types like "
+"<classname>QString</classname>, <classname>QRect</classname>, "
+"<classname>QPixmap</classname>, <classname>QCString</classname>, ..., "
+"around. These use &Qt;-serialization. So if somebody choose to support "
+"&DCOP; in a Gnome program, he would either have to claim to use "
+"<classname>QString</classname>,... types (although he doesn't do so), and "
+"emulate the way &Qt; does the streaming, or he would send other string, "
+"pixmap and rect types around, and thus not be interoperable."
+msgstr ""
+"While I do know that &DCOP; basically doesn't know about the data types it "
+"sends, so that you could use &DCOP; without using &Qt;, look at how it is "
+"used in daily &kde; usage: people send types like "
+"<classname>QString</classname>, <classname>QRect</classname>, "
+"<classname>QPixmap</classname>, <classname>QCString</classname>, ..., "
+"around. These use &Qt;-serialization. So if somebody choose to support "
+"&DCOP; in a Gnome program, he would either have to claim to use "
+"<classname>QString</classname>,... types (although he doesn't do so), and "
+"emulate the way &Qt; does the streaming, or he would send other string, "
+"pixmap and rect types around, and thus not be interoperable."
+
+#: index.docbook:2208
+msgid ""
+"Well, whatever. &arts; was always intended to work with or without &kde;, "
+"with or without &Qt;, with or without X11, and maybe even with or without "
+"&Linux; (and I have even no problems with people who port it to a popular "
+"non-free operating systems)."
+msgstr ""
+"Well, whatever. &arts; was always intended to work with or without &kde;, "
+"with or without &Qt;, with or without X11, and maybe even with or without "
+"&Linux; (and I have even no problems with people who port it to a popular "
+"non-free operating systems)."
+
+#: index.docbook:2215
+msgid ""
+"It is my position that non-&GUI;-components should be written "
+"non-&GUI;-dependant, to make sharing those among wider amounts of developers "
+"(and users) possible."
+msgstr ""
+"It is my position that non-&GUI;-components should be written "
+"non-&GUI;-dependant, to make sharing those among wider amounts of developers "
+"(and users) possible."
+
+#: index.docbook:2221
+msgid ""
+"I see that using two <acronym>IPC</acronym> protocols may cause "
+"inconveniences. Even more, if they are both non-standard. However, for the "
+"reasons given above, switching to &DCOP; is no option. If there is "
+"significant interest to find a way to unite the two, okay, we can try. We "
+"could even try to make &MCOP; speak <acronym>IIOP</acronym>, then we'd have "
+"a <acronym>CORBA</acronym> <acronym>ORB</acronym> ;)."
+msgstr ""
+"I see that using two <acronym>IPC</acronym> protocols may cause "
+"inconveniences. Even more, if they are both non-standard. However, for the "
+"reasons given above, switching to &DCOP; is no option. If there is "
+"significant interest to find a way to unite the two, okay, we can try. We "
+"could even try to make &MCOP; speak <acronym>IIOP</acronym>, then we'd have "
+"a <acronym>CORBA</acronym> <acronym>ORB</acronym> ;)."
+
+#: index.docbook:2230
+msgid ""
+"I talked with Matthias Ettrich a bit about the future of the two protocols, "
+"and we found lots of ways how things could go on. For instance, &MCOP; could "
+"handle the message communication in &DCOP;, thus bringing the protocols a "
+"bit closer together."
+msgstr ""
+"I talked with Matthias Ettrich a bit about the future of the two protocols, "
+"and we found lots of ways how things could go on. For instance, &MCOP; could "
+"handle the message communication in &DCOP;, thus bringing the protocols a "
+"bit closer together."
+
+#: index.docbook:2237
+msgid "So some possible solutions would be:"
+msgstr "So some possible solutions would be:"
+
+#: index.docbook:2241
+msgid ""
+"Write an &MCOP; - &DCOP; gateway (which should be possible, and would make "
+"interoperation possible) - note: there is an experimental prototype, if you "
+"like to work on that."
+msgstr ""
+"Write an &MCOP; - &DCOP; gateway (which should be possible, and would make "
+"interoperation possible) - note: there is an experimental prototype, if you "
+"like to work on that."
+
+#: index.docbook:2241
+msgid ""
+"Integrate everything &DCOP; users expect into &MCOP;, and try to only do "
+"&MCOP; - one could add an <quote>man-in-the-middle-option</quote>"
+" to &MCOP;, too ;)"
+msgstr ""
+"Integrate everything &DCOP; users expect into &MCOP;, and try to only do "
+"&MCOP; - one could add an <quote>man-in-the-middle-option</quote>"
+" to &MCOP;, too ;)"
+
+#: index.docbook:2241
+msgid ""
+"Base &DCOP; on &MCOP; instead of libICE, and slowly start integrating things "
+"closer together."
+msgstr ""
+"Base &DCOP; on &MCOP; instead of libICE, and slowly start integrating things "
+"closer together."
+
+#: index.docbook:2266
+msgid ""
+"However, it may not be the worst possibility to use each protocol for "
+"everything it was intended for (there are some big differences in the design "
+"goals), and don't try to merge them into one."
+msgstr ""
+"However, it may not be the worst possibility to use each protocol for "
+"everything it was intended for (there are some big differences in the design "
+"goals), and don't try to merge them into one."

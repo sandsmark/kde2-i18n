@@ -1,0 +1,193 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ark;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE" > <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>Le manuel de &ark;</title>
+
+<authorgroup>
+<author> <firstname>Matt</firstname> <surname>Johnston</surname>  <affiliation> <address><email>mattj@flashmail.com</email></address>  </affiliation>  </author>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+<contrib>Relecteur</contrib>
+</othercredit>
+
+<othercredit role="translator"><firstname>Ludovic</firstname>  <surname>Grossard</surname>  <affiliation>  <address><email>ludovic.grossard@libertysurf.fr</email></address>  </affiliation>  <contrib>Traduction française</contrib></othercredit><othercredit role="translator"><firstname>Patrick</firstname>  <surname>Chavas</surname>  <affiliation>  <address><email>pachavas@sun.cpe.fr</email></address>  </affiliation>  <contrib>Relecture française</contrib></othercredit>
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Matt Johnston</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2000-12-14</date>
+<releaseinfo>1.90.00</releaseinfo>
+
+<abstract><para>Ce manuel décrit &ark; version 1.9 </para> 
+<para>&ark; est un gestionnaire d'archive pour &kde;.</para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>gzip</keyword>
+<keyword>gunzip</keyword>
+<keyword>tar</keyword>
+<keyword>archive</keyword>
+<keyword>zip</keyword>
+<keyword>compactage</keyword>
+<keyword>lha</keyword>
+<keyword>kdeutils</keyword>
+<keyword>ark</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>&ark; est une application destinée à gérer divers formats d'archives dans l'environnement &kde;. Les archives peuvent être visualisées, décompactées, créées et modifiées depuis &ark;. Le programme est compatible avec plusieurs formats comme <command>tar</command>, <command>gzip</command>, <command>bzip2</command>, <command>zip</command> et <command>lha</command> (si les programmes en ligne de commande appropriés sont installés). &ark; travaille de manière étroite avec &konqueror; dans l'environnement &kde; pour traiter les archives. </para>
+
+</chapter>
+
+<chapter id="using-ark">
+<title>Utilisation de ark</title>
+
+<sect1 id="ark-open">
+<title>Ouvrir des archives</title>
+
+<para>Pour ouvrir une archive dans &ark;, choisissez <guimenuitem>Ouvrir...</guimenuitem> dans le menu <guimenu>Fichier</guimenu>. Vous pouvez aussi ouvrir une archive en la déposant depuis <application>Konqueror</application>. Les fichiers d'archives devraient être associés à &ark;, donc vous pouvez cliquer avec le bouton <mousebutton>droit</mousebutton> de la souris sur un fichier dans <application>Konqueror</application> et sélectionner <guimenuitem>Archiveur</guimenuitem> pour l'ouvrir. </para>
+
+</sect1>
+
+<sect1 id="ark-work-files">
+<title>Travailler avec les fichiers</title>
+
+<para>Une fois qu'une archive a été ouverte, vous pouvez effectuer plusieurs type d'opérations sur les fichiers contenus dans l'archive. En cliquant avec le bouton <mousebutton>droit</mousebutton> de la souris sur un fichier dans l'archive, ou en sélectionnant un fichier et en utilisant le menu <guimenu>Action</guimenu>, vous pouvez choisir ce que vous voulez faire&nbsp;: </para>
+
+<itemizedlist> <listitem> <para><guimenuitem>Afficher</guimenuitem> ouvrira le fichier dans le programme de visualisation par défaut. </para> </listitem> <listitem> <para><guimenuitem>Ouvrir avec...</guimenuitem> vous permet d'ouvrir le fichier avec le programme de votre choix. </para> </listitem> <listitem> <para><guimenuitem>Modifier avec...</guimenuitem> ouvrira le fichier avec le programme de votre choix. La différence entre ceci et <guimenuitem>Ouvrir avec...</guimenuitem> est que toute modification effectuée sur le fichier sera enregistrée dans l'archive. </para> </listitem> <listitem> <para><guimenuitem>Supprimer</guimenuitem> enlèvera le(s) fichier(s) sélectionné(s) de l'archive. </para> </listitem> </itemizedlist>
+
+</sect1>
+
+<sect1 id="ark-extract">
+<title>Extraire les archives</title>
+
+<para>Une fois une archive ouverte dans &ark;, vous pouvez la décompacter. Pour extraire des fichiers d'une archive, vous pouvez soit sélectionner <guimenuitem>Extraire...</guimenuitem> dans le menu <guimenu>Action</guimenu> ou cliquer avec le bouton <mousebutton>droit</mousebutton> de la souris sur un fichier. Une boîte de dialogue d'extraction vous permet de sélectionner l'endroit où vous voulez extraire les fichiers. Vous pouvez aussi sélectionner quels fichiers vous voulez extraire&nbsp;: </para>
+
+<itemizedlist> <listitem> <para><guimenuitem>Actuel</guimenuitem> extrait les fichiers récemment sélectionnés. Si plusieurs fichiers ont été sélectionnés, seuls les fichiers sélectionnés en dernier seront extraits. </para> </listitem> <listitem> <para><guimenuitem>Tous</guimenuitem> extrait tout le contenu de l'archive.</para> </listitem> <listitem> <para><guimenuitem>Fichiers sélectionnés</guimenuitem> extrait tous les fichiers qui ont été sélectionnés. </para> </listitem> <listitem> <para><guimenuitem>Motif</guimenuitem> vous permet de spécifier quels fichiers seront extraits, correspondant à un certain motif, &pex; <literal role="extension">*.txt</literal> ou <literal role="extension">*.jpg</literal>. Notez que vous ne pouvez utiliser qu'un motif à la fois. </para> </listitem> </itemizedlist>
+
+<para>Vous pouvez spécifier le dossier d'extraction des fichiers dans la zone de texte <guilabel>Extraire dans&nbsp;:</guilabel>. Si vous voulez modifier le dossier par défaut, dans la fenêtre principale de l'application, choisissez <guimenuitem>Dossiers...</guimenuitem> dans le menu <guimenu>Configuration</guimenu>. Dans l'onglet <guilabel>Avancé</guilabel>, vous pouvez choisir quelques options spécifiques dépendantes du format de l'archive. </para>
+
+</sect1>
+
+<sect1 id="ark-create">
+<title>Création d'une archive et ajout de fichiers</title>
+
+<para>Pour créer une archive dans &ark;, choisissez <guimenuitem>Nouveau</guimenuitem> dans le menu <guimenu>Fichier</guimenu>. </para>
+
+<para>Vous pouvez alors saisir le nom de l'archive, avec l'extension appropriée (<literal role="extension">tar.gz</literal>, <literal role="extension">zip</literal>, <literal role="extension">bz2</literal> &etc;). Pour ajouter des fichiers à l'archive, choisissez <guimenuitem>Ajouter un fichiers</guimenuitem> dans le menu <guimenu>Action</guimenu>. Si vous voulez ajouter un dossier entier à une archive, sélectionnez <guimenuitem>Ajouter un dossier</guimenuitem> dans le menu <guimenu>Action</guimenu>. </para>
+
+<para>Une autre façon de procéder pour ajouter des fichiers à l'archive consiste à les déposer depuis &konqueror; ou depuis le bureau dans la fenêtre principale de &ark;, et ils seront ajoutés à l'archive actuelle. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title>Liste des commandes</title>
+
+<sect1 id="filemenu">
+<title>Le menu <guimenu>Fichier</guimenu></title>
+
+<variablelist> <varlistentry> <term><menuchoice> <shortcut> <keycombo action="simul">&Ctrl;<keycap>n</keycap></keycombo> </shortcut> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem><accel>N</accel>ouveau</guimenuitem>  </menuchoice></term> <listitem> <para><action>Crée une nouvelle archive.</action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <shortcut> <keycombo action="simul">&Ctrl;<keycap>o</keycap></keycombo> </shortcut> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem><accel>O</accel>uvrir...</guimenuitem>  </menuchoice></term> <listitem> <para><action>Ouvre une archive.</action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>F</accel>ichier</guimenu> <guisubmenu><accel>R</accel>écemment ouvert(s)</guisubmenu>  </menuchoice></term> <listitem> <para><action>Affiche une liste des archives récentes pour en ouvrir une. </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem>Enregistrer <accel>s</accel>ous...</guimenuitem>  </menuchoice></term> <listitem> <para><action>Vous permet d'enregistrer l'archive actuelle sous un nouveau nom. </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem>Nouvelle <accel>f</accel>enêtre</guimenuitem>  </menuchoice></term> <listitem> <para><action>Ouvre une nouvelle fenêtre de &ark;.</action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem>Recha<accel>r</accel>ger</guimenuitem>  </menuchoice></term> <listitem> <para><action>Recharge l'archive en cours. Ceci rafraîchit la fenêtre de &ark; si un autre programme a effectué des modifications sur l'archive </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem><accel>F</accel>ermer l'archive</guimenuitem>  </menuchoice></term> <listitem> <para><action>Ferme l'archive actuelle.</action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem><accel>Q</accel>uitter</guimenuitem>  </menuchoice></term> <listitem> <para><action>Ferme &ark;</action></para> </listitem> </varlistentry> </variablelist>
+
+</sect1>
+<sect1 id="editmenu">
+<title>Le menu <guimenu>Édition</guimenu></title>
+
+<variablelist> <varlistentry> <term><menuchoice> <guimenu><accel>É</accel>dition</guimenu> <guimenuitem><accel>S</accel>électionner...</guimenuitem>  </menuchoice></term> <listitem> <para><action>Vous permet de sélectionner des fichiers en fonction de leurs noms</action>. Par exemple, vous pouvez utiliser <literal role="extension">*.txt</literal> pour sélectionner tous les fichiers texte. Notez que vous ne pouvez utiliser qu'un filtre à la fois. </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>É</accel>dition</guimenu> <guimenuitem>Sélectionner <accel>t</accel>out</guimenuitem>  </menuchoice></term> <listitem> <para><action>Sélectionne tous les fichiers de l'archive. </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>É</accel>dition</guimenu> <guimenuitem><accel>D</accel>ésélectionner tout</guimenuitem>  </menuchoice></term> <listitem> <para><action>Désélectionne tous les fichiers de l'archive. </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>É</accel>dition</guimenu> <guimenuitem><accel>I</accel>nverser la sélection</guimenuitem>  </menuchoice></term> <listitem> <para><action>Inverse la sélection des fichiers. Les fichiers sélectionnés ne le sont plus, et ceux qui ne l'étaient pas le deviennent </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>É</accel>dition</guimenu> <guimenuitem><accel>A</accel>fficher la dernière sortie console</guimenuitem>  </menuchoice></term> <listitem> <para>Affiche la boîte <guilabel>Sortie de la console</guilabel>, qui <action>affiche la sortie de la ou des commandes les plus récentes</action> exécutées par &ark;. C'est quelquefois utile si vous avez des problèmes que vous souhaitez résoudre. </para> </listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="actionmenu">
+<title>Le menu <guimenu>Action</guimenu></title>
+
+<variablelist> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ction</guimenu> <guimenuitem><accel>A</accel>jouter un fichier</guimenuitem>  </menuchoice></term> <listitem> <para>Affiche la boîte de dialogue <guilabel>Ajouter</guilabel>, où vous pouvez sélectionner des fichiers. Maintenez enfoncée la touche &Ctrl; et cliquez pour sélectionner plusieurs fichiers. Pour aller dans le dossier parent, cliquez sur le bouton <mousebutton>droit</mousebutton> de la souris dans la boîte des dossiers, et choisissez <guimenuitem>Haut</guimenuitem> (ceci sera probablement amélioré bientôt). L'onglet <guilabel>Avancé</guilabel> contient des options qui sont spécifiques au type de l'archive sur laquelle vous travaillez. </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ction</guimenu> <guimenuitem>Ajouter un dossie<accel>r</accel></guimenuitem>  </menuchoice></term> <listitem> <para>Affiche la boîte de dialogue <guilabel>Choisir un dossier à ajouter</guilabel> dans laquelle vous pouvez choisir un <action>dossier à ajouter</action>. Sélectionnez simplement un dossier et choisissez <guibutton>OK</guibutton>. </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ction</guimenu> <guimenuitem>Suppri<accel>m</accel>er</guimenuitem>  </menuchoice></term> <listitem> <para><action>Enlève de l'archive les fichiers actuellement sélectionnés. </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ction</guimenu> <guimenuitem><accel>E</accel>xtraire...</guimenuitem>  </menuchoice></term> <listitem> <para>Affiche la boîte de dialogue <guilabel>Extraire</guilabel>, qui vous permet de <action>sélectionner où vous voulez extraire les fichiers.</action> Vous pouvez aussi sélectionner quels fichiers vous voulez extraire&nbsp;: </para> <itemizedlist> <listitem> <para><guilabel>Actuel</guilabel> extrait les fichiers sélectionnés en dernier. Si plusieurs fichiers ont été sélectionnés, seul ceux sélectionnés en dernier seront extraits. </para> </listitem> <listitem> <para><guilabel>Tous</guilabel> extrait tout le contenu de l'archive. </para> </listitem> <listitem> <para><guilabel>Fichiers sélectionnés</guilabel> extrait tous les fichiers qui ont été sélectionnés. </para> </listitem> <listitem> <para><guilabel>Motif</guilabel> vous permet de spécifier quels fichiers seront extraits, en fonction d'un certain motif, &pex; <literal role="extension">*.txt</literal> ou <literal role="extension">*.jpg</literal>. Notez que vous ne pouvez utiliser qu'un motif à la fois. </para> </listitem> </itemizedlist> <para>Vous pouvez spécifier le dossier d'extraction des fichiers dans la zone de texte <guilabel>Extraire dans&nbsp;:</guilabel>. Si vous voulez modifier le dossier par défaut, dans la fenêtre principale de l'application, choisissez <guimenuitem>Dossiers...</guimenuitem> dans le menu <guimenu>Configuration</guimenu>. Dans l'onglet <guilabel>Avancé</guilabel>, vous pouvez choisir quelques options spécifiques dépendantes du format de l'archive. </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ction</guimenu> <guimenuitem>A<accel>f</accel>ficher</guimenuitem>  </menuchoice></term> <listitem> <para><action>Ouvre le fichier sélectionné dans le programme de visualisation associé. </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ction</guimenu> <guimenuitem><accel>O</accel>uvrir avec...</guimenuitem>  </menuchoice></term> <listitem> <para><action>Ouvre le fichier sélectionné avec le programme de votre choix</action>. La boîte de dialogue <guilabel>Ouvrir avec...</guilabel> vous permet de choisir le programme à utiliser.  </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>A</accel>ction</guimenu> <guimenuitem>Modifier ave<accel>c</accel>...</guimenuitem>  </menuchoice></term> <listitem> <para><action>Ouvre le fichier sélectionné avec le programme de votre choix</action>. Toutes les modifications qui seront effectuées avec le programme d'édition se répercuteront dans l'archive, puisque celle-ci sera mise à jour.  </para> </listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="settingsmenu">
+<title>Le menu <guimenu>Configuration</guimenu></title>
+
+<variablelist> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu> <guimenuitem>Afficher la barre d'<accel>o</accel>utils</guimenuitem>  </menuchoice></term> <listitem> <para><action>Affiche ou non la barre d'outils.  </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu> <guimenuitem>Afficher la barre d'ét<accel>a</accel>t</guimenuitem>  </menuchoice></term> <listitem> <para><action>Affiche ou non la barre d'état. </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu> <guimenuitem>Enregistrer la confi<accel>g</accel>uration</guimenuitem>  </menuchoice></term> <listitem> <para><action>Enregistre les options de configuration actuelles</action>. Ceci signifie qu'elles seront réutilisées la prochaine fois que vous exécuterez &ark;. </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu> <guimenuitem>Raccourcis cla<accel>v</accel>ier...</guimenuitem>  </menuchoice></term> <listitem> <para>Affiche la boîte de dialogue <guilabel>Raccourcis clavier</guilabel>. Ceci vous <action>permet de choisir les touches de raccourcis pour plusieurs éléments des menus</action>. Pour modifier un raccourci, sélectionnez une action dans la liste, puis choisissez la combinaison de touches à utiliser. En cliquant sur la <guibutton>touche de clavier</guibutton> qui se situe en bas à droite, vous pouvez choisir la touche spécifique à utiliser. Appuyez simplement sur une touche.  </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice> <guimenu><accel>C</accel>onfiguration</guimenu> <guimenuitem><accel>D</accel>ossiers...</guimenuitem>  </menuchoice></term> <listitem> <para>Ceci affiche la boîte de dialogue <guilabel>Préférences de dossiers</guilabel>, afin de <action>choisir les dossiers par défaut</action>. Le <guilabel>dernier dossier de démarrage</guilabel> est le dernier dossier que vous avez utilisé pour cette option particulière.  </para> </listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+<title>Remerciements et Licence</title>
+
+<para>&ark; est sous Copyright 1997-2000, plusieurs développeurs de &ark;</para>
+
+<itemizedlist> <title>Auteurs&nbsp;:</title> <listitem><para>Robert Palmbos <email>palm9744@kettering.edu</email></para></listitem> <listitem><para>Francois-Xavier Duranceau <email>duranceau@kde.org</email></para></listitem> <listitem><para>Corel Corporation (auteur&nbsp;: Emily Ezust) <email>emilye@corel.com</email> </para></listitem> </itemizedlist>
+
+<para>Documentation copyright 2000 Matt Johnston  <email>mattj@flashmail.com</email> </para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="getting-ark">
+<title>Comment obtenir &ark;</title>
+
+<para>&ark; fait partie du projet &kde; <ulink url="http://www.kde.org">http://www.kde.org</ulink>. Il se trouve dans le paquetage kdeutils à l'adresse <ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, le site &FTP; principal du projet &kde;.  </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Prérequis</title>
+
+<para>Pour utiliser &ark;, vous avez besoin de &kde; 2.0. <acronym>GNU</acronym> <command>Tar</command> v1.12 et une version récente de <command>gzip</command> sont aussi nécessaires. Pour traiter d'autres formats d'archives, vous avez besoin des programmes en ligne de commande appropriés, comme par exemple <command>zip</command>, <command>unzip</command>, <command>ar</command> et <command>lha</command>.  </para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title>Compilation et installation</title>
+
+<para>Pour compiler et installer &ark; sur votre système, saisissez les lignes suivantes dans le dossier de base de la distribution de kdeutils&nbsp;: </para>
+
+<screen width="40"><prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command> <option>install</option></userinput>
+</screen>
+
+<para>Étant donné que &ark; utilise <command>autoconf</command> et <command>automake</command>, vous ne devriez pas rencontrer de problèmes pour le compiler. Si c'est le cas, veuillez les signaler aux listes de discussions de &kde;. </para>
+
+</sect1>
+
+</appendix>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

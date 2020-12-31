@@ -1,0 +1,331 @@
+<!--
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+-->
+ 
+<chapter id="configure">
+<title
+>Configurando &kde;</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>¿Cómo cambio el idioma usado por &kde;?</para>
+</question>
+<answer>
+<para
+>Hay dos maneras de cambiar el idioma que &kde; utiliza en los mensajes que muestra:</para>
+<variablelist
+> <varlistentry
+><term
+>Utilizando el <application
+>Centro de Control de &kde;</application
+></term
+> <listitem
+><para
+>Lance el <application
+>Centro de Control de &kde;</application
+> y seleccione<guimenu
+>Personalización</guimenu
+> seguido por <guimenuitem
+>País e Idioma</guimenuitem
+>.  Puede seleccionar su idioma y su país aquí.  Si &kde; no puede encontrar una traducción en el primer idioma seleccionado, usará el idioma predeterminado. Este será generalmente el inglés (americano).</para
+> <note
+><para
+>Utilizar el <application
+>Centro de Control de &kde;</application
+> es el método más recomendable para escoger idiomas en &kde;.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Utilizando la variable de entorno <envar
+>LANG</envar
+></term
+> <listitem
+><para
+>El segundo método hace uso de la variable de entorno <envar
+>LANG</envar
+>.  Para cambiar de idioma, simplemente configure la variable <envar
+>LANG</envar
+> de acuerdo al idioma deseado.  Por ejemplo, si el intérprete de comandos que usted usa es <application
+>bash</application
+>, ejecute <command
+>export LANG=de</command
+> para que el idioma usado sea el alemán.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Hay algún programa para &kde; que permita cambiar entre distintos tipos de teclados internacionales?</para>
+</question>
+<answer>
+<para
+> Si usted puede configurarlo utilizando el diálogo de configuración en el <application
+>Centro de control de &kde;</application
+> <guimenu
+>Periféricos</guimenu
+> <guimenuitem
+>Teclado</guimenuitem
+> <guimenuitem
+>Diseño</guimenuitem
+>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Cómo sustituyo la pantalla de conexión textual de &Linux; con el diálogo de conexión gráfico de &kde;?</para>
+</question>
+<answer>
+<para
+>Primero, necesitará cambiarse al "nivel de ejecución de xdm" (nivel de ejecución 5 en sistemas &RedHat;, nivel 3 en S.u.S.E.) editando el archivo <filename
+>/etc/inittab</filename
+> como superusuario.  En este archivo debiera haber una línea que dice <userinput
+>id:3:initdefault:</userinput
+>.  Cámbiela por <userinput
+>id:5:initdefault:</userinput
+>.  Ahora, al final del archivo,comente la línea que dice <userinput
+>x:5:respawn:/usr/bin/X11/xdm -nodaemon</userinput
+> y sustitúyala por <userinput
+>x:5:respawn:<replaceable
+>/opt/kde/</replaceable
+>bin/kdm-nodaemon</userinput
+>. <note
+><para
+>La ubicación de &kdm; puede ser distinta en su sistema.</para
+></note
+></para>
+<para
+>Para que los cambios surtan efecto de forma inmediata, teclee <command
+>init 5</command
+> (para sistemas &RedHat;) en el prompt del intérprete de comandos. <caution
+><para
+>Es arriesgado iniciar una conexión gráfica sin verificar de antemano si funciona.  Si no funciona, podría costarle trabajo hacer que todo funcione de nuevo....</para
+></caution
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+
+<para
+>Me gustaría que al hacer click con el botón izquierdo en cualquier lugar del escritorio apareciera el menú <guimenu
+>K</guimenu
+>.</para>
+</question>
+<answer>
+<para
+>Abra el <application
+>Centro de Control de &kde;</application
+> y seleccione <menuchoice
+><guisubmenu
+>Aspecto y Comportamiento</guisubmenu
+><guisubmenu
+>Escritorio</guisubmenu
+><guisubmenu
+>Escritorio</guisubmenu
+></menuchoice
+>.  Aquí se puede cambiar el comportamiento de los clicks del ratón en el escritorio.  Para que el menú <guimenu
+>K</guimenu
+> se abra al hacer click con el botón derecho, cambie la entrada que dice <guilabel
+>Botón izquierdo</guilabel
+> para que diga <guilabel
+>Menú de aplicaciones</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<!-- Not KDE -->
+<!--
+<qandaentry>
+<question>
+<para
+>How do I use the three extra keys on my &Windows; keyboard in
+&kde;?</para>
+</question>
+<answer>
+<para
+>You may have to configure your X server via
+<command
+>xmodmap</command
+> to bind the keycodes of the &Windows; keys
+to useful X key symbols (<command
+>xev</command
+> is your friend!).</para>
+<para
+>First, create a file <filename
+>$<envar
+>HOME</envar
+>/.Xmodmap</filename>
+containing the entries:</para>
+<screen>
+keycode 115=F13
+keycode 117=F15
+</screen>
+<para
+>Then run <command
+>xmodmap ~/.Xmodmap</command
+>.  This sets
+the <keycap
+>Start</keycap
+> key to emit <keysym
+>F13</keysym
+> and the
+<keycap
+>Windows</keycap
+> key to emit <keysym
+>F15</keysym
+>.  Next, fire
+up the <application
+>&kde; Control Center</application
+> and select <menuchoice
+><guimenu
+>Shortcut
+Keys</guimenu
+><guimenuitem
+>Global Shortcut</guimenuitem
+></menuchoice
+>.
+Set <guilabel
+>Pop-up system menu</guilabel
+> to <keysym
+>F13</keysym>
+and <guilabel
+>Window operations menu</guilabel
+> to
+<keysym
+>F15</keysym
+>.  That is it.
+<note
+><para
+>The numbers 115 and 117 may depend on the keyboard.  If
+you are not sure, please check using <command
+>xev</command
+>.  In
+addition, the above procedure requires &kde; 1.1 and above.</para>
+<para
+>&kikbd; is able to do this too, but keymaps have to be edited.
+The advantage of &kikbd; is that one can choose whether to use these
+mappings on several custom keymaps and have them hotswappable.</para>
+<para
+>It would be interesting to make a little script that will
+automatically do the keymap modifications on demand.  &kikbd; should
+be able to read/understand user-side keymap files.</para
+></note
+></para>
+</answer>
+</qandaentry>
+-->
+
+<qandaentry>
+<question>
+<para
+>¿Dónde puedo encontrar información sobre temas para &kde;?</para>
+</question>
+<answer>
+<para
+>Vaya a <ulink url="http://kde.themes.org/"
+>http://kde.themes.org/</ulink
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Cómo cambio los tipos &MIME;?</para>
+</question>
+<answer>
+<para
+>Si usted usa &konqueror;, haga esto: primero, abra una ventana de &konqueror; y seleccione <menuchoice
+><guimenu
+>Editar</guimenu
+><guimenuitem
+>Tipo de Archivo</guimenuitem
+> </menuchoice
+>.  Busque el tipo que desee cambiar (por ejemplo, text/english o image/gif), haga click con el botón derecho, seleccione <guilabel
+>General</guilabel
+>, y cambie el orden de selección de programas por el que usted desee.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¡&kde; (&kdm;) no lee mi archivo <filename
+>.bash_profile</filename
+>!</para>
+</question>
+<answer>
+<para
+>Bueno, <application
+>xdm</application
+> (y &kdm;) no ejecuta un intérprete de comandos de entrada, así que <filename
+>.profile</filename
+>, <filename
+>.bash_profile</filename
+>, <abbrev
+>etc.</abbrev
+> no son leídos.  Cuando el usuario se conecta, <application
+>xdm</application
+> ejecuta <command
+>Xstartup</command
+> como el superusuario y después <command
+>Xsession</command
+> como el usuario conectado.  Así que la práctica normal es añadir instrucciones en el archivo <filename
+>Xsession</filename
+> para leer el perfil del usuario. Por favor, modifique sus archivos <filename
+>Xsession</filename
+> y <filename
+>.xsession</filename
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Cómo puedo usar fuentes &TrueType; en &kde;?</para>
+</question>
+<answer>
+<para
+>Necesitará instalarle soporte para fuentes &TrueType; a &X-Windows;.  Por favor visite <ulink url="http://x.themes.org/"
+>x.themes.org</ulink
+> para encontrar fuentes &TrueType;, y <ulink url="http://www.dcs.ed.ac.uk/home/jec/programs/xfsft/"
+>xfsft:  Soporte Para Fuentes TrueType Para X11</ulink
+> o <ulink url="http://X-TT.dsl.gr.jp/"
+>Página Web del Servidor de &TrueType; para X</ulink
+> para encontrar los servidores de fuentes.</para>
+<para
+>Si posee fuentes &TrueType; de &Microsoft; &Windows;,edite el archivo <filename
+>XF86Config</filename
+> para obtener las fuentesde la carpeta correspondiente.  Entonces indíquele a &kde; que use esas nuevas fuentes con la utilidad de administración de fuentes.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>¿Es posible trabajar con el símbolo del Euro en &kde;?</para>
+</question>
+<answer>
+<para
+>Sí y no.  Para más detalles, visite esta página: <ulink url="http://www.koffice.org/kword/euro.phtml"
+>http://www.koffice.org/kword/euro.phtml </ulink
+>.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

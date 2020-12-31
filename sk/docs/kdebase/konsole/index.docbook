@@ -1,0 +1,1515 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+<!ENTITY kappname "&konsole;">
+<!ENTITY % Slovak "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Manuál pre &konsole;</title>
+<authorgroup>
+<author
+> <firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+> <address
+><email
+>jsinger@leeta.net</email
+></address
+> </affiliation
+> </author>
+      
+<othercredit role="developer">
+<firstname
+>Chris</firstname>
+<surname
+>Machemer</surname>
+<affiliation>
+<address
+><email
+>machey@ptd.net</email
+></address>
+</affiliation>
+<contrib
+>Správca</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Michael</firstname
+><surname
+>McBride</surname
+><contrib
+>Recenzent</contrib>
+<affiliation
+><address
+><email
+>mmcbride@ematic.com</email
+></address
+></affiliation>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname
+><surname
+>Watts</surname
+><contrib
+>Recenzent</contrib>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Stanislav</firstname
+> <surname
+>Višňovský</surname
+> <affiliation
+> <address
+><email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></address
+> </affiliation
+><contrib
+>Preklad</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2000</year
+><year
+>2001</year>
+<holder
+>Jonathan Singer</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-09</date>
+<releaseinfo
+>1.00.20</releaseinfo>
+
+<abstract
+><para
+>Tento dokument obsahuje používateľský manuál pre aplikáciu &konsole;.</para>
+<para
+>&konsole; je emulátor X terminálu pre &kde; 2.0</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>konsole</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>príkazový</keyword>
+<keyword
+>riadok</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Úvod do &konsole;</title>
+
+<para
+>&konsole; je emulátor X terminálu, ktorý poskytuje rozhranie príkazového riadku (<acronym
+>CLI</acronym
+>) pri použití grafického prostredia KDE. &konsole; pomáha pri usporiadaní pracovnej plochy, pretože môže obsahovať viacero sedení v rámci jedného okna. </para>
+
+<para
+>Jeho pokročilé funkcie obsahujú jednoduché nastavenie a možnosť používať viacero terminálov v jednom okne.</para>
+
+<para
+>Pomocou &konsole; môže používateľ otvoriť:</para>
+<itemizedlist
+> <listitem
+><para
+>Sedenia konzole &Linux;</para
+></listitem
+> <listitem
+><para
+>Sedenia správcu súborov <application
+>Midnight Commander</application
+></para
+></listitem
+> <listitem
+><para
+>Sedenia shell</para
+></listitem
+> <listitem
+><para
+>Sedenia konzole pre používateľa <systemitem class="username"
+>Root</systemitem
+></para
+></listitem
+> <listitem
+><para
+>Sedenia <application
+>Midnight Commander</application
+> pre používateľa <systemitem class="username"
+>Root</systemitem
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Tieto sedenia je možné premenovať, aby ste si pamätali, na čo sú, alebo im môžete poslať signály (<errorcode
+>STOP</errorcode
+>, <errorcode
+>CONT</errorcode
+>, <errorcode
+>HUP</errorcode
+>, <errorcode
+>INT</errorcode
+>, <errorcode
+>TERM</errorcode
+>, <errorcode
+>KILL</errorcode
+>).</para>
+
+<para
+>Aby mohol používateľ lepšie ovládať &konsole;, má tieto možnosti:</para>
+<itemizedlist
+> <listitem
+><para
+>skryť/zobraziť menu, panel nástrojov a rám</para
+></listitem
+> <listitem
+><para
+>vybrať veľkosť okna, písma, farebné schémy a mapovanie klávesov</para
+></listitem
+> <listitem
+><para
+>zmeniť smer posuvníka alebo ho skryť</para
+></listitem
+> </itemizedlist>
+
+<para
+>Všetky tieto nastavenia môžete uložiť pre použitie pre budúce sedenia. </para>
+
+<sect1 id="history">
+<title
+>História</title>
+
+<para
+>Pre tých, ktorých zajíma podrobná história voľne šíríteľných X terminálov, tu máme ešte dva typy: originálny <application
+>xterm</application
+>, napísaný ešte pred samotným systémom X (asi o mesiac) a <application
+>xvt</application
+>, klon <application
+>xterm</application
+>, na ktorom sú založené dnes najdostupnejšie odvodeniny (asi najznámejší je <application
+>eterm</application
+>).</para>
+
+<para
+> Po dlhej dobe je &konsole; prvá úplne nová implementácia. A pretože <application
+>xterm</application
+> je určite totálne zhackovaný, (jeho súbor <filename
+>README</filename
+> začína slovami <quote
+>Zabudnite na všetky nádeje, vy, čo sem prichádzate</quote
+>), je &konsole; významná príležitosť implementácie najnovších technológií a porozumeniu systému X.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="use-of-konsole">
+<title
+>Použitie &konsole;</title>
+
+<sect1 id="startup">
+<title
+>Spustenie</title>
+
+<para
+>Po štarte &konsole;, v jej okne sa spustí program (typicky shell Unixu). Jednoducho začnite písať do zobrazeného príkazového riadku.</para>
+
+<screenshot
+> <screeninfo
+>Obrazovka &konsole;</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="konsole.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Obrazovka &konsole;</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+</sect1>
+
+<sect1 id="history-option">
+<title
+>História</title>
+
+<para
+>Pretože sa riadky posúvajú mimo horný okraj obrazovky, môžete si ich znovu zobraziť pomocou klávesových skratiek <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Page Up</keycap
+></keycombo
+> (o stránku hore), <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Page Down</keycap
+></keycombo
+> (o stránku dolu), <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Šipka hore</keycap
+></keycombo
+> (o riadok dolu) a <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Šipka dolu</keycap
+></keycombo
+> (o riadok dolu) (ak máte zapnutú "<link linkend="settings-menu"
+>Históriu"</link
+>).</para>
+
+</sect1>
+
+<sect1 id="mousebuttons">
+
+<title
+>Tlačidlá myši</title>
+
+<variablelist
+> <varlistentry
+> <term
+><mousebutton
+>Ľavé</mousebutton
+></term
+> <listitem
+><para
+>Kliknutie <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši sa predá ako udalosť do aplikácie, ktorá beží v emulátore, v prípade, že aplikáciu myš podporuje. Ak to tak je, &konsole; vám to dá vedieť kurzorom v tvare šipky. Ak ale aplikácia myš nepodporuje, zobrazí sa kurzor v tvare I.</para
+> <para
+>Držaním <mousebutton
+>ľavého</mousebutton
+> tlačidla myši a ťahaním kurzoru myši nad aplikáciu, ktorá nepodporuje myš, označíte danú oblasť. Počas ťahania sa označený text zobrazuje v opačných farbách. Po pustení tlačidla sa označený text skopíruje do schránky, odkiaľ ho môžete použiť buď v &konsole; alebo v inej aplikácii.</para
+> <para
+>Normálne sú znaky nového riadku vkladané na koniec každého vybraného riadku. To sa hodí pre prácu so zdrojovým kódom alebo výstupom nejakého príkazu. Konce riadku obvykle pre normálny text nie sú moc dôležité. Ak ale chcete, aby sa text vložil bez znakov konca riadkov, držte počas výberu tlačidlo &Ctrl;. To sa hodí sa to napríklad ak máte aplikáciu, ktorá si vložený text sa naformátuje.</para
+> <para
+>Ak sa počas označovania dostanete na horný alebo dolný okraj textovej oblasti, &konsole; bude posúvať text hore alebo dolu, takže zobrazí aj text v histórii. Posun skončí, ak sa myš prestane posúvať.</para
+> <para
+>Po pustení myši sa &konsole; pokúsi udržiavať text v schránke viditeľný ako obrátený. Označená plocha sa vráti do normálneho zobrazenia pri zmene obsahu schránky, pri zmene textu v označenej oblasti alebo po kliknutí <mousebutton
+>ľavým</mousebutton
+> tlačidlom myši.</para
+> <para
+>Pre označenie textu v aplikácii, ktorá podporuje myš, musíte držať <keycap
+>Shift</keycap
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Stredné</mousebutton
+></term
+> <listitem
+><para
+>Stlačením <mousebutton
+>stredného</mousebutton
+> tlačidla myši vložíte text, ktorý je momentálne v schránke.</para
+> <note
+><para
+>Ak má vaša myš iba dve tlačidlá, súčasné stlačenie <mousebutton
+>ľavého</mousebutton
+> a <mousebutton
+>pravého</mousebutton
+> tlačidla emuluje <mousebutton
+>stredné</mousebutton
+> tlačidlo.</para
+></note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Pravé</mousebutton
+></term
+> <listitem
+> <para
+> <mousebutton
+>Pravé</mousebutton
+> tlačidlo myši zobrazí menu <guimenu
+>Nastavenia</guimenu
+>. Pomocou <keycombo action="simul"
+>&Ctrl; <mousebutton
+>pravé</mousebutton
+></keycombo
+> tlačidlo zobrazíte menu <guimenu
+>Súbor</guimenu
+> a <keycombo action="simul"
+>&Shift; <mousebutton
+>pravé</mousebutton
+></keycombo
+> tlačidlo zobrazí menu <guimenu
+>Sedenia</guimenu
+>. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="menubar">
+<title
+>Menu</title>
+
+<para
+>Menu je v hornej časti okna &konsole;. Môžete ho skryť a zobraziť prepínaním <guimenuitem
+>Zobraziť menu</guimenuitem
+> v <guimenu
+>Nastavenie</guimenu
+>. Ak je menu skryté, <guimenuitem
+>Zobraziť menu</guimenuitem
+> získate po kliknutí <mousebutton
+>pravým</mousebutton
+> tlačidlom myši v okne.</para>
+
+<sect2 id="file-menu">
+<title
+>Menu <guimenu
+>Súbor</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Súbor</guimenu
+><guimenuitem
+>Linuxová konzola</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+> Otvorí nové sedenie s emulátorom systému Linux v textovom režime</action
+></para
+> <note
+><para
+>Detailný popis toho, ako sa konzola pre &Linux; líši od typickej konzole &UNIX; nájdete v zdrojovom balíku &konsole; v súbore <filename
+>README.linux.console</filename
+>.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Súbor</guimenu
+><guimenuitem
+>Midnight Commander</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí nové sedenie</action
+> so správcom súborov <application
+>Midnight Commander</application
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Súbor</guimenu
+> <guimenuitem
+>Shell</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí nové sedenie s terminálovým shellom</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+><guimenu
+>Súbor</guimenu
+> <guimenuitem
+>Rootovská konsole</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Otvorí nové sedenie s terminálovým shellom</action
+> ako používateľ <systemitem class="username"
+>root</systemitem
+>. </para
+> <para
+> Po zadaní hesla pre používateľa <systemitem class="username"
+>root</systemitem
+> sa objaví príkazový riadok <prompt
+>#</prompt
+>, ktorý naznačuje, že aktuálny používateľ má práva ako <systemitem class="username"
+>root</systemitem
+>. To je často nutné pre inštaláciu nového softvéru a správy systému, ale je nutné dávať si pozor, pretože je možné výrazne poškodiť systém. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+><guimenu
+>Súbor</guimenu
+> <guimenuitem
+>Midnight Commander pre roota</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Otvorí nové sedenie</action
+> so správcom súborov <application
+>Midnight Commander</application
+> s právami používateľa <systemitem class="username"
+>root</systemitem
+>. </para
+> <para
+> Po zadaní hesla pre používateľa <systemitem class="username"
+>root</systemitem
+> sa objaví príkazový riadok <prompt
+>#</prompt
+>, ktorý naznačuje, že aktuálny používateľ má práva ako <systemitem class="username"
+>root</systemitem
+>. To je často nutné pre inštaláciu nového softvéru a správy systému, ale je nutné dávať si pozor, pretože je možné výrazne poškodiť systém. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Súbor</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>oniec</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Ukončí</action
+> &konsole; zatvorením všetkých sedení a aj všetky programy, ktoré v nich boli spustené.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Nové sedenie si môžete otvoriť aj pomocou klávesovej skratky, štandardne <keycombo action="simul"
+>&Alt;&Ctrl;<keycap
+>N</keycap
+></keycombo
+>. Túto skratku si ale môžete predefinovať. Klávesové skratky sú definované v súboroch s príponou <literal role="extension"
+>*.keytab</literal
+> v priečinku <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/apps/konsole</filename
+>. </para>
+
+<para
+> Napríklad, ak pridáte definíciu: <userinput
+>key F12 + Shift : newSession</userinput
+> do súboru aktívneho mapovania kláves, bude sa po stlačení <keycombo action="simul"
+>&Shift;<keycap
+>F12</keycap
+></keycombo
+> Spúšťať nové sedenie. Súbor s mapovaním vyberiete v menu <menuchoice
+><guimenu
+>Nastavenie</guimenu
+> <guimenuitem
+>Klávesnica</guimenuitem
+></menuchoice
+>. Detailnú informáciu o definovaní klávesových skratiek nájdete v súbore <filename
+>README.KeyTab</filename
+>. </para>
+
+</sect2>
+
+<sect2 id="sessions-menu">
+<title
+>Menu <guimenu
+>Sedenia</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Sedenia</guimenu
+><guisubmenu
+>Poslať signál</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Poslať signál - pošle zadaný signál procesu shellu, alebo inému procesu, ktorý bol spustený pri vytvorení nového sedenia.</action
+></para
+><para
+>Momentálne dostupné signály sú:</para
+> <informaltable
+> <tgroup cols="2"
+> <tbody
+> <row
+> <entry
+><errorcode
+>STOP</errorcode
+></entry
+> <entry
+>zastaví proces</entry
+> </row
+> <row
+> <entry
+><errorcode
+>CONT</errorcode
+></entry
+> <entry
+>pokračovanie, ak bol pozastavený</entry
+> </row
+> <row
+> <entry
+><errorcode
+>HUP</errorcode
+></entry
+> <entry
+>zachytené zavesenie pripojenia terminálu alebo bol ovládajúci proces zabitý</entry
+> </row
+> <row
+> <entry
+><errorcode
+>INT</errorcode
+></entry
+> <entry
+>prerušenie z klávesnice</entry
+> </row
+> <row
+> <entry
+><errorcode
+>TERM</errorcode
+></entry
+> <entry
+>signál pre ukončenie</entry
+> </row
+> <row
+> <entry
+><errorcode
+>KILL</errorcode
+></entry
+> <entry
+>signál Kill</entry
+> </row
+> </tbody
+> </tgroup
+> </informaltable
+> <para
+>Detailný popis signálov nájdete v manuálových stránkach vášho systému pomocou príkazu <userinput
+><command
+>man</command
+> <option
+>7 signal</option
+></userinput
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Sedenia</guimenu
+><guimenuitem
+>Pr<accel
+>e</accel
+>menovať sedenie...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Zmení meno aktívneho sedenia</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Sedenia</guimenu
+> <guimenuitem
+> Ikony sedenia...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Na spodnej časti menu je zoznam dostupných sedení. Jeho vybraním sa prepnete do daného sedenia a to sa stane aktívnym.</para
+><para
+>Na prepínanie medzi momentálnymi sedeniami môžete použiť aj klávesové skratky <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Šipka vľavo</keycap
+></keycombo
+>/<keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Šipka vpravo</keycap
+></keycombo
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+
+</sect2>
+
+<sect2 id="settings-menu">
+<title
+>Menu <guimenu
+>Nastavenie</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+><guimenuitem
+>Pr<accel
+>e</accel
+>menovať sedenie...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Zmení meno aktívneho sedenia</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+><guimenuitem
+>Zobraziť <accel
+>m</accel
+>enu</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí alebo skryje menu</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+><guimenuitem
+>Zobraziť panel <accel
+>n</accel
+>ástrojov</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí alebo skryje panel nástrojov</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+><guimenuitem
+>Zobraziť <accel
+>r</accel
+>ám</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Zobrazí alebo skryje rám na boku okna</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+> <guisubmenu
+>Scrollbar</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Ovláda umiestnenie posuvníkov</action
+>: <guimenuitem
+>Skryť</guimenuitem
+>, <guimenuitem
+>Vľavo</guimenuitem
+> alebo <guimenuitem
+>Vpravo</guimenuitem
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+> <guimenuitem
+><accel
+>C</accel
+>elá obrazovka</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Prepína veľkosť okna medzi celou obrazovkou a normálnou veľkosťou</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+> <guisubmenu
+>Veľkosť</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Nastaví veľkosť textovej plochy (zadanej v riadkoch a stĺpcoch)</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+> <guisubmenu
+>Písma</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Nastaví písmo a jeho veľkosť</action
+></para
+> <para
+>Ak chcete vlastnú kombináciu písma, veľkosti a štýlu, použite voľbu <guimenuitem
+>Vlastné</guimenuitem
+>. Rady, ako zvoliť vhodné písmo, nájdete v súbore <filename
+>README.fonts</filename
+> v zdrojovom balíku &konsole;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenia</guimenu
+> <guimenuitem
+>Schéma</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Nastaví farbu textu a pozadia</action
+></para
+> <para
+>Zobrazený zoznam schém je zo súborov <filename
+>$KDEDIR/share/apps/konsole/*.schema</filename
+>. Súbor <filename
+>$KDEDIR/share/apps/konsole/README.Schema</filename
+> popisuje detaily formátu súborov schém. Kľudne si pridajte a upravte súbory tak, aby vám vyhovovali. Vlastné schémy môžete vytvoriť aj v module pre &kcontrol;  <menuchoice
+><guisubmenu
+>Systém</guisubmenu
+> <guimenuitem
+>Konsole</guimenuitem
+></menuchoice
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+> <guimenuitem
+>História...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><anchor id="configure-history"/><action
+>Otvorí dialóg, kde môžete nastaviť históriu.</action
+>. Prepínač <guilabel
+>Povoliť</guilabel
+> zapína ukladanie riadkov, ktoré zmizli nad horným okrajom okna. Môžete zadať <guilabel
+>Počet riadkov</guilabel
+>, ktoré sa majú uchovávať, alebo použiť tlačidlá pre zvýšenie a zníženie hodnoty s krokom 100 riadkov. Tlačidlo <guibutton
+>Štandardné</guibutton
+> vráti nastavenie histórie na 1000 riadkov. Stlačením <guibutton
+>OK</guibutton
+> uložíte nové nastavenie, pomocou <guibutton
+>Zrušiť</guibutton
+> zatvoríte dialóg bez zmeny nastavenia. Tlačidlo <guibutton
+>Pomocník</guibutton
+> zobrazí tento manuál a text, ktorý práve teraz čítate.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+> <guimenuitem
+>Ko<accel
+>d</accel
+>ek</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Ešte neimplementované</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>lávesnica</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Vyberie požadované mapovanie kláves</action
+></para
+> <para
+>Mapovania sú v súboroch <filename
+>$KDEDIR/share/apps/konsole/*.keytab</filename
+>. Súbor <filename
+>$KDEDIR/share/apps/konsole/README.KeyTab</filename
+> popisuje detailne ich formát. Môžete si pridať nové alebo upraviť staré súbory tak, aby vám vyhovovali.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenia</guimenu
+> <guimenuitem
+>Oddeľovače slov</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Tu môžete zadať znaky, ktoré sa budú chápať ako oddeľovače medzi slovami</action
+></para
+> <para
+>Ovplyvňuje to, ktorý text sa vyberie myšou. Má význam hlavne pre iné kódovania textu než je západoeurópske.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>arovať o otvorených sedeniach pred ukončením</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Ak je voľba zapnutá, pri pokuse o zatvorenie okna &konsole; s viacerými sedeniami sa zobrazí varovanie. </action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Nastavenie</guimenu
+><guimenuitem
+>Uložiť <accel
+>n</accel
+>astavenie</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Uloží momentálne nastavenie ako nové štandardné nastavenie</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="help-menu">
+<title
+>Menu <guimenu
+>Pomocník</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>F1</keycap
+></shortcut
+><guimenu
+>Pomocník</guimenu
+> <guimenuitem
+>O<accel
+>b</accel
+>sah...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Otvorí obsah tohto dokumentu</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Pomocník</guimenu
+><guimenuitem
+><accel
+>T</accel
+>echnická dokumentácia</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Detailné informácie o emulácii terminálu</action
+> a &konsole;</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Pomocník</guimenu
+><guimenuitem
+><accel
+>P</accel
+>oslať správu o chybe...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Pošle správu o chybe alebo požiadavku na vylepšenie</action
+> pre &konsole;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Pomocník</guimenu
+><guimenuitem
+><accel
+>O</accel
+> Konsole...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Informácie o</action
+> autorovi &konsole;</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Pomocník</guimenu
+><guimenuitem
+>O <accel
+>K</accel
+>DE...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Informácie o projekte KDE</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="toolbar">
+<title
+>Panel nástrojov</title>
+
+<para
+>Panel nástrojov je na spodnom okraji okna &konsole;.</para>
+
+<para
+>Môžete ho skryť a zobraziť prepnutím <guimenuitem
+>Zobraziť panel nástrojov</guimenuitem
+> v menu <guimenu
+>Nastavenie</guimenu
+> alebo kliknutím na ovládacie zvislé čiary na jeho ľavej strane. Panel obsahuje ikonu <guiicon
+>Nové</guiicon
+> a ikony pre aktuálne sedenia. Stlačením <guiicon
+>Nové</guiicon
+> otvoríte nový <quote
+>shell</quote
+>.</para>
+
+<para
+>Kliknutím na ikonu existujúceho sedenia sa do tohto sedenia prepnete.</para>
+<para
+>Ak je panel nástrojov skrytý, môžete sa medzi sedeniami prepínať pomocou klávesových skratiek <keycombo action="simul"
+><keycap
+>Shift</keycap
+> <keycap
+>Šipka vľavo</keycap
+></keycombo
+> a <keycombo action="simul"
+><keycap
+>Shift</keycap
+> <keycap
+>Šipka vpravo</keycap
+></keycombo
+></para>
+
+</sect1>
+
+<sect1 id="command-line-options">
+<title
+>Možnosti príkazového riadku</title>
+
+<para
+>Pri štarte &konsole; z príkazového riadku sú dostupné rôzne možnosti, ako ovplyvniť chovanie.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><option
+>--help</option
+></term
+> <listitem
+><para
+><action
+>Vypíše rôzne možnosti</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--name</option
+></term
+> <listitem
+><para
+><action
+>Nastaví meno, ktoré sa vypisuje v titulku</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--ls</option
+></term
+> <listitem
+><para
+><action
+>Spustí prihlasovací shell</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--nowelcome</option
+></term
+> <listitem
+><para
+>Zabráni správe "Vitajte v &konsole;", ktorá sa obvykle objaví v titulku</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-T,--title</option
+></term
+> <listitem
+><para
+><action
+>Nastaví titulok okna</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--xwin</option
+></term
+> <listitem
+><para
+><action
+>Ignorované</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--nohist</option
+></term
+> <listitem
+><para
+><action
+>Vypne ukladanie riadkov, ktoré zmiznú v hornej časti okna</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--notoolbar</option
+></term
+> <listitem
+><para
+>Spustí &konsole; <action
+>bez panelu nástrojov</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--vt_sz</option
+> <parameter
+>CCxLL</parameter
+></term
+> <listitem
+><para
+><action
+>Spustí okno terminálu s CC stĺpcami a LL riadkami</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-e</option
+> <parameter
+>príkaz</parameter
+></term
+> <listitem
+><para
+><action
+>Vykoná</action
+> <parameter
+>príkaz</parameter
+> namiesto spustenia shellu.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Napríklad:</para>
+
+<informalexample
+> <screen
+><prompt
+>bash$</prompt
+> <userinput
+><command
+>konsole</command
+><option
+>--vt_sz</option
+> <parameter
+>90x25</parameter
+><option
+>--nohist</option
+></userinput
+></screen
+> <para
+> spustí &konsole; s oknom 90 stĺpcov a 25 riadkov bez histórie</para
+> </informalexample>
+
+<para
+>&konsole; akceptuje aj štandardné možnosti &Qt; a &kde;:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><option
+>--help-qt</option
+></term
+> <listitem
+><para
+><action
+>Vypíše možnosti Qt</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--help-kde</option
+></term
+> <listitem
+><para
+><action
+>Vypíše možnosti KDE</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--help-all</option
+></term
+> <listitem
+><para
+><action
+>Vypíše všetky možnosti</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--author</option
+></term
+> <listitem
+><para
+><action
+>Zobrazí mená autorov</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-v,--version</option
+></term
+> <listitem
+><para
+><action
+>Zobrazí číslo verzie</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>--license</option
+></term
+> <listitem
+><para
+><action
+>Zobrazí informácie o licencii</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Autori a licencia</title>
+
+<para
+>&konsole; spravuje Chris Machemer <email
+>machey@ptd.net</email
+></para>
+
+<para
+>The application &konsole; <trademark class="copyright"
+>copyright 1997-2000 Lars Doelle</trademark
+> <email
+>lars.doelle@on-line.de</email
+></para>
+
+<para
+>Tento dokument napísal Jonathan Singer <email
+>jsinger@genome.wi.mit.edu</email
+></para>
+
+<para
+>Prevod do DocBook <acronym
+>SGML</acronym
+> Michael McBride <email
+>mmcbride@ematic.com</email
+> a Lauri Watts <email
+>vampyr@atconnex.net</email
+></para>
+
+<para
+>Preklad Stanislav Višňovský <email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></para>
+
+&underFDL;
+&underGPL;
+</chapter>
+
+<appendix id="installation">
+<title
+>Inštalácia</title>
+
+<para
+>&konsole; je súčasťou základného balíka &kde; 2.0. Bude automaticky\rnainštalovaná pri inštalácii &kde; a vyžaduje pre svoj beh &kde; 2.0.</para
+> <para
+>Ďalšie informácie nájdete na WWW stránke &kde; na adrese <ulink url="http://www.kde.org/"
+>http://www.kde.org/</ulink
+></para>
+
+<para
+>Pre samostatné získanie &konsole; si stiahnite balík kdebase, preložte a nainštalujte ho podľa návodu v hlavnom priečinku balíka. Nové verzie kdebase nájdete na <ulink url="ftp://ftp.kde.org/pub/"
+>ftp://ftp.kde.org/pub/</ulink
+></para>
+
+<para
+>Aby ste preložili &konsole;, vykonajte:</para>
+
+<screen>
+<prompt
+>$</prompt
+>  <userinput
+><command
+>cd</command
+> <filename
+>kdebase/konsole</filename
+></userinput>
+<prompt
+>$</prompt
+>  <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>$</prompt
+>  <userinput
+><command
+>make</command
+></userinput>
+<lineannotation
+>A ako root:</lineannotation>
+<prompt
+>#</prompt
+>  <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>Informácie o preklade &konsole; na iných platformách než &Linux; sú v súbore <filename
+>README.ports</filename
+> v zdrojových kódoch &konsole;.  obsahuje zoznam expertov pre jednotlivé platformy (Tru64, Solaris, OpenBSD) a požiadavku na dobrovoľníkov pre ostatné platformy &UNIX;.</para>
+
+</appendix>
+
+&documentation.index; 
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=0:sw=2:tw=78:noet
+-->
+

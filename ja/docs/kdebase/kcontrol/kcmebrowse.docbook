@@ -1,0 +1,200 @@
+<sect1 id="ebrowse">
+
+<sect1info>
+
+<authorgroup>
+<author>
+<firstname>Krishna</firstname>
+<surname>Tateneni</surname>
+<affiliation><address><email>tateneni@pluto.njcc.com
+</email></address></affiliation>
+</author>
+<author>
+<firstname>Yves</firstname>
+<surname>Arrouye</surname>
+<affiliation><address><email>
+yves@realnames.com
+</email></address></affiliation>
+</author>
+</authorgroup>
+
+<date>11/01/2000</date>
+<releaseinfo>1.01.00</releaseinfo>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KControl</keyword>
+<keyword>enhanced browsing</keyword>
+<keyword>browsing</keyword>
+</keywordset>
+
+</sect1info>
+
+<title>拡張ブラウズ</title>
+
+<sect2 id="ebrowse-intro">
+
+<title>はじめに</title>
+
+<para>Konqueror は、あなたのブラウズをより強化する幾つかの機能を提供します。
+現在実装されている機能は
+<emphasis>インターネットキーワード</emphasis> と
+<emphasis>ショートカット検索</emphasis> の２つです。</para>
+
+<para>既にKDEがインターネットフレンドリーであることは御承知かと思います。
+例えば、メニュー項目 "<guimenuitem>Run</guimenuitem>" をクリック、または
+このコマンドに割り付けられているショートカットキー
+(<keycombo><keycap>Alt</keycap><keycap>F2</keycap></keycombo>、
+ただしこの設定を変更していなければ、ですが) を押下して、
+<abbrev>URI</abbrev> を入力してください。
+<footnote><para>Uniform Resource Identifier の略です。
+これは、ファイルやコンピュータ、WEBやメールのアドレス<abbrev>等々</abbrev>
+の標準的な参照方法です。</para></footnote></para>
+
+<para>
+インターネットキーワードはブランド名や有名人などの周知の名前に使用されます。
+例えば、<emphasis>http://www.kde.org/</emphasis> とタイプする代わりに、
+<emphasis>KDE</emphasis> や
+<emphasis>K Desktop Environment</emphasis> とタイプすることで代用できます。
+入力した名前が URI を解決して、すぐに最適な場所へ飛べます。
+</para>
+
+<para>
+一方、ショートカット検索は新しい疑似 URL スキームやショートカットを思い付かせます。
+それらは基本的に、一般に使用される URI が <emphasis>数値化</emphasis> されたものです。
+例えばお気に入りの検索エンジンがGoogleだったとしましょう。
+<emphasis>gg</emphasis> のような疑似 URL スキームをトリガーとして Google で検索するようにKDEを設定できます。
+この方法では、 <userinput>gg:<replaceable>my query</replaceable></userinput>
+とタイプすることで、Google で <replaceable>my query</replaceable> を検索できます。
+<footnote><para>なぜ我々が疑似 URL スキームとそれらのことを呼んでいるのか
+疑問に思うかもしれません。URL スキームの様に使用されますが、
+入力は正式な URL エンコードではなく、<userinput>google:kde apps</userinput> とタイプします。
+<userinput>google:kde%20apps</userinput> ではありません。
+</para></footnote>
+</para>
+
+<para>KDE では、 Konqueror のようなインタラクティブ ナビゲーション アプリケーションで
+インターネットキーワードを使うことができます。
+また、通常 URI を用いるときはどこでも、検索ショートカットを使うことができます。
+さまざまな検索エンジンのためのショートカットがあなたのシステム上で設定されているはずです。
+新しいキーワードを追加や、今あるものの変更、削除も、拡張ブラウズコントロールモジュールで行えます。</para>
+
+</sect2>
+
+<sect2 id="ebrowse-use">
+
+<title>使い方</title>
+
+<para>このモジュールにはタブが１つしかありません。
+タイトルは "<guilabel>キーワード</guilabel>" です。
+このタブにはインターネットショートカットとショートカット検索のための２つのメインボックスがあります。</para>
+
+<sect3 id="ebrowse-ikw-use">
+
+<title>インターネットキーワード</title>
+
+<para>このダイアログの一番上には"<guilabel>インターネットキーワードを有効にする</guilabel>"
+とラベルの付けられたチェックボックスがあります。
+このオプションを選択すると、KDEでインターネットキーワードが使用できるようになります。</para>
+
+<para>ダイアログの上の方には、全ての定義済の検索ショートカットのドロップダウンリストがあります。
+それには "<guilabel>検索失敗時</guilabel>"と書かれています。
+リストからショートカットを一つ選択するか、
+"<guilabel>なし</guilabel>" のままにしておくことができます。
+ここで検索ショートカットを選んだ場合は、
+入力したもの(いつでもよいので、何か入力してください。ただしインターネットキーワードではありません。)
+は選択されている検索ショートカットに渡されます。
+これは大変快適なナビゲーション(インターネットキーワードは率直なナビゲーションを提供)と
+検索体験(インターネットキーワードデータベースにあなたの入力した名前が含まれていないときの情報の検索方法を管理)を提供します。
+("<guilabel>なし</guilabel>" が選択されている場合は、関連するインターネットキーワードのディレクトリリストを代わりに提供します。)
+?(クエスチョンマーク)を先頭にして何かを入力した場合も、
+例えば <userinput>? KDE</userinput> のように、
+あなたの入力は、インターネットショートカットを全て無視して、
+クエスチョンマークを取られた後、直接検索ショートカットに渡されます。
+これはお気に入りの検索エンジンで検索しようと思ったときに便利です。</para>
+
+</sect3>
+
+<sect3 id="ebrowse-srch-use">
+
+<title>検索ショートカット</title>
+
+<para>検索ショートカットの定義済の名前がリストボックスに表示されます。
+水平スクロールバーで各名前に対応する、一番右端にある実際のキーワードを見ることができます。
+KDEの他のリストと同様、列見出しをクリックするとソート順が変わります。</para>
+
+<para>検索プロバイダリストの特定の項目をクリックすると、
+その項目の詳細がリストの真下のテキストボックスに表示されます。
+名前の他に、それに対応するショートカット(KDEの<abbrev>URI</abbrev>
+が使える場所のどこでも使えます)の他に、(実際に使用される)<abbrev>URI</abbrev>
+も見えるでしょう。
+検索プロバイダにはコンマで区切られた、複数のシュートカットがあります。</para>
+
+<para>これらテキストボックスは検索ショートカットの情報の表示に使われるだけではなく、
+項目の修正や追加にも使います。
+"<guilabel>変更</guilabel>" と"<guilabel>削除</guilabel>"
+の２つのボタンが用意されています。
+変更ボタンは最初無効になっています。
+"<guilabel>削除</guilabel>"ボタンをクリックすると、
+現在選択されている項目が検索ショートカットのリストから削除されます。</para>
+
+<para>"<guilabel>検索URI</guilabel>"または"<guilabel>URIのショートカット</guilabel>"
+のいずれかのテキストボックスが変更されると、"<guilabel>変更</guilabel>"ボタンが
+有効になり、修正した結果を保存できるようになります。
+一方、"<guilabel>検索プロバイダ名</guilabel>"テキストボックスを変更した
+場合には、"<guilabel>変更</guilabel>"ボタンは
+"<guilabel>追加</guilabel>"ボタンに置き換わり、
+検索ショートカットのリストに新規の項目が追加できるようになります。</para>
+
+<para>"<guilabel>検索URI</guilabel>"の中を見てみると、殆んどの項目で、
+<option>\1</option> という指定があることが分かるでしょう。
+この２文字の並びは、パラメータとして使われます。
+これはキーワードの末尾のコロンの後ろに入力された
+ものに置き換わるのです。
+例を挙げて説明しましょう。</para>
+
+<para>検索<abbrev>URI</abbrev> は、
+<userinput>http://www.google.com/search?q=\1</userinput>で
+このURIのショートカットが
+<userinput>gg</userinput>だとしましょう。この場合、
+<userinput>gg:<replaceable>alpha</replaceable></userinput> と入力するのは、
+<userinput><replaceable>http://www.google.com/search?q=alpha</replaceable></userinput> と同じ事になります。
+<userinput>:</userinput> の後ろには何でも入力できます。
+そして入力されたもので<option>\1</option>は置き換わります。
+その後検索プロバイダに適した文字に変換され、正しく URL 変換されます。
+検索 URI の <option>\1</option> の部分のみに適用され、
+すでに正しく URL に変換されている残りの部分はそのままにされます。</para>
+
+<para>パラメータ無しのショートカットも定義できます。URIが
+<emphasis>file:/home/me/mydocs/kofficefiles/kword</emphasis>
+でそのショートカットが
+<userinput>mykword</userinput>だとします。
+この時、<userinput>mykword:</userinput>と入力するのは、URIを完全に入力するのと同じです。
+ただし、コロンの後ろには何も入力しません。
+ですが、ショートカットであることを認識されるものとしてコロンはまだ必要です。</para>
+
+<para>ここまでで、検索ショートカットと呼ばれるそれらのショートカット
+(実際は数値化された URI のためのショートカットであるとしても) は検索エンジンをだけでなく、
+どんなものでも URI によって指すことができることを理解できるでしょう。
+検索ショートカットは KDE におけるナビゲーションの大変強力な特徴です。</para>
+
+</sect3>
+
+</sect2>
+
+
+<sect2 id="ebrowse-author">
+
+<title>著者</title>
+
+<para>このセクションは
+Krishna Tateneni
+<email>tateneni@pluto.njcc.com</email>
+と Yves Arrouye
+<email>yves@realnames.com</email>
+によって書かれました。
+</para>
+
+</sect2>
+
+</sect1>

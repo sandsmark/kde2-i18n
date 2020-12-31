@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kdebugdialog "<application
+>KDebugDialog</application
+>">
+  <!ENTITY kappname "&kdebugdialog;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Danish "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>&kdebugdialog; håndbog</title>
+
+<authorgroup>
+<author
+> <firstname
+>David</firstname
+> <surname
+>Faure</surname
+> <affiliation
+> <address
+><email
+>faure@kde.org</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-02-13</date>
+<releaseinfo
+>0.03.00</releaseinfo>
+
+<abstract>
+<para
+>Dette dokument beskriver &kdebugdialog;.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KDebugdialog</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Hvad er KDebugDialog</title>
+
+<para
+>Det er en dialogboks til håndtering af diagnostiske beskeder når programmer køres. </para>
+
+<para
+>Hvis du simpelthen starter "kdebugdialog", vil du se en liste af "områder", der kan være aktiverede eller deaktiverede. Et kdDebug(område) kald i koden vil kun vise noget i fejlretningsuddata hvis området er aktiveret. </para>
+
+<note
+><para
+> Bemærk at kdWarning, kdError og kdFatal altid vil være der, de er IKKE kontrollerede af denne indstilling. </para
+></note>
+
+<para
+>Hvis du starter "kdebugdialog --fullmode", kan du definere separat for hvert alvorlighedsniveau, hvad der skal gøres med diagnostiske beskeder på det niveau, og dette for hvert fejlretningsområde. </para>
+
+<para
+> I fuld tilstand er følgende indstillinger tilgængelige: <itemizedlist
+> <listitem
+> <para
+>Uddata: I denne komboboks, kan du vælge hvor meddelelserne skal skrives til. Valgene er : "File", "Message Box", "Shell" (hvilket betyder stderr) og "syslog". Det er ikke tilrådeligt at sende fatale meddelelser til syslog med mindre du selv er systemadministratoren. Standard er "Message Box".</para
+> </listitem
+> <listitem
+> <para
+>Fil: Dette giver kun mening hvis du har valgt "Fil" til uddata og det giver navnet på filen (som fortolkes relativet til den aktuelle mappe). Standard er kdebug.dbg.</para
+> </listitem
+> <listitem
+> <para
+>Område: De områder der skal give uddata. Hver meddelelse der ikke nævnes her vil simpelthen ikke blive skrevet ud (med mindre dette felt forbliver tomt, hvilket er standarden og betyder at alle meddelelser skal skrives ud). Du kan indtaste adskillige område adskilt af kommaer her, og du kan også bruge område intervaller med syntaksen start-slut. En gyldig indgang vil således være: 117,214-289,356-359,221. Husk ikke at bruge mellemrum.</para
+> </listitem
+> </itemizedlist
+> </para>
+
+<para
+>Bortset fra dette, kan du også marker afkrydsningsboksen "Afbryd ved fatale fejl". I dette tilfælde, vil programmet afbryde med en SIGABRT hvis alvorlighedsniveauet er "KDEBUG_FATAL" efter at have skrevet beskeden ud. </para>
+
+<para
+>Når du lukker dialogen med o.k., vil dine indgange blive anvendt med det samme og gemt i kdebugrc. Hvis du trykker på annullér vil dine indgange blive kasserede og de gamle vil blive genoprettede. </para>
+
+<para
+>Tak til Kalle Dalheimer for den oprindelige udgave af kdebugdialog </para>
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-general-insert-case: lower
+sgml-shorttag: t
+End:
+-->
+
+

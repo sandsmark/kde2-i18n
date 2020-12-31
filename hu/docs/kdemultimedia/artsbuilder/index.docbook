@@ -1,0 +1,188 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd">
+
+<book lang="hu">
+<bookinfo>
+<title>Az Arts Builder kézikönyve</title>
+<authorgroup>
+<author>
+<firstname>Stefan</firstname>
+<surname>Westerfeld</surname>
+<affiliation>
+<address><email>stefan@space.twc.de</email></address>
+</affiliation>
+</author>
+
+<author>
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>tszanto@mol.hu</email></address></affiliation>
+<contrib>fordító</contrib>
+</author>
+
+</authorgroup>
+<date>08/04/1999</date>
+<releaseinfo>1.07.00</releaseinfo>
+<abstract>
+<para>Ez a dokumentum az Arts Builder leírását tartalmazza.</para>
+</abstract>
+<keywordset>
+<keyword>aRts</keyword>
+<keyword>Arts Builder</keyword>
+<keyword>szintetizátor</keyword>
+<keyword>multimédia</keyword>
+<keyword>struktúra</keyword>
+<keyword>zene</keyword>
+<keyword>hang</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title>Bevezetés</title>
+
+<sect1 id="WhatIsArts">
+<title>Mi az az aRts?</title>
+
+<para>Az Arts az "analog realtime synthesizer" (analóg valósidejű szintetizátor) kifejezés betűszava, de ezt már bizonyára tudja,
+mikor ezt a dokumentumot olvassa... </para>
+
+<para>Az aRts egy teljes "moduláris analóg szintetizátor" szimulációját hajtja
+végre a számítógépen. Hozzon létre hangokat és zenekét olyan modulok segítségével, mint a hanghullámok
+generálására alkalmas oszcillátorok, a különböző szűrők, hanglejátszó
+modulok, keverők, faderek,... A program grafikus eszközeivel komplett összeállítás
+hozható létre, ha a különböző modulokat - generátorokat, effektusokat - összekapcsolja
+egymással.</para>
+
+<para>Az idők folyamán kiderült, hogy a módszernek sokféle más alkalmazási területen
+is hasznát lehet venni, nem csak az analóg szintetizálásnál. Az Arts egyfajta "audio middleware" lett,
+amely alkalmas például full duplex effektusfeldolgozásra, midi szintetizálásra,
+hangkiszolgálásra, mintavételező egységek emulációjára. További felhasználási
+módokkal is kísérleteznek.</para>
+
+<para>Fontos változást jelentett az aRts integrálása a KDE 2.0 grafikus
+felülettel. Így már sokféle multimédiaszolgáltatás alapját képezheti, melyek
+közül leggyakrabban a hangkiszolgálóval találkoznak a felhasználók, mely lehetővé teszi,
+hogy párhuzamosan futó programok egyszerre használhassák a hangeszközöket.</para>
+
+<para>Ez a program (az Arts Builder) a GPL licenc alapján használható (GNU Public
+License). Az aRts több része hozzáférhető az LGPL licenccel (GNU Lesser
+Public License), hogy az aRts kereskedelmi szoftverekkel is használható legyen.</para>
+
+</sect1>
+
+<sect1 id="InsideArts">
+<title>Az aRts felépítése</title>
+
+<para>Nem az aRts az egyetlen elérhető szoftveres szintetizátor, de kiemelkedik
+a többi közül azzal, hogy a <emphasis>rugalmasság</emphasis> kiemelt prioritást kapott a kialakításakor.</para>
+
+<para>Nem úgy terveztük a szoftvert, hogy a felhasználó kapjon két (vagy akár tíz) kész, 
+szépen szóló hangszert, néhány paraméterrel kiegészítve, háromféle
+effektussal és egy keverővel.</para>
+
+<para>Minden - a legkisebb részektől a komplex struktúrákig
+(pl. equalizerrel ellátott keverők, effektustárolók több száz nyomógombbal
+és más egyébbel kiegészítve) - felépíthető az aRts-ben található standard
+építőelemekből. Nincs semmi olyan alkotórész a programban, amit ne lehetne
+átalakítani, átkonfigurálni, kivenni, berakni, újratervezni. Az aRts egy olyan
+virtuális stúdió, amely tetszőlegesen átszabható, hogy megfeleljen az Ön igényeinek.</para>
+
+<para>Természetesen a program tartalmaz hangszergyűjteményt, effektusokat,
+keverőket, komplex szűrőket, midifeldolgozó egységeket, stb.
+De ezek a modulok nincsenek beépítve a programkódba, mindegyikük magával az aRts-sel 
+készült, ezért mindegyik tulajdonságaihoz hozzá lehet férni az Arts Builderben.
+Még van mit javítani, de már közel járunk az elképzelt funkcionalitáshoz.</para>
+
+<para>Természetesen könnyen létre lehet hozni új szintetizátormodulokat is,
+melyek könnyen beintegrálhatók a rendszerbe.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="QuickStart">
+<title>Rövid bevezetés a program használatába</title>
+
+<sect1 id="HowArtsBuilderWorks">
+<title>Az Arts Builder működése</title>
+
+<para>
+Sajnos a KDE 2.0 olyan gyorsan változott az utóbbi időben, hogy nem volt
+időm a dokumentáció minden részletét hozzáigazítani. Egyelőre csak egy
+rövid tájékoztatót tudok nyújtani az Arts Builder működéséről, a többi már
+Önön múlik.
+</para>
+
+<para>
+Mielőtt elindítaná az Arts Buildert, győződjön meg róla, hogy a hangkiszolgáló
+(artsd) el van-e indítva. Ha a KDE 2.0-t használja, akkor az feltehetően már
+fut. Ha mégsem, akkor állítsa be a hangkiszolgáló automatikus
+indítását a Vezérlőközpont - Hang - Hangkiszolgáló modulban.
+</para>
+
+<para>
+Az aRts futtatásakor általában több kisebb modul is elindul. Az Arts Builder egy olyan
+eszköz, mellyel bonyolultabb struktúrákat lehet létrehozni modulok összekötésével. Egyszerűen kattintson
+a rácsban elhelyezkedő modulokra. Ehhez válasszon ki egyet a "Modulok" menüből,
+majd kattintson a zöldesszürke háttérre.
+</para>
+
+<para>
+A modulok általában két csatlakozóval rendelkeznek (ahol a hangjelek ki- és befelé haladhatnak).
+Két csatlakozó összekötéséhez először kattintson rá az elsőre, amely ilyenkor narancssárga színűvé válik,
+utána a másodikra. Bemeneti csatlakozót (a modul felső
+részén) csak kimeneti cstlakozóval (a modul alsó részén) lehet összekötni. Ha rögzített értéket
+akar egy csatlakozóhoz rendelni (vagy le akarja választani), kattintson duplán
+a csatlakozóra.
+</para>
+
+<para>
+Kiindulásként próbálja ki az alábbi egyszerű példát.
+</para>
+
+<para>Indítsa el az artsbuildert.</para>
+
+<para>Először is szükség lesz egy Synth_AMAN_PLAY modulra a létrejövő kimenet
+meghallgatásához (az artsd hangkiszolgáló használatakor). Tehát hozzon létre egy
+Synth_AMAN_PLAY modult a Modulok/Synthesis/Sound
+IO/Synth_AMAN_PLAY menüpontot választva és egy üres rácshelyre kattintva.
+Körülbelül az ötödik sorba kerüljön, mert néhány modult fölé kell majd helyezni.</para>
+
+<para>Még egy kis igazítás: kattintson duplán az első és a második paraméterre
+(cím és automatikus visszaállítási azonosító), és adjon a hangkimenetnek egy nevet (amelyik
+később látszani fog például az artscontrol-ban). Kattintson a modul két bal oldali
+kimenetére, válassza az állandó érték opciót, és írja be, hogy "helló_arts" vagy
+valami hasonló szöveget. Végül kattintson az OK gombra.</para>
+
+<para>Most hozzon létre egy Synth_WAVE_SIN modult és helyezze a
+Synth_AMAN_PLAY modul fölé (maradjon ki egy sor közöttük).
+Amint láthatja, ennek is van egy kimenete, de szükséges hozzá egy "pos" bemenet. Először vezessük
+a modul kimenetét a hangszórókra. Kattintson a
+Synth_WAVE_SIN kimenetére ("out"), majd utána a
+Synth_AMAN_PLAY modul bal oldali ("left") csatlakozójára. A program összeköti a két modult.</para>
+
+<para>Nem minden oszcillátornak kell frekvenciabemenet, de pozíció a
+hullámon belül igen. A pozíció 0 és 1 közötti érték, mely
+egy Synth_WAVE_SIN objektum esetében arányosan a 0..2*pi tartományba mutat. Oszcilláló
+jelek létrehozásához szükség van egy Synth_FREQUENCY típusú
+modulra.</para>
+
+<para>Most hozzon létre egy Synth_FREQUENCY típusú objektumot és kösse össze annak kimenetét ("pos")
+a Synth_WAVE_SIN objektum kimenetével (szintén "pos"). A frekvenciagenerátor "frekvencia"
+kimenetét állítsa be az állandó 440 (Hz) értékre.</para>
+
+<para>Válassza ki a Fájl/Struktúra végrehajtása menüpontot. Ekkor egy 440 Hz-es színuszos hang
+fog hallatszani a hangszóróban. Bizonyára kitalálja, mit kell tenni ahhoz, hogy a másik
+hangszóróból is jöjjön a hang... ;)</para>
+
+</sect1>
+
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

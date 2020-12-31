@@ -1,0 +1,441 @@
+<chapter id="ktimemon">
+<chapterinfo>
+
+<title
+>&ktimemon;</title>
+
+<authorgroup>
+<author
+> <firstname
+>martin</firstname
+> <surname
+>maierhofer</surname
+> <affiliation
+> <address
+><email
+>m.maierhofer@tees.ac.vk</email
+></address
+> </affiliation
+> </author>
+ROLES_OF_TRANSLATORS
+</authorgroup>
+<date
+>1999-04-16</date>
+<releaseinfo
+>0.03.01</releaseinfo>
+<abstract>
+<para
+>&ktimemon; is 'n stelsel monitor vir die k werkskerm omgewing</para>
+</abstract>
+<keywordset>
+<keyword
+>kde</keyword>
+<keyword
+>k-tyd-monitor</keyword>
+<keyword
+>stelsel monitor</keyword>
+<keyword
+>tyd-monitor</keyword>
+</keywordset>
+</chapterinfo>
+
+<title
+>inleiding</title>
+
+<para
+>&ktimemon; is 'n klein program aan hou navolg van jou rekenaar se stelsel gebruik. dit kan vertoon kolom grafieke bevat informasie aangaande <acronym
+>sve</acronym
+>, geheue, en uitruil gebruik as goed as disket gebruik en konteks wissel aktiwiteit. in te hou met die gees van <ulink url="http://www.kde.org/"
+>kde</ulink
+>, dit ondersteun opstelling deur middel van 'n grafiese gebruiker koppelvlak. dit asook ondersteun <emphasis
+>dokking</emphasis
+>, &ie; dit kan vertoon informasie in die stelsel paneel laai.</para>
+
+<note
+> <para
+>huidiglik, &ktimemon; slegs ondersteun 'n beperk nommer van sisteme: &Linux; gebaseerde installasies met die <filename
+>/proc</filename
+> lêer stelsel, &Solaris; gebaseerde installasies met die <filename
+>kstat</filename
+> biblioteek, en digitaal &UNIX; (vroeër des/osf1) gebaseerde installasies met die <command
+>tabel</command
+>(2) stelsel roep. hulp met oordra na dit aan ander platvorms is mees welkom. </para
+> </note>
+
+<para
+> &ktimemon; kan wees beginne van die opdrag lyn van van die &kde; <guimenu
+>begin</guimenu
+> kieslys (in die <guisubmenu
+>nutsprogramme</guisubmenu
+> sub-kieslys). as jy kies aan begin van die opdrag lyn, &ktimemon; erken die gewone &X-Windows; program vlaggies soos as <option
+>-geometry</option
+>. &ktimemon; is <emphasis
+>sessie-aware</emphasis
+>, &ie; dit hou navolg van die huidige staat (kleure, &etc;) en herstel dit in die gebruiker se volgende sessie. </para>
+
+<sect1 id="fund">
+<title
+>op die skerm fondamentele beginsels</title>
+
+<para
+> na beginne &ktimemon; 'n klein venster sal verskyn vertooning informasie gekry van die operating stelsel. as jy beweeg die muis wyser bo die &ktimemon; venster en laat dit rus vir 'n klein hoeveelheid van tyd, 'n <emphasis
+>tool-tip</emphasis
+> (&ie; 'n klein oorgang venster) sal verskyn. die tool-tip bevat numeries informasie aangaande die stelsel parameters vertoon deur die kolom grafieke. Tool-tips kan wees gestremde (verwys aan <skakel linkend="opstelling"
+>opstelling</skakel
+>). </para
+> 
+
+<sect2 id="modes">
+<title
+>vertoon modusse</title>
+
+<para
+> &ktimemon; kan vertoon twee ander verstel van stelsel informasie. as verduidelik in die <link linkend="config"
+>opstelling</link
+> hoofstuk, muis knoppies kan wees gebind aan verskeie aksies. per verstek, die links muis knoppie is gebind aan die modus wissel aksie, &ie; deur te kliek die &LMB; muis knoppie orals in die &ktimemon; venster, die vertoon informasie skakel van <guilabel
+>normale modus</guilabel
+> (die verstek) aan <guilabel
+>uitgebreide modus</guilabel
+>, en om gekeerd. </para>
+
+<sect3 id="normalmode">
+<title
+>normale modus</title>
+
+<para
+>na beginne k-tyd-monitor vir die eerste tyd, dit sal vertoon informasie aangaande die huidige sve aktiwiteit, as goed as geheue en uitruil gebruik. drie kolom grafieke word gebruik word aan vertoon hierdie informasie; hulle word opgedateer gereeld (die verstek voorbeeld interval is 0.5s, maar dit kan wees het verander, sien <skakel linkend="opstelling"
+>opstelling</skakel
+>). die drie kolom grafieke voorstelling (van links aan regterkant): <variablelist
+> <varlistentry
+> <term
+>sve gebruik.</term
+> <listitem
+> <para
+>k-tyd-monitor vertoon die kolom in drie ander kleure, voorstelling sve tyd spandeer in verskeie modusse. van bodem aan bo hulle word: kernel modus, gebruiker modus, en gebruiker modus met verlaag prioriteit (<emphasis
+>oulike</emphasis
+>) - sedert solaris doen nie blyk aan ondersteun statistieke vir oulike modus, die hoogste deel van die kolom verteenwoordig tyd spandeer in die <emphasis
+>wag</emphasis
+> staat op soos sisteme. die gaping van die bo van die kolom aan die bo van die venster verteenwoordig die persentasie die sve luier tyd.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>geheue gebruik.</term
+> <listitem
+> <para
+>soortgelyk aan die sve gebruik kolom, hierdie kolom is saamgestel van drie sub velde, voorstelling (van bodem aan bo): geheue geallokeer deur prosesse, geheue gebruik word vir i/o buffering, en geheue gebruik word vir lêer kasberging. vir digitaal unix gebaseerde sisteme, die middelste seksie verteenwoordig "onaktiewe" geheue (i.e. geheue geallokeer en nie gebruik word vir 'n sekere hoeveelheid van tyd), en vir solaris gebaseerde sisteme, die middelste seksie van die kolom is nie gebruik word, en die hoogste seksie verteenwoordig die hoeveelheid van geheue gebruik word deur die kernel. weer, die gaping van die bo van die kolom aan die bo van die venster verteenwoordig vry geheue.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>uitruil gebruik.</term
+> <listitem
+> <para
+>hierdie kolom bestaan van 'n enkel veld voorstelling die huidige uitruil gebruik relatiewe aan die stelsel se totaal hoeveelheid van uitruil spasie. </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+
+<para
+>te kliek die muis knoppie gebind aan "modus wissel" in die k-tyd-monitor venster skakel aan "uitgebreide modus".</para>
+</sect3>
+
+<sect3 id="xtndmode">
+<title
+>uitgebreide modus </title>
+
+<para
+>in hierdie modus, die drie kolom grafieke word gebruik word aan vertoon 'n ander stel van stelsel informasie. weer van links aan regterkant, hulle vertoon: <variablelist
+> <varlistentry
+> <term
+>uitblaai aktiwiteit.</term
+> <listitem
+> <para
+>hierdie kolom bestaan van twee dele, die sagter half van wat vertoon die nommer van geheue bladsye geskryf aan sekondêre stoorplek in die laaste voorbeeld interval. soortgelyk, die boonste half dui aan die nommer van bladsye lees van sekondêre stoorplek.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>uitruil aktiwiteit.</term
+> <listitem
+> <para
+>die tweede kolom vertoon die analoog informasie vir uitruil aktiwiteit.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>konteks skakel.</term
+> <listitem
+> <para
+>weer, hierdie kolom grafiese bestaan van 'n enkel veld wat dui aan die nommer van konteks skakel in die laaste voorbeeld interval.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+
+<para
+>sedert daar is nee "natuurlike" weg van skalering die informasie vertoon in "uitgebreide modus", deur verstek k-tyd-monitor gebruik <emphasis
+>outoskalering</emphasis
+> (verduidelik in die <link linkend="outoskalering"
+>gemeenskaplike vrae seksie</link
+>). daar is, egter, die moontlikheid van spesifisering die skalering informasie, sien die <link linkend="config"
+>opstelling</link
+> seksie.</para>
+
+<para
+>nota wat die twee verstel van kolom grafieke deel die selfde kleure, i.e. die kleure opstelling vir "normale modus" is asook gebruik word vir vertooning informasie in "uitgebreide modus" (sien asook <link linkend="config"
+>opstelling</link
+> op hoe aan verander die kleur skema).</para>
+</sect3>
+</sect2>
+  </sect1>
+
+<sect1 id="menu">
+<title
+>kieslys struktuur</title>
+
+<para
+> deur verstek, die &RMB; muis knoppie is gebind aan die <quote
+>kieslys pop-begin</quote
+> aksie, &ie; te kliek die regterkant muis knoppie orals in die &ktimemon; venster bring begin 'n kieslys, wat is bespreek in die volgende seksies. </para>
+
+<sect2 id="help">
+<title
+><guimenu
+>hulp</guimenu
+></title>
+
+<para
+> die <guimenu
+>hulp</guimenu
+> kieslys is redelike konvensioneel. veranderinge word goeie jy alreeds ontdek hierdie funksionaliteit. </para>
+</sect2>
+
+<sect2 id="config-menu">
+<title
+><guimenuitem
+>instellings...</guimenuitem
+></title>
+
+<para
+>die <guimenuitem
+>instellings...</guimenuitem
+> kieslys item is gebruik word aan pop begin die opstelling dialoog. opstelling opsies word bespreek in seksie <skakel linkend="opstelling"
+>opstelling</skakel
+>. </para
+> 
+</sect2>
+
+<sect2 id="docked-in-panel">
+<title
+><guimenuitem
+>gedok in paneel</guimenuitem
+></title>
+
+<para
+> deur deur te kies die <guimenuitem
+>gedok in paneel</guimenuitem
+> kieslys item, &ktimemon; skakel tussen its standaard vertoon (&ie; 'n normale venster) en die gepenaliseer staat, waar die &ktimemon; venster verdwyn en 'n kleiner weergawe is vertoon in die stelsel paneel. behalwe van die vermindering in grootte, die <quote
+>gepenaliseer</quote
+> &ktimemon; gedrag presies hou van its groot broer. </para
+> 
+</sect2>
+
+<sect2 id="horizontal-bars">
+<title
+><guimenuitem
+>horisontaal stawe</guimenuitem
+></title>
+
+<para
+>deur deur te kies die <guimenuitem
+>horisontaal stawe</guimenuitem
+> kieslys inskrywing, &ktimemon; skakel van vertikaal stawe aan horisontaal stawe en om gekeerd. nie baie bruikbare, maar dit was maklike aan implementeer ;-) </para>
+</sect2>
+
+<sect2 id="quit">
+<title
+><guimenuitem
+>verlaat</guimenuitem
+></title>
+
+<para
+> die <guimenuitem
+>verlaat</guimenuitem
+> kieslys item - verrassing, verrassing -- is gebruik word aan termineer &ktimemon;. dit sal stoor die huidige staat (&eg; die kleur skema, venster grootte, hetsy dit is vertoon in die paneel) en herstel die staat in die volgende aktivering. </para>
+
+<para
+> die opstelling informasie is gestoor in die lêer <filename
+>$<envar
+>huis</envar
+>/.kde/deel/opstelling/ktimemonrc</filename
+>, waar <filename class="gids"
+>$<envar
+>huis</envar
+></filename
+> verwys aan die gebruiker se huis gids. as hierdie lêer is uitgevee, &ktimemon; sal begin in its verstek staat in die volgende aktivering. </para
+> 
+</sect2>
+</sect1>
+
+<sect1 id="config">
+<title
+>opstelling</title>
+
+<para
+> &ktimemon; kan wees gekonfigureer deur middel van 'n straight-forward dialoog (sien asook die gesprek van die <link linkend="config-kieslys"
+>opstelling kieslys</link
+>). op die <guilabel
+>algemeen</guilabel
+> bladsy, die voorbeeld interval kan wees gespesifiseer as goed as skalering informasie (sien asook die gesprek van die <link linkend="xtndmode"
+>uitgebreide modus</link
+>). as die <guilabel
+>outoskalering</guilabel
+> bevestig boks is gekies (outoskalering is verduidelik in die <link linkend="outoskalering"
+>faq</link
+> seksie), die skalering faktore kan nie wees geredigeerde, sedert &ktimemon; bepaal hulle automaties. </para>
+
+<para
+> die <guilabel
+>kleure</guilabel
+> bladsy kan wees gebruik word aan pasmaak die kleure van die kolom grafiese aan individuele voorkeure. 'n klein voorbeeld kolom grafiese gee onmiddelik terugvoer. </para>
+
+<para
+> in die <guilabel
+>interaksie</guilabel
+> bladsy, muis bindinge kan wees aangepas. te kliek 'n muis knoppie op die &ktimemon; venster kan wees geignoreer, sneller 'n modus wissel (sien asook <skakel linkend="modusse"
+>modusse</skakel
+>), aktiveer die konteks kieslys (sien asook <skakel linkend="kieslys"
+>kieslys</skakel
+>), of aktiveer 'n eksterne proses. die opdrag lyn gespesifiseer vir eksterne prosesse is geinterpreteer deur die standaard tolk, &ie; tolk opdragte, omgewing veranderlikes, aanstuuring &etc; kan wees gebruik word.</para
+> 
+
+<para
+>die <guilabel
+>interaksie</guilabel
+> bladsy asook bevat 'n bevestig boks wat kan wees gebruik word aan deaktiveer aan automaties voorkoms van tool-tips met numeries informasie aangaande die kolom grafieke (vergelyk <link linkend="fund"
+>op die skerm fondamentele beginsels</link
+>).</para
+> 
+</sect1>
+
+<sect1 id="faq">
+<title
+>gemeenskaplike vrae en antwoorde </title>
+
+	<qandaset>
+	  <qandaentry>
+		<question>
+		  <para
+>wat operating sisteme doen &ktimemon; ondersteun?</para>
+		</question>
+		<answer>
+<para
+> &ktimemon; ondersteun &linux; gebaseerde sisteme met die <filename
+>/proc</filename
+> lêer stelsel, &Solaris; gebaseerde sisteme met die <filename
+>kstat</filename
+> biblioteek, en digitaal &UNIX; (vroeër des/osf1) sisteme met die <command
+>tabel</command
+>(2) stelsel roep koppelvlak. slegs die linux weergawe het al deeglik getoets, as jy ervaring enige probleme met die &Solaris;/digitaal &UNIX; poort, asseblief doen nie huiwer aan kontak my. </para>
+<para
+> asook, bydraes aan &ktimemon; aan aanpas dit aan ander platvorms word mees welkom. asseblief kontak my na <email
+>m.maierhofer@tees.ac.vk</email
+> as jy intensie aan poort &ktimemon; aan ander geure van &UNIX;. </para>
+</answer>
+
+</qandaentry>
+
+<qandaentry id="autoscaling">
+<question>
+<para
+> hoe doen outoskalering werk? </para>
+</question>
+<answer>
+<para
+> bly jy gevra. sedert daar is nee redelik voorafbepaal skalering faktor vir uitblaai/uitruil operasies en konteks skakel (ander as &eg; geheue gebruik, waar jy kan neem die totaal geheue grootte as basislyn), &ktimemon; gebruik 'n semi-intelligent (goed, ...) outoskalering meganisme. outoskalering werk as volg: </para>
+
+<itemizedlist
+> <listitem
+> <para
+> elke van die drie kolom grafieke as beskryf in die <skakel linkend="xtndmode"
+>uitgebreide modus seksie</skakel
+> het 'n geassosieer skalering faktor. die aanvanklike waardes van hierdie faktore word stel aan sommige voorafbepaal waarde. </para
+> </listitem
+> <listitem
+> <para
+> elke tyd 'n nuwe voorbeeld is vertoon, die respektiewe waarde is tentatiwe skaleer met die ooreenstemmend faktor. as die waarde kan wees vertoon in die skaal gekies deur die faktor, nee verander voorgekom (&ie; klein verander in die aktiwiteit word reflekteer deur 'n verandering hoogte van die kolom). </para
+> </listitem
+> <listitem
+> <para
+> as die skaleer waarde sal wees òf te groot van te klein aan wees vertoon met die huidige skalering faktor, die skalering is aangepas sodat wat die nuwe waarde vertoon is rofweg halfpad begin die kolom grafiese. dus, opeenvolgende verander moet het 'n goeie kans van verkry vertoon relatiewe aan die huidige waarde, sonder om te moet aan verander die skaal weer. </para
+> </listitem
+> </itemizedlist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> hoekom doen 'n boodskap boks met <errorname
+>diagnose uitset van kind opdrag</errorname
+> pop begin? </para>
+</question>
+<answer>
+<para
+> as jy bind 'n muis knoppie aan 'n eksterne opdrag as beskryf in die <skakel linkend="opstelling"
+>opstelling</skakel
+> hoofstuk, &ktimemon; doen nie bevestig vir 'n geldige opdrag naam. in plaas van 'n opdrag tolk is geroep aan uitvoer die stelling, sodat tolk opdragte, omgewing veranderlikes en meer kan wees gebruik word. aan toelaat sommige terugvoer aan die gebruiker, &ktimemon; monitor die <systemitem
+>stderr</systemitem
+> uitset van die opdrag tolk, en raporte dit in hierdie boodskap boks. </para>
+
+<para
+> terwyl hierdie skema kan wees hulpvaardig in kas 'n opdrag is nie gevind, dit kan wees nogal irriterend as die geroep opdrag druk skadelose diagnose informasie op <systemitem
+>stderr</systemitem
+>. 'n eenvoudige en elegant oplossing aan hierdie probleem is aan voeg by <userinput
+>2gt;/dev/null</userinput
+> na die einde van die opdrag spesifikasie. hierdie aanstuur na diagnose boodskappe aan boodskap nirvana, en stop die boodskap boks spring begin. </para>
+</answer>
+</qandaentry>
+
+</qandaset>
+</sect1>
+
+<sect1 id="ktimemon-thanks-and-acknowledgements">
+<title
+>bedankinge en erkennings</title>
+
+<para
+>&ktimemon; is gebaseerde op 'n xt weergawe deur my broer.</para>
+
+<para
+>bedankinge aan tobe toben, <email
+>ttoben@artis.uni-oldenburg.de</email
+>, cristian tibirna <email
+>ctibirna@gch.ulaval.ca</email
+>, dirk 'n. mueller <email
+>dmuell@rhrk.uni-kl.de</email
+>, merk krischer <email
+>krischem@amp.com</email
+>, en lubos lunak <email
+>l.lunak@sh.cvut.cz</email
+> vir fout raporte, lappe, kommentaar, voorstelle. </para>
+
+CREDIT_FOR_TRANSLATORS
+
+&underFDL;
+&underGPL;
+
+</sect1>
+</chapter>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+

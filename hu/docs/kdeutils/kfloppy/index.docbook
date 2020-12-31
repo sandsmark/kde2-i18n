@@ -1,0 +1,442 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kfloppy;">
+ <!ENTITY % Hungarian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+
+<title>&kfloppy; kézikönyv</title>
+
+<authorgroup>
+<author>
+<firstname>Thad</firstname>
+<surname>McGinnis</surname>
+<affiliation><address><email>ctmcginnis@compuserve.com</email>
+</address></affiliation> </author>
+
+<othercredit role="developer">
+<firstname>Bernd</firstname>
+<othername>Johannes</othername>
+<surname>Wuebben</surname>
+<affiliation><address><email>wuebben@math.cornell.edu</email></address></affiliation>
+<contrib>fejlesztő</contrib>
+
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<contrib>lektor</contrib>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>tszanto@mol.hu</email></address></affiliation>
+<contrib>fordító</contrib>
+</othercredit>
+
+</authorgroup>
+<date>14/12/2000</date>
+<releaseinfo>1.03.00</releaseinfo>
+
+<copyright>
+<year>2000</year>
+<holder>Thad McGinnis</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<abstract><para>Ez a dokumentum a &kfloppy; 1.3.0-ás változatának leírását
+tartalmazza.</para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kfloppy</keyword>
+<keyword>floppy</keyword>
+<keyword>formázás</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Bevezetés</title>
+
+<para>A &kfloppy; segédprogram segítségével könnyen, grafikus felületen
+keresztül lehet 3,5" és 5,25" floppy lemezeket formázni. </para>
+
+<important><para>Ellenőrizze, hogy a lemez <emphasis>ne</emphasis> legyen csatlakoztatva (mountolva).
+A &kfloppy; nem tudja megformázni a lemezt, ha az egység már csatlakoztatva van.</para></important>
+
+</chapter>
+
+<chapter id="usingkfloppy">
+<title>A KFloppy kezelése</title>
+
+<para>A &kfloppy; elindítása után megjelenő ablakban lehet módosítani a formázási beállításokat
+és a formázást is itt lehet elindítani és leállítani.  A beállítások és kezelőgombok részletes leírása
+megtalálható lejjebb.</para>
+
+<important><para>Ellenőrizze, hogy a lemez <emphasis>ne</emphasis> legyen csatlakoztatva (mountolva).
+A &kfloppy; nem tudja megformázni a lemezt, ha az egység már csatlakoztatva van.</para></important>
+
+<sect1 id="controlsettings">
+<title>Formázási beállítások</title>
+
+<para>A beállítások három kombinált listában találhatók a program főablakának
+bal felső részén.</para>
+
+<sect2 id="selectdrive">
+<title>Floppymeghajtó</title>
+
+<para>A legfelső, <guilabel>Floppy meghajtó</guilabel> feliratú listában
+négy választási lehetőség található:</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>A: 3,5</guilabel></term>
+<listitem><para>Ennek kiválasztása esetén a program a 3,5 hüvelykes lemezek formátumának
+megfelelően fog formázni.  Az <guilabel>A:</guilabel> címke az MS-DOS/Windows jelölést követi,
+Linux alatt az <filename>fd0</filename> eszköznek felel meg.  A
+<guilabel>3.5</guilabel> a lemez méretét jelöli hüvelykben.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>A: 5.25</guilabel></term>
+<listitem><para>Ennek választása esetén a program az 5,25 hüvelykes lemezek formátumának 
+megfelelően fog formázni.  Az <guilabel>A:</guilabel> címke az MS-DOS/Windows jelölést követi,
+Linux alatt az <filename>fd0</filename> eszköznek felel meg.  Az
+<guilabel>5.25</guilabel> a lemez méretét jelöli hüvelykben.  Ezt a típust új gépekben már ritkán
+használják, inkább csak régi gépekben lehet vele találkozni.</para>
+</listitem>
+</varlistentry>
+
+
+<varlistentry>
+<term><guilabel>B: 3,5</guilabel></term>
+<listitem><para>Ennek kiválasztása esetén a program a 3,5 hüvelykes lemezek formátumának
+megfelelően fog formázni.  Az <guilabel>B:</guilabel> címke az MS-DOS/Windows jelölést követi,
+Linux alatt az <filename>fd1</filename> eszköznek felel meg.  A
+<guilabel>3.5</guilabel> a lemez méretét jelöli hüvelykben.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>B: 5.25</guilabel></term>
+<listitem><para>Ennek választása esetén a program az 5,25 hüvelykes lemezek formátumának 
+megfelelően fog formázni.  Az <guilabel>B:</guilabel> címke az MS-DOS/Windows jelölést követi,
+Linux alatt az <filename>fd1</filename> eszköznek felel meg.  Az
+<guilabel>5.25</guilabel> a lemez méretét jelöli hüvelykben.  Ezt a típust új gépekben már ritkán
+használják, inkább csak régi gépekben lehet vele találkozni.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="density">
+<title>Sűrűség</title>
+
+<para>A <guilabel>Sűrűség</guilabel> feliratú kombinált listában
+két lehetőség közül lehet választani:</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>HD</guilabel></term>
+<listitem>
+<para><abbrev>HD</abbrev>, azaz nagy sűrűségű.  Ez a formátum a legelterjedtebb,
+általában érdemes ezt választani.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>DD</guilabel></term>
+<listitem>
+<para><abbrev>DD</abbrev>, azaz dupla sűrűségű.  Ezt a formátumot a régi lemezmeghajtók
+kedvéért (amelyek még nem ismerték a HD formátumot) támogatja a program.  A HD-s formátumú
+lemezeknél is használható, de akkor a rendelkezésre álló szabad hely a felére fog
+csökkenni.  Az alábbi listában megtalálja az összes lehetséges méret- és
+sűrűségkombinációt a megfelelő adatokkal:</para>
+<itemizedlist>
+<listitem>
+<para>3.5" DD: két oldalas, 80 sáv, 9 szektor/sáv  - 720 KB</para>
+</listitem>
+<listitem>
+<para>3.5" HD: két oldalas, 80 sáv, 18 szektor/sáv - 1440 KB</para>
+</listitem>
+<listitem>
+<para>5.25" DD: két oldalas, 40 sáv, 9 szektor/sáv  - 360 KB</para>
+</listitem>
+<listitem>
+<para>5.25" HD: két oldalas, 80 sáv, 15 szektor/sáv - 1200 KB</para>
+</listitem>
+</itemizedlist>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<note>
+<para>A Macintosh floppymeghajtókban használt 800 KB-os formátumot nem támogatja a program,
+mert a PC-kben használt meghajtók nem képesek ilyen formátumú lemez
+elkészítésére.</para>
+</note>
+</sect2>
+
+<sect2 id="filesystems">
+<title>Fájlrendszerek</title>
+
+<para>A harmadik, Fájlrendszer feliratú kombinált listában a következő két lehetőség
+közül lehet választani:</para>
+
+<variablelist>
+<varlistentry>
+<term>Dos</term>
+<listitem>
+<para>Ennek választása esetén a program MS-DOS/Windows (FAT) fájlrendszert 
+fog létrehozni a lemezen.  Ezt az opciót kell választania, ha adatokat szeretne mozgatni
+egy Unix rendszer és egy MS-DOS-t vagy Windows-t futtató gép között, mert az utóbbiak nem tudnak 
+más fájlrendszert kezelni.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<variablelist>
+<varlistentry> 
+<term>ext2fs</term>
+<listitem>
+<para>Ennek választása esetén a program ext2fs fájlrendszert fog létrehozni a lemezen,
+mely a Linux rendszerek alapvető fájlrendszere.  Válassza ezt az opciót, 
+ha Linux rendszerű gépekben szeretné használni
+a lemezt.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+</sect1>
+
+<sect1 id="formatting-options">
+<title>Formázási beállítások</title>
+<para>A főablak bal oldalán látható keretben összesen 5 formázási
+beállítás található.  A felső kettő egy párt
+alkot (választógomb).</para> <note><para>A választógomb olyan beállításoknál található, ahol pontosan
+egy lehetőséget kell kiválasztani - hasonlóan a rádióknál használt 
+csatornaválasztó gombhoz.</para></note><para>A legalsó két elem a
+lemezcímke megadására szolgál.  A vezérlőelemek részletes magyarázata 
+alább következik:</para>
+
+<sect2>
+<title>Formázási módszer</title>
+<para>A &kfloppy; kétféle módon tud megformázni egy lemezt:</para>
+<para>
+<variablelist>
+<varlistentry>
+<term>Gyors törlés</term>
+<listitem>
+<para>Ennek választásakor a formázás csak a fájlrendszer elkészítéséből áll. A lemezen található
+adatok törlődnek. Ha a lemez formátumának sűrűsége eltér a kiválasztott
+<link linkend="density">sűrűségtől</link>, akkor a lemez sávjait és szektorait
+újraallokálja a program a fájlrendszer felírása előtt.</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>Teljes formázás</term>
+<listitem>
+<para>Teljes formázás esetén a program újraallokálja a sávokat és a szektorokat, felírja a választott
+fájlrendszert a lemezre, ellenőrzi a formázást, megjelölve a hibás
+szektorokat.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</para>
+</sect2>
+
+<sect2>
+<title>Ellenőrzéssel</title>
+
+<para>Az <guilabel>Ellenőrzéssel</guilabel> opció kiválasztása esetén
+a program a formázási folyamat alatt mindig leellenőrzi a megformázott
+szektorokat, hogy ne kerülhessen hibás adatblokk a lemezre.
+</para>
+</sect2>
+
+
+
+<sect2>
+<title>Lemezcímke</title>
+
+<para>A legalsó két opció a lemezcímke létrehozására (vagy egy létező módosítására)
+használható.  Ha a <guilabel>Lemezcímke</guilabel> opciót bejelöli,
+a választógomb alatt található szövegmezőbe be lehet gépelni a
+címke szövegét. A következő formázástól kezdve a címke
+rá fog kerülni minden lemezre, amíg meg nem változtatja a
+beállítást.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="buttons">
+<title>A nyomógombok</title>
+<para>A főablak jobb oldalán, egymás alatt összesen négy nyomógomb
+található.  Lentről felfelé haladva:</para>
+
+<variablelist>
+<varlistentry>
+<term><guibutton>Formázás</guibutton></term>
+<listitem><para>Ezt a gombot megnyomva kezdődik el a formázás.  Ha a kívánságának
+megfelelően beállította az összes opciót, akkor erre a gombra kattintva kezdheti el
+a formázást.  Ha a lemezt behelyezte a meghajtóba és az összes paraméter értéke
+megfelelő, akkor megváltozik az ablak tartalma.  A
+gomb felirata megváltozik, <guibutton>Formázás</guibutton> helyett
+<guibutton>Félbeszakítás</guibutton> lesz, jelezve, hogy a gombra kattintva szakítható meg
+a formázási folyamat.  Ezen kívül az ablak alsó szélénél látható két 
+mező tartalma is megváltozik az alábbiak szerint.</para>
+
+<para> A felső, szöveges mező a formázási folyamat állapotáról nyújt
+információkat.  A megjelenő szöveg alapján el lehet dönteni, hogy a formázás
+a folyamat melyik szakaszában van éppen.  Amikor a program elkezdi az ellenőrzést,
+akkor annak eredménye is megjelenik itt.</para>
+
+<para>Az alsó mező az előrehaladás kijelzője.  Grafikus formában és százalékosan is megjelenik,
+hogy a formázás mekkora része fejeződött be eddig.
+A formázás elkezdése előtt a mező üres, csak a
+<guilabel>0%</guilabel> érték látszik középen.  Ahogy a program egymás után végez a szektorok formázásával,
+a pillanatnyi állapotot jelezve a téglalap fokozatosan feltöltődik balról jobbra.  Ezzel egyidőben
+a középen látható százalékérték a befejezettség állapotát mutatja
+numerikusan.</para>
+
+<important>
+<para>Ellenőrizze, hogy a lemez <emphasis>ne</emphasis> legyen csatlakoztatva (mountolva).
+A &kfloppy; nem tudja megformázni a lemezt, ha az egység már csatlakoztatva van.</para>
+</important>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guibutton>Segítség</guibutton></term>
+<listitem>
+<para>Ez elindítja a KDE Segítség rendszerét, megnyitva ennek a dokumentumnak
+az első oldalát.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guibutton>Névjegy</guibutton></term>
+<listitem>
+<para>Megjeleníti a program verziószámát és a szerző nevét.</para>
+</listitem> 
+</varlistentry>
+
+<varlistentry>
+<term><guibutton>Kilépés</guibutton></term>
+<listitem>
+<para>Erre a gombra kattintva lehet kilépni a programból.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="command-line">
+<title>Parancssori opciók</title>
+
+<para>Ugyan a &kfloppy; indítása általában a KDE menüből vagy egy asztali ikonról
+történik, parancsértelmező ablakban kiadott paranccsal is 
+végrehajtható.  Ilyen indításkor az alábbi paramétereket lehet
+használni:</para> 
+
+<variablelist>
+<varlistentry>
+<term><command>kfloppy <option>--help</option></command></term>
+<listitem><para>Kilistázza az összes általános jellegű parancssori
+paramétert.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><command>kfloppy <option>--help-qt</option></command></term>
+<listitem><para>Azokat a paraméterezési lehetőségeket listázza ki, amelyek a Qt
+alrendszerrel kapcsolatosak.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry> 
+<term><command>kfloppy <option>--help-kde</option></command></term>
+<listitem>
+<para>Azokat a paraméterezési lehetőségeket listázza ki, amelyek a KDE
+alrendszerrel kapcsolatosak.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><command>kfloppy <option>--help-all</option></command></term>
+<listitem>
+<para>Kilistázza az összes lehetséges paramétert.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><command>kfloppy <option>--author</option></command></term>
+<listitem>
+<para>Kiírja a terminálablak standard kimenetére a szerző nevét.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><command>kfloppy <option>--version</option></command></term>
+<listitem>
+<para>Kiírja a Qt, a KDE és a &kfloppy; verziószámát. Ugyanezt lehet elérni
+a <command>kfloppy <option>-V</option></command> parancs kiadásával.</para>
+</listitem>
+</varlistentry>
+</variablelist> 
+
+</chapter> 
+
+<chapter id="credits">
+<title>A szerzők névsora és a licencegyezmény</title>
+
+<para>&kfloppy; lemezformázó program, Copyright Bernd Johannes Wuebben
+<email>wuebben@math.cornell.edu</email>, 2000.</para>
+
+<para>Documentation Copyright Thad McGinnis
+<email>ctmcginnis@compuserve.com</email>, 2000.</para>
+
+<para>A &kfloppy; kézikönyv ezen változata 
+David Rugge <email>davidrugge@mindspring.com</email> dokumentációján alapul.</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title>Telepítés</title>
+
+<para>A &kfloppy; a KDE kdeutils nevű csomagjában található.  Részletes
+tájékoztatás a KDE telepítésével és lefordításával kapcsolatban itt található: <ulink
+url="http://www.kde.org">www.kde.org</ulink>.</para>
+
+</appendix>
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

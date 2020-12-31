@@ -1,0 +1,824 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kblackbox;">
+ <!ENTITY % addindex "IGNORE">
+ <!ENTITY % Danish "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>&kblackbox; håndbog</title>
+    
+<authorgroup>
+<author
+> <firstname
+>Robert</firstname
+> <surname
+>Cimrman</surname
+> <affiliation
+> <address
+><email
+>cimrman3@students.zcu.cz</email
+></address
+> </affiliation
+> </author>
+
+<author
+> <firstname
+>Philip</firstname
+> <surname
+>Rodrigues</surname
+> <affiliation
+><address
+><email
+>phil.rod@ntlworld.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Robert</firstname>
+<surname
+>Cimrman</surname>
+<affiliation>
+<address
+><email
+>cimrman3@students.zcu.cz</email
+></address>
+</affiliation>
+<contrib
+>Udvikler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>lauri@kde.org</email
+></address
+></affiliation>
+<contrib
+>Tester</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Erik Kjær</firstname
+><surname
+>Pedersen</surname
+><affiliation
+><address
+><email
+>erik@binghamton.edu</email
+></address
+></affiliation
+><contrib
+>Oversætter</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>1998</year
+><year
+>2000</year>
+<holder
+>Robert Cimrman</holder>
+</copyright>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Philip Rodrigues</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-05-31</date>
+<releaseinfo
+>0.03.00</releaseinfo>
+
+<abstract
+><para
+>&kblackbox; er et vidunderligt grafisk logisk spil, inspireret af <application
+>emacs</application
+> blackbox.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KBlackBox</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>blackbox</keyword>
+<keyword
+>game</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="what-is-kblackbox">
+<title
+>Hvad er &kblackbox;?</title>
+
+<para
+>K&kblackbox; er et superbt :-) grafisk logisk spil, inspireret af emacs' blackbox. Kopieringspolitik er GPL. Store dele af denne hjælpefil er baseret på den oprindelige <application
+>emacs</application
+>'s hjælp. </para>
+
+<para
+>K&kblackbox; er et spil hvor man gemmer og søger, spillet på et gitter af bokse. Din modstander (I dette tilfælde en tilfældige tal generator) har skjult adskillige bolde inden i denne boks. Ved at skyde stråler ind i boksen og se hvor de kommer ud er det muligt at deducere de skjulte boldes placering. Jo færre stråler man bruger for at finde boldene, jo bedre (lavere) er din scoring.</para>
+
+</chapter>
+
+<chapter id="game-description">
+<title
+>Spilbeskrivelse</title>
+
+<para
+>I den første del af denne sektion vil vi give en beskrivelse af brættet. Den anden del drejer sig om hvordan brugeren bruger brættet, og endelig i den tredje sektion forklares de egentlige spilleregler.</para>
+
+<sect1 id="game-board-descritpion">
+<title
+>Spillebræt beskrivelse</title>
+
+<para
+>Der er følgende typer felter på spillebrættet: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><interface
+>Sorte kvadrater</interface
+></term
+> <listitem
+><para
+>Den sorte boks. Her markerer du de felter, hvor boldene formodentlig er.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Grønne kvadrater</interface
+></term
+> <listitem
+><para
+>Dette er dine laser-skydende stråler af lys, når de er slået til.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Lysegrå kvadrater</interface
+></term
+> <listitem
+><para
+>Intet af interesse, - det er bare en kant.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Blå bolde</interface
+></term
+> <listitem
+><para
+><quote
+>Her er der én!</quote
+>, tror du. Disse markerer hvor du formoder er placeret i en sort boks.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Cyan bolde</interface
+></term
+> <listitem
+><para
+>Viser hvor boldene rent faktisk er.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Røde bolde</interface
+></term
+> <listitem
+><para
+>Forkert placerede bolde som du har markeret vises med rødt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><interface
+>Brune kvadrater</interface
+></term
+> <listitem
+><para
+>Markeringsfarve</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<note
+><para
+>Farvernes navne er blot brugt for at identificere de forskellige typer af felter i denne tekst De <emphasis
+>behøver ikke</emphasis
+> at være de samme som de aktuelle farver på felterne. Simpelt sagt: den sorte boks er i midten, der er lasere omkring og udenom er der kant. Du kan selv vælge at lave farverne om :-). </para
+></note>
+
+</sect1>
+
+<sect1 id="user-interaction">
+<title
+>Brugerinteraktion</title>
+
+<para
+>Markøren kan flyttes rundt i boksen med standard markørtaster. Ændring af lasere eller markering af sorte kasser gøres med <mousebutton
+>venstre</mousebutton
+> museknap, eller ved at trykke på <keycap
+>Return</keycap
+> eller <keycap
+>Enter</keycap
+> tasterne.</para>
+
+<para
+>Man kan også markere felterne hvor en bold ikke kan være. Tryk blot på <mousebutton
+>højre</mousebutton
+> museknap. Dette hjælper ofte til at finde et område hvor en bold muligvis kunne være. For at fjerne mærker (blå eller brune) trykker man på venstre museknap. Brune mærker kan ikke overskrive blå markeringer. Derfor kan man ikke slette blå markeringer (gættede bolde) ved et tilfælde når man leger med <mousebutton
+>højre</mousebutton
+> museknap. </para>
+
+<para
+>Når du tror konfigurationen af bolde du har placeret er korrekt trykker du på den <mousebutton
+>middle</mousebutton
+> museknap. Du vil få at vide om du havde ret eller ej og du får at vide hvor mange points du fik. Dine points er antal bogstaver og tal rundt om ydersiden af boksen plus fem for hver forkert placeret bold. Hvis du har placeret bolde forkert bliver det vist med røde felter, og deres rigtige placering bliver vist med cyan felter.</para>
+
+</sect1>
+
+<sect1 id="game-rules">
+<title
+>Spilleregler</title>
+
+<para
+>Du skal finde boldene gemt i den sorte kasse. Dine metoder er begrænsede - du kan blot affyre lasere som er omkring kassen. Der er tre mulige resultater for hver stråle du sender ind i boksen: </para>
+
+<anchor id="detour"/>
+<variablelist
+> <varlistentry
+> <term
+>Detour</term
+> <listitem
+><para
+>Strålen afbøjes og kommer ud et andet sted end der hvor du sendte den ind. På spillefeltet vises dette med et par tal - et hvor strålen gik ind, og et hvor den kom ud.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Reflektion</term
+> <listitem
+><para
+>Strålen reflekteres og kommer ud samme sted som der hvor den kom ind. På spillefeltet er reflektioner vist med bogstavet <guilabel
+>R</guilabel
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Træffer</term
+> <listitem
+><para
+>Strålen rammer en bold og absorberes. Den kommer ikke ud af boksen igen. På spillefeltet vises dette med bogstavet <guilabel
+>H</guilabel
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Reglerne for hvordan en stråle afbøjes er simple og bedst vist ved et eksempel.</para>
+
+<para
+>Når en stråle nærmer sig en bold afbøjes den halvfems grader. Stråler kan afbøjes flere gange. I diagrammerne nedenfor, repræsenterer tomme kasser og bogstavet <guilabel
+>O</guilabel
+> bolde. Indgang og udgang af hver stråle er markerede med tal som vist under <link linkend="detour"
+>Detour</link
+> ovenfor. Bemærk at indgangspunkt og udgangspunkt altid kan byttes om. <guilabel
+>*</guilabel
+> viser den sti strålen tager.</para>
+
+<para
+>Bemærk omhyggeligt de relative positioner af bolden og den 90 graders afbøjning det forårsager.</para>
+
+<screen>
+1                                            
+- * - - - - - -         - - - - - - - -         - - - - - - - -       
+- * - - - - - -         - - - - - - - -         - - - - - - - -       
+1 * * - - - - - -         - - - - - - - -         - O - - - - O -       
+- - O - - - - -         - - O - - - - -         - - * * * * - -
+- - - - - - - -         - - - * * * * * 2     3 * * * - - * - -
+- - - - - - - -         - - - * - - - -         - - - O - * - -      
+- - - - - - - -         - - - * - - - -         - - - - * * - -       
+- - - - - - - -         - - - * - - - -         - - - - * - O -       
+2                         3
+</screen>
+
+<para
+> Som nævnt ovenfor forekommer en reflektion når en stråle kommer ud fra samme sted som den kommer ind. Dette kan ske på adskillige måder: </para>
+
+<screen>
+- - - - - - - -         - - - - - - - -          - - - - - - - -
+- - - - O - - -         - - O - O - - -          - - - - - - - -
+R * * * * - - - -         - - - * - - - -          O - - - - - - -
+- - - - O - - -         - - - * - - - -        R - - - - - - - -
+- - - - - - - -         - - - * - - - -          - - - - - - - -
+- - - - - - - -         - - - * - - - -          - - - - - - - -
+- - - - - - - -       R * * * * - - - -          - - - - - - - -
+- - - - - - - -         - - - - O - - -          - - - - - - - -</screen>
+
+<para
+>I første eksempel afbøjes strålen nedad af den øverste bold, så til venstre af den nederste bold og går derefter ud hvor den kom ind. Det andet eksempel er lignende. Det tredje eksempel er lidt usædvanligt men kan forklares ved at erkende at strålen aldrig får en chance for at komme ind i kassen. Alternativt kan man tænke på det som at strålen afbøjes nedad og straks går ud af kassen.</para>
+
+<para
+>Et træf er når stråler rammer lige ind i en bold:</para>
+
+<screen>
+- - - - - - - -         - - - - - - - -          - - - - - - - -
+- - - - - - - -         - - - - - - - -          - - - - O - - -
+- - - - - - - -         - - - - O - - -        H * * * * - - - -
+- - - - - - - -       H * * * * O - - -          - - - * - - - -
+- - - - - - - -         - - - - O - - -          - - - O - - - -
+H * * * O - - - -         - - - - - - - -          - - - - - - - -
+- - - - - - - -         - - - - - - - -          - - - - - - - -
+- - - - - - - -         - - - - - - - -          - - - - - - - -</screen>
+
+<para
+>Sørg for at sammenligne det andet eksempel hvor man rammer med det første hvor der er en reflektion.</para>
+
+</sect1>
+</chapter>
+<chapter id="gui-description">
+<title
+><acronym
+>GUI</acronym
+> beskrivelse</title>
+
+<sect1 id="game-menu">
+<title
+><guimenu
+>Spil</guimenu
+>menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>yt</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Starter et nyt spil (og afbryder det nuværende hvis der er et.)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>pgiv</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Viser dig boldenes placering.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>F</accel
+>ærdig</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Tjekker om alle bolde er placerede. Hvis ja, afsluttes det aktuelle spil, pointtallet beregnes og de rigtige placeringer af boldene vises. Den <mousebutton
+>mellemste</mousebutton
+> museknap har samme funktion. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>Æ</accel
+>ndr størrelse</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Ændrer størrelse på hovedvinduet, så det passer perfekt til indholdet. Dette er nyttigt hvis du tilfældigt ændrer størrelsen på vinduet...</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>pil</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Afslutter &kblackbox;</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+><guimenu
+>Opsætnings</guimenu
+>menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guisubmenu
+><accel
+>S</accel
+>tørrelse</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>Sætter størrelsen på spillefeltet (sort kasse). Man kan vælge mellem <guimenuitem
+>8 x 8</guimenuitem
+>, <guimenuitem
+>10 x 10</guimenuitem
+> og <guimenuitem
+>12 x 12</guimenuitem
+>. Standard er <guimenuitem
+>8 x 8</guimenuitem
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guisubmenu
+><accel
+>B</accel
+>olde</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>Sætter antal bolde i den sorte boks. Man kan vælge mellem <guimenuitem
+>4</guimenuitem
+> (standard) <guimenuitem
+>6</guimenuitem
+> eller <guimenuitem
+>8</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>O</accel
+>psætning</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>utorial</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Slår tutorial tilstand til/fra. Her kan du altså se hvor boldene rent faktisk er. Bemærk at du skal starte et nyt spil for at få denne ændring til at betyde noget.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+><guimenuitem
+>Hjælpe</guimenuitem
+>menu</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndhold</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette starter &kde;'s hjælpesystem startende med &kblackbox; hjælpesider (dette dokument).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Hvad <accel
+>E</accel
+>r dette</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette ændrer musemarkøren til en kombination af en pil og et spørgsmålstegn. Ved at klikke på ting indenfor &kblackbox; med denne pil vil et hjælpevindue blive åbnet (hvis der findes et for dette punkt) der forklarer vedkommendes funktion.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>H</accel
+>jælp</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>apportér problem</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Rapportér et problem eller et ønskeliste punkt til &kblackbox;'s forfattere.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+><accel
+>O</accel
+>m KBlackBox</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette vil vise version og forfatterinformation</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette viser &kde; versionen og anden basal information.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="toolbar">
+<title
+>Værktøjslinien</title>
+
+<screenshot
+> <screeninfo
+>&kblackbox;'s værktøjslinie</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kblackboxtbar.png" format="PNG"/> </imageobject
+> </mediaobject
+> </screenshot>
+
+<para
+>&kblackbox; værktøjslinie tilbyder hurtig adgang til de mest almindeligt brugte &kblackbox; funktioner. Fra venstre til højre er ikonerne:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guiicon
+>Afslut</guiicon
+></term
+> <listitem
+><para
+>Afslutter &kblackbox;</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Ny</guiicon
+></term
+> <listitem
+><para
+>Starter et nyt spil.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Giv op</guiicon
+></term
+> <listitem
+><para
+>Viser dig boldenes placering.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Færdig</guiicon
+></term
+> <listitem
+><para
+>Tjekker om alle bolde er placerede. Hvis ja, afsluttes det aktuelle spil, pointtallet beregnes og de rigtige placeringer af boldene vises. Den <mousebutton
+>mellemste</mousebutton
+> museknap har samme funktion. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Medvirkende og licens</title>
+
+<para
+>&kblackbox;</para>
+
+<para
+>Ophavsret 1998-2000 Robert Cimrman, <email
+>cimrman3@students.zcu.cz</email
+></para>
+
+<para
+>Dokumentation ved Robert Cimrman. Opdateret og konverteret til Docbook for KDE 2.0 af Lauri Watts <email
+>lauri@kde.org</email
+></para>
+
+<para
+> Nuværende vedligeholder Philip Rodrigues <email
+>phil.rod@ntlworld.com</email
+> </para>
+
+<para
+>Dansk oversættelse ved Erik Kjær Pedersen <email
+>erik@binghamton.edu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<para
+> &kblackbox; er en del af &kde; projektet <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kblackbox; findes i kdegames pakken på <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, som er hoved &ftp;-stedet for &kde; projektet. </para>
+
+<sect1 id="compilation">
+<title
+>Kompilering og installation</title>
+
+<para
+> For at kompilere og installere &kblackbox; på dit system, skal du skrive følgende i basismappen for KDE distributionen:</para>
+<screen width="40">
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make install</command>
+</screen>
+
+
+<para
+>Da &kblackbox;  bruger <application
+>autoconf</application
+> og <application
+>automake</application
+> skulle det ikke give problemer at kompilere den. Hvis du løber ind i problemer, så rapportér dem venligst til &kde; listerne.</para
+> 
+
+</sect1>
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

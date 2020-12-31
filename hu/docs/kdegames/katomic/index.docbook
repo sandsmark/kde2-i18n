@@ -1,0 +1,608 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&katomic;">
+ <!ENTITY % Hungarian "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+ 
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>A &katomic; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Stephan</firstname
+><surname
+>Kulow</surname
+><contrib
+>Fejlesztő</contrib
+><affiliation
+><address
+><email
+>coolo@kde.org</email
+></address
+></affiliation
+></othercredit>
+<othercredit role="developer">
+<firstname
+>Cristian</firstname
+><surname
+>Tibirna</surname
+><contrib
+>Fejlesztő</contrib
+><affiliation
+><address
+><email
+>tibirna@kde.org</email
+></address
+></affiliation
+></othercredit>
+<othercredit role="reviewer">
+<firstname
+>Mike</firstname
+><surname
+>McBride</surname>
+<contrib
+>Lektor</contrib>
+<affiliation
+><address
+><email
+>mpmcbride7@yahoo.com</email
+></address
+></affiliation>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+<date
+>2000-12-15</date>
+<releaseinfo
+>2.00.00</releaseinfo>
+
+<abstract>
+<para
+>Ez a dokumentum a &katomic; 2.0-ás változatának leírását tartalmazza.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>KAtomic</keyword>
+<keyword
+>játék</keyword>
+<keyword
+>atomos játék</keyword>
+</keywordset>
+</bookinfo>
+
+
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+<para
+> A <application
+>&katomic;</application
+> egy szórakoztató logikai játék, kicsit hasonlít a <application
+>Sokoban</application
+>-hoz. A játék célja a megadott molekulák összeállítása az őket alkotó atomokból egy <application
+>Sokoban</application
+>-szerű pályán.</para>
+</chapter>
+
+
+<chapter id="playing-katomic">
+<title
+>A <application
+>&katomic;</application
+> kezelése</title>
+
+<sect1 id="rules">
+<title
+>Játékszabályok</title>
+
+<para
+>A játék célja mindegyik pályán a megadott molekula kirakása az őt alkotó atomokból. A molekula képe megjelenik a főablakban, jól láthatóan, a jobb oldalon.</para>
+
+<para
+>Ha rákattint egy atomra, nyilak jelennek meg mellette. Ezekbe az irányokba lehet az atomot meglökni. Ha rákattint egy nyílra, az atom elkezd mozogni a megadott irányba egészen addig, amíg falba vagy egy másik atomba nem ütközik. Ha két atom a megfelelő módon kapcsolódik egymáshoz, molekulát alkothatnak. Egyszerre csak egy atomot lehet mozgatni. </para>
+
+<para
+>A szint teljesítéséhez ugyanazt a molekulát kell kirakni, mint ami az előképen látszik.</para>
+
+<para
+>A nehezebb szinteken már alaposan át kell gondolni, hogy milyen sorrendben lehet a mozgatásokat végrehajtani.</para>
+
+<para
+>Minél alacsonyabb a pontszám, annál jobb, mert a lehető legkevesebb lépésben kell megoldani a feladatot. <guilabel
+>Az eddigi rekord</guilabel
+> rubrikában látszik a gépen eddig elért legjobb pontszám. <emphasis
+>A pontszáma eddig</emphasis
+> részben látszik az aktuális pályán eddig megtett mozgatások száma.</para>
+
+<para
+>A jobb felső sarokban látható csúszkával bármelyik szintre át lehet váltani.</para>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="configuration">
+<title
+>Beállítások </title>
+
+<sect1 id="game-menu">
+<title
+>A <guimenu
+>Játék</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+>A <accel
+>l</accel
+>egjobb eredmények</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Megjeleníti a dicsőségtáblát.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>ilépés</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Ezzel a menüponttal lehet bezárni a programot.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>A <guimenu
+>Beállítások</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+><guimenuitem
+>A billentyűparancsok b<accel
+>e</accel
+>állítása...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Itt lehet megváltoztatni a programban használt billentyűparancsokat. Az alapértelmezett parancsok listája megtekinthető itt: <link linkend="keybindings" endterm="keybindings-title"
+></link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>A <accel
+>K</accel
+>Atomic beállítása...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>A megjelenő párbeszédablakban lehet megváltoztatni az atomok mozgási sebességét.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+>A <guimenu
+>Segítség</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="contents"/><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>artalom</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Elindítja a &kde; Segítség rendszert és rááll ennek a dokumentumnak a nyitóoldalára.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="whats-this"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>Mi <accel
+>e</accel
+>z?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Ennek hatására az egérmutató alakja egy nyíl és egy kérdőjel kombinációjává változik. Ha ilyenkor rákattint a program ablakán belül valamire, egy kis ablakban megjelenik a kiválasztott objektum rövid leírása (ha tartozik hozzá szöveg).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="bug-report"/><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>Hiba<accel
+>b</accel
+>ejelentés</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Ha hibát talált a programban vagy eredeti továbbfejlesztési ötlete támadt, akkor innen egyszerűen üzenetet küldhet a program karbantartóinak.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-katomic"/><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+><accel
+>A</accel
+> KAtomic névjegye</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Megjeleníti a program verziószámát és a szerző(k) nevét.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kde"/><menuchoice
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>A <accel
+>K</accel
+>DE névjegye</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Megjeleníti a &kde; verziószámát és még néhány más adatát.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="keybindings">
+<title id="keybindings-title"
+>Billentyűparancsok</title>
+
+<para
+>Az alapértelmezett billentyűparancsok:</para>
+
+<table>
+<title
+>Billentyűparancsok</title>
+<tgroup cols="2">
+<tbody
+> <row
+> <entry
+>Kilépés</entry
+> <entry
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </entry
+> </row
+> <row
+> <entry
+>A legjobb eredmények</entry
+> <entry
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>H</keycap
+></keycombo
+> </entry
+> </row
+> <row
+> <entry
+>Lefelé mozgatás</entry
+> <entry
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+> </entry
+> </row
+> <row
+> <entry
+>Balra mozgatás</entry
+> <entry
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+> </entry
+> </row
+> <row
+> <entry
+>Jobbra mozgatás</entry
+> <entry
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>D</keycap
+></keycombo
+> </entry
+> </row
+> <row
+> <entry
+>Felfelé mozgatás</entry
+> <entry
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>J</keycap
+></keycombo
+> </entry
+> </row
+> <row
+> <entry
+>Váltás a következő atomra</entry
+> <entry
+><keysym
+>Szóköz</keysym
+></entry
+> </row
+> <row
+> <entry
+>Segítség</entry
+> <entry
+><keycap
+>F1</keycap
+></entry
+> </row
+> <row
+> <entry
+>Mi ez?</entry
+> <entry
+> <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+> </entry
+> </row
+> </tbody>
+</tgroup>
+</table>
+
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Köszönetnyilvánítások és a licencegyezmény</title>
+
+<para
+> <application
+>Atomos játék</application
+> Copyright: Stephan Kulow (<email
+>coolo@kde.org</email
+>) és Cristian Tibirna (<email
+>tibirna@kde.org</email
+>), 1999. </para>
+<para
+> Atomic Copyright: Andreas Wuest (<email
+>Andreas Wuest@gmx.de</email
+>). </para>
+<para
+> Documentation Copyright: Dirk Doerflinger (<email
+>ddoerflinger@gmx.net</email
+>), 2000. </para>
+<para
+> A szöveget ellenőrizte: Michael McBride (<email
+>mpmcbride7@yahoo.com</email
+>) </para>
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+<sect1 id="getting-katomic">
+<title
+>A program megszerzése</title>
+
+<para
+> Az <application
+>Atomos játék</application
+> (KAtomic) a KDE projekt (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>) része, készítette: Stephan Kulow (<email
+>coolo@kde.org</email
+>) és Cristian Tiberna (<email
+>tibirna@kde.org</email
+>). Az Atomic 1.0.67-en alapul, melynek szerzője: Andreas Wuest (<email
+>AndreasWuest@gmx.de</email
+>). </para>
+<para
+> Az <application
+>Atomos játék</application
+> a kdegames csomagban található, mely letölthető innen: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, a KDE projekt központi FTP-kiszolgálójáról.</para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Követelmények</title>
+<para
+> A program sikeres lefordításához a KDE legalább 2.0-ás változata szükséges. </para>
+<para
+> Az összes szükséges programkönyvtár és maga az <application
+>Atomos játék</application
+> is letölthető innen: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+</sect1>
+
+
+<sect1 id="compilation">
+<title
+>Lefordítás és telepítés</title>
+
+<para
+> A program lefordításához és telepítéséhez először ki kell tömöríteni a forráscsomagot, majd az alábbi parancsokat kell kiadni a <application
+>KAtomic</application
+> alapkönyvtárában: </para>
+
+<para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen
+> </para>
+      
+<para
+> A program fordítási szkriptjei az <application
+>autoconf</application
+> és az <application
+>automake</application
+> segítségével készültek, külön kézi beállítást nem igényelnek. </para>
+</sect1>
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+

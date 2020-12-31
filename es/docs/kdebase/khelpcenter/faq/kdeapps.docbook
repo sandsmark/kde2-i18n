@@ -1,0 +1,235 @@
+<!--
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+-->
+
+<chapter id="applications">
+<title
+>Programas de &kde;</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>&kppp;</para>
+</question>
+<answer>
+<para
+>Muchos usuarios de &kde; han informado de problemas al usar &kppp;. Pero antes de que se queje respecto a &kppp;, asegúrese de haber verificado lo siguiente:</para>
+<itemizedlist
+> <listitem
+><para
+>¿Puede conectarse con su ISP sin usar &kppp;? Si no puede, entonces &kppp; no es el culpable después de todo.</para
+></listitem
+> <listitem
+><para
+>¿Ha leído la documentación de &kppp; por lo  menos tres veces y seguido sus instrucciones y sugerencias de resolución de problemas?</para
+></listitem
+> </itemizedlist>
+<para
+>Se puede acceder a la documentación para &kppp; a través del <application
+>Centro de Ayuda de &kde;</application
+> o accediendo directamente al directorio que contiene la documentación, usualmente <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/doc/HTML/default/kppp</filename
+>.Además, hay una página web llamada "How to set up kppp with ISPs in theUK" (Cómo configurar kppp con ISPs en el Reino Unido) en <ulink url="http://www.kppp-archive.freeserve.co.uk/"
+>http://www.kppp-archive.freeserve.co.uk/</ulink
+>. Por último pero no menos importante, la página web de &kppp; se encuentra aquí: <ulink url="http://devel-home.kde.org/~kppp/"
+>http://devel-home.kde.org/~kppp/</ulink
+>.</para>
+<para
+>Ahora bien, si los problemas persisten, lo siguiente puede ayudarle a resolverlos: </para>
+<variablelist
+> <varlistentry
+><term
+>¿Cómo cambio el valor del &MTU; en &kppp;?</term
+> <listitem
+><para
+>Abra el cuadro de diálogo de &kppp; y seleccione <guibutton
+>Configuración</guibutton
+>.  Elija una cuenta existente y haga click en <guibutton
+>Editar</guibutton
+>, o en <guibutton
+>Nueva</guibutton
+> para crear una nueva cuenta de acceso.  Seleccione la pestaña <guilabel
+>Marcar</guilabel
+> y haga click en <guibutton
+>Argumentos</guibutton
+>.  Escriba lo que desee cambiar (por ejemplo, <userinput
+>mtu 296</userinput
+>), y haga click en<guibutton
+>Añadir</guibutton
+>.  Cuando esté satisfecho, haga click en<guibutton
+>Cerrar</guibutton
+>.</para
+> <para
+>Para verificar si las nuevas opciones han sido leídas, realice una de las siguientes acciones:</para
+> <itemizedlist
+> <listitem
+><para
+>En una ventana de terminal, ejecute <command
+>/sbin/ifconfig ppp0</command
+> y vea el valor del &MTU; que aparece en la salida.  éste debiera coincidir con el valor que usted especificó.</para
+></listitem
+> <listitem
+><para
+>Añada las opciones <option
+>debug</option
+> y <option
+>kdebug</option
+> (cada una en una línea separada) al archivo <filename
+>/etc/ppp/options</filename
+> y reinicie su sesión de &PPP;.  Encontrará mensajes de reparación de errores en <filename
+>/var/log/messages</filename
+>, incluyendo los valores del &MRU; y el &MTU;.</para
+></listitem
+> </itemizedlist
+> <para
+>Si lo desea, los valores del &MRU; y el &MTU; pueden ser añadidos al archivo <filename
+>options</filename
+>, con cada línea conteniendo sólo un ajuste, sin comillas ni signos de puntuación.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>&kppp; se conecta a una velocidad más lenta de lo normal.</term
+> <listitem
+><para
+>Lo siguiente puede resolver el problema:</para
+> <itemizedlist
+> <listitem
+><para
+>Intente ejecutar <command
+>setserial spd_hi</command
+>.</para
+></listitem
+> <listitem
+><para
+>El valor del &MTU; predeterminado es de 1500, quizá muy alto para un enlace telefónico.  Intente cambiándolo a un valor menor como <userinput
+>296</userinput
+> o <userinput
+>576</userinput
+>.</para
+></listitem
+> <listitem
+><para
+>Revise si en su directorio <filename class="directory"
+>$<envar
+>HOME</envar
+>/.kde/share/config</filename
+> existe el archivo <filename
+>kppprc</filename
+>.  Asegúrese de que la velocidad correcta del módem esté definida aquí.</para
+></listitem
+> </itemizedlist
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&konsole;</para>
+</question>
+<answer>
+<variablelist
+> <varlistentry
+> <term
+>¿Cómo puedo avanzar y retroceder página a página?</term
+> <listitem
+><para
+>Utilice <keycombo action="simul"
+><keycap
+>Mayúsculas</keycap
+><keycap
+>Re Pag</keycap
+></keycombo
+>y <keycombo action="simul"
+><keycap
+>Mayúsculas</keycap
+><keycap
+>Av Pag</keycap
+></keycombo
+>. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>¿Cómo puedo copiar texto de &konsole; para pegarlo en otro programa?</term
+> <listitem
+><para
+>Cuando introduzca <command
+>ls</command
+>, primero seleccione con el ratón el texto deseado, pulso <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+>, luego seleccione el área donde quiera pegar el texto y presione las teclas <keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+>. Opcionalmente, seleccione el texto que quiera copiar arrastrando el cursor con el botón izquierdo apretado, y después péguelo haciendo click con el botón derecho del ratón (o con los dos botones a la vez si tiene un ratón de dos botones y la emulación de tres botones activada).</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kmail;</para>
+</question>
+<answer>
+<para
+>&kmail; tiene su página web propia en <ulink url="http://kmail.kde.org"
+>http://kmail.kde.org</ulink
+> en donde está disponible un <acronym
+>FAQ</acronym
+> relacionado con este programa.</para>
+</answer>
+</qandaentry>
+
+<!-- kbiff is dead ?? -->
+<!--
+<qandaentry>
+<question>
+<para
+>&kbiff;</para>
+</question>
+<answer>
+<para
+>&kbiff; is a mail notification utility and its home page is at
+<ulink
+url="http://www.granroth.org/kbiff"
+>http://www.granroth.org/kbiff</ulink
+>.</para>
+<variablelist>
+<varlistentry
+><term
+>How can one instance of &kbiff; monitor two
+mailboxes and take the appropriate action when new messages arrive?</term>
+<listitem
+><para
+>Are you getting many messages in both mailboxes?  If
+so, it would be better to use two instances to monitor them.  If not,
+then go to the <guilabel
+>Mailbox</guilabel
+> tab and click on the little
+mailbox icon.  This will create another mailbox in that instance.
+Now, whenever either of them gets new mail, &kbiff; will do all of its
+new mail stuff.</para
+></listitem>
+</varlistentry>
+</variablelist>
+</answer>
+</qandaentry>
+-->
+
+</qandaset>
+</chapter>
+

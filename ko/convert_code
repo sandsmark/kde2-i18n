@@ -1,0 +1,170 @@
+#!/bin/bash
+#
+# convert eucKR to UTF8
+# $DIR_SOURCE/$PO_DIR/$PO_FILE -> $DIR_TARGET/$PO_DIR/$PO_FILE
+#
+# written by KIM KyungHeon <tody@mizi.com>
+# last modified by 2001-04-06 17:43 +0900 
+
+# ============================================================
+# Set envrionment values
+# ============================================================
+
+MODE="e2u"
+VERBOSE=1
+
+#DEFAULT_BASE=/home/KDE/cvs/kde-i18n/ko
+DEFAULT_BASE=`pwd`
+DEFAULT_SOURCE=$DEFAULT_BASE/messages-eucKR
+DEFAULT_TARGET=$DEFAULT_BASE/messages
+
+UTF8_STR="UTF-8"
+EUCKR_STR="EUCKR"
+
+EXCLUDE_PO="./desktop"
+
+# ============================================================
+# Parse option from command line
+# ============================================================
+
+# print help message and exit
+usage() {
+	echo "Usage: `basename $0` [OPTION1] [OPTION2] ..."
+	echo
+	echo "  -e2u            convert eucKR to utf8 (default)"
+	echo "  -u2e            convert utf8 to eucKR"
+	echo
+	echo "  -v"
+	echo "  --verboase"
+	echo
+#	echo "  -b=DIR          set base directory"
+#	echo "  --base=DIR      same as -b"
+#	echo "  (default : $DEFAULT_BASE)"
+#	echo
+	echo "  -s=DIR          set source directory"
+	echo "  --source=DIR    same as -s"
+	echo "  (default : $DEFAULT_SOURCE)"
+	echo
+	echo "  -t=DIR          set target directory"
+	echo "  --target=DIR    same as -t"
+	echo "  (default : $DEFAULT_TARGET)"
+	echo
+}
+
+if [ "$1" = "--help" -o "$1" = "-h" ] ; then
+	usage
+	exit
+fi
+
+# set source directory
+if [ -n "$*" ] ; then
+	for para in $*
+	do
+		case $para in
+			-e2u )
+				MODE="e2u" ;;
+			-u2e )
+				MODE="u2e" ;;
+			-v | --verboase )
+				VERBOSE=0 ;;
+			-s=* | --source=* )
+				DIR_SOURCE=`echo $para | perl -pe "s,(-s|--source)=,,"` ;;
+			-t=* | --target=* )
+				DIR_TARGET=`echo $para | perl -pe "s,(-t|--target)=,,"` ;;
+#			-b=* | --base=* )
+#				DIR_BASE=`echo $para | perl -pe "s,(-b|--base)=,,"` ;;
+			*)
+				echo "'$para' is unknown option!"
+				usage
+			;;
+		esac
+	done
+fi
+
+# Swap the source with target directory
+if [ "$MODE" = "u2e" ] ; then
+	TMP=$DEFAULT_SOURCE
+	DEFAULT_SOURCE=$DEFAULT_TARGET
+	DEFAULT_TARGET=$TMP
+fi
+
+# ============================================================
+# Define functions and values
+# ============================================================
+
+# eucKR -> utf8
+e2u() {
+	SOURCE=$1
+	TARGET=$2
+	iconv -f $EUCKR_STR -t $UTF8_STR -o $TARGET $SOURCE
+	if [ $? = 1 ] ; then
+		echo "Convert ERROR!!!"; exit;
+	fi
+}
+
+# utf8 -> eucKR
+u2e() {
+	SOURCE=$1
+	TARGET=$2
+	iconv -f $UTF8_STR -t $EUCKR_STR -o $TARGET $SOURCE
+	if [ $? = 1 ] ; then
+		echo "Convert ERROR!!!"; exit;
+	fi
+}
+
+[ -z $DIR_BASE ] && DIR_BASE=$DEFAULT_BASE
+[ -z $DIR_SOURCE ] && DIR_SOURCE=$DEFAULT_SOURCE
+[ -z $DIR_TARGET ] && DIR_TARGET=$DEFAULT_TARGET
+
+# ============================================================
+# Actions
+# ============================================================
+
+echo "============================================================"
+echo " Base directory   : $DIR_BASE"
+echo " Source directory : $DIR_SOURCE"
+echo " Target directory : $DIR_TARGET"
+echo
+echo " Convert mode : $MODE"
+echo "============================================================"
+
+cd $DIR_BASE
+POFILES=`(cd $DIR_SOURCE; find -name "*.po" | sort)`
+
+for PO in $POFILES
+do
+	PO_DIR=`dirname $PO | sed "s/.\///"`
+	PO_NAME=`basename $PO .po`
+
+	#echo "$PO_DIR $PO_NAME"
+	if [ ! -d $DIR_TARGET/$PO_DIR ] ; then
+		mkdir -p $DIR_TARGET/$PO_DIR
+	fi
+
+	PO_SOURCE=$DIR_SOURCE/$PO_DIR/$PO_NAME.po
+	PO_TARGET=$DIR_TARGET/$PO_DIR/$PO_NAME.po
+
+	if [ "$PO_DIR/$PO_NAME" = "$EXCLUDE_PO" ]; then
+		cp -f $PO_SOURCE $PO_TARGET
+		continue
+	fi
+	
+	# Convert character set of po and Fix charset field's value
+	[ $VERBOSE = 0 ] && echo "$SOURCE -> $TARGET"
+	if [ "$MODE" = "e2u" ] ; then
+		e2u $PO_SOURCE $PO_TARGET
+		perl -pi -e "s,(Content-Type: text/plain; charset=)$EUCKR_STR,\1$UTF8_STR," \
+			$DIR_TARGET/$PO_DIR/$PO_NAME.po
+	elif [ "$MODE" = "u2e" ] ; then
+		u2e $PO_SOURCE $PO_TARGET
+		perl -pi -e "s,(Content-Type: text/plain; charset=)$UTF8_STR,\1$EUCKR_STR," \
+			$DIR_TARGET/$PO_DIR/$PO_NAME.po
+	fi
+done
+
+echo " DONE !!!"
+echo "============================================================"
+
+# ============================================================
+# End of script
+# ============================================================

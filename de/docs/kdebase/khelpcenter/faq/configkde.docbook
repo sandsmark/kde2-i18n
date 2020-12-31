@@ -1,0 +1,319 @@
+<!--
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+-->
+ 
+<chapter id="configure">
+<title
+>Einrichten von &kde;</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Wie stellen Sie die Sprache, die von &kde; benutzt wird, ein?</para>
+</question>
+<answer>
+<para
+>Es gibt zwei Wege, um die Sprache für &kde; einzustellen:</para>
+<variablelist
+> <varlistentry
+><term
+>Benutzen Sie das <application
+>&kde;-Kontrollzentrum</application
+></term
+> <listitem
+><para
+>Starten Sie &kde;-Kontrollzentrum und wählen Sie <guimenu
+>Persönliche Einstellungen</guimenu
+> <guimenuitem
+>Land &amp; Sprache</guimenuitem
+>. Hier können Sie Sprache und Land einstellen. Wenn &kde; keine Übersetzung in der gewählten Sprache findet, wird die Standardsprache eingestellt. Normalerweise ist das (amerikanisches) Englisch.</para
+> <note
+><para
+>Benutzen des &kde;-Kontrollzentrums ist der beste Weg, um die Sprache in &kde; einzustellen.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Benutzen der <envar
+>LANG</envar
+> Umgebungsvariable</term
+> <listitem
+><para
+>Die zweite Methode nutzt die Standardeinstellungen in Ihrem System. Um die Sprache zu ändern, setzen Sie einfach die Umgebungsvariable entsprechend. z.B., wenn Ihre Shell <application
+>bash</application
+> ist, führen Sie den Befehl <command
+>export LANG=de</command
+> aus, um Deutsch als Sprache einzustellen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Gibt es eine Umschaltung für Tastaturen verschiedener Länder in &kde;?</para>
+</question>
+<answer>
+<para
+> Ja, die Tastatur kann im <application
+>&kde; Kontrollzentrum</application
+> <guimenu
+>Angeschlossene Geräte</guimenu
+> <guimenuitem
+>Tastatur</guimenuitem
+> <guimenuitem
+>Belegung</guimenuitem
+> eingerichtet werden. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Wie können Sie den Standard &Linux; Text Login Bildschirm mit dem &kde; Login Bildschirm ersetzen?</para>
+</question>
+<answer>
+<para
+>Erstens, Sie müssen in den "xdm runlevel" (Runlevel 5 in &RedHat; Systemen, 3 in S.u.S.E.) wechseln, dies erreichen Sie durch Editieren der Datei <filename
+>/etc/inittab</filename
+>. In dieser Datei finden Sie die folgende Zeile <userinput
+>id:3:initdefault:</userinput
+>. Ändern Sie dies in <userinput
+>id:5:initdefault:</userinput
+>. Am Ende der Datei, versehen Sie die folgende Zeile mit einem Kommentarzeichen, um sie unwirksam zu machen: <userinput
+>x:5:respawn:/usr/bin/X11/xdm -nodaemon</userinput
+> und ersetzen Sie diese durch: <userinput
+>x:5:respawn:<replaceable
+>/opt/kde/</replaceable
+>bin/kdm -nodaemon</userinput
+>. <note
+><para
+>Wo &kdm; in Ihrem System gespeichert ist, kann abweichend sein, passen Sie dies entsprechend an.</para
+></note
+></para>
+<para
+>Um die Änderungen sofort wirksam werden zu lassen geben Sie den folgenden Befehl ein: <command
+>init 5</command
+> (für &RedHat; Systeme) <caution
+><para
+>Das Aktivieren des Grafischen Anmeldens ohne vorherigen Test der Funktionsfähigkeit birgt ein Risiko: Wenn es nicht richtig funktioniert, ist es schwierig, zu einer Befehlszeile zurück zu kommen.... Aktivieren Sie dieses also erst, wenn die grafische Benutzeroberfläche grundsätzlich funktioniert.</para
+></caution
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+
+<para
+>Sie möchten mit der linken Maustaste irgendwo auf die Arbeitsfläche klicken und das <guimenu
+>K</guimenu
+>-Menü angezeigt bekommen.</para>
+</question>
+<answer>
+<para
+>Starten Sie das <application
+>&kde; Kontrollzentrum</application
+> und wählen Sie <menuchoice
+><guisubmenu
+>Erscheinungsbild</guisubmenu
+> <guisubmenu
+>Arbeitsfläche</guisubmenu
+> <guisubmenu
+>Allgemein</guisubmenu
+></menuchoice
+>. Hier können Sie einstellen, was &kde; bei einem Mausklick auf die Arbeitsfläche tun soll. Um das <guimenu
+>K</guimenu
+>-Menü mit einem einzelnen Klick mit der linken Maustaste zu öffnen, ändern Sie den Eintrag mit Namen <guilabel
+>Linke Taste</guilabel
+> in <guilabel
+>Programm-Menü</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<!-- Not KDE -->
+<!--
+<qandaentry>
+<question>
+<para
+>How do I use the three extra keys on my &Windows; keyboard in
+&kde;?</para>
+</question>
+<answer>
+<para
+>You may have to configure your X server via
+<command
+>xmodmap</command
+> to bind the keycodes of the &Windows; keys
+to useful X key symbols (<command
+>xev</command
+> is your friend!).</para>
+<para
+>First, create a file <filename
+>$<envar
+>HOME</envar
+>/.Xmodmap</filename>
+containing the entries:</para>
+<screen>
+keycode 115=F13
+keycode 117=F15
+</screen>
+<para
+>Then run <command
+>xmodmap ~/.Xmodmap</command
+>.  This sets
+the <keycap
+>Start</keycap
+> key to emit <keysym
+>F13</keysym
+> and the
+<keycap
+>Windows</keycap
+> key to emit <keysym
+>F15</keysym
+>.  Next, fire
+up the <application
+>&kde; Control Center</application
+> and select <menuchoice
+><guimenu
+>Shortcut
+Keys</guimenu
+><guimenuitem
+>Global Shortcut</guimenuitem
+></menuchoice
+>.
+Set <guilabel
+>Pop-up system menu</guilabel
+> to <keysym
+>F13</keysym>
+and <guilabel
+>Window operations menu</guilabel
+> to
+<keysym
+>F15</keysym
+>.  That is it.
+<note
+><para
+>The numbers 115 and 117 may depend on the keyboard.  If
+you are not sure, please check using <command
+>xev</command
+>.  In
+addition, the above procedure requires &kde; 1.1 and above.</para>
+<para
+>&kikbd; is able to do this too, but keymaps have to be edited.
+The advantage of &kikbd; is that one can choose whether to use these
+mappings on several custom keymaps and have them hotswappable.</para>
+<para
+>It would be interesting to make a little script that will
+automatically do the keymap modifications on demand.  &kikbd; should
+be able to read/understand user-side keymap files.</para
+></note
+></para>
+</answer>
+</qandaentry>
+-->
+
+<qandaentry>
+<question>
+<para
+>Wo finden Sie Informationen zu &kde;-Designs (themes)?</para>
+</question>
+<answer>
+<para
+>Gehen Sie nach: <ulink url="http://kde.themes.org/"
+>http://kde.themes.org/</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Wie ändern Sie &MIME;-Typen?</para>
+</question>
+<answer>
+<para
+>Wenn Sie &konqueror; benutzen, dann öffnen Sie ein &konqueror;-Fenster und klicken mit der rechten Maustaste auf eine Datei des gewünschten Typs und wählen Sie <menuchoice
+><guimenuitem
+>Dateitypen bearbeiten...</guimenuitem
+></menuchoice
+>. Dies öffnet ein Dialogfenster, indem Sie die Einstellungen vornehmen können.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kde; (&kdm;) liest Ihr <filename
+>.bash_profile</filename
+> nicht!</para>
+</question>
+<answer>
+<para
+><application
+>xdm</application
+> (und &kdm;) starten keine Loginshell, also werden <filename
+>.profile</filename
+>, <filename
+>.bash_profile</filename
+>, <abbrev
+>etc.</abbrev
+> ignoriert. Beim Anmelden startet <application
+>xdm</application
+> den Befehl <command
+>Xstartup</command
+> als Systemverwalter und dann <command
+>Xsession</command
+> als Nutzer. Schreiben Sie also entsprechende Befehle und Optionen in die Datei <filename
+>Xsession</filename
+>, um Ihr Benutzerprofil einzustellen. Editieren Sie die Dateien <filename
+>Xsession</filename
+> und <filename
+>.xsession</filename
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Wie benutzen Sie &TrueType;-Fonts in &kde;?</para>
+</question>
+<answer>
+<para
+>Sie müssen die Unterstützung für &TrueType;-Fonts in &X-Windows; installieren. Unter <ulink url="http://x.themes.org/"
+>x.themes.org</ulink
+> finden Sie weitere Informationen über die Fonts und unter <ulink url="http://www.dcs.ed.ac.uk/home/jec/programs/xfsft/"
+>xfsft: &TrueType; Font Support For X11</ulink
+> oder <ulink url="http://X-TT.dsl.gr.jp/"
+>X-&TrueType; Server Project Home Page</ulink
+> über die Font-Server.</para>
+<para
+>Wenn Sie einige &TrueType;-Fonts von &Microsoft; &Windows; haben, editieren Sie die Datei <filename
+>XF86Config</filename
+>, um die Fonts vom Fonts-Verzeichnis zu erhalten. Dann weisen Sie einfach &kde; mit dem &kde;-Kontrollzentrum an, diese zu benutzen.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ist es möglich mit dem Euro-Symbol in &kde; zu arbeiten?</para>
+</question>
+<answer>
+<para
+>Ja und nein. Einzelheiten finden Sie hier: <ulink url="http://monitor.blvk.ch/euro/"
+>http://monitor.blvk.ch/euro/</ulink
+>.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

@@ -1,0 +1,1336 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY mirc "<application
+>mIrc</application
+>">
+  <!ENTITY irc "<acronym
+>IRC</acronym
+>">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &ksirc; Handbuch</title>
+<authorgroup>
+<author
+> <firstname
+>Andrew</firstname
+> <surname
+>Stanley-Jones</surname
+> <affiliation
+> <address
+><email
+>asj@chowtown.cban.com</email
+></address
+> </affiliation
+> </author>
+<author
+> <firstname
+>Philip</firstname
+> <surname
+>Rodrigues</surname
+> <affiliation
+> <address
+><email
+>phil.rod@ntlworld.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+> <firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+> <affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+> <contrib
+>Deutsche Übersetzung</contrib
+> </othercredit>
+</authorgroup>
+<date
+>2001-07-25</date>
+<releaseinfo
+>1.10.00</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract>
+<para
+>Diese Dokumentation beschreiben das &kde; &irc;-Programm &ksirc; 1.1.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KSirc</keyword>
+<keyword
+>irc</keyword>
+<keyword
+>Internet relay chat</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+>&ksirc; ist für &kde; das Standard-&irc;-Programm. Es unterstützt Skripte in der Sprache <acronym
+>Perl</acronym
+> und ist im wesentlichen kompatibel zu &mirc;.</para>
+
+</chapter>
+
+<chapter id="using-ksirc">
+<title
+>&ksirc; verwenden</title>
+
+<sect1 id="irc-basics">
+<title
+>Falls man &irc; noch nie verwendet hat...</title>
+
+<para
+>Einfach gesprochen ist &irc; ein Chat-Protokoll. Es ist durch einen offiziellen Internet-Standard definiert worden. Um &irc; zu verwenden, muss man Verbindung zu einem Server aufnehmen und in einen Kanal (channel) hineingehen (äquivalent zu einem Chat-Raum). </para
+> 
+
+<para
+>Man wählt <menuchoice
+><guimenu
+>Verbindungen</guimenu
+><guimenuitem
+>Neuer Server</guimenuitem
+></menuchoice
+> oder drückt <keycap
+>F2</keycap
+>, um Verbindung zu einem Server aufzunehmen. Im Dialog wählt man eine Gruppe aus dem linken Listenfeld und einen Server aus dem mittleren Listenfeld. Die Portnummer ist in der Regel 6667. Es erscheint ein neues Fenster, das die vom Server gesendeten Nachrichten anzeigt. Wenn diese Nachrichten beendet sind, kann man einen Kanal auswählen. Eine Liste der verfügbaren Kanäle erhält man durch den Befehl <userinput
+><command
+>/list</command
+></userinput
+>. Um in einen Kanal hineinzugehen, gibt man den Befehl <userinput
+><command
+>/join</command
+> <replaceable
+>#Kanalname</replaceable
+></userinput
+> an. Um einen Kanal zu verlassen, dient der Befehl <userinput
+><command
+>/part</command
+></userinput
+>.</para>
+
+<para
+>Damit sind die Grundlagen bekannt. Detailiertere Informationen folgen weiter unten.</para>
+
+</sect1>
+
+<sect1 id="ksirc-basics">
+<title
+>Grundlagen von &ksirc;</title>
+
+<sect2 id="servers">
+<title
+>Server</title>
+
+<para
+>Mit &ksirc; kann man gleichzeitig Verbindung zu vielen Servern aufnehmen. Um sich mit einem Server zu verbinden, wählt man <menuchoice
+><guimenu
+>Verbindungen</guimenu
+><guimenuitem
+>Neuer Server</guimenuitem
+></menuchoice
+> oder drückt <keycap
+>F2</keycap
+>. Im Verbindungsdialog kann man zunächst die gewünschte <guilabel
+>Gruppe</guilabel
+>, dann einen <guilabel
+>Server</guilabel
+> und schließlich einen <guilabel
+>Port</guilabel
+> wählen.</para>
+
+<para
+>Danach klickt man auf <guilabel
+>Verbinden</guilabel
+> und ein neues Fenster erscheint. Das Fenster <guilabel
+>Server-Kontrolle</guilabel
+> ermöglicht eine Kontrolle über die Server, mit denen &ksirc; verbunden ist.</para>
+
+</sect2>
+
+<sect2 id="channels">
+<title
+>Kanäle (Channels)</title>
+
+<para
+>Mit dem Befehl <userinput
+><command
+>/join</command
+></userinput
+> oder über den Menüeintrag <menuchoice
+><guimenu
+>Verbindungen</guimenu
+><guimenuitem
+>In Kanal hineingehen</guimenuitem
+></menuchoice
+> oder durch drücken von <keycap
+>F3</keycap
+> kann man in einen Kanal hineingehen.</para>
+
+<para
+>Geöffnete Kanäle werden im Fenster <guilabel
+>Server-Kontrolle</guilabel
+> unter dem zugehörigen Server angezeigt. Man kann einen Kanal wieder verlassen, indem man <userinput
+>/part</userinput
+> eintippt, im Menü <menuchoice
+><guimenu
+>Kanal</guimenu
+><guimenuitem
+>Schließen</guimenuitem
+> </menuchoice
+> wählt oder <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> betätigt.</para>
+
+</sect2>
+
+<sect2 id="channel-options">
+<title
+>Kanal-Einstellungen</title>
+
+<para
+>Das <guimenu
+>Kanal</guimenu
+>-Menü im Kanal-Fenster enthält einige nützliche Einstellungen:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycombo
+>&Ctrl;<keycap
+>T</keycap
+> </keycombo
+></shortcut
+> <guimenuitem
+>Ticker-Modus</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Zeigt den Kanal wie einen Börsen- oder Nachrichtenticker an.</action
+> Zu beachten ist, das man in diesem Modus nicht an der Unterhaltung im Kanal teilnehmen kann. Um den Ticker-Modus zu beenden, klickt man mit der <mousebutton
+>rechten</mousebutton
+> Maustaste auf den Ticker und wählt aus dem Menü <guimenuitem
+>Verstecken...</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+>&Ctrl;<keycap
+>S</keycap
+> </keycombo
+></shortcut
+> <guimenuitem
+>In Log-Datei speichern...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Speichert den Inhalt des Kanals in einer Datei.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo
+>&Ctrl;<keycap
+>A</keycap
+> </keycombo
+></shortcut
+> <guimenuitem
+>peitmarke</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Jeder Aussage im Kanal wird die Zeit in der Form HH:MM vorangestellt.</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="users">
+<title
+>Benutzer</title>
+
+<para
+>In jedem Kanal wird die Benutzerliste rechts in einer Spalte angezeigt. Klickt man mit der rechten Maustaste auf einen der Namen, so erscheint ein Menü mit einigen selbst erklärenden Funktionen:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Spitznamen aktualisieren</guimenuitem
+></term
+> <listitem
+> <para
+><action
+>Fordert vom Server die aktuelle Teilnehmerliste dieses Kanals an.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Folgen</guimenuitem
+></term
+> <listitem
+> <para
+><action
+>Folgt einem bestimmten Teilnehmer in den Kanal, in den er geht.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Nicht folgen</guimenuitem
+></term
+> <listitem
+> <para
+><action
+>Beendet die Verfolgung eines Teilnehmers.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Wer ist</guimenuitem
+></term
+> <listitem
+> <para
+><action
+>Sendet eine "CTCP whois"-Anfrage über einen Teilnehmer. Es werden verschiedene Informationen über einen Teilnehmer (z.B. Computername, Server-Verbindung usw.) abgefragt.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Ping</guimenuitem
+></term
+> <listitem
+> <para
+><action
+>Sendet ein "CTCP Ping" zu einem Teilnehmer, um dessen Antwortzeit zu testen. </action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Version</guimenuitem
+></term
+> <listitem
+> <para
+><action
+>Sendet eine "CTCP Version"-Anfrage, um die Programmversion eines Teilnehmers zu ermitteln. </action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Abuse</guimenuitem
+></term
+> <listitem
+> <para
+><action
+>Einen Teilnehmer in einer von mehreren Weisen schlecht behandeln.</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Die folgenden Befehle sind nur für Kanal-Operatoren zugänglich:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Kick</guimenuitem
+></term
+> <listitem
+> <para
+>Den Teilnehmer aus dem Kanal werfen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Ban</guimenuitem
+></term
+> <listitem
+> <para
+>Den Teilnehmer von der Teilnahme im Kanal ausschließen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>unBan</guimenuitem
+></term
+> <listitem
+> <para
+>Den Teilnahmeausschluß für einen Benutzer aufheben.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Op</guimenuitem
+></term
+> <listitem
+> <para
+>Dem Teilnehmer Operator-Rechte geben.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>DeOp</guimenuitem
+></term
+> <listitem
+> <para
+>Die Operator-Rechte für einen Teilnehmer widerrufen.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+</sect1>
+
+</chapter>
+
+<chapter id="sectcolors">
+<title
+>Farben von &ksirc;</title>
+
+<para
+>Das Farbschema von &ksirc; ist dem von &mirc; ähnlich. Es wurden einige geringe Modifikationen für eine bessere Anwendbarkeit vorgenommen.</para>
+
+<screen
+>&lt;fg&gt; == Vordergrund
+&lt;bg&gt; == Hintergrund
+&lsqb;&rsqb; == Optional
+</screen>
+
+<sect1 id="mirccompatibility">
+<title
+>Kompatibilität zu &mirc;</title>
+
+<para
+>Format:</para>
+<itemizedlist
+> <listitem
+> <para
+>Der Befehl <userinput
+>0x03&lt;fg&gt;&lsqb;,&lt;bg&gt;&rsqb;</userinput
+> ändert die Farbe für den Vordergrund und den Hintergrund</para
+> </listitem
+> <listitem
+> <para
+>Der Befehl <userinput
+>0x03</userinput
+> stellt für diese Zeile auf die Standardeinstellung zurück</para
+> </listitem
+> </itemizedlist>
+</sect1>
+
+<sect1 id="ksircnative">
+<title
+>&ksirc; Standard</title>
+
+<para
+>Format:</para>
+
+<itemizedlist
+> <listitem
+> <para
+><userinput
+>&tilde;&lt;fg&gt;&lsqb;,&lt;bg&gt;&rsqb;</userinput
+> ändert die Vordergrund- und Hintergrundfarbe</para
+> </listitem
+> <listitem
+> <para
+><userinput
+>&tilde;c</userinput
+> stellt auf Standardeinstellungen zurück</para
+> </listitem
+> <listitem
+> <para
+><userinput
+>&tilde;b</userinput
+> ändert das Schriftattribut in fett</para
+> </listitem
+> <listitem
+> <para
+><userinput
+>&tilde;u</userinput
+> ändert das Schriftattribut in unterstrichen</para
+> </listitem
+> <listitem
+> <para
+><userinput
+>&tilde;i</userinput
+> ändert das Schriftattribut in kursiv</para
+> </listitem
+> <listitem
+> <para
+><userinput
+>&tilde;r</userinput
+> ändert das Schriftattribut in unterstrichen</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Warum verwendet &ksirc; das Zeichen &tilde; an Stelle von 0x03 (&circ;C)? Erstens ist es schwer 0x03 in Skripten zu verwenden und zweitens haben einige C-Funktionen Probleme damit. &tilde;&lt;Zeichen;&gt; ermöglicht mehr Befehle, ohne Probleme mit zukünftigen Erweiterungen von &mirc; zu bekommen.</para>
+
+</sect1>
+
+<sect1 id="colornumbers">
+<title
+>Farbnummern</title>
+
+<orderedlist
+> <listitem
+> <para
+> weiß</para
+> </listitem
+> <listitem
+> <para
+> schwarz</para
+> </listitem
+> <listitem
+> <para
+> blau</para
+> </listitem
+> <listitem
+> <para
+> grün</para
+> </listitem
+> <listitem
+> <para
+> rot</para
+> </listitem
+> <listitem
+> <para
+> braun</para
+> </listitem
+> <listitem
+> <para
+> violett</para
+> </listitem
+> <listitem
+> <para
+> orange</para
+> </listitem
+> <listitem
+> <para
+> gelb</para
+> </listitem
+> <listitem
+> <para
+> hellgrün</para
+> </listitem
+> <listitem
+> <para
+> rosa</para
+> </listitem
+> <listitem
+> <para
+> hellrosa</para
+> </listitem
+> <listitem
+> <para
+> hellblau</para
+> </listitem
+> <listitem
+> <para
+> rosa</para
+> </listitem
+> <listitem
+> <para
+> grau</para
+> </listitem
+> <listitem
+> <para
+> hellgrau</para
+> </listitem
+> </orderedlist>
+</sect1>
+
+<sect1 id="sendingboldunderlinereverseandcolor">
+<title
+>Sendet die Attribute fett, unterstrichen, invertiert und die Farbe</title>
+
+<para
+>Mit den folgenden Tastenkürzeln kann man Steuerzeichen in den Text einfügen:</para>
+
+<itemizedlist
+> <listitem
+> <para
+><keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+></keycombo
+> für fett</para
+> </listitem
+> <listitem
+> <para
+><keycombo action="simul"
+>&Ctrl;<keycap
+>U</keycap
+></keycombo
+> für unterstrichen</para
+> </listitem
+> <listitem
+> <para
+><keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+> für invertiert</para
+> </listitem
+> <listitem
+> <para
+><keycombo action="simul"
+>&Ctrl;<keycap
+>K</keycap
+></keycombo
+> für farbig</para
+> </listitem
+> <listitem
+> <para
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+> für Standard</para
+> </listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="examplessetcolors">
+<title
+>Beispiele</title>
+
+<para
+>Unterstreichung eines einzelnen Wortes in einem Satz:</para>
+
+<procedure
+> <step
+> <para
+>Man tippt <keycombo action="simul"
+>&Ctrl;<keycap
+>U</keycap
+></keycombo
+></para
+> </step
+> <step
+> <para
+>Tippe das Wort ein</para
+> </step
+> <step
+> <para
+>Tippe noch einmal <keycombo action="simul"
+>&Ctrl;<keycap
+>U</keycap
+></keycombo
+></para
+> </step
+> </procedure>
+
+<para
+>Nur der Text zwischen den Start- und Endezeichen wird verändert. Man kann diese Methode für alle anderen Steuerzeichen ebenfalls verwenden.</para>
+
+<para
+>Das Steuerzeichen <keycombo action="simul"
+>&Ctrl;<keycap
+>K</keycap
+></keycombo
+> funktioniert etwas anders, da man hier noch eine Farbnummer angeben muss. Um beispielsweise ein einzelnes Wort einzufärben:</para>
+
+<procedure
+> <step
+> <para
+>Man tippt <keycombo action="simul"
+>&Ctrl;<keycap
+>K</keycap
+></keycombo
+></para
+> </step
+> <step
+> <para
+>Nun tippt man eine Zahl zwischen 0 und 15</para
+> </step
+> <step
+> <para
+>Nun tippt man das Wort</para
+> </step
+> <step
+> <para
+>Schlileßlich tippt man noch einmal <keycombo action="simul"
+>&Ctrl;<keycap
+>K</keycap
+></keycombo
+></para
+> </step
+> </procedure>
+
+<para
+>Wenn man außerdem noch die Hintergrundfarbe eines Wortes verändern will, muss man zwei durch ein Komma getrennte Zahlen anstatt einer einzigen angeben. Die erste Zahl gibt die Textfarbe an, die zweite steht für die Hintergrundfarbe. Der Farbbereich reicht von 0 bis 15. Die Tabelle der Farben befindet sich im vorigen Abschnitt.</para
+> 
+
+<para
+>Ein Textabschnitt kann auch in mehrere Steuerzeichen eingeschlossen werden. Man kann also einen Textabschnitt fett, unterstrichen und farbig darstellen.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="filters">
+<title
+>Filter</title>
+
+<sect1 id="filterrulesandhowtomakethem">
+<title
+>Filterregeln und ihre Erstellung</title>
+
+<para
+>Falls man diese Anleitung nicht versteht, kann man auf den für die nächste Programmversion geplanten <quote
+>Filterassistenten</quote
+> warten. Das kann allerdings noch ein wenig dauern.</para>
+
+<para
+>Der Filter versucht den Text in <quote
+>match</quote
+> zu finden und durch den Text in <quote
+>From</quote
+> und <quote
+>To</quote
+> zu ersetzen. Die Texte in diesen drei Feldern können jeweils reguläre Ausdrücke von <application
+>Perl</application
+> sein. Die Regeln werden in absteigender Reihenfolge ausgewertet. Die oberste Regel zuerst, dann die zweite Regel, usw. Alle Texte werden wie folgt ausgewertet:</para>
+
+<para
+><varname
+>$<replaceable
+>Name</replaceable
+></varname
+> wird durch den Inhalt der Umgebungsvariable <varname
+><replaceable
+>Name</replaceable
+></varname
+> ersetzt. Diese Ersetzung wird allerdings bei der Eingabe der Regel bereits vorgenommen und später auch nicht mehr verändert. Damit ist diese Ersetzung vermutlich von geringem Wert.</para>
+
+<para
+><varname
+>$$<replaceable
+>Name</replaceable
+></varname
+> wird beim Vergleich durch den Inhalt der Perl-Variable <varname
+>$<replaceable
+>Name</replaceable
+></varname
+> ersetzt. Dabei kann es sich um Zeichenketten wie <varname
+>$1</varname
+>, <varname
+>$2</varname
+> oder normale Variablen handeln, die in <application
+>sirc</application
+> vorhanden sind (wie z.B. <varname
+>$nick</varname
+>, <varname
+>$channel</varname
+>, usw.).</para>
+
+<para
+><varname
+>&tilde;<replaceable
+>Name</replaceable
+>&tilde;</varname
+> <emphasis
+>genau einmal</emphasis
+> am Zeilenanfang sendet die Textzeile an das Fenster mit dem Titel <replaceable
+>Name</replaceable
+>. Falls das Fenster nicht existiert, wird der Text an das Fenster gesendet, das zuletzt den Fokus hatte. Es gibt einige Spezialfenster, deren Name von einem vorangestellten <literal
+>!</literal
+> eingeleitet wird.</para>
+
+<para
+><variablelist
+> <varlistentry
+> <term
+><varname
+>!default</varname
+></term
+> <listitem
+> <para
+>Das aktuelle Fenster. Es existiert immer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><varname
+>!all</varname
+></term
+> <listitem
+> <para
+>An jedes Fenster senden. Der Text erscheint eventuell nicht in allen Fenstern, da die angezeigten Texte von der Fensterart abhängen. Zum Beispiel zeigen Kanal-Fenster keine part/quit-Nachrichten, es sei denn der zugehörige Spitzname nimmt am Kanal teil.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><varname
+>!discard</varname
+></term
+> <listitem
+> <para
+>löscht den Text.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> </para>
+
+<para
+>Der Rest des Textes wird wie ein normaler regulärer Ausdruck in Perl behandelt. Ein gutes Verständnis der Manualseite <command
+>perlre</command
+> ist von Vorteil, ein grundlegendes Verständnis von regex sollte man mindestens haben.</para>
+
+</sect1>
+
+<sect1 id="examplesfilters">
+<title
+>Beispiele:</title>
+
+<orderedlist
+><listitem
+> <para
+>Um in jedem Text alle Vorkommen von kde durch KDE zu ersetzen</para
+> <screen
+>Match: .*
+From: kde
+To: KDE</screen
+> <para
+>Jeder Text wird untersucht und darin jedes Vorkommen von kde durch KDE ersetzt.</para
+> </listitem
+> <listitem
+> <para
+>Gesucht ist jeder Text, der kde enthält. Dieser Text soll an das Fenster mit dem Namen <quote
+>kde</quote
+> gesendet werden</para
+> <screen
+>Match: kde
+From: &circ;
+To: &tilde;kde&tilde;</screen
+> <para
+>Sucht nach dem Wort <quote
+>kde</quote
+> und ersetzt im Erfolgsfall den Textanfang (&circ;) durch &tilde;kde&tilde;.</para
+> </listitem
+> <listitem
+> <para
+>Obwohl das Beispiel funktioniert, erhält man für den Fall, das der Text bereits ein <literal
+>&tilde;wrgendein_Fenster&tilde;</literal
+> enthält, <literal
+>&tilde;kde&tilde;&tilde;irgendein_Fenster&tilde;...</literal
+>. Stattdessen kann man das Folgende tun:</para
+> <screen
+>Match: kde
+From: ^(?:&tilde;\S+&tilde;)
+To: &tilde;kde&tilde;</screen
+> <para
+>Hier ist die "From"-Zeile ein wenig kompliziert. Sie bedeutet: suche 0 oder 1 Vorkommen von <literal
+>&tilde;\S+&tilde;</literal
+>. Das ist 1 Tilde, ein oder mehrere Zeichen und eine weitere Tilde. Der ganz Vorsichtige könnte stattdessen <literal
+>(*:&tilde;\S+&tilde;)</literal
+> verwenden, was &ksirc; veranlasst, nach 0 oder mehr Kanalbefehlen zu suchen, für den Fall, dass vorherige Regeln unkorrekt sind.</para
+> </listitem
+> <listitem
+> <para
+>Kill-Nachrichten des Server sind meistens lang, häßlich und nervig. Eine grundlegende Nachricht auf dalnet sieht etwa folgendermaßen aus:</para
+> <screen
+>*** Notice -- Received KILL message for
+BOBO!ANDY@line82-basel.datacomm.ch from NickServ 
+Path: empire.ny.us.dal.net[209.51.168.14]!trapdoor.ca.us.dal.net
+[206.86.127.252]!caris.ca.us.dal.net[208.1.222.221]
+!services.dal.net[2008.1.222.222]!services.dal.net
+(NickServ Enforcement)</screen
+> <para
+>Wenn man die Option <literal
+>+s</literal
+> verwendet, erhält man Hunderte davon; sie huschen schnell über den Bildschirm. Man kann 3 Regeln erstellen, um diese Nachrichten Schritt für Schritt zu verarbeiten. Man kann auch mit weniger als 3 Regeln auskommen, aber dieses Beispiel eignet sich, um in mehreren Schritten zu zeigen, wie mit mehreren Regeln eine umfangreiche Nachricht analysiert wird. Im ersten Schritt wird der Pfad-Anteil entfernt.</para
+> <screen
+>Match: ^\*\*\*.* KILL message for.*
+From:  Path: \S+
+To: .</screen
+> <para
+>Match sucht nach einer Nachricht, die mit <literal
+>***</literal
+> beginnt. Den <literal
+>*</literal
+>-Zeichen muss jeweils <literal
+>\</literal
+> vorangestellt werden, da sie selbst als Sonderzeichen dienen und für 0 oder mehr Vorkommen des vorangestellten Textes stehen. <literal
+>.*</literal
+> passt auf beliebige Zeichen bis zum Text <literal
+> "KILL message for"</literal
+>. Damit kann man vermeiden, <literal
+>-- Received...</literal
+> usw. einzutippen. Das angehängte <literal
+>.*</literal
+> passt auf alle Zeichen bis zum Zeilenende (das ist aber soviel ich weiß überflüssig).</para
+> <para
+>Die From-Zeile bedeutet: ersetze " Path: " und alle Zeichen bis zum nächsten Zwischenraum (whitespace) durch To. To enthält lediglich <literal
+>"."</literal
+>, weshalb der gesamte Pfad durch einen einzelnen Punkt ersetzt wird.</para
+> <para
+>Die Nachricht hat nun folgendes Aussehen:</para
+> <screen
+>*** Notice -- Received KILL message for BOBO!ANDY@line82-basel.datacomm.ch
+from NickServ. (NickServ Enforcement)</screen
+> <para
+>Beachtenswert ist der neue <literal
+>"."</literal
+> hinter <literal
+>NickServ</literal
+>.</para
+> </listitem
+> <listitem
+> <para
+>Damit ist die Nachricht bereits wesentlich klarer, aber KILLs von NickServ sind nicht so wichtig, also wollen wir die Nachricht an das Spezialfenster <literal
+>!discard</literal
+> weiterleiten.</para
+> <screen
+>Match: ^\*\*\*.*KILL message.*\(NickServ Enforcement\) 
+From: ^(?:&tilde;\S+&tilde;) 
+To:  &tilde;!discard&tilde;</screen
+> <para
+>Die Match-Regel sucht nach der KILL-Nachricht und überprüft, ob sie von NichServ ist. Man beachte die Zeichen <literal
+>\(</literal
+> und <literal
+>\)</literal
+>. Beide Klammern <literal
+>()</literal
+> haben in regulären Ausdrücken eine besondere Bedeutung, daher muss jeweils <literal
+>\</literal
+> vorangestellt werden. Das ist ähnlich zu Beispiel 3.</para
+> </listitem
+> <listitem
+> <para
+>Jetzt sind die Kills von NickServ herausgefiltert, aber das Lesen der Nachricht ist immer noch nicht einfach. Daher soll die Nachricht jetzt umorganisiert werden:</para
+> <screen
+>*** [KILL] &lt;KILLER&gt; killed &lt;KILLED&gt; (reason)
+Match: \*\*\*.*KILL message
+From: \*\*\*.*for (.*?) from (.*?)\. \((.*?)\).*
+To: *** [KILL] $$2 killed $$1 ($$3)
+</screen
+> <para
+>Die Match-Regel such nach <literal
+>***<replaceable
+>irgendetwas</replaceable
+></literal
+> KILL message. Wir können nicht <literal
+>&circ;</literal
+> verwenden, da wir gerade <literal
+>&tilde;&lt;wenster&gt;&tilde;</literal
+> an die Nachricht angehängt haben.</para
+> <para
+>Die From-Zeile wird interessant. Der Abschnitt <literal
+>"for (.*?) "</literal
+> sucht nach dem Wort "for" gefolgt von weiteren Zeichen. <literal
+>.*?</literal
+> sucht nach 0 oder mehr Zeichen mit Ausnahme eines Zeilenumbruches. Diese Suche stoppt, wenn die erste Bedingung für einen Abbruch gegeben ist. Mit anderen Worten passt die Zeichenkette auf alles bis zum nächsten Leerzeichen. Die umgebenden <literal
+>()</literal
+> sorgen für das Speichern des gefundenen Textes. Jedes Auftreten von () speichert die gefundene Zeichenkette in <literal
+>$&num;</literal
+>, wobei <literal
+>&num;</literal
+> bei 1 für die erste Teilzeichenkette beginnt usw. . Im Beispiel wird <varname
+>$1</varname
+> der Spitzname/Benutzername des "gekillten"Teilnehmers zugeordnet. <varname
+>$2</varname
+> enthält den Namen der killenden Person. Zwischen <literal
+>()</literal
+> haben wir den Grund. <literal
+>(</literal
+> und <literal
+>\(</literal
+> sind ein wenig verwirrend. Man muss bedenken, dass <literal
+>\(</literal
+> für das Zeichen <literal
+>'('</literal
+> steht.</para
+> </listitem
+> <listitem
+> <para
+>Im nächsten Beispiel wird gezeigt, wie man ein wenig Farbe in &ksirc; bringen kann. Weitere Informationen zu Farben findet man im <link linkend="sectcolors"
+>Abschnitt Farben</link
+>. Im folgenden wird ein Filter vorgestellt, der den Spitznamen <literal
+>&lt;NICK&gt;</literal
+> in jeder Zeile hervorhebt: </para
+> <screen
+>Match: ^(?:&tilde;\S+&tilde;)&lt;\S+&gt;
+From: &lt;(\S+)&gt;
+To: &lt;&tilde;4$$1&tilde;c&gt;</screen
+> <para
+>Nimmt den Spitznamen und fügt die Farbe &num;4 zwischen <literal
+>&lt;&gt;</literal
+> hinzu. <literal
+>&tilde;c</literal
+> löscht die Farbe wieder.</para
+> </listitem
+> </orderedlist>
+
+</sect1>
+</chapter>
+
+<chapter id="keys">
+<title
+>Tastenkürzel</title>
+
+<para
+>Liste der Tastenkürzel und Tastaturbefehle von &ksirc;.</para>
+
+<table>
+<title
+>Tastenkürzel</title>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Tastenkürzel</entry
+> <entry
+>Aktion</entry
+> </row
+> </thead>
+
+<tbody
+> <row
+> <entry
+><keycombo action="simul"
+>&Alt;<keycap
+>F</keycap
+></keycombo
+></entry
+> <entry
+>Öffnet das <guimenu
+>Datei</guimenu
+>-Menü.</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Alt;<keycap
+>E</keycap
+></keycombo
+></entry
+> <entry
+>Öffnet das Menü <guimenu
+>Bearbeiten</guimenu
+>.</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></entry
+> <entry
+>Öffnet ein neues Kanal-/Abfrage-Fenster.</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>T</keycap
+></keycombo
+></entry
+> <entry
+>Ticker-Modus</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></entry
+> <entry
+>Beenden</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></entry
+> <entry
+>Fenster ausschneiden</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></entry
+> <entry
+>Einfügen</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Enter</keycap
+></keycombo
+></entry
+> <entry
+>Eine Nachricht an die letzte Person schreiben, die eine Nachricht an micht gesendet hat</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Enter</keycap
+></keycombo
+></entry
+> <entry
+>Eine Nachricht an die vorletzte Person beginnen, die eine Nachricht an micht gesendet hat</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>K</keycap
+></keycombo
+></entry
+> <entry
+>Umschalten der Textfarbe (gefolgt von einer Zahl). Text nach dieser Eingabe wird in der gewünschten Farbe dargestellt.</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>U</keycap
+></keycombo
+></entry
+> <entry
+>Textattribut unterstrichen ein-/ausschalten. Text nach der ersten Betätigung dieser Tastenkombination wird unterstrichen, bis man die Tastenkombination ein zweites Mal betätigt.</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+></entry
+> <entry
+>Textattribut kursiv ein-/ausschalten. Text nach der ersten Betätigung wird kursiv gedruckt. Nach der zweiten wird das Attribut wieder ausgeschaltet.</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+> </keycombo
+></entry
+> <entry
+>Textattribut fett ein-/ausschalten. Text nach der ersten Betätigung wird fett gedruckt. Nach der zweiten wird das Attribut wieder ausgeschaltet.</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+></entry
+> <entry
+>Textattribut invertiert ein-/ausschalten. Text nach der ersten Betätigung wird invertiert gedruckt. Nach der zweiten wird das Attribut wieder ausgeschaltet.</entry
+> </row
+> <row
+> <entry
+><keycap
+>Tab</keycap
+></entry
+> <entry
+>Versucht, den Spitznamen einer Person aus dem angefangenen Wort zu komplettieren. Diese Funktion ist vermutlich von der Shell her bekannt.</entry
+> </row
+> </tbody>
+</tgroup>
+</table>
+
+</chapter>
+
+<chapter id="credits-and-license">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>&ksirc; Copyright 1997-2001, die &ksirc; Entwickler.</para>
+
+<para
+>Teile der Dokumentation Copyright 1997, Andrew Stanley Jones</para>
+
+<para
+>Dokumentation aktualisiert für &kde; 2.2 von Philip Rodrigues <email
+>phil.rod@@ntlworld.com</email
+></para>
+
+<para
+>Deutsche Übersetzung Frank Schütte <email
+>F.Schuette@t-online.de</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-ksirc">
+<title
+>Wie bekommt man &ksirc;</title>
+
+<para
+>&ksirc; ist Teil des <ulink url="http://www.kde.org"
+>&kde;-Projektes</ulink
+>. Man findet die aktuelle Version von &ksirc; im Paket kdenetwork auf <ulink url="ftp://ftp.kde.org/pub/kde"
+>ftp://ftp.kde.org/pub/kde </ulink
+>, dem &FTP;-Server des &kde;-Projektes.</para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Anforderungen</title>
+<para
+>Für die Installation von &ksirc; benötigt man mindestens die Version 2.2 von &kde;.</para>
+<para
+>Falls man &ksirc; selbst kompilieren und installieren will, benötigt man mindestens die folgenden Programme als Voraussetzung:</para>
+<itemizedlist
+> <listitem
+><para
+>g++ 2.8 / egcs 1.0.3 (oder kompatibel)</para
+></listitem
+> <listitem
+><para
+>GNU make</para
+></listitem
+> <listitem
+><para
+>autoconf 2.1</para
+></listitem
+> <listitem
+><para
+>automake 1.4</para
+></listitem
+> <listitem
+><para
+>Qt 2.2.x</para
+></listitem
+> <listitem
+><para
+>KDE 2.1</para
+></listitem
+> </itemizedlist>
+</sect1>
+
+
+<sect1 id="compilation">
+<title
+>Kompilation und Installation</title>
+<para
+>&ksirc; ist Teil des Pakets kdenetwork von &kde; 2.2 und wird mit diesem zusammen installiert. Generell gibt es keinen Grund, den Quelltext von &ksirc; selbst zu kompilieren. Falls man das dennoch möchte oder falls man nur den Quelltext zur Verfügung hat, kann man die Kompilation und Installation, wie unter Linux üblich, bewerkstelligen durch:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>su</command
+> <option
+>-c</option
+> <parameter
+>"make install"</parameter
+></userinput>
+</screen>
+
+<para
+>&ksirc; verwendet <command
+>autoconf</command
+> und <command
+>automake</command
+>, daher sollte es keine Probleme während des Kompilationsprozesses geben. Falls dennoch Probleme auftreten, kann man sich and die &kde;-Entwickler-Mailingliste <email
+>kde-devel@master.kde.org</email
+> wenden.</para>
+</sect1>
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+
+
+

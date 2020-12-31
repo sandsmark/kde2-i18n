@@ -1,0 +1,528 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&klipper;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>A &klipper; kézikönyve </title>
+
+<authorgroup>
+<author
+> <firstname
+>Philip</firstname
+> <surname
+>Rodrigues</surname
+> <affiliation
+> <address
+><email
+>phil.rod@ntlworld.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Carsten</firstname>
+<surname
+>Pfeiffer</surname>
+<affiliation>
+<address
+><email
+>pfeiffer@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Fejlesztő</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>lauri@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Lektor</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Philip Rodrigues</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-05-21</date>
+<releaseinfo
+>2.00.00</releaseinfo>
+
+<abstract>
+<para
+>A &klipper; egy &kde;-alapú vágólapkezelő segédprogram.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Klipper</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>vágólap</keyword>
+</keywordset>
+</bookinfo>
+ 
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+<para
+>A &klipper; a &kde; vágólapkezelő segédprogramja. Figyeli és naplózza a vágólapon végrehajtott műveleteket, és lehetővé teszi műveletek végrehajtását a vágólap tartalmán. A felmerülő problémáit, kéréseit küldje el bátran nekem, Carsten Pfeiffernek (<email
+>pfeiffer@kde.org</email
+>).</para>
+
+</chapter>
+
+<chapter id="using-klipper">
+<title
+>A &klipper; használata</title>
+
+<sect1 id="basic-usage">
+<title
+>Az alapvető tudnivalók</title>
+
+<para
+>A vágólap naplójának megjelenítéséhez kattintson rá a program ikonjára vagy nyomja meg a <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>V</keycap
+> </keycombo
+>-t. A vágólapon korábban található adatok nevei a megjelenő menü tetején látszanak. Ha valamelyiket kiválasztja, akkor az rákerül a vágólapra, ahonnan bármelyik &kde; vagy X alkalmazásba beilleszthető a szokott módon.</para>
+
+</sect1>
+
+<sect1 id="actions">
+<title
+>Műveletek</title>
+
+<para
+>A program segítségével műveleteket lehet végezni a vágólap tartalmával, attól függően, hogy az illeszkedik-e egy reguláris kifejezéshez. Például a <quote
+>http://</quote
+>-vel kezdődő adatokat át lehet adni a &Netscape;-nek vagy a &konqueror;nak mint megnyitandó &URL;-t.</para>
+
+<para
+>Ennek a lehetőségnek a kipróbálásához másoljon ki egy &URL;-t vagy egy fájlnevet a vágólapra. Ha a programnak megadott valamelyik reguláris kifejezés illeszkedik hozzá, akkor megjelenik egy menü a választható lehetőségekkel (pl.: Az &URL; megnyitása a &konqueror;ral, Az &URL; megnyitása a &Netscape;-pel). Az egér vagy a billentyűzet segítségével válassza ki a kívánt opciót, és a &klipper; máris elindítja a megfelelő programot, megnyitva a vágólapra helyezett internet-címet.</para>
+
+<para
+>Ha nem akar műveletet végezni a vágólap tartalmán, válassza a <guimenuitem
+>Mégsem</guimenuitem
+> menüpontot a felbukkanó menüből. Ha nem nyúl a menühöz, az rövid idő múlva magától eltűnik. A várakozási idő hossza megváltoztatható a <guilabel
+>Beállítások</guilabel
+> párbeszédablakban, <guilabel
+>A műveletmenük láthatósági ideje</guilabel
+> mezőben, az <guilabel
+>Általános</guilabel
+> lapon.</para>
+	  
+<para
+>A műveletvégzést teljesen le lehet tiltani, ha rákattint <guimenuitem
+>A műveletek engedélyezve</guimenuitem
+> menüpontra vagy megnyomja először a <keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>V</keycap
+></keycombo
+>-t majd a <keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>X</keycap
+></keycombo
+>-et.</para>
+
+<para
+>A művelet végrehajtása előtt át lehet szerkeszteni a valamelyik reguláris kifejezésnek eleget tett vágólaptartalmat. Válassza <guimenuitem
+>A tartalom szerkesztése</guimenuitem
+> menüpontot: a megjelenő párbeszédablakban tetszés szerint megváltoztatható a vágólap tartalma, majd az <guibutton
+>OK</guibutton
+> gomb lenyomása után kiválasztható a kívánt művelet.</para>
+
+<para
+>Ha megnyomja a <keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>R</keycap
+></keycombo
+> billentyűkombinációt, megjelenik a felbukkanó menü, és végrehajtható a kívánt művelet a vágólap aktuális tartalmán.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="preferences">
+<title
+>A &klipper; beállításai</title>
+
+<sect1 id="viewing-options">
+
+<title
+>A beállítóablak</title>
+
+<para
+>A beállítások megtekintéséhez és megváltoztatásához hívja elő a program felbukkanó menüjét, és válassza a <guimenu
+>Tulajdonságok</guimenu
+> menüpontot. A beállítóablak három lapból áll.</para>
+
+<sect2 id="general-tab">
+<title
+>Általános</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>A felbukkanó menü az egérmutatónál jelenjen meg</guilabel
+></term
+> <listitem
+><para
+>Ennek hatására a &klipper; felbukkanó menüje az egérmutatónál fog mindig megjelenni (a &kde; panel helyett). Ha többet használja az egeret, mint a billentyűzetet, jelölje be.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Műveletek engedélyezése naplóbeli elemeken</guilabel
+></term
+> <listitem
+><para
+>Ha ez be van jelölve, akkor egy naplóbeli elem kiválasztásakor a program megjeleníti az ahhoz tartozó felbukkanó menüt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>A vágólap tartalmának mentése kilépéskor</guilabel
+></term
+> <listitem
+><para
+>Ha ez be van jelölve, akkor egy naplóbeli elem kiválasztásakor a program leellenőrzi, hogy milyen műveletek hajthatók végre az elemen, majd megjeleníti a műveletek listáját. Ha nincs bejelölve, akkor a naplóbeli elemeken közvetlenül nem lehet műveletet végrehajtani.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>A műveletmenük láthatósági ideje</guilabel
+></term
+> <listitem
+><para
+>Ennyi másodperc múlva tűnik el a felbukkanó menü, ha nem választja ki egyik menüpontját sem.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>A vágólapnapló mérete</guilabel
+></term
+> <listitem
+><para
+>Ennyi bejegyzés kerülhet legfeljebb a naplóba.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="actions-tab">
+<title
+>Műveletbeállítások</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Kifejezések/műveletek szerkesztése</guilabel
+></term
+> <listitem
+><para
+>A <guilabel
+>Műveletek</guilabel
+> lapon kattintson a kívánt reguláris kifejezésre vagy műveletre. A mező tartalma ekkor szerkeszthetővé válik, írja be a szükséges szöveget. A szerkesztés befejeztével nyomja meg az <keycap
+>Enter</keycap
+> billentyűt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kifejezések/műveletek hozzáadása</guilabel
+></term
+> <listitem
+><para
+>Kattintson a <guimenuitem
+>Művelet hozzáadása</guimenuitem
+> gombra egy új reguláris kifejezés felvételéhez. A &klipper; a &Qt; <classname
+>QRegExp</classname
+> osztályát használja, mely kezeli többek között a <application
+>grep</application
+> és az <application
+>egrep</application
+> által felismert kifejezéstípusokat.</para
+> <note
+><para
+>Ha pontos információt szeretne kapni arról, hogy a <classname
+>QRegExp</classname
+> hogyan kezeli a reguláris kifejezéseket, olvassa el ezt: <ulink url="http://doc.trolltech.com/qregexp.html#details"
+>http://doc.trolltech.com/qregexp.html#details</ulink
+>. Figyelem! A &klipper; nem támogatja az oldalon megemlített keresőkarakteres (wildcard) módot.</para
+></note
+> <para
+>Kezdje el szerkeszteni a reguláris kifejezést. Parancs hozzáadásához kattintson a <mousebutton
+>jobb</mousebutton
+> egérgombbal, válassza a <guimenuitem
+>Parancs hozzáadása</guimenuitem
+> menüpontot, és módosítsa a fastruktúrában megjelenő szöveget.</para
+> <para
+>A szövegben megadott <token
+>%s</token
+> szimbólum helyére a vágólap tartalma fog kerülni, tehát ha a parancs definíciója a következő: <userinput
+><command
+>kedit</command
+> <token
+>%s</token
+></userinput
+> és a vágólap tartalma: <filename
+>/home/valaki/szövegfájl.txt</filename
+>, akkor a <userinput
+><command
+>kedit</command
+> <filename
+>/home/valaki/szövegfájl.txt</filename
+></userinput
+> parancs lesz végrehajtva. Ha azt szeretné, hogy a <token
+>%s</token
+> megmaradjon a parancsban, tegyen elé backslasht: <userinput
+>\%s</userinput
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+><guilabel
+>Speciális...</guilabel
+></term
+> <listitem
+><para
+>Előhívja a <guilabel
+>A műveletek letiltása a megadott WM_CLASS értékű ablakoknál</guilabel
+> párbeszédablakot.</para
+><para
+>Néhány program, például a &konqueror;, belső vágólapműveleteket is végezhet. Ha el szeretné kerülni, hogy ilyenkor aktiválódjon a &klipper; menüje, hajtsa végre a következőket:</para
+> <orderedlist
+> <listitem
+><para
+>Indítsa el az alkalmazást</para
+></listitem
+> <listitem
+><para
+>Egy parancsértelmezőben adja ki az <userinput
+><command
+>xprop</command
+> | <command
+>grep</command
+> <parameter
+>WM_CLASS</parameter
+></userinput
+> parancsot és kattintson rá a kívánt alkalmazásra.</para
+></listitem
+> <listitem
+><para
+>Az egyenlőségjel utáni első sztringet kell megadni</para
+></listitem
+> </orderedlist
+> <para
+>A kívánt WM_CLASS hozzáadása után az alkalmazás nem fog &klipper; eseményeket kiváltani.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="shortcuts-tab">
+<title
+>Billentyűparancsok</title>
+
+<para
+>Ezen a lapon lehet megváltoztatni a &klipper; különféle műveleteit elindító billentyűparancsokat. Alapvetően három lehetőség közül lehet választani:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Nincs</guilabel
+></term
+> <listitem
+><para
+>A művelethez nem fog tartozni billentyűkombináció.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Az alapértelmezett billentyű</guilabel
+></term
+> <listitem
+><para
+>Az alapértelmezett billentyűkombinációval lehet végrehajtani a műveletet. Ebben a dokumentumban ezeket tüntettük fel.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Egyéni billentyű</guilabel
+></term
+> <listitem
+><para
+>A művelethez hozzárendelhető bármelyik, még nem foglalt billentyűkombináció.</para
+> <para
+>Egyéni billentyűkombináció megadásához először kattintson az ablak jobb alsó sarkában látható billentyűképre, majd nyomja le a szükséges billentyűket (ugyanúgy kell eljárni, mint bármelyik más &kde; alkalmazásban). </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Köszönetnyilvánítások és a licencegyezmény</title>
+
+<para
+> Klipper </para>
+<para
+> Program copyright: Andrew Stanley-Jones (<email
+>asj@cban.com</email
+>), 1998. </para>
+<para
+> Program copyright: Carsten Pfeiffer (<email
+>pfeiffer@kde.org</email
+>), 1998-2000.</para>
+<para
+> A jelenlegi karbantartó: Carsten Pfeiffer </para>
+
+<para
+> Documentation copyright: Philip Rodrigues (<email
+>phil.rod@ntlworld.com</email
+>), 2000. </para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+
+<sect1 id="getting-klipper">
+<title
+>A &klipper; megszerzése</title>
+
+<para
+>A &klipper; a &kde; projekt (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>) része, a kdebase csomagban található, mely letölthető innen: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, a KDE projekt központi FTP-kiszolgálójáról.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Követelmények</title>
+
+<para
+>A &klipper; használatához a &kde; legalább 2.0-s változata szükséges.</para>
+
+<para
+>Az összes szükséges programkönyvtár megtalálható <ulink url="ftp://ftp.kde.org"
+>a KDE központi FTP-kiszolgálóján</ulink
+>. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Lefordítás és telepítés</title>
+<para
+>A &klipper; lefordítása és telepítése a kdebase csomag többi részével együtt történik, a következő indításnál megjelenik a &kde; panelen.</para
+> 
+
+<screenshot
+> <screeninfo
+>&klipper;-ikon</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="screenshot.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>Képernyőfelvétel</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Ennek letiltásához ki kell törölni a <filename
+>$KDEDIR/share/autostart/klipper.desktop</filename
+> fájlt vagy át kell alakítani a <filename
+>$HOME/share/autostart/klipper.desktop</filename
+> fájl tartalmát a következő módon: <programlisting>
+[Desktop Entry]
+Hidden=true
+</programlisting
+> Ez utóbbi megoldás esetén nem kell megváltoztatni a globális beállításokat, az Ön belépésekor nem fog elindulni a program, de a többieket ez nem érinti. </para>
+
+</sect1>
+</appendix>
+
+&documentation.index; 
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

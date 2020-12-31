@@ -1,0 +1,179 @@
+eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
+        if 0;
+# Let's borrow this script (above) from teTeX to call PERL
+
+#      file: checkDocDa (.pl)
+#   version: 1999.05.31
+#     title: KDE Documentation statistics
+#  subtitle: Slovenian Statistic
+#    author: Tobias Burnus, burnus@gmx.de
+# copyright: LGPL
+#  homepage: http://mimas.germany.net:8080/kde-doc/ 
+# 
+# Adapted to Slovenian by Andrej Vernekar, andrej.vernekar@kiss.uni-lj.si
+# Daily runs available at http://i18n.kde.org/stats/doc/html/doc-sl.html
+
+# See http://i18n.kde.doc/stats/doc/ for a description
+
+use checkDoc;
+use common;
+use Time::Local;
+
+# constants
+
+my $Lng    = 'Sl';
+my $lng    = 'sl';
+my $goTop  = "\n".'<p>[<A href="#top">Navzgor</A>]</p>';
+
+$sExists   = 'obstaja';    # translated file 'exists'
+$sNoEngl   = 'ni angl. datoteke';# there is a 'translated' file but not an Engl. file
+$sUpToDate = 'usklajen';
+$sTooOld   = 'zastarel';
+$sPerhaps  = 'morda';
+$refDate   = Time::Local::timegm(0,0,0,12,(5)-1,1999);
+             #$second,$minute,$hours,$day,$month-1,$year ; see checkDoc.pm
+
+my $tableHeader =
+        '<tr align="left"><th>Datoteka</th><th>Prevod</th><th>Usklajenost</th>'
+        .'<th>Datum angl. datoteke</th><th>Datum slovenske datoteke</th>'
+	.'<th><small>Verzija po datoteki [en]</small></th>'
+	.'<th><small>Verzija po datoteki ['.$Lng.']</small></th></tr>';
+
+# pass these constants
+checkDoc::set_CVSWEB($CVSWEB);
+checkDoc::set_OfDir($dir);
+checkDoc::set_TableHeader($tableHeader);
+checkDoc::set_Language($Lng);
+common::set_Lng($Lng);
+common::set_lng($lng);
+common::set_goTop($goTop);
+checkDoc::set_strExists($sExists);
+checkDoc::set_strNoEngl($sNoEngl);
+checkDoc::set_strIsUpToDate($sUpToDate);
+checkDoc::set_strIsTooOld($sTooOld);
+checkDoc::set_strPerhaps($sPerhaps);
+checkDoc::set_refDate($refDate);
+
+######################################
+# Title
+print '<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-2">
+<meta http-equiv="Content-Language" content="sl">
+<title>Statistika KDE dokumentacije (slovenska)</title>
+</head>
+<body bgcolor="#FFFFFF" link="#0000FF" vlink="#8800EE">';
+
+# 'as of' and links
+print '<H1><A href="top"></A>Statistika KDE dokumentacije (slovenska)</H1>
+[<A href="http://www.kde.org/documentation/">KDE Dokumentacija</A>
+| <A href="http://i18n.kde.org/">KDE i18n stran</a>
+| <A href="http://www.lugos.si/delo/slo/KDE-sl/">Slovenska i18n stran</A>
+| <A href="'.$CVSWEB.'">KDE-CVS-Web</A> |
+<A href="stats/gui/sl-highscore.html">PO rezultati</A>]</P>
+'.$comKDELinks.' | <A href="#etc">drugo</a>]</p>';
+'<P><strong>Stanje dne:</strong> '.`date`."<p>\n";
+
+# Introduction
+print '<p>To je dnevno osve¾ena statistika dokumentacije.
+Temeljit opis te strani je 
+<A href="http://i18n.kde.org/stats/doc/doc-stat.html">dosegljiv</A>,
+poglejte ¹e na <A href="http://i18n.kde.org/stats/doc/">glavno
+stran</A>. Èe pogre¹ate datoteko ali ¾elite poslati komentar, pi¹ite
+<A href="mailto:burnus@gmx.de">Tobiasu Burnusu</A>.</P>
+<P>UPO©TEVAJTE: nova imeni¹ka struktura ¹e NE odseva
+v razdelku <A href="#etc">druge datoteke</A>. 
+Ostalo bi moralo biti usklajeno (prosim, preverite dvakrat, ali sedaj 
+dela!)</p>';
+
+#########
+# Here comes the statistics to the basic KDE packages
+
+common::comKdeStd();
+
+common::comKOffice();
+common::comKFTE();
+common::comKSite();
+
+####################################################################
+# Here come the files which are not organized by
+# module/doc(s)/*
+# but by module/app/doc(s)/
+####################################################################
+
+#Introduction
+# to this section
+print '<H2><a name="etc"></A>Dodatni paketi</H2>
+<p><em>V primeru, da veste za dodatne pakete, prosim da
+nas obvestite.</em></p>';
+
+
+# The packages itself, you shouldn't need to change something here
+# (but... [see above])
+
+print '<H3>kdenonbeta/kcmbind</H3>';
+checkDoc::printDir('kdenonbeta/kcmbind/doc/en','kde-i18n/docs/'.$lng.'/kdenonbeta/kcmbind/');
+
+print '<H3>kdenonbeta/kcrontab</H3>';
+checkDoc::printDir('kdenonbeta/kcrontab/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/kcrontab/');
+
+print '<H3>kdenonbeta/kdesu</H3>';
+checkDoc::printDir('kdenonbeta/kdesu/doc/','kde-i18n/docs/'.$lng.'/kdenonbeta/kdesu/');
+
+print '<H3>kdenonbeta/empath</H3>';
+checkDoc::printDir('kdenonbeta/empath/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/empath/');
+
+print '<H3>kdenonbeta/kexpress</H3>';
+checkDoc::printDir('kdenonbeta/kexpress/doc/','kde-i18n/docs/'.$lng.'/kdenonbeta/kexpress/');
+
+print '<H3>kdenonbeta/kglchess</H3>';
+checkDoc::printDir('kdenonbeta/kglchess/docs/','kde-i18n/docs/'.$lng.'/kdenonbeta/kglchess/');
+
+print '<H3>kdenonbeta/kglchess</H3>';
+checkDoc::printDir('kdenonbeta/kglchess/docs/','kde-i18n/docs/'.$lng.'/kdenonbeta/kglchess/');
+
+print '<H3>kdenonbeta/kgnuplot</H3>';
+checkDoc::printDir('kdenonbeta/kgnuplot/docs/','kde-i18n/docs/'.$lng.'/kdenonbeta/kgnuplot/');
+
+print '<H3>kdenonbeta/klilo</H3>';
+checkDoc::printDir('kdenonbeta/klilo/docs/','kde-i18n/docs/'.$lng.'/kdenonbeta/klilo/');
+
+print '<H3>kdenonbeta/kmessage</H3>';
+checkDoc::printDir('kdenonbeta/kmessage/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/kmessage/');
+
+print '<H3>kdenonbeta/knetmon</H3>';
+checkDoc::printDir('kdenonbeta/knetmon/docs/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/knetmon/');
+
+print '<H3>kdenonbeta/kmessage</H3>';
+checkDoc::printDir('kdenonbeta/korn/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/korn/doc/');
+
+print '<H3>kdenonbeta/kticker</H3>';
+checkDoc::printDir('kdenonbeta/kticker/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/kticker/');
+
+print '<H3>kdenonbeta/pws</H3>';
+checkDoc::printDir('kdenonbeta/pws/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/pws');
+
+print '<H3>kdesdk/ktranlator</H3>';
+checkDoc::printDir('kdesdk/ktranslator/ktranslator/doc/','kde-i18n/docs/'.$lng.'/kdesdk/ktranlator');
+
+print '<H3>kdesdk/ksgmltools</H3>';
+checkDoc::printDir('kdesdk/kdesgmltools/doc/','kde-i18n/docs/'.$lng.'/kdesdk/kdesgmltools');
+
+print '<H3>kdesdk/kdedoc</H3>';
+checkDoc::printDir('kdesdk/kdedoc/doc/','kde-i18n/docs/'.$lng.'/kdesdk/kdedoc/');
+
+print '<H3>kdevelop/kdevelop</H3>';
+checkDoc::printDir('kdevelop/kdevelop/docs/en/','kde-i18n/docs/'.$lng.'/kdevelop/kdevelop/');
+
+print '<H3>kmusic/ksynth</H3>';
+checkDoc::printDir('kmusic/ksynth/doc/','kde-i18n/docs/'.$lng.'/kmusic/ksynth/');
+
+print '<H3>kmusic/cantor</H3>';
+checkDoc::printDir('kmusic/cantor/doc/','kde-i18n/docs/'.$lng.'/kmusic/cantor/');
+
+print '<H3>kde-i18n/docs/en/others/kvideolist</H3>';
+checkDoc::printDir('kde-i18n/docs/en/others/kvideolist','kde-i18n/docs/'.$lng.'/others/kvideolist/');
+
+# And the obligatory html end:
+print "</body></html>";
+

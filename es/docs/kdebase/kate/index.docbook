@@ -1,0 +1,1357 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kate;"
+><!-- replace kapp here -->
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Spanish "INCLUDE"
+><!-- change language only here -->
+<!-- Do not define any other entities; instead, use the entities
+from kde-genent.entities and $LANG/user.entities. -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book lang="&language;">
+<title
+>El manual de &kate;</title>
+
+<bookinfo>
+<authorgroup
+>   
+<author
+> <firstname
+>Seth</firstname
+> <surname
+>Rothberg</surname
+> <affiliation
+> <address
+><email
+>sethmr@bellatlantic.net</email
+></address
+> </affiliation
+> </author>
+</authorgroup>
+
+<othercredit role="translator"
+> <firstname
+>Pablo</firstname
+> <surname
+>de Vicente</surname
+> <affiliation
+><address
+><email
+>pvicentea@nexo.es</email
+></address
+></affiliation
+> <contrib
+>Traductor</contrib
+> </othercredit>
+
+<copyright>
+<year
+>2000</year>
+<year
+>2001</year>
+<holder
+>Seth M. Rothberg</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!-- Date and version information of the documentation
+Don't forget to include this last date and this last revision number, we
+need them for translation coordination !
+Please respect the format of the date (DD/MM/YYYY) and of the version
+(V.MM.LL), it could be used by automation scripts.
+Do NOT change these in the translation. -->
+
+<date
+>2001-05-30</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kate; es un editor de textos de programadores para KDE 2.2 y versiones posteriores.</para>
+
+<para
+>Este manual documenta la versión 1.0 de &kate;</para>
+</abstract>
+
+<!-- This is a set of Keywords for indexing by search engines.
+Please at least include KDE, the KDE package it is in, the name
+of your application, and a few relevant keywords. -->
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>Kate</keyword>
+<keyword
+>texto</keyword>
+<keyword
+>editor</keyword>
+<keyword
+>programador</keyword>
+<keyword
+>programando</keyword>
+<keyword
+>proyectos</keyword>
+<keyword
+>MDI</keyword>
+<keyword
+>Multi</keyword>
+<keyword
+>Documento</keyword>
+<keyword
+>Interfaz</keyword>
+<keyword
+>terminal</keyword>
+<keyword
+>consola</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introducción</title>
+
+<para
+> Bienvenido a &kate;, un editor de texto para programadores para versiones de &kde; superiores o iguales a la 2.2. Algunas de las muchas características de &kate; incluyen resaltado configurable de sintáxis para lenguajes de programación como C, C++, <acronym
+>HTML</acronym
+> e incluso procedimientos de bash, la posibilidad de crear y mantener proyectos, un interfaz de múltiples documentos (<acronym
+>MDI</acronym
+>), y un emulador de terminal autocontenido. </para>
+
+<para
+> Pero &kate; es más que un editor para programadores. Su capacidad de abrir varios archivos simultáneamente es ideal para editar muchos archivo de configuración de &UNIX;. Este documento está escrito con &kate;. </para>
+</chapter>
+
+<chapter id="fundamentals">
+<title
+>Los fundamentos</title>
+
+<para
+> Si alguna vez a utilizado un editor de texto no tendrá problema al utilizar &kate;. En las siguientes dos secciones, <link linkend="starting-kate"
+>Iniciando &kate; </link
+> y en <link linkend="working-with-kate"
+>Trabajando con &kate;</link
+> le mostraremos todos lo que necesita para iniciarse y trabajar rápidamente. </para>
+
+<sect1 id="starting-kate">
+<title
+>Iniciando &kate;</title>
+
+<para
+> Puede iniciar &kate; desde el <guimenu
+>menú K</guimenu
+> o desde la línea de comandos. </para>
+
+<sect2 id="starting-from-the-menu">
+<title
+>Desde el menú</title>
+<para
+> Abra el menú de programas de <acronym
+>KDE</acronym
+> pulsando sobre el icóno de la <guiicon
+>K mayúscula</guiicon
+> sobre la barra de herramientas en la parte inferior izquierda de su pantalla. Al hacerlo aparecerá el <guimenu
+>menú de programas</guimenu
+>. Mueva el cursos por el menú hasta el elemento <guimenu
+>Editores</guimenu
+>. Aparecerá una lista de los editores disponible. Seleccione <guimenuitem
+>&kate;</guimenuitem
+>. </para>
+
+<para
+> A no ser que configure &kate; en sentido contrario, se cargarán los últimos archivos que usted editó. Consulte <link linkend="configure"
+>Configurando &kate;</link
+> para saber como activar/desactivar esta característica. </para>
+
+</sect2>
+
+<sect2 id="starting-from-the-command-line">
+<title
+>Desde la línea de comandos</title>
+
+<para
+> Puede iniciar &kate; introduciendo su nombre en la línea de comandos. Si además introduce un nombre de archivo, como en el ejemplo de más abajo, abrirá o creará dicho archivo. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate</command
+><option
+><replaceable
+>miarchivo.txt</replaceable
+></option
+></userinput>
+</screen
+> </informalexample>
+
+<para
+> Si dispone de una conexión activa, y permiso, puede beneficiarse de la transparencia de red de &kde; para abrir archivos en Internet. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate</command
+><option
+><replaceable
+>ftp://ftp.kde.org/pub/kde/README_FIRST</replaceable
+></option
+></userinput>
+</screen
+> </informalexample>
+
+<sect3 id="command-line-options">
+<title
+>Opciones de la línea de comandos</title>
+<para
+>&kate; acepta las siguientes opciones de la línea de comandos:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help</option
+></userinput
+></term
+> <listitem
+> <para
+> Muestra una lista de las opciones básicas disponibles en la línea de comandos. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-qt</option
+></userinput
+></term
+> <listitem
+> <para
+> Muestra las opciones disponibles para modificar el modo en el que &kate; interactua con &Qt;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-kde</option
+></userinput
+></term
+> <listitem
+> <para
+> Muestra las opciones disponibles para modificar el modo en el que &kate; interactua con &kde;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-all</option
+></userinput
+></term
+> <listitem
+> <para
+> Muestra todas las opciones de la línea de comandos. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--author</option
+></userinput
+></term
+> <listitem
+> <para
+> Muestra una lista de los autores de &kate; en la ventana del terminal. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--version</option
+></userinput
+></term
+> <listitem
+> <para
+> Muestra información de las versiones de &Qt;, &kde;, y &kate;. También disponible introduciendo <userinput
+><command
+>kate</command
+> <option
+>-V</option
+></userinput
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--licence</option
+></userinput
+></term
+> <listitem
+> <para
+> Muestra información de la licencia. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+</sect2>
+
+<sect2 id="drag-and-drop">
+<title
+>Arrastrar y soltar</title>
+<para
+> &kate; utiliza el protocolo de &kde; para arrastrar y soltar. Los archivos pueden arrastrarse y soltarse en &kate; desde el escritorio, &konqueror; o algún servidor remoto ftp abierto con una de las ventanas de &konqueror;. </para>
+</sect2>
+</sect1>
+
+<sect1 id="working-with-kate">
+<title
+>Trabajando con &kate;</title>
+<para
+> <link linkend="quick-start"
+>Inicio rápido</link
+> le mostrará como (des)activar cuatro opciones sencillas que le permiten configurar algunas de las propiedades más potentes de &kate;. <link linkend="keystroke-commands"
+> Comandos en teclas</link
+> muestra algunos de los accesos rápidos del teclado predterminados para quellos que no pueden o no quieren utilizar el ratón. </para>
+
+<sect2 id="quick-start">
+<title
+>Inicio rápido</title>
+
+<para
+> Esta sección describirá algunos de los elementos en el menú de <guimenu
+>Configuración</guimenu
+> de modo que usted puede configurar rápidamente &kate; para que trabaje como usted desea. </para>
+
+<para
+> Cuando inicie &kate; por primera vez verá dos ventanas con fondo blanco. Por encima de las ventanas hay una barra de herramientas con los iconos etiquetados normalmente. Y por encima de ella, una barra de menú. </para>
+
+<para
+> La ventana a la izquierda es una barra lateral empotrable. Combina una lista de archivos y un selector de archivos. Cambie de una a otra pulsando sobre las pestañas en la parte superior de la ficha. </para>
+
+<para
+> Si ha iniciado &kate; con un archivo, la ventana de la derecha le mostrará el archivo que está editando y la lista de archivos en la barra lateral le mostrará el nombre del archivo. Utilice la ventana selectora de archivos para abrir los archivos. </para>
+
+<para
+> Puede activar o desactivar las ventanas Lista de archivos y Selector de archivos desde el menú <guimenu
+>Configuración</guimenu
+>. Este menú le ofrece su primera visión de la potencia y flexibilidad de &kate;. En esta sección nos detendremos en cuatro elementos: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Mostrar <accel
+>B</accel
+>arra de herramientas</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Activa/Desactiva la barra de herramientas. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenuitem
+>Mostrar lista de archivos</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Activa/Desactiva la lista de archivos. Si la ventana de Lista de archivos/Selector de archivos no está abierta, &kate; lanza la barra lateral como una ventana separada e independiente. Para anclarla agarre las dos líneas paralelas finas por encima de las pestañas pulsando sobre ellas con el botón izquierdo del ratón, y mantengalo pulsado. Arrastre la ventana dentro de la ventana de edición de &kate; y suelte el botón izquierdo del ratón cuando hay posicionado la ventana Lista de archivos/Selector de archivos en el lugar que desea. </para
+> <tip
+> <para
+> Si ha agarrado las dos líneas paralelas de modo correcto el puntero de su ratón mudará a unas flechas cruzadas mientras arrastre la ventana. </para
+> </tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Mostrar selector de archivos</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Activa/Desactiva el selector de archivos. Este elemento es el mismo que <guimenuitem
+>Mostrar lista de archivos</guimenuitem
+> con una diferencia. Al activarlo lanza una ventana con el selector de archivos en la parte superior. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Mostrar <accel
+>C</accel
+>onsola</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Activa/Desactiva un emulador de consola en la parte inferior de la ventana de &kate;. En otras palabras, le ofrece una entrada de línea de comandos dentro de la aplicación. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="keystroke-commands">
+<title
+>Comandos en teclas</title>
+
+<para
+> Muchos de los comandos en tecla (accesos rápidos) de &kate; son configurables a través del menú <link linkend="settings"
+>Configuración</link
+>. Por omisión &kate; soporta las siguientes asociaciones de teclas. </para>
+
+<informaltable>
+<tgroup cols="2">
+<tbody
+> <row
+><entry
+><para
+><keycap
+>Insertar</keycap
+></para
+></entry
+> <entry
+><para
+> Pasa de modo inserción a modo sobreescritura. Cuando está en modo inserción el editor añadirá cualquier caracter introducido al texto y empujará los caracteres previamente introducidos a la derecha del cursor de texto. El modo de sobreescritura hace que la entrada de cada caracter elimine el caracter inmediatamente a la derecha del cursor de texto.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Flecha izquierda</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Mueve el cursor un caracter a la izquierda </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Flecha derecha</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Mueve el cursor un caracter a la derecha </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Flecha arriba</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Mueve el cursor una línea arriba </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Flecha abajo</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Mueve el cursor una línea abajo </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Página arriba</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Mueve el cursor una página hacia arriba </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Página abajo</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Mueve el cursor una página hacia abajo </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Retroceder</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Borra el caracter a la izquierda del cursor </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Inicio</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Mueve el cursor al comienzo de la línea </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Fin</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Mueve el cursor al final de la línea </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Suprimir</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Borra el caracter a la derecha del cursor (o cualquier texto seleccionado)</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Mayúsculas</keycap
+><keycap
+>flecha izquierda</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Marca el texto un caracter a la izquierda </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Mayúsculas</keycap
+><keycap
+>flecha derecha</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Marca el texto un caracter a la derecha </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Ayuda</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Mayúculas</keycap
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="whats-this"
+>¿Qué es esto?</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find"
+> Buscar</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F3</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find-again"
+> Repetir la búsqueda</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>B</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Insertar un marcador</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Copiar el texto marcado al portapapeles </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> <link linkend="new"
+>Nuevo</link
+> documento</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="print"
+>Imprimir</link
+> </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Salir - cerrar la copia activa del editor </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>R</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="replace"
+> Reemplazar</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Guardar su archivo.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Pegar.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Borrar el texto marcado y copiarlo al portapapeles. </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="undo"
+>Deshacer</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Mayúsculas</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="redo"
+>Rehacer</link
+></para
+></entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-entries">
+<title
+>Entradas de menú</title>
+<sect1 id="file-menu">
+<title
+>El menú <guimenu
+>Archivo</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <anchor id="new"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>uevo</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Este comando <action
+>inicia un nuevo documento</action
+> en la ventana de edición. En la <guibutton
+>Lista de archivos</guibutton
+> a la izquierda el nuevo archivo se denomina <emphasis
+>Sin título</emphasis
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>brir</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Este comando no <action
+>abre un archivo</action
+>. Lanza un cuadro de diálogo de &kde; que espera que usted seleccione los archivos a abrir. </para
+> <para
+> El cuadro de diálogo de apertura de archivos funciona como una versión simple de &konqueror;. Pulse con el botón izquierdo del ratón sobre un nombre de archivo para seleccionarlo. Pulse dos veces sobre un nombre de archivo para abrir dicho archivo. Una vez haya seleccionado un nombre de archivo, puede también pulsar el botón <guibutton
+>Aceptar</guibutton
+> para abrir el archivo. </para
+> <tip
+> <para
+> Seleccione varios archivos pulsando y manteniendo pulsado la tecla <keycap
+>Ctrl</keycap
+> o <keycap
+>Mayúsculas</keycap
+> junto con el botón izquierdo del ratón. <keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><mousebutton
+>izquierda</mousebutton
+> </keycombo
+> selecciona un archivo cada vez. <keycombo action="simul"
+> <keycap
+>Mayúsculas</keycap
+><mousebutton
+>izquierda</mousebutton
+> </keycombo
+> selecciona un grupo contiguo de archivos. </para
+> </tip
+> <para
+> Pulsando sobre el nombre de un directorio en la ventana de selección de archivos abre ese directorio y muestra sus contenidos. Al pulsar sobre un nombre de archivo se muestra una vista en miniatura del archivo en la ventana de previsualización a la derecha de la ventana del archivo del sistema. </para
+> <para
+> Utilice los botones y la caja combo en la barra de herramientas sobre la ventana de selección de archivos para moverse por el sistema de archivos o para ajustar las propiedades del cuadro de diálogo para apertura de archivos. </para
+> <para
+> Por debajo de la ventana de selección de archivos está la caja combo de ubicación. Introduzca aquí el nombre del archivo que desea editar. Si pulsa la flecha a la derecha de la caja desplegable, puede elegir archivos recientemente utilizados. Abra varios archivos al tiempo introduciendo el nombre de cada archivo. </para
+> <para
+> Debajo de la caja combo de dirección está la caja combo de filtro. Introduzca aquí las máscaras para filtrar los tipos de archivos mostrados en la ventana de selección. Por ejemplo introduciendo el filtro <literal role="extension"
+>*.txt</literal
+> y pulsando <keycap
+>Intro</keycap
+> limitará la vista a archivos con una extensión <literal role="extension"
+>.txt</literal
+>. La caja combo del filtro contiene una lista de los filtros que usted haya utilizado más recientemente. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-recent"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+>Abrir <accel
+>r</accel
+>eciente</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Este comando le permite <action
+>abrir un archivo</action
+> desde un submenú que contiene una lista de los archivos recientemente editados. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>uardar</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Este comando <action
+>guarda su archivo</action
+>. Utilicelo con frecuencia. Si el archivo es un <emphasis
+>Sin título</emphasis
+>entonces <guimenuitem
+>Guardar</guimenuitem
+> se transforma en <guimenuitem
+>Guardar como</guimenuitem
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-as"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+>Gu <accel
+>a</accel
+>rdar como...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Nobre y renombre archivos</action
+> con este comando. Lanza el cuadro de diálogo de guardar. Este diálogo funciona como un cuadro de diálogo de apertura de archivos. Puede utilizarlo para navegar por su sistema de archivos, previsualizar archivos existentes, o filtrar su vista de archivos con máscaras. </para
+> <para
+> Introduzca el nombre que quiere dar al archivo que está guardando en la caja combo de dirección y pulse el botón <guibutton
+>Aceptar</guibutton
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-all"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+>Guardar t<accel
+>o</accel
+>do</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Este comando <action
+>guarda todos los archivos abiertos</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="reload"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>ecargar</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Recarga el archivo activo desde el disco</action
+>. Este comando es útil si otro programa o proceso ha cambiado el archivo mientras lo tenía abierto en &kate; </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-with"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+>A<accel
+>b</accel
+>rir con</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Este comando lanza un cuadro de diálogo de apertura de archivos para <action
+>seleccionar otra aplicación para abrir el archivo activo</action
+>. Su archivo además quedará abierto en &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="print"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>mprimir</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Imprime el archivo activo</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>c</accel
+>errar</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Este comando <action
+>cierra el archivo activo</action
+>. Si ha hecho cambios que no hayan sido guardados, se le solicitará guardar el archivo antes de que &kate; lo cierre. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close-all"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>C</accel
+>errar todos</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Este comando <action
+>cierra todos los archivos que usted tenga abiertos</action
+> en &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="new-window"/> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+> <accel
+>N</accel
+>ueva ventana</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Abre otra instancia de &kate;</action
+>. Esta nueva instancia será idéntica a la instancia previa. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="quit"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rchivo</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>alir</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Este comando <action
+>cierra &kate;</action
+> y cualquier archivo que usted estuviera editando. Si usted ha realizado cambios en alguno de los archivos que estaba editando y que aún no han sido guardados, se le preguntará si desea guardarlos. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="configuring-kate">
+<title
+>Configurando Kate</title>
+<para
+> <anchor id="settings"/> <anchor id="configure"/> <anchor id="whats-this"/> <anchor id="find"/> <anchor id="find-again"/> <anchor id="replace"/> <anchor id="undo"/> <anchor id="redo"/> Este capítulo le mostrará todas las opciones para configurar &kate; </para>
+</chapter>
+
+<chapter id="credits">
+
+<!-- Include credits for the programmers, documentation writers, and
+contributors here. The license for your software should then be included
+below the credits with a reference to the appropriate license file
+included in the KDE distribution. -->
+
+<title
+>Créditos y licencia</title>
+
+<para
+> &kate; Copyright 2000, 2001, Christoph Cullmann. </para>
+
+<!-- To save you some work, here's Kate's author list (I could mark it -->
+<!-- up too if you want, I just didn't want to interfere too much :) -->
+
+<!-- 
+Kate was written by
+Christoph Cullmann <cullmann@kde.org>
+Anders Lund <anders@alweb.dk>
+Joseph Wenninger <jowenn@bigfoot.com>
+Michael Bartl <michael.bartl1@chello.at>
+Phlip <phlip_cpp@my-deja.com>
+Waldo Bastian <bastian@kde.org>
+Matt Newell <newellm@proaxis.com>
+Michael McCallum <gholam@xtra.co.nz>
+Jochen Wilhemly <digisnap@cs.tu-berlin.de>
+Michael Koch <koch@kde.org>
+Christian Gebauer <gebauer@bigfoot.com>
+Simon Hausmann <hausmann@kde.org>
+Glen Parker <glenebob@nwlink.com>
+Scott Manson <sdmanson@alltel.net>
+John Firebaugh <jfire@uclink.berkeley.edu>
+-->
+
+<para
+> Copyright de la documentación 2000,2001 Seth Rothberg, <email
+>sethmr@bellatlantic.net</email
+> </para>
+
+<para
+>Traducido por Pablo de Vicente <email
+>pvicentea@nexo.es</email
+></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underGPL;               <!-- GPL License -->
+
+</chapter>
+
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-namecase-general: t
+sgml-namecase-entity: nil
+sgml-general-insert-case: lower
+sgml-minimize-attributes: nil
+sgml-omittag: nil
+End:
+-->
+
+
+

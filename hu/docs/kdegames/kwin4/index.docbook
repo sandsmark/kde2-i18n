@@ -1,0 +1,401 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kwin4;">
+  <!ENTITY Hungarian "INCLUDE"> 
+  <!ENTITY % addindex "IGNORE">
+  
+ 
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title>A KWin4 kézikönyve</title>
+<authorgroup>
+<author>
+<firstname>Martin</firstname>
+<surname>Heni</surname>
+<affiliation>
+<address><email>martin@heni-online.de</email></address>
+</affiliation>
+</author>
+<othercredit role="reviewer">
+<firstname></firstname><surname></surname>
+<contrib>Ellenőrizte</contrib>
+<affiliation><address><email></email></address></affiliation>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>biro_arpad@hotmail.com</email></address></affiliation>
+<contrib>Fordította</contrib>
+</othercredit>
+
+</authorgroup>
+
+<date>12/12/2000</date>
+<releaseinfo>0.09.01</releaseinfo>
+
+<abstract>
+<para>Ez a dokumentum a &kwin4; 0.9.1-es verziójának leírását tartalmazza.</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdegames</keyword>
+<keyword>játék</keyword>
+<keyword>tábla</keyword>
+<keyword>táblás játék</keyword>
+<keyword>négy győzelem</keyword>
+<keyword>négy</keyword>
+<keyword>négy egy sorban</keyword>
+<keyword>win4</keyword>
+<keyword>kwin4</keyword>
+<keyword>négy összekötése</keyword>
+<keyword>4 összekötése</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="overview">
+<title>Bevezetés</title>
+
+<para>
+A Négy a nyerő egy kétszemélyes logikai játék.
+Mindkét játékos választ egy színt (sárga és piros lehet).
+A játék célja négy saját színű elem kirakása vízszintesen,
+függőlegesen vagy átlósan.
+A hét oszlop bármelyikébe tehető
+elem. 
+Az elem lerakásakor az oszlop lentről felfelé töltődik fel, azaz addig
+esik az elem lefelé, amíg bele nem ütközik egy másik elembe vagy az alapba.
+A játékosok felváltva helyezhetnek le elemeket egészen addig, 
+amíg a játék véget nem ér, tehát valamelyik játékosnak
+négy eleme lesz egy sorban, oszlopban vagy átlóban, vagy a tábla
+betelése miatt nem lehet több elemet lerakni.
+</para>
+
+</chapter>
+
+<chapter id="Installation">
+<title>Telepítés</title>
+<sect1 id="getting-kwin4">
+<title>A KWin4 megszerzése</title>
+
+<para>
+A &kwin4; része a kdegames csomagnak, mely megtalálható az
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink> címen, 
+a KDE projekt központi FTP-kiszolgálóján.</para>
+</sect1>
+
+<sect1 id="Requirements">
+<title>Követelmények</title>
+<para>
+A &kwin4; lefordításához a KDE legalább 2.0-s változata szükséges.</para>
+<para>
+Az összes szükséges programkönyvtár és a &kwin4; forrása is letölthető innen:
+<ulink 
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>.</para>
+</sect1>
+
+
+<sect1 id="Compilation">
+<title>A program lefordítása és telepítése</title>
+
+<para>A &kwin4; lefordításához és telepítéséhez először tömörítse ki a
+csomagot és adja ki a következő parancsokat a forrásprogramok
+alapkönyvtárában: </para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput>cd kdegames</userinput>
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput>make</userinput>
+<prompt>%</prompt> <userinput>make install</userinput>
+</screen>
+      
+<para>A &kwin4; az <application>autoconf</application> és az <application>automake</application> használatával készült a fordítás megkönnyítése érdekében.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="rules">
+<title>Játékszabályok</title>
+
+<para>A játéktér három részre osztható.</para>
+
+<para><emphasis>A játéktábla</emphasis>
+7x6 db mezőből áll, melyeket alulról felfelé lehet
+feltölteni. A mezők színe megegyezik annak a játékosnak a színével, akinek
+éppen most kell lépnie.
+Az oszlopok fölött látható színes nyíl azt mutatja, hogy hol történt az utolsó
+lépés.
+</para>
+
+<para><emphasis>Az állapotkijelző</emphasis> 
+mutatja, hogy milyen színű játékosnak kell kezdenie, melyik játékos milyen
+színnel játszik, milyen típusúak (ember, gép, távoli) a játékosok. Látszik még a gépi játékosok
+játékerőssége, az eddig megtett lépések száma valamint a számítógép által
+kiszámolt nyerési esély. Ezt az értéket csak akkor számolja ki a program, ha a gépi
+játékos lépése következik. Pozitív érték esetén a játékos nyerési esélyei a jobbak,
+negatív esetén a gép van előnyben (legalábbis a számítási algoritmus
+szerint).
+</para>
+
+<para><emphasis>Az eredménytáblázatban</emphasis> 
+látszik mindkét játékosnál a megnyert, elvesztett ill. döntetlen játszmák száma,
+továbbá a félbeszakított és az összesen eddig elkezdett játszmák száma is.
+</para>
+
+</chapter>
+
+<chapter id="remote-connections">
+<title>Hálózatos játék</title>
+
+<para>
+A programmal egymással hálózatos kapcsolatban álló személyek is
+játszhatnak. A kezdéshez mindkét játékosnak be kell állítania, hogy az egyik játékos ő,
+a másik pedig egy távoli játékos legyen. Nem számít, hogy ki melyik színt
+választja, még ha mindketten ugyanazt választják is, a program automatikusan
+kicseréli a színt valamelyik oldalon még a játék kezdete előtt.
+</para>
+
+<para>
+A két gép közül az egyik lesz a kiszolgáló, csak ez kezdeményezhet
+új hálózatos játékot. Ez a gép közvetíti a játék adatait a másik, kliens
+gép felé. A program kiszolgáló módban indításához hagyja üresen a gépnév mezőt
+a hálózati beállítások párbeszédablakában (ez az ablak új hálózati játék
+kezdésekor jelenik meg). A kliens oldalt használó játékosnak meg kell adnia a
+csatlakozáshoz a kiszolgáló nevét. A port értékét általában nem kell megváltoztatni, 
+de tetszőleges érték megadható.
+</para>
+
+<para>
+A hálózati kapcsolat létrehozása előtt meg kell adni a távoli gép nevét és
+a port számát. A port értékét általában meg lehet hagyni az alapértelmezésen, de
+ha mégis meg kell változtatni, akkor ugyanazt kell beállítania 
+mindkét játékosnak. A gépnév a kiszolgálóként elindított játékot
+futtató távoli gép neve. Tehát csak
+az egyik játékosnak kell megadnia a gépnevet (a másik is megadhatja, de
+nem kötelező).
+</para>
+
+</chapter>
+
+<chapter id="menus">
+<title>A menük</title>
+<sect1 id="file-menu"><title>A Fájl menü</title>
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut>
+<keycombo><keycap>F2</keycap></keycombo>
+</shortcut>
+<guimenu>Fájl</guimenu><guimenuitem>Új játék</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Itt lehet új játékot kezdeni. Hálózatos játék esetén ez csak
+     a kiszolgálón választható, a klienst a kiszolgáló
+     automatikusan el fogja indítani.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice>
+  <shortcut>
+<keycombo><keycap>Ctrl</keycap><keycap>W</keycap></keycombo>
+</shortcut>
+<guimenu>Fájl</guimenu><guimenuitem>A játék befejezése</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Az éppen futó játék félbeszakítása.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Fájl</guimenu><guimenuitem>Statisztika...</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Itt lehet megtekinteni a játék statisztikai adatait (és le is lehet nullázni).
+     A statisztikai adatokat minden játék végén
+     frissíti a program, így könnyen követhető, hogy ki hányszor
+     játszott, hányszor nyert stb. 
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice>
+  <shortcut>
+<keycombo><keycap>Ctrl</keycap><keycap>M</keycap></keycombo>
+</shortcut>
+<guimenu>Fájl</guimenu><guimenuitem>Üzenetküldés</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Hálózatos játék közben ezzel a menüponttal lehet üzenetet
+     küldeni a másik játékosnak.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice>
+  <shortcut>
+<keycombo><keycap>Ctrl</keycap><keycap>H</keycap></keycombo>
+</shortcut>
+  <guimenu>Fájl</guimenu><guimenuitem>Tipp</guimenuitem></menuchoice></term>
+  <listitem><para>
+      A gép kiszámolja a szerinte legjobb lépést és egy kis karikával
+      megjelöli a táblán.
+      A tipp függ a gépi játékos beállított ügyességétől.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice>
+  <shortcut>
+<keycombo><keycap>Ctrl</keycap><keycap>Q</keycap></keycombo>
+</shortcut>
+  <guimenu>Fájl</guimenu><guimenuitem>Kilépés</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Kilépés a programból.
+  </para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="edit-menu"><title>A Szerkesztés menü</title>
+<variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>Szerkesztés</guimenu><guimenuitem>A lépés visszavonása</guimenuitem></menuchoice></term>
+  <listitem><para>
+      Törli az utoljára megtett lépést. Ha a gép ellen játszik, akkor
+      annak legutolsó lépése is törölve lesz (ismét Ön jön).
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+<term><menuchoice><guimenu>Szerkesztés</guimenu><guimenuitem>Lépés újra végrehajtása</guimenuitem></menuchoice></term>
+  <listitem><para>
+      A legutoljára visszavont lépés újra végrehajtása.
+  </para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="view-menu"><title>A Nézet menü</title>
+<variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>Nézet</guimenu><guimenuitem>Az állapotsor megjelenítése</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Az állapotsor ki- és bekapcsolása.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="option-menu"><title>A Beállítások menü</title>
+<variablelist>
+<varlistentry>
+  <term><menuchoice><guimenu>Beállítások</guimenu><guimenuitem>A kezdő játékos</guimenuitem></menuchoice></term>
+  <listitem><para>
+      A játszmában először lépő játékos színe.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Beállítások</guimenu><guimenuitem>Sárgával játszik</guimenuitem></menuchoice></term>
+  <listitem><para>
+     A sárga színű játékos típusa: lehet
+     <guilabel>játékos</guilabel>, <abbrev>azaz</abbrev> a játékot interaktívan használó
+     személy, lehet <guilabel>gépi játékos</guilabel>, <abbrev>azaz</abbrev> ezt a színt a
+     program fogja kezelni, vagy lehet <guilabel>távoli játékos</guilabel>, <abbrev>azaz</abbrev> a hálózaton
+     egy másik gép előtt ülő személy.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Beállítások</guimenu><guimenuitem>Pirossal játszik</guimenuitem></menuchoice></term>
+  <listitem><para>
+     U.a., mint a <guimenuitem>Sárgával játszik</guimenuitem>, csak a másik (piros) színnel.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Beállítások</guimenu><guimenuitem>Szint</guimenuitem></menuchoice></term>
+  <listitem><para>
+     A gépi játékos ügyességének beállítása.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Beállítások</guimenu><guimenuitem>A nevek módosítása...</guimenuitem></menuchoice></term>
+  <listitem><para>
+     A játékosok nevét lehet itt módosítani.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Beállítások</guimenu><guimenuitem>Hálózati kiszolgáló</guimenuitem></menuchoice></term>
+  <listitem><para>
+Ha ezt a menüpontot választja, akkor a program kiszolgáló üzemmódba vált. Ennek természetesen csak hálózatos játéknál van jelentősége.    Csak a kiszolgáló üzemmód kiválasztása után lehet új hálózatos
+    játékot kezdeni.
+    Ha mindkét oldal kiszolgálóként indult el, akkor véletlenszerűen az egyikük
+    lesz az ténylegesen.  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Beállítások</guimenu><guimenuitem>Animációk</guimenuitem></menuchoice></term>
+  <listitem><para>
+    Az animációk ki- és bekapcsolása.  </para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="help">
+<title>A <guimenuitem>Segítség</guimenuitem> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><anchor id="contents"/><menuchoice>
+<shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut>
+<guimenu>Segítség</guimenu><guimenuitem>Tartalom</guimenuitem></menuchoice></term>
+<listitem>
+<para>A KDE Segítség rendszerével megnyitja ennek a dokumentumnak a kezdőoldalát.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="bug-report"/><menuchoice>
+<guimenu>Segítség</guimenu><guimenuitem>Hibabejelentés</guimenuitem></menuchoice></term>
+<listitem><para>Ha hibát észlel a programban vagy ötletei támadtak a játék
+továbbfejlesztésére, akkor erre a menüpontra kattintva küldhet 
+hibabejelentést a fejlesztőknek.</para>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-kwin4"/><menuchoice>
+<guimenu>Segítség</guimenu><guimenuitem>A KWin4 névjegye</guimenuitem></menuchoice></term>
+<listitem>
+<para>A megjelenő ablakban a szerzők neve és a program verziószáma látszik (többek között).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-kde"/><menuchoice>
+<guimenu>Segítség</guimenu><guimenuitem>A KDE névjegye</guimenuitem></menuchoice></term>
+<listitem>
+<para>Megjeleníti a KDE projekt néhány adatát.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+
+</chapter>
+<chapter id="credits">
+<title>A szerzők névsora és a licencegyezmény</title>
+
+<para>
+&kwin4;
+</para>
+<para>
+Program copyright Martin Heni <email>martin@heni-online.de</email>, 1995-2000.
+</para>
+<para>
+Documentation copyright Martin Heni <email>martin@heni-online.de</email>, 2000.
+</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml-mode
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+
+
+

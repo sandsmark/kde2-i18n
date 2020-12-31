@@ -1,0 +1,123 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kdebugdialog "<application
+>KDebugDialog</application
+>">
+  <!ENTITY kappname "&kdebugdialog;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Spanish "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>El manual de &kdebugdialog;</title>
+
+<authorgroup>
+<author
+> <firstname
+>David</firstname
+> <surname
+>Faure</surname
+> <affiliation
+> <address
+><email
+>faure@kde.org</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Pablo</firstname
+><surname
+>de Vicente</surname
+><affiliation
+><address
+><email
+>pvicentea@nexo.es</email
+></address
+></affiliation
+><contrib
+>Traductor</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-02-13</date>
+<releaseinfo
+>0.03.00</releaseinfo>
+
+<abstract>
+<para
+>Este documento describe &kdebugdialog;.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KDebugdialog</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>¿Qué es KDebugDialog?</title>
+
+<para
+>Es un cuadro de diálogo para administrar mensajes de diagnóstico durante la ejecución de las aplicaciones. </para>
+
+<para
+>Si usted simplemente inicia "kdebugdialog", verá una lista de "areas", que se pueden activar o desactivar. Una llamada a un área de kdDebug en el código mostrará algo en la salida de depuración sólo si ese área está activada. </para>
+
+<note
+><para
+> Advierta que kdWarning, kdError y kdFatal siempre aparecen, ya que NO son controlados desde esta configuración. </para
+></note>
+
+<para
+>Si usted inicia "kdebugdialog --fullmode", puede definir separadamente para cada nivel de gravedad lo que se debería hacer con los mensajes de diagnóstico en ese nivel, y esto para cada área de depuración. </para>
+
+<para
+> En el modo completo, están disponibles las siguientes opciones de configuración: <itemizedlist
+> <listitem
+> <para
+>Salida: En la caja combo, usted puede elegir donde se deben dirigir los mensajes. Las posibilidades son: "Archivo", "Cuadro de mensaje", "Intérprete" (referido a stderr) y "syslog". Por favor no dirija los mensajes con errores fatales a syslog a no ser que usted sea el administrador del sistema. La salida predeterminada es "Cuadro de mensaje".</para
+> </listitem
+> <listitem
+> <para
+>Archivo: Esto sólo tiene sentido cuando usted ha elegido "Archivo" como salida y sirve para proporcionar el nombre de ese archivo (cuya ruta se considera relativa al directorio sobre el que se encuentre). El nombre predeterminado es kdebug.dbg.</para
+> </listitem
+> <listitem
+> <para
+>Area: Las áreas para las que se deben generar salidas. Cada mensaje que no sea mencionado aquí no será generado ( a no ser que este campo permanezca vacío, que es el valor predeterminado, y, en cuyo caso todos los mensajes deberían ser generados). Aquí puede introducir diversas áreas separadas por comas, y también puede emplear rangos de área con la sintaxis inicio-final. Por ejemplo una entrada válida, podría tener este aspecto: 117,214-289,356-359,221. Por favor no utilice espacios en blanco.</para
+> </listitem
+> </itemizedlist
+> </para>
+
+<para
+>Además de esto, también puede seleccionar la opción "Abortar si errores fatales". En este caso, si se genera un mensaje de diagnóstico con un nivel de gravedad "KDEBUG_FATAL", la aplicación se detendrá con una señal de SIGABRT después de generar el mensaje. </para>
+
+<para
+>Cuando usted cierre el diálogo con "Aceptar", sus opciones de configuración se aplicarán inmediatamente y serán guardadas en kdebugrc. Cuando pulse cancelar, sus opciones de configuración serán descartadas y se restaurarán las antiguas. </para>
+
+<para
+>Reconocimientos a Kalle Dalheimer por la versión original de kdebugdialog </para>
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-general-insert-case: lower
+sgml-shorttag: t
+End:
+-->
+
+

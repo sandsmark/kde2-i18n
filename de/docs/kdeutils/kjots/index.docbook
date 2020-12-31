@@ -1,0 +1,1354 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!-- nothing below must be removed -->
+  <!ENTITY kappname "&kjots;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE">
+  
+  
+]>
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &kjots;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Matt</firstname
+> <surname
+>Johnston</surname
+> <affiliation
+><address
+><email
+>matt.kde@caifex.org</email
+></address
+></affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Christoph</firstname>
+<surname
+>Neerfield</surname>
+<affiliation>
+<address
+><email
+>Christoph.Neerfield@home.ivm.de</email
+></address>
+</affiliation>
+<contrib
+>Entwickler</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>vampyr@atconnex.net</email
+></address>
+</affiliation>
+<contrib
+>Gegengelesen von</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Gregor</firstname
+><surname
+>Zumstein</surname
+><affiliation
+><address
+><email
+>zumstein@ssd.ethz.ch</email
+></address
+></affiliation
+><contrib
+>Übersetzung von</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Matt Johnston</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>0.05.00</releaseinfo>
+
+<abstract
+><para
+>Dieses Handbuch beschreibt die Benutzung von &kjots; 0.5, einem kleinen Programm zum Schreiben und Verwalten von verschiedenen Notizen.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KJots</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>notiz</keyword>
+<keyword
+>organiser</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+>Mit Hilfe des kleinen Programms &kjots; können Sie kurze Notizen schreiben und diese verwalten.</para>
+
+<sect1 id="kapp-revhistory">
+<title
+>Revisionsgeschichte von &kjots;</title>
+
+<variablelist
+> <varlistentry
+> <term
+>Neu in Version 0.5 (Carsten Pfeiffer <email
+>pfeiffer@kde.org</email
+>)</term
+> <listitem
+> <itemizedlist
+> <listitem
+><para
+>Benutzung von &kedit; direkt anstelle von <classname
+>QMultiLineEdit</classname
+>, entsprechend wurden die Funktionen Suchen, Ersetzen und Rückgängig machen hinzugefügt. </para
+></listitem
+> <listitem
+><para
+>Allokation von <classname
+>KTMainWindow</classname
+> auf dem Heap, um eine doppelte Zerstörung beim Verlassen zu vermeiden.</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.4 (Mario Weilguni <email
+>mweilguni@kde.org</email
+>)</term
+> <listitem
+> <itemizedlist
+> <listitem
+><para
+>Arbeitet mit Qt 2.0</para
+></listitem
+> <listitem
+><para
+>Schlechtes Layout des Hauptfensters geändert.</para
+></listitem
+> <listitem
+><para
+>Layoutverbesserungen in <function
+>AskFileName()</function
+></para
+></listitem
+> <listitem
+><para
+>Layoutverbesserungen in <function
+>SubjList()</function
+></para
+></listitem
+> <listitem
+><para
+>Kompiliert ohne Warnungen</para
+></listitem
+> <listitem
+><para
+>Der <guibutton
+>Anwenden</guibutton
+>-Knopf ist nur aktiv, wenn Änderungen vorgenommen wurden.</para
+></listitem
+> <listitem
+><para
+>Layoutverbesserungen im Einrichten-Dialog</para
+></listitem
+> <listitem
+><para
+>Fehler in der Schriftartenauswahl behoben</para
+></listitem
+> <listitem
+><para
+>Kompiliert jetzt auch mit <application
+>EGCS</application
+> ( Robert Williams )</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.3.0</term
+> <listitem
+> <itemizedlist
+> <listitem
+><para
+>Viele Tastaturkürzel hinzugefügt</para
+></listitem
+> <listitem
+><para
+><function
+>klocale->translate()</function
+>-Funktion hinzugefügt</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.2.6</term
+> <listitem
+><itemizedlist
+> <listitem
+><para
+>Symbole in der Symbolleiste sind sichtbar</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.2.5</term
+> <listitem
+><itemizedlist
+> <listitem
+><para
+>Bücher und Seiten können in eine ASCII-Datei gespeichert werden</para
+></listitem
+> <listitem
+><para
+>Entspricht besser den KDE-Richtlinien durch den Gebrauch von <classname
+>KTopLevelWidget</classname
+></para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.2.4</term
+> <listitem
+><itemizedlist
+> <listitem
+><para
+>Benutzt <classname
+>KFontDialog</classname
+>, um die Schriftart des Eingabefeldes zu setzen </para
+></listitem
+> <listitem
+><para
+>Wenn Sie im Text eine <acronym
+>URL</acronym
+> auswählen, können Sie die rechte Maustaste drücken und ein Programm mit dieser <acronym
+>URL</acronym
+> ausführen zu lassen. Das auszuführende Programm kann je nach Protokoll (&HTTP; oder &FTP;) der <acronym
+>URL</acronym
+> voreingestellt werden.</para
+></listitem
+> <listitem
+><para
+>Quelltext-Überarbeitung</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.2.3</term
+> <listitem
+><itemizedlist
+> <listitem
+><para
+>Kompiliert mit libkde-970510 (allerdings ist dies zum heutigen Zeitpunkt wohl nicht mehr relevant, d. Ü.)</para
+></listitem
+> <listitem
+><para
+>Kein Absturz mehr, wenn Seiten gelöscht werden</para
+></listitem
+> <listitem
+><para
+>Ein Doppelklick auf einen Eintrag in der Betreffliste schließt diese.</para
+></listitem
+> <listitem
+><para
+>Schriftart fester Breite -> Schriftart ;)</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.2.2</term
+> <listitem
+><itemizedlist
+> <listitem
+><para
+>Kompiliert mit libkde-0.7.2 (nicht mehr relevant)</para
+></listitem
+> <listitem
+><para
+>Einige Fehlerkorrekturen</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.2.1</term
+> <listitem
+><itemizedlist
+> <listitem
+><para
+> Sollte mit libqt1.2 und libkde-0.7.1 oder später kompilieren (nicht mehr relevant) </para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.2.0</term
+> <listitem
+><itemizedlist
+> <listitem
+><para
+>Layoutänderung damit sich das Programm besser in KDE integriert (Symbolleiste, Statusleiste,...)</para
+></listitem
+> <listitem
+><para
+>Verzeichnisse werden jetzt Bücher genannt und Einträge Seiten</para
+></listitem
+> <listitem
+><para
+>Zu jeder Seite kann ein Betreff hinzugefügt werden</para
+></listitem
+> <listitem
+><para
+>Ein Popup-Fenster kann geöffnet werden und von dort aus leichter (mit Hilfe eines Betreffs) eine Seite gefunden werden</para
+></listitem
+> <listitem
+><para
+>Die minimale Größe für das Fenster weiter verkleinert</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Neu in Version 0.1.1</term
+> <listitem
+><itemizedlist
+> <listitem
+><para
+>Löscht die leeren Zeilen nicht mehr</para
+></listitem
+> <listitem
+><para
+><keysym
+>TAB</keysym
+>s können in den Text eingefügt werden.</para
+></listitem
+> <listitem
+><para
+>Die minimale Größe für das Fenster wurde verkleinert.</para
+></listitem
+> <listitem
+><para
+>Die Fenstergröße wird gespeichert und beim nächsten Starten wieder hergestellt.</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Version 0.1 (vermutlich)</term
+> <listitem
+><itemizedlist
+> <listitem
+><para
+>Erste Version</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="using-kjots">
+<title
+>Benutzung von &kjots;</title>
+
+<para
+>&kjots; benutzt zwei grundlegende Einheiten, um Notizen zu verwalten - <quote
+>Bücher</quote
+> und <quote
+>Seiten</quote
+>.</para>
+
+<para
+>In &kjots; können mehrere Bücher erzeugt werden und pro Buch können wiederum mehrere Seiten gespeichert werden. Die Seiten beinhalten die Notizen. Jedes Buch sollte einen Namen haben, genauso auch jede Seite. Auch wenn Sie dazu nicht gezwungen werden, ist dies vernünftig, insbesondere um eine einfachere Suche zu ermöglichen.</para>
+
+<sect1 id="kjots-books">
+<title
+>Benutzung von Büchern</title>
+
+<para
+>Um ein neues Buch zu erstellen, benutzen Sie <keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>N</keycap
+></keycombo
+> oder den Menüeintrag <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Neues Buch</guimenuitem
+></menuchoice
+>, worauf Sie aufgefordert werden, einen Namen für das neue Buch anzugeben.</para>
+
+<para
+>Der Name des neuen Buches erscheint jetzt unten links im &kjots;-Fenster. Wenn Sie das Buch zu Ihren Favoriten aufnehmen wollen, wählen Sie <menuchoice
+><guimenu
+>Favoriten</guimenu
+> <guimenuitem
+>Buch zu Favoriten hinzufügen</guimenuitem
+></menuchoice
+> und ein Knopf mit dem Namen des Buchs erscheint ziemlich unten im Fenster. Sie können maximal acht Bücher zu den Favoriten hinzufügen. Das aktuelle Buch entfernen Sie mit <menuchoice
+><guimenu
+>Favoriten</guimenu
+> <guimenuitem
+>Buch aus Favoriten entfernen</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Ein Buch wird mit <keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>S</keycap
+></keycombo
+> oder dem Menüeintrag <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Buch speichern</guimenuitem
+></menuchoice
+> gespeichert. Wenn Sie zu einem anderen Buch wechseln oder &kjots; beenden, wird das aktuelle Buch gespeichert.</para>
+
+<para
+>Sie können auch ein ganzes Buch als Textdatei exportieren, indem Sie <menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Buch als ASCII-Datei speichern</guimenuitem
+></menuchoice
+> wählen. Daraufhin werden Sie aufgefordert, einen Namen für die Datei anzugeben und die Datei wird gespeichert. Das Format eines im ASCII-Format gespeicherten Buches sieht folgendermaßen aus:</para>
+
+<screen>
+#############
+# Erste Seite
+#############
+Einkaufen gehen!
+
+#################
+# Nützlicher Code
+#################
+10 PRINT "HELLO WORLD"
+20 GOTO 10
+
+##################
+# Die dritte Seite
+##################
+Dies ist die dritte Seite und ein Beispiel für KJots.
+</screen>
+
+</sect1>
+
+<sect1 id="kjots-pages">
+<title
+>Benutzung von Seiten</title>
+
+<para
+>Auf den Seiten halten Sie fest, was auch immer Sie wollen. Sobald Sie ein Buch erzeugt haben, können Sie im Hauptfenster zu tippen beginnen. </para>
+
+<para
+>Um weitere Seiten zu erzeugen, können Sie <menuchoice
+><guimenu
+>Bearbeiten</guimenu
+><guimenuitem
+>Neue Seite</guimenuitem
+> </menuchoice
+> wählen. Die aktuelle Seite wird durch <menuchoice
+> <guimenu
+>Bearbeiten</guimenu
+><guimenuitem
+>Seite löschen</guimenuitem
+> </menuchoice
+> gelöscht.</para>
+
+<para
+>Damit Sie die Seite erhalten, welche Sie sehen möchten, können (und sollen) Sie ihr einen Betreff geben. Dieser kann in der untersten Zeile des Fensters eingegeben werden. Um eine Liste der Betreffs des aktuellen Buches zu erhalten, können Sie <keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>L</keycap
+></keycombo
+> oder den Menüeintrag <menuchoice
+> <guimenu
+>Favoriten</guimenu
+><guimenuitem
+>Betreffliste</guimenuitem
+> </menuchoice
+> wählen.</para>
+
+<tip
+><para
+>Um schnell zwischen Seiten hin und her zu wechseln, können Sie <keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>K</keycap
+></keycombo
+> benützen, um zur nächsten Seite zu gehen und <keycombo
+><keycap
+>Strg</keycap
+> <keycap
+>J</keycap
+></keycombo
+>, um zur vorherigen Seite zu gehen. Sie können auch den Schiebebalken unterhalb des Hauptfensters benutzen, um zu einer anderen Seite zu gehen.</para
+></tip>
+
+<para
+>Wenn Sie eine <acronym
+>URL</acronym
+>, wie http://www.kde.org, oder ftp://ftp.kde.org wählen und dann die <mousebutton
+>rechte</mousebutton
+> Maustaste drücken, können Sie wählen, ob Sie die <acronym
+>URL</acronym
+> in &konqueror; oder einem von Ihnen mit <menuchoice
+><guimenu
+>Optionen</guimenu
+><guimenuitem
+>KJots einrichten</guimenuitem
+></menuchoice
+> gewählten Programm öffnen wollen.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="commands">
+<title
+>Befehlsreferenz</title>
+
+<sect1 id="menu-file">
+<title
+>Das <guimenu
+>Datei</guimenu
+>-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>eues Buch...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Erzeugt</action
+> ein neues Buch.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Buch speichern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert</action
+> das aktuelle Buch. Bücher werden als einzelne Dateien im Verzeichnis <filename class="directory"
+>$HOME/.kde/share/apps/kjots/</filename
+> gespeichert. Sie können mit jedem Texteditor gelesen werden.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Buch als ASCII-Datei speichern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert</action
+> das aktuelle Buch in einer Textdatei. Siehe auch <link linkend="kjots-books"
+>Benutzung von Büchern</link
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Seite als ASCII-Datei speichern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert</action
+> die aktuelle Seite in einer Textdatei.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Buch löschen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Löscht</action
+> das aktuelle Buch.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Beendet</action
+> &kjots;</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="menu-edit">
+<title
+>Das <guimenu
+>Bearbeiten</guimenu
+>-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Auss<accel
+>c</accel
+>hneiden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schneidet</action
+> den ausgewählten Text aus dem Hauptfenster aus und legt ihn in die Zwischenablage.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>opieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kopiert</action
+> den ausgewählten Text vom Hauptfenster in die Zwischenablage.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Ein<accel
+>f</accel
+>ügen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Fügt</action
+> Text aus der Zwischenablage in das Hauptfenster ein.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>uchen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Sucht</action
+> einen Text im Hauptfenster. Beachten Sie, dass nur die aktuelle Seite durchsucht wird. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>W</accel
+>eitersuchen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Sucht</action
+> das nächste Auftreten des Suchtextes im Hauptfenster.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>E</accel
+>rsetzen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ersetzt</action
+> einen Textteil mit einem anderen, ebenfalls nur in der aktuellen Seite. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>eue Seite</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Erzeugt</action
+> eine neue leere Seite im aktuellen Buch.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>D</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Seite <accel
+>l</accel
+>öschen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Löscht</action
+> die aktuelle Seite. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>J</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Vorherige Seite</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Die vorangehende Seite wird angezeigt, sofern eine existiert.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>K</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Nächste Seite</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Die nächste Seite wird angezeigt, sofern eine existiert. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="menu-hotlist">
+<title
+>Das <guimenu
+>Favoriten</guimenu
+>-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>avoriten</guimenu
+> <guimenuitem
+>Buch zu Favoriten hinzufügen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Fügt</action
+> das aktuelle Buch zu den Favoriten hinzu. Siehe auch <link linkend="kjots-books"
+>Benutzung von Büchern</link
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>avoriten</guimenu
+> <guimenuitem
+>Buch aus Favoriten entfernen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Entfernt</action
+> das aktuelle Buch aus den Favoriten. Siehe auch <link linkend="kjots-books"
+>Benutzung von Büchern</link
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Strg</keycap
+><keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>avoriten</guimenu
+> <guimenuitem
+>Betreffliste</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt</action
+> die Betreffliste für das aktuelle Buch an. Hier können Sie eine Seite zum Betrachen wählen. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="menu-options">
+<title
+>Das <guimenu
+>Optionen</guimenu
+>-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>astenzuordnungen vornehmen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Wählen</action
+> Sie Tastaturkürzel für die verschiedensten Menüeinträge.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>ptionen</guimenu
+> <guimenuitem
+>KJots <accel
+>E</accel
+>inrichten...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Hier können Sie die <action
+>Einstellungen für &kjots; vornehmen</action
+>, darunter auch die externen Programme zum Öffnen von <acronym
+>URL</acronym
+>s und die Schriftart für das Hauptfenster. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="menu-help">
+<title
+>Das <guimenu
+>Hilfe</guimenu
+>-Menü</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>nhalt</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt</action
+> diese Hilfedatei an.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Umsch</keycap
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Was ist <accel
+>d</accel
+>as?</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>In einigen Programmen ändert sich die Cursorform und Sie erhalten Hilfe, wenn Sie auf verschiedene Bereiche des Programms klicken. Für &kjots; funktioniert dies noch nicht.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie über Probleme und Wünsche...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Erlaubt Ihnen, einen Fehler oder Wunsch zu &kjots; den Entwicklern zu melden.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Ü<accel
+>b</accel
+>er KJots</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Zeigt Informationen über &kjots; an.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Über <accel
+>K</accel
+>DE...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Zeigt Informationen über KDE an.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Danksagung und Lizenz</title>
+
+<para
+> &kjots; </para>
+<para
+> Copyright für das Programm 1997 Christoph Neerfeld <email
+>Christoph.Neerfeld@home.ivm.de</email
+> </para>
+<para
+> &kjots; ist inspiriert von jots, einem Programm, das im tkgoodstuff-Paket enthalten ist. tkgoodstuff ist Copyright 1995-96 Mark Crimmins <email
+>markcrim@umich.edu</email
+> </para>
+
+<para
+> Copyright für die Dokumentation 2000 Matt Johnston <email
+>matt.kde@caifex.org</email
+> </para>
+<para
+> Auschnitte der Dokumentation stammen von der 1998-Dokumentation von &kjots;, Copyright 1998 Christoph Neerfeld <email
+>Christoph.Neerfeld@home.ivm.de</email
+> </para>
+&underFDL; <!-- FDL: do not remove -->
+
+&underGPL; <!-- GPL License -->
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kjots">
+<title
+>Woher Sie &kjots; erhalten</title>
+
+<para
+>&kjots; ist Teil des KDE-Projektes <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+> und ist Bestandteil des kdeutils-Pakets auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+> oder einem der vielen Spiegelserver unter <ulink url="http://www.kde.org/mirrors.html"
+>http://www.kde.org/mirrors.html</ulink
+>. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen</title>
+
+<para
+>Um &kjots; erfolgreich anwenden zu können, benötigen Sie KDE 2.0. Andere Voraussetzungen gibt es nicht.</para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilierung und Installation</title>
+
+<para
+>Um &kjots; zu kompilieren und installieren, müssen Sie das folgende im Basisverzeichnis des kdeutils-Pakets tippen (für den letzten Befehl brauchen Sie root-Privilegien):</para>
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>Da kdeutils <application
+>autoconf</application
+> und <application
+>automake</application
+> braucht, sollten beim Kompilieren keine Probleme auftauchen. Falls doch, teilen Sie uns diese bitte via eine der KDE-Mailinglisten mit.</para>
+
+</sect1>
+
+<sect1 id="configuration">
+<title
+>Konfiguration</title>
+
+<para
+>&kjots; ist ein nettes kleines Programm und Sie brauchen nichts einzustellen, um es laufen zu lassen.</para>
+
+</sect1>
+
+</appendix>
+
+
+
+&documentation.index;
+</book>
+<!--
+Local Variables:
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

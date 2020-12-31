@@ -1,0 +1,321 @@
+<sect1 id="sambastatus">
+<sect1info>
+
+<authorgroup
+><author
+><firstname
+>Alexander</firstname
+><surname
+>Neundorf</surname
+></author>
+<othercredit role="translator"
+><firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+><affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+</authorgroup
+> 
+
+<date
+>2001-07-22</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Kontrollzentrum</keyword>
+<keyword
+>Samba</keyword>
+<keyword
+>system information</keyword>
+</keywordset>
+</sect1info>
+<title
+>Samba Statusinformation</title>
+
+<para
+>Der Samba- und NFS-Statusanzeiger verwendet die Programme <emphasis
+>smbstatus</emphasis
+> und <emphasis
+>showmount</emphasis
+> zur Sammlung der benötigten Informationen.  Smbstatus zeigt die aktuellen Samba-Verbindungen an und ist Teil der Samba-Programme, die das <abbrev
+>SMB</abbrev
+>-Protokoll (Session Message Block), auch NetBIOS oder LanManager-Protokoll genannte Netzwerkprotokoll unter Unix zur Verfügung stellen.</para>
+
+<para
+>Dieses Protokoll wird zur gemeinsamen Nutzung von Druckern und Laufwerken in Netzwerken verwendet, die eines der &Microsoft; &Windows;-Betriebssysteme benutzen.</para>
+
+<para
+>Das Programm <command
+>showmount</command
+> gehört zum <acronym
+>NFS</acronym
+> Programmpaket.<acronym
+>NFS</acronym
+> bedeutet <quote
+>Network File System</quote
+> und ist das üblicherweise unterUnix verwendete Protokoll zur gemeinsamen Nutzung von Verzeichnissen in einemNetzwerk. Zur Informationssammlung wird die Ausgabe des Befehls<command
+>showmount</command
+> <option
+>-a localhost</option
+> ausgewertet. Auf einigenSystemen befindet sich <command
+>showmount</command
+> im Verzeichnis <filename class="directory"
+>/usr/sbin</filename
+>. Stellen Sie sicher, das sich showmountin Ihrem Pfad (Umgebungsvariable <envar
+>PATH</envar
+>) befindet.</para>
+
+<sect2 id="smb-exports">
+<title
+>Exporte</title>
+
+<para
+>Auf dieser Seite werden die aktuellen Samba-Freigaben und <acronym
+>NFS</acronym
+>-Exporte ihres Computers angezeigt. In der ersten Spalte wird die Art der Ressource angezeigt: Samba (<acronym
+>SMB</acronym
+>) oder <acronym
+>NFS</acronym
+>. Die zweite Spalte zeigt den Namen der Ressource und die dritte den Namen des entfernten Computers, der diese Ressource verwendet. Die weiteren Spalten haben nur für Samba-Freigaben eine Bedeutung.</para>
+
+<para
+>Von diesen enthält die vierte Spalte die Benutzerkennung <abbrev
+>UID</abbrev
+> des Freigabenbenutzers. Diese Nummer, wie auch die folgende Gruppenkennung <abbrev
+>GID</abbrev
+> müssen nicht mit den &UNIX;-Kennungen übereinstimmen.</para>
+
+<para
+>Jede der Verbindungen ist ein eigener Prozess von (<command
+>smbd</command
+>), daher wird in der nächsten Spalte die Prozess-<abbrev
+>ID</abbrev
+> (<acronym
+>pid</acronym
+>) von <command
+>smbd</command
+> angezeigt. Falls Sie einen Prozess beenden, wird die zugehörige Verbindung unterbrochen. Falls der entfernte Computer unter Windows läuft, wird sofort ein neuer Prozess erstellt, so dass der Benutzer die Unterbrechung kaum bemerkt.</para>
+
+<para
+>Die letzte Spalte zeigt die Anzahl der geöffneten Dateien. Sie können lediglich die Anzahl der <emphasis
+>aktuell geöffneten</emphasis
+> Dateien sehen, nicht, wie viele Dateien er kopiert oder bisher insgesamt geöffnet hatte.</para>
+
+</sect2>
+
+<sect2 id="smb-imports">
+<title
+>Importe</title>
+
+<para
+> Hier werden die Samba- und <acronym
+>NFS</acronym
+>-Freigaben angezeigt, die Sie von anderen Computer in Ihrem Dateisystem hinzugefügt (gemountet) haben. Die erste Spalte zeigt, ob es sich um eine Samba- oder <acronym
+>NFS</acronym
+>-Freigabe handelt, die zweite zeigt den Namen der Freigabe und die dritte Spalte zeigt die Position, wo sie im Dateisystem hinzugefügt (gemountet) wurde.</para>
+
+<para
+>Da nur &Linux; Samba-Freigaben einbinden (mounten) kann, sind derartige Freigaben unter anderen Systemen nicht sichtbar. Die eingebundenen (gemounteten) <acronym
+>NFS</acronym
+>-Freigaben sollten unter &Linux; (getestet) und unter &Solaris; (nicht getestet) sichtbar sein.</para>
+
+</sect2>
+
+<sect2 id="smb-log"
+> 
+<title
+>Log</title
+> 
+
+<para
+>Diese Seite zeigt die Inhalte Ihrer Samba-Logdatei an. Wenn Sie die Seite öffnen, ist die Liste zunächst leer. Drücken Sie auf den <guibutton
+>Aktualisieren</guibutton
+>-Knopf, um das Programm zu veranlassen, die Samba-Logdatei zu lesen und die Resultate anzuzeigen. Wenn Probleme auftreten, vergewissern Sie sich, das die Logdatei sich dort befindet, wo es unter <guilabel
+>Samba-Logdatei</guilabel
+> angegeben ist. Falls die Datei an anderer Stelle gespeichert ist, korrigieren Sie die Pfad-Einstellung und betätigen Sie erneut <guibutton
+>Aktualisieren</guibutton
+>.</para>
+
+<para
+>Samba protokolliert gemäß dem eingestellten <quote
+>loglevel</quote
+> (siehe auch <filename
+>smb.conf</filename
+>).  Bei einem Wert von Eins werden nur hergestellte und beendete Verbindungen protokolliert, bei einem Wert von Zwei wird das Öffnen und Schließen von Dateien zusätzlich protokolliert und ein noch größerer Wert führt zu noch detailierteren Informationen.</para>
+
+<para
+>Falls Sie interessiert sind, wer sich mit Ihrem Computer verbindet und auf welche Dateien zugegriffen wird, stellen Sie den Wert 2 ein. Sie sollten dann regelmäßig eine neue Logdatei anlegen (z.B. installieren Sie einen <command
+>cron</command
+>-Job, der einmal die Woche die aktuelle Logdatei in ein anderes Verzeichnis verschiebt oder ähnlich), da durch die große Datenmenge die Logdatei sonst sehr umfangreich wird.</para>
+
+<para
+>Mit Hilfe der vier Ankreuzfelder können Sie entscheiden, welche der protokollierten Ereignisse angezeigt werden. Nach jeder Änderung müssen Sie den <guibutton
+>Aktualisieren</guibutton
+>-Knopf betätigen, um das Ergebnis der Änderungen zu sehen. Außerdem muss der <quote
+>loglevel</quote
+> hoch genug eingestellt sein, damit dei gewünschten Ereignisse überhaupt von Samba protokolliert werden, ansonsten wird nicht alles Gewünschte angezeigt.</para>
+
+<para
+>Durch Klicken auf einen Spaltenkopf wird die Liste nach dieser Spalte sortiert.</para>
+
+</sect2>
+
+
+<sect2 id="smb-statistics">
+<title
+>Statistiken</title>
+
+<para
+>Auf dieser Seite können Sie Inhalte der dritten Seite gezielt herausfiltern.</para>
+
+<para
+>Im Auswahlfeld <guilabel
+>Ereignis</guilabel
+> (unten auf der Karteikarte) ist <userinput
+>Verbindung</userinput
+>, im Eingabefeld <guilabel
+>Dienst/Datei</guilabel
+> ist <userinput
+>*</userinput
+> und im Eingabefeld <guilabel
+>Rechner/Benutzer</guilabel
+> ist <userinput
+>*</userinput
+> eingegeben. Das Ankreuzfeld <guilabel
+>Erweiterte Dienst-Informationen anzeigen</guilabel
+> ist nicht markiert, ebensowenig <guilabel
+>Erweiterte Rechner-Informationen anzeigen</guilabel
+> (das ist auch die Standardeinstellung).</para>
+
+<para
+>Betätigen Sie <guibutton
+>Suchen</guibutton
+>, um zu sehen wie oft eine Verbindung zur Freigabe <literal
+>*</literal
+> (also jede Freigabe) von Rechner <literal
+>*</literal
+> (also beliebigen Rechnern) hergestellt wurde. Markieren Sie nun <guilabel
+>Erweiterte Rechner-Informationen anzeigen</guilabel
+> und vergessen Sie nicht, den <guibutton
+>Suchen</guibutton
+>-Knopf zu betätigen. Nun können Sie sehen, wie viele Verbindungen von jedem Rechner geöffnet wurden.</para>
+
+<para
+>Betätigen Sie nun <guibutton
+>Ergebnisse löschen</guibutton
+>.</para>
+
+<para
+>Wählen Sie aus dem Auswahlfeld <guilabel
+>Ereignis</guilabel
+> nun <guilabel
+>Dateizugriff</guilabel
+> aus und markieren Sie <guilabel
+>Erweiterte Dienst-Informationen anzeigen</guilabel
+> und betätigen Sie wiederum <guibutton
+>Suchen</guibutton
+>.</para>
+
+<para
+>Nun können Sie ablesen, wie oft auf jede einzelne Datei zugegriffen wurde. Falls Sie außerdem <guilabel
+>Erweiterte Rechner-Informationen anzeigen</guilabel
+> auswählen, wird angegeben, wie oft jeder einzelne Benutzer jede einzelne Datei geöffnet hat.</para>
+
+<para
+>In den Eingabefeldern <guilabel
+>Dienst/Datei</guilabel
+> und <guilabel
+>Rechner/Benutzer</guilabel
+> können Sie die Jokerzeichen <literal
+>*</literal
+> und <literal
+>?</literal
+> in der gleichen Art verwenden, wie Sie es von der Befehlszeile gewohnt sind (Reguläre Ausdrücke werden allerdings nicht unterstützt).</para>
+
+<para
+>Klicken Sie auf einen Spaltenkopf, um die Liste nach dieser Spalte zu sortieren.So können Sie sich einen Überblick verschaffen, welche Datei am häufigsten geöffnetwurde und welcher Benutzer welche Datei am häufigsten geöffnet hat <abbrev
+>usw</abbrev
+>.</para>
+
+</sect2>
+
+
+<sect2 id="smb-stat-author">
+<title
+>Mitwirkende</title>
+
+<para
+>Modul Copyright 2000: Michael Glauche und A. Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para>
+
+<para
+>Ursprünglich geschrieben von: Michael Glauche</para>
+
+<para
+>Augenblicklich betreut von: A. Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para>
+
+<itemizedlist
+> <title
+>Mitwirkende</title
+> <listitem
+><para
+>Konvertierung des Moduls für das Kontrollzentrum:</para
+> <para
+>Matthias Hoelzer <email
+>hoelzer@physik.uni-wurzburg.de</email
+></para
+></listitem
+> <listitem
+><para
+>Verwendung von KProcess statt popen und Fehlerkorrekturen:</para
+> <para
+>David Faure <email
+>David.Faure@insa-lyon.fr</email
+></para
+></listitem
+> <listitem
+><para
+>Konvertierung zu <quote
+>kcmodule</quote
+> und hinzufügen von Karteikarten 2,3,4 und Fehlerkorrektur:</para
+> <para
+>Alexander Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Dokumentation Copyright 2000 Alexander Neundorf <email
+>alexander.neundorf@rz.tu-ilmenau.de</email
+></para>
+
+<para
+>Konvertierung in das Docbook-Format von Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+
+<para
+>Deutsche Übersetzung Frank Schütte <email
+>F.Schuette@t-online.de</email
+></para>
+
+</sect2>
+</sect1>
+
+

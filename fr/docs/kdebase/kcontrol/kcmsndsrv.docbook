@@ -1,0 +1,313 @@
+<sect1 id="sndserver">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+<othercredit role="translator"
+><firstname
+>Yves</firstname
+><surname
+>Dessertine</surname
+><affiliation
+><address
+><email
+>yves.d@hrnet.fr</email
+></address
+></affiliation
+><contrib
+>Traduction française</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Anne-Marie</firstname
+><surname
+>Mahfouf</surname
+><affiliation
+><address
+><email
+>a-m.mahfouf@lineone.net</email
+></address
+></affiliation
+><contrib
+>Traduction française</contrib
+></othercredit
+><othercredit role="translator"
+><firstname
+>Thibaut</firstname
+><surname
+>Cousin</surname
+><affiliation
+><address
+><email
+>cousin@in2p3.fr</email
+></address
+></affiliation
+><contrib
+>Traduction française</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-07-24</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>centre de configuration</keyword>
+<keyword
+>serveur de son</keyword>
+<keyword
+>son</keyword>
+<keyword
+>aRts</keyword>
+</keywordset>
+</sect1info>
+
+<title
+>Serveur de son</title>
+
+<para
+>Ce panneau est utilisé pour configurer les paramètres du serveur de son &arts; (le serveur de son de &kde;).</para>
+
+<sect2 id="sndserver-general">
+<title
+>Général</title>
+
+<para
+>L'option tout en haut, intitulée <guilabel
+>Lancer le serveur de son aRts au démarrage de KDE</guilabel
+>, permet si elle est activée le lancement au démarrage du <application
+>serveur de son aRts</application
+>. </para>
+
+<para
+>Le reste du panneau consiste en trois options pour le <application
+>serveur de son aRts</application
+>.</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Activer la transparence réseau</term
+> <listitem
+> <para
+>Si cette option est activée, les requêtes son du réseau seront traitées par le serveur de son. Sinon, le serveur de son ne traitera que les requêtes venant de l'ordinateur (local).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Échanger les informations de sécurité et de référence sur le serveur X11</guilabel
+></term
+> <listitem
+><para
+>Si vous avez activé la transparence réseau, cette option permettra l'échange d'informations sur la sécurité et la référence. En cas de doute si vous avez activé la transparence réseau alors cette option doit être activée.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Exécuter le serveur de son avec la priorité temps réel</guilabel
+></term
+> <listitem
+><para
+>Activer cette option donnera au serveur de son la priorité sur les autres applications, ce qui améliorera les problèmes éventuels de son interrompu.</para
+> <note
+><para
+>Cette option peut nécessiter des permissions que vous n'avez pas en tant que simple utilisateur.</para
+> <para
+>Cette option repose aussi sur la gestion du temps réel sur votre ordinateur qui peut ne pas être disponible.</para
+> <para
+>Si vous n'avez pas les permissions nécessaires ou si votre ordinateur ne sait pas gérer le temps réel, activer cette option n'aura aucun effet.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Suspension automatique si inactif pendant</guilabel
+></term
+> <listitem
+> <para
+>Normalement, &arts; verouille la carte son, de sorte à ce que aucune autre application ne peut l'utiliser. Si vous activez cette option et que &arts; à été inactif pendant le temps que vous avez saisi, il va se mettre en attente, permettant ainsi à n'importe quelle autre application d'accéder à la carte son. Si &arts; reçoit une autre requête, il va quitter son état d'attente et continuer normalement. L'activation de cette option peut induire un léger délai lorsque vous lancez une application &arts;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Afficher les messages en utilisant</guilabel
+></term
+> <listitem
+> <para
+>L'application qui va être utilisée pour afficher les messages du serveur &arts;. L'application par défaut est <application
+>artsmessage</application
+> et devrait probablement pas être changée tant que vous n'avez pas lu consciencieusement la documentation de &arts;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Affichage de messages</guilabel
+></term
+> <listitem
+> <para
+>Vous pouvez sélectionner le niveau de détail des messages que &arts; vous affiche. Vous pouvez choisir de ne voir que les messages d'erreur, de débogage qui sont utiles pour les développeurs (vous ne voudrez probablement ce niveau de détail uniquement si vous êtes développeur, ou si quelqu'un vous a demandé d'activer ce niveau de détail). Vous pouvez aussi choisir de voir les messages informationnels généraux lorsque &arts; est en train de faire quelque chose comme se mettre en attente. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Un bouton en bas de cette page vous permet de <guibutton
+>Tester le son</guibutton
+>.</para>
+
+</sect2>
+
+<sect2 id="sndserver-soundio">
+<title
+>Entrée/Sortie du son</title>
+
+<para
+>La première option que vous pouvez configurer dans l'onglet <guilabel
+>Entrée/Sortie du son</guilabel
+>est la<guilabel
+>méthode d'entrée/sortie du son</guilabel
+> Ceci permet de préciser à aRts le système sonore à utiliser pour l'entrée et la sortie du son. Les choix actuels sont <acronym
+>ALSA</acronym
+> (Advanced &Linux; Sound Architecture), <acronym
+>OSS</acronym
+> (Open Sound System), pas de son du tout et détecter automatiquement. La plupart du temps, <quote
+>Détecter automatiquement</quote
+> conviendra parfaitement.</para>
+
+<para
+>Les autres options sont&nbsp;:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Activer le mode full duplex</guilabel
+></term
+> <listitem
+><para
+>Cette option permet au serveur de son de jouer et d'enregistrer du son en même temps. Cette option doit être activée si vous utilisez des applications (telles que les téléphones internet) qui demandent à la fois l'enregistrement et la réécoute.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Utiliser un périphérique de son personnalisé</guilabel
+></term
+> <listitem
+> <para
+>Normalement, le serveur sonore utilise par défaut le périphérique nommé <filename class="devicefile"
+>/dev/dsp</filename
+> pour la sortie. Ceci devrait fonctionner dans la plupart des cas. Cependant, si vous utilisez par exemple devfs, saisissez plutôt <filename class="devicefile"
+>/dev/sound/dsp</filename
+>. Vous pouvez aussi choisir <filename class="devicefile"
+>/dev/dsp0</filename
+> ou <filename class="devicefile"
+>/dev/dsp1</filename
+> si votre carte son possède plusieurs sorties, ou bien si vous avez plusieurs cartes son.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Utiliser un taux d'échantillonnage personnalisé</guilabel
+></term
+> <listitem
+> <para
+>Normalement, le serveur sonore utilise par défaut une fréquence d'échantillonnage de 44100 Hz (qualité <acronym
+>CD</acronym
+>), qui est reconnue par quasiment toutes les cartes son. Pour certaines cartes sons Yamaha, vous devrez configurer ceci à 48000 Hz, si vous utilisez une vieille carte son SoundBlaster, comme SoundBlaster Pro, choisissez 22050 Hz. Toutes les autres valeurs sont possibles, et peuvent être nécessaires dans certains cas (&pex; avec du matériel de studio professionnel).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Autres options personnalisées</guilabel
+></term
+> <listitem
+><para
+>Ce sont les options offertes par &arts; qui ne sont pas disponibles dans ce module de configuration, donc vous pouvez ajouter des options de la ligne de commande qui seront passées directement à <application
+>artsd</application
+>. Les options seront ajoutées à la suite des autres, donc dans le doute remplaceront les choix effectués avec l'interface graphique (<acronym
+>GUI</acronym
+>). Pour voir les choix possibles, ouvrez une fenêtre &konsole;, et saisissez <userinput
+><command
+>artsd</command
+> <option
+>-h</option
+></userinput
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Taille du tampon audio (temps de réponse)</guilabel
+></term
+> <listitem
+><para
+>Cela détermine à quelle vitesse le serveur de son peut utiliser les ressources de votre ordinateur. Plus le temps de réponse est court, plus la charge du <acronym
+>CPU</acronym
+> sera haute.</para
+> <tip
+><para
+>Je recommanderais de débuter avec le serveur de son paramétré à 250&nbsp;ms, et d'utiliser &kde; pendant un moment. Si vous remarquez que le son ne fonctionne pas correctement, augmentez le temps de réponse d'une graduation à la fois jusqu'à ce que le problème disparaisse.</para
+></tip
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="sndserver-author">
+<title
+>Auteurs de la section</title>
+
+<para
+>Cette section a été écrite par Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+
+<para
+>Mise à jour par Jost Schenck <email
+>jost@schenck.de</email
+></para>
+
+<para
+>Traduction française par&nbsp;:</para
+><para
+>Yves Dessertine <email
+>yves.d@hrnet.fr</email
+></para
+><para
+>Anne-Marie Mahfouf <email
+>a-m.mahfouf@lineone.net</email
+></para
+><para
+>Thibaut Cousin <email
+>cousin@in2p3.fr</email
+></para>
+</sect2>
+</sect1>
+
+
+

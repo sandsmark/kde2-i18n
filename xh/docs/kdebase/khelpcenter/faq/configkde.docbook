@@ -1,0 +1,331 @@
+<!--
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+-->
+ 
+<chapter id="configure">
+<title
+>Iqwalasela i &kde;</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Ndingalucwangcisa njani ulwimi olusetyenziswa yi &kde;?</para>
+</question>
+<answer>
+<para
+>Kukho iindlela ezimbini zokucwangcisa ulwimi &kde; ezisebenzisayo kwimiyalezo ezakuyibonisa:</para>
+<variablelist
+> <varlistentry
+><term
+>Usebenzisa i <application
+>&kde; Umbindi Wolawulo</application
+></term
+> <listitem
+><para
+>Gxotha i <application
+>&kde; Umbindi Wolawulo</application
+> kwaye khetha <guimenu
+>Ubuntu bakho</guimenu
+> ilandelwa yi <guimenuitem
+>Ilizwe no Lwimi</guimenuitem
+>. Ungakhetha olwakho ulwimi nendawo apha. Ukuba i &kde; ayinakufumana uguqulelo kulwimi lokuqalo elikhethiweyo, izakuwa kolungagqibekanga ulwimi. Oku ngesiqhelo kuzakuba (Amelika) isiNgesi.</para
+> <note
+><para
+>Usebenzisa i <application
+>&kde; Umbindi Wolawulo</application
+> yindlela ekhethiweyo yokukhetha iilwimi kwi &kde;.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Usebenzisa i <envar
+>LANG</envar
+> umahluko wemeko-bume</term
+> <listitem
+><para
+>Indlela yesibini isebenzisa isicwangciso esisezantsi kwindlela yakho. Ukutshintsha ulwimi, cwangcisa umahluko wemeko-bume <envar
+>LANG</envar
+> ngendlela. Umzekelo, ukuba iqokobhe lakho yi <application
+>uvuthuzo</application
+>, phumeza <command
+>rhweba ngaphandle LANG=de</command
+> ukucwangcisa isiJamani njengolwimi olusetyenziswayo.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kukho iswitsha yebhodi yezitshixo yeebhodi jikelele ze &kde;?</para>
+</question>
+<answer>
+<para
+> Ewe ungayiqwalasela usebenzisa i <application
+>&kde; UmbindiWolawulo</application
+> <guimenu
+>Amacendo</guimenu
+> <guimenuitem
+>Ibhodi yezitshixo</guimenuitem
+> <guimenuitem
+>Ubeko</guimenuitem
+> incoko yababini yoqwalaselo. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndiyibuyisela njani esezantsi i &Linux; ikhusi legama lokubhaliweyo nge &kde; ikhusi legama elithile?</para>
+</question>
+<answer>
+<para
+>Kuqala, ufuna ukutshintsha kwi "xdm runlevel" (sebenzisa umphakamo 5 kwi &RedHat; iindlela, 3 ku S.u.S.E.) ngokuhlela eyakho <filename
+>/etc/inittab</filename
+> ifayile. Kwifayile, unganelayini ethi <userinput
+>id:3:initdefault:</userinput
+>. Yitshinshele ku <userinput
+>id:5:initdefault:</userinput
+>. Ngoku kwisiphelo sefayile, gqabaza le layini ilandelayo: <userinput
+>x:5:respawn:/usr/bin/X11/xdm -nodaemon</userinput
+> kwaye yibuyisele nge <userinput
+>x:5:respawn:<replaceable
+>/opt/kde/</replaceable
+>bin/kdm -nodaemon</userinput
+>. <note
+><para
+>Indawo ye &kdm; ingahluka kwindlela yakho.</para
+></note
+></para>
+<para
+>Utshintsho ukuthatha isiphumo ngokukhawuleza, chwetheza <command
+>init 5</command
+> (ye &RedHat; iindlela) kukwenziwa kweqokobhe. <caution
+><para
+>Kungumngcipheko ukuqupha igama lomzobo ngaphandle kokukhangela ngaphambili noba iyasebenza. Ukuba ayiphumeleli, uzakubakho kwixesha elinzima lokufumana kwakhona....</para
+></caution
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+
+<para
+>Ndingathanda ukunqakraza i &LMB; naphi na kwi desktop kwaye ubene <guimenu
+>K</guimenu
+> menu eboniswayo.</para>
+</question>
+<answer>
+<para
+>Vula i <application
+>&kde; Umbindi Wolawulo</application
+> kwaye khetha <menuchoice
+><guisubmenu
+>Jonga kwaye Uve</guisubmenu
+><guisubmenu
+>Desktop</guisubmenu
+> <guisubmenu
+>Ngokubanzi</guisubmenu
+></menuchoice
+>. Ungakhetha ngoku ukuziphatha konqakrazo lwe mouse kwi desktop. Ukuba ne <guimenu
+>K</guimenu
+> menu vula kweyodwa i &LMB; nqakraza, tshintsha ungeno olunombhalo <guilabel
+>Iqhosha lasekhohlo</guilabel
+> ukuthi <guilabel
+>iMenu yeSicelo</guilabel
+>.</para>
+</answer>
+</qandaentry>
+
+<!-- Not KDE -->
+<!--
+<qandaentry>
+<question>
+<para
+>How do I use the three extra keys on my &Windows; keyboard in
+&kde;?</para>
+</question>
+<answer>
+<para
+>You may have to configure your X server via
+<command
+>xmodmap</command
+> to bind the keycodes of the &Windows; keys
+to useful X key symbols (<command
+>xev</command
+> is your friend!).</para>
+<para
+>First, create a file <filename
+>$<envar
+>HOME</envar
+>/.Xmodmap</filename>
+containing the entries:</para>
+<screen>
+keycode 115=F13
+keycode 117=F15
+</screen>
+<para
+>Then run <command
+>xmodmap ~/.Xmodmap</command
+>.  This sets
+the <keycap
+>Start</keycap
+> key to emit <keysym
+>F13</keysym
+> and the
+<keycap
+>Windows</keycap
+> key to emit <keysym
+>F15</keysym
+>.  Next, fire
+up the <application
+>&kde; Control Center</application
+> and select <menuchoice
+><guimenu
+>Shortcut
+Keys</guimenu
+><guimenuitem
+>Global Shortcut</guimenuitem
+></menuchoice
+>.
+Set <guilabel
+>Pop-up system menu</guilabel
+> to <keysym
+>F13</keysym>
+and <guilabel
+>Window operations menu</guilabel
+> to
+<keysym
+>F15</keysym
+>.  That is it.
+<note
+><para
+>The numbers 115 and 117 may depend on the keyboard.  If
+you are not sure, please check using <command
+>xev</command
+>.  In
+addition, the above procedure requires &kde; 1.1 and above.</para>
+<para
+>&kikbd; is able to do this too, but keymaps have to be edited.
+The advantage of &kikbd; is that one can choose whether to use these
+mappings on several custom keymaps and have them hotswappable.</para>
+<para
+>It would be interesting to make a little script that will
+automatically do the keymap modifications on demand.  &kikbd; should
+be able to read/understand user-side keymap files.</para
+></note
+></para>
+</answer>
+</qandaentry>
+-->
+
+<qandaentry>
+<question>
+<para
+>Ndilufumana phi ulwazi malunga nemixholo ye &kde; yokuxoxwa?</para>
+</question>
+<answer>
+<para
+>Yiya ubone <ulink url="http://kde.themes.org/"
+>http://kde.themes.org/</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndizitshintsha njani iindidi ze &MIME;?</para>
+</question>
+<answer>
+<para
+>Ukuba usebenzisa i &konqueror;, yenza oku endaweni yoko: kuqala, vula i &konqueror; window kwaye khetha <menuchoice
+><guimenu
+>Hlela</guimenu
+><guimenuitem
+>Udidi lweFayile</guimenuitem
+></menuchoice
+>. Fumana udidi ofuna ukulitshintsha (<abbrev
+>e.g.</abbrev
+> text/english or image/gif), nqakraza i &RMB;, khetha <guilabel
+>Ngokubanzi</guilabel
+>, kwaye cwangcisa isicelo sendlela ekhethiweyo naphi na apho ufuna khona.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kde; (&kdm;) ayifundi eyam i <filename
+>.bash_profile</filename
+>!</para>
+</question>
+<answer>
+<para
+>Kuhle, <application
+>xdm</application
+> (ne &kdm;) ayenzi iqokobhe legama elithile, ngoko <filename
+>.profile</filename
+>, <filename
+>.bash_profile</filename
+>, <abbrev
+>etc.</abbrev
+> asizo mvelaphi. Xa umsebenzisi eloga ngaphakathi, <application
+>xdm</application
+> yenza <command
+>Xstartup</command
+> njengengcambu kwaye ngoko <command
+>Xsession</command
+> njengomsebenzisi. Ngoko uqheliso oluqhelekileyo kukudibanisa iingxelo kwi <filename
+>Xsession</filename
+> ukuvelisa imboniso yomsebenzisi. Nceda hlela elakho <filename
+>Xsession</filename
+> kwaye <filename
+>.xsession</filename
+> iifayile.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Ndiyisebenzisa njani i &TrueType; imigca kwi &kde;?</para>
+</question>
+<answer>
+<para
+>Ufuna ukufaka i &TrueType; inkxaso yomgca kweyakho &X-Windows;. Nceda jonga kwi <ulink url="http://x.themes.org/"
+>x.themes.org</ulink
+> yemigca, ne <ulink url="http://www.dcs.ed.ac.uk/home/jec/programs/xfsft/"
+>xfsft: &TrueType; Inkxaso Yomgca Ye X11</ulink
+> okanye <ulink url="http://X-TT.dsl.gr.jp/"
+>X-&TrueType; Iphepha lasekhaya leProjekti yoMncedisi</ulink
+> yabancedisi bomgca.</para>
+<para
+>Ukuba unesiqhuma se &TrueType; imigca kwi &Microsoft; &Windows;, hlela i <filename
+>XF86Config</filename
+> ifayile ukufumana imigca kwincwadi eneenkcukacha yomgca. Ngoku xelela nje i &kde; isebenzise le migca mitsha ngento eluncedo yomphathi womgca.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kuyenzeka ukungenisa, ukubonisa nokusebenza ngophawu lwe Euro kwi &kde;?</para>
+</question>
+<answer>
+<para
+>Ewe no hay. Kwinkcukacha, jonga apha: <ulink url="http://monitor.blvk.ch/euro/"
+>http://monitor.blvk.ch/euro/</ulink
+>.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

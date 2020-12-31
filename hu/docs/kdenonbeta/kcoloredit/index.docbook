@@ -1,0 +1,163 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd">
+
+<book lang="en">
+<bookinfo>
+<title
+> A KColorEdit kézikönyve</title>
+<authorgroup>
+<author
+> <firstname
+>Artur</firstname
+> <surname
+>Rataj</surname
+> <affiliation
+> <address
+><email
+>art@zeus.polsl.gliwice.pl</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+<date
+>2000-07-16</date>
+<releaseinfo
+>0.02.00</releaseinfo>
+<abstract>
+<para
+>Ez a dokumentum a KColorEdit 0.1.0-ás verziójának leírását tartalmazza.</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>grafika</keyword>
+<keyword
+>paletta</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Bevezetés</title>
+
+<para
+> A KColorEdit egy színpalettafájl-szerkesztő program. Használható színpaletták szerkesztésére, színek kiválasztásához és elnevezéséhez. </para>
+
+</chapter>
+
+<chapter id="file-operations">
+<title
+>Fájlműveletek</title>
+
+<sect1 id="file">
+<title
+>A palettafájlokról</title>
+<para
+> A KDE-vel telepített palettafájlok lehetnek globálisak vagy egyéniek. Az utóbbi esetben a fájlok a saját könyvtárban, a KDE konfigurációs könyvtárában találhatók, és általában 'Egyéni színek' és 'A legutóbbi színek' néven szerepelnek. </para>
+
+<para
+> A KColorEditben nem csak ezek a fájlok, hanem tetszőleges más palettafájlok is szerkeszthetők. </para>
+</sect1>
+
+<sect1 id="file-open">
+<title
+>Fájl megnyitása</title>
+<para
+> A fájlmegnyitási ablakban választani lehet a telepített paletták és a fájlrendszerben található palettafájlok között. </para>
+</sect1>
+
+</chapter>
+
+<chapter id="Edition">
+<title
+>Kiadás</title>
+
+<sect1 id="cursor">
+<title
+>Kurzor</title>
+<para
+> A kurzor vonalként jelenik meg a palettanézetben. Mozgatásához egy színen kívüli üres területre kell kattintani. </para
+> 
+
+<para
+>A kurzor funkciói: <itemizedlist
+> <listitem
+> <para
+> Mindig az utána álló színre mutat. A szín leírása (ha van), a palettanézet alján található. Ott lehet megváltoztatni a szín nevét is. </para
+> </listitem
+> <listitem
+> <para
+> A kurzor kijelöléshez is használható. Egy szín melletti üres területre kattintva a színhez lehet mozgatni a kurzort, utána az egérrel a kívánt helyre kell állni, a bal gombot lenyomva tartva. </para
+> </listitem
+> <listitem
+> <para
+> Ha 'A kurzor után' opció a 'Szín hozzáadása' gomb mellett be van jelölve, akkor a színválasztó ablakban megadott szín a kurzor után kerül. A színt beszúrja, vagy egy másik szín felülírásával helyezi el a program, attól függően, hogy a 'Felülírás' mód be van-e kapcsolva. A 'Felülírás' opció 'A kurzor után' opció mellett található. </para
+> </listitem
+> </itemizedlist
+> </para>
+</sect1>
+
+<sect1 id = "selection">
+<title
+>Kijelölés</title>
+<para
+> Ha sikerült a kijelölés az előbb leírt eljárás segítségével, akkor már használhatók a másolás, kivágás, beillesztés parancsok. </para>
+</sect1>
+
+<sect1 id = "clipboard-format">
+<title
+>Vágólapformátum</title>
+<para
+> A KColorEdit a következő adatformátumot használja a vágólapon: a három színkomponens értéke (vörös, zöld, kék) vesszővel elválasztva, utána opcionálisan a szín neve, majd egy sor vége karakter, ha több szín van felsorolva. Ezért ha egy másik programból három, vesszővel elválasztott számot kimásolt a vágólapra, akkor az színként beilleszthető a KColorEditbe. </para>
+</sect1>
+
+</chapter>
+
+<chapter id="color-selection">
+<title
+>Színválasztás az RGB színtérben</title>
+<para
+> Az RGB színtérben az alábbi módon lehet kiválasztani egy színt: <itemizedlist
+> <listitem
+> <para
+> A HSV vagy RGB komponensek szerkesztésével. </para
+> </listitem
+> <listitem
+> <para
+> A színspektrum-ablakban a kívánt színre kattintva. A bal oldalon két HSV komponens választható ki, a jobb oldalon pedig a harmadik. A harmadik komponens kiválasztásához kattintson a 'H', 'S' vagy 'V' gombra. A jobb oldalon azok a színek látszanak, amelyek a másik két paraméter rögzített értéke mellett lehetségesek. A bal oldalon a harmadik komponens rögzített értéke mellett lehetséges színek választhatók, vagy, ha a 'Változó' opció be van jelölve, az érték megegyezik a jobb oldali komponens értékével. 'Helyettesítés' módban, a paneleken kijelölt szín azonnal felülbírálja a végeredményként kapott színt, 'Változtatás' módban pedig a kapott szín minden kattintás ill. a bal gomb lenyomása közben való mozgatás után frissül. Ezért ebben az utóbbi módban a színspektrumablakban kiválasztott szín eltérhet attól, ami a végeredmény ablakban látszik. A színek szinkronizálásához a 'Szinkronizálás' gomb használható. </para
+> </listitem
+> </itemizedlist
+> </para>
+</chapter>
+
+<chapter id="drag-and-drop">
+<title
+>Húzd és ejtsd</title>
+<para
+> A palettaszínek és a színválasztó ablakban kijelölt szín a húzd-és-ejtsd módszerrel is mozgatható. </para>
+</chapter>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

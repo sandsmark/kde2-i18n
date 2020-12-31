@@ -1,0 +1,458 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+ 
+<chapter id="configure">
+<title
+>Nastavitev &kde;</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Kako nastavim jezik, ki ga uporablja &kde;?</para>
+</question>
+<answer>
+<para
+>Obstajata dva načina prilagoditve jezika, ki ga &kde; uporablja za izpis sporočil:</para>
+<variablelist
+> <varlistentry
+><term
+>Z uporabo <application
+>Nadzornega središča &kde;</application
+></term
+> <listitem
+><para
+>Poženite <application
+>Nadzorno središče &kde;</application
+> in izberite <guimenu
+>Personalization</guimenu
+>, ki mu naj sledi <guimenuitem
+>Country and Language</guimenuitem
+>. Tu lahko lahko izberete vaš jezik in lokacijo. Če &kde; ne uspe najti prevoda v prvem izbranem jeziku, bo uporabil privzet jezik. To bo običajno (ameriška) angleščina.</para
+> <note
+><para
+>Uporaba <application
+>Nadzornega središča &kde;</application
+> je priporočljiv način izbire jezika v &kde;.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Uporaba spremenljivke <envar
+>LANG</envar
+></term
+> <listitem
+><para
+>Druga metoda uporablja običajno nastavitev locale na vašem sistemu. Da spremenite jezik, preprosto ustrezno nastavite spremenljivko <envar
+>LANG</envar
+>. Če je na primer vaša lupina <application
+>bash</application
+>, izvedite <command
+>export LANG=sl_SI</command
+> (morda je dovolj le sl), da nastavite slovenščino kot jezik, ki se uporablja.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Obstaja stikalo za preklop mednarodnih tipkovnic za &kde;?</para>
+</question>
+<answer>
+<para
+>&kde; 1.x je vključeval &kikbd;, ki pa je bil nato povsem odstranjen in se namesto njega uporablja <application
+>xkb</application
+> .</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako zamenjam običajen &Linux; tekstni prijavni zaslon s prijavnim zaslonom &kde;?</para>
+</question>
+<answer>
+<para
+>Najprej morate zamenjati "xdm runlevel" (runlevel 5 na sistemih &RedHat;, 3 na S.u.S.E.), tako da uredite datoteko <filename
+>/etc/inittab</filename
+>. V datoteki bi morala biti vrstica, ki prav <userinput
+>id:3:initdefault:</userinput
+>. Spremenite jo v <userinput
+>id:5:initdefault:</userinput
+>. Sedaj na koncu vrstice zakomentirajte naslednjo vrstico: <userinput
+>x:5:respawn:/usr/bin/X11/xdm -nodaemon</userinput
+> in jo nadomestite z <userinput
+>x:5:respawn:<replaceable
+>/opt/kde/</replaceable
+>bin/kdm -nodaemon</userinput
+>. <note
+><para
+>Lokacija &kdm; je lahko na vašem sistemu nekoliko drugačna.</para
+></note
+></para>
+<para
+>Da spremembe uveljavite takoj, vtipkajte v ukazno vrstico <command
+>init 5</command
+> (za sisteme &RedHat;). <caution
+><para
+>Uporabiti grafično prijavo, ne da bi prej preverili, ali dela, je tvegano početje. Če ne bo delovala, se boste zelo namučili, preden se vrnete...</para
+></caution
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako zamenjam &kwm; ali &kwin; z drugim &kde;-ustreznim okenskim upravljalnikom, kot sta na primer <application
+>Blackbox</application
+> in &windowmaker;?</para>
+</question>
+<answer>
+<para
+>Najprej naložite izvorno kodo in jo prevedite. Verjetno boste morali podati nekaj možnosti, ko izvedete skript <filename
+>configure</filename
+>, da boste pridelali &kde;-ustrezne binarne datoteke. Preberite datoteke <filename
+>README</filename
+> <filename
+>INSTALL</filename
+>, da najdete dodatna navodila. Nato preprosto zamenjajte ukaz <command
+>kwm</command
+> v skriptu <filename
+>startkde</filename
+> z ukazom, ki požene nov okenski upravljalnik in že ste končali. Za &kde; 2 spremenite vrstico, ki izvede <application
+>ksmserver</application
+> v <filename
+>startkde</filename
+> da pokliče upravljalnik sej z možnostjo <option
+>--windowmanager <replaceable
+>my_window_manager</replaceable
+></option
+>.</para>
+<para
+><application
+>Blackbox</application
+> je še dodaten izbor na seznamu okenskih upravljalnikov za &X-Windows;. Zgrajen je v C++ in z drugimi okenskimi upravljalniki ne deli nobene kode (čeprav je grafična izvedba podobna &windowmaker;). <application
+>Blackbox</application
+> je postal ustrezen&kde; z izdajo 0.50.2. Prosim obiščite <ulink url="http://blackbox.alug.org/"
+>Blackbox @ alug.org</ulink
+> za nadaljnje informacije. Morda se vam bo zdela uporabna tudi stran <ulink url="http://www.draknor.net/kbb/"
+>KBB - getting <application
+>Blackbox</application
+> to work with &kde;</ulink
+>.</para>
+<para
+>Da uporabite <application
+>Blackbox</application
+> s &kde;, morate naložiti datoteke tar z izvorno kodo, jih odpakirati, vstopiti v na novo ustvarjene imenike in pognati <command
+>./configure <option
+>--with-kde</option
+> ; make ; su -c 'make install'</command
+> (<option
+>--with-kde</option
+> omogoča podporo &kde;).</para>
+<para
+>Sedaj uredite skript <filename
+>startkde</filename
+> kot je opisano zgoraj, da pokličete <command
+>blackbox</command
+>. Shranite novi skript kot na primer <filename
+>$<envar
+>KDEDIR</envar
+>/bin/startbb</filename
+> in spremenite spodnjo vrstico v zagonski datoteki X, tako da požene novo datoteko namesto stare. Poženite &X-Windows; in že lahko odjadrate...</para>
+<para
+>&windowmaker; je X11 okenski upravljalnik, zasnovan, da nudi dodatno podporo programom <ulink url="http://www.gnustep.org/"
+>GNUstep</ulink
+>. Poskuša emulirati eleganten videz in občutek &NeXTSTEP; &GUI;. Je relativno hiter, nudi kup zmožnosti in je preprost za nastavljanje in uporabo. &windowmaker; je postal ustrezen &kde; z izdajo 0.50.0. Za več informacij prosim obiščite <ulink url="http://www.windowmaker.org/"
+>Official Window Maker Website</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako spremenim zagonski logo &RedHat; &Linux;?</para>
+</question>
+<answer>
+<para
+>&RedHat; uporablja <application
+>xbanner</application
+>, da prikaže svoj logo, tako da ga onemogočite, če zakomentirate vrstico, ki kliče <application
+>xbanner</application
+> in sicer v nastavitveni datoteki, ki jo prebere <application
+>xdm</application
+>, to je v <filename
+>/etc/X11/xdm/Xsetup_0</filename
+> (pot se morda lahko razlikuje). Če želite, da tam teče nekaj drugega, to vnesite tja, na primer <command
+><replaceable
+>/opt/kde</replaceable
+>/bin/kdmdesktop</command
+>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+
+<para
+>Rad bi kliknil na &LGM; kjerkoli na namizju in bi se mi prikazal menu <guimenu
+>K</guimenu
+>.</para>
+</question>
+<answer>
+<variablelist
+> <varlistentry
+><term
+>&kde; 1.x</term
+> <listitem
+><para
+>Najprej uredite <filename
+>$<envar
+>HOME</envar
+>/.kde/share/config/krootwmrc</filename
+> in dodajte naslednji dve vrstici:</para
+> <screen>
+[MouseButtons]
+Left=Menu
+</screen
+> <para
+>Nato ponovno poženite &kde;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>&kde; 2</term
+> <listitem
+><para
+>Odprite <application
+>Nadzorno središče &kde;</application
+> in izberite <menuchoice
+><guisubmenu
+>Look and Feel</guisubmenu
+><guisubmenu
+>Desktop</guisubmenu
+> <guisubmenu
+>General</guisubmenu
+></menuchoice
+>. Sedaj lahko izberete obnašanje klikov miške na namizju. Da se ob enem samem kliku &LGM; odpre menu <guimenu
+>K</guimenu
+> spremenite vnos označen z <guilabel
+>Left button</guilabel
+> v recimo <guilabel
+>Application Menu</guilabel
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako lahko v &kde; uporabim dodatne tipke na moji &Windows; tipkovnici?</para>
+</question>
+<answer>
+<para
+>Morda boste morali prilagoditi strežnik X preko <command
+>xmodmap</command
+>, da povežete kode &Windows; tipk z uporabnimi simboli tipk X (<command
+>xev</command
+> je vaš prijatelj!).</para>
+<para
+>Najprej ustvarite datoteko <filename
+>$<envar
+>HOME</envar
+>/.Xmodmap</filename
+>, ki vsebuje vnosa:</para>
+<screen>
+keycode 115=F13
+keycode 117=F15
+</screen>
+<para
+>Nato poženite <command
+>xmodmap ~/.Xmodmap</command
+>. To postavi tipko <keycap
+>Start</keycap
+>, da oponaša <keysym
+>F13</keysym
+> in tipko <keycap
+>Windows</keycap
+> da oponaša <keysym
+>F15</keysym
+>. Nato poženite <application
+>Nadzorno središče &kde;</application
+> in izberite <menuchoice
+><guimenu
+>Shortcut Keys</guimenu
+><guimenuitem
+>Global Shortcut</guimenuitem
+></menuchoice
+>. Postavite <guilabel
+>Pop-up system menu</guilabel
+> na <keysym
+>F13</keysym
+> in <guilabel
+>Window operations menu</guilabel
+> na <keysym
+>F15</keysym
+>. To je to. <note
+><para
+>Številki 115 in 117 sta morda odvisni od tipkovnice. Če niste prepričani, prosim preverite z uporabo <command
+>xev</command
+>. Poleg tega gornji postopek zahteva &kde; 1.1 in novejši.</para
+> <para
+>&kikbd; je v stanju opraviti to, vendar pa je treba uredit mapo tipk. Prednost &kikbd; je vtem, da lahko izberete, ali uporabite te preslikave na več tipkovnicah in jih naredite "hotswappable".</para
+> <para
+>Bilo bi zanimivo narediti majhen skript, ki bo samodejno opravil preslikavo tipk (keymap) na zahtevo. &kikbd; bi moral biti v stanju prebrati/razumeti datoteke uporabnikovih preslikav tipk.</para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Po nastavitvi &kde; izgine &RedHat;ov startni menu!</para>
+</question>
+<answer>
+<para
+>Pognati morate le <command
+>wmconfig <option
+>--output kde</option
+></command
+>. To bo vstavilo &RedHat;-specifične ikone v vaš &kde; menu. Če to poženete znotraj &kde;, boste morali ponovno pognati vaš pult. Privzeto so nameščene v imenik <filename class="directory"
+>applnk</filename
+>, vendar pa jih lahko z &kmenuedit; prepišete in prilepite kjerkoli želite.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kje najdem podatke, ki se nanašajo na &kde; teme?</para>
+</question>
+<answer>
+<para
+>Oglejte si <ulink url="http://kde.themes.org/"
+>http://kde.themes.org/</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako spremenim zvrsti &MIME;?</para>
+</question>
+<answer>
+<para
+>Če uporabljate &kfm;, potem najprej odprite okno &kfm; in izberite <menuchoice
+><guimenu
+>Edit</guimenu
+><guimenuitem
+>Mime Types</guimenuitem
+></menuchoice
+>. Najdite zvrst, ki jo želite spremeniti (<abbrev
+>npr.</abbrev
+> text/english ali image/gif), kliknite &DGM;, izberite <guimenuitem
+>Properties</guimenuitem
+>, vez <guilabel
+>Binding</guilabel
+> in postavite Default Application na karkoli želite.</para>
+<para
+>Če uporabljate &konqueror;, pa je postopek nekoliko drugačen: najprej odprite &konqueror;jevo okno in izberite <menuchoice
+><guimenu
+>Edit</guimenu
+><guimenuitem
+>File Type</guimenuitem
+></menuchoice
+>. Poiščite zvrst, ki jo želite spremeniti (<abbrev
+>npr.</abbrev
+> text/english ali image/gif), kliknite z &DGM;, izberite <guilabel
+>General</guilabel
+> in postavite vrstni red programov kakor želite.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kde; (&kdm;) ne prebere mojega <filename
+>.bash_profile</filename
+>!</para>
+</question>
+<answer>
+<para
+>No, <application
+>xdm</application
+> (in &kdm;) ne poganjata prijavne lupine, tako da <filename
+>.profile</filename
+>, <filename
+>.bash_profile</filename
+>, <abbrev
+>itd.</abbrev
+> niso pregledani. Ko se uporabnik prijavi, <application
+>xdm</application
+> kot root požene <command
+>Xstartup</command
+> in nato <command
+>Xsession</command
+> kot uporabnik. Tako je običajen postopek dodajanje stavkov v <filename
+>Xsession</filename
+>, da se vaš profil izvede. Prosim uredite vaši datoteki <filename
+>Xsession</filename
+> in <filename
+>.xsession</filename
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako lahko v &kde; uporabim pisave &TrueType;?</para>
+</question>
+<answer>
+<para
+>Namestiti morate podporo za pisave &TrueType; v &X-Windows;. Pisave iščite na strani <ulink url="http://x.themes.org/"
+>x.themes.org</ulink
+>, več o strežnikih za pisave pa najdete na strani <ulink url="http://www.dcs.ed.ac.uk/home/jec/programs/xfsft/"
+>xfsft: Podpora pisavam &TrueType; v X11</ulink
+> ali <ulink url="http://X-TT.dsl.gr.jp/"
+>domači strani projekta strežnika X-&TrueType;</ulink
+>.</para>
+<para
+>Če imate kup pisav &TrueType; iz &Microsoft; &Windows; uredite <filename
+>XF86Config</filename
+> datoteko, da dobite pisave iz ustreznega imenika. Nato povejte &kde;, da naj uporabi te nove pisave, s pomočjo pripomočka za nadzor pisav.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Je v &kde; možno vnesti, prikazati in delati s simbolom za Evro?</para>
+</question>
+<answer>
+<para
+>Da in ne. Podrobnosti najdete tu: <ulink url="http://monitor.blvk.ch/euro/"
+>http://monitor.blvk.ch/euro/</ulink
+>.</para>
+<!-- todo: maybe also/instead link http://www.koffice.org/kword/euro.phtml -->
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

@@ -1,0 +1,171 @@
+<sect1 id="sambastatus">
+<sect1info>
+
+<authorgroup><author><firstname>Alexander</firstname><surname>Neundorf</surname></author></authorgroup> 
+
+<date>04/06/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KControl</keyword>
+<keyword>Samba</keyword>
+<keyword>rendszerinform&aacute;ci&oacute;</keyword>
+</keywordset>
+</sect1info>
+<title>A Samba &aacute;llapotjellemz&odblac;i</title>
+
+<para>A Samba &eacute;s NFS &aacute;llapotjelz&odblac; egy grafikus fel&uuml;let a parancssoros
+<emphasis>smbstatus</emphasis> &eacute;s <emphasis>showmount</emphasis> programokhoz.  Az smbstatus
+az aktu&aacute;lis Samba kapcsolatokat list&aacute;zza ki, a Samba eszk&ouml;zcsomag r&eacute;sze, mely az
+<abbrev>SMB</abbrev> (Session Message Block) protokoll haszn&aacute;lat&aacute;ra &eacute;p&uuml;l. Az SMB-t gyakran
+NetBIOS-nak vagy LanManager protokollnak is nevezik.</para>
+
+<para>Az SMB protokoll megosztott h&aacute;l&oacute;zati nyomtat&oacute;k &eacute;s 
+k&ouml;nyvt&aacute;rak haszn&aacute;lat&aacute;t teszi lehet&odblac;v&eacute;. Nagy el&odblac;nye, hogy a Microsoft Windows
+legt&ouml;bb v&aacute;ltozata is tudja haszn&aacute;lni.</para>
+
+<para>A showmount az <abbrev>NFS</abbrev> szoftvercsomag r&eacute;sze.
+Az <abbrev>NFS</abbrev> a Network File System kifejez&eacute;s r&ouml;vid&iacute;t&eacute;se, 
+ez a hagyom&aacute;nyos Unix elj&aacute;r&aacute;s h&aacute;l&oacute;zaton megosztott k&ouml;nyvt&aacute;rak haszn&aacute;lat&aacute;ra. Ez a program
+l&eacute;nyeg&eacute;ben a <command> showmount <option>-a localhost</option></command> parancs kimenet&eacute;t
+dolgozza fel. N&eacute;h&aacute;ny rendszerben a showmount a <abbrev>/usr/sbin</abbrev> k&ouml;nyvt&aacute;rban tal&aacute;lhat&oacute;, ellen&odblac;rizze,
+hogy a k&ouml;nyvt&aacute;r szerepel-e a <envar>PATH</envar> k&ouml;rnyezeti v&aacute;ltoz&oacute;ban.</para>
+
+<sect2 id="smb-exports">
+<title>Exportok</title>
+
+<para>Ezen az oldalon egy lista tal&aacute;lhat&oacute;, mely tartalmazza az &ouml;sszes, ezen a g&eacute;pen
+l&eacute;trehozott Samba &eacute;s <abbrev>NFS</abbrev> kapcsolatot.
+Ez els&odblac; oszlop azt mutatja, hogy Samba (<abbrev>SMB</abbrev>) megoszt&aacute;sr&oacute;l vagy
+<abbrev>NFS</abbrev> kapcsolatr&oacute;l van-e sz&oacute;. A m&aacute;sodik oszlopban a megoszt&aacute;s neve
+l&aacute;tszik, a harmadikban a t&aacute;voli g&eacute;p neve, amelyik a megoszt&aacute;st tartalmazza. A t&ouml;bbi
+oszlop csak Samba megoszt&aacute;s eset&eacute;n tartalmaz adatot.</para>
+
+<para>A negyedik oszlopban a Samba megoszt&aacute;s el&eacute;r&eacute;s&eacute;hez haszn&aacute;lt felhaszn&aacute;l&oacute;n&eacute;v
+l&aacute;that&oacute;. Ez &aacute;ltal&aacute;ban nem egyezik meg azzal a n&eacute;vvel, amelyet a Unix-ba bel&eacute;p&eacute;shez 
+ad meg a felhaszn&aacute;l&oacute;. Ugyanez igaz az &ouml;t&ouml;dik oszlopra is, mely a felhaszn&aacute;l&oacute; csoportazonos&iacute;t&oacute;j&aacute;t
+tartalmazza.</para>
+
+<para>Az &Ouml;n g&eacute;p&eacute;n l&eacute;trehozott megoszt&aacute;sokhoz t&ouml;rt&eacute;n&odblac; minden csatlakoz&aacute;s eset&eacute;n elindul egy &uacute;j folyamat
+(<application>smbd</application>), a k&ouml;vetkez&odblac; szlopban ennek a folyamatnak az azonos&iacute;t&oacute;ja
+(<abbrev>pid</abbrev>) l&aacute;tszik. Ha bez&aacute;rja ezt a folyamatot, akkor v&eacute;get &eacute;r a kapcsolat
+a felhaszn&aacute;l&oacute;val. Ha a t&aacute;voli g&eacute;pen Windows fut, akkor a folyamat bez&aacute;r&aacute;sa ut&aacute;n
+automatikusan l&eacute;trej&ouml;n egy &uacute;j, ez&eacute;rt a felhaszn&aacute;l&oacute; valasz&iacute;n&udblac;leg &eacute;szre sem vesz
+semmit.</para>
+
+<para>Az utols&oacute; oszlopban az l&aacute;tszik, hogy a felhaszn&aacute;l&oacute; h&aacute;ny f&aacute;jlt tart nyitva.  Ez csak
+a pillanatnyilag <emphasis>megnyitott</emphasis> f&aacute;jlok sz&aacute;m&aacute;t tartalmazza, teh&aacute;t azt nem,
+hogy kor&aacute;bban milyen f&aacute;jlokat nyitott meg, h&aacute;ny f&aacute;jlt m&aacute;solt <abbrev>stb.</abbrev></para>
+</sect2>
+
+<sect2 id="smb-imports">
+<title>Importok</title><para> Itt l&aacute;that&oacute;k azok a t&aacute;voli Samba &eacute;s
+<abbrev>NFS</abbrev> megoszt&aacute;sok, amelyekhez csatlakoztatva van a
+helyi g&eacute;p. Az els&odblac; oszlop azt mutatja, hogy Samba vagy
+<abbrev>NFS</abbrev> megoszt&aacute;sr&oacute;l van-e sz&oacute;, a m&aacute;sodik oszlopban a megoszt&aacute;s neve l&aacute;tszik,
+a harmadik oszlopban a csatlakoztat&aacute;s (mount) k&ouml;nyvt&aacute;r&aacute;nak neve.</para>
+
+<para>Samba megoszt&aacute;sokhoz jelenleg csak Linux-b&oacute;l lehet csatlakozni, ez&eacute;rt m&aacute;s oper&aacute;ci&oacute;s
+rendszerekb&odblac;l ilyen megoszt&aacute;sok nem l&aacute;that&oacute;k. A csatlakoztatott <abbrev>NFS</abbrev> megoszt&aacute;sok l&aacute;tszanak Linux
+(ezt tesztelt&uuml;k) &eacute;s Solaris alatt is (ez ut&oacute;bbit nem tesztelt&uuml;k
+r&eacute;szletesen).</para>
+
+</sect2>
+
+<sect2 id="smb-log"> 
+<title>Napl&oacute;z&aacute;s</title> 
+
+<para>Ezen az oldalon a helyi Samba napl&oacute;f&aacute;jl tekinthet&odblac; meg.
+A lap megnyit&aacute;sakor a lista mindig &uuml;res, meg kell nyomni a 
+<guibutton>Friss&iacute;t&eacute;s</guibutton> gombot, hogy a napl&oacute;f&aacute;jl bet&ouml;lt&odblac;dj&ouml;n &eacute;s megjelenjen
+a list&aacute;ban. Ellen&odblac;rizze, hogy a Samba napl&oacute;f&aacute;jl val&oacute;ban abban a k&ouml;nyvt&aacute;rban tal&aacute;lhat&oacute;-e,
+mint amit a beviteli sor mutat. Ha valamelyik m&aacute;s k&ouml;nyvt&aacute;rban tal&aacute;lhat&oacute; vagy
+m&aacute;s a neve, jav&iacute;tsa ki. A f&aacute;jln&eacute;v jav&iacute;t&aacute;sa ut&aacute;n nyomja meg &uacute;jb&oacute;l a
+<guibutton>Friss&iacute;t&eacute;s</guibutton> gombot.</para>
+
+<para>A Samba napl&oacute;z&aacute;si szintje befoly&aacute;solja, hogy mi ker&uuml;l a napl&oacute;f&aacute;jlba (l&aacute;sd az
+<filename>smb.conf</filename> f&aacute;jlt).  Ha a napl&oacute;z&aacute;si szint 1, a Samba csak a csatlakoz&aacute;sokat &eacute;s
+a csatlakoz&aacute;sok bont&aacute;s&aacute;t napl&oacute;zza. Ha a napl&oacute;z&aacute;si szint 2, 
+a f&aacute;jlok megnyit&aacute;sa &eacute;s bez&aacute;r&aacute;sa is napl&oacute;zand&oacute; esem&eacute;ny.  Ha a napl&oacute;z&aacute;si szint nagyobb, mint
+2, akkor tov&aacute;bbi esem&eacute;nyek is beker&uuml;lnek a napl&oacute;ba.</para>
+
+<para>Ha nyomon akarja k&ouml;vetni, hogy ki csatlakozik a megoszt&aacute;saihoz &eacute;s milyen f&aacute;jlokat nyit meg,
+&eacute;rdemes a napl&oacute;z&aacute;si szintet legal&aacute;bb 2-re &aacute;ll&iacute;tani &eacute;s rendszeresen &uacute;j napl&oacute;f&aacute;jlt
+nyitni (pl. hozzon l&eacute;tre egy <application>cron</application> feladatot, mely hetente egyszer
+&aacute;tmozgatja a napl&oacute;f&aacute;jlt egy m&aacute;sik k&ouml;nyvt&aacute;rba).
+M&aacute;sk&uuml;l&ouml;nben a napl&oacute;f&aacute;jl t&uacute;l nagyra n&odblac;het.</para>
+
+<para>A lista alatt l&aacute;that&oacute; n&eacute;gy jel&ouml;l&odblac;n&eacute;gyzet seg&iacute;ts&eacute;g&eacute;vel lehet eld&ouml;nteni, hogy
+milyen esem&eacute;nyek jelenjenek meg a list&aacute;ban. Meg kell nyomni a <guibutton>Friss&iacute;t&eacute;s</guibutton>
+gombot a m&oacute;dos&iacute;t&aacute;sok &eacute;rv&eacute;nyes&iacute;t&eacute;s&eacute;hez.  Ha a napl&oacute;z&aacute;si szint t&uacute;l alacsonyra van &aacute;ll&iacute;tva, akkor
+kev&eacute;s inform&aacute;ci&oacute; fog l&aacute;tszani.</para>
+
+<para>Egy oszlop fejl&eacute;c&eacute;re kattintva lehet a list&aacute;t az oszlop &eacute;rt&eacute;ke szerint n&ouml;vekv&odblac; sorrendbe
+rendezni.</para>
+
+</sect2>
+
+
+<sect2 id="smb-statistics">
+<title>Statisztika</title>
+
+<para>Ezen az oldalon lehet a harmadik oldal tartalmi sz&udblac;r&eacute;s&eacute;nek egy r&eacute;sz&eacute;t
+elv&eacute;gezni.</para>
+
+<para>T&eacute;telezz&uuml;k fel, hogy az "<guilabel>Esem&eacute;ny</guilabel>" mez&odblac; (nem a listabeli)
+&eacute;rt&eacute;ke <emphasis>Csatlakoz&aacute;s</emphasis>, a "<guilabel>Szolg&aacute;ltat&aacute;s/f&aacute;jl</guilabel>"
+mez&odblac; &eacute;rt&eacute;ke *, "<guilabel>G&eacute;pn&eacute;v/felhaszn&aacute;l&oacute;n&eacute;v</guilabel>" mez&odblac; &eacute;rt&eacute;ke *, a "<guilabel>Kiterjesztett
+szolg&aacute;ltat&aacute;sinform&aacute;ci&oacute; mutat&aacute;sa</guilabel>" mez&odblac; &eacute;s a "<guilabel>Kiterjesztett
+kiszolg&aacute;l&oacute;inform&aacute;ci&oacute;</guilabel>" mez&odblac; le van tiltva.</para>
+
+<para>Ha ekkor megnyomja a <guibutton>Friss&iacute;t&eacute;s</guibutton> gombot, az fog l&aacute;tszani, hogy
+mikor kapcsol&oacute;dtak a * (azaz b&aacute;rmely) megoszt&aacute;shoz a * g&eacute;pr&odblac;l
+(azaz b&aacute;rmely g&eacute;pr&odblac;l).  Ha most bekapcsolja a "<guilabel>Kiterjesztett
+kiszolg&aacute;l&oacute;inform&aacute;ci&oacute;</guilabel>" mez&odblac;t &eacute;s megnyomja a <guibutton>Friss&iacute;t&eacute;s</guibutton> gombot &uacute;jb&oacute;l, akkor
+minden g&eacute;pn&eacute;v mellett l&aacute;tszani fog, hogy az a g&eacute;p h&aacute;ny kapcsolatot
+nyitott meg.</para>
+
+<para>Most nyomja meg a <guibutton>T&ouml;rl&eacute;s</guibutton> gombot.</para>
+
+<para>Most &aacute;ll&iacute;tsa az "<guilabel>Esem&eacute;ny</guilabel>" mez&odblac; &eacute;rt&eacute;k&eacute;t f&aacute;jlhozz&aacute;f&eacute;r&eacute;sre &eacute;s enged&eacute;lyezze a
+"<guilabel>Kiterjesztett szolg&aacute;ltat&aacute;sinform&aacute;ci&oacute; mutat&aacute;sa</guilabel>" mez&odblac;t, majd nyomja
+meg a <guibutton>Friss&iacute;t&eacute;s</guibutton> gombot &uacute;jb&oacute;l.</para>
+
+<para>Most napl&oacute;bejegyz&eacute;s fog k&eacute;sz&uuml;lni minden f&aacute;jlmegnyit&aacute;sr&oacute;l. Ha bekapcsolja a
+"<guilabel>Kiterjesztett kiszolg&aacute;l&oacute;inform&aacute;ci&oacute; mutat&aacute;sa</guilabel>" opci&oacute;t, azt is l&aacute;tni fogja, hogy melyik
+felhaszn&aacute;l&oacute; melyik f&aacute;jlt nyitotta meg.</para>
+
+<para>A "<guilabel>Szolg&aacute;ltat&aacute;s/f&aacute;jl</guilabel>" mez&odblac;ben &eacute;s a
+"<guilabel>G&eacute;pn&eacute;v/felhaszn&aacute;l&oacute;n&eacute;v</guilabel>" mez&odblac;ben haszn&aacute;lhatja a * &eacute;s ? helyettes&iacute;t&odblac;karaktereket
+is, ugyan&uacute;gy, mint a parancssorban.  Regul&aacute;ris kifejez&eacute;st nem lehet
+haszn&aacute;lni.</para>
+
+<para>Egy oszlop fejl&eacute;c&eacute;re kattintva a list&aacute;t az oszlop tartalma szerint n&ouml;vekv&odblac; sorrendbe
+lehet rendezni.  &Iacute;gy k&ouml;nnyen meg lehet tal&aacute;lni p&eacute;ld&aacute;ul a leggyakrabban megnyitott f&aacute;jl nev&eacute;t vagy
+hogy melyik felhaszn&aacute;l&oacute; nyitotta meg a legt&ouml;bb f&aacute;jlt.</para>
+
+</sect2>
+
+
+<sect2 id="smb-stat-author">
+<title>A szekci&oacute; szerz&odblac;je</title>
+<para>Copyright Michael Glauche, 2000. 
+ &eacute;s A. Neundorf <email>alexander.neundorf@rz.tu-ilmenau.de</email></para>
+<para>Az eredeti verzi&oacute; szerz&odblac;je: Michael Glauche</para>
+<para>A jelenlegi karbantart&oacute;: A. Neundorf <email>alexander.neundorf@rz.tu-ilmenau.de</email></para>
+<para>Hozz&aacute;j&aacute;rultak m&eacute;g:
+<itemizedlist>
+<listitem><para>Illeszt&eacute;s a kcontrol kisalkalmaz&aacute;shoz:</para>
+<para>Matthias Hoelzer <email>hoelzer@physik.uni-wurzburg.de</email></para></listitem>
+<listitem><para>A KProcess haszn&aacute;lata popen helyett &eacute;s tov&aacute;bbi jav&iacute;t&aacute;sok:</para>
+<para>David Faure <email>David.Faure@insa-lyon.fr</email></para></listitem>
+<listitem><para>Konverzi&oacute; a kcmodule-hoz, a 2., 3. &eacute;s 4. lap hozz&aacute;ad&aacute;sa, jav&iacute;t&aacute;sok:</para>
+<para>Alexander Neundorf <email>alexander.neundorf@rz.tu-ilmenau.de</email></para></listitem>
+</itemizedlist></para>
+
+<para>A dokument&aacute;ci&oacute;: Copyright Alexander Neundorf <email>alexander.neundorf@rz.tu-ilmenau.de</email>, 2000.</para>
+<para>A dokument&aacute;ci&oacute; konvert&aacute;l&aacute;sa docbook form&aacute;tum&uacute;ra: Mike McBride <email>mmcbride@ematic.com</email></para>
+
+</sect2>
+</sect1>

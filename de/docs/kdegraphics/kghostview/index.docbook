@@ -1,0 +1,1249 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kghostview;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE"
+><!-- change language only here -->
+]>
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &kghostview;-Handbuch</title>
+<authorgroup>
+<author
+> <firstname
+>Pamela</firstname
+> <surname
+>Roberts</surname
+> <affiliation
+> <address
+><email
+>pam.roberts@btinternet.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Robert</firstname
+><surname
+>Gogolok</surname
+> <affiliation
+><address
+><email
+>robertgogolok@gmx.de</email
+></address
+></affiliation
+> <contrib
+>Übersetzung des Handbuchs</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Stefan</firstname
+><surname
+>Winter</surname
+> <affiliation
+><address
+><email
+>mail@stefan-winter.de</email
+></address
+></affiliation
+> <contrib
+>Übersetzung der Programmoberfläche</contrib
+></othercredit>
+</authorgroup>
+
+
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Pamela Roberts</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2001-07-07</date>
+<releaseinfo
+>0.12.00</releaseinfo>
+
+<abstract>
+<para
+>Dieses Dokument beschreibt &kghostview; in der Version 0.12.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>linux</keyword>
+<keyword
+>kghostview</keyword>
+<keyword
+>ghostview</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Einführung</title>
+
+<para
+> &kghostview; zeigt und druckt &PostScript;- (<literal role="extension"
+>.ps</literal
+>, <literal role="extension"
+>.eps</literal
+>) und Portable Document Format-(<literal role="extension"
+>.pdf</literal
+>) Dateien. Es ist eine Oberfläche zu Tim Theisens <application
+>Ghostview</application
+>-Programm, welches genutzt wird, um Dokumente zu betrachten, die in der&PostScript;-Seitenbeschreibungssprache von <trademark
+>Adobe</trademark
+> formatiert sind. &PostScript; ist die verbreitetste Seitenbeschreibungssprache zum Drucken auf &UNIX;-Rechnern und diese Anwendung wird genutzt, um Material, das zum Drucken oder Lesen von Online-Dokumenten gedacht ist, in einer Voransicht zu betrachten. </para>
+
+<para
+> Sie können &kghostview; mit allen kürzlich erschienenen Versionen von <application
+>GhostScript</application
+> benutzen. Neuere Versionen bieten eine verbesserte Effizienz, von der Sie mit &kghostview;.profitieren können. </para>
+
+<para
+> Wenn ein Dokument nicht der <trademark class="registered"
+>Adobe</trademark
+> Document Structuring Convention folgt, ist die Funktionalität des Programms eingeschränkt. Wenn es z.B. kein Inhaltsverzeichnis gibt, ist die Navigation innerhalb des Dokuments und die Markierung von Seiten nicht möglich. </para>
+
+</chapter>
+
+
+<chapter id="fundamentals">
+<title
+>Grundlagen</title>
+
+<para
+> Dieser Abschnitt beschreibt, was Sie im &kghostview;-Fenster sehen, welche Aktionen die Symbole der Werkzeugleiste auslösen und wie man die Seitenliste benutzt. </para>
+
+<para
+> Sie können mehrere Instanzen von &kghostview; öffnen, um mehrere Dokumente zu betrachten. Die Titelleiste des Fensters zeigt Ihnen den Namen des Dokuments in diesem Fenster an. </para>
+
+<para
+> Beachten Sie bitte, dass die Werkzeugleiste und das Textfeld, das Ihnen beim Navigieren durch ein Dokument hilft, mit den Optionen im<link linkend="settings"
+>Einstellungen</link
+>-Menü versteckt werden können, um mehr Platz auf dem Bildschirm für den Inhalt des Dokuments zu verschaffen. </para>
+
+<para
+> Die größte Fläche zeigt das aktuelle Dokument. Wenn die Seite zu groß ist, um in das Fenster zu passen, so werden automatisch Bildaufleisten an die Seiten des Dokuments hinzugefügt. Dies kann auch im <guimenu
+>Einstellungen</guimenu
+>-Menü deaktiviert werden. </para>
+
+<para
+> Sie können sich auch in einer Seite hinauf- und hinunterbewegen mit den Tasten <keysym
+>Pfeil nach oben</keysym
+> und <keysym
+>Pfeil nach unten</keysym
+>.</para
+> <para
+>Die Symbole <guibutton
+>Nächste Seite</guibutton
+> und <guibutton
+>Vorige Seite</guibutton
+> aus der Werkzeugleiste tun das, was ihr Name schon sagt. Sie können auch direkt zu einer Seite gehen, indem Sie mit der linken Maustaste auf das entsprechende Element in der Seitenliste klicken. </para>
+
+<para
+> Wenn die Seite zu lang ist und nicht komplett in einem Fenster angezeigt werden kann, so können die beiden Knöpfe <guibutton
+>Dokument weiterlesen</guibutton
+> benutzt werden, um sich durch das gesamte Dokument zu bewegen. </para>
+
+<para
+> Die Namen der Seiten werden auf der linken Seite des Fensters angezeigt, falls Sie dies im <guimenu
+>Einstellungen</guimenu
+>-Menü so gewählt haben.Diese Liste zeigt zwei Spalten: die erste kann eine Flagge enthalten, die darauf hinweist, dass diese Seite markiert wurde, die zweite Spalte zeigt die Seitenzahlen an. Sie können diese Seitenliste benutzen, um durch das Dokument zu navigieren oder um Seiten zum Drucken zu markieren. </para>
+
+<para
+> Sie können eine Markierung für die aktuelle Seite setzen mit.<keycombo action="simul"
+> <keycap
+>Strg</keycap
+><keycap
+>M</keycap
+></keycombo
+> oder auch für eine beliebige Seite, indem Sie mit der rechten Maustaste auf die entsprechende Zahl in der Seitenliste klicken. Sie können auch Ihre Seitenmarkierungen entfernen oder ändern, indem Sie mit der rechten Maustaste im Seitenlisten-Bereich klicken (woraufhin ein Menü erscheint) oder durch das Auswählen aus dem <link linkend="pagemarks"
+>Seitenmarkierungen</link
+>-Menü. </para>
+
+</chapter>
+
+<chapter id="primary-menu-items">
+<title
+>Die Menüleiste</title>
+
+<sect1 id="menufile">
+<title
+>Das <guimenu
+>Datei</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Strg; <keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>Ö</accel
+>ffnen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet</action
+> eine Datei. Wenn bereits eine Datei angezeigt wird, so wird sie geschlossen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Zu<accel
+>l</accel
+>etzt geöffnete Dateien</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet</action
+> eine Datei, die aus einer Liste kürzlich geöffneter Dateien ausgewählt werden kann. Wenn bereits eine Datei angezeigt wird, so wird sie geschlossen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Speichern <accel
+>u</accel
+>nter...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Speichert</action
+> die gegenwärtig geöffnete Datei</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Strg; <keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>rucken...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Druckt</action
+> das zu diesem Zeitpunkt  angezeigte Dokument. Der Druckdialog lässt Sie wahlweise alle Seiten oder ausgewählte (markierte) Seiten ausdrucken.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Dokument-<accel
+>I</accel
+>nfo...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt</action
+> allgemeine Informationen über Ihr Dokument an</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Strg; <keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Beendet</action
+> &kghostview;</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="view">
+<title
+>Das <guimenu
+>Ansicht</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Anzeige <accel
+>a</accel
+>uffrischen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeichnet erneut</action
+> die aktuelle Seite Ihres Dokuments</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Auf Seiten<accel
+>b</accel
+>reite einstellen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Skaliert</action
+> die Anzeige so, dass die Seitenbreite sich an die Dokumentenbreite anpasst, so dass das Hauptfenster in der Breite verkleinert wird.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>usrichtung</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Ändert die Ausrichtung</action
+> der angezeigten Seite. Sie können wählen zwischen <guimenuitem
+>Auto</guimenuitem
+>, <guimenuitem
+>Hochformat</guimenuitem
+>, <guimenuitem
+>Querformat</guimenuitem
+>, <guimenuitem
+>Umgekehrt</guimenuitem
+> and <guimenuitem
+>Umgekehrt quer</guimenuitem
+>, was dasselbe wie <guimenuitem
+>Querformat</guimenuitem
+> ist, aber in anderer Richtung.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Papier<accel
+>g</accel
+>röße</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Lässt Sie das Dokument so sehen, wie es auf einer bestimmten <action
+>Papiergröße</action
+> ausgedruckt werden würde, ohne die Skalierung zu ändern. Sie sollten normalerweise <guimenuitem
+>Auto</guimenuitem
+> auswählen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Strg; &Shift;<keycap
+>+</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Ver<accel
+>g</accel
+>rößern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Erhöht den Vergrößerungsfaktor</action
+> der Dokumentenansicht</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Strg; <keycap
+>-</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Ver<accel
+>k</accel
+>leinern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Verringert den Vergrößerungsfaktor</action
+> der Dokumentenansicht</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Bild aufwärts</keycap
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>V<accel
+>o</accel
+>rige Seite</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Geht <action
+>eine Seite zurück</action
+> im Dokument</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Bild abwärts Down</keycap
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ächste Seite</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Geht eine <action
+>Seite weiter</action
+> im Dokument</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Strg; <keycap
+>Pos1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Zum Anfang</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Geht <action
+>zum Anfang</action
+> des Dokuments</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Strg; <keycap
+>Ende</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Zum Ende</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Geht <action
+>zum Ende</action
+> des Dokuments</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+> <keycap
+>Leertaste</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+>Dokument weiterlesen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Bewegt rückwärts</action
+> durch das Dokument</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>nsicht</guimenu
+> <guimenuitem
+><accel
+>Gehe zu </accel
+>Seite...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Geht zu</action
+> der eingegebenen Seite</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="pagemarks">
+<title
+>Das <guimenu
+>Seitenmarkierungen</guimenu
+>-Menü</title>
+
+<note
+> <para
+> Sie erreichen dieses Menü auch, indem Sie irgendwo in der Seiteliste mit der rechten Maustaste klicken. </para
+> </note>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Strg; <keycap
+>M</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>eitenmarkierungen</guimenu
+> <guimenuitem
+>Diese Seite markieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Markiert die aktuelle Seite</action
+> mit einem Fähnchen</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>eitenmarkierungen</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>lle Seiten markieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Markiert alle Seiten mit Fähnchen</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>eitenmarkierungen</guimenu
+> <guimenuitem
+><accel
+>G</accel
+>erade Seiten markieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Markiert alle graden Seiten mit Fähnchen</action
+>. Benutzt man dies in Verbindung mit <guimenuitem
+>Ungerade Seiten markieren</guimenuitem
+> oder <guimenuitem
+>Seitenmarkierungen an/aus</guimenuitem
+>, so ist dies ein geeigneter Weg, um ein Dokument beidseitig zu drucken, wenn man nur einen Drucker zur Verfügung hat, der einseitig druckt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>eitenmarkierungen</guimenu
+> <guimenuitem
+><accel
+>U</accel
+>ngerade Seiten markieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Markiert alle ungeraden Seiten mit Fähnchen</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>eitenmarkierungen</guimenu
+> <guimenuitem
+>Seitenmarkierungen <accel
+>a</accel
+>n/aus</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Seitenmarkierungen an oder aus</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>S</accel
+>eitenmarkierungen</guimenu
+> <guimenuitem
+>Markierungen <accel
+>l</accel
+>öschen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Löscht die Markierung mit der Flagge</action
+> für alle Seiten des Dokuments</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings">
+<title
+>Das <guimenu
+>Einstellungen</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Werk<accel
+>z</accel
+>eugleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Werkzeugleiste an oder aus</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>tatusleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Statusleiste an oder aus</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>ildaufleisten anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die horizontalen und vertikalen Bildaufleisten an oder aus</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Datei über<accel
+>w</accel
+>achen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Wenn dies ausgewählt wurde, so wird die Anzeige <action
+>automatisch erneuert</action
+> , sobald sich die Dokumentendatei ändert.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>amen der Seiten anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Seitenliste an oder aus</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Namen der Seiten anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Wenn dies ausgewählt ist, wird der <action
+>Name (falls vorhanden) der aktuellen Seite in der Statusleiste angezeigt.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>&kghostview;<accel
+>e</accel
+>inrichten...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet den &kghostview;-<link linkend="config-dialog"
+><action
+>Einrichtungsdialog</action
+></link
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+>Das <guimenu
+>Hilfe</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>I<accel
+>n</accel
+>halt</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt dieses Handbuch an</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie Probleme oder Wünsche...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Benutzen Sie dies, <action
+>um Fehler in &kghostview; zu berichten</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+><accel
+>Ü</accel
+>ber &kghostview;</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Benutzen Sie dies, <action
+>um die Versionsnummer von &kghostview; zu sehen, aber auch um kurz gefasste Informationen über den Programmautor, das Copyright und die Lizenzbestimmungen zu erhalten.</action
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Über <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Zeigt eine <action
+>kurz gefasste Information über KDE an</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="config-dialog">
+<title
+>Einrichtung</title>
+
+<para
+> Den Einrichtungsdialog erreicht man über die Option <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>&kghostview; einrichten...</guimenuitem
+></menuchoice
+>. Dieser Dialog besteht aus den zwei Seiten <guilabel
+>Allgemeine Einstellungen</guilabel
+> und <guilabel
+>GhostScript-Einrichtung</guilabel
+>. </para>
+
+<sect1 id="general-settings">
+<title
+>Allgemeine Einstellungen</title>
+
+<para
+> Stellen Sie <emphasis
+>Kantenglättung</emphasis
+> ein, um geglättete Schriften zu erhalten. Kantenglättung (Anti-Aliasing) ist speicherintensiv und langsamer als eine einfache Darstellung der Schrift. Falls sie wenig Speicher oder Zeit haben, möchten Sie diese Option vielleicht ausschalten. Frühe Versionen von <application
+>GhostScript</application
+> konnten noch keine Kantenglättung durchführen. </para>
+
+<para
+> Wählen Sie <guilabel
+>Schriftarten</guilabel
+>, wenn Sie die Schriftarten Ihres Systems benutzen möchten, statt jene zu benutzen, dieSie zusammen mit dem Programm <application
+>GhostScript</application
+> bekommen. </para>
+
+<para
+> Schalten Sie <emphasis
+>Meldungen</emphasis
+> ein, wenn Sie über Meldungen und Fehlermeldungen von Ihrem PostScript-Interpreter informiert werden möchten. </para>
+
+<para
+> Sie können wählen, welche Palette &kghostview; benutzt. Zur Verfügung stehen die <guilabel
+>Paletten</guilabel
+>, <guilabel
+>Schwarzweiß</guilabel
+>, <guilabel
+>Graustufen</guilabel
+> und <guilabel
+>Farbe</guilabel
+>.. </para>
+
+<para
+> Ist der Inhalt einer Dokumentseite durch die Anwendung erst einmal durch<application
+>GhostScript</application
+> dargestellt (gerendert) worden, so muss dieser irgendwo für die Nutzung durch den Benutzer zwischengespeichert werden. Sie können hierfür entweder <guilabel
+>Pixmapgraphik</guilabel
+> oder <guilabel
+>Hintergrundspeichern</guilabel
+> auswählen. Es hängt von ihrem X Server ab, welche Methode schneller ist, aber beachten Sie, dass einige X Server nicht mit der Option <guilabel
+>Hintergrundspeichern</guilabel
+> funktionieren. </para>
+
+</sect1>
+
+<sect1 id="ghostscript-config">
+<title
+><application
+>GhostScript</application
+>-Einrichtung</title>
+
+<para
+> In diesem Dialog können Sie den Namen des <application
+>GhostScript</application
+><guilabel
+>-Interpreters</guilabel
+> eingeben und die für ihn relevanten <guilabel
+>Argumente bei deaktivierter Kantenglättung</guilabel
+> und <guilabel
+>Argumente für Kantenglättung</guilabel
+>. Die Standardeinstellungen sollten für die meisten Systeme geeignet sein. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+> &kghostview; </para>
+
+<itemizedlist
+> <title
+>Copyright für das Programm:</title
+> <listitem
+><para
+>Mark Donohoe (Ursprünglicher Autor) 1998 </para
+></listitem
+> <listitem
+><para
+>David Sweet <email
+>dsweet@kde.org</email
+> Maintainer 1999-2000 </para
+></listitem
+> <listitem
+><para
+>Wilco Greven <email
+>greven@kde.org</email
+> Derzeitiger Betreuer 2000-2001 </para
+></listitem
+> </itemizedlist>
+
+
+<itemizedlist
+> <title
+>Beiträge von:</title
+> <listitem
+><para
+>David Faure</para
+> </listitem
+> <listitem
+><para
+>Daniel Duley (Portierung nach KParts)</para
+> </listitem
+> <listitem
+><para
+>Espen Sand (Dialogboxen)</para
+> </listitem
+> </itemizedlist>
+
+<para
+> Copyright für die Dokumentation 2001 Pamela Roberts <email
+>pam.roberts@btinternet.com</email
+> </para>
+
+
+<para
+>Übersetzung des Handbuchs: Robert Gogolok <email
+>robertgogolok@gmx.de</email
+></para
+> <para
+>Übersetzung der Programmoberfläche: Stefan Winter <email
+>mail@stefan-winter.de</email
+></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+
+&underGPL;        	 <!-- GPL License -->
+
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<para
+> &kghostview; ist Teil des &kde;-Projekts, Details hierzu unter <ulink url="http://www.kde.org"
+> http://www.kde.org</ulink
+>. </para>
+
+<para
+> Um &kghostview; benutzen zu können, müssen Sie das <application
+>GhostScript</application
+>-Programm sowie &kde; 2 auf ihrem Rechner installiert haben. Die <application
+>GhostScript</application
+>-Homepage ist unter <ulink url="http://www.cs.wisc.edu/~ghost/"
+> http://www.cs.wisc.edu/~ghost/</ulink
+> zu erreichen.</para>
+
+<para
+> Die meisten Distributionen enthalten &kghostview;, aber wenn Sie den Quellcode selber kompilieren wollen, so kann dieser im Kdegraphics-Packet auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, der  Haupt-Ftp-Seite des KDE-Projektes, gefunden werden. </para>
+
+<para
+> Um zu sehen, ob zukünftige Versionen von &kghostview; veröffentlicht wurden, können Sie einen Blick auf <ulink url="http://apps.kde.com"
+>http://apps.kde.com</ulink
+> werfen.. </para>
+
+<para
+> Um &kghostview; auf Ihrem Rechner zu kompilieren und installieren, geben Sie Folgendes als root in das Verzeichnis ein, in dem sich der Quellcode zu &kghostview; befindet: </para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+> Da &kghostview; <command
+>autoconf</command
+> und <command
+>automake</command
+> benutzt, sollten Sie keine Probleme beim Kompilieren haben. Aber wenn Sie dennoch Probleme haben, so können Sie sich an die &kde;-Mailinglisten wenden. </para>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

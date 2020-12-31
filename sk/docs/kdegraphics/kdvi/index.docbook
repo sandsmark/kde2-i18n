@@ -1,0 +1,452 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kdvi;">
+ <!ENTITY % Slovak "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+> Manuál pre &kdvi;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Markku</firstname
+> <surname
+>Hihnala</surname
+> <affiliation
+><address
+><email
+>mah@ee.oulu.fi</email
+></address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>Stefan</firstname
+> <surname
+>Kebekus</surname
+> <affiliation
+><address
+><email
+>kebekus@kde.org</email
+></address
+></affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Stanislav</firstname
+> <surname
+>Višňovský</surname
+> <affiliation
+> <address
+><email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></address
+> </affiliation
+><contrib
+>Preklad</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-06-05</date>
+<releaseinfo
+>0.09.02</releaseinfo>
+
+<legalnotice
+>&underFDL;</legalnotice>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Markku Hihnala</holder>
+<holder
+>Stefan Kebekus</holder>
+</copyright>
+
+<abstract>
+<para
+>Tento manuál popisuje &kdvi; verzie 0.9</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>DVI</keyword>
+<keyword
+>TeX</keyword>
+<keyword
+>LaTeX</keyword>
+<keyword
+>nezávislé na zariadení</keyword>
+<keyword
+>prehliadač</keyword>
+<keyword
+>prehliadač dvi</keyword>
+<keyword
+>kdvi</keyword>
+<keyword
+>xdvi</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Úvod</title>
+
+<para
+> &kdvi; je modul pre &kviewshell;, ktorý umožňuje, aby &kviewshell; zobrazoval súbory &DVI;, ktoré sú vytvorené sádzacím systémom TeX. </para>
+
+<para
+> Informácie o systéme TeX a &DVI; nájdete na domovskej stránke skupiny používateľov systému TeX. &kdvi; podporuje vkladanie grafiky &PostScript; a odkazy. Detaily a technickú specifikáciu nájdete v súbore <filename
+>KDVI-features.dvi</filename
+>. </para>
+
+<para
+> Pre najnovšie informácie navštívte <ulink url="http://devel-home.kde.org/~kdvi"
+>domovskú stránku kdvi</ulink
+>. </para>
+
+</chapter>
+
+<chapter id="starting">
+<title
+>Spustenie &kdvi;</title>
+
+<para
+> Pre zjednodušenie existuje príkaz <command
+>kdvi</command
+>, ktorý spustí &kviewshell; a načíta modul &kdvi;. Prehliadač môžete spustiť príkazom <userinput
+><command
+>kdvi</command
+> <parameter
+>cesta/subor.dvi</parameter
+></userinput
+> alebo bez mena súboru ako &kviewshell;. Potom si budete môcť vybrať súbor pomocou dialógu alebo zo zoznamu naposledy použitých súborov. </para>
+
+<para
+> Fungujú aj ostatné obvyklé parametre &Qt; a &kde;: <userinput
+><command
+>kdvi</command
+> <option
+>-style</option
+> <parameter
+>windows</parameter
+> <option
+>-display</option
+> <parameter
+>:0</parameter
+> <option
+>-geometry</option
+> <parameter
+>400x400+0+0</parameter
+> <option
+>-caption</option
+> <parameter
+>"DVI"</parameter
+></userinput
+> </para>
+
+<para
+> Aby sa vylepšila integrácia so systémom TeX, otvorený súbor &DVI; sa po zmene automaticky znovu načíta. </para>
+
+</chapter>
+
+<chapter id="preferences">
+<title
+>Dialóg <guilabel
+>Nastavenie</guilabel
+></title>
+
+<para
+> Dialóg <guilabel
+>Vlastnosti</guilabel
+> je dosiahnuteľný pomocou <menuchoice
+><guimenu
+>Nastavenia</guimenu
+><guimenuitem
+>DVI možnosti</guimenuitem
+></menuchoice
+> v &kviewshell;. </para>
+
+<para
+> Dialóg obsahuje dve záložky: <guilabel
+>Písma</guilabel
+> a <guilabel
+>Vykresľovanie</guilabel
+>. </para>
+
+<sect1 id="opt-fonts">
+<title
+>Možnosti <guilabel
+>Písma</guilabel
+></title>
+
+<para
+> Tento obrázok ukazuje dialóg možností pre &kdvi;. </para>
+
+<screenshot
+> <screeninfo
+>Dialóg <guilabel
+>Písma</guilabel
+></screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="optionrequester1.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Dialóg <guilabel
+>Písma</guilabel
+></phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Metafont mód</guilabel
+></term
+> <listitem
+> <para
+> Tieto možnosti určujú písma, ktoré &kdvi; použije pre vykresľovanie. Podrobnou optimalizáciou môžete vylepšiť zobrazenie. Ak sa ale nevyznáte v systéme <command
+>MetaFont</command
+> a neviete presne, čo robíte, asi nie je dobrý nápad meniť tieto možnosti. </para
+> <para
+> Bezpečné hodnoty sú <guilabel
+>1200 dpi / Lexmark</guilabel
+> pre dobrú kvalitu alebo <guilabel
+>600 dpi / LaserJet 4</guilabel
+> pre priemernú kvalitu ale rýchle kreslenie. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vytvoriť chýbajúce fonty</guilabel
+></term
+> <listitem
+> <para
+> Túto voľbu použite, ak chcete, aby &kdvi; zavolal program <command
+>MetaFont</command
+> v obvyklom prípade, ked písma potrebné na zobrazenie nie sú momentálne dostupné. Obvykle budete chcieť túto voľbu nechať zapnutú. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="opt-rendering">
+<title
+>Možnosti <guilabel
+>Vykresľovanie</guilabel
+></title>
+
+
+<para
+> Tento obrázok ukazuje druhú záložku dialógu možností pre &kdvi;. </para>
+
+<screenshot
+> <screeninfo
+>Dialóg <guilabel
+>Vykresľovanie</guilabel
+></screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="optionrequester2.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Dialóg <guilabel
+>Vykresľovanie</guilabel
+></phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Zobrazovať postskript. zvláštnosti</guilabel
+></term
+> <listitem
+> <para
+> Ak je táto voľba použitá, &kdvi; bude zobrazovať grafiku &PostScript;, ktorá je vložená v súbore &DVI;. </para
+> <para
+> Ak sa nepodarí nájsť externý súbor &PostScript;, &kdvi; nakreslí červený obdlžnik s varovaním. Zobrazovanie grafiky &PostScript; môže byť veľmi pomalé v aktuálnej verzii &kdvi;. Snažíme sa, aby dalšie verzie boli rýchlejšie. Ak je táto voľba vypnutá, &kdvi; bude kresliť šedý obdlžnik alebo prázdne miesto. </para
+> <note
+> <para
+> Neexistuje štandardný spôsob, ako vložiť grafiku &PostScript; do súboru dvi. Preto sa môže stať, že &kdvi; nemôže správne zobraziť grafiku, ktorá v iných programoch funguje správne. Staršie verzie <command
+>xdvi</command
+> a <command
+>dvips</command
+> podporujú spustenie externých programov. Je to veľmi nebezpečné a preto táto podpora nie je implementovaná v&kdvi;. Technické informácie o tom, ako je vkladanie &PostScript; podporované, nájdete v externom dokumente. Asi túto voľbu budete chcieť zapnúť. </para
+> </note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zobrazovať odkazy</guilabel
+></term
+> <listitem
+> <para
+> Zapnite túto voľbu, ak chcete, aby &kdvi; zobrazoval odkazy. Odpovedajúce časti textu budú podčiarknuté modrou. Asi túto voľbu budete chcieť zapnúť. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="printing">
+<title
+>Tlač</title>
+
+<para
+> Táto verzia obsahuje dialóg pre nastavenie tlače (postupné z dialógu pre tlač), ktorý umožňuje nastaviť spôsob tlače, meno tlačiarne a príkaz pre správu fronty. Dá sa vybrať aj príkaz, ktorý sa použije pre tlač. Dostupné možnosti sú <command
+>dvips</command
+> a <command
+>dvilj4</command
+>. Ak použijete <command
+>dvips</command
+>, môžete si vybrať aj tlač viac stránok na jeden list papiera. Vyberte <command
+>psnup</command
+> (doporučené) alebo <command
+>mpage</command
+> (môže fungovať), ak máte niektorý z nich nainštalovaný. </para>
+
+<para
+> Môžete si pridať mená tlačiarní, ktoré budú dostupné v dialógu pre tlač. </para>
+
+<para
+> A na koniec môžete zmeniť príkaz pre správu fronty (štandardne <command
+>lpr</command
+>), ktorý má čítať štandardný vstup. Možnosť <option
+>-P</option
+> sa použije pre neštandardné tlačiarne. </para>
+
+<para
+> Po nastavení tlače môžete použiť dialóg tlače pre výber stránok, tlačiarne alebo súboru, ktorý sa má použiť ako výstup. </para>
+</chapter>
+
+<chapter id="faq">
+<title
+>Otázky a odpovede</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+> Prečo &kdvi; zobrazuje iba zaneprázdnený kurzor? </para>
+</question>
+<answer>
+<para
+> Je možné, že &kdvi; hľadá písma pk na nesprávnych miestach a to môže zabrať veľa času, napríklad ak sa prehľadávajú aj sieťové súborové systémy. Skontrolujte, čo sa deje príkazom <command
+>strace</command
+> a vyskúšajte riešenie uvedené dole. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Čo môžem robiť, ak &kdvi; nenájde moje písma PK? </para>
+</question>
+<answer>
+<para
+> Musíte mať správne nastavené rozlíšenie a mód <command
+>Metafont</command
+>.Ak to nepomôže, môžete nastaviť pole 'Cesta k písmam PK' v Nastavenia/Písma tak, aby ukazovala na zoznam priečinkov, v ktorých sa budú písma hľadať: <userinput
+><filename class="directory"
+>/var/lib/texmf/fonts/pk/ljfour/</filename
+>:<filename class="directory"
+><replaceable
+>/este/niekde/inde</replaceable
+></filename
+></userinput
+>. &kdvi; dokáže hľadať aj rekurzívne, ak na koniec mena priečinku pridáte navyše /: <userinput
+>/var/lib/texmf/fonts//</userinput
+> (Funguje to podobne ako <command
+>xdvi</command
+> premenná prostredia <envar
+>XDVIFONTS</envar
+> Existuje aj veľmi dobrá dokumentácia (gnu <command
+>info</command
+>) dostupná ku knižnici kpathsea, ktorú &kdvi; používa na hľadanie písiem)Preto je možné &kdvi; používať aj pre iné systémy tex než len <command
+>tetex</command
+> a nemusíte mať súbor <filename
+>texmf.cnf</filename
+>. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Ako nastavím funkčné generovanie písiem? </para>
+</question>
+<answer>
+<para
+> Ak chcete používať automatické generovanie písme pomocou <command
+>MakeTeXPK</command
+>, musíte zadať správny mód <command
+>MetaFont</command
+>. Ak je generovanie vypnuté (možnosť v menu), chýbajúce písma budú zapísané do súboru <filename
+>missfont.log</filename
+> v aktuálnom priečinku. Asi sa vyplatí pred povolením automatického generovanie skontrolovať príkazy v tomto súbore, či budú fungovať. </para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+
+<chapter id="credits-and-license">
+<title
+>Licencie a autori</title>
+
+<para
+>&kdvi;</para>
+
+<para
+> &kdvi; 0.9 je založený na programe &kdvi; 0.4.3 od Markku Hihnala. Tento program je založený na <application
+>xdvi</application
+> verzie 18f, ktorý mal veľa autorov. </para>
+
+<para
+> Copyright dokumentácie 2000, 2001, Markku Hihnala <email
+>mah@ee.oulu.fi</email
+> a Stefan Kebekus <email
+>kebekus@kde.org</email
+> </para>
+
+<para
+>Preklad dokumentácie Stanislav Višňovský <email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></para>
+
+&underGPL;
+&underFDL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Inštalácia</title>
+
+<para
+> &kdvi; je súčasťou modulu kdegraphics. </para>
+
+</appendix>
+
+</book>
+

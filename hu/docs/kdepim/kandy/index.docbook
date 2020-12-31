@@ -1,0 +1,113 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kandy;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>A Kandy kézikönyve</title>
+<authorgroup>
+<author
+> <firstname
+>Cornelius</firstname
+> <surname
+>Schumacher</surname
+> <affiliation
+> <address
+><email
+>schumacher@kde.org</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+<date
+>2001-04-11</date>
+<releaseinfo
+>0.01.00</releaseinfo>
+<abstract>
+<para
+>A Kandy segítségével adatokat lehet áttölteni mobiltelefonról a KDE-be (vagy fordítva).</para>
+</abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kandy</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="using-kandy">
+<title
+>A program használata</title>
+
+<sect1 id="terminal">
+<title
+>A terminálablak</title>
+
+<para
+>A terminálablakban lehet alacsony szintű kommunikációt létrehozni a mobiltelefonnal AT modemparancsok beírásával. A felül, középen látható mezőbe kell begépelni a parancsokat. Az alul, középen látható mezőben jelenik meg a mobiltelefonról érkezett válasz. Az ablak jobb oldalán látható a feldolgozott kimenet.</para>
+
+<para
+> Az ablak bal oldalán látszik a rendelkezésre álló parancsok listája. Egy parancs végrehajtásához kattintson rá duplán vagy nyomja meg a "Végrehajtás" gombot. A modemválasz mezőiben látszik, hogy mi történt. Ha olyan parancsot gépelt be, amely még nem szerepel a parancslistában, de fel szeretné oda venni, akkor nyomja meg a "Parancs hozzáadása" gombot. A megjelenő párbeszédablakban lehet megadni a parancs nevét és paramétereit.</para>
+
+<para
+>A parancslista elmenthető XML formátumban: válassza a "Mentés" menüpontot vagy nyomja meg a megfelelő gombot az eszköztáron. Egy listafájl tartalmának betöltéséhez válassza a "Megnyitás" menüpontot.</para>
+
+</sect1>
+
+<sect1 id="mobilegui">
+<title
+>A mobiltelefon állapotablaka</title>
+
+<para
+>Ha "A mobil kezelőfelülete" menüpontot választja a terminálablak "Megjelenítés" menüjében, akkor megnyílik egy új állapotablak, melyben részletes információ látható a mobiltelefon állapotáról a beépített 'telefonkönyv' adataival együtt. Két címlista jelenik meg, melyek közül az egyik a KDE címjegyzéke, a másik a mobilban tárolt telefonszámok és nevek listája.</para>
+
+<para
+>A telefonkönyvek beolvasásához nyomja meg a "Beolvasás" gombot a megfelelő lista alatt. A "Mentés" gomb megnyomásával lehet a módosított listát visszaírni a megfelelő tárolóra. A "Fájlba mentés" gomb megnyomásával a mobil címjegyzéke vesszővel tagolt szöveges fájlba menthető. Miután mindkét címjegyzéket betöltötte a "Beolvasás" gomb megnyomásával, a két listát összefésülheti az "Összeolvasztás" gombbal. Ekkor mindkét lista kiegészül a a csak a másikban megtalálható címekkel. Ha hiba történik az összeolvasztási folyamat közben, akkor erre a program szöveges üzenetablakban figyelmeztet. </para>
+
+<para
+>A "Szinkronizálás" gomb megnyomása is elég az előbb leírt művelet elvégzéséhez: a program beolvassa a két címjegyzéket, elvégzi az összefésülést, végül az eredményt visszamenti a tárolóba. </para>
+
+</sect1>
+
+<sect1 id="configuring">
+<title
+>A program beállítása</title>
+
+<para
+>"A program beállítása" menüpontot választva megjelenik a Kandy beállításainak párbeszédablaka. Be lehet állítani a kommunikációs port eszközének nevét (amelyen keresztül össze van kötve a számítógép a mobillal). Linux alatt az első soros port eszközének neve /dev/ttyS0, a másodiké /dev/ttyS1, más operációs rendszerek ettől eltérő neveket használhatnak. Az is beállítható, hogy a program indulásakor mely ablakok nyíljanak meg.</para>
+
+</sect1>
+
+<sect1 id="dcop">
+<title
+>DCOP-felület</title>
+
+<para
+>A Kandy támogatja a DCOP-ot a KandyIface nevű csatlakoási felületen keresztül. Ennek syncPhonebook() nevű függvényével szinkronizálható a mobil és a KDE címjegyzéke. Ugyanazt a hátást váltja ki, mintha megnyomná a "Szinkronizálás" gombot a kezelőfelületen. Az exit() függvénnyel be lehet zárni a Kandy-t. </para>
+
+</sect1>
+
+</chapter>
+
+</book>

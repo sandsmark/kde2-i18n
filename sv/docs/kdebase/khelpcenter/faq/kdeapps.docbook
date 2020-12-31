@@ -1,0 +1,289 @@
+
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="applications">
+<title
+>&kde;-program</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>&kppp;</para>
+</question>
+<answer>
+<para
+>Många &kde;-användare rapporterar problem med att använda &kppp;. Men innan du klagar på &kppp;, försäkra dig om att du redan har kontrollerat följande:</para>
+<itemizedlist
+> <listitem
+><para
+>Kan du ringa upp din Internetleverantör (<acronym
+>ISP</acronym
+>) utan att använda &kppp;? Om du inte kan det, är kanske inte &kppp; skyldig i alla fall.</para
+></listitem
+> <listitem
+><para
+>Har du gått igenom &kppp;-dokumentationen åtminstone tre gånger och följt dess anvisningar och felsökningsförslag?</para
+></listitem
+> </itemizedlist>
+<para
+>&kppp;-dokumentationen kan kommas åt med <application
+>&kde;:s hjälpcentral</application
+> eller genom att hoppa direkt till dokumentationskatalogen, vanligtvis <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/doc/HTML/default/kppp</filename
+>. Dessutom, om du bor i Storbrittanien, finns det en webbsida "How to set up kppp with ISPs in the UK" på <ulink url="http://www.kppp-archive.freeserve.co.uk/"
+>http://www.kppp-archive.freeserve.co.uk/</ulink
+>. Sist men inte minst, &kppp;:s hemsida finns på <ulink url="http://devel-home.kde.org/~kppp/"
+>http://devel-home.kde.org/~kppp/</ulink
+>.</para>
+<para
+>Om du fortfarande har problem nu, kanske det här kan hjälpa dig att lösa dem:</para>
+<variablelist
+> <varlistentry
+><term
+>Hur ändrar jag &MTU;-inställningarna i &kppp;?</term
+> <listitem
+><para
+>Öppna &kppp;:s dialogruta och välj <guibutton
+>Inställningar</guibutton
+>. Välj ett befintligt konto och klicka <guibutton
+>Redigera</guibutton
+>, eller <guibutton
+>Nytt</guibutton
+> för att skapa ett nytt uppringningskonto. Välj fliken <guilabel
+>Uppringning</guilabel
+> och  klicka på <guibutton
+>Parametrar</guibutton
+>. Skriv in vad du vill ändra i textrutan (<abbrev
+>t.ex.</abbrev
+> <userinput
+>mtu 296</userinput
+>) och klicka <guibutton
+>Lägg till</guibutton
+>. När du är nöjd, klicka <guibutton
+>Stäng</guibutton
+>.</para
+> <para
+>För att kontrollera om ändringarna "gjorde susen", gör något av det följande:</para
+> <itemizedlist
+> <listitem
+><para
+>I ett terminalfönster, kör <command
+>/sbin/ifconfig ppp0</command
+> och titta på den &MTU; som rapporteras i utmatningen. Det bör vara samma som i din begäran.</para
+></listitem
+> <listitem
+><para
+>Lägg till <option
+>debug</option
+> och <option
+>kdebug</option
+> (vart och ett på en separat rad) i din <filename
+>/etc/ppp/options</filename
+>-fil och starta om din &PPP;-session. Du hittar avlusningsmeddelanden i <filename
+>/var/log/messages</filename
+>, inklusive &MRU;- och &MTU;-inställningarna.</para
+></listitem
+> </itemizedlist
+> <para
+>Om du vill, kan &MRU;- och &MTU;-inställningarna läggas till i <filename
+>options</filename
+>-filen, en fullständig inställning per rad, utan citationstecken eller bindestreck.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>&kppp; ansluter med långsammare hastighet än normalt.</term
+> <listitem
+><para
+>Följande kan göra susen:</para
+> <itemizedlist
+> <listitem
+><para
+>Försök köra kommandot <command
+>setserial spd_hi</command
+>.</para
+></listitem
+> <listitem
+><para
+>Förvalt &MTU;-värde är 1500, som kanske är för högt för en uppringd förbindelse. Försök ändra den till ett mindre värde som <userinput
+>296</userinput
+> eller <userinput
+>576</userinput
+>.</para
+></listitem
+> <listitem
+><para
+>Titta i din <filename class="directory"
+>$<envar
+>HOME</envar
+>/.kde/share/config</filename
+> efter filen <filename
+>kppprc</filename
+>. Försäkra dig om att rätt modemhastighet verkligen är angiven här.</para
+></listitem
+> </itemizedlist
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&konsole;</para>
+</question>
+<answer>
+<variablelist
+> <varlistentry
+> <term
+>Hur flyttar jag mig en sida uppåt eller neråt?</term
+> <listitem
+><para
+>Använd <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Pg Up</keycap
+></keycombo
+> och <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Pg Dn</keycap
+></keycombo
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Hur byter jag beteende på &Backspace; och <keycap
+>Delete</keycap
+>?</term
+> <listitem
+><para
+>Titta på <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guimenuitem
+>Terminal</guimenuitem
+></menuchoice
+> i ditt terminalfönster. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Hur gör jag en enkel "kopiering" från &konsole; till någon annat ställe?</term
+> <listitem
+><para
+>När jag skriver <command
+>ls</command
+>, väljer jag först den önskade texten med musen, trycker på <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+>, aktiverar sedan målprogrammet, pekar med musen på ett passande ställe och trycker <keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+>. Markera alternativt texten genom att dra med vänster musknapp nere och klistra in genom att klicka med mittenknappen (eller båda knapparna om du använder emulering av den tredje knappen för en mus med två knappar).</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kmail;</para>
+</question>
+<answer>
+<para
+>&kmail; har sin egen hemsida på <ulink url="http://kmail.kde.org"
+>http://kmail.kde.org</ulink
+> där ett dokument med vanliga frågor (<acronym
+>FAQ</acronym
+>) finns tillgängligt.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kbiff;</para>
+</question>
+<answer>
+<para
+>&kbiff; är ett verktyg för att tala om när e-post anländer, och har sin hemsida på <ulink url="http://www.granroth.org/kbiff"
+>http://www.granroth.org/kbiff</ulink
+>.</para>
+<variablelist
+> <varlistentry
+><term
+>Hur kan en instans av &kbiff; bevaka två brevlådor och utföra en passande åtgärd när nya meddelanden kommer?</term
+> <listitem
+><para
+>Får du många meddelanden i båda brevlådorna? Om det är fallet vore det bättre att använda två instanser för att bevaka dem. Om inte, gå till fliken <guilabel
+>Brevlåda</guilabel
+> och klicka på den lilla brevlådeikonen. Det här skapar en ny brevlåda i den här instansen. Därefter, när endera av dem får ny e-post, kommer &kbiff; att utföra allt det gör när ny e-post anländer.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<!-- fixme: does ktop still exist? is this bug fixed?
+<qandaentry>
+<question>
+<para
+>&ktop;</para>
+</question>
+<answer>
+<para
+>Why can't I see anything on it?</para>
+<para
+>It is a bug, albeit easily fixed.  Just resize it by a few pixels and
+everything would be all right.</para>
+</answer>
+</qandaentry>
+-->
+
+<qandaentry>
+<question>
+<para
+>&knode;</para>
+</question>
+<answer>
+<variablelist
+> <varlistentry
+><term
+>Hur skickar jag "killfile" till någon?</term
+> <listitem
+><para
+>Den här funktionen är inte implementerad än, och kommer troligen inte att implementeras innan &kde; 2.1.</para
+></listitem
+> </varlistentry
+> <varlistentry
+><term
+>Stödjer &knode; flerval i artikellistan?</term
+> <listitem
+><para
+>När det här skrivs, nej. Det kanske blir implementerat till &kde; 2.1.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

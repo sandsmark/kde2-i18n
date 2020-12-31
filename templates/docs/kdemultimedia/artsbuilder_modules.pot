@@ -1,0 +1,961 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid	""
+msgstr	"Project-Id-Version: PACKAGE VERSION\n"
+	"POT-Creation-Date: 2001-02-09 01:25+0100\n"
+	"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+	"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+	"Language-Team: LANGUAGE <LL@li.org>\n"
+	"MIME-Version: 1.0\n"
+	"Content-Type: text/plain; charset=utf-8\n"
+	"Content-Transfer-Encoding: ENCODING\n"
+
+#: index.docbook:7
+msgid	"&arts; modules"
+msgstr	""
+
+#: index.docbook:10
+msgid	"Introduction"
+msgstr	""
+
+#: index.docbook:12
+msgid	"This chapter describes all of the standard &arts; modules. One of "
+	"the most powerful features of &arts;, modules can be connected "
+	"together into structures to implement new functions such as effects "
+	"and instruments."
+msgstr	""
+
+#: index.docbook:18
+msgid	"Modules are broken down into two categories. Synthesis modules are "
+	"used for implementing the <quote>plumbing</quote> that manipulates "
+	"multimedia data streams to implement new effects, instruments, "
+	"mixers, and applications. Visual modules allow you to provide a "
+	"graphical user interface to control the sound structures that are "
+	"built up with the synthesis modules."
+msgstr	""
+
+#: index.docbook:30
+msgid	"Synthesis Modules Reference"
+msgstr	""
+
+#: index.docbook:31 index.docbook:37 index.docbook:143 index.docbook:190
+#: index.docbook:258 index.docbook:781
+msgid	"<para> </para>"
+msgstr	""
+
+#: index.docbook:35
+msgid	"Arithmetic + Mixing"
+msgstr	""
+
+#: index.docbook:41 index.docbook:44
+msgid	"Synth&lowbar;ADD"
+msgstr	""
+
+#: index.docbook:50
+msgid	"This adds two signals."
+msgstr	""
+
+#: index.docbook:57 index.docbook:60
+msgid	"Synth&lowbar;MUL"
+msgstr	""
+
+#: index.docbook:66
+msgid	"This multiplies a signal by a factor. You can use this to scale "
+	"signals down (0 &lt; factor &lt; 1) or up (factor &gt; 1) or invert "
+	"signals (factor &lt; 0). Note that the factor may be a signal and "
+	"don't has to be constant (&eg; envelope or real signal)."
+msgstr	""
+
+#: index.docbook:76 index.docbook:79
+msgid	"Synth&lowbar;MULTI&lowbar;ADD"
+msgstr	""
+
+#: index.docbook:86
+msgid	"This adds an arbitary number of signals. If you need to sum up the "
+	"waveforms produces by four different oscillators, you for instance "
+	"can connect all their outputs to one Synth&lowbar;MULTI&lowbar;ADD "
+	"module. This is more efficient than using three Synth&lowbar;ADD "
+	"modules."
+msgstr	""
+
+#: index.docbook:97 index.docbook:100
+msgid	"Synth&lowbar;XFADE"
+msgstr	""
+
+#: index.docbook:106
+msgid	"This crossfades two signals. If the percentage input is -1, only the "
+	"left signal is heard, if it is 1, only the right signal is heard. "
+	"When it is 0, both signals a heard with the same volume."
+msgstr	""
+
+#: index.docbook:112
+msgid	"This allows you to ensure that your signal stays in a well defined "
+	"range. If you had two signals that were between -1 and 1 before "
+	"crossfading, they will be in the same range after crossfading."
+msgstr	""
+
+#: index.docbook:120
+msgid	"Synth&lowbar;AUTOPANNER"
+msgstr	""
+
+#: index.docbook:123
+msgid	"The opposite of a crossfader. This takes a mono signal and splits it "
+	"into a stereo signal: It is used to automatically pan the input "
+	"signal between the left and the right output. This makes mixes more "
+	"lively. A standard application would be a guitar or lead sound."
+msgstr	""
+
+#: index.docbook:130
+msgid	"Connect a <acronym>LFO</acronym>, a sine or saw wave for example to "
+	"inlfo. and select a frequency between 0.1 and 5Hz for a traditional "
+	"effect or even more for Special <acronym>FX</acronym>."
+msgstr	""
+
+#: index.docbook:141
+msgid	"Busses"
+msgstr	""
+
+#: index.docbook:147 index.docbook:150
+msgid	"Synth&lowbar;BUS&lowbar;UPLINK"
+msgstr	""
+
+#: index.docbook:157
+msgid	"An uplink to a bus. Give signals to left and right, and the name of "
+	"the bus where the data should go on the <quote>bus</quote> port. The "
+	"combined signal from all uplinks with this name will appear on every "
+	"downlink on that <quote>bus</quote>."
+msgstr	""
+
+#: index.docbook:166 index.docbook:169
+msgid	"Synth&lowbar;BUS&lowbar;DOWNLINK"
+msgstr	""
+
+#: index.docbook:176
+msgid	"Gets (the sum of) all data that is put to a certain bus (with the "
+	"name you specify at the <quote>bus</quote> port)."
+msgstr	""
+
+#: index.docbook:188
+msgid	"Delays"
+msgstr	""
+
+#: index.docbook:194
+msgid	"Synth&lowbar;DELAY"
+msgstr	""
+
+#: index.docbook:201
+msgid	"This delays the input signal for an amount of time. The time "
+	"specification must be between 0 and 1 for a delay between 0 seconds "
+	"and 1 second."
+msgstr	""
+
+#: index.docbook:207
+msgid	"This kind of delay <emphasis>may not be used</emphasis> in feedback "
+	"structures. This is because it's a variable delay. You can modify "
+	"it's length while it is running, and even set it down to zero. But "
+	"since in a feedback structure the own output is needed to calculate "
+	"the next samples, a delay whose value could drop to zero during "
+	"synthesis could lead to a stall situation."
+msgstr	""
+
+#: index.docbook:216
+msgid	"Use CDELAYs in that setup, perhaps combine a small constant delay "
+	"(of 0.001 seconds) with a flexible delay."
+msgstr	""
+
+#: index.docbook:221
+msgid	"You can also combine a CDELAY and a DELAY to achieve a variable "
+	"length delay with a minimum value in a feedback loop. Just make sure "
+	"that you have a CDELAY involved."
+msgstr	""
+
+#: index.docbook:230 index.docbook:233
+msgid	"Synth&lowbar;CDELAY"
+msgstr	""
+
+#: index.docbook:239
+msgid	"This delays the input signal for an amount of time. The time "
+	"specification must be between 0 and 1 for a delay between 0 seconds "
+	"and 1 second. The delay is constant during the calculation, that "
+	"means it can't be modified."
+msgstr	""
+
+#: index.docbook:246
+msgid	"This saves computing time as no interpolation is done, and is useful "
+	"for recursive structures. See description above (Synth&lowbar;DELAY)."
+msgstr	""
+
+#: index.docbook:256
+msgid	"Envelopes"
+msgstr	""
+
+#: index.docbook:262 index.docbook:265
+msgid	"Synth&lowbar;ENVELOPE&lowbar;ADSR"
+msgstr	""
+
+#: index.docbook:271
+msgid	"This is a classic <acronym>ADSR</acronym> envelope which means you "
+	"specify:"
+msgstr	""
+
+#: index.docbook:276
+msgid	"active"
+msgstr	""
+
+#: index.docbook:276
+msgid	"Whether the note is being pressed right now by the user."
+msgstr	""
+
+#: index.docbook:276 index.docbook:520
+msgid	"invalue"
+msgstr	""
+
+#: index.docbook:276
+msgid	"The input signal."
+msgstr	""
+
+#: index.docbook:276
+msgid	"attack"
+msgstr	""
+
+#: index.docbook:276
+msgid	"The time that should pass between the user presses the note and the "
+	"signal reaching it's maximum amplitude (in seconds)."
+msgstr	""
+
+#: index.docbook:276
+msgid	"decay"
+msgstr	""
+
+#: index.docbook:276
+msgid	"The time that should pass between the the signal reaching it's "
+	"maximum amplitude and the signal going back to some constant level "
+	"(in seconds)."
+msgstr	""
+
+#: index.docbook:276
+msgid	"sustain"
+msgstr	""
+
+#: index.docbook:276
+msgid	"The constant level the signal is held at afterwards, until the user "
+	"releases the note."
+msgstr	""
+
+#: index.docbook:276
+msgid	"release"
+msgstr	""
+
+#: index.docbook:276
+msgid	"The time that should pass after the user has released the note until "
+	"the signal is scaled down to zero (in seconds)."
+msgstr	""
+
+#: index.docbook:336
+msgid	"You'll get the scaled signal at outvalue. If the "
+	"<acronym>ASDR</acronym> envelope is finished, it will set done to 1. "
+	"You can use this to provide the <quote>done</quote> output of an "
+	"instrument (which will make the instrument structure be deleted by "
+	"the &MIDI; router object once the release phase is over)."
+msgstr	""
+
+#: index.docbook:347 index.docbook:350
+msgid	"Synth&lowbar;PSCALE"
+msgstr	""
+
+#: index.docbook:356
+msgid	"The Synth&lowbar;PSCALE module will scale the audio stream that is "
+	"directed through it from a volume 0 (silent) to 1 (original "
+	"loudness) back to 0 (silent). According to the position (get the "
+	"position from Synth&lowbar;SEQUENCE). The position where the peak "
+	"should occur can be given as pos."
+msgstr	""
+
+#: index.docbook:364
+msgid	"Example: Setting top to 0.1 means that after 10&percnt; of the note "
+	"has been played, the volume has reached its maximum, and starts "
+	"decaying afterwards."
+msgstr	""
+
+#: index.docbook:374
+msgid	"Effects"
+msgstr	""
+
+#: index.docbook:377 index.docbook:380
+msgid	"Synth&lowbar;FREEVERB"
+msgstr	""
+
+#: index.docbook:386
+msgid	"This is a reverb effect. In the current implementation, it is "
+	"thought to pass a stereo signal through the reverb, and it will "
+	"-add- it's reverb effect to the signal."
+msgstr	""
+
+#: index.docbook:392
+msgid	"This means that it can be used inside an StereoEffectStack as well."
+msgstr	""
+
+#: index.docbook:398
+msgid	"The input signal should be connected to (inleft, inright), the "
+	"output signal will be (outleft, outright)."
+msgstr	""
+
+#: index.docbook:403
+msgid	"The parameters which you can configure are:"
+msgstr	""
+
+#: index.docbook:407
+msgid	"roomsize"
+msgstr	""
+
+#: index.docbook:407
+msgid	"The size of the room which the reverb simulates (range: 0..1, where "
+	"1 is the largest possible room)."
+msgstr	""
+
+#: index.docbook:407
+msgid	"damp"
+msgstr	""
+
+#: index.docbook:407
+msgid	"This specifies a filter which will make the simulated room absorb "
+	"high frequencies (range 0..1, where 1 means absorb high frequencies "
+	"quite agressive)."
+msgstr	""
+
+#: index.docbook:407
+msgid	"<term>wet</term>"
+msgstr	""
+
+#: index.docbook:407
+msgid	"The amount of reverb-signal (that is, the amount of the signal that "
+	"should be modified by the filters, resulting in a "
+	"<quote>wet</quote>, that is <quote>reverb sound</quote>."
+msgstr	""
+
+#: index.docbook:407
+msgid	"<term>dry</term>"
+msgstr	""
+
+#: index.docbook:407
+msgid	"The amount of pure signal passed through, resulting in an echo (or "
+	"combined delay) rather than reverb effect (range: 0..1)."
+msgstr	""
+
+#: index.docbook:407
+msgid	"width"
+msgstr	""
+
+#: index.docbook:407
+msgid	"The amount of stereo-magic the reverb algorithm adds to the reverb "
+	"effect, making the reverb sound wider in the stereo panorama (range: "
+	"0..1)."
+msgstr	""
+
+#: index.docbook:407
+msgid	"mode"
+msgstr	""
+
+#: index.docbook:407
+msgid	"[ TODO: I think if mode is 1, the reverb holds the current image of "
+	"the sound, whereas 0 is normal operation ]"
+msgstr	""
+
+#: index.docbook:478 index.docbook:481
+msgid	"Synth&lowbar;TREMOLO"
+msgstr	""
+
+#: index.docbook:486
+msgid	"The tremolo module modulates the amplitude according to a "
+	"<acronym>LFO</acronym>-Wave. Traditionally you would use a sine wave "
+	"but why limit yourself? What you get is a very intense effect that "
+	"cuts through most arrangements because of its high dynamic range. "
+	"The tremolo effect is still one of guitarists favourite effects "
+	"although it's not as popular as in the 1960's."
+msgstr	""
+
+#: index.docbook:495
+msgid	"[ TODO: currently this is implemented as invalue + abs(inlfo) - "
+	"maybe it would make more sense to implement it as invalue * "
+	"(1+inlfo*depth), where depth would be a parameter between 0..1 - "
+	"decide this after &kde;2.1 ; if you have a comment, send a mail to "
+	"the &arts; list ;). ]"
+msgstr	""
+
+#: index.docbook:504 index.docbook:507
+msgid	"Synth&lowbar;FX&lowbar;CFLANGER"
+msgstr	""
+
+#: index.docbook:512
+msgid	"A flanger is a time-varying delay effect. To make development of "
+	"complex flanger effects simpler, this module is provided, which "
+	"contains the core of a one-channel flanger."
+msgstr	""
+
+#: index.docbook:518
+msgid	"It has the following ports:"
+msgstr	""
+
+#: index.docbook:520
+msgid	"The signal which you want to process."
+msgstr	""
+
+#: index.docbook:520
+msgid	"<term>lfo</term>"
+msgstr	""
+
+#: index.docbook:520
+msgid	"Preferably a sine wave which modulates the delay time inside the "
+	"flanger (-1 .. 1)."
+msgstr	""
+
+#: index.docbook:520
+msgid	"mintime"
+msgstr	""
+
+#: index.docbook:520
+msgid	"The minimum value for the delay inside the flanger in milliseconds. "
+	"Suggested values: try something like 1 ms. Please use values &lt; "
+	"1000 ms."
+msgstr	""
+
+#: index.docbook:520
+msgid	"maxtime"
+msgstr	""
+
+#: index.docbook:520
+msgid	"The minimum value for the delay inside the flanger in milliseconds. "
+	"Suggested values: try something like 5 ms. Please use values &lt; "
+	"1000 ms."
+msgstr	""
+
+#: index.docbook:520
+msgid	"outvalue"
+msgstr	""
+
+#: index.docbook:520
+msgid	"The output signal. It is important that you mix that with the "
+	"original (unflanged) signal to get the desired effect."
+msgstr	""
+
+#: index.docbook:573
+msgid	"You can use this as a basis for a chorus effect."
+msgstr	""
+
+#: index.docbook:584
+msgid	"Filters"
+msgstr	""
+
+#: index.docbook:587 index.docbook:590
+msgid	"Synth&lowbar;PITCH&lowbar;SHIFT"
+msgstr	""
+
+#: index.docbook:595
+msgid	"This pitch shifting effect changes the frequency of the input signal "
+	"without affecting the speed. An application for this is for instance "
+	"changing the pitch of your voice while you record (and replay) it in "
+	"realtime."
+msgstr	""
+
+#: index.docbook:602
+msgid	"The <emphasis>speed</emphasis> parameter is the relative speed with "
+	"which the signal will be replayed. So a speed of two would make it "
+	"sound twice as high (&ie; an input frequency of 440 Hz would result "
+	"in an output frequency of 880 Hz)."
+msgstr	""
+
+#: index.docbook:609
+msgid	"The <emphasis>frequency</emphasis> parameter is used internally to "
+	"switch between different grains of the signal. It is tunable, and "
+	"depending on your choice, the pitch shifting will sound more or less "
+	"realistic for your use case. A good value to start with is something "
+	"like 5 or 10."
+msgstr	""
+
+#: index.docbook:620 index.docbook:623
+msgid	"Synth&lowbar;SHELVE&lowbar;CUTOFF"
+msgstr	""
+
+#: index.docbook:628
+msgid	"Filters out all frequencies over the cutoff frequency."
+msgstr	""
+
+#: index.docbook:635 index.docbook:638
+msgid	"Synth&lowbar;BRICKWALL&lowbar;LIMITER"
+msgstr	""
+
+#: index.docbook:644
+msgid	"This modules clips a signal to make it fit into the range of [-1;1]. "
+	"It doesn't do anything to prevent the distortion that happens when "
+	"clipping loud signals. You can use this as effect (for instance to "
+	"create a slightly clipped sine wave). However, it's probably a good "
+	"idea to run the signal through a lowpass filter afterwards if you do "
+	"so, to make it sound less agressive."
+msgstr	""
+
+#: index.docbook:655 index.docbook:658
+msgid	"Synth&lowbar;STD&lowbar;EQUALIZER"
+msgstr	""
+
+#: index.docbook:663
+msgid	"This is a nice parametric equalizer building block. It's parameters "
+	"are:"
+msgstr	""
+
+#: index.docbook:667
+msgid	"invalue, outvalue"
+msgstr	""
+
+#: index.docbook:667
+msgid	"The signal that gets filtered by the equalizer."
+msgstr	""
+
+#: index.docbook:667
+msgid	"<term>low</term>"
+msgstr	""
+
+#: index.docbook:667
+msgid	"How low frequencies should be changed. The value is in dB, while 0 "
+	"means don't change low frequencies, -6 would mean take them out by "
+	"6dB, and +6 mean boost them by 6dB."
+msgstr	""
+
+#: index.docbook:667
+msgid	"<term>mid</term>"
+msgstr	""
+
+#: index.docbook:667
+msgid	"How middle frequencies should be changed by the equalizer in dB (see "
+	"low)."
+msgstr	""
+
+#: index.docbook:667
+msgid	"high"
+msgstr	""
+
+#: index.docbook:667
+msgid	"How high frequencies should be changed by the equalizer in dB (see "
+	"low)."
+msgstr	""
+
+#: index.docbook:667
+msgid	"frequency"
+msgstr	""
+
+#: index.docbook:667
+msgid	"This is the center frequency of the equalizer in Hz, the mid "
+	"frequencies are around that spectrum, the low and high frequencies "
+	"below and above. Note that the frequency may not be higher than half "
+	"the sampling rate, usually that is 22050 Hz, and not lower than 1 Hz."
+msgstr	""
+
+#: index.docbook:667
+msgid	"<term>q</term>"
+msgstr	""
+
+#: index.docbook:667
+msgid	"This influences how broad the mid spectrum is. It must be be a "
+	"positive number &gt; 0. A value of one is reasonable, higher values "
+	"of q mean a narrower spectrum of middle frequencies. Lower values "
+	"than one mean a broader sprectrum."
+msgstr	""
+
+#: index.docbook:735 index.docbook:738
+msgid	"Synth&lowbar;RC"
+msgstr	""
+
+#: index.docbook:743
+msgid	"A damped resonator filter filtering all frequencies around some peak "
+	"value. There is no useful way of specifying middle frequency (that "
+	"won't be cut), since the input are two strange constants f and b. "
+	"The code is very old, from the first days of the synthesizer, and "
+	"will probably replaced by a new filter which will have a frequency "
+	"and a resonance value as parameters."
+msgstr	""
+
+#: index.docbook:752
+msgid	"Try something like b=5, f=5 or b=10, f=10 or b=15, f=15 though."
+msgstr	""
+
+#: index.docbook:759 index.docbook:762
+msgid	"Synth&lowbar;MOOG&lowbar;VCF"
+msgstr	""
+
+#: index.docbook:767
+msgid	"Filters out all frequencies over the cutoff frequency (it's a 24db "
+	"4pole filter, which filters -24db per octave above the cutoff "
+	"frequency), but offers an additional parameter for tuning the filter "
+	"resonance, while 0 means no resonance and 4 means self oscillation."
+msgstr	""
+
+#: index.docbook:779
+msgid	"Midi + Sequencing"
+msgstr	""
+
+#: index.docbook:785 index.docbook:788
+msgid	"Synth&lowbar;MIDI&lowbar;TEST"
+msgstr	""
+
+#: index.docbook:793
+msgid	"This modules loads an instrument structure from a file, and "
+	"registers itself as midi output with the &arts; &MIDI; manager. "
+	"Notes sent to this output will result in instrument voices being "
+	"created."
+msgstr	""
+
+#: index.docbook:799
+msgid	"You can setup something like this more convenient in &artscontrol; "
+	"than manually in &artsbuilder;."
+msgstr	""
+
+#: index.docbook:809
+msgid	"Synth&lowbar;SEQUENCE"
+msgstr	""
+
+#: index.docbook:815
+msgid	"Will play a sequence of notes over and over again. The notes are "
+	"given in tracker notation, and are seperated by semicolons. An "
+	"example is <literal>A-3;C-4;E-4;C-4;</literal>. The speed is given "
+	"as seconds per note, so if you want to get 120 bpm, you will "
+	"probably specify 0.5 seconds/note, as 60 seconds/0.5 seconds per "
+	"note=120 bpm."
+msgstr	""
+
+#: index.docbook:823
+msgid	"You can give each note an length relative to the speed by using a "
+	"colon after the note and then then length. "
+	"<literal>A-3:2;C-4:0.5;D-4:0.5;E-4;</literal> demonstrates this. As "
+	"you see, midi composing programs tend to offer more comfort ;)"
+msgstr	""
+
+#: index.docbook:830
+msgid	"The Synth&lowbar;SEQUENCE gives additional information about the "
+	"position of the note it is playing right now, while 0 means just "
+	"started and 1 means finished. This information you can use with "
+	"Synth&lowbar;PSCALE (see below)."
+msgstr	""
+
+#: index.docbook:841
+msgid	"Samples"
+msgstr	""
+
+#: index.docbook:844 index.docbook:847
+msgid	"Synth&lowbar;PLAY&lowbar;WAV"
+msgstr	""
+
+#: index.docbook:853
+msgid	"This will play a <literal role=\"extension\">wav</literal> file. It "
+	"will only be present if you have libaudiofile on your computer. The "
+	"wave file will start as soon as the module gets created."
+msgstr	""
+
+#: index.docbook:859
+msgid	"It will stop as soon as it's over, then finished will be set to 1. "
+	"The speed parameter can be used to replay the file faster or slower, "
+	"where 1.0 is the normal (recorded) speed."
+msgstr	""
+
+#: index.docbook:871
+msgid	"Sound IO"
+msgstr	""
+
+#: index.docbook:874 index.docbook:877
+msgid	"Synth&lowbar;PLAY"
+msgstr	""
+
+#: index.docbook:883
+msgid	"You will normally not need this module, unless you are writing "
+	"standalone applications. Inside &artsd;, there normally is already a "
+	"Synth&lowbar;PLAY module, and creating another one will not work."
+msgstr	""
+
+#: index.docbook:891
+msgid	"The Synth&lowbar;PLAY-module will output your audio signal to the "
+	"soundcard. The left and right channels should contain the "
+	"<emphasis>normalized</emphasis> input for the channels. If your "
+	"input is not between -1 and 1, you get clipping."
+msgstr	""
+
+#: index.docbook:898
+msgid	"As already mentioned, there may only be one Synth&lowbar;PLAY module "
+	"used, as this one directly accesses your soundcard. Use busses if "
+	"you want to mix more than one audio stream together before playing. "
+	"Use the Synth&lowbar;AMAN&lowbar;PLAY module to get something like "
+	"an output inside &artsd;."
+msgstr	""
+
+#: index.docbook:906
+msgid	"Note that Synth&lowbar;PLAY also does the timing of the whole "
+	"structure. This means: no Synth&lowbar;PLAY = no source for timing = "
+	"no sound. So you absolutely need (exactly) one Synth&lowbar;PLAY "
+	"object."
+msgstr	""
+
+#: index.docbook:915 index.docbook:918
+msgid	"Synth&lowbar;RECORD"
+msgstr	""
+
+#: index.docbook:923
+msgid	"You will normally not need this module, unless you are writing "
+	"standalone applications. Inside artsd, there normally is already a "
+	"Synth&lowbar;RECORD module, and creating another one will not work."
+msgstr	""
+
+#: index.docbook:930
+msgid	"The Synth&lowbar;RECORD-module will record a signal from the "
+	"soundcard. The left and right channels will contain the input for "
+	"the channels (between -1 and 1)."
+msgstr	""
+
+#: index.docbook:936
+msgid	"As already mentioned, there may only be one Synth&lowbar;RECORD "
+	"module used, as this one directly accesses your soundcard. Use "
+	"busses if you want to use the recorded audio stream in more than one "
+	"place. Use the Synth&lowbar;AMAN&lowbar;RECORD module to get "
+	"something like an input inside artsd. For this to work, &artsd; must "
+	"run <emphasis>with full duplex enabled </emphasis>."
+msgstr	""
+
+#: index.docbook:947 index.docbook:950
+msgid	"Synth&lowbar;AMAN&lowbar;PLAY"
+msgstr	""
+
+#: index.docbook:955
+msgid	"The Synth&lowbar;AMAN&lowbar;PLAY-module will output your audio "
+	"signal. It is nice (but not necessary) if you output a normalized "
+	"signal (between -1 and 1)."
+msgstr	""
+
+#: index.docbook:961
+msgid	"This module will use the audio manager to assign where the signal "
+	"will be played. The audio manager can be controlled through "
+	"&artscontrol;. To make it more intuitive to use, it is good to give "
+	"the signal you play a name. This can be achieved through setting "
+	"<emphasis>title</emphasis>. Another feature of the audio manager is "
+	"to be able to remember where you played a signal the last time. To "
+	"do so it needs to be able to distinguish signals. That is why you "
+	"should assign something unique to "
+	"<emphasis>autoRestoreID</emphasis>, too."
+msgstr	""
+
+#: index.docbook:974 index.docbook:977
+msgid	"Synth&lowbar;AMAN&lowbar;RECORD"
+msgstr	""
+
+#: index.docbook:982
+msgid	"The Synth&lowbar;AMAN&lowbar;RECORD-module will record an audio "
+	"signal from an external source (&ie;. line in/microphone) within "
+	"&artsd;. The output will be a normalized signal (between -1 and 1)."
+msgstr	""
+
+#: index.docbook:988
+msgid	"This module will use the audio manager to assign where the signal "
+	"will be played. The audio manager can be controlled through "
+	"artscontrol. To make it more intuitive to use, it is good to give "
+	"the signal you record a name. This can be achieved through setting "
+	"<emphasis>title</emphasis>. Another feature of the audio manager is "
+	"to be able to remember where you recorded a signal the last time. To "
+	"do so it needs to be able to distinguish signals. That is why you "
+	"should assign something unique to "
+	"<emphasis>autoRestoreID</emphasis>, too."
+msgstr	""
+
+#: index.docbook:1001 index.docbook:1004
+msgid	"Synth&lowbar;CAPTURE"
+msgstr	""
+
+#: index.docbook:1009
+msgid	"The Synth&lowbar;CAPTURE-module will write an audio signal to a wave "
+	"file on your hard disc. The file will always be called "
+	"<filename>/tmp/mcop-<replaceable>usename</replaceable>/capture.wav</f"
+	"ilename>"
+msgstr	""
+
+#: index.docbook:1019
+msgid	"Tests"
+msgstr	""
+
+#: index.docbook:1022 index.docbook:1025
+msgid	"Synth&lowbar;NIL"
+msgstr	""
+
+#: index.docbook:1030
+msgid	"This just does nothing. It is only useful for test situations."
+msgstr	""
+
+#: index.docbook:1037 index.docbook:1040
+msgid	"Synth&lowbar;DEBUG"
+msgstr	""
+
+#: index.docbook:1045
+msgid	"You can use this for debugging. It will print out the value of the "
+	"signal at invalue in regular intervals (ca. 1 second), combined with "
+	"the comment you have specified. That way you can find out if some "
+	"signals stay in certain ranges, or if they are there at all."
+msgstr	""
+
+#: index.docbook:1054 index.docbook:1057
+msgid	"Synth&lowbar;MIDI&lowbar;DEBUG"
+msgstr	""
+
+#: index.docbook:1062
+msgid	"You can use this to debug how your &MIDI; events are actually "
+	"arriving in &arts;."
+msgstr	""
+
+#: index.docbook:1067
+msgid	"When a MIDI&lowbar;DEBUG is running &artsserver; will print out a "
+	"lines like:"
+msgstr	""
+
+#: index.docbook:1072
+msgid	"201 100753.837585 on 0 42 127"
+msgstr	""
+
+#: index.docbook:1074
+msgid	"202 101323.128355 off 0 42"
+msgstr	""
+
+#: index.docbook:1076
+msgid	"While the first line would be telling you that 100753ms (that is 100 "
+	"seconds) after the MIDI&lowbar;DEBUG started, a &MIDI; on event "
+	"arrived on channel 0. This midi on event had the velocity (volume) "
+	"of 127, the loudest possible. The next line shows the midi release "
+	"event. [ TODO: this does not work currently, make it work, and do it "
+	"via &MIDI; manager ]."
+msgstr	""
+
+#: index.docbook:1087 index.docbook:1090
+msgid	"Synth&lowbar;DATA"
+msgstr	""
+
+#: index.docbook:1095
+msgid	"This creates a signal with a constant number."
+msgstr	""
+
+#: index.docbook:1103
+msgid	"Oscillation &amp; Modulation"
+msgstr	""
+
+#: index.docbook:1106 index.docbook:1109
+msgid	"Synth&lowbar;FREQUENCY"
+msgstr	""
+
+#: index.docbook:1114
+msgid	"All oscillators in &arts; don't require a frequency as input, but a "
+	"position in the wave. The position should be between 0 and 1, which "
+	"maps for a standard Synth&lowbar;WAVE&lowbar;SIN object to the range "
+	"0..2*pi. To generate oscillating values from a frequency, a "
+	"Synth&lowbar;FREQUENCY modules is used."
+msgstr	""
+
+#: index.docbook:1124 index.docbook:1127
+msgid	"Synth&lowbar;FM&lowbar;SOURCE"
+msgstr	""
+
+#: index.docbook:1132
+msgid	"This is used for frequency modulation. Put your frequency to the "
+	"frequency input and put another signal on the modulator input. Then "
+	"set modlevel to something, say 0.3. The frequency will be modulated "
+	"with modulator then. Just try it. Works nice when you put a feedback "
+	"in there, that means take a combination of the delayed output signal "
+	"from the Synth&lowbar;FM&lowbar;SOURCE (you need to put it to some "
+	"oscillator as it only takes the role of Synth&lowbar;FREQUENCY) and "
+	"some other signal to get good results."
+msgstr	""
+
+#: index.docbook:1143
+msgid	"Works nicely in combination with Synth&lowbar;WAVE&lowbar;SIN "
+	"oscillators."
+msgstr	""
+
+#: index.docbook:1152
+msgid	"Wave Forms"
+msgstr	""
+
+#: index.docbook:1155 index.docbook:1158
+msgid	"Synth&lowbar;WAVE&lowbar;SIN"
+msgstr	""
+
+#: index.docbook:1163
+msgid	"Sinus oscillator. Put a pos signal from Synth&lowbar;FREQUENCY or "
+	"Synth&lowbar;FM&lowbar;SOURCE at the input. And get a sinus wave as "
+	"output. The pos signal specifies the position in the wave, the range "
+	"0..1 is mapped to 0..2*pi internally."
+msgstr	""
+
+#: index.docbook:1173 index.docbook:1176
+msgid	"Synth&lowbar;WAVE&lowbar;TRI"
+msgstr	""
+
+#: index.docbook:1181
+msgid	"Triangle oscillator. Put a pos signal from Synth&lowbar;FREQUENCY or "
+	"Synth&lowbar;FM&lowbar;SOURCE at the input. And get a triangle wave "
+	"as output. The pos signal specifies the position in the wave, the "
+	"range 0..1 is mapped to 0..2*pi internally. Be careful. The input "
+	"signal <emphasis>must</emphasis> be in the range 0..1 for the output "
+	"signal to produce good results."
+msgstr	""
+
+#: index.docbook:1192 index.docbook:1195
+msgid	"Synth&lowbar;NOISE"
+msgstr	""
+
+#: index.docbook:1200
+msgid	"Noise generator. This generates a random signal between -1 and 1."
+msgstr	""
+
+#: index.docbook:1207 index.docbook:1210
+msgid	"Synth&lowbar;WAVE&lowbar;SQUARE"
+msgstr	""
+
+#: index.docbook:1215
+msgid	"Square oscillator. Put a pos signal from Synth&lowbar;FREQUENCY or "
+	"Synth&lowbar;FM&lowbar;SOURCE at the input. And get a square wave as "
+	"output. The pos signal specifies the position in the wave, the range "
+	"0..1 is mapped to 0..2*pi internally. Be careful. The input signal "
+	"<emphasis>must</emphasis> be in the range 0..1 for the output signal "
+	"to produce good results."
+msgstr	""
+
+#: index.docbook:1226 index.docbook:1229
+msgid	"Synth&lowbar;WAVE&lowbar;SOFTSAW"
+msgstr	""
+
+#: index.docbook:1234
+msgid	"Softened saw wave, similar in look like the "
+	"Synth&lowbar;WAVE&lowbar;TRI oscillator. Put a pos signal from "
+	"Synth&lowbar;FREQUENCY or Synth&lowbar;FM&lowbar;SOURCE at the "
+	"input. You'll get a softened saw wave as output. The pos signal "
+	"specifies the position in the wave, the range 0..1 is mapped to "
+	"0..2*pi internally. Be careful. The input signal "
+	"<emphasis>must</emphasis> be in the range 0..1 for the output signal "
+	"to produce good results."
+msgstr	""
+
+#: index.docbook:1246 index.docbook:1249
+msgid	"Synth&lowbar;WAVE&lowbar;PULSE"
+msgstr	""
+
+#: index.docbook:1254
+msgid	"Pulse oscillator - this module is similar in spirit like the "
+	"rectangular oscillator (Synth_WAVE_RECT), but it provides a "
+	"configurable up/down ratio, through the "
+	"<emphasis>dutycycle</emphasis> parameter. Put a pos signal from "
+	"Synth&lowbar;FREQUENCY or Synth&lowbar;FM&lowbar;SOURCE at the "
+	"input. Get a pulse wave as output. The pos signal specifies the "
+	"position in the wave, the range 0..1 is mapped to 0..2*pi "
+	"internally. Be careful. The input signal <emphasis>must</emphasis> "
+	"be in the range 0..1 for the output signal to produce good results."
+msgstr	""
+
+#: index.docbook:1269
+msgid	"Visual Modules Reference"
+msgstr	""
+
+#: index.docbook:1271
+msgid	"TODO when visual modules are more \"finished\"."
+msgstr	""

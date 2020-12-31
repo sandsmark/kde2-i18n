@@ -1,0 +1,657 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kbattleship;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % French "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Le manuel de KBattleship</title>
+
+<authorgroup>
+<author
+> <firstname
+>Daniel</firstname
+> <surname
+>Molkentin</surname
+> <affiliation
+> <address
+><email
+>molkentin@kde.org</email
+></address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>Nikolas</firstname
+> <surname
+>Zimmermann</surname
+> <affiliation
+> <address
+><email
+>wildfox@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Ludovic</firstname
+><surname
+>Grossard</surname
+><affiliation
+><address
+><email
+>ludovic.grossard@libertysurf.fr</email
+></address
+></affiliation
+><contrib
+>Traduction française</contrib
+></othercredit>
+
+</authorgroup>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<copyright>
+<year
+>2001</year>
+<holder
+>Daniel Molkentin</holder>
+</copyright>
+<copyright>
+<year
+>2001</year>
+<holder
+>Nikolas Zimmermann</holder>
+</copyright>
+<copyright>
+<year
+>2001</year>
+<holder
+>Kevin Krammer</holder>
+</copyright>
+
+
+<date
+>2001-07-29</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract>
+<para
+> &kbattleship; est une réécriture pour &kde; du fameux jeux <quote
+>Bataille navale</quote
+> avec la gestion du réseau.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>jeu</keyword>
+<keyword
+>bataille navale</keyword>
+<keyword
+>KBattleship</keyword>
+<keyword
+>bataille</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduction</title>
+
+<sect1 id="features">
+<title
+>Caractéristiques</title>
+<itemizedlist
+> <listitem
+><para
+>Jeu en réseau</para
+></listitem
+> <listitem
+><para
+>Jeu contre l'ordinateur (Intelligence artificielle)</para
+></listitem
+> <listitem
+><para
+>Sons</para
+></listitem
+> <listitem
+><para
+>Chat</para
+></listitem
+> <listitem
+><para
+>Statistiques</para
+></listitem
+> <listitem
+><para
+>Meilleurs scores</para
+></listitem
+> </itemizedlist>
+
+<tip
+> <para
+> KBattleship utilise un protocole de communication dérivé de &XML; donc vous pouvez écrire des clients pour chaque plate-forme dans n'importe quel language. SI vous voulez en écrire un dans votre langage de programmation et/ou environnement favori, contactez-nous. On voudrait vraiment en entendre parler. </para
+> </tip>
+</sect1>
+
+</chapter>
+
+<chapter id="using-kbattleship">
+<title
+>Utilisation de KBattleship</title>
+
+<para
+> Si vous voulez jouer à &kbattleship;, vous avez besoin de deux joueurs puisqu'il s'agit d'un jeu en réseau uniquement. Un joueur doit ouvrir un jeu avec <menuchoice
+><guimenu
+>Jeu</guimenu
+> <guimenuitem
+>Démarrer le serveur </guimenuitem
+></menuchoice
+> ou en appuyant sur <keycap
+>F3</keycap
+>. </para>
+
+<para
+> Une boîte de dialogue s'ouvre et vous demande un <guilabel
+>pseudonyme</guilabel
+> et un <guilabel
+>port</guilabel
+>. Normalement, &kbattleship; vous suggère un pseudonyme, mais vous êtes libre de mettre ce que vous voulez. Le port prédéfini devrait être bon. Cependant, si vous rencontrez des problèmes, vous pouvez choisir n'importe quel port libre au dessus de 1024. Notez que vous devez informer en l'autre joueur lorsque vous utilisez un port différent afin qu'il/elle paramètre le même numéro de port. </para>
+
+<para
+> L'autre joueur doit choisir <menuchoice
+><guimenu
+>Jeu</guimenu
+><guimenuitem
+>Se connecter au serveur</guimenuitem
+></menuchoice
+> ou appuyer sur <keycap
+>F2</keycap
+>. Encore une fois, un <guilabel
+>pseudonyme</guilabel
+> est proposé, mais vous mettez ce que vous voulez </para>
+
+<para
+> Un point important est le champ <guilabel
+>Serveur</guilabel
+>. Ici, vous devez saisir le nom d'hôte du serveur (la machine de l'autre joueur qui a démarré le jeu) </para>
+
+<para
+> Une autre possibilité est de jouer à &kbattleship; contre votre ordinateur. Sélectionnez <guimenuitem
+>Partie à un joueur</guimenuitem
+> dans le menu <guimenuitem
+>Jeu</guimenuitem
+>, ou appuyez sur <keycap
+>F4</keycap
+>. </para>
+
+<para
+> Lorsque c'est fait, vous pouvez démarrer le jeu. Suivez simplement les instructions dans la barre d'état. Elle vous indiquera des astuces et suggérera ce qu'il faut faire ensuite. Lorsque vous regardez l'écran, vous voyez deux grilles, nommées <quote
+>champs de bataille</quote
+>. La partie à gauche vous appartient. C'est ici que vous placez vos bateaux et où vous pouvez suivre les actions militaires de votre adversaire. La partie droite correspond à la flotte de votre adversaire. Lorsque c'est à votre tour de jouer, cliquez sur un certain secteur (une case dans le champ de bataille) où vous pensez qu'un bateau de votre adversaire se trouve. </para>
+
+<para
+> Tout d'abord, vous devez placer vos bateaux. Lorsque c'est fait, c'est au joueur 2 de placer ces bateaux. </para>
+
+<para
+> Le positionnement des bateaux est très simple. Cliquez simplement à l'endroit où vous voulez placer un bateau. Le premier à une longueur de 4, le suivant de 3, &etc;. Cliquez sur l'endroit où vous voulez que commence le positionnement. Si vous cliquez avec le bouton <mousebutton
+>gauche</mousebutton
+> de la souris, le bateau sera placé horizontalement. Si vous cliquez avec le bouton <mousebutton
+>gauche</mousebutton
+> tout en appuyant sur <keycap
+>Maj</keycap
+>, le bateau sera placé verticalement. <keycap
+>Maj</keycap
+>  lui-même fait basculer entre les prévisualisation horizontale et verticale. </para>
+
+<para
+> Maintenant, vous pouvez tirer aveuglément sur le champ de bataille de votre adversaire&nbsp;! La barre d'état indique qui va tirer.  </para>
+
+<para
+> Le premier joueur qui détruit tous les navires de l'adversaire remporte la partie&nbsp;! </para>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>Les menus</title>
+
+<sect1 id="game-menu">
+<title
+>Le menu <guimenu
+>Jeu</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F2</keycap
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+>Se <accel
+>c</accel
+>onnecter au serveur</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Démarre une connexion vers le serveur d'un autre joueur.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F3</keycap
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+>D<accel
+>é</accel
+>marrer le serveur</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Démarre le serveur afin qu'un autre joueur puisse se connecter à vous.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F4</keycap
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+>Partie à <accel
+>u</accel
+>n joueur</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Vous permet de jouer contre l'ordinateur.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F10</keycap
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>eilleurs scores</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Affiche les meilleurs scores.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>J</accel
+>eu</guimenu
+> <guimenuitem
+><accel
+>Q</accel
+>uitter</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Quitte</action
+> &kbattleship; </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="settings-menu">
+<title
+>Le menu <guimenu
+>Configuration</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+>Afficher la barre d'ét<accel
+>a</accel
+>t</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>(Dés)active l'affichage de la barre d'état.</action
+> La valeur par défaut est.affichée. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>C</accel
+>onfiguration</guimenu
+> <guimenuitem
+>Afficher la <accel
+>G</accel
+>rille</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>(Dés)active l'affichage de la grille dans la zone de jeu.</action
+> La valeur par défaut est désactivé. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="help-menu">
+<title
+>Le menu <guimenu
+>Aide</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+>Conten<accel
+>u</accel
+></guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Invoque le système d'aide de &kde; avec les pages d'aide de &kbattleship; (ce document).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Maj</keycap
+><keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+><accel
+>Q</accel
+>uest-ce que c'est&nbsp;?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ceci change le curseur de la souris contenant une flèche et un point d'interrogation. Un clic sur un élément dans &kbattleship; avec cette flèche ouvrira une fenêtre d'aide (si elle existe pour cet élément particulier) expliquant la fonction de l'élément.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>apport de bogue</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Ouvre la boîte de dialogue afin que l'utilisateur aide l'équipe de KDE à trouver et régler les problèmes (bogues) dans le programme. La boîte de dialogue réalise au moyen d'une fiche une fiche sur le web remplie à partir des informations données par l'utilisateur. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+><guimenuitem
+> À <accel
+>p</accel
+>ropos de KBattleship</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Affiche la version du programme et des informations sur l'auteur</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ide</guimenu
+><guimenuitem
+>À propos de <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Affiche la version de &kde; ainsi que d'autres informations de base.</para
+> </listitem
+> </varlistentry
+> </variablelist
+>  
+
+</sect1>
+</chapter>
+
+<chapter id="questions-answers-and-tips">
+<title
+>Questions, réponses et astuces</title>
+
+<qandaset id="faq">
+<title
+>Questions fréquemment posées</title>
+<qandaentry>
+<question>
+<para
+>J'obtiens l'erreur&nbsp;: <errorname
+>Impossible de se connecter au serveur de son aRts. Son désactivé</errorname
+></para>
+</question>
+<answer>
+<para
+>D&kbattleship; repose sur &arts;, le serveur sonore de &kde;, pour jouer les sons. Activez &arts; dans le &kcontrol; dans <menuchoice
+><guisubmenu
+>son</guisubmenu
+> <guimenuitem
+>Serveur de son</guimenuitem
+></menuchoice
+> pour régler le problème.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>J'ai une question qui pourrait faire partie de la &FAQ;. Qui dois-je contacter&nbsp;?</para>
+</question>
+<answer>
+<para
+>Contactez les auteurs. Il l'ajouteront certainement.</para>
+</answer>
+</qandaentry>
+</qandaset>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Remerciements et licence</title>
+
+<para
+>&kbattleship; Copyright 2000, 2001</para>
+
+<itemizedlist
+> <title
+>Auteurs</title
+> <listitem
+> <para
+> Nikolas Zimmermann <email
+>wildfox@kde.org</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Daniel Molkentin <email
+>molkentin@kde.org</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Kevin Krammer <email
+>kevin.krammer@gmx.at</email
+> </para
+> </listitem
+> </itemizedlist>
+
+<itemizedlist
+> <title
+>Collaborateurs</title
+> <listitem
+> <para
+> Benjamin Adler <email
+>benadler@bigfoot.de</email
+> </para
+> </listitem
+> <listitem
+> <para
+> Nils Trzebin <email
+>nils.trzebin@stud.uni-hannover.de</email
+> </para
+> </listitem
+> <listitem
+> <para
+>Elmar Hoefner <email
+>elmar.hoefner@uibk.ac.at</email
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+>Traduction française par Ludovic Grossard <email
+>ludovic.grossard@libertysurf.fr</email
+> </para>
+
+&underFDL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="requirements">
+<title
+>Pré-requis</title>
+
+<para
+> À l'heure où cette documentation est rédigée, &kbattleship; nécessite &kde; 2.2 ou supérieur et &Qt; 2.2.3 ou supérieur. </para>
+
+</sect1>
+
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag:nil
+sgml-shorttag:t
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->
+

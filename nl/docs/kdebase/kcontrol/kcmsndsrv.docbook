@@ -1,0 +1,259 @@
+<sect1 id="sndserver">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+&Niels.Reedijk;
+</authorgroup>
+
+<date
+>2001-07-24</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KControl</keyword>
+<keyword
+>geluidsserver</keyword>
+<keyword
+>geluid</keyword>
+<keyword
+>aRts</keyword>
+</keywordset>
+</sect1info>
+
+<title
+>Geluidsserver</title>
+
+<para
+>Deze module wordt gebruikt om de instellingen voor de &arts; geluidsserver (de &kde; geluidsserver) in te stellen.</para>
+
+<sect2 id="sndserver-general">
+<title
+>Algemeen</title>
+
+<para
+>De bovenste optie met de naam <guilabel
+>aRts geluidsserver starten bij het starten van KDE</guilabel
+> geeft de mogelijkheid om de <application
+>aRts geluidsserver</application
+> te activeren (of uit te schakelen). </para>
+
+<para
+>De rest van dit tabblad bestaat uit 3 opties voor de <application
+>aRts geluidsserver</application
+>.</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Netwerktransparantie activeren</term
+> <listitem
+> <para
+>Als deze optie is geselecteerd dan worden geluidsverzoeken van het netwerk gehonoreerd door de geluidsserver. als deze optie niet is geselecteerd dan zal de geluidsserever geen verzoeken van het netwerk honoreren en alleen van het systeem zelf.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Beveiligings en referentie informatie over X11 uitwisselen</guilabel
+></term
+> <listitem
+><para
+>Als u netwerk transparantie heeft geactiveerd dan geeft deze optie u de mogelijkheid om beveiligings en referentie informatie uit te wisselen. Als u twijfelt en u netwerk transparantie heeft geactiveerd dan zou deze optie moeten worden geactiveerd.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>De geluidsserver uitvoeren met real-time prioriteit</guilabel
+></term
+> <listitem
+><para
+>als u deze optie activeert dan zal de geluidsserver een hogere prioriteit krijgen dan de andere processen op uw systeem en dit zal problemen met onderbroken of stotterend geluid moeten verminderen.</para
+> <note
+><para
+>Deze optie heeft misschien rechten nodig die u misschien niet heeft als normale gebruiker.</para
+> <para
+>Deze optie is afhankelijk van bepaalde real-time ondersteuning op uw systeem dat misschien niet aanwezig is.</para
+> <para
+>Als u niet de juiste rechten heeft of uw systeem heeft geen real-time ondersteuning dan zal deze optie alleen maar voor problemen zorgen.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Automatisch slapen als niet gebruikt voor een bepaalde periode </guilabel
+></term
+> <listitem
+> <para
+>Normaal gesproken blokkeert &arts; het geluidsapparaat zodat andere apparaten deze niet kunnen gebruiken. Als u deze optie activeert dan zal &arts; indien deze gedurende een bepaalde tijd niets te doen heeft gehad zichzelf in slaapstand zetten zodat een andere applicatie toegang kan krijgen tot het geluidsapparaat. Als &arts; een nieuw verzoek krijgt dan zal het zichzelf uit de slaapstand halen en verdergaan als normaal. Het selecteren van de optie kan een kleine vertraging met zich mee brengen wanneer u een &arts; applicatie start.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Berichten tonen door gebruik te maken van</guilabel
+></term
+> <listitem
+> <para
+>De applicatie die wordt gebruikt om de berichten te tonen van de &arts; server. De standaard is <application
+>artsmessage</application
+> en dit zou waarschijnlijk niet moeten worden veranderd tenzij u zorgvuldig de &arts; documentatie heeft gelezen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Tonen van berichten</guilabel
+></term
+> <listitem
+> <para
+>U kunt hier kiezen hoe gedetaileerd de berichten zijn die &arts; aan u toont. U kunt kiezen om alleen fout berichten te zien, debug berichten die handig zijn voor ontwikkelaars (u wilt dit alleen als u een ontwikkelaar bent of als u bent gevraagd om dit te doen). Of u kunt kiezen om algemene berichten te zien zoals wanneer &arts; zichzelf in de slaapstand zet. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Aan de onderkant van dit tabblad is een knop <guibutton
+>Geluid test</guibutton
+> die u de mogelijkheid geeft om de instellingen te testen.</para>
+
+</sect2>
+
+<sect2 id="sndserver-soundio">
+<title
+>Geluids I/O</title>
+
+<para
+>De eerste optie die u kunt instellen op het tabblad <guilabel
+>Geluids I/O</guilabel
+> is de <guilabel
+>Geluids I/O methode</guilabel
+>. Dit vertelt &arts; welk geluidssysteem er moet worden gebruikt voor invoer en uitvoer van geluid. De huidige keuzes zijn: <acronym
+>ALSA</acronym
+> (Advanced &Linux; Sound Architecture), <acronym
+>OSS</acronym
+> (Open Sound System), geen geluid en automatisch detecteren. In de meeste gevallen zal <quote
+>Automatisch detecteren</quote
+> perfect geschikt zijn voor u.</para>
+
+<para
+>De overige opties zijn:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Volledige duplex-operatie activeren</guilabel
+></term
+> <listitem
+><para
+>Deze optie geeft de geluidsserver de mogelijkheid om tegelijkertijd geluid op te nemen en af te spelen. Deze optie zou moeten worden geactiveerd als u applicaties (zoals internet telefonie) die gelijktijdig opennemen en afspelen ondersteunen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Gebruik een aangepast geluidsapparaat</guilabel
+></term
+> <listitem
+> <para
+>Normaalgesproken gebruikt de geluidsserver standaard het apparaat met de naam <filename class="devicefile"
+>/dev/dsp</filename
+> voor geluids uitvoer. Dat werkt in de meeste gevallen. Een uitzondering is als u gebruik maakt van devfs, dan moet u in plaats daarvan <filename class="devicefile"
+>/dev/sound/dsp</filename
+> gebruiken. Andere alternatieven zijn: <filename class="devicefile"
+>/dev/dsp0</filename
+> of <filename class="devicefile"
+>/dev/dsp1</filename
+> als u een geluidskaart heeft die meerdere uitvoeren ondersteunt of meerdere geluidskaarten heeft.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Aangepaste samplingratio gebruiken</guilabel
+></term
+> <listitem
+> <para
+>Normaalgesproken gebruikt de geluidsserver standaard een sampleratio van 44100 Hz (<acronym
+>CD</acronym
+> kwaliteit) welke wordt ondersteunt door bijna elk apparaat. Als u bepaalde geluidsapparaten van Yamaha gebruikt dan moet u misschien deze waarde wijzigen in 48000 Hz. Als u oude SoundBlaster geluidskaarten gebruikt dan moet u dit misschien wijzigen in 22050 Hz. Alle andere waarden zijn ook mogelijk en zijn hebben zin in bepaalde omgevingen (professionele studio apparatuur).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Overige geavanceerde opties</guilabel
+></term
+> <listitem
+><para
+>Er zijn sommige opties die worden ondersteunt door &arts; die niet beschikbaar zijn in deze module, zodat u de commandoregel opties hier kunt invullen zodat ze direct aan <application
+>artsd</application
+> worden gegeven. Deze opties worden toegevoegd zodat bij twijfel de keuzes die gemaakt zijn in de <acronym
+>GUI</acronym
+> worden overschreven. Om te zien wat de mogelijke opties zijn opent u een &konsole; en typt daar <userinput
+><command
+>artsd</command
+> <option
+>-h</option
+></userinput
+> in.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Audiobuffergrootte (responstijd)</guilabel
+></term
+> <listitem
+><para
+>De schuifknop bepaalt hoe snel de geluidsserver uw systeembronnen kan gebruiken. Hoe sneller de responstijd hoe hoger de <acronym
+>CPU</acronym
+> belasting zal zijn.</para
+> <tip
+><para
+>Er wordt u aangeraden om de geluidsserver in te stellen op 250ms en vervolgens &kde; een tijdje te gebruiken. Als u merkt dat het geluid niet lekker werkt dan verhoogt u de responsietijd met een stap tegelijk totdat het probleem verdwijnt.</para
+></tip
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="sndserver-author">
+<title
+>Auteurssectie</title>
+
+<para
+>Deze paragraaf is geschreven door Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+
+<para
+>Bijgewerkt door Jost Schenck <email
+>jost@schenck.de</email
+>.</para>
+
+&meld.fouten;&vertaling.niels;
+</sect2>
+</sect1>
+
+
+

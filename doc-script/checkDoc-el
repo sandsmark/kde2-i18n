@@ -1,0 +1,147 @@
+eval '(exit $?0)' && eval 'exec perl -S $0 ${1+"$@"}' && eval 'exec perl -S $0 $argv:q'
+        if 0;
+# Let's borrow this script (above) from teTeX to call PERL
+
+#      file: checkDocEl (.pl)
+#   version: 1999.06.02
+#     title: KDE Documentation statistics
+#  subtitle: Greek Statistic
+#    author: Tobias Burnus, burnus@gmx.de
+# copyright: LGPL
+#  homepage: http://mimas.germany.net:8080/kde-doc/ 
+# 
+# Adapted to Greek by ..., __@__.el
+# Daily runs available at http://mimas.germany.net:8080/kde-doc/html/kde/doc-el.html
+
+# See http://mimas.germany.net:8080/kde-doc/ for a description
+
+use checkDoc;
+use common;
+use Time::Local;
+
+# constants
+
+my $Lng    = 'El';
+my $lng    = 'el';
+my $goTop  = "\n".'<p>[<A href="#top">top</A>]</p>';
+
+$sExists = 'exists';    # translated file 'exists'
+$sNoEngl = 'no English';# there is a 'translated' file but not an Engl. file
+$sUpToDate = 'Up to date';
+$sTooOld   = 'Too old';
+$sPerhaps  = 'Perhaps';
+$refDate   = Time::Local::timegm(0,0,0,12,(5)-1,1999);
+             #$second,$minute,$hours,$day,$month-1,$year ; see checkDoc.pm
+
+my $tableHeader =
+        '<tr align="left"><th>File</th><th>Translation</th><th>Up-to-date</th>'
+        .'<th>Date of the English file</th><th>Date of the Greek file</th>'
+	.'<th><small>Version according to file [en]</small></th>'
+	.'<th><small>Version according to file ['.$Lng.']</small></th></tr>';
+
+# pass these constants
+checkDoc::set_CVSWEB($CVSWEB);
+checkDoc::set_OfDir($dir);
+checkDoc::set_TableHeader($tableHeader);
+checkDoc::set_Language($Lng);
+common::set_Lng($Lng);
+common::set_lng($lng);
+common::set_goTop($goTop);
+checkDoc::set_strExists($sExists);
+checkDoc::set_strNoEngl($sNoEngl);
+checkDoc::set_strIsUpToDate($sUpToDate);
+checkDoc::set_strIsTooOld($sTooOld);
+checkDoc::set_strPerhaps($sPerhaps);
+checkDoc::set_refDate($refDate);
+
+######################################
+# Title
+print '<html><head><title>KDE Documentation statistics (Greek)</title></head>
+<body bgcolor="#FFFFFF" link="#0000FF" vlink="#8800EE">';
+
+# 'as of' and links
+print '<H1><A href="top"></A>KDE Documentation Statistics (Greek)</H1>
+<p>
+[<A href="http://www.kde.org/documentation/">KDE Documentation</A>
+| <A href="http://i18n.kde.org/">KDE i18n page</a>
+| <!--A href="http://"-->Greek l10n page<!--/A-->
+| <A href="'.$CVSWEB.'">KDE-CVS-Web</A> |
+<A href="/highscore-el.html">PO-Highscore</A>]</P>
+'.$comKDELinks.' | <A href="#etc">others</a>]</p>
+
+<P><strong>As of:</strong> '.`date`."<p>\n";
+
+# Introduction
+print $comIntro; # you might want to adapt this
+
+#########
+# Here comes the statistics to the basic KDE packages
+
+common::comKdeStd();
+
+common::comKOffice();
+common::comKFTE();
+common::comKSite();
+
+####################################################################
+# Here come the files which are not organized by
+# module/doc(s)/*
+# but by module/app/doc(s)/
+####################################################################
+
+#Introduction
+# to this section
+print '<H2><a name="etc"></A>Further packages</H2>
+<p><em>If you know about further packages, please drop a
+note.</em></p>';
+
+
+# The packages itself, you shouldn't need to change something here
+# (but... [see above])
+
+print '<H3>kdenonbeta/kcmbind</H3>';
+checkDoc::printDir('kdenonbeta/kcmbind/doc/en','kde-i18n/docs/'.$lng.'/kdenonbeta/kcmbind/');
+
+print '<H3>kdenonbeta/kexpress</H3>';
+checkDoc::printDir('kdenonbeta/kexpress/doc/','kde-i18n/docs/'.$lng.'/kdenonbeta/kexpress/');
+
+print '<H3>kdenonbeta/kglchess</H3>';
+checkDoc::printDir('kdenonbeta/kglchess/docs/','kde-i18n/docs/'.$lng.'/kdenonbeta/kglchess/');
+print '<H3>kdenonbeta/kgnuplot</H3>';
+checkDoc::printDir('kdenonbeta/kgnuplot/docs/','kde-i18n/docs/'.$lng.'/kdenonbeta/kgnuplot/');
+
+print '<H3>kdenonbeta/kmessage</H3>';
+checkDoc::printDir('kdenonbeta/kmessage/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/kmessage/');
+
+print '<H3>kdenonbeta/knetmon</H3>';
+checkDoc::printDir('kdenonbeta/knetmon/docs/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/knetmon/');
+
+print '<H3>kdenonbeta/kmessage</H3>';
+checkDoc::printDir('kdenonbeta/korn/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/korn/doc/');
+
+print '<H3>kdenonbeta/kticker</H3>';
+checkDoc::printDir('kdenonbeta/kticker/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/kticker/');
+
+print '<H3>kdenonbeta/pws</H3>';
+checkDoc::printDir('kdenonbeta/pws/doc/en/','kde-i18n/docs/'.$lng.'/kdenonbeta/pws');
+
+print '<H3>kdesdk/ktranslator</H3>';
+checkDoc::printDir('kdesdk/ktranslator/ktranslator/doc/','kde-i18n/docs/'.$lng.'/kdesdk/ktranslator');
+
+print '<H3>kdesdk/kdedoc</H3>';
+checkDoc::printDir('kdesdk/kdedoc/doc/','kde-i18n/docs/'.$lng.'/kdesdk/kdedoc/');
+
+print '<H3>kdesdk/kbabel</H3>';
+checkDoc::printDir('kdesdk/kbabel/kbabel/doc/en','kde-i18n/docs/'.$lng.'/kdesdk/kbabel/');
+
+print '<H3>kmusic/ksynth</H3>';
+checkDoc::printDir('kmusic/doc/ksynth/','kde-i18n/docs/'.$lng.'/kmusic/ksynth/');
+
+print '<H3>kmusic/cantor</H3>';
+checkDoc::printDir('kmusic/doc/cantor/','kde-i18n/docs/'.$lng.'/kmusic/cantor/');
+
+print '<H3>kde-i18n/docs/en/others/kvideolist</H3>';
+checkDoc::printDir('kde-i18n/docs/en/others/kvideolist','kde-i18n/docs/'.$lng.'/others/kvideolist/');
+
+# And the obligatory html end:
+print "</body></html>";

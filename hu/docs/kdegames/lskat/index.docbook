@@ -1,0 +1,411 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY lskat "<application>LSkat</application>">
+  <!ENTITY kappname "&lskat;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Application-Variable Entities V2.0//EN" "entities/kde-prologue.entities">
+  
+]>
+
+<book lang="hu">
+<bookinfo>
+<title>Skat hadnagy</title>
+
+<authorgroup>
+<author>
+<firstname>Martin</firstname>
+<surname>Heni</surname>
+<affiliation>
+<address><email>martin@heni-online.de</email></address>
+</affiliation>
+</author>
+
+<othercredit role="reviewer">
+<firstname>Mike</firstname><surname>McBride</surname>
+<contrib>lektor</contrib>
+<affiliation><address><email>mmcbride@ematic.com</email></address></affiliation>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>tszanto@mol.hu</email></address></affiliation>
+<contrib>fordító</contrib>
+</othercredit>
+</authorgroup>
+
+<date>12/08/2000</date>
+<releaseinfo>0.09.00</releaseinfo>
+
+<abstract>
+<para>Ez a dokumentum az &lskat; 0.9-es verziójának leírását tartalmazza.</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdegames</keyword>
+<keyword>játék</keyword>
+<keyword>kártyajáték</keyword>
+<keyword>skat</keyword>
+<keyword>Skat hadnagy</keyword>
+<keyword>lskat</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="overview">
+<title>Bevezető</title>
+
+<para> A Skat hadnagy (német eredetiben <foreignphrase
+lang="de">Offiziersskat</foreignphrase>) egy kétszemélyes kártyajáték. A szabályai
+nagyjából hasonlóak a <firstterm>Skat</firstterm>-éhoz, de csak ketten
+játszhatják, egyszerűsített szabályokkal.  </para>
+
+<para>Mindkét játékos kap 16 kártyát, a lapok fele hátoldallal
+felfelé marad. A játék célja a maximálisan elérhető 120 pont több mint felének
+megszerzése. 16 kör után fogynak el a lapok, ekkor ér véget a játék.</para>
+
+</chapter>
+
+<chapter id="Installation">
+<title>Telepítés</title>
+<sect1 id="getting-lskat">
+<title>Az lskat megszerzése</title>
+
+<para>
+Az &lskat; a kdegames csomag része, mely letölthető az
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink> címről, 
+a KDE projekt központi FTP-kiszolgálójáról.</para>
+</sect1>
+
+<sect1 id="Requirements">
+<title>Követelmények</title>
+<para>
+Az &lskat; sikeres lefordításához a KDE legalább 2.0-s változata szükséges.</para>
+<para>
+Az összes szükséges programkönyvtár valamint az &lskat; is elérhető az
+<ulink 
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink> címen.</para>
+</sect1>
+
+
+<sect1 id="Compilation">
+<title>A program lefordítása és telepítése</title>
+
+<para>Az &lskat; lefordításához és telepítéséhez tömörítse ki a
+csomagot és adja ki az alábbi parancsokat a forrásprogramok
+alapkönyvtárában: </para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput>cd kdegames</userinput>
+<prompt>%</prompt> <userinput>./configure</userinput>
+<prompt>%</prompt> <userinput>make</userinput>
+<prompt>%</prompt> <userinput>make install</userinput>
+</screen>
+      
+<para>Az &lskat; az <application>autoconf</application> és az <application>automake</application> segítségével készült, ezért remélhetően nem fog hibába ütközni.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="rules">
+<title>Játékszabályok</title>
+
+<para>A program véletlenszerűen kiválasztja az adu színét, mely a játék közben
+a játéktér jobb felső sarkában látható. A kiválasztott színű lapokon kívül az
+összes bubi is adunak számít, ezek <emphasis>nem</emphasis> tartoznak a saját színükhöz.
+Ha például a <emphasis>kőr</emphasis> az adu, akkor a nyolc kőr lapon kívül a három más színű
+bubi is adu, tehát összesen 11 adu lap van.</para>
+
+<note><para>Tehát ilyenkor a treff bubi nem <emphasis>treffnek</emphasis>, hanem
+adunak számít.  </para></note>
+
+<para>A játék egy speciális változata a <firstterm>Grand</firstterm>. Ilyen játékban
+nincs külön adu, csak a négy bubi számít adunak. Ilyenkor az adu színe helyett egy bubi
+látszik a jobb felső sarokban.  </para>
+
+<para>Mindkét játékos 16 lapot kap, 8-at hátlappal felfelé. A kezdő játékos
+bármelyik felfelé fordított lappal indíthatja a játékot.</para>
+
+<para>A második játékos a következőket teheti:</para>
+
+<orderedlist>
+<listitem><para>
+  Ha a második játékos felfelé néző lapjai között van a lerakottal megegyező
+  színű, akkor azok közül kell letennie egyet. A nagyobb
+  értékű lapot letevő játékos nyeri a kört (a lapok értékét lásd lejjebb).
+</para></listitem>
+<listitem><para>
+  Ha a második játékos felfelé néző lapjai között nincs a lerakottal megegyező
+  színű, akkor bármelyik lapot leteheti. Ha ez a lap adu, akkor a második
+  játékos nyeri a kört, ha nem az,
+  akkor az első.
+</para></listitem>
+</orderedlist>
+
+<para>
+Ha a letett lap alatt van lefelé fordított kártya, akkor
+az automatikusan felfelé fog nézni ezután.
+</para>
+
+<para>
+Az a játékos kezdheti a következő kört, aki az előzőt megnyerte.
+</para>
+
+<para>
+A lapok értéke a következő (a legmagasabbtól a legalacsonyabbig -
+minden <emphasis>adu</emphasis> esetén egyforma):</para>
+<simplelist type="inline">
+<member>treff bubi</member>
+<member>pikk bubi</member>
+<member>kőr bubi</member>
+<member>káró bubi</member>
+<member>ász</member>
+<member>tízes</member>
+<member>király</member>
+<member>dáma</member>
+<member>kilences</member>
+<member>nyolcas</member>
+<member>hetes</member>
+</simplelist>
+
+<para>
+A kört megnyerő játékos pontszámához hozzáadódik a lapok pontértékének összege. A
+pontszámok a következők:</para>
+
+<informaltable>
+<tgroup cols="2">
+<thead>
+  <row><entry> Lap </entry><entry> Érték </entry></row>
+</thead>
+<tbody>
+  <row><entry> ász </entry><entry> 11 </entry></row>
+  <row><entry> tízes </entry><entry> 10 </entry></row>
+  <row><entry> király </entry><entry> 4 </entry></row>
+  <row><entry> dáma </entry><entry> 3 </entry></row>
+  <row><entry> bubi </entry><entry> 2 </entry></row>
+  <row><entry> kilences </entry><entry> 0 </entry></row>
+  <row><entry> nyolcas </entry><entry> 0 </entry></row>
+  <row><entry> hetes </entry><entry> 0 </entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+<sect1 id="scoring">
+<title>A játék megnyerése</title>
+
+<para>
+A játékot az nyeri, aki több mint 60 pontot szerez. Ha mindkét játékos 60 pontot
+ér el, akkor döntetlen az eredmény.</para>
+<informaltable>
+<tgroup cols="2">
+<thead>
+  <row><entry> Pontszám </entry><entry>Eredmény</entry></row>
+</thead>
+<tbody>
+  <row><entry> 60 </entry><entry> 1 </entry></row>
+  <row><entry> 61..90 </entry><entry> 2 </entry></row>
+  <row><entry> 91..119 </entry><entry> 3 </entry></row>
+  <row><entry> 120 </entry><entry> 4 </entry></row>
+</tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+</chapter>
+
+<chapter id="remote-connections">
+<title>Játék a hálózaton keresztül</title>
+
+<para>
+A játék hálózaton keresztül egy másik játékos ellen is játszható.
+A játék megkezdése előtt mindkét játékosnak egy normál és egy távoli
+játékost kell kijelölnie (mindegy, hogy melyiket). Ha mindkét
+játékos ugyanazt jelöli be távoli játékosnak, akkor a játék
+megkezdése előtt azok automatikusan felcserélődnek.
+</para>
+
+<para>
+A két gép közül az egyik lesz a kiszolgáló. Csak a kiszolgáló
+gép kezdhet új játékot. A kiszolgáló gép továbbítja a játék adatait
+a kliens gép felé. Az Ön gépe lesz a kiszolgáló, ha a hálózati beállításnál
+üres gépnevet ad meg. Ez a párbeszédablak jelenik meg új játék kezdése
+esetén. Ha kliensként akar játszani, akkor adja meg a kiszolgáló
+gép nevét a csatlakozáshoz. A port számát általában nem kell megváltoztatni, de bármilyen
+érték használható.
+</para>
+
+</chapter>
+
+<chapter id="menus">
+<title>A menük</title>
+<sect1 id="file-menu"><title>Fájl menü</title>
+<variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>Fájl</guimenu><guimenuitem>Új játék</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Új játék kezdése. Hálózati játék esetén csak a kiszolgálón
+     lehet használni. A hálózati klienst a kiszolgáló fogja automatikusan
+     értesíteni a játék megkezdéséről.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Fájl</guimenu><guimenuitem>A játék befejezése</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Félbeszakítja az éppen futó játékot.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Fájl</guimenu><guimenuitem>A statisztika nullázása</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Törli az eredménynyilvántartásban szereplő értékeket. Ezek az értékek
+     minden játék végén automatikusan frissülnek a játszott és megnyert játszmák
+     számával, játékosonként. Ezzel a menüponttal ezt a táblázatot lehet
+     alapállapotba hozni.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Fájl</guimenu><guimenuitem>Üzenet küldése...</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Ha hálózaton keresztül játszik, akkor ezzel a menüponttal
+     küldhet szöveges üzenetet az ellenfélnek.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Fájl</guimenu><guimenuitem>Kilépés</guimenuitem></menuchoice></term>
+  <listitem><para>
+     A program bezárása.
+  </para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="view-menu"><title>Nézet menü</title>
+<variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>Nézet</guimenu><guimenuitem>Az állapotsor megjelenítése</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Ezzel lehet megjeleníteni vagy elrejteni az állapotsort.</para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="option-menu"><title>Jellemzők menü</title>
+<variablelist>
+<varlistentry>
+  <term><menuchoice><guimenu>Jellemzők</guimenu><guimenuitem>Kezdő játékos</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Itt lehet megadni, hogy az 1. vagy a 2. játékos kezdje-e
+     a következő játékot.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Jellemzők</guimenu><guimenuitem>Az 1. játékos</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Itt lehet kiválasztani, hogy ki játssza az 1. (a felső) játékost. Lehet (emberi)
+     <guilabel>játékos</guilabel>, azaz az egeret kezelő helyi
+     játékos, lehet a <guilabel>számítógép</guilabel>, ha azt akarja, hogy a program
+     irányítson, vagy lehet <guilabel>távoli</guilabel>, ha egy hálózaton keresztül kapcsolódó,
+     más gép előtt ülő személy az ellenfél.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Jellemzők</guimenu><guimenuitem>A 2. játékos</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Lásd <guimenuitem>Az 1. játékos</guimenuitem> menüpont magyarázatát.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Jellemzők</guimenu><guimenuitem>Szint</guimenuitem></menuchoice></term>
+  <listitem><para>
+     A számítógép által irányított játékos erősségi szintje.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Jellemzők</guimenu><guimenuitem>Csomag választása</guimenuitem></menuchoice></term>
+  <listitem><para>
+     A kártyacsomag hátoldalának kiválasztása. Saját grafikát is
+     használhat, ha lecseréli a <filename>deck1.png</filename> ..
+     <filename>deck6.png</filename> képfájlokat a grafix alkönyvtárban
+     (a képek mérete 72x96 képpont). Csak a valóban létező fájlok jelennek meg
+     a menüben.
+  </para></listitem>
+</varlistentry>
+<varlistentry>
+  <term><menuchoice><guimenu>Jellemzők</guimenu><guimenuitem>Névmódosítás...</guimenuitem></menuchoice></term>
+  <listitem><para>
+     Itt lehet megváltoztatni az alapértelmezett neveket.
+  </para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+<sect1 id="help">
+<title><guimenuitem>Segítség</guimenuitem> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><anchor id="contents"/><menuchoice>
+<shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut>
+<guimenu>Segítség</guimenu><guimenuitem>Tartalom</guimenuitem></menuchoice></term>
+<listitem>
+<para>Elindítja a KDE Segítség rendszerét, megjelenítve ennek a dokumentumnak a nyitóoldalát.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="bug-report"/><menuchoice>
+<guimenu>Segítség</guimenu><guimenuitem>Hibabejelentés...</guimenuitem></menuchoice></term>
+<listitem><para>Ha valamilyen programhibát talált vagy továbbfejlesztési javaslata
+van, ezen a menüponton keresztül olyan hibabejelentő levelet írhat, mely automatikusan 
+el fog jutni a KDE fejlesztőkhöz.</para>
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-lskat"/><menuchoice>
+<guimenu>Segítség</guimenu><guimenuitem>A(z) LSkat névjegye</guimenuitem></menuchoice></term>
+<listitem>
+<para>Megjeleníthető a program verziószáma és a szerző(k) neve.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><anchor id="about-kde"/><menuchoice>
+<guimenu>Segítség</guimenu><guimenuitem>A KDE névjegye</guimenuitem></menuchoice></term>
+<listitem>
+<para>Egy információs ablak jelenik meg a KDE projekt tevékenységéről.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+
+</chapter>
+<chapter id="credits">
+<title>A szerzők neve és a licencegyezmény</title>
+
+<para>
+&lskat;
+</para>
+<para>
+Program copyright Martin Heni <email>martin@heni-online.de</email>, 2000.
+</para>
+<para>
+Documentation copyright Martin Heni <email>martin@heni-online.de</email>, 2000.
+</para>
+<para>
+Konvertálás a KDE 2.0 alá: Mike McBride <email>mmcbride@ematic.com</email>
+</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+mode: sgml-mode
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

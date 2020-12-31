@@ -1,0 +1,583 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kscore;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>A &kscore; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Jonathan</firstname
+> <surname
+>Singer</surname
+> <affiliation
+> <address
+><email
+>jsinger@leeta.net</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Jonathan Singer</holder>
+</copyright>
+
+<date
+>2001-06-14</date>
+<releaseinfo
+>0.01.00</releaseinfo>
+
+<abstract
+><para
+>A &kscore; panel-kisalkalmazás segítségével sporteredményeket lehet letölteni és megjeleníteni.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KScore</keyword>
+<keyword
+>sport</keyword>
+<keyword
+>eredmény</keyword>
+<keyword
+>kisalkalmazás</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+
+<title
+>Bevezetés</title>
+
+<screenshot
+> <screeninfo
+>A &kscore; célja</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="ncaaf.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>A &kscore; célja</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+<screenshot
+> <screeninfo
+>A &kscore; célja</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="nhl.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>A &kscore; célja</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+<screenshot
+> <screeninfo
+>A &kscore; célja</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="premr.png" format="PNG"/> </imageobject
+> <textobject
+> <phrase
+>A &kscore; célja</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Mostanában egyre többen meg vannak győződve arról, hogy egy igazi szoftverfejlesztőnek bizonyos előítéleteknek meg kell felelnie. <quote
+>A számítógép-megszállottak szeretnek legózni.</quote
+> <quote
+>A hackereket érdeklik a lőfegyverek.</quote
+> Ami engem illet, én a jégkorong megszállottja vagyok. Ha a kedvenc csapatom nagy ritkán megnyer egy meccset, arról rögtön tudni akarok.</para>
+
+<para
+>A &kscore; panel-kisalkalmazással sportmérkőzések eredményeit lehet letölteni és megjeleníteni. A program az eredményeket az Excite-ról tölti le, ahol megtalálhatók az amerikai professzionális és egyetemi sportmérkőzések, valamint sok kisebb bajnokság és a legnagyobb európai fociligák eredményei.</para>
+
+<para
+>A &kscore;-t Jonathan Singer készítette (<email
+>jsinger@leeta.net</email
+>), az alapötlet a <application
+><ulink url="http://home.att.net/~takuper/wmscoreboard/"
+>wmScoreboard</ulink
+></application
+> adta, mely egy WindowMaker-es alkalmazás (írta: Todd Kuper).</para>
+
+<sect1 id="kscore-revhistory">
+<title
+>A &kscore; eddigi verziói</title>
+
+<variablelist
+> <varlistentry
+> <term
+>0.1</term
+> <listitem
+> <itemizedlist
+> <listitem
+><para
+>Első kiadás</para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+<chapter id="installation">
+<title
+>Telepítés</title>
+
+<sect1 id="obtain-kscore">
+<title
+>A &kscore; megszerzése</title>
+
+<para
+>A &kscore; a kdetoys csomag része, lefordítása és telepítése a csomag többi részével együtt szokott történni. A kdetoys legutóbbi változatai letölthetők innen: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Követelmények</title>
+
+<para
+>A &kscore;-t a Qt 2.2.x és a KDE 2 segítségével készítettem egy PowerCenter 150-es gépen, melyen LinuxPPC 1999 futott. Valószínűleg az összes KDE platformon lefordíható. Ha problémába ütközne, kérem jelezze azokat nekem: <email
+>jsinger@leeta.net</email
+>.</para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>A program lefordítása és telepítése</title>
+
+<para
+>A &kscore; lefordításához és telepítéséhez a következő parancsokat kell kiadni a kdetoys forráscsomag alapkönyvtárában:</para>
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+>A &kscore; fordítási parancsfájljai az <application
+>autoconf</application
+> és az <application
+>automake</application
+> segítségével készültek, ezért külön konfigurációs lépésekre nincs szükség. ha problémába ütközik, küldjön róla részletes leírást a KDE levelezőlistákra.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="using-kscore">
+<title
+>Használat</title>
+
+<sect1 id="starting-kscore">
+<title
+>A &kscore; indítása</title>
+
+<para
+>A &kscore; elindításához kattintson a <mousebutton
+>jobb</mousebutton
+> egérgombbal a KDE panel egy üres részére és válassza a <menuchoice
+><guisubmenu
+>Hozzáadás</guisubmenu
+> <guisubmenu
+>Kisalkalmazás</guisubmenu
+> <guimenuitem
+>Sporteredmények</guimenuitem
+></menuchoice
+> menüpontot. Az indítás úgy is elvégezhető, ha a <guimenu
+>K</guimenu
+> menüben <menuchoice
+><guisubmenu
+>A panel beállításai...</guisubmenu
+> <guisubmenu
+>Hozzáadás</guisubmenu
+> <guisubmenu
+>Kisalkalmazás</guisubmenu
+> <guimenuitem
+>Sporteredmények</guimenuitem
+></menuchoice
+> menüpontot választja.</para>
+
+</sect1>
+
+<sect1 id="command-ref">
+<title
+>A program kezelése</title>
+
+<sect2 id="menu-ref">
+<title
+>Menüparancsok</title>
+
+<para
+>Indítás után a kisalkalmazás megjelenik a panelen. Ha a panel tele van, akkor lehet, hogy el kell görgetni, hogy a kisalkalmazás láthatóvá váljon. A program elmozgatásához vagy eltávolításához kattintson a <mousebutton
+>jobb</mousebutton
+> egérgombbal a tőle balra (ill. fölötte) látható sávra és válassza a <guimenuitem
+>Mozgatás</guimenuitem
+> vagy <guimenuitem
+>Eltávolítás</guimenuitem
+> parancsot.</para>
+
+<para
+>Kattintson a kisalkalmazásra a <mousebutton
+>bal</mousebutton
+> egérgombbal az eredménykijelzés frissítéséhez. Ha a <mousebutton
+>jobb</mousebutton
+> egérgombbal kattint rá, akkor a következő lehetőségek közül választhat:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Beállítások</guimenuitem
+></term
+> <listitem
+><para
+><action
+>Megnyitja</action
+> a beállítások párbeszédablakát.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Az eredmények frissítése</guimenuitem
+></term
+> <listitem
+><para
+>Az eredmények online frissítését lehet <action
+>ki- és bekapcsolni</action
+>. Kapcsolja ki, ha nincs élő internetes kapcsolata.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Segítség</guimenuitem
+></term
+> <listitem
+><para
+><action
+>Megnyitja ezt a dokumentumot.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Névjegy</guimenuitem
+></term
+> <listitem
+><para
+><action
+>Megjelenít néhány adatot</action
+> a programról</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="settings-dialog">
+<title
+><guilabel
+>Beállítások</guilabel
+></title>
+
+	<screenshot
+> <screeninfo
+>A beállítások párbeszédablaka</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="settings.png" format="PNG"/> </imageobject
+> <textobject
+><phrase
+>A beállítások párbeszédablaka</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>A következő beállításokat lehet módosítani:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Bajnokság</guilabel
+></term
+> <listitem
+><para
+>Válassza ki a kívánt bajnokságot a kombinált listából.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Csapat</guilabel
+></term
+> <listitem
+><para
+>Itt lehet megadni a csapat hárombetűs azonosítóját. Ha megnyomja a <guibutton
+>Tallózás</guibutton
+> gombot, akkor a program csatlakozik az Excite-hoz és letölti a kijelölt bajnokság csapatlistáját.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Szövegszín</guilabel
+></term
+> <listitem
+><para
+>Válassza ki a szöveg színét. Erre akkor lehet például szükség, ha a panelnak háttérképe van.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Frissítési időköz (perc)</guilabel
+></term
+> <listitem
+><para
+>Itt lehet beállítani az eredmények lekérdezésének időközét. A minimális érték 10 perc, a maximális 300.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+</sect1>
+<sect1 id="closing-kscore">
+<title
+>A program bezárása</title>
+
+
+	<screenshot
+> <screeninfo
+>A &kscore; eltávolítása a panelről</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="close.png" format="PNG"/> </imageobject
+> <textobject
+><phrase
+>A &kscore; eltávolítása a panelről</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<para
+> Nagyon örülök a &kscore; felhasználóitól érkező sok reagálásnak! Annak már kevésbé, hogy legtöbben csak arra kíváncsiak, hogyan lehet a programot eltávolítani a panelről ;-( Az eltávolítás ugyanúgy megy, mint a többi kisalkalmazásnál: rá kell kattintani a <mousebutton
+>jobb</mousebutton
+> egérgombbal a kisalkalmazás bal szélére (függőleges panelnél a felső szélére) és az <menuchoice
+><guimenuitem
+>Eltávolítás</guimenuitem
+></menuchoice
+> menüpontot kell választani. </para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="q-and-a">
+<title
+>Kérdések és válaszok</title>
+
+<sect1 id="error-messages">
+<title
+>Hibaüzenetek</title>
+
+<para
+>Az alábbi kétfajta hibaüzenettel találkozhat.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><inlinemediaobject
+> <imageobject
+> <imagedata fileref="no_score.png" format="PNG"/> </imageobject
+> </inlinemediaobject
+> <errorname
+>Nem áll rendelkezésre eredmény.</errorname
+></term
+> <listitem
+><para
+>Ennek legvalószínűbb oka:</para
+> <variablelist
+> <varlistentry
+> <term
+>a csapat azonosítója érvénytelen</term
+> <listitem
+><para
+> Nyomja meg a <guibutton
+>Tallózás</guibutton
+> gombot a beállítóablakban a kijelölt bajnokság csapatlistájának letöltéséhez.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>A megadott csapathoz nem tölthető le eredmény</term
+> <listitem
+><para
+>Ez például akkor fordulhat elő, ha a csapat már kiesett a bajnokságból. Nyomja meg a <guibutton
+>Tallózás</guibutton
+> gombot a beállítóablakban a bajnokságban szereplő csapatok listájának letöltéséhez.</para
+></listitem
+> </varlistentry
+> </variablelist
+> <para
+>Az eredményeket a következő címről tölti le a program: <ulink url="http://sports.excite.com"
+>http://sports.excite.com</ulink
+>. Ha a website adatformátuma megváltozik, akkor a program nem fog helyesen működni. Kérem értesítsen a <email
+>jsinger@leeta.net</email
+> címen, ha ilyen problémával találkozik.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><inlinemediaobject
+><imageobject
+><imagedata fileref="dl_fail.png" format="PNG"/></imageobject
+></inlinemediaobject
+> <errorname
+>A letöltés nem sikerült</errorname
+></term
+> <listitem
+><para
+>Ennek legvalószínűbb oka:</para
+> <variablelist
+> <varlistentry
+> <term
+>Nincs aktív hálózati kapcsolat.</term
+> <listitem
+><para
+>Ha telefonos kapcsolata van az internettel, akkor kapcsolja ki a hírek frissítését, ha megszűnik az internetes hozzáférés. Törölje a kijelölést a <guimenuitem
+>Az eredmények frissítése</guimenuitem
+> opció mellől.</para
+></listitem
+> </varlistentry
+> </variablelist
+> <para
+>Ha az Excite megváltoztatja az eredmények <acronym
+>URL</acronym
+>-jének értékét, akkor a program nem fog helyesen működni. Kérem értesítsen a <email
+>jsinger@leeta.net</email
+> címen, ha ilyen problémát tapasztal.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="faq">
+<title
+>További kérdések</title>
+
+<qandaset>
+<qandaentry>
+<question
+><para
+>Fel lehet venni más bajnokságokat? Máshonnan is letölthetők az eredmények?</para
+></question>
+<answer
+><para
+>Szeretném tovább bővíteni az Egyesült Államokon kívüli csapatok körét. A <email
+>jsinger@leeta.net</email
+> címen várom a bővítési tippeket, igyekszem minél többet felvenni közülük a programba. Nagyon örülnék, ha segítséget kaphatnék olyasvalakitől, aki járatos a <application
+>Perl</application
+> programozásban, hogy hatékonyabb eredményfeldolgozó szkripteket tudjak készíteni.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Hogyan lehet használni a programot, ha a panel függőleges és a mérete <quote
+>apró</quote
+>-ra van állítva?</para
+></question>
+<answer
+><para
+>Sajnos még a normál méretű panelen is elég kevés hely szokott maradni. A <quote
+>normál</quote
+> méretnél keskenyebb függőleges pannellal már végképp nem tudok mit kezdeni.</para
+></answer>
+</qandaentry>
+</qandaset>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>A szerzők listája és a licencegyezmény</title>
+
+<para
+>&kscore;</para>
+
+&underFDL;
+
+<para
+>Az eredményeket feldolgozó Perl szkriptet Todd Kuper készítette, mely a GNU General Public License alapján használható.</para>
+
+
+<para
+>A többi fájl készítője (c) Jonathan Singer, 2000. Az alábbi BSD-szerű licencengedélynek megfelelően használhatók ezek a részek.</para>
+<para
+>A program továbbadható, mind forrásként, mint bináris formában, akár módosításokkal is, a következő feltételek betartása esetén:</para>
+<para
+>* A forrásprogram továbbadása esetén is meg kell őrizni a fenti szerzői jogi szöveget, a feltételek listáját és az alábbi kitételeket. * A program bináris formában való továbbadása esetén reprodukálni kell a szerzői jogi szöveget, a feltételek listáját és az alábbi kitételeket a dokumentációban vagy esetleg a disztribúció dokumentációs anyagában.</para>
+<para
+>* Semelyik szerző vagy közreműködő neve sem használható fel a szoftver továbbfejlesztésével készült program reklámjában vagy promóciós anyagaiban, csak akkor, ha erre külön írásos engedélyt kapott a szerzőktől. </para>
+<para
+>A SZOFTVERT A SZERZŐI JOG TULAJDONOSAI ÉS A TÖBBI KÖZREMŰKÖDŐ ÚGY BOCSÁTJA RENDELKEZÉSRE, 'AHOGY VAN', EXPLICIT VAGY IMPLICIT GARANCIAVÁLLALÁS, PÉLDÁUL A FORGALOMBAHOZHATÓSÁG ÉS AZ EGY BIZONYOS CÉLRA ALKALMASSÁG BIZTOSÍTÁSA NÉLKÜL. SEMMILYEN KÖRÜLMÉNYEK KÖZÖTT SEM FELELŐSEK A SZERZŐK ÉS A TÖBBI KÖZREMŰKÖDŐ KÖZVETLEN, KÖZVETETT, BALESETBŐL SZÁRMAZÓ VAGY MÁS SPECIÁLIS KÁROKÉRT (TÖBBEK KÖZÖTT NEM KÖTELEZHETŐK TERMÉK VAGY SZOLGÁLTATÁS KIVÁLTÁSÁRA, ADATVESZTÉSBŐL EREDŐ KÁR VAGY NYERESÉGKIESÉS MEGTÉRÍTÉSÉRE, ÜZLETI FENNAKADÁS MIATTI VESZTESÉG MEGFIZETÉSÉRE), SEMMIFÉLE JOGVISZONY ESETÉN, LEGYEN AZ SZERZŐDÉSES VAGY MÁS TÍPUSÚ, AKÁR A MEGFELELŐ ISMERET HIÁNYA AKÁR MÁS KÖRÜLMÉNY OKOZTA AZT A SZOFTVER FELHASZNÁLÁSA SORÁN, MÉG ELŐRELÁTHATÓ VESZÉLY ESETÉN SEM.</para>
+
+
+</chapter>
+</book>
+

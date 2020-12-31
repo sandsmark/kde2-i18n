@@ -1,0 +1,614 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kshisen;">
+  <!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>A &kshisen; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Dirk</firstname
+> <surname
+>Doerflinger</surname
+> <affiliation
+> <address
+><email
+>ddoerflinger@web.de</email
+></address
+> </affiliation
+> </author>
+</authorgroup>
+
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+
+<date
+>2000-12-16</date>
+<releaseinfo
+>1.03.00</releaseinfo>
+
+<abstract>
+<para
+>Ez a dokumentum a &kshisen; 1.3-as verziójának leírását tartalmazza.</para>
+</abstract>
+
+<keywordset>
+      <keyword
+>KDE</keyword>
+      <keyword
+>kdegames</keyword>
+      <keyword
+>KShisen</keyword>
+      <keyword
+>játék</keyword>
+      <keyword
+>shisen-sho</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+
+<para
+>A &kshisen; egy egyszemélyes, Mahjongg-szerű játék, az eredeti Mahjongg elemkészletét használja.</para
+> 
+
+<para
+>A játék célja az összes elem eltávolítása a tábláról.</para>
+
+</chapter>
+
+<chapter id="playing-kshisen">
+<title
+>A &kshisen; kezelése</title>
+
+<sect1 id="rules">
+<title
+>Szabályok</title>
+
+<para
+>A játék célja az összes elem eltávolítása a tábláról. Egyszerre csak egy elempár távolítható el. Két elem akkor távolítható el, ha legfeljebb három vonallal össze lehet őket kötni. A vonalak lehetnek vízszintesek és függőlegesek, de átlósak nem. </para>
+
+<para
+>A vonalakat nem kell megrajzolni, a program automatikusan leellenőrzi, hogy a feltétel teljesül-e. Csak ki kell jelölni az elempárt, és ha össze lehet őket kötni legfeljebb három vonallal, akkor a program kirajzolja a vonalat és leveszi az elemeket. </para>
+
+<para
+>Fontos tudni, hogy a vonalak nem haladhatnak át más elemeken. Ha elakadt, tippet lehet kérni a programtól a következő lépésre. Ha a <mousebutton
+>jobb</mousebutton
+> gombbal kattint rá valamelyik elemre, akkor láthatóvá válik annak összes lehetséges párja, függetlenül attól, hogy levehető párt alkotnak-e vagy sem.</para>
+
+<para
+> A játéknak vége van, ha nincs több lehetséges lépés, de maradt még elem a táblán (ez megfelelő stratégia esetén nem fordul elő, ha a <guimenuitem
+>Csak megoldható játék</guimenuitem
+> opció a <guimenu
+>Beállítások</guimenu
+> menüben be van jelölve, mert ilyenkor minden játék megoldható valahogy, persze előfordulhat, hogy Ön rossz utat választ). </para>
+
+</sect1>
+
+<sect1 id="game-menu">
+<title
+>A <guimenu
+>Játék</guimenu
+> menü</title>
+
+<para
+>A <guimenu
+>Játék</guimenu
+> menüben az aktuális játék menetével kapcsolatos menüpontok találhatók:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>isszavonás</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Visszavonja az utolsó lépést</action
+>. Ugyanezt lehet elérni az eszköztár <guibutton
+>Vissza</guibutton
+> gombjával.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>D</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+>Új<accel
+>r</accel
+>a végrehajtás</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Újra végrehajtja az utoljára visszavont lépést</action
+>. Ugyanezt lehet elérni az eszköztár <guibutton
+>Előre</guibutton
+> gombjával.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+><accel
+>T</accel
+>ipp kérése</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Megmutat</action
+> egy lehetséges következő lépést.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+>Ú<accel
+>j</accel
+></guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Befejezi az éppen futó játékot</action
+> és elkezd egy újat, új elemelrendezéssel. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+> <keycap
+>R</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+>A játék új<accel
+>r</accel
+>aindítása</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Visszaállítja a mostani játékot a kiindulási állapotba.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>G</accel
+>ame</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>zünet</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Felfüggeszti a játék futását</action
+>, az eredményben szerepet játszó időmérést is. A menüpont neve ezután <guimenuitem
+>A játék folytatása</guimenuitem
+> lesz, ezzel lehet majd a játékot továbbengedni.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>J</accel
+>áték</guimenu
+> <guimenuitem
+>Megoldható?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Megjelenít egy párbeszédablakot, <action
+>amely elárulja, hogy a játék megoldható-e</action
+>. Ha a <guimenuitem
+>Csak megoldható játék</guimenuitem
+> menüpont a <guimenu
+>Beállítások</guimenu
+> menüben ki van választva, akkor ennek nincs információtartalma.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+>Dicsőség<accel
+>t</accel
+>ábla</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Megjeleníti az eddigi 10 legjobb helyi eredményt.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Néhány menüponthoz gyorsbillentyű is tartozik. A teljes lista itt található: <link linkend="key-bindings"
+></link
+>.</para
+> 
+
+</sect1>
+</chapter>
+
+<chapter id="configuration">
+<title
+>Beállítások</title>
+
+<sect1 id="options-menu">
+<title
+>A <guimenu
+>Beállítások</guimenu
+> menü</title>
+
+<para
+>A &kshisen; működése több paraméterrel is befolyásolható. Az összes paramétert a <guimenu
+>Beállítások</guimenu
+> menüpontból indulva lehet megváltoztatni. </para>
+
+<para
+>A módosított beállítások mentése automatikusan megtörténik.</para>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guisubmenu
+>Mé<accel
+>r</accel
+>et</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>A <guisubmenu
+>Méret</guisubmenu
+> almenüben lehet megváltoztatni a tábla méretét (az elemek számát). Minél több elemet kell leszedni, annál nehezebb (és tovább tartó) lesz a játék. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guisubmenu
+>S<accel
+>e</accel
+>besség</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>A <guisubmenu
+>Sebesség</guisubmenu
+> almenüben lehet beállítani, hogy milyen gyorsan tűnjön el az összekötött elempár. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guisubmenu
+>Sz<accel
+>i</accel
+>nt</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+>Itt lehet kiválasztani a játék nehézségi fokát.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>G<accel
+>r</accel
+>avitáció</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Ezt bejelölve a játék még nehezebb lesz: ha egy elemet sikerült levenni, akkor a fölötte levők egy szinttel lejjebb esnek. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+>Beállítások</guimenu
+> <guimenuitem
+>Csak megoldható játék</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+>Ha bejelöli ezt, akkor csak olyan játékot enged elkezdeni a program, amely megoldható. Megjegyzés: ha nem megfelelő stratégiát követ, akkor el lehet jutni olyan pontig, ahonnan kezdve már nem lehet megoldani a játékot, de a játékot újrakezdve, más játékmenetet követve, előbb-utóbb megoldható.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="key-bindings">
+<title
+>Billentyűparancsok</title>
+
+<para
+>Az alapértelmezett billentyűparancsok: </para>
+<simplelist
+> <member
+>Kilépés: <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></member
+> <member
+>Visszavonás: <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+></member
+> <member
+>Újra végrehajtás: <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>D</keycap
+></keycombo
+></member
+> <member
+>Új játék: <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></member
+> <member
+>A játék újrakezdése: <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>R</keycap
+></keycombo
+></member
+> <member
+>Segítség: <keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></member
+> <member
+>Mi ez?: <keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></member
+> </simplelist>
+</sect1>
+</chapter>
+
+
+<chapter id="credits">
+<title
+>Köszönetnyilvánítás és a licencegyezmény</title>
+
+<para
+> &kshisen; Copyright: Mario Weilguni (<email
+>mweilguni@sime.com</email
+>), 1999. </para>
+
+
+<para
+> Documentation Copyright: Dirk Doerflinger (<email
+>ddoerflinger@gmx.net</email
+>), 2000. </para>
+
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+
+<sect1 id="getting-kshisen">
+<title
+>A program megszerzése</title>
+
+<para
+> A &kshisen; a KDE projekt (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>) része, készítette: Mario Weilguni (<email
+>mweilguni@sime.com</email
+>). </para>
+
+<para
+> A &kshisen; a kdegames csomagban található, mely letölthető innen: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, a KDE projekt központi FTP-kiszolgálójáról.</para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Követelmények</title>
+
+<para
+> A &kshisen; sikeres lefordításához szükség van a KDE 2.0-ás vagy újabb változatára. A szükséges programkönyvtárak és a &kshisen; is megtalálható itt: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>.</para>
+</sect1>
+
+
+<sect1 id="compilation">
+<title
+>Lefordítás és telepítés</title>
+
+<para
+> A &kshisen; lefordításához és telepítéséhez az alábbi parancsokat kell kiadni a forráscsomag alapkönyvtárában: </para>
+
+<para
+> <screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen
+> </para>
+      
+<para
+> A <application
+>Shisen-Sho</application
+> fordítási szkriptjei az <application
+>autoconf</application
+> és az <application
+>automake</application
+> felhasználásával készültek, kézi beállítást nem igényelnek. </para>
+</sect1>
+</appendix>
+
+</book>
+

@@ -1,0 +1,153 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="non-kde-apps">
+<title
+>&kde; med program som inte tillhör &kde;.</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Mina program som inte tillhör &kde;, som &Emacs; och <application
+>kterm</application
+> beter sig underligt med stora fönster och konstiga teckensnitt!</para>
+</question>
+<answer>
+<para
+>Det här har troligen att göra med att &kde; försöker "använda &kde; inställningar för icke-&kde; program;", vilket betyder att <command
+>xrdb</command
+> används för att välja X-inställningar som är avsedda att likna de färger, teckensnitt och andra inställningar som du har valt för &kde;. Erfarenhetsmässigt vet vi dock att detta oftast orsakar fel, särskilt om du har gjort en noggrann anpassning av X-resurser för de program som inte hör till &kde;.</para>
+<para
+>För &kde; 1.x är den officiella lösningen att klicka på <guibutton
+>K</guibutton
+>-knappen, välja <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Skrivbord</guisubmenu
+><guimenuitem
+>Stil</guimenuitem
+></menuchoice
+> och stänga av <guilabel
+>använd KDE inställningar för icke-KDE program</guilabel
+>. För &kde; 2, klicka på <guibutton
+>K</guibutton
+>-knappen, välj <menuchoice
+><guimenu
+>Inställningar</guimenu
+><guisubmenu
+>Utseende &amp; känsla</guisubmenu
+><guisubmenu
+>Tema-hanterare</guisubmenu
+><guimenuitem
+>Stil</guimenuitem
+></menuchoice
+> och stäng av <guilabel
+>använd teckensnitt och färger för icke-&kde; program</guilabel
+> istället. Om de nya inställningarna inte verkar bli kvar, försäkra dig om att du trycker på <guibutton
+>Ok</guibutton
+> direkt utan att klicka <guibutton
+>Verkställ</guibutton
+> efter du har gjort ändringen. Om det ändå vägrar fungera, finns det en brutal lösning: döp om eller ta bort <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/share/apps/kdisplay/app-defaults</filename
+> katalogen. Det här förhindrar att &kde; hittar de X-resursfiler som används, och löser problemet. Du måste avsluta din session och logga in igen för att allt ska återgå till det normala.</para>
+<para
+>Om du inte kan eller vill döpa om eller ta bort hela systemets <filename class="directory"
+>app-defaults</filename
+> katalog, kan du alltid kopiera det till din personliga &kde;-katalog (<abbrev
+>t.ex.</abbrev
+> <filename class="directory"
+>$<envar
+>HOME</envar
+>/.kde/share/apps/kdisplay/app-defaults</filename
+>) och sedan redigera, lägga till eller ta bort filer efter smak.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&Netscape;</para>
+</question>
+<answer>
+<variablelist
+> <varlistentry
+> <term
+>Varför tar det så lång tid att starta &Netscape;?</term
+> <listitem
+><para
+>&Netscape; startar långsamt därför att det är länkat med &Motif; och måste ladda alla grafikkomponenter, <abbrev
+>etc.</abbrev
+> när det startar.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Varför kraschar &Netscape; när jag besöker vissa webbsidor?</term
+> <listitem
+><para
+>Vilka webbsidor besöker du? &Java; miniprogram (applets) och Javascript gör ofta att &Netscape; kraschar. Eftersom de flesta använder &Java; miniprogram och Javascript för att snurra på knappar istället för något nyttigt, stäng bara av dem i &Netscape;.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Varför visar &Netscape; bilder med stora bildpunkter?</term
+> <listitem
+><para
+>När du startar &Netscape;, försök använda <option
+>-install</option
+> parametern <abbrev
+>t.ex.</abbrev
+> <command
+>netscape <option
+>-install</option
+> &amp;</command
+>. Det här tvingar &Netscape; att reservera en egen färgkarta som förhoppningsvis löser problemet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Hur gör jag för att &kde; ska använda &Netscape; istället för &kfm; när jag skapar en WWWUrl kdelnk?</term
+> <listitem
+> <para
+>Du måste skapa en <filename
+>.kdelnk</filename
+> för &Netscape;, och sedan redigera den (med &kfm;, <mousebutton
+>höger</mousebutton
+>klick och välj <guimenuitem
+>Egenskaper</guimenuitem
+>) och ange den riktiga &MIME;-typen för webbadresser (under fliken <guilabel
+>Program</guilabel
+> välj text/html och text/sgml). Välj sedan <menuchoice
+><guimenu
+>Redigera</guimenu
+><guimenuitem
+>MIME typer</guimenuitem
+></menuchoice
+> i &kfm; menyn, ange <filename class="directory"
+>text</filename
+> och redigera egenskaperna för <filename
+>html</filename
+> och <filename
+>sgml</filename
+>: under fliken <guilabel
+>Bindningar</guilabel
+> välj förvalt program (eftersom du har lagt till de passande &MIME;-typerna i &Netscape;s<filename
+>.kdelnk</filename
+>-fil, ska den visas här).</para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kdf;">
+  <!ENTITY % French "INCLUDE" > <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>Le manuel de &kdf;</title>
+
+<authorgroup>
+<author> <firstname>Jonathan</firstname> <surname>Singer</surname> <affiliation> <address><email>jsinger@leeta.net</email></address> </affiliation> </author>
+
+<author> <firstname>Michael</firstname> <surname>Kropfberger</surname> <affiliation><address><email>michael.kropfberger@gmx.net</email> </address></affiliation> </author>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<contrib>Relecteur</contrib>
+</othercredit>
+<othercredit role="translator"><firstname>Ludovic</firstname><surname>Grossard</surname><affiliation><address><email>ludovic.grossard@libertysurf.fr</email></address></affiliation><contrib>Traduction française</contrib></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Jonathan Singer</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2001-07-06</date>
+<releaseinfo>0.00.50</releaseinfo>
+
+<abstract><para>&kde; affiche les périphériques de fichiers disponibles et les informations associées à chacun d'eux.</para>
+
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdf</keyword>
+<keyword>kdeutils</keyword>
+<keyword>disques</keyword>
+<keyword>périphériques</keyword>
+<keyword>montage</keyword>
+<keyword>démontage</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction</title>
+
+<para>&kdf; affiche les périphériques de fichiers disponibles (partitions de disque dur, lecteurs de disquettes et lecteurs &CD;, <abbrev>etc.</abbrev>) ainsi que des informations sur leur capacité, espace disponible, type et point de montage. Il vous permet également de monter et démonter des lecteurs et de les voir dans un gestionnaire de fichiers.</para>
+
+<para>&kdf; est similaire au module de &kcontrol; DiskFree , mais prend moins de place à l'écran. Il est utile si vous voulez garder une fenêtre Diskfree en permanence.</para>
+
+</chapter>
+
+<chapter id="using-kdf">
+<title>Utilisation de &kdf;</title>
+
+<sect1 id="starting-kdf">
+<title>Démarrage de &kdf;</title> 
+
+<para>Saisissez <userinput><command>kdf</command></userinput> dans un terminal ou électionnez <guimenuitem>Espace disque libre</guimenuitem> dans le menu <guisubmenu>Système</guisubmenu> dans le menu <guimenu>K</guimenu>. Les options de la ligne de commande standards de &Qt; et &kde; sont disponibles, et peuvent être listées en saisissant <userinput><command>kdf</command> <option>--help</option></userinput>.</para>
+
+</sect1>
+
+<sect1 id="main-window">
+<title>La fenêtre principale</title>
+
+<para>La fenêtre principale de &kdf; affiche les périphériques de fichiers disponibles.</para>
+
+<para>Normalement, les informations suivantes sont affichées&nbsp;:</para>
+<screenshot> <screeninfo>L'écran de &kdf;</screeninfo> <mediaobject> <imageobject> <imagedata fileref="kdf.png" format="PNG"/> </imageobject> <textobject> <phrase>L'écran de &kdf;</phrase> </textobject> </mediaobject> </screenshot>
+
+<itemizedlist> <listitem><para>Une icône indiquant le type de périphérique</para></listitem> <listitem><para>le nom du périphérique</para></listitem> <listitem><para>le système de fichier</para></listitem> <listitem><para>la taille totale</para></listitem> <listitem><para>le point de montage</para></listitem> <listitem><para>l'espace libre</para></listitem> <listitem><para>le pourcentage d'occupation sous forme de nombre et de graphique.</para></listitem> </itemizedlist>
+
+<para>Sur la figure précédente, quatre périphériques sont montrés, deux partitions de disque dur formatées ext2, une montée dans le système de fichier racine (<filename class="directory">/</filename>) et une dans <filename class="directory">/old</filename>, un &CD-ROM; iso9660 monté et un lecteur de disquettes non monté.</para>
+
+<para>En cliquant avec le bouton <mousebutton>gauche</mousebutton> de la souris sur l'en-tête d'une colonne particulière, les périphériques seront triés suivant cette variable. Un second clic <mousebutton>gauche</mousebutton> trie les périphériques dans l'ordre inverse.</para>
+
+<para>Cliquer sur une ligne fait apparaître un menu surgissant. Si le périphérique n'est pas actuellement monté, l'option <guimenuitem>Monter le périphérique</guimenuitem> est disponible. Si le périphérique est monté, il peut être démonté en choisissant <guimenuitem>Démonter le périphérique</guimenuitem>. En sélectionnant <guimenuitem>Ouvrir le gestionnaire de fichiers</guimenuitem>, une nouvelle fenêtre est ouverte contenant une vue graphique des fichiers sur ce périphérique.</para>
+
+</sect1>
+
+<sect1 id="the-menus">
+<title>La barre de menus de &kdf;</title>
+
+<sect2>
+<title>Le menu <guimenu>Fichier</guimenu></title>
+
+<variablelist> <varlistentry> <term> <menuchoice> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem>Act<accel>u</accel>aliser</guimenuitem> </menuchoice></term> <listitem><para><action>Rafraîchit immédiatement l'affichage pour prendre en compte l'état actuel</action></para></listitem> </varlistentry> <varlistentry> <term> <menuchoice> <shortcut> <keycombo action="simul">&Ctrl;<keycap>Q</keycap></keycombo> </shortcut> <guimenu><accel>F</accel>ichier</guimenu> <guimenuitem><accel>Q</accel>uitter</guimenuitem> </menuchoice></term> <listitem><para><action>Ferme</action> &kdf;</para></listitem> </varlistentry> </variablelist>
+
+</sect2>
+
+<sect2>
+<title>Le menu et la boîte de dialogue <guimenu>Options</guimenu></title>
+
+<variablelist> <varlistentry> <term> <menuchoice> <guimenu><accel>O</accel>ptions</guimenu> <guimenuitem><accel>C</accel>onfigurer KDiskFree</guimenuitem> </menuchoice> </term> <listitem><para><action>Ouvre une boîte de dialogue de configuration.</action></para> <screenshot> <screeninfo>Configure l'écran de &kdf;</screeninfo> <mediaobject> <imageobject> <imagedata fileref="kdf_config.png" format="PNG"/> </imageobject> <textobject> <phrase>Configure l'écran de &kdf;</phrase> </textobject> </mediaobject> </screenshot> <para>Cette fenêtre a deux onglets, <guilabel>Général</guilabel> et <guilabel>Commandes de montage</guilabel></para> <variablelist> <varlistentry> <term>Général</term> <listitem><para>Cliquez sur le mot <guilabel>visible</guilabel> ou <guilabel>caché</guilabel> pour (dés)activer l'affichage d'un champ de données.</para> <para>Modifiez <guilabel>Intervalle de rafraîchissement</guilabel> en déplaçant la glissière. La valeur dans le compteur à gauche est l'intervalle (en secondes) entre deux rafraîchissements de l'affichage de &kdf;.</para> <para>Le réglage du gestionnaire de fichiers contrôle la commande exécutée lorsque l'entrée de menu surgissant <guimenuitem>Ouvrir le gestionnaire de fichiers</guimenuitem> est sélectionnée.</para> <para>Il y a aussi deux cases à cocher. Une contrôle si la fenêtre du gestionnaire de fichiers sera automatiquement ouverte lorsqu'un périphérique est monté. L'autre permet d'afficher une boîte d'alerte si un disque est rempli de manière critique.</para> </listitem> </varlistentry> <varlistentry> <term><guilabel>Commanes de montage</guilabel></term> <listitem><para>Permet à l'utilisateur de spécifier les commandes de montage et de démontage pour un périphérique donné, ainsi que l'icône utilisée pour le représenter. Vous pouvez trouver plus d'informations sur ces commandes dans les pages man de <application>mount</application> (saisissez <userinput><command>man</command> <option>mount</option></userinput> depuis un terminal).</para></listitem> </varlistentry> </variablelist> </listitem> </varlistentry> </variablelist>
+</sect2>
+
+<sect2>
+<title>Le menu <guimenu>Aide</guimenu></title>
+<variablelist> <varlistentry> <term> <menuchoice> <shortcut><keycap>F1</keycap></shortcut> <guimenu><accel>A</accel>ide</guimenu> <guimenuitem>Conten<accel>u</accel></guimenuitem> </menuchoice> </term> <listitem><para><action>Ouvre ce document</action></para> </listitem> </varlistentry> <varlistentry> <term> <menuchoice> <shortcut> <keycombo action="simul"><keycap>Maj</keycap><keycap>F1</keycap></keycombo></shortcut> <guimenu><accel>A</accel>ide</guimenu> <guimenuitem><accel>Q</accel>u'est-ce que c'est&nbsp;?</guimenuitem> </menuchoice> </term> <listitem><para>Sélectionnez ceci et cliquez sur les items pour en apprendre plus à leur propos</para> </listitem> </varlistentry> <varlistentry> <term> <menuchoice> <guimenu><accel>A</accel>ide</guimenu> <guimenuitem><accel>R</accel>aport de bogue</guimenuitem> </menuchoice> </term> <listitem><para>Vous permet de signaler les bogues de &kdf;</para></listitem> </varlistentry> <varlistentry> <term> <menuchoice> <guimenu><accel>A</accel>ide</guimenu> <guimenuitem>À <accel>p</accel>ropos de KDiskFree</guimenuitem> </menuchoice> </term> <listitem><para><action>Affiche des informations à propos de</action> &kdf;</para></listitem> </varlistentry> <varlistentry> <term> <menuchoice> <guimenu><accel>A</accel>ide</guimenu> <guimenuitem>À propos de <accel>K</accel>DE</guimenuitem> </menuchoice> </term> <listitem><para><action>Affiche des informations à propos du projet KDE.</action></para> </listitem> </varlistentry> </variablelist>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title>Remerciements et licence</title>
+
+<para>&kdf;</para>
+
+<para>Programme copyright 1998-2000 Michael Kropfberger <email>mkropfbe@edu.uni-klu.ac.at</email></para>
+
+<para>Documentation copyright 2000 Jonathan Singer <email>jsinger@leeta.net</email></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<sect1 id="getting-and-installing-kdf">
+<title>Comment obtenir et installer &kdf;</title>
+
+<para>&kde; fait partie du projet &kde; <ulink url="http://www.kde.org">http://www.kde.org</ulink>, et devrait être compilé et installé comme indiqué dans le dossier principal du paquetage. Les nouvelles versions de &kdf; peuvent être trouvées dans le paquetage kdeutils sur <ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, le serveur &FTP; principal du projet &kde;. </para>
+
+<para>Pour compiler &kdf;&nbsp;:</para>
+
+<screen width="40"><prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>su</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command> <option>install</option></userinput></screen>
+
+</sect1>
+
+</appendix>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=0:sw=2:tw=78:noet
+-->

@@ -1,0 +1,454 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kdvi;">
+ <!ENTITY % Hungarian "INCLUDE">
+ <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+> A &kdvi; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Markku</firstname
+> <surname
+>Hihnala</surname
+> <affiliation
+><address
+><email
+>mah@ee.oulu.fi</email
+></address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>Stefan</firstname
+> <surname
+>Kebekus</surname
+> <affiliation
+><address
+><email
+>kebekus@kde.org</email
+></address
+></affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+</authorgroup>
+
+<date
+>2001-06-05</date>
+<releaseinfo
+>0.09.02</releaseinfo>
+
+<legalnotice
+>&underFDL;</legalnotice>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Markku Hihnala</holder>
+<holder
+>Stefan Kebekus</holder>
+</copyright>
+
+<abstract>
+<para
+>Ez a dokumentum a &kdvi; 0.9-es verziójának leírását tartalmazza.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>DVI</keyword>
+<keyword
+>TeX</keyword>
+<keyword
+>LaTeX</keyword>
+<keyword
+>eszközfüggetlen</keyword>
+<keyword
+>nézegető</keyword>
+<keyword
+>DVI-nézegető</keyword>
+<keyword
+>kdvi</keyword>
+<keyword
+>xdvi</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+
+<para
+> A &kdvi; egy bővítőmodul a &kviewshell; programhoz, mely lehetővé teszi, hogy a &kviewshell;-lel &DVI; fájlokat (ez a TeX által használt formátum) lehessen megjeleníteni. </para>
+
+<para
+> Ha ennél többet szeretne tudni a TeX-ről és a &DVI;-ről, látogasson el a TeX felhasználók honlapjára. A &kdvi; támogatja &PostScript; grafikus objektumok és hiperlinkek használatát is. A pontos részletek és a technikai specifikáció egy <ulink url="KDVI-features.dvi"
+>külön dokumentumban</ulink
+> található. </para>
+
+<para
+> A legfrissebb információk elérhetők a <ulink url="http://devel-home.kde.org/~kdvi"
+>kdvi honlapján</ulink
+>. </para>
+
+</chapter>
+
+<chapter id="starting">
+<title
+>A &kdvi; elindítása</title>
+
+<para
+> Az egyszerű kezelhetőség érdekében létrehoztunk egy <command
+>kdvi</command
+> nevű előtétprogramot, mely a &kviewshell;-t hívja meg a &kdvi; bővítőmodullal. Ezért a nézegetőprogram elindítható egy <userinput
+><command
+>kdvi</command
+> <parameter
+>elérési út/dok.dvi</parameter
+></userinput
+> formájú paranccsal vagy akár fájlnév nélkül is, mert ilyenkor a &kviewshell; egy párbeszédablakban lehetővé teszi egy fájl kiválasztását, és a legutoljára megnyitott fájlok menüje is használható. </para>
+
+<para
+> A &Qt; és a &kde; általános parancssori paraméterei is használhatók: <userinput
+><command
+>kdvi</command
+> <option
+>-style</option
+> <parameter
+>windows</parameter
+> <option
+>-display</option
+> <parameter
+>:0</parameter
+> <option
+>-geometry</option
+> <parameter
+>400x400+0+0</parameter
+> <option
+>-caption</option
+> <parameter
+>"DVI"</parameter
+></userinput
+> </para>
+
+<para
+> Hogy a program jól együtt tudjon működni a TeX-hel, a megnyitott &DVI; fájl változás esetén automatikusan újratöltődik. </para>
+
+</chapter>
+
+<chapter id="preferences">
+<title
+>A <guilabel
+>Beállítások</guilabel
+> párbeszédablak</title>
+
+<para
+> A <guilabel
+>Beállítások</guilabel
+> párbeszédablak előhívásához válassza a <menuchoice
+><guimenu
+>Beállítások</guimenu
+> <guimenuitem
+>DVI-beállítások</guimenuitem
+></menuchoice
+> menüpontot a &kviewshell;-ben. </para>
+
+<para
+> A párbeszédablak két lapból áll, a <guilabel
+>Betűtípusok</guilabel
+>-ból és a <guilabel
+>Megjelenítés</guilabel
+>-ből áll. </para>
+
+<sect1 id="opt-fonts">
+<title
+>A <guilabel
+>Betűtípusok</guilabel
+> beállításai</title>
+
+<para
+> Az alábbi képen a &kdvi; betűtípus-beállító ablaka látható. </para>
+
+<screenshot
+> <screeninfo
+>A <guilabel
+>Betűtípusok</guilabel
+> párbeszédablak</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="optionrequester1.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>A <guilabel
+>Betűtípusok</guilabel
+> párbeszédablak</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Metafont-mód</guilabel
+></term
+> <listitem
+> <para
+> Ezek a beállítások határozzák meg, hogy a &kdvi; milyen betűtípusokat használ a megjelenítéshez. A beállítások optimalizálásával javítani lehet a kép minőségét, de ha nem ismeri a <command
+>MetaFont</command
+> technikai részleteit és a hozzá kapcsolódó paramétereket, akkor jobb, ha nem módosít a beállításokon. </para
+> <para
+> Általában megfelelő választás <guilabel
+>1200 dpi / Lexmark</guilabel
+>, ha jó minőségű képet szeretne, vagy <guilabel
+>600 dpi / LaserJet 4</guilabel
+>, ha normál minőség mellett gyors megjelenítést szeretne. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>A hiányzó betűtípusok létrehozása</guilabel
+></term
+> <listitem
+> <para
+> Jelölje be ezt az opciót, ha azt szeretné, hogy a &kdvi; meghívja a <command
+>MetaFont</command
+> programot olyan esetekben, amikor a dokumentum kirajzolásához szükséges betűtípusok nem állnak rendelkezésre. Érdemes bekapcsolva hagyni. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="opt-rendering">
+<title
+><guilabel
+>Megjelenítési</guilabel
+> beállítások</title>
+
+
+<para
+> Az alábbi képen a &kdvi; második beállítóablaka látható. </para>
+
+<screenshot
+> <screeninfo
+>A <guilabel
+>Renderelés</guilabel
+> párbeszédablak</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="optionrequester2.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>A <guilabel
+>Renderelés</guilabel
+> párbeszédablak</phrase
+> </textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>A PostScript specialitások megjelenítése</guilabel
+></term
+> <listitem
+> <para
+> Ha bejelöli ezt az opciót, akkor a &kdvi; megjeleníti a &DVI; fájlokba ágyazott &PostScript; grafikus objektumokat. </para
+> <para
+> Ha egy külső &PostScript; fájl nem található, akkor a &kdvi; piros színű figyelmeztető téglalapot rajzol helyette. Sajnos a &PostScript; grafikus objektumok kirajzolása meglehetősen lassú a &kdvi; mostani változatában, később javítani fogunk a sebességen. Ha az opció nincs bejelölve, akkor a &kdvi; vagy üresen hagyja az objektum területét, vagy szürke téglalapot rajzol helyette. </para
+> <note
+> <para
+> Nincs szabványos eljárás &PostScript; grafika DVI fájlba ágyazására, ezért elképzelhető, hogy a &kdvi; nem tud helyesen megmutatni egy olyan objektumot, amely más programokban megjelenik. Az <command
+>xdvi</command
+> és a <command
+>dvips</command
+> régebbi változatai külső parancsok végrehajtását is támogatják. Ez komoly biztonsági kockázatot jelent és ezért szándékosan nem implementáltuk ezt a funkciót a &kdvi;-ben. A &PostScript; dokumentumok támogatott beágyazási módjainak részletes leírása egy külön dokumentumban található. Érdemes bekapcsolva hagyni. </para
+> </note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Hiperlinkek</guilabel
+></term
+> <listitem
+> <para
+> Jelölje be ezt az opciót, ha azt szeretné, hogy a program megjelenítse a hiperlinkeket. A hiperlinkkel jelölt szövegrészeket kék színnel aláhúzza a program. Érdemes bekapcsolva hagyni. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="printing">
+<title
+>Nyomtatás</title>
+
+<para
+> Ebben a változatban már használható a nyomtatóbeállító ablak (a nyomtatási párbeszédablakból érhető el), amelyben be lehet állítani a nyomtatási módszert, a nyomtató nevét és a nyomtatási sort kezelő program nevét. A nyomtatási módszer a nyomtatást végző külső program nevét állítja be, választani lehet a <command
+>dvips</command
+> és a <command
+>dvilj4</command
+> közül. Ha a <command
+>dvips</command
+>-et választja, akkor mód van arra is, hogy két vagy négy oldalt helyezzen el egy papírlapon, ehhez ki kell választani a kezelőprogramot, mely a <command
+>psnup</command
+> (ez a javasolt) vagy az <command
+>mpage</command
+> (általában működik) lehet, feltéve hogy ezek egyike már telepítve van az Ön gépén. </para>
+
+<para
+> Meg lehet adni azokat a nyomtatóneveket, amelyek kiválaszthatók lesznek a nyomtatási párbeszédablakban. </para>
+
+<para
+> Végül meg lehet adni a nyomtatási sor kezelőprogramjának nevét is (mely alapértelmezés szerint az <command
+>lpr</command
+>), mely a standard bemenetről olvassa be az adatokat. A <option
+>-P</option
+> paramétert automatikusan hozzáadja a program, ha nem az alapértelmezett nyomtatót használja. </para>
+
+<para
+> Miután befejezte a nyomtató beállítását, a nyomtatási párbeszédablakban kijelölheti a nyomtatandó oldalakat, a használni kívánt nyomtatót és a többi paramétert. </para>
+</chapter>
+
+<chapter id="faq">
+<title
+>Gyakran elhangzó kérdések</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+> Mi lehet az oka annak, hogy a program nem akarja abbahagyni a 'homokórázást'? </para>
+</question>
+<answer>
+<para
+> Lehet, hogy a &kdvi; a pk betűtípusokat rossz helyen kezdte keresni. Ilyenkor ez a művelet elég sokáig eltarthat, ha hálózati fájlrendszeren lévő könyvtárról van szó. Az <command
+>strace</command
+> programmal kideríthető, hogy erről van-e szó, lásd lejjebb. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Mi a teendő, ha a &kdvi; nem találja a PK-betűtípusokat? </para>
+</question>
+<answer>
+<para
+> Először ellenőrizze, hogy megfelelően van-e beállítva a felbontás és a <command
+>MetaFont</command
+>-mód. Ha igen, akkor a 'A PK betűtípusok elérési útja' mezőben a Beállítások/Betűtípusok menüpont alatt adja meg a betűtípus-fájlokat tartalmazó könyvtárak nevét: pl. <userinput
+><filename class="directory"
+>/var/lib/texmf/fonts/pk/ljfour/</filename
+>:<filename class="directory"
+><replaceable
+>/még/egy/könyvtár</replaceable
+></filename
+></userinput
+>. A &kdvi; rekurzívan keres azokban a könyvtárakban, amelyek nevének végén kettő / karakter szerepel: pl. <userinput
+>/var/lib/texmf/fonts//</userinput
+> (Hasonlóan az <command
+>xdvi</command
+> <envar
+>XDVIFONTS</envar
+> környezeti változójához. Részletes leírás létezik a kpathsea programkönyvtárról (gnu <command
+>info</command
+>), amelyet a &kdvi; a betűkészletek kereséséhez használ.) Így a &kdvi; akkor is használható marad, ha a tex rendszer nem a <command
+>tetex</command
+>, és nem létezik a <filename
+>texmf.cnf</filename
+> fájl. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+> Hogyan lehet engedélyezni a betűtípus-generálást? </para>
+</question>
+<answer>
+<para
+> Ha használni szeretné a <command
+>MakeTeXPK</command
+> automatikus betűtípus-létrehozási lehetőségét, adja meg a beállítások párbeszédablakában a <command
+>Metafont</command
+> módot. Ha a PK betűtípusok automatikus létrehozása le van tiltva (a menüből), akkor akkor a hiányzó betűtípusok listája egy <filename
+>missfont.log</filename
+> nevű fájlba kerül az aktuális könyvtárban. Érdemes ellenőrizni, hogy a hiányzó betűtípusok létrehozására szolgáló parancsok a <filename
+>missfont.log</filename
+> fájlban helyesek-e, mielőtt engedélyezi az automatikus létrehozást. </para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+
+<chapter id="credits-and-license">
+<title
+>Köszönetnyilvánítás és licencegyezmény</title>
+
+<para
+>&kdvi;</para>
+
+<para
+> A &kdvi; modul 0.9 Markku Hihnala &kdvi; 0.4.3 nevű programján alapul, amely viszont az <application
+>xdvi</application
+> 18f program alapján készült sok szerző közreműködésével. </para>
+
+<para
+> Dokumentáció copyright: Markku Hihnala (<email
+>mah@ee.oulu.fi</email
+>) és Stefan Kebekus (<email
+>kebekus@kde.org</email
+>), 2000, 2001. </para>
+
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underGPL;
+&underFDL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+
+<para
+> A &kdvi; a &kde; kdegraphics nevű moduljának része. </para>
+
+</appendix>
+
+</book>
+

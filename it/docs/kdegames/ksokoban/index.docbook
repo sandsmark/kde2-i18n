@@ -1,0 +1,348 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ksokoban;">
+  <!ENTITY % Italian "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Il manuale di &ksokoban;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Anders</firstname
+> <surname
+>Widell</surname
+> <affiliation
+> <address
+><email
+>awl@hem.passagen.se</email
+></address
+> </affiliation
+> </author>
+</authorgroup>
+
+<othercredit role="translator"
+> <firstname
+>Andrea</firstname
+><surname
+>Celli</surname
+><affiliation
+><address
+><email
+>a.celli@caltanet.it</email
+></address
+></affiliation
+><contrib
+>Traduzione della documentazione e dell'interfaccia grafica</contrib
+></othercredit>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Anders Widell</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-16</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract>
+<para
+> &ksokoban; è un'implementazione per KDE del gioco giapponese &quot;sokoban&quot; del magazziniere. Questo documento descrive la versione 0.4.0. di &ksokoban; </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>gioco</keyword>
+<keyword
+>sokoban</keyword>
+<keyword
+>ksokoban</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduzione</title>
+
+<para
+> Il primo gioco di sokoban fu creato nel 1982 da Hiroyuki Imabayashi per la ditta giapponese Thinking Rabbit, Inc. &quot;Sokoban&quot; in giapponese significa &quot;magazziniere&quot;. L'idea è che tu sei un magazziniere che cerca di spingere delle casse fino alla loro giusta colocazione in un magazzino. </para>
+
+<para
+> Il problema è che non puoi tirare o scavalcare le casse. Se non stai attento, alcune casse possono incastrarsi in posti sbagliati e/o  impedirti di muoverti. </para>
+
+<para
+> Già superare un livello può risultare abbastanza difficile. Ma sevuoi complicarti la vita, puoi cercare di minimizzare il numero dimosse e/o spinte usate per risolverlo </para>
+
+<para
+> Per rendere il gioco più divertente per i bambini (diciamo sotto i 10 anni) alcune collezioni con livelli più facili sono state incluse in &ksokoban;. Queste sono segnate come <emphasis
+>(facili)</emphasis
+> nel menu con le collezioni di levelli. Naturalmente, questi livelli possono essere divertenti anche per adulti. Per esempio, se non vuoi sottoporti ad un eccessivo sforzo mentale. </para>
+</chapter>
+
+<chapter id="how-to-play">
+<title
+>Il gioco</title>
+
+<para
+> L'obiettivo del gioco è di spingere tutte le gemme rosse sulle loro destinazioni, che sono segnate sul pavimento con un tondo verde, di aspetto vetroso. </para>
+
+<para
+> Usa i tasti freccia o il mouse per muoverti. Se arrivi contro una gemma usando le freccette o il bottone centrale del mouse, e non c'è nulla che la blocchi dall'altra parte, potrai spingere la gemma. Non è possibile tirare le gemme, quindi se spingi la gemma in un  angolo vi resterà incastrata. Non puoi neanche scavalcarle, quindi puoi restare intrappolato in un punto del labirinto perché ti sei bloccato la strada con le gemme. Considera anche che non puoi spingere più di una gemma alla volta. </para>
+
+<para
+> Se ti accorgi di aver spostato le gemme in modo che il livello è impossible da risolvere, puoi utilizzare la possibilità di annullare le mosse per tornare ad una posizione precedente a quella in cui hai sbagliato. Naturalmente, puoi far ripartire il livello completamente da zero. </para>
+
+<sect1 id="controls">
+<title
+>Controlli</title>
+
+<para
+> <informaltable
+> <tgroup cols="2"
+> <thead
+> <row
+><entry
+>Tasto</entry
+><entry
+>Azione</entry
+></row
+> </thead
+> <tbody
+> <row
+><entry
+>Tasti cursore </entry
+><entry
+>Spostano di una posizione in una direzione </entry
+></row
+> <row
+><entry
+><emphasis
+>CONTROL</emphasis
+> + Tasti cursore </entry
+><entry
+>Spostano il più lontano possibile in una direzione, senza spostare nessuna gemma </entry
+></row
+> <row
+><entry
+><emphasis
+>SHIFT</emphasis
+> + Tasti cursore </entry
+><entry
+>Spostano il più lontano possibile in una direzione, spingendo un'eventuale gemma sulla strada </entry
+></row
+> <row
+><entry
+>Tasto sinistro del mouse </entry
+><entry
+>Sposta in qualsiasi punto del labirinto che può essere raggiunto senza spingere gemme. </entry
+></row
+> <row
+><entry
+>Tasto centrale del mouse </entry
+><entry
+>Sposta su/giù/a destra/a sinistra, in linea retta, spingendo un'eventuale gemma sulla strada </entry
+></row
+> <row
+><entry
+>Tasto destro del mouse o <emphasis
+>U</emphasis
+> </entry
+><entry
+>Annulla l'ultima mossa </entry
+></row
+> <row
+><entry
+><emphasis
+>R</emphasis
+> </entry
+><entry
+>Rifà l'ultima mossa </entry
+></row
+> <row
+><entry
+><emphasis
+>N</emphasis
+> </entry
+><entry
+>Passa al livello successivo della collezione in uso </entry
+></row
+> <row
+><entry
+><emphasis
+>P</emphasis
+> </entry
+><entry
+>Torna al livello precedente della collezione in uso </entry
+></row
+> <row
+><entry
+><emphasis
+>Escape</emphasis
+> </entry
+><entry
+>Riavvia il livello attuale </entry
+></row
+> <row
+><entry
+><emphasis
+>Q</emphasis
+> </entry
+><entry
+>Abbandona il gioco </entry
+></row
+> </tbody
+> </tgroup
+> </informaltable
+> </para>
+</sect1>
+
+<sect1 id="loading-external-levels">
+<title
+>Caricamento di livelli esterni</title>
+
+<para
+> &ksokoban; ha la possibilità di caricare livelli esterni da files di testo. Puoi caricarli usando il menu <menuchoice
+> <guimenu
+>Partita</guimenu
+> <guimenuitem
+>Carica livelli...</guimenuitem
+> </menuchoice
+>, o specificando l'URL del file che lo contiene come argomento della linea di comando quando lanci &ksokoban; da una shell. </para>
+
+<para
+> I livelli esterni devono essere definiti usando normali caratteri codificati nella tabella seguente. Se il file contiene più di un livello, essi dovranno essere separati da linee vuote. Il file può anche contenere dei commenti tra due livelli. </para>
+
+<para
+> <informaltable
+> <tgroup cols="2"
+> <thead
+> <row
+><entry
+>Carattere</entry
+><entry
+>Significato</entry
+></row
+> </thead
+> <tbody
+> <row
+><entry
+>#</entry
+><entry
+>Muro</entry
+></row
+> <row
+><entry
+><emphasis
+>(spazio)</emphasis
+></entry
+><entry
+>Casella vuota</entry
+></row
+> <row
+><entry
+>.</entry
+><entry
+>Casella di destinazione</entry
+></row
+> <row
+><entry
+>$</entry
+><entry
+>Gemma su una casella vuota</entry
+></row
+> <row
+><entry
+>*</entry
+><entry
+>Gemma su una casella di destinazione</entry
+></row
+> <row
+><entry
+>@</entry
+><entry
+>Posizione di partenza su una casella vuota</entry
+></row
+> <row
+><entry
+>+</entry
+><entry
+>Posizione di partenza su una casella di destinazione</entry
+></row
+> </tbody
+> </tgroup
+> </informaltable
+> </para>
+
+<para
+> Come esempio, il seguente è una rappresentazione testuale del primo livello della collezione <emphasis
+>Microban</emphasis
+>. </para>
+
+<para
+> <screen>
+####
+# .#
+#  ###
+#*@  #
+#  $ #
+#  ###
+####
+</screen
+> </para>
+</sect1>
+</chapter>
+
+<chapter id="credits">
+<title
+>Riconoscimenti e Licenza</title>
+
+<para
+> &ksokoban; è copyright &copy; 1998-2000 di Anders Widell &lt;<ulink url="mailto:awl@hem.passagen.se"
+>awl@hem.passagen.se</ulink
+>&gt;. Fer le ultime novità su &ksokoban;, vista la home page di &ksokoban; a <ulink url="http://hem.passagen.se/awl/ksokoban/"
+> http://hem.passagen.se/awl/ksokoban/</ulink
+> </para>
+
+<para
+> La grafica dello sfondo &quot;starfield&quot; è stata presa dal <ulink url="http://www.gimp.org/"
+>Gimp</ulink
+>. Tutte la restante grafica è stata creata da Anders Widell &lt;<ulink url="mailto:awl@hem.passagen.se"
+>awl@hem.passagen.se</ulink
+>&gt; utilizzando il ray-tracer <ulink url="http://www.povray.org/"
+>Povray</ulink
+>. </para>
+
+<para
+> 
+>Tutti i livelli di sokoban attualmente inclusi sono stati creati da David W. Skinner &lt;<ulink url="mailto:sasquatch@bentonrea.com"
+> sasquatch@bentonrea.com</ulink
+>&gt;. Visita la sua pagina su sokoban a <ulink url="http://bentonrea.com/~sasquatch/sokoban/"
+> http://bentonrea.com/~sasquatch/sokoban/</ulink
+> </para>
+
+<para
+>Traduzioni italiane curate dal Team di traduzione di KDE.</para>
+&underFDL;
+&underGPL;
+</chapter>
+
+&documentation.index; 
+</book>
+

@@ -1,0 +1,240 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd" [
+<!ENTITY kappname "&konsole;">
+<!ENTITY % French "INCLUDE">
+<!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>Le manuel de &konsole;</title>
+<authorgroup>
+<author> <firstname>Jonathan</firstname> <surname>Singer</surname>  <affiliation> <address><email>jsinger@leeta.net</email></address> </affiliation> </author>
+      
+<othercredit role="developer">
+<firstname>Chris</firstname>
+<surname>Machemer</surname>
+<affiliation>
+<address><email>machey@ptd.net</email></address>
+</affiliation>
+<contrib>Mainteneur</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Michael</firstname><surname>McBride</surname><contrib>Relecteur</contrib>
+<affiliation><address><email>mmcbride@ematic.com</email></address></affiliation>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname><surname>Watts</surname><contrib>Relecteur</contrib>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+</othercredit>
+
+<othercredit role="translator"> <firstname>Anne-Marie</firstname> <surname>Mahfouf</surname> <affiliation> <address><email>a-m.mahfouf@lineone.net</email></address> </affiliation> <contrib>Traduction française</contrib> </othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2000</year><year>2001</year>
+<holder>Jonathan Singer</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>2001-07-09</date>
+<releaseinfo>1.00.20</releaseinfo>
+
+<abstract><para>Ce document est le manuel de l'utilisateur pour l'application &konsole;.</para>
+<para>&konsole; est un émulateur de terminal X pour &kde; 2.0</para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>konsole</keyword>
+<keyword>kdebase</keyword>
+<keyword>commande</keyword>
+<keyword>ligne</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Introduction à &konsole;</title>
+
+<para>&konsole; est un émulateur de terminal X qui  fournit une interface de commande en ligne (<acronym>CLI</acronym>) pendant l'utilisation de l'environnement de bureau graphique KDE (K Desktop Environment). &konsole; aide à mieux organiser le bureau de l'utilisateur  en contenant des sessions multiples dans une seule fenêtre (bureau moins encombré). </para>
+
+<para>Ses caractéristiques avancées comprennent une configuration aisée et la possibilité d'utiliser des terminaux  shell dans une seule fenêtre.</para>
+
+<para>En utilisant &konsole; un utilisateur peut ouvrir&nbsp;:</para>
+<itemizedlist> <listitem><para>des sessions de console &Linux;</para></listitem> <listitem><para>des sessions du gestionnaire de fichiers <application>Midnight Commander</application></para></listitem> <listitem><para>des sessions shell</para></listitem> <listitem><para>des sessions console administrateur (utilisateur <systemitem class="username">root</systemitem>)</para></listitem> <listitem><para>des sessions du gestionnaire de fichiers <application>Midnight Commander</application> en tant qu'administrateur (utilisateur <systemitem class="username">root</systemitem>)</para></listitem> </itemizedlist>
+
+<para>Ces sessions peuvent être renommées pour vous aider à garder trace de tous vos shells, ou on peut leur envoyer des signaux (<errorcode>STOP</errorcode>, <errorcode>CONT</errorcode>, <errorcode>HUP</errorcode>, <errorcode>INT</errorcode>, <errorcode>TERM</errorcode>, <errorcode>KILL</errorcode>).</para>
+
+<para>Pour plus de contrôle sous &konsole;, un utilisateur peut&nbsp;:</para>
+<itemizedlist> <listitem><para>cacher/montrer la barre de menus, la barre d'outils et/ou le cadre</para></listitem> <listitem><para>sélectionner la taille d'une fenêtre de &konsole;, les polices, les schémas de couleur et l'assignation des touches</para></listitem> <listitem><para>changer la localisation de la barre de défilement ou cacher celle-ci</para></listitem> </itemizedlist>
+
+<para>Toutes les options choisies peuvent devenir défaut pour les sessions à venir en les enregistrant. </para>
+
+<sect1 id="history">
+<title>Historique</title>
+
+<para>Pour ceux qui ont un intérêt certain dans la taxonomie des terminaux X libres, il en existe deux autres de la même sorte&nbsp;: <application>xterm</application>, l'original, écrit même avant X lui-même (un mois ou deux), et <application>xvt</application>, un clone léger <application>xterm</application>, sur lequel la plupart des dérivés disponibles en ce moment (notamment  <application>eterm</application>) sont basés.</para>
+
+<para> Après une décennie, &konsole; est le premier à être entièrement récrit. Alors que <application>xterm</application> a été compliqué à l'extrême pendant ce temps (son fichier <filename>README</filename> commence par les mots <quote>Abandonnez tout espoir, vous qui entrez ici</quote>), &konsole;  offre un nouveau départ en utilisant des technologies et une compréhension contemporaines de X.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="use-of-konsole">
+<title>Utilisation de &konsole;</title>
+
+<sect1 id="startup">
+<title>Démarrage</title>
+
+<para>Quand &konsole; est invoqué, une application (typiquement un shell Unix) s'exécute dans la fenêtre. Tapez simplement à l'invite.</para>
+
+<screenshot> <screeninfo>L'écran de &konsole;</screeninfo> <mediaobject> <imageobject> <imagedata fileref="konsole.png" format="PNG"/> </imageobject> <textobject> <phrase>L'écran de &konsole;</phrase> </textobject> </mediaobject> </screenshot>
+
+</sect1>
+
+<sect1 id="history-option">
+<title>Historique</title>
+
+<para>Comme les lignes défilent à partir du haut de l'écran, elles peuvent être revisualisées en bougeant la barre de défilement vers le haut ou par l'utilisation des touches <keycombo action="simul"><keycap>Maj</keycap><keycap>Page Up</keycap></keycombo> (pour revenir à la page précédente), <keycombo action="simul"><keycap>Maj</keycap><keycap>Page Down</keycap></keycombo> (pour aller à la page suivante), <keycombo action="simul"><keycap>Maj</keycap><keycap>Up</keycap></keycombo> (pour remonter d'une ligne) et les touches <keycombo action="simul"><keycap>Maj</keycap><keycap>Down</keycap></keycombo> (pour descendre d'une ligne)(en supposant que l'option "<link linkend="settings-menu">Historique"</link> soit cochée).</para>
+
+</sect1>
+
+<sect1 id="mousebuttons">
+
+<title>Boutons de la souris</title>
+
+<variablelist> <varlistentry> <term><mousebutton>gauche</mousebutton></term> <listitem><para>Un clic sur le bouton <mousebutton>gauche</mousebutton> est transmis en tant qu'événement à l'application qui fonctionne dans l'émulateur si elle supporte cette fonction. Si un programme est capable de réagir aux clics de souris, &konsole; l'indique en donnant au curseur la forme d'une flèche. Dans le cas contraire, un curseur en forme de barre verticale est affiché.</para> <para>Conserver le bouton <mousebutton>gauche</mousebutton> enfoncé en déplaçant la souris dans l'écran lorsqu'une application ne gérant pas la souris fonctionne dans le terminal marquera une région du texte. Le texte ainsi marqué sera affiché en vidéo inversée. Dès que le bouton est relâché, le texte marqué est copié dans le presse-papiers pour utilisation ultérieure dans &konsole; ou dans une autre application.</para> <para>Normalement, des caractères "nouvelle ligne" sont insérés à la fin de chaque ligne sélectionnée. C'est habituellement mieux pour copier-coller du code source ou pour les sorties d'une commande particulière. Pour du texte ordinaire, les sauts de ligne ne sont généralement pas importants. On pourrait souhaiter que le texte prenne la forme d'une simple suite de caractères qui sera automatiquement reformatée lorsqu'elle sera copiée dans une autre application. Pour sélectionner du texte de cette manière, enfoncez la touche <keycap>Ctrl</keycap> tout en sélectionnant normalement.</para> <para>Dès que le bord supérieur ou inférieur de la zone de texte marquée est atteint, &konsole; le fait défiler vers le haut ou vers le bas, affichant ainsi le cas échéant le contenu du tampon d'historique. Le défilement cesse dès que vous cessez de déplacer la souris.</para> <para>Dès que vous relâchez la souris, &konsole; essaye de maintenir la sélection visible en la conservant en vidéo inversée. La zone ainsi marquée revient à un affichage normal dès que le contenu du presse-papiers change, que le texte dans la zone marquée est modifié ou que vous cliquez sur le bouton <mousebutton>gauche</mousebutton> de la souris.</para> <para>Pour marquer du texte dans une application qui gère les événements de souris, il faut enfoncer la touche <keycap>Maj</keycap> pendant qu'on clique.</para> </listitem> </varlistentry> <varlistentry> <term><mousebutton>central</mousebutton></term> <listitem><para>Appuyer sur le <mousebutton>bouton central</mousebutton> copie le texte présent dans le presse-papiers.</para> <note><para>Si vous avez une souris avec seulement deux boutons, appuyer en même temps sur le bouton <mousebutton>gauche</mousebutton> et le bouton <mousebutton>droite</mousebutton> imite le bouton <mousebutton>central</mousebutton> de la souris à trois boutons.</para></note> </listitem> </varlistentry> <varlistentry> <term><mousebutton>droit</mousebutton></term> <listitem> <para> Le bouton <mousebutton>droit</mousebutton> fait apparaître le menu <guimenu>Options</guimenu>. La combinaison <keycombo action="simul">&Ctrl; <mousebutton>bouton droit</mousebutton></keycombo> fait apparaître le menu <guimenu>Fichier</guimenu> tandis que la combinaison <keycombo action="simul">&Shift; <mousebutton>bouton droit</mousebutton></keycombo> fait apparaître le menu <guimenu>Sessions</guimenu>. </para> </listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+<sect1 id="menubar">
+<title>La barre de menus</title>
+
+<para>La barre de menus se trouve en haut de la fenêtre de &konsole;. Elle peut être cachée et rétablie en décochant/cochant <guimenuitem>Afficher la barre de menus</guimenuitem> dans le menu <guimenu>Options</guimenu>. Quand la barre de menus est cachée, l'option <guimenuitem>Afficher la barre de menus</guimenuitem> peut être visualisée en cliquant le bouton <mousebutton>droit</mousebutton> de la souris dans la fenêtre.</para>
+
+<sect2 id="file-menu">
+<title>Le menu <guimenu>Fichier</guimenu></title>
+
+<variablelist> <varlistentry> <term><menuchoice><guimenu>Fichier</guimenu><guimenuitem>Console Linux</guimenuitem></menuchoice></term> <listitem><para><action> Ouvre une nouvelle session simulant un système Linux en mode texte.</action></para> <note><para>Voir le fichier <filename>README.linux.console</filename> pour des informations détaillées sur les différences entre une console &Linux; et une console &UNIX; typique.</para></note></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Fichier</guimenu><guimenuitem>Midnight Commander</guimenuitem></menuchoice></term> <listitem><para><action>Ouvre une nouvelle session</action> avec le navigateur graphique de fichiers <application>Midnight Commander</application></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Fichier</guimenu> <guimenuitem>Shell</guimenuitem></menuchoice></term> <listitem><para><action>Ouvre une nouvelle session avec un interpréteur de commandes dans un terminal</action></para></listitem> </varlistentry> <varlistentry> <term> <menuchoice><guimenu>Fichier</guimenu> <guimenuitem>Console administrateur</guimenuitem></menuchoice> </term> <listitem> <para> <action>Ouvre une nouvelle session avec un terminal shell</action>, en tant qu'administrateur (utilisateur <systemitem class="username">root</systemitem>). </para> <para> Après l'invite demandant le mot de passe de root, l'invite <prompt>#</prompt> apparaît, indiquant que l'utilisateur travaille maintenant avec les privilèges de l'administrateur (utilisateur <systemitem class="username">root</systemitem>). Cela est fréquemment nécessaire pour installer un nouveau logiciel ou effectuer la maintenance du système, mais des précautions doivent être prises pour éviter tout dommage accidentel. </para> </listitem> </varlistentry> <varlistentry> <term> <menuchoice><guimenu>Fichier</guimenu> <guimenuitem>Administrateur Midnight Commander</guimenuitem></menuchoice> </term> <listitem> <para> <action>Ouvre une nouvelle session</action> avec le navigateur graphique de fichiers <application>Midnight Commander</application>, en tant qu'administrateur (utilisateur <systemitem class="username">root</systemitem>). </para> <para> Après l'invite demandant le mot de passe de root, l'invite <prompt>#</prompt> apparaît, indiquant que l'utilisateur travaille maintenant avec les privilèges de l'administrateur. Cela est fréquemment nécessaire pour installer un nouveau logiciel ou effectuer la maintenance du système, mais des précautions doivent être prises pour éviter tout dommage accidentel. </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Fichier</guimenu> <guimenuitem><accel>Q</accel>uitter</guimenuitem></menuchoice></term> <listitem><para><action>Quitte</action> &konsole;, en fermant toutes les sessions ainsi que toute application lancée depuis une session.</para></listitem> </varlistentry> </variablelist>
+
+<para> Vous pouvez également ouvrir une nouvelle session grâce à un accélérateur clavier. Par défaut, il s'agit de <keycombo action="simul"><keycap>Alt</keycap><keycap>Ctrl</keycap><keycap>N</keycap></keycombo>. Vous pouvez également définir votre propre accélérateur clavier pour lancer une nouvelle session de terminal. Les fichiers avec une extension <literal role="extension">*.keytab</literal> dans <filename class="directory">$<envar>KDEDIR</envar>/share/apps/konsole</filename> définissent des raccourcis clavier. </para>
+
+<para> Par exemple, l'ajout de la définition: <userinput>key F12 + Shift : newSession</userinput> aux fichiers keytab actifs permet qu'un nouvel interpréteur de commandes soit lancé par l'appui sur <keycombo action="simul">&Shift;<keycap>F12</keycap></keycombo>. Utilisez le menu <menuchoice><guimenu>Options</guimenu> <guimenuitem>Clavier</guimenuitem></menuchoice> pour choisir un fichier keytab. Le fichier <filename>README.KeyTab</filename> contient plus d'informations sur la manière de définir des raccourcis. </para>
+
+</sect2>
+
+<sect2 id="sessions-menu">
+<title>Le menu <guimenu>Sessions</guimenu></title>
+
+<variablelist> <varlistentry> <term><menuchoice><guimenu>Sessions</guimenu> <guisubmenu>Envoyer un signal</guisubmenu></menuchoice></term> <listitem><para><action>Envoyer un signal - Envoie le signal spécifié au processus shell, ou tout autre processus, qui a été lancé quand la nouvelle session a débuté.</action></para><para>Les signaux disponibles actuellement sont&nbsp;:</para> <informaltable> <tgroup cols="2"> <tbody> <row> <entry><errorcode>STOP</errorcode></entry> <entry>pour arrêter un processus</entry> </row> <row> <entry><errorcode>CONT</errorcode></entry> <entry>continuer après arrêt</entry> </row> <row> <entry><errorcode>HUP</errorcode></entry> <entry>arrêt imprévu détecté sur le terminal de contrôle ou mort du processus de contrôle </entry> </row> <row> <entry><errorcode>INT</errorcode></entry> <entry>interruption du clavier</entry> </row> <row> <entry><errorcode>TERM</errorcode></entry> <entry>signal de cessation</entry> </row> <row> <entry><errorcode>KILL</errorcode></entry> <entry>envoie un signal d'arrêt</entry> </row> </tbody> </tgroup> </informaltable> <para>Veuillez vous référer aux pages man de votre  système pour plus de détails en saisissant la commande <userinput><command>man</command> <option>7 signal</option></userinput>.</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Sessions</guimenu> <guimenuitem>R<accel>e</accel>nommer la session...</guimenuitem></menuchoice></term> <listitem><para><action>Change le nom de la session active</action></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Sessions</guimenu> <guimenuitem>Icônes de session...</guimenuitem></menuchoice></term> <listitem><para>À la fin du menu se trouve une liste des sessions disponibles. En sélectionner une rendra cette session active.</para><para>Vous pouvez aussi utiliser les touches <keycombo action="simul"><keycap>Maj</keycap><keycap>gauche</keycap></keycombo>/<keycombo action="simul"><keycap>Maj</keycap><keycap>droit</keycap></keycombo> pour parcourir les différentes sessions disponibles.</para> </listitem> </varlistentry> </variablelist>
+
+
+</sect2>
+
+<sect2 id="settings-menu">
+<title>Le menu <guimenu>Options</guimenu></title>
+
+<variablelist> <varlistentry> <term><menuchoice><guimenu>Options</guimenu><guimenuitem>R<accel>e</accel>nommer la session...</guimenuitem></menuchoice></term> <listitem><para><action>Change le nom de la session active</action></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Afficher la barre de <accel>m</accel>enus</guimenuitem></menuchoice></term> <listitem><para><action>Montre ou cache la barre de menus</action></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Afficher la barre d'<accel>o</accel>utils</guimenuitem></menuchoice></term> <listitem><para><action>Montre ou cache la barre d'outils</action></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Afficher le <accel>c</accel>adre</guimenuitem></menuchoice></term> <listitem><para><action>Montre ou cache le cadre sur les côtés de la fenêtre</action></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guisubmenu>Barre de défilement</guisubmenu></menuchoice></term> <listitem><para><action>Contrôle l'emplacement de la barre de défilement</action>&nbsp;: <guimenuitem>cachée</guimenuitem>, <guimenuitem>à gauche</guimenuitem>, ou <guimenuitem>à droite</guimenuitem></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guimenuitem><accel>P</accel>lein écran</guimenuitem></menuchoice></term> <listitem><para><action>Bascule la fenêtre entre plein écran et taille normale</action></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guisubmenu>Taille</guisubmenu></menuchoice></term> <listitem><para><action>Fixe la taille de la surface du texte (donnée en colonnes x lignes)</action></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guisubmenu>Police</guisubmenu></menuchoice></term> <listitem><para><action>Fixe la taille de la police</action></para> <para>Choisissez l'option <guimenuitem>Personnalisée</guimenuitem> pour choisir librement la combinaison de police, taille et style souhaitée. Le fichier <filename>README.fonts</filename> dans le code source de &konsole; donne des indications sur les polices qui donnent de bons résultats.</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guimenuitem><accel>M</accel>odèle</guimenuitem></menuchoice></term> <listitem><para><action>Fixe les couleurs du texte et du fond d'écran</action></para> <para>La liste de ces schémas est lue dans <filename>$KDEDIR/share/apps/konsole/*.schema</filename>. Le fichier <filename>$KDEDIR/share/apps/konsole/README.Schema</filename> décrit le format des schémas avec plus de détails. Complétez ou Modifiez ces fichiers en fonctions de vos besoins. Vous pouvez également créer des schémas personnalisés depuis &kcontrolcenter; en choisissant <menuchoice><guisubmenu>Système</guisubmenu> <guimenuitem>Konsole</guimenuitem></menuchoice>. </para> </listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guimenuitem><accel>H</accel>istorique</guimenuitem></menuchoice></term> <listitem><para></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guimenuitem>En<accel>c</accel>odage</guimenuitem></menuchoice></term> <listitem><para><action>Pas encore implémenté</action></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guimenuitem><accel>C</accel>lavier</guimenuitem></menuchoice></term> <listitem><para><action>Choisit la table de caractères souhaitée</action></para> <para>La liste de ces tables de caractères se trouve dans <filename>$KDEDIR/apps/konsole/*.keytab</filename>. Le fichier <filename>$KDEDIR/share/apps/konsole/README.KeyTab</filename> décrit le format keytab en détail. Complétez ou modifiez ces fichiers en fonction de vos besoins.</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guimenuitem>Séparateurs de mots</guimenuitem></menuchoice></term> <listitem><para><action>Détermine les caractères qui seront reconnus comme séparateurs entre deux mots.</action></para> <para>Cela affecte quel texte sera sélectionné lorsque vous double-cliquez sur du texte. C'est plus important pour des encodages non occidentaux.</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu> <guimenuitem><accel>S</accel>ignaler les sessions ouvertes en quittant </guimenuitem></menuchoice></term> <listitem><para><action>Quand ceci est coché, un avertissement apparaît quand vous essayez de fermer une fenêtre &konsole; avec de multiples sessions. </action></para> </listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Options</guimenu><guimenuitem>Enregistrer les <accel>o</accel>ptions</guimenuitem></menuchoice></term> <listitem><para><action>Enregistre les paramètres actuels comme nouveaux paramètres par défaut  </action></para></listitem> </varlistentry> </variablelist>
+
+</sect2>
+
+<sect2 id="help-menu">
+<title>Le menu <guimenu>Aide</guimenu></title>
+
+<variablelist> <varlistentry> <term><menuchoice><shortcut> <keycap>F1</keycap></shortcut><guimenu>Aide</guimenu> <guimenuitem><accel>C</accel>ontenu</guimenuitem> </menuchoice></term> <listitem><para><action>Ouvre la table des matières de ce document</action></para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Aide</guimenu><guimenuitem>Référence <accel>T</accel>echnique...</guimenuitem></menuchoice></term> <listitem><para><action>Information détaillée sur l'émulation de terminaux</action> et sur &konsole;</para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Aide</guimenu><guimenuitem><accel>R</accel>apport de bogue...</guimenuitem> </menuchoice></term> <listitem><para><action>Soumettre un rapport de bogue ou demander une caractéristique</action> pour &konsole; </para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Aide</guimenu><guimenuitem><accel>À</accel> propos de Konsole</guimenuitem> </menuchoice></term> <listitem><para><action>Information sur</action> l'auteur de &konsole; </para></listitem> </varlistentry> <varlistentry> <term><menuchoice><guimenu>Aide</guimenu><guimenuitem>À propos de <accel>K</accel>DE</guimenuitem> </menuchoice></term> <listitem><para><action>Information sur le projet KDE </action></para></listitem> </varlistentry> </variablelist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="toolbar">
+<title>La barre d'outils</title>
+
+<para>La barre d'outils se trouve en bas de la fenêtre de &konsole;.</para>
+
+<para>Elle peut  être cachée et  rétablie en basculant <guimenuitem>Afficher la barre d'outils</guimenuitem> dans le menu <guimenu>Options</guimenu> ou en cliquant sur la <quote>poignée</quote> sur le côté de la barre. La barre contient une icône <guiicon>Nouveau</guiicon> et des icônes pour les sessions en cours. Cliquer sur <guiicon>Nouveau</guiicon> ouvre une nouvelle session <quote>Shell</quote>.</para>
+
+<para>Cliquer sur l'icône d'une session existante rend cette session active.</para>
+<para>Lorsque la barre d'outils est cachée, les combinaisons de touches <keycombo action="simul"><keycap>Maj</keycap> <keycap>gauche</keycap></keycombo> et <keycombo action="simul"><keycap>Maj</keycap> <keycap>droite</keycap></keycombo> peuvent être utilisées pour naviguer entre les sessions.</para>
+
+</sect1>
+
+<sect1 id="command-line-options">
+<title>Options de commande en ligne</title>
+
+<para>Quand &konsole; est lancé depuis une commande en ligne, plusieurs options peuvent être spécifiées pour modifier son comportement.</para>
+
+<variablelist> <varlistentry> <term><option>--help</option></term> <listitem><para><action>Affiche les différentes options</action></para></listitem> </varlistentry> <varlistentry> <term><option>--name</option></term> <listitem><para><action>Détermine le nom qui apparaît dans la barre de titre</action></para></listitem> </varlistentry> <varlistentry> <term><option>--ls</option></term> <listitem><para><action>Démarre un shell de connexion</action></para></listitem> </varlistentry> <varlistentry> <term><option>--nowelcome</option></term> <listitem><para>Supprime le message "Bienvenue à la &konsole;" qui apparaît normalement dans la barre de titre</para></listitem> </varlistentry> <varlistentry> <term><option>-T,--title</option></term> <listitem><para><action>Détermine le titre de la fenêtre</action></para></listitem> </varlistentry> <varlistentry> <term><option>--xwin</option></term> <listitem><para><action>Ignoré</action></para></listitem> </varlistentry> <varlistentry> <term><option>--nohist</option></term> <listitem><para><action>Supprime l'enregistrement des lignes qui s'inscrivent depuis le haut de la fenêtre</action></para></listitem> </varlistentry> <varlistentry> <term><option>--notoolbar</option></term> <listitem><para>Démarre &konsole; <action>sans barre d'outils</action></para></listitem> </varlistentry> <varlistentry> <term><option>--vt_sz</option> <parameter>CCxLL</parameter></term> <listitem><para><action>Démarre une  fenêtre de terminal de CC colonnes et LL lignes</action></para></listitem> </varlistentry> <varlistentry> <term><option>-e</option> <parameter>command</parameter></term> <listitem><para><action>Exécute</action> <parameter>command</parameter> au lieu de l'interpréteur de commandes.</para></listitem> </varlistentry> </variablelist>
+
+<para>Par exemple&nbsp;:</para>
+
+<informalexample> <screen><prompt>bash$</prompt> <userinput><command>konsole</command> <option>--vt_sz</option> <parameter>90x25</parameter> <option>--nohist</option></userinput></screen> <para> lance une fenêtre &konsole; de 90 colonnes et 25 rangs, sans tampon d'historique</para> </informalexample>
+
+<para>&konsole; accepte aussi les options génériques de &Qt; et KDE&nbsp;:</para>
+
+<variablelist> <varlistentry> <term><option>--help-qt</option></term> <listitem><para><action>Affiche les options spécifiques à Qt</action></para></listitem> </varlistentry> <varlistentry> <term><option>--help-kde</option></term> <listitem><para><action>Affiche les options spécifiques à KDE</action></para></listitem> </varlistentry> <varlistentry> <term><option>--help-all</option></term> <listitem><para><action>Affiche toutes les options</action></para></listitem> </varlistentry> <varlistentry> <term><option>--author</option></term> <listitem><para><action>Affiche le nom de(s) auteur(s)</action></para></listitem> </varlistentry> <varlistentry> <term><option>-v,--version</option></term> <listitem><para><action>Affiche le numéro de la version</action></para></listitem> </varlistentry> <varlistentry> <term><option>--license</option></term> <listitem><para><action>Affiche des informations sur la licence</action></para></listitem> </varlistentry> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title>Remerciements et copyright</title>
+
+<para>&konsole; est maintenu par Chris Machemer <email>machey@ptd.net</email></para>
+
+<para>L'application &konsole; <trademark class="copyright">copyright  1997-2000 Lars Doelle</trademark>  <email>lars.doelle@on-line.de</email></para>
+
+<para>Ce document a été écrit par Jonathan Singer <email>jsinger@genome.wi.mit.edu</email></para>
+
+<para>Converti au format DocBook <acronym>SGML</acronym> par Michael McBride <email>mmcbride@ematic.com</email> et Lauri Watts <email>vampyr@atconnex.net</email></para>
+
+<para>Traduction française par Anne-Marie <email>a-m.mahfouf@lineone.net</email></para>
+
+&underFDL;
+&underGPL;
+</chapter>
+
+<appendix id="installation">
+<title>Installation</title>
+
+<para>&konsole; fait partie des paquetages de base de &kde; 2.0.  Il sera installé automatiquement avec votre installation &kde; et nécessite &kde; 2.0 pour fonctionner.</para> <para>Pour plus d'information, vous pouvez visiter le site web de &kde; à <ulink url="http://www.kde.org/">http://www.kde.org/</ulink></para>
+
+<para>Si vous désirez obtenir &konsole; séparément, téléchargez le paquetage kdebase et compilez le et installez le comme il est indiqué dans le dossier principal du paquetage. De nouvelles versions de kdebase peuvent être obtenues à <ulink url="ftp://ftp.kde.org/pub/">ftp://ftp.kde.org/pub/</ulink></para>
+
+<para>Pour installer &konsole;&nbsp;:</para>
+
+<screen>
+<prompt>$</prompt>  <userinput><command>cd</command> <filename>kdebase/konsole</filename></userinput>
+<prompt>$</prompt>  <userinput><command>./configure</command></userinput>
+<prompt>$</prompt>  <userinput><command>make</command></userinput>
+<lineannotation>Puis en tant que root&nbsp;: </lineannotation>
+<prompt>#</prompt>  <userinput><command>make</command><option>install</option></userinput>
+</screen>
+
+<para>Des informations sur la façon de construire &konsole; sur d'autres plates-formes que &Linux; sont disponibles dans le fichier <filename>README.ports</filename> du code source de &kpackage;. Il donne une liste d'experts de certaines plates-formes (Tru64, Solaris, OpenBSD) et lance un appel à volontaires pour les autres plates-formes &UNIX;.</para>
+
+</appendix>
+
+&documentation.index; 
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=0:sw=2:tw=78:noet
+-->
+

@@ -1,0 +1,368 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kdesu "<application>KDE su</application>">
+  <!ENTITY kappname "&kdesu;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Application-Variable Entities V2.0//EN" "entities/kde-prologue.entities">
+  
+]>
+
+<book lang="ja">
+<bookinfo>
+
+<title>&kdesu; ハンドブック</title>
+
+
+<authorgroup>
+<author>
+<firstname>Geert</firstname>
+<surname>Jansen</surname>
+<affiliation>
+<address><email>g.t.jansen@stud.tue.nl</email></address>
+</affiliation>
+</author>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation>
+<address><email>vampyr@atconnex.net</email></address>
+</affiliation>
+<contrib>Reviewer</contrib>
+</othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Geert Jansen</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>04/09/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+
+
+<abstract><para>&kdesu; は Unix "<command>su</command>" コマンドのためのグラフィカルフロントエンドです。</para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>su</keyword>
+<keyword>password</keyword>
+<keyword>root</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="Introduction">
+<title>導入</title>
+
+<para>&kdesu; にようこそ！
+&kdesu; は、UNIX "<command>su</command>"コマンドの、
+Kデスクトップ環境のためのグラフィカルフロントエンドです。
+これは、他のユーザーのパスワードを適応することによって、そのユーザーとして、プログラムを実行する事が出来ます。
+&kdesu; は権利のないプログラムであり、システムのsuを使っています。</para>
+
+<para>KDE su は、パスワードを保持する機能が一つ追加されています。この機能を使えば、
+コマンド実行の度にパスワードを入力する必要は無くなります。
+この機能と、セキュリティー分析についての詳細は、
+<xref linkend="sec-password-keeping"/>を御覧下さい。</para>
+
+<para>このプログラムは、コマンドライン、もしくは、 <filename>.desktop</filename>ファイルから実行出来ます。
+それは、<abbrev>GUI</abbrev> ダイアログを使って root パスワードを尋ねますが、私は、純粋な <abbrev>GUI</abbrev> プログラムに代る、コマンドラインと <abbrev>GUI</abbrev> のより良い接続法であると考えています。</para>
+
+</chapter>
+
+<chapter id="installation">
+<title>インストール</title>
+
+<sect1 id="downloading">
+<title>ダウンロード</title>
+
+<para>&kdesu; は現在、KDE <abbrev>CVS</abbrev> の kdebase に入っています。
+全ての (2.x) KDE ディストリビューションに含まれているはずです。
+あなたもまた、私の
+<ulink url="ftp://skynet.stack.nl/pub/users/geertj/">ftp://skynet.stack.nl/pub/users/geertj/</ulink>
+にあるホームページからKDE 1.x バージョンを入手することが出来ます。</para>
+</sect1>
+
+<sect1 id="compiling">
+<title>コンパイル</title>
+
+<para>&kdesu; は kdebase に入っていて、あなたは既に持っています、もしくは、
+kdebase をインストールする時に入手します。</para>
+
+<para>KDE 1.xバージョンをコンパイルするには、次のようにして下さい。</para>
+
+<screen>
+<prompt>$</prompt> <command>./configure</command>
+<prompt>$</prompt> <command>make</command>
+<prompt>$</prompt> <command>make <option>install</option></command>
+</screen>
+
+<para>最後のステップはrootで実行する必要があります。インストール行程は
+システムワイドなKDEディレクトリに書き込める必要があるためです。</para>
+
+</sect1>
+</chapter>
+
+<chapter id="using-kdesu">
+<title>&kdesu; の使い方</title>
+
+<para>&kdesu; の使い方は簡単です。文法は次のようになっています。</para>
+
+    <cmdsynopsis>
+      <command>kdesu</command>
+      <arg>USER</arg>
+      <arg>-n</arg>
+      <arg>-t</arg>
+      <arg>-q</arg>
+      <arg>-d</arg>
+      <arg>-f <replaceable>FILE</replaceable></arg>
+      <arg>-c <group>
+	  <arg>
+	  <replaceable>COMMAND</replaceable>
+	  <arg><replaceable>ARG1</replaceable></arg>
+	  <arg><replaceable>ARG2</replaceable></arg>
+          <arg rep="repeat"><replaceable></replaceable></arg>
+	 </arg>
+	</group>
+      </arg>
+    </cmdsynopsis>
+
+    <cmdsynopsis>
+      <command>kdesu</command>
+      <group>
+	<arg>-v</arg>
+	<arg>-h</arg>
+	<arg>-s</arg>
+      </group>
+    </cmdsynopsis>
+
+<para>コマンドラインオプションの説明は次のようになっています。</para>
+
+<variablelist>
+<varlistentry>
+<term><option>-c <replaceable>PROGRAM</replaceable></option></term>
+<listitem><para>これは、root として実行するプログラムを指定します。
+それは、一つの引数として記述しなければなりません。
+例として、新規のファイルマネージャーを実行するのであれば、プロンプトに次のように入力します。
+<userinput><command>kdesu <option>-c <replaceable>kfm
+-sw</replaceable></option></command></userinput></para></listitem>
+</varlistentry>
+<varlistentry>
+<term><option>-f <replaceable>FILE</replaceable></option></term>
+<listitem><para>このオプションは <filename>.desktop</filename>
+ファイルにおいて、 &kdesu; を効率的に使う事が出来ます。
+これは、 <parameter>FILE</parameter> によって指定されたファイルをテストするということを &kdesu; に伝えます。
+もし、このファイルが現在のユーザーによって書き換え可能であれば、 &kdesu; は現在のユーザーとしてそのコマンドを実行します。
+もし、書き込み可能でなければ、ユーザー <parameter>USER</parameter>
+(デフォルトは root) として、そのコマンドを実行します。</para>
+<para><parameter>FILE</parameter> は次のように評価されます。
+<parameter>FILE</parameter> が "/" から始まるのであれば、それは絶対ファイル名として受け取られます。
+そうでなければ、グローバル KDE コンフィギュレーションファイル名として扱われます。
+例として、K ディスプレイマネージャー <application>kdm</application>
+を設定するにあたって、次のようにすることが出来ます。
+<command>kdesu <option>-c
+kdmconfig -f kdmrc</option></command></para></listitem>
+</varlistentry>
+<varlistentry>
+<term><option>-t</option></term>
+<listitem><para>ターミナル出力を有効にします。
+これはパスワード保持を無効にします。
+これは、広く、デバッグ用途に使用します。
+もし、コンソールモードのアプリケーションを使いたい時には、
+代わりに標準の "<command>su</command>" を使います。</para> </listitem>
+</varlistentry>
+<varlistentry>
+<term><option>-n</option></term>
+<listitem><para>パスワードを保持しません。
+これは、パスワードダイアログの "<guilabel>keep password</guilabel>"
+チェックボックスを無効にします。</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><option>-q</option></term>
+<listitem><para>無言モードです。</para></listitem>
+<!-- Lauri: This could do with a little expansion.  quiet as in no screen -->
+<!-- output, quiet as in no gui prompt for the password, or quiet as in no -->
+<!-- beeping? -->
+</varlistentry>
+
+<varlistentry>
+<term><option>-d</option></term>
+<listitem><para>デバッグ情報を表示します。</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><option>-v</option></term>
+<listitem><para>バージョン情報を表示して終了します。</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><option>-h</option></term>
+<listitem><para>いくつかのヘルプを表示します。</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><option>-s</option></term>
+<listitem><para>kdesu デーモンを停止します。
+<xref linkend="sec-password-keeping"/> を御覧下さい。</para></listitem>
+</varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="Configuration">
+<title>設定</title>
+
+<para>&kdesu; は <application>kcmkdesu</application>
+と呼ばれるコントロールモジュールと一緒に配布されます。
+<guimenu>K</guimenu> メニューバーの
+<menuchoice><guisubmenu>Settings</guisubmenu>
+<guisubmenu>Applications</guisubmenu>
+<guimenuitem>KDE su</guimenuitem></menuchoice> にあります。
+以下の設定を変える事が出来ます。</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>エコーモード</guilabel></term>
+<listitem><para>これは、入力されるどのような文字列をスクリーンにエコーさせるかの設定です。
+可能な選択肢は、一文字ごとにスター、三つのスター、もしくは、全くエコーしない、です。
+デフォルトは、一文字ごとにスター、となっています。</para></listitem>
+</varlistentry>
+<varlistentry>
+<term><guilabel>パスワードを保持</guilabel></term>
+<listitem><para>"<guilabel>keep password</guilabel>" チェックボックスにチェックすることで、
+入力したパスワードを KDE su に覚えさせることが出来ます。
+チェックすると、タイムアウト値を下方のテキストフィールドに入力出来るようになります。
+これは、パスワードが記憶される時間で、単位は分になっています。
+デフォルトでは、パスワード保持しない、になっています。</para></listitem>
+</varlistentry>
+</variablelist>
+
+</chapter>
+
+<chapter id="Internals">
+<title>内部</title>
+
+<sect1 id="x-authentication">
+<title>X 認証</title>
+
+<para>実行したプログラムは root ユーザー ID にて実行され、
+一般的にあなたの X ディスプレイにアクセスする権限はありません。
+KDE su はあなたのディスプレイのための認証クッキーを一時的な
+<filename>.Xauthority</filename>ファイルに加えることによって権限を得ています。
+コマンドが終了すると、このファイルは取り除かれます。</para>
+
+<para>もし、あなたが Xクッキーを使わないのであれば、自己責任です。
+&kdesu; は、これを検出し、クッキーを加えませんが、
+root があなたのディスプレイにアクセス出来るようにしておかなければなりません。</para>
+
+</sect1>
+
+<sect1 id="interface-to-su">
+<title><command>su</command> へのインターフェース</title>
+
+<para>>&kdesu; は権限を取得するのに、システムの "<command>su</command>" を使用します。
+この章では、&kdesu; はどのようにこれをするのかの詳細を説明します。</para>
+
+<para>いくつかの <command>su</command> の実装
+(<abbrev>例えば</abbrev>、Redhatの <command>su</command>)では、
+標準入力(<literal>stdin</literal>)からのパスワード読み込みを使わないので、
+&kdesu; は、 pty/tty のペアを作成し、
+tty に接続されたそれ自身の標準ファイルディスクリプターにて "<command>su</command>" を実行します。</para>
+
+<para>ユーザーが選択したコマンドを実行するために、 &kdesu; は、対話シェルではなく、
+"<option>-c</option>" の引数を伴った <command>su</command> を使用します。
+この引数は、私の知る全てのシェルで認識され、汎用的に動作するはずです。
+<command>su</command> は、この "<option>-c</option>" 引数を、
+対象とするユーザーのシェルに渡し、そして、シェルはプログラムを実行します。
+コマンド例は、
+"<command>su <option>root -c <replaceable>the_program</replaceable></option></command>" となります。</para>
+
+<para><command>su</command> を使って直接ユーザーコマンドを実行する代わりに、&kdesu; は
+<application>kdesu_stub</application> と呼ばれる小さな スタブプログラムを実行します。
+この スタブ(対象のユーザーとして実行されるている)は 、
+いくつかの情報を pty/tty チャンネル(スタブの標準入出力)越しに &kdesu; に要求し、
+それから、ユーザーのプログラムを実行します。
+渡される情報は、Xディスプレイ、(可能であれば)X 認証クッキー、
+環境変数 <envar>PATH</envar>、そして、実行するコマンド、となっています。
+スタブプログラムが使われる理由は、 X クッキーはプライベートな情報であるためで、コマンドラインに渡すことが出来ないのです。</para>
+
+</sect1>
+
+<sect1 id="password-checking">
+<title>パスワードのチェック</title>
+
+<para>&kdesu; は入力されたパスワードをチェックし、正しくなければエラーメッセージを返します。
+パスワードチェックは、テストプログラム <filename>/bin/true</filename>
+を実行することによって行われます。
+これが成功すると、パスワードは正しいと、想定されます。</para>
+
+</sect1>
+
+<sect1 id="sec-password-keeping">
+<title>パスワード保持</title>
+
+<para>便利になるように、 &kdesu; は "keep password"機能を実装しています。もし、あなた
+がセキュリティーに興味があれば、この項を読むべきです。</para>
+
+<para>&kdesu; にパスワードを保持させる事は、あなたのシステムに(小さな)セキュリティーホールを作ることになります。
+明らかに、KDE su は、あなたのユーザー ID を除いて誰にも、パスワードを使う事を許してはいませんが、
+もし、注意せずに使うのならば、これは、rootのセキュリティーレベルを一般ユーザー(あなた)
+のセキュリティーレベルへと下げてしまう事になります。
+あなたのアカウントに討ち入ったクラッカーは、root 権限を取得することになります。
+&kdesu; はこれを防ごうと努めます。これを使うセキュリティー策は、少なくとも私の考えでは、
+合理的に安全であり、ここで説明します。</para>
+
+<para>&kdesu; は、 <application>kdesud</application> というデーモンを使います。
+デーモンは <filename>/tmp</filename> にあるUNIXソケットにコマンドを教えます。
+ソケットのモードは 0600 なので、だた、あなたのユーザー IDのみがそれに接続することが出来ます。
+パスワード保持が有効になっていると、&kdesu; はこのデーモンを通してコマンドを実行します。
+それは、上記にあるように、コマンドとroot のパスワードをそのソケットに書き込み、
+そして、デーモンは "<command>su</command>" を使ってそのコマンドを実行します。
+このあと、コマンドと、パスワードは捨てられません。代わって、それらは指定された時間だけ保持されます。
+これは、コントロールモジュールの中のタイムアウト値です。
+もし、この期間中に、同じコマンドの他のリクエストが来ても、クライアントはパスワードを入力する必要はありません。
+あなたのアカウントを打破したクラッカーがデーモンからパスワードを盗む(例えば、デバッガを使って)のを防ぐために、
+デーモンは set-group-id nogroup でインストールされています。
+これは、全ての一般ユーザー(あなたを含めて)が、<application>kdesud</application>
+プロセスからパスワードを取得することを防ぐはずです。
+また、デーモンは環境変数<envar>DISPLAY</envar>に、デーモンが起動された時のその値をセットします。
+クラッカーが唯一することの出来るのは、アプリケーションをあなたのディスプレイ上で実行する、ということだけです。</para>
+
+<para>この解決策の弱点は、恐らく、あなたが実行するプログラムはセキュリティーを考慮にいれて書かれていない、いう点です。
+(例えば、setuid のrootのプログラムなど。)
+これは、それらのプログラムはバッファーオーバーラン、もしくは、その他の問題を持っている可能性があるということを意味していて、
+そして、クラッカーはそれらの問題を見付け出すことが出来ます。</para>
+
+<para>パスワード保持機能を使用するかどうかは、セキキュリティーと便利さの兼ね合いに依ります。
+その機能を使いたいかどうかを良く考えて、自分で決めることを、私は勧めます。</para>
+</sect1>
+</chapter>
+
+<chapter id="Author">
+<title>作者</title>
+
+<para>&kdesu;</para>
+
+<para>Copyright 2000 Geert Jansen</para>
+
+<para>&kdesu; は Geert Jansen によって書かれました。
+Pietro Iglio の &kdesu; バージョン 0.3 に基づいたsomewhatです。
+Pietro と 私は、将来私がこのプログラムの保守をしていくことに合意しています。</para>
+
+<para>作者とは <email>g.t.jansen@stud.tue.nl</email> へのメールで連絡を取ることが出来ます。
+バグがあれば、それを私がf修正出来るように、連絡して下さい。
+もし提案があれば、気楽に連絡してください。</para>
+
+&underFDL;
+&underArtisticLicense;
+
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

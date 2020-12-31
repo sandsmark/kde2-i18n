@@ -1,0 +1,537 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kdesu;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+
+<title
+>Het &kdesu;-handboek</title>
+
+<authorgroup>
+<author
+> <firstname
+>Geert</firstname
+> <surname
+>Jansen</surname
+> <affiliation
+> <address
+><email
+>g.t.jansen@stud.tue.nl</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>vampyr@atconnex.net</email
+></address>
+</affiliation>
+<contrib
+>Nalezer</contrib>
+</othercredit>
+&Niels.Reedijk;
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Geert Jansen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-09-04</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+
+<abstract
+><para
+>&kdesu; is een grafische frondend voor het Unix"<command
+>su</command
+>" commando.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>su</keyword>
+<keyword
+>wachtwoord</keyword>
+<keyword
+>root</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="Introduction">
+<title
+>Inleiding</title>
+
+<para
+>Welkom bij &kdesu;! &kdesu; is een grafische frontend vor het UNIX "<command
+>su</command
+>" commando voor de K Bureaublad Omgeving. Hiermee kan u een programma als een andere gebruiker draaien door het wachtwoord voor die gebruiker in te voeren. &kdesu; doet zelf niets; het gebruikt het <command
+>su</command
+> commando van het systeem.</para>
+
+<para
+>KDE su heeft één bijkomstige mogelijkheid: het kan wachtwoorden voor u onthouden. Als u deze mogelijkheid gebruikt, hoeft u het wachtwoord slechts één keer voor elk commando in te typen. Zie <xref linkend="sec-password-keeping"/> voor meer informatie hierover en een beveiliginsanalyse.</para>
+
+<para
+>Dit programma moet gestart worden vanuit de commandoregel of vanuit <filename
+>.desktop</filename
+> bestanden. Hoewel het het root-wachtwoord via een <abbrev
+>GUI</abbrev
+> dialoogvenster vraagt, zie ik het meer als een commandoregel &lt;-&gt; <abbrev
+>GUI</abbrev
+> lijm in plaats van een puur <abbrev
+>GUI</abbrev
+> programma. </para>
+
+</chapter>
+
+<chapter id="installation">
+<title
+>Installatie</title>
+
+<sect1 id="downloading">
+<title
+>Downloaden</title>
+
+<para
+>&kdesu; is nu in het KDE <abbrev
+>CVS</abbrev
+>, in kdebase. Het moet in elke (2.x) KDE distributie bijgevoegd zijn. U kan ook een KDE 1.x versie van mijn homepage op <ulink url="ftp://skynet.stack.nl/pub/users/geertj/"
+>ftp://skynet.stack.nl/pub/users/geertj/</ulink
+> halen.</para>
+
+</sect1>
+
+<sect1 id="compiling">
+<title
+>Compileren</title>
+
+<para
+>&kdesu; is in kdebase dus  u heeft het al, of u krijgt het wanneer u kdebase installeert.</para>
+
+<para
+>Om de KDE 1.x versie te compileren, gebruik:</para>
+
+<screen>
+<prompt
+>$</prompt
+> <command
+>./configure</command>
+<prompt
+>$</prompt
+> <command
+>make</command>
+<prompt
+>$</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen>
+
+<para
+>U moet de laatste stap als root uitvoeren. Het installatieproces moet in de systeem-brede KDE mappen kunnen schrijven.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="using-kdesu">
+<title
+>&kdesu; gebruiken</title>
+
+<para
+>Het gebruik van &kdesu; is makkelijk. De syntaxis is zo:</para>
+
+    <cmdsynopsis>
+      <command
+>kdesu</command>
+      <arg
+>USER</arg>
+      <arg
+>-n</arg>
+      <arg
+>-t</arg>
+      <arg
+>-q</arg>
+      <arg
+>-d</arg>
+      <arg
+>-f <replaceable
+>FILE</replaceable
+></arg>
+      <arg
+>-c <group>
+	  <arg>
+	  <replaceable
+>COMMAND</replaceable>
+	  <arg
+><replaceable
+>ARG1</replaceable
+></arg>
+	  <arg
+><replaceable
+>ARG2</replaceable
+></arg>
+          <arg rep="repeat"
+><replaceable
+></replaceable
+></arg>
+	 </arg>
+	</group>
+      </arg>
+    </cmdsynopsis>
+
+    <cmdsynopsis>
+      <command
+>kdesu</command>
+      <group>
+	<arg
+>-v</arg>
+	<arg
+>-h</arg>
+	<arg
+>-s</arg>
+      </group>
+    </cmdsynopsis>
+
+<para
+>De commandoregel opties zijn hieronder uitgelegd.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><option
+>-c <replaceable
+>PROGRAM</replaceable
+></option
+></term
+> <listitem
+><para
+>Dit specificeert het programma dat gedraaid moet worden als root. Er moet één argument in. Dus, als u, bijvoorbeeld, een nieuwe bestandsbeheerder wilt starten, kan u op de prompt het volgende invoeren: <userinput
+><command
+>kdesu <option
+>-c <replaceable
+>kfm -sw</replaceable
+></option
+></command
+></userinput
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-f <replaceable
+>FILE</replaceable
+></option
+></term
+> <listitem
+><para
+>Deze optie zal u &kdesu; efficiënt laten gebruiken in <filename
+>.desktop</filename
+> bestanden. Het vertelt &kdesu; om het bestand gespecificeerd door de <parameter
+>FILE</parameter
+> te lezen. Als dit bestand schrijfbaar is door de huidige gebruiker, zal &kdesu; het commando als de huidige gebruiker uitvoeren. Als het niet schrijfbaar is, zal het commando uitgevoerd worden door de gebruiker <parameter
+>USER</parameter
+> (standaard is dat root).</para
+> <para
+><parameter
+>FILE</parameter
+> wordt op de volgende manier bekeken: als <parameter
+>FILE</parameter
+> met een "/" begint, wordt het gezien als een bestandsnaam. Anders wordt het gezien als de naam van een globaal KDE configuratiebestand. Bijvoorbeeld: om de K display manager te configureren, <application
+>kdm</application
+>, moet u het volgende commando uitvoeren: <command
+>kdesu <option
+>-c kdmconfig -f kdmrc</option
+></command
+> </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-t</option
+></term
+> <listitem
+><para
+>Schakelt terminal uitvoer in. Dit schakelt het bewaren van wachtwoorden uit. Dit is vooral voor debug doeleinden; als u een console mode programma wilt draaien, gebruik dan het standaard "<command
+>su</command
+>" commando.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-n</option
+></term
+> <listitem
+><para
+>Sla het wachtwoord niet op. Dit schakelt de "<guilabel
+>keep password</guilabel
+>" checkbox in het paswoord dialoogvenster uit.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-q</option
+></term
+> <listitem
+><para
+>Wees stil.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-d</option
+></term
+> <listitem
+><para
+>Geef debuginformatie weer.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-v</option
+></term
+> <listitem
+><para
+>Debug informatie weergeven.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-h</option
+></term
+> <listitem
+><para
+>Print wat hulp.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-s</option
+></term
+> <listitem
+><para
+>Stop de kdesu daemon. zie <xref linkend="sec-password-keeping"/>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="Configuration">
+<title
+>Configuratie</title>
+
+<para
+>&kdesu; komt met een configuratiemodule genaamd <application
+>kcmkdesu</application
+>. U kan het vinden in het <guimenu
+>K</guimenu
+> menu onder <menuchoice
+><guisubmenu
+>Voorkeuren</guisubmenu
+> <guisubmenu
+>Programma's</guisubmenu
+> <guimenuitem
+>KDE su</guimenuitem
+></menuchoice
+>. U kan de volgende dingen wijzigen:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Echo Mode</guilabel
+></term
+> <listitem
+><para
+>Dit is hoeveel karakters er op het scherm getoond worden in het paswoord invoerveld. Mogelijke keuzes zijn: één ster per karakter, drie sterren per karakter of geen echo. De standaardkeuze is één ster per karakter.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Wachtwoorden opslaan</guilabel
+></term
+> <listitem
+><para
+>U kan KDE su wachtwoorden die u invoert voor u laten onthouden. U schakelt dit in door de "<guilabel
+>wachtwoord onthouden</guilabel
+>" aan te vinken. Als deze aangevinkt is, kan u een timeout waarde in het tekstveld daaronder invoeren. Dit is de hoeveelheid tijd in minuten, dat het wachtwoord onthouden wordt. De standaardinstelling is dat er geen wachtwoorden onthouden worden.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="Internals">
+<title
+>Onder de motorkap</title>
+
+<sect1 id="x-authentication">
+<title
+>X authenticatie</title>
+
+<para
+>Het programma dat u uitvoert zal gedraaid worden onder de root gebruikers-id en zal in het algemeen geen toegang hebben tot uw X-scherm. KDE-su werkt hier omheen door een authenticatie cookie voor uw scherm toe te voegen aan een tijdelijk <filename
+>.Xauthority</filename
+> bestand. Nadat het commando afsluit, zal het bestand verwijderd worden. </para>
+
+<para
+>Als u geen X-cookies gebruikt, moet u het zelf opzoeken. &kdesu; zal dit detecteren en zal geen cookie toevoegen, maar u moet er zeker voor zorgen root toegang heeft tot het scherm.</para>
+
+</sect1>
+
+<sect1 id="interface-to-su">
+<title
+>Interface voor <command
+>su</command
+></title>
+
+<para
+>&kdesu; gebruikt het "<command
+>su</command
+>" van het systeem om de privileges te verkrijgen. In deze sectie zal ik uitleggen hoe &kdesu; dit doet. </para>
+
+<para
+>Omdat sommige <command
+>su</command
+> implementaties (zoals degene van Redhat) het wachtwoord niet van de <literal
+>stdin</literal
+> willen lezen, zal &kdesu; een pty/tty paar aanmaken en zal het "<command
+>su</command
+>" met z'n standaard bestandsbeschrijvingen van daaruit oproepen.</para>
+
+<para
+>Om een door de gebruiker geselecteerd commando uit te voeren in plaats van een interactieve shell, gebruikt &kdesu; het "<option
+>-c</option
+>" argument met <command
+>su</command
+>. Dit argument wordt ondersteund door elke shell die ik ken dus is het platform onafhankelijk. <command
+>Su</command
+> passeert dit "<option
+>-c</option
+>" argument naar de shell van de doelgebruiker, en de shell zal het programma uitvoeren. Bijvoorbeeld: "<command
+>su <option
+>root -c <replaceable
+>het_programma</replaceable
+></option
+></command
+>".</para>
+
+<para
+>In plaats van het gebruikerscommando direct uit te voeren met <command
+>su</command
+>, draait &kdesu; een klein stub programmaatje genaamd <application
+>kdesu_stub</application
+>. Deze stub (draaiend als de doelgebruiker), vraagt wat informatie van &kdesu; over het pty/tty kanaal (de stdin en de stdout van de stub) en draait dan het gebruikersprogramma. De informatie die overgebracht wordt is: het X-scherm, een X-authenticatie cookie (als deze beschikbaar is), de <envar
+>PATH</envar
+> en het te draaien commando. De reden waarom een stub programma wordt gebruikt, is dat het cookie geheime informatie bevat en daarom niet over de commandoregel mag doorgegeven worden.</para>
+
+</sect1>
+
+<sect1 id="password-checking">
+<title
+>Wachtwoordcontrole</title>
+
+<para
+>&kdesu; zal het wachtwoord dat u ingevoerd heeft contreleren en geeft een foutmelding als het niet correct is. De controle wordt uitgevoerd door een testprogramma: <filename
+>/bin/true</filename
+>. Als deze succesvol is, is het wachtwoord correct.</para>
+
+</sect1>
+
+<sect1 id="sec-password-keeping">
+<title
+>Wachtwoord bewaren</title>
+
+<para
+>Voor uw gemak, implementeert &kdesu; een "wachtwoord bewaren" functie. Als u geïnteresseerd bent in beveiliging, moet u deze paragraaf lezen.</para>
+
+<para
+>Als u &kdesu; wachtwoorden laat herinneren opent u een (klein) beveiligingsgat in uw systeem. Het is duidelijk dat KDE su niet iemand anders dan uw eigen gebruikers-id toestaat om de wachtwoorden te gebruiken, maar, als het zonder voorzichtigheid gedaan is, zal dit de beveiliging van root verlagen tot het niveau van een normale gebruiker (u). Een hacker die in uw account breekt, zal dan root-toegang krijgen. &kdesu; probeert dit te voorkomen. Het beveiligingsschema dat het gebruikt, is in mijn ogen vrij veilig en wordt hier uitgelegd.</para>
+
+<para
+>&kdesu; gebruikt een daemon, genaamd <application
+>kdesud</application
+>. De dameon luistert naar een UNIX socket in <filename
+>/tmp</filename
+> voor commando's. De mode van de socket is 0600, zodat aleen uw gebruikers-id ermee kan verbinden. Als wachtwoorden bewaren ingeschakeld is, zal &kdesu; commando's uitvoeren door deze daemon. Het schrijft het commando en het root wachtwoord naar de socket en de daemon voert het commando uit met behulp van "<command
+>su</command
+>", zoals hierboven vermeld. Hierna worden het commando en het wachtwoord niet weggegooid. Ze worden voor een bepaalde tijd bewaard. Dit is de time-out waarde in de configuratiemodule. Als een andere vraag voor hetzelfde commando in deze periode gemaakt wordt, zal de cliënt het wachtwoord niet hoeven te geven. Om hackers die in uw account gebroken hebben niet de wachtwoorden van de daemon te laten stelen (bijvoorbeeld, door middel van een debugger), is de daemon geïnstalleerd in set-group-id nogroup. Dit zal ervoor zorgen dat alle normale gebruikers (inclusief u) geen wachtwoorden uit het <application
+>kdesud</application
+> proces kunnen halen. De daemon zet ook de <envar
+>DISPLAY</envar
+> omgevingsvariabele gelijk aan de waarde die het had toen het gestart werd. Het enige dat een hacker kan doen is een programma in het huidige scherm uitvoeren.</para>
+
+<para
+>Een zwakke plek in dit schema is dat programma's die u uitvoert waarschijnlijkniet geschreven zijn met beveiliging in gedachte (zoals setuid root programma's). Dit betekent dat ze buffer overflows of andere problemen zouden kunnen hebben waarvan een hacker gebruik kan maken.</para>
+
+<para
+>Het gebruik van de wachtwoord bewaringsfunctie is een afweging van comfort tegen beveiliging. I raad u aan om er goed over na te denken en om zelf te besluiten of u het wel al dan niet gebruikt.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="Author">
+<title
+>Auteur</title>
+
+<para
+>&kdesu;</para>
+
+<para
+>Copyright 2000 Geert Jansen</para>
+
+<para
+>&kdesu; is geschreven door Geert Jansen. Het is een beetje gebaseerd op Pietro Iglio's &kdesu;, versie 0.3. Pietro en ik besloten dat ik dit programma in de toekomst zal onderhouden.</para>
+
+<para
+>De auteur kan bereikt worden via e-mail op <email
+>g.t.jansen@stud.tue.nl</email
+>. Rapporteer alstublieft fouten zodat ik ze kan repareren. als u een suggestie heeft, neem dan alstublieft contact met me op.</para>
+
+&underFDL;
+&underArtisticLicense;
+
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

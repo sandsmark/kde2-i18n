@@ -1,0 +1,402 @@
+<sect1 id="file-assoc">
+<sect1info>
+<authorgroup>
+<author>
+<firstname>Mike</firstname>
+<surname>McBride</surname>
+</author>
+</authorgroup>
+<date>02/10/2000</date>
+<releaseinfo>1.00.00</releaseinfo>
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KControl</keyword>
+<keyword>files association</keyword>
+<keyword>association</keyword>
+</keywordset>
+</sect1info>
+<title>ファイルの関連付け</title>
+<sect2 id="file-assoc-intro">
+<title>はじめに</title>
+<para>
+KDEのもっとも便利な点の一つに、データファイルを
+自動的にアプリケーションに結びつけられるという点があります。
+例えば、<application>konqueror</application>で任意の
+<application>KWord</application> ドキュメント
+をクリックすると、KDEは<application>KWord</application> を開始し、
+そのファイルが<application>KWord</application> に読み込まれて
+すぐに作業に取り掛かれるようになります。
+</para>
+<para>
+上に述べた例では、<application>KWord</application>のデータファイルは
+<application>KWord</application>(というアプリケーション)に<emphasis>関連付けられて</emphasis>
+います。
+これら関連付けは、KDEの機能にとって非常に重要なものです。
+</para>
+<para>
+KDEがインストールされると、数百の、標準的なデータタイプについての
+関連付けが作られます。
+これら初期の関連付けはもっとも一般的に含まれているソフトウェアと、
+もっとも一般t的なユーザー設定に基づいています。
+</para>
+<para>
+残念なことに:</para>
+<itemizedlist>
+<listitem>
+<para>
+KDEは全ての有り得そうなソフトウェアとデータファイルの組合せを
+予想することはできません。
+</para>
+</listitem>
+<listitem>
+<para>
+KDEは、未だ開発されていないファイルフォーマットへ対応しておくこともできません。</para>
+</listitem>
+<listitem>
+<para>
+また、KDEは、特定のファイルフォーマットについて、
+全ての人の好みのアプリケーションを予想することもできません。
+</para>
+</listitem>
+</itemizedlist>
+<para>
+このモジュールを使えば、現在のファイルの関連付けを変更できますし、
+新しい関連付けも追加できます。
+</para>
+<para>
+ファイルの関連付けはMIMEタイプとして記録されます。
+<abbrev>MIME</abbrev>は"Multipurpose Internet Mail Extensions"
+(汎用インターネットメール拡張)の略です。
+これにより、コンピュータはファイルのタイプを、ファイルを開いて中身を調べることなく
+特定することができます。
+</para>
+</sect2>
+<sect2 id="file-assoc-use">
+<title>使い方</title>
+<para>
+ファイルの関連付けは７つのカテゴリに分かれています。:</para>
+<orderedlist>
+<listitem>
+<para>
+Applications(アプリケーション)</para>
+</listitem>
+<listitem>
+<para>
+Audio(オーディオ)</para>
+</listitem>
+<listitem>
+<para>
+Images(イメージ)</para>
+</listitem>
+<listitem>
+<para>
+Inode(i-nodeオブジェクト)</para>
+</listitem>
+<listitem>
+<para>
+Messages(メッセージ)</para>
+</listitem>
+<listitem>
+<para>
+Text(テキスト)</para>
+</listitem>
+<listitem>
+<para>
+Videos(ビデオ)</para>
+</listitem>
+</orderedlist>
+<para>
+全ての関連付けは、上記のいずれかに分類されます。</para>
+<note>
+<para>
+これらのカテゴリには機能上の差異はありません。
+カテゴリは関連付けを整理しやすいように設計されていますが、
+どのカテゴリに分類するかによって関連付け自体は影響を受けません。
+</para>
+</note>
+<para>
+カテゴリは、"既知のタイプ"とラベルが付けられたボックスに表示されています。</para>
+<para>
+各カテゴリとそれに含まれるファイルの関連付けを見るには、
+カテゴリの名前をダブルクリックして下さい。
+そのカテゴリに含まれるMIMEタイプの一覧が表示されます。
+</para>
+<tip>
+<para>
+検索ボックスで、特定のMIMEタイプを検索することもできます。
+検索ボックスは"<guilabel>ファイルパターンを検索</guilabel>"とラベルが付けられていて、
+カテゴリリストの上にあります。
+</para>
+<para>
+探そうとしてるMIMEタイプ名の最初の文字を入れると
+カテゴリは自動的に展開されて、指定された文字で始まるMIMEタイプ名
+のもののみ表示されます。
+</para>
+<para>
+さらにMIMEタイプ目の２文字目を入力すると、リストされるMIMEタイプは
+入力された２文字で始まるものだけに絞り込まれます。
+</para>
+</tip>
+<sect3 id="file-assoc-use-add">
+<title>新規MIMEタイプを追加する</title>
+<para>
+新規MIMEタイプを関連付けに追加するには"<guibutton>追加</guibutton>"ボタンを
+クリックして下さい。
+小さなダイアログボックスが開きますので、ここで
+ドロップダウンボックスで、カテゴリを選択し、
+"<guilabel>タイプ名</guilabel>"とラベルの付けられたテキストボックスに
+MIME名を指定します。
+指定した内容で追加する時は"<guibutton>はい</guibutton>"をクリックして下さい。
+取り止めたい時は "<guibutton>キャンセル</guibutton>" ボタンをクリックして下さい。
+</para>
+</sect3>
+<sect3 id="file-assoc-use-del">
+<title>MIMEタイプを削除する</title>
+<para>
+MIMEタイプを削除するには、まず削除したいMIMEタイプを選択して下さい。
+それから"<guibutton>削除</guibutton>"ボタンをクリックします。
+すると即座にMIMEタイプが削除されます。
+</para>
+</sect3>
+<sect3 id="file-assoc-use-edit">
+<title>MIMEタイプのプロパティーを編集する</title>
+<para>
+MIMEタイプの編集を行うには、まずどのMIMEタイプを編集するかを
+決めなければなりません。
+それには、各カテゴリを探して行って、該当のものを見付けたら、
+そのタイプをマウスでクリックして下さい。
+</para>
+<para>
+MIMEタイプを選択すると、そのタイプの現在の値がモジュールのウィンドウに
+表示されます。
+</para>
+<para>
+現在値の表示画面は２つのタブに分かれています:一般と組込み</para>
+<para>
+<emphasis>一般 タブ</emphasis></para>
+<para>
+このタブには４種類のプロパティがあります:</para>
+<orderedlist>
+<listitem>
+<para>
+MIMEタイプアイコン: このアイコンは<application>Konqueror</application>
+をファイルマネーとして使っている時に、表示に使われます。
+</para>
+</listitem>
+<listitem>
+<para>
+ファイルパターン: これはKDEがMIMEタイプを決定する
+のに使用する、ファイル名の検索パターンです。
+</para>
+</listitem>
+<listitem>
+<para>
+記述: これはファイルタイプに関する短い説明文で、
+ユーザーの便利の為に用意されています。
+</para>
+</listitem>
+<listitem>
+<para>
+アプリケーションの優先度: これは、そのMIMEタイプに関連付けられている
+アプリケーション間の優先順位を決定するものです。
+</para>
+</listitem>
+</orderedlist>
+<para>
+<emphasis>組込み タブ</emphasis></para>
+<para>
+組込みタブでは、ファイルがKonquerorのウィンドウの中で表示されるべきか、
+あるいは別途起動された、関連付けられたアプリケーションにより表示されるべきかを指定します。
+</para>
+</sect3>
+<sect3 id="file-assoc-use-icon">
+<title>アイコンを変える</title>
+<para>
+アイコンを変更するには、アイコンのボタンをクリックして下さい。
+利用可能なアイコンを表示したダイアログボックスが開きます。
+そこで、アイコンを選択してから"<guibutton>はい</guibutton>"をクリックして下さい。
+</para>
+</sect3>
+<sect3 id="file-assoc-use-pattern">
+<title>MIME-タイプ パターンの編集</title>
+<para>
+"ファイルパターン"とラベル付けされたボックスは、
+そのMIMEタイプに含まれるファイルのファイル名の
+パターンを指定します。
+</para>
+<para>
+通常、ファイルはファイル名の末尾によって選択されます。(例：
+ファイル名が".wav"で終るファイルはサウンドファイルで、
+WAVフォーマットが使用されています。また、
+".c"で終るファイル名のファイルは、Cで書かれたプログラムのファイル
+です。)
+</para>
+<para>
+このコンボボックスに、ファイル名の検索マスクを入力して下さい。</para>
+<para>
+アスタリスク(*) はワイルドカードで、殆んどの全てのMIMEタイプの
+ファイルパターンで使用されます。
+ワイルドカードに関する完全な説明は、このドキュメントの範囲を超えてしまいます。
+しかしアスタリスクについて理解しておくことは重要です。
+これは、任意の文字の任意の文字数に"マッチ"します。
+例：
+"*.pdf"は、"Datafile.pdf", "Graphics.pdf", "User.pdf"等にマッチします。
+しかし、"PDP"や、"Datafile.PDF" にはマッチしません。
+</para>
+<tip>
+<para>
+複数のファイル名パターンを用意しておくと便利です。
+一つは小文字、もう一つは大文字という風に。
+これはKDEが正しくファイルタイプを決定する助けになります。
+</para>
+</tip>
+</sect3>
+<sect3 id="file-assoc-use-desc">
+<title>MIMEタイプの記述を編集する</title>
+<para>
+"<guilabel>記述</guilabel>"と付けられたテキストボックスに、MIMEタイプに
+関する簡単な説明を入力できます。
+このラベルは、ユーザーに見やすくする為にあるもので、MIMEタイプの機能に影響しません
+</para>
+</sect3>
+<sect3 id="file-assoc-use-app">
+<title>アプリケーションの編集</title>
+<para>
+アプリケーションの設定を行う為に、４つのボタン(<guibutton>上に移動</guibutton>, 
+<guibutton>下に移動</guibutton>, <guibutton>追加</guibutton> 
+, <guibutton>削除</guibutton>)とコンボボックス１つが(アプリケーションの一覧)が
+用意されています。
+</para>
+<para>
+このコンボボックスは、そのMIMEタイプに関連付けられた全てのアプリケーションを
+一覧しています。
+この一覧の並び順には意味があります。
+一番上にあるアプリケーションが最初に適用されるアプリケーションになるのです。
+２番目のアプリケーションが次に適用され、以下リストに並んでいる順に適用されるようになります。
+</para>
+<note>
+<para>
+MIMEタイプに複数のアプリケーションがあるのはどういう意味でしょう？。
+何故これが必要なのでしょう？
+</para>
+<para>
+KDEには数百の定義済み関連付けが付いて来ると、最初言いました。
+実際のところは、KDEがインストールされるシステム毎にアプリケーション
+は様々です。
+MIMEタイプに複数の関連付けができるので、特定のアプリケーションが
+存在しないシステム上でもKDEは使用し続けることができるのです。
+</para>
+<para>
+As an example:
+例を挙げましょう:
+</para>
+<para>
+MIMEタイプ "pdf" には、２つの関連付けられたアプリケーションがあります。
+最初のプログラムは"PS Viewer"と呼ばれるものです。
+もしあなたのシステムに"PS Viewer"がインストールされていなければ、
+KDEは自動的に２番目のアプリケーションである"Adobe Acrobat Reader"を使います。
+すぐ分かるように、これによって、あなたがアプリケーションを追加したり、
+削除したりしてもKDEは機能し続ける事ができます。
+</para>
+</note>
+<para>
+順番は重要だと指摘しました。
+アプリケーションの順番を変更するには、変更したいアプリケーションをマウスでクリックし、
+<guibutton>上に移動</guibutton> か <guibutton>下に移動</guibutton> のどちらかのボタンを
+クリックします。
+すると選択されたアプリケーションのリスト内での位置が(クリックしたボタンに応じて)上下します。
+</para>
+<para>
+"<guibutton>追加</guibutton>"ボタンをクリックして、アプリケーションを追加できます。
+ダイアログボックスが開きますので、
+このダイアログボックスで、そのMIMEタイプに関連付けたいアプリケーションを選択
+できます。
+指定し終って"<guibutton>はい</guibutton>"をクリックすると、
+一覧にそのアプリケーションが追加されているでしょう。
+</para>
+<para>
+アプリケーションを削除(それ以降、そのMIMEタイプのファイルをクリックしても
+そのアプリケーションが走ることはなくなります)するには、
+"<guibutton>削除</guibutton>"ボタンをクリックします。
+</para>
+<tip>
+<para>
+<guibutton>上に移動</guibutton> や <guibutton>下に移動</guibutton>を
+使って、起動させたくないアプリケーションをリストの下の方に移動させる
+のは良いアイディアです。
+そのアプリケーションを削除してしまうと、
+例えばあなたのお好みのアプリケーション がおかしくなってしまった時、
+そのドキュメントを見る為に使えるアプリケーションが無くなってしまうかも知れません。
+</para>
+</tip>
+</sect3>
+<sect3 id="file-assoc-embedding">
+<title>組込み</title>
+<para>
+<guilabel>組込み</guilabel>タブをクリックすると:</para>
+<para>
+<guilabel>左クリック時の動作</guilabel>とラベルの付けられた３つのラディオボタンがあります。
+これは<application>konqueror</application>が、選択されたMIMEタイプのファイルを参照する方法を決定します。
+</para>
+<variablelist>
+<varlistentry>
+<term>組込みのビューアでファイルを表示</term>
+<listitem>
+<para>
+ここが選択されると、ファイルはKonquerorのウィンドウの<emphasis>中で</emphasis>表示されます。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>独立したビューアで表示</term>
+<listitem>
+<para>
+このMIMEタイプを表示する時には、別のウィンドウが開きます。</para>
+</listitem>
+</varlistentry>
+<varlistentry>
+<term>グループの設定を使う</term>
+<listitem>
+<para>
+そのMIMEタイプに関する設定は、属しているMIMEタイプのグループ
+の設定と同じになります。
+(もしaudio関連の MIMEタイプを編集しているなら、audioグループの設定が使われます)
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+<para>
+その下にあるのは
+<guilabel>サービスの優先度</guilabel>と付けられたリストボックスです。
+</para>
+<para>
+Konquerorを使っている時、
+右ボタンクリックで出るメニューに<guimenu>...でプレビュー</guimenu>という項目があります。
+このリストボックスは、その項目に表示されるアプリケーションを一覧しています。
+このリストボックスの並び順は、メニューに表示される際の順になっています。
+</para>
+<para>
+<guibutton>上に移動</guibutton> と <guibutton>下に移動</guibutton> を使って順番を変更できます。</para>
+</sect3>
+<sect3 id="file-assoc-use-done">
+<title>変更を保存する</title>
+<para>
+MIMEタイプの設定を変更した後で、"<guibutton>適用</guibutton>"ボタンを
+クリックすると、設定は保存されます。
+ただし、モジュールは閉じません。
+</para>
+<para>
+"<guibutton>はい</guibutton>"ボタンをクリックすれば、
+設定は保存され、コントロールセンターのメインスクリーンに戻ります。
+</para>
+<para>
+"<guibutton>キャンセル</guibutton>" をクリックすると、
+全ての変更は捨てられ、コントロールセンターのメインスクリーンに戻ります。
+</para>
+</sect3>
+</sect2>
+<sect2 id="file-assoc-author">
+<title>著者</title>
+<para>
+Mike McBride <email>mmcbride@ematic.com</email></para>
+</sect2>
+</sect1>

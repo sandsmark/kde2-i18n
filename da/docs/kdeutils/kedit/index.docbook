@@ -1,0 +1,1933 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kedit;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Danish "INCLUDE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>&kedit;-håndbogen</title>
+<authorgroup>
+
+<author
+><firstname
+>Thad</firstname
+><surname
+>McGinnis</surname
+> <affiliation
+> <address
+><email
+>ctmcginnis@compuserve.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>lauri@kde.org</email
+></address
+></affiliation>
+<contrib
+>Tester</contrib>
+</othercredit>
+</authorgroup>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>1.03.00</releaseinfo>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract
+><para
+>Denne håndbog beskriver &kedit;, en simpel teksteditor for &kde;.</para
+> </abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KEdit</keyword>
+<keyword
+>teksteditor</keyword>
+</keywordset>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Thad McGinnis</holder>
+</copyright>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introduktion</title>
+
+<para
+>&kedit; er standard-teksteditoren for &kde;-skrivebordet. Det er en lille editor som kan bruges med &konqueror; til at gennemse og redigere tekst- og indstillingsfiler. &kedit; kan også bruges til at oprette små 'ren-tekst'-dokumenter. Det er ikke meningen at &kedit; skal være en editor for programmører og den er slet ikke ment som en erstatning for mere kraftfulde editorer, som f.eks. &kate;, <application
+>XEmacs</application
+> eller <application
+>Emacs</application
+>. &kedit;s funktionalitet vil forblive ret begrænset for at sikre en rimelig hurtig opstart.</para>
+
+</chapter>
+
+<chapter id="on-screen-fundamentals"
+> 
+<title
+>Det grundlæggende</title
+>  
+
+<para
+>&kedit; er meget let bruge. Enhver som har prøvet at bruge en teksteditor skulle ikke opleve problemer. </para>
+
+<sect1 id="drag-and-drop">
+<title
+>Træk og slip</title
+>  
+
+<para
+>&kedit; bruger &kde;'s træk og slip-protokol. Filer kan blive trukket hen og sluppet over &kedit; fra skrivebordet, &konqueror; eller fra et &FTP;-sted åbnet i et af &konqueror;s vinduer. </para>
+
+</sect1
+>  
+
+<sect1 id="command-line-options"
+> 
+<title
+>Kommandolinie-parametre</title
+>  
+
+<para
+>&kedit; vil nok oftest blive startet fra &kde;'s programmenu eller fra et skrivebordsikon, men det kan også startes fra kommandolinieprompten i et terminalvindue. Der er nogle få nyttige parametre tilgængelige, når du starter &kedit; på denne måde.</para>
+
+<sect2 id="specify-a-file"
+> 
+<title
+>Angiv en fil</title
+>  
+
+<para
+>Du kan angive stien og navnet på en bestemt fil for at få &kedit; til åbne (eller oprette) filen øjeblikkeligt efter opstarten. Brugen af denne mulighed kunne f.eks. se således ud:</para>
+
+<informalexample
+> <screen
+><prompt
+>%</prompt
+><userinput
+><command
+>kedit</command
+> <replaceable
+>/home/mithjem/dokumenter/min_fil.txt</replaceable
+></userinput
+></screen
+> </informalexample
+> 
+
+</sect2
+> 
+
+<sect2 id="editing-files-on-the-internet"
+> 
+<title
+>Angiv en fil på Internettet</title
+>  
+
+<para
+>Den ovenfor nævnte metode kan endda også bruges til at åbne en fil fra Internettet (hvis du har en aktiv forbindelse på det pågældende tidspunkt). Et eksempel på dette kunne være:</para>
+
+<informalexample
+> <screen
+><prompt
+>%</prompt
+><userinput
+><command
+>kedit</command
+> <replaceable
+>ftp://ftp.kde.org/pub/kde/Welcome.msg</replaceable
+></userinput
+></screen
+> </informalexample
+>  
+
+</sect2
+>   
+
+<sect2
+> 
+<title
+>Andre kommandolinie-parametre</title
+>  
+
+<para
+>Følgende kommandolinie-hjælpeparametre er tilgængelige:</para
+>  
+
+<variablelist
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--help</option
+></term
+> <listitem
+> <para
+>Dette viser en liste over de mest basale parametre som er tilgængelige fra kommadolinien.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--help-qt</option
+></term
+> <listitem
+> <para
+>Dette viser en liste over parametre til at ændre måden hvorpå &kedit; spiller sammen med &Qt;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--help-kde</option
+></term
+> <listitem
+> <para
+>Dette viser en liste over parametre til at ændre måden hvorpå &kedit; spiller sammen med &kde;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--help-all</option
+></term
+> <listitem
+> <para
+>Viser en liste over alle kommandolinie-parametrene.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--author</option
+></term
+> <listitem
+> <para
+>Viser navnene på &kedit;s forfattere i terminalvinduet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+>kedit</command
+> <option
+>--version</option
+></term
+> <listitem
+> <para
+>Viser versionsinformationer for &Qt;, &kde; og &kedit;. Dette kan du også få frem med <command
+>kedit</command
+> <option
+>-V</option
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> 
+
+</sect2
+> 
+
+</sect1
+> 
+
+<sect1 id="keybindings">
+<title
+>Tastegenveje</title>
+
+<para
+>Mange af tastegenvejene kan indstilles fra menuen <link linkend="settings"
+>Opsætning</link
+>. Som standard bruger &kedit; følgende tastegenveje.</para
+> 
+
+<informaltable>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Tastegenvej</entry
+> <entry
+>Handling</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><keycap
+>Pil til venstre</keycap
+></entry
+> <entry
+><action
+>Flytter markøren et tegn til venstre.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Pil til højre</keycap
+></entry
+> <entry
+><action
+>Flytter markøren et tegn til højre.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Pil op</keycap
+></entry
+> <entry
+><action
+>Flytter markøren en linie op.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Pil ned</keycap
+></entry
+> <entry
+><action
+>Flytter markøren en linie ned.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Page Up</keycap
+></entry
+> <entry
+><action
+>Flytter markøren en side op.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Page Down</keycap
+></entry
+> <entry
+><action
+>Flytter markøren en side ned.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Backspace</keycap
+></entry
+> <entry
+><action
+>Sletter tegnet til venstre for markøren.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Home</keycap
+></entry
+> <entry
+><action
+>Flytter markøren til begyndelsen af linien.</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>End</keycap
+></entry
+> <entry
+><action
+>Flytter markøren til slutningen af linien</action
+></entry
+> </row
+> <row
+> <entry
+><keycap
+>Delete</keycap
+></entry
+> <entry
+><action
+>Sletter tegnet til højre for markøren.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Shift;<keycap
+>Pil til venstre</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Markér tekst ét tegn mod venstre.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Shift;<keycap
+>Pil til højre</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Markér tekst ét tegn mod højre.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Markér al teksten i dokumentet.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Flytter markøren et tegn til venstre.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+> &Ctrl;<keycap
+>C</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Kopiér den markerede tekst til klippebordet.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl; <keycap
+>D</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Sletter tegnet til højre for markøren.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>E</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Flytter markøren til slutningen af linien</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Søg efter tekst i dokumentet.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>H</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Slet tegnet til venstre for markøren.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>K</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Opret et nyt dokument.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl; <keycap
+>N</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Flytter markøren en linie ned.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl; <keycap
+>P</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Udskriv.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Indsæt teksten fra klippebordet i dokumentet fra det sted hvor markøren står.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+> &Ctrl;<keycap
+>X</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Klip den markerede tekst ud og flyt den til klippebordet.</action
+></entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl; <keycap
+>Y</keycap
+></keycombo
+></entry
+> <entry
+><action
+>Yank (indsæt) indholdet af kill-bufferen (klippebord) i dokumentet på det sted hvor markøren står.</action
+></entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+</chapter>
+
+<chapter id="the-menu-entries">
+<title
+>Menuerne</title>
+
+<sect1 id="file">
+<title
+>Fil-menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="new"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+><accel
+>N</accel
+>y</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette starter et nyt dokument i en ny udgave af editoren.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="open"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+>Å<accel
+>b</accel
+>n</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Denne kommado åbner en fil.</action
+> Det gøres vha. en dialogboks, som giver dig mulighed for at navigere omkring i filsystemet.</para
+> <para
+>Dialogen fungerer som en lille filhåndtering. Du kan klikke på mapper vist i hovedvinduet, hvilket fortæller dialogen at den skal gå ind i denne mappe - og vise indholdet. Der er en tekst-/kombinationsboks som kan bruges til at indtaste stedet og navnet på filen direkte eller du kan, ved at klikke på pilen i siden, få åbnet en kombinationsliste over senest anvendte steder, som du kan vælge.</para
+> <para
+> Under dette er der et filter, hvor du på samme måde kan skrive data direkte eller vælge fra en kombinationsliste over senest anvendte filtertyper. Filterfaciliteten lader kun filer, som opfylder dens specifikationer, blive vist i hovedvinduet. Hvis filteret indeholdt tekst som f.eks. <literal role="extension"
+>*.txt</literal
+>, så ville kun filer med endelsen txt blive vist i hovedvinduet.</para
+> <para
+>Værktøjslinien har venstrepil- og højrepil-knapper, som lader dig gå frem og tilbage igennem tidligere valgte mapper, såvel som en op-pil, som flytter et niveau op i mappetræet. Knappen med det lille hus tager dig tilbage til din hjemmemappe og knappen med de to pile, som peger ind mod hinanden, opdaterer visningen af den aktuelle mappe. Knappen med bogmærket sætter et nyt bogmærke i den aktuelle mappe eller går til et mærke, som tidligere er blevet sat. Ikonet med tandhjulet giver dig mulighed for at oprette en ny mappe. Til sidst er der en kombinationsboks på værktøjslinien med en liste over nogle hyppigt brugte mapper.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="open-recent"/><menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+>Åbn s<accel
+>e</accel
+>neste</guimenuitem
+></menuchoice
+> </term
+> <listitem
+> <para
+><action
+>Dette er en genvej til at åbne de senest gemte dokumenter.</action
+> Hvis du klikker på dette punkt, kommer der en liste over adskillige af de senest gemte filer. Hvis du klikker på en bestemt fil, vil den blive åbnet i &kedit; - hvis filen stadig befinder sig det samme sted. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="save"/><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+><accel
+>G</accel
+>em</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette gemmer det aktuelle dokument.</action
+> Hvis du allerede har gemt dokumentet, vil dette overskrive den tidligere gemte fil uden at spørge dig om samtykke.</para
+> <note
+> <para
+>Editoren kan indstilles til at tage <link linkend="backuppref"
+>sikkerhedskopi</link
+>.</para
+> </note
+> <para
+>Hvis det er første gang du gemmer et nyt dokument, vil 'Gem som'-dialogboksen (beskrevet nedenfor) fremkomme.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="save-as"/><menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+>Gem <accel
+>s</accel
+>om</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette giver dig mulighed for at gemme et dokument med et nyt filnavn.</action
+> Dette sker vha. fildialogboksen, som er beskrevet ovenfor i <link linkend="open"
+>Åbn</link
+>-afsnittet af denne hjælpefil.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="close"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+> </keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+><accel
+>L</accel
+>uk</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette vil lukke editor-vinduet.</action
+>. Hvis du har mere end én udgave af &kedit; kørende på samme tid, vil de andre ikke blive lukket.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="print"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+><accel
+>U</accel
+>dskriv...</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette åbner en simpel 'Udskriv'-dialogboks, som giver dig mulighed for at angive hvad, hvor og hvordan der skal udskrives.</action
+> Du kan vælge at bruge standardmuligheden <command
+>lpr</command
+> eller du kan selv angive en kommando. Desuden kan du vælge om hvorvidt hele dokumentet skal udskrives eller om kun den markerede del af dokumentet skal udskrives.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="mail"/><menuchoice
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+><guimenuitem
+><accel
+>S</accel
+>end</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette bruges til at sende det aktuelle dokument med e-mail.</action
+> Det åbner en e-mail-dialog, hvor du kan angive en adresse og et emne for beskeden.</para
+> <note
+> <para
+>Vær sikker på, at du har tjekket og, om nødvendigt, ændret <link linkend="mailpref"
+>E-mail</link
+>-kommandoen i 'Indstil KEdit'-dialogen under menuen 'Opsætning'.</para
+> </note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="quit"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+> </keycombo
+></shortcut
+> <guimenu
+><accel
+>F</accel
+>il</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>fslut</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette lukker editoren.</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="edit">
+<title
+>Redigér-menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="undo"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>digér</guimenu
+><guimenuitem
+><accel
+>F</accel
+>ortryd</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette bruges til at annullere eller omgøre den seneste bruger-handling eller -operation.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="redo"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Shift</keycap
+><keycap
+>Z</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+>Ann<accel
+>u</accel
+>llér fortryd</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette bruges til at annullere eller omgøre den seneste handling</action
+>, som blev udført vha. <guimenuitem
+>Fortryd</guimenuitem
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="cut"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+>K<accel
+>l</accel
+>ip</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Denne kommando sletter den aktuelt markerede tekst og flytter den til klippebordet.</action
+>. Klippebordet er en af &kde;'s usynlige egenskaber. Det giver mulighed for at flytte data på tværs af programmer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="copy"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+>K<accel
+>o</accel
+>piér</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette kopierer den aktuelt markerede tekst til klippebordet, så den kan blive indsat et andet sted.</action
+> Klippebordet er en af &kde;'s usynlige egenskaber. Det giver mulighed for at flytte data på tværs af programmer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="paste"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndsæt</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette vil indsætte indholdet af klippebordet på det sted hvor markøren står.</action
+> Klippebordet er en af &kde;'s usynlige egenskaber. Det giver mulighed for at flytte data på tværs af programmer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="select-all"/><menuchoice
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+>Markér <accel
+>a</accel
+>lt</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette vil markere hele dokumentet.</action
+> Det kan være nyttigt til at kopiere hele filen til et andet program.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="find"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+><accel
+>F</accel
+>ind</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette åbner en 'Find'-dialog</action
+>, som bruges til at angive en tekst som skal <guilabel
+>find</guilabel
+>es i dokumentet. Der er en lille tekstboks til at angive et søgemønster i. Der er to indstillingsmuligheder, som kan gøre søgningen mere effektiv. Hvis du vælger <guilabel
+>Versalfølsom</guilabel
+>, så vil der blive skelnet mellem store og små bogstaver. <guilabel
+>Find baglæns</guilabel
+> gør at søgningen vil blive foretaget opad i dokumentet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="find-again"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>F3</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+>Find <accel
+>n</accel
+>æste</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette gentager den sidste søgning uden at kalde 'Find'-dialogboksen.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="replace"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+><accel
+>E</accel
+>rstat</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Denne kommando åbner 'Erstat'-dialogboksen.</action
+> Denne dialogboks ligner den ovenfor nævnte 'Find'-dialogboks, men den ekstra tekstboks <guilabel
+>Erstat med</guilabel
+> er blevet tilføjet. Med denne dialog kan du angive både den tekst, som skal findes, og den tekst, som den fundne tekst skal erstattes med. Dialogen indeholder også to ekstra knapper. <guilabel
+>Erstat</guilabel
+>-knappen giver dig mulighed for at foretage én erstatning af gangen. Det kan være nyttigt når ikke alle forekomster af søgeteksten skal erstattes. <guilabel
+>Erstat alle</guilabel
+>-knappen bør bruges med forsigtighed, da den øjeblikkeligt vil erstatte alle forekomster af søgeteksten.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="insertfile"/> <menuchoice
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndsæt fil</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette åbner en <link linkend="open"
+><guilabel
+>Åbn fil</guilabel
+></link
+>-dialogboks, hvor du kan vælge en hel fil, som vil blive indsat i det åbne dokument. Filen vil blive indsat fra markørens aktuelle placering.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="insertdate"/> <menuchoice
+> <guimenu
+><accel
+>R</accel
+>digér</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndsæt dato</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette vil indsætte den aktuelle dato fra markørens placering.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="cleanspaces"/> <menuchoice
+> <guimenu
+><accel
+>R</accel
+>edigér</guimenu
+><guimenuitem
+><accel
+>R</accel
+>ene mellemrum</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Hvis du vælger dette punkt, vil al <emphasis
+>markeret tekst</emphasis
+>, alle ekstra mellemrum og alle 'ny linie'-mærker (den kode som bliver indsat efter et afsnit, når du trykker på <keycap
+>Enter</keycap
+>-tasten) blive fjernet. <action
+>Med andre ord, alle forekomster af to eller flere mellemrum vil blive reduceret til ét mellemrum og alle afsnit og blanke linier vil blive reduceret til ét enkelt afsnit.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="Go">
+<title
+>Kør-menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="go-to-line"/><menuchoice
+> <guimenu
+><accel
+>K</accel
+>ør</guimenu
+><guimenuitem
+><accel
+>G</accel
+>å til linie...</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette åbner 'Gå til linie'-dialogboksen, som bruges til at flytte markøren til en bestemt linie (angivet med nummer) i dokumentet.</action
+> Linienummeret kan skrives direkte i tekstboksen eller grafisk ved at klikke på op- og ned-pilene på siden af tekstboksen. Den lille op-pil vil forøge linienummeret og ned-pilen vil formindske det.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<sect1 id="tools">
+<title
+>Værktøjer-menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="Spelling..."/><menuchoice
+> <guimenu
+>Værk<accel
+>t</accel
+>øjer</guimenu
+><guimenuitem
+><accel
+>S</accel
+>tavekontrol...</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette starter stavekontrol-programmet - et program som er lavet til at hjælpe dig med at fange og rette stavefejl.</action
+> Når du klikker på dette punkt, starter stavekontrollen og en tilhørende dialogboks fremkommer hvorfra du kan kontrollere processen. Der er tre tekstbokse i midten af dialogboksen og deres respektive etiketter er lige til venstre for dem. De tre er (startende fra oven):</para
+> <variablelist
+> <varlistentry
+> <term
+><guilabel
+>Ord stavet forkert:</guilabel
+></term
+> <listitem
+> <para
+>Her indikerer stavekontrollen det ord, som på det aktuelle tidspunkt er i søgelyset. Det sker når stavekontrollen støder på et ord, som ikke står i dens ordbog. Ordbogen er en fil som indeholder en liste over korrekt stavede ord, med hvilken den sammenligner hvert ord i editorens dokument.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Erstatning:</guilabel
+></term
+> <listitem
+> <para
+> Hvis stavekontrollen har nogle lignende ord i sin ordbog, vil det første blive skrevet i denne tekstboks. Du kan acceptere forslaget, skrive din egen rettelse eller vælge et andet forslag fra den næste boks.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Forslag:</guilabel
+></term
+> <listitem
+> <para
+>Stavekontrollen kan her vise nogle mulige erstatninger for det aktuelle ord. Klik på et af disse ord for at flytte det op i tekstboksen <guilabel
+>Erstatning</guilabel
+> ovenfor.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> <para
+>Der er 8 knapper i dialogboksen som giver dig kontrol over stavekontrolprocessen. De er:</para
+> <variablelist
+> <varlistentry
+> <term
+><guibutton
+>Erstat</guibutton
+></term
+> <listitem
+> <para
+>Denne knap får stavekontrollen til at erstatte det pågældende ord i dokumentet med det ord, som står i tekstboksen <guilabel
+>Erstatning</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Erstat alle</guibutton
+></term
+> <listitem
+> <para
+>Denne knap får stavekontrollen til at erstatte ikke bare det aktuelle <guilabel
+>Ord stavet forkert</guilabel
+>, men automatisk erstatte alle andre forekomster af dette forkert stavede ord med det ord, som står i <guilabel
+>Erstatning</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Ignorér</guibutton
+></term
+> <listitem
+> <para
+>Hvis du klikker på denne knap, vil stavekontrollen gå videre uden at lave ændringer til det aktuelle ord.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Ignorér alle</guibutton
+></term
+> <listitem
+> <para
+>Denne knap fortæller stavekontrollen, at den ikke skal gøre noget ved det aktuelle <guilabel
+>Ord stavet forkert</guilabel
+>, og at den skal springe over alle forekomster af det samme ord.</para
+> <note
+> <para
+>Dette gælder kun for den aktuelle gennemgang af dokumentet. Hvis du kører stavekontrollen igen senere, vil den stoppe ved det samme ord igen.</para
+> </note
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Tilføj</guibutton
+></term
+> <listitem
+> <para
+>Hvis du trykker på denne knap, vil ordet i tekstboksen <guilabel
+>Ord stavet forkert</guilabel
+> blive tilføjet til stavekontrollens ordbog. Det betyder at stavekontrollen i fremtiden altid vil betragte dette ord som værende stavet korrekt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Hjælp</guibutton
+></term
+> <listitem
+> <para
+>Dette vil fremkalde &kde;-hjælpesystemet, startende med hjælpesiderne til &kedit; (dette dokument).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Stop</guibutton
+></term
+> <listitem
+> <para
+>Denne knap stopper stavekontrolprocessen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Annullér</guibutton
+></term
+> <listitem
+> <para
+>Denne knap annullerer stavekontrolprocessen.</para
+> </listitem
+> </varlistentry
+> </variablelist
+> <para
+>Langs bunden af 'Stavekontrol'-dialogboksen er der en fremgangsindikator. Efterhånden som stavekontrollen skrider frem, vil indikatoren bevæge sig fra venstre mod højre og giver på den måde en grafisk repræsentation af hvor langt i dokumentet processen er kommet.</para
+> <note
+> <para
+>Fremgangen af stavekontrolprocessen bliver samtidig vist numerisk i editorens statuslinie. <link linkend="show-statusbar"
+>Statuslinien</link
+> er den vandrette bjælke i bunden af editoren lige udenfor tekstområdet.</para
+> </note
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settings">
+<title
+>Opsætning-menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="show-toolbar"/><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+><guimenuitem
+>Vis <accel
+>v</accel
+>ærktøjslinie</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Når dette er afkrydset, vil en flytbar værktøjslinie blive vist. Den indeholder genvejsknapper til de mest brugte kommandoer. Værktøjslinier er sædvanligvis placeret i toppen af editoren, lige under menuen. Hvis dette punkt ikke er afkrydset, vil værktøjslinien være skjult</action
+>. Du kan klikke på det stribede håndtag for at skjule linien eller få den til syne igen. Du kan flytte værktøjslinien ved at trække i håndtaget.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="show-statusbar"/><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+><guimenuitem
+>Vis st<accel
+>a</accel
+>tuslinie</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Når dette er afkrydset, vil en statuslinie blive vist i bunden af editoren. Den indeholder oplysninger om det aktuelle dokuments status. Hvis dette punkt ikke er afkrydset, vil statuslinien være skjult.</action
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="save-options"/><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+><guimenuitem
+><accel
+>G</accel
+>em opsætning</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette gemmer den aktuelle editor-opsætning, så den også vil blive brugt fremover.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="configure-keybindings"/><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+><guimenuitem
+>Indstil <accel
+>t</accel
+>astegenveje</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Denne kommando åbner en dialogboks, hvor du kan ændre <link linkend="keybindings"
+>Tastegenveje</link
+>. Et vindue øverst i dialogboksen viser en liste over tilgængelige kommandoer. Nedenunder er der tre radioknapper. Du kan vælge mellem <guilabel
+>Ingen tast </guilabel
+>, <guilabel
+>Standardtast</guilabel
+>, og <guilabel
+>Personlig tast</guilabel
+>.</para
+> <note
+> <para
+>Et sæt af radioknapper tillader kun at én af de tilgængelige muligheder er valgt - på samme måde som knapperne på en bilradio kun tillader valget af én forudindstillet station. Radioknappen 'Standardtast' er i øvrigt kun tilgængelig for de kommandoer som faktisk har en standardgenvej.</para
+> </note
+> <para
+> Hvis du vælger muligheden 'Personlig tast', bliver den store knap nede til højre aktiveret. Du kan nu indtaste den kombination af taster, som du vil bruge som genvej for den pågældende handling. Hvis du f.eks. har valgt 'Om &kde;' i listen over handlinger, og klikker på 'Personlig tast', kan du trykke på &Ctrl;, &Alt; og <keycap
+>K</keycap
+>-tasten på tastaturet. Dette betyder nu, at hver gang du fremover holder &Ctrl;- og &Alt;-tasterne nede og trykker <keycap
+>K</keycap
+> (mens du bruger &kedit;), vil 'Om &kde;'-dialogboksen blive fremkaldt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="configure-toolbars"/><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+><guimenuitem
+>Indstil <accel
+>v</accel
+>ærktøjslinier</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette åbner den dialogboks, hvor værktøjslinien kan blive indstillet.</action
+> Du kan vælge hvilke genvejsknapper, som skal vises på værktøjslinien, såvel som hvorvidt og hvor der skal være tekst sammen med knapperne. Andre muligheder inkluderer størrelsen på knapperne (ikonerne) og værktøjsliniens placering (øverst, til venstre, til højre, flydende eller fast). 'Fast' får værktøjslinien til at trække sig sammen. Klik på det stribede håndtag for at udvide den, så du igen kan bruge den. I et vindue til venstre vises en liste over mulige handlinger, som kan placeres på værktøjslinien. I et vindue til højre kan du se alle de handlinger, som allerede er på værktøjslinien. Imellem de to vinduer er der et sæt af fire pileknapper, som bruges til at manipulere valgene. Højre-pilen flytter den markerede handling fra den venstre liste over i den højre liste, dvs. at genvejen bliver tilføjet til værktøjslinien. Venstre-pilen gør det modsatte. Den fjerner den markerede handling i listen til højre fra værktøjslinien. Op- og ned-pilene bruges til at ændre den markerede handlings position i listen til højre, hvilket ændrer dens placering på værktøjslinien.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="preferences"/><menuchoice
+> <guimenu
+><accel
+>O</accel
+>psætning</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndstil KEdit</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette punkt åbner en dialogboks, hvor du kan ændre på en masse <link linkend="pref-dialog"
+>indstillinger</link
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title
+>Hjælp-menuen</title>
+
+<variablelist
+> <varlistentry
+> <term
+><anchor id="contents"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+><accel
+>I</accel
+>ndhold</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+>Dette vil fremkalde &kde;-hjælpesystemet, startende med hjælpesiderne til &kedit; (dette dokument).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="whats-this"/><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Hvad er <accel
+>d</accel
+>ette?</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette ændrer musemarkøren til en kombination af en pil og et spørgsmålstegn.</action
+> Hvis du klikker på nogle af &kedit;s elementer med denne pil, vil et hjælpevindue (hvis et sådant findes for det pågældende element), som forklarer elementets funktion, blive vist.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kedit"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+><accel
+>O</accel
+>m KEdit</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette viser oplysninger om version og forfattere.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><anchor id="about-kde"/><menuchoice
+> <guimenu
+><accel
+>H</accel
+>jælp</guimenu
+><guimenuitem
+>Om <accel
+>K</accel
+>DE</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+><action
+>Dette viser KDE-versionen og anden almen information.</action
+></para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+</chapter>
+
+<chapter id="pref-dialog">
+<title
+>Dialogboksen 'Indstil'</title>
+
+<para
+>Når du vælger <menuchoice
+><guimenu
+>Opsætning</guimenu
+><guimenuitem
+>Indstil KEdit</guimenuitem
+></menuchoice
+> fra menuen, fremkommer 'Indstil'-dialogboksen. Denne dialog kan bruges til at ændre forskellige ting. De indstillinger, som du har mulighed for at ændre varierer efter hvilken kategori du vælger fra den lodrette liste til venstre. Langs bunden af dialogboksen er der 5 knapper, som du bruger til at kontrollere processen. Du kan starte <guilabel
+>Hjælp</guilabel
+>-systemet, sætte indstillingerne tilbage til <guilabel
+>Standard</guilabel
+>-værdier, acceptere indstillingerne med <guibutton
+>O.k.</guibutton
+>-knappen, lade indstillingerne træde i kraft uden at lukke dialogen med <guibutton
+>Anvend</guibutton
+>-knappen eller annullere processen med <guibutton
+>Annullér</guibutton
+>-knappen. Kategorierne <guilabel
+>Skrifttype</guilabel
+>, <guilabel
+>Farve</guilabel
+>, <guilabel
+>Stavning</guilabel
+> og <guilabel
+>Diverse</guilabel
+> er forklaret detaljeret i det følgende.</para>
+
+<sect1 id="preffont">
+<title
+>Skrifttype</title>
+
+<para
+>'Indstil'-dialogboksen åbner med dette, som er den først valgte kategori. Her kan du ændre på fire indstillinger og se effekten af ændringerne i eksempelteksten, som er vist i det rektangulære område i bunden af boksen. Indstillingerne er:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Tegnsæt:</guilabel
+></term
+> <listitem
+> <para
+>Denne lille kombinationsboks er placeret til højre lige over eksempelteksten. Hvis du har mere end ét sæt tegn tilgængelige på din computer, kan denne bruges til at bestemme hvilket der skal bruges for teksten i editoren.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Skrifttype</guilabel
+></term
+> <listitem
+> <para
+>Denne rulleliste giver dig mulighed for at vælge mellem de forskellige skrifttyper som er tilgængelige. Udseendet af en valgt skrifttype kan ses i eksempelteksten i bunden af dialogboksen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Skriftstil</guilabel
+></term
+> <listitem
+> <para
+>Denne boks giver dig mulighed for at vælge mellem de fire basale stile: Almindelig, Kursiv, Fed og Fed Kursiv. Udseendet af den valgte stil kan ses i eksempelteksten i bunden af dialogboksen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Størrelse</guilabel
+></term
+> <listitem
+> <para
+>Denne boks giver dig mulighed for at ændre skriftstørrelsen. Jo større nummer, jo større bliver skriften. Eksempelteksten i bunden af dialogen reflekterer ændringerne i valg af størrelse.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="prefcolors">
+<title
+>Farve</title>
+
+<para
+>Denne kategori giver adgang til <link linkend="pref-color-settings"
+>to forskellige farveindstillinger</link
+>, som er beskrevet nedenfor. Hver af disse indstillinger kan ændres ved at klikke på den tilsvarende knap. De er specielle knapper, som har den farve der er valgt på det givne tidspunkt. Et klik på en af disse knapper, fremkalder en speciel farvedialogboks, som bruges til at ændre indstillingen.</para>
+
+<para
+>Dialogboksen 'Vælg farve' giver en lettilgængelig og grafisk måde at vælge en farve på. Øverst til venstre vises et rektangulært farvespektrum. Lige til højre for dette er intensitetsgraden vist i en lodret bjælke, gående fra mørkest i bunden til lysest i toppen. Du kan vælge og justere en farve ved at klikke i disse to bokse. Ved at klikke i farvespektret bestemmes en blanding af rød, grøn og blå, og i den lodrette bjælke vælger du intensitetsgraden. De forskellige farveattributter er vist på numerisk form i små tekstbokse nede i venstre hjørne af dialogen, og du kan se dem ændre sig, når farverne bliver justeret. Disse attributter inkluderer blandingen af de basale farvekomponenter (rød, grøn og blå) såvel som graden af skær og mætning. Alternativt kan du skrive tal direkte i disse bokse. Der er også en firkant nederst på midten af dialogen, som løbende viser den aktuelt indstillede farve. Til højre for denne boks er der endnu en tekstboks ved navn <guilabel
+>HTML</guilabel
+>: Den viser farvekoden, som bruges til at vise den aktuelle farve i <acronym
+>HTML</acronym
+>-kode, hvilket er meget brugt på netsider.</para>
+
+<para
+>Udover det ovenfor nævnte giver 'Vælg farve'-dialogen mulighed for at indfange en hvilken som helst farve som optræder på skrivebordet eller i et andet program. Klik på knappen med pipette-ikonet (placeret i dialogboksens højre side). Musens form ændres til et sigtekorn og når du klikker igen, vil den underliggende farves attributter bliver ført over i dialogboksen.</para>
+
+<para
+>Du har ydeligere mulighed for at tilføje en farve til din personlige palet ved at klikke på den brede knap <guibutton
+>Tilføj til personlige farver</guibutton
+>. Din palet med personlige farver og andre tilgængelige paletter kan blive vist vha. kombinationsboksen, som befinder sig lige over palet-vinduet i øverste højre hjørne af dialogboksen. Udover dine personlige farver, har du adgang til nogle forudindstillede paletter.</para>
+
+<variablelist
+> <varlistentry id="pref-color-settings"
+> <term
+><guilabel
+>Forgrund</guilabel
+></term
+> <listitem
+> <para
+>Her kan du angive hvilken farve du ønsker at teksten skal have i &kedit;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Baggrund</guilabel
+></term
+> <listitem
+> <para
+>Her kan du angive hvilken farve som baggrunden i &kedit; skal have.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="prefspellchecker">
+<title
+>Stavning</title
+> 
+
+<para
+>Stavekontrolprogrammet er lavet som en hjælp til at finde og rette stavefejl. Denne kategori af 'Indstil'-dialogen giver dig mulighed for at ændre nogle centrale indstillinger hvad angår stavekontrollen.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Lav rod/endelses-kombinationer som ikke er i ordbogen</guilabel
+></term
+> <listitem
+> <para
+>Hvis du afkrydser denne mulighed, vil stavekontrollen registrere kombinationer af ordstammer med endelser eller præfikser som værende stavet <quote
+>korrekt</quote
+>, også selvom den givne kombination ikke står i ordbogens database med korrekte ord. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Betragt sammensatte ord som stavefejl</guilabel
+></term
+> <listitem
+> <para
+>Hvis du sætter kryds i denne mulighed, vil stavekontrollen registrere sammensætninger af to eller flere korrekt stavede ord som værende stavet <quote
+>forkert</quote
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Ordbog:</guilabel
+></term
+> <listitem
+> <para
+>Afhængig af din installation, kan der være stavekontrolordbøger til et eller flere forskellige sprog. Denne kombinationsboks giver dig mulighed for at vælge hvilket sprog, stavekontrollen skal bruge.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Indkodning:</guilabel
+></term
+> <listitem
+> <para
+>Der er forskellige indkodningssystemer, som bruges til at kæde bestemte koder sammen med bestemte tegn eller symboler. Hvis du ved hvilket indkodningssystem du bruger, giver denne kombinationsboks dig mulighed for at angive dette, så stavekontrollen kan udføre sit arbejde korrekt. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Klient:</guilabel
+></term
+> <listitem
+> <para
+>Eftersom &kedit; ikke har sin egen stavekontrol, må du vælge et eksternt program, som kan bruges. Her vælger du hvilket stavekontrolprogram du ønsker at anvende.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="prefmisc">
+<title
+>Diverse</title>
+
+<para
+>Denne kategori håndterer tre forskellige indstillingsmuligheder, som er forklaret nedenfor.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Tekstombrydning:</guilabel
+></term
+> <listitem
+> <para
+>Tekstombrydning er en egenskab, som får editoren til automatisk at starte på en ny linie og flytte markøren ned til begyndelsen af denne nye linie. Kombinationsboksen øverst i dialogen giver dig følgende tre muligheder for tekstombrydning:</para
+> <variablelist
+> <varlistentry
+> <term
+>Slå ombrydning fra</term
+> <listitem
+> <para
+>Med denne mulighed valgt, vil editoren ikke ombryde nogen linier. Du må indsætte nye linier manuelt (med <keycap
+>Enter</keycap
+>-tasten).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Lad editoren bestemme</term
+> <listitem
+> <para
+>Denne mulighed sætter editoren til automatisk at justere linielængderne efter tekstvinduets størrelse. Med andre ord, jo bredere du laver vinduet, jo længere bliver linierne; og jo smallere du laver vinduet, jo kortere bliver linierne.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ved angivet søjle</term
+> <listitem
+> <para
+>Når du vælger denne mulighed, aktiveres tesktboksen <guilabel
+> Ombrydningssøjle</guilabel
+> lige nedenunder. Her kan du angive det maksimalt antal tilladte tegn, som må være på en linie. </para
+> <note
+> <para
+>Hvert tegn, inklusiv mellemrum, optager én søjle.</para
+> </note
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term id="backuppref"
+><guilabel
+>Lav sikkerhedskopi når fil gemmes</guilabel
+></term
+> <listitem
+> <para
+>Denne afkrydsningsboks fortæller editoren at den skal omdøbe den sidst gemte version af det aktuelle dokument, inden den udfører en <command
+>Gem</command
+>-kommando. Det sker ved at editoren tilføjer en tilde (<keycap
+>~</keycap
+>) efter det oprindelige filnavn. På den måde har du en mulighed for at genskabe et dokument, hvis du ved en fejl har overskrevet det.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term id="mailpref"
+><guilabel
+>E-mail-kommando:</guilabel
+></term
+> <listitem
+> <para
+>Denne tekstboks bruges til at angive en kommando, som vil blive udført, når du e-mailer det aktuelle dokument vha. <link linkend="mail"
+> <menuchoice
+><guimenu
+>Fil</guimenu
+><guimenuitem
+>Send </guimenuitem
+></menuchoice
+></link
+>-kommandoen. Som standard er editoren sat op til at bruge kommandolinieprogrammet <application
+> mail</application
+>. Du må læse dokumentationen til det e-mail-program, som du foretrækker at bruge, for at se om og hvordan det er muligt at kalde programmet på en lignende måde.</para
+> </listitem 
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Medvirkende og licens</title>
+
+<para
+>&kedit; Copyright 2000 af Bernd Johannes Wuebben <email
+>wuebben@math.cornell.edu</email
+></para>
+
+<para
+>Dokumentation Copyright 2000 af Thad McGinnis <email
+>ctmcginnis@compuserve.com</email
+>.</para>
+
+<para
+>Denne version af &kedit;-håndbogen er baseret på den originale udgave af Bernd Johannes Wuebben <email
+>wuebben@math.cornell.edu</email
+></para>
+
+<para
+>Dansk oversættelse ved Lars K. Schunk <email
+>lars@schunk.dk</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title
+>  
+
+<para
+>&kedit; er en del af kdeutils-pakken. For mere information om installation og kompilering af &kde; bedes du se på <ulink url="http://www.kde.org"
+>www.kde.org</ulink
+>.</para>
+
+</appendix>
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+// vim:ts=0:sw=2:tw=78:noet
+-->

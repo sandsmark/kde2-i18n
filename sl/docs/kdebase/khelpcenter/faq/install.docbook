@@ -1,0 +1,1533 @@
+<!-- if you want to validate this file separately, uncomment this prolog:
+
+<?xml version="1.0" ?>
+<!DOCTYPE chapter PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN"
+ "dtd/kdex.dtd">
+
+-->
+
+<chapter id="install">
+<title
+>Namestitvena navodila</title>
+
+<para
+>To so splošna navodila za namestitev KDE. Prosim, dopolnite svoje znanje in preberite datoteke <filename
+>README</filename
+> in <filename
+>INSTALL</filename
+>, ki so na voljo skupaj s paketom. Prosim, da jih skrbno preberete in si, če gre kaj narobe, poskušate pomagati sami. Če rabite dodatno pomoč, razmislite o tem, da bi se pridružili poštnim seznamom &kde; (oglejte si navodila, kako se pridružiti <ulink url="http://www.kde.org/mailinglists.html"
+>poštnim seznamom</ulink
+>) ali novičarskim skupinam.</para>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+>Za vse "tudi jaz bi" spreobrnjence</para>
+</question>
+<answer>
+<para
+>Torej ste slišali govorice. Ali pa morda videli kakšen posnetek zaslona. In umirate od želje, da bi imeli &kde;. Vendar pa ne veste ničesar o tem "alternativnem operacijskem sistemu". Ne skrbite! Treba bo le malo (no morda ne tako malo) branja in to je vse!</para>
+<para
+>&kde; ne deluje pod &Windows; 95/98/NT ali OS/2 (še ne). Da lahko poganjate &kde; rabite sistem &UNIX;. Za več podrobnosti si oglejte <xref linkend="platform"/>.</para>
+<para
+>Denimo, da ste se odločili namestiti &Linux;. Lahko ga naložite z interneta ali pa kupite zbirko &CD-ROM;, ki vsebujejo vašo izbrano distribucijo. Naslednji viri vam bodo pri tem morda pomagali:</para>
+<itemizedlist
+> <listitem
+><para
+><ulink url="http://www.control-escape.com/"
+>Control-Escape: Alternative Software, &Linux; Help</ulink
+></para
+></listitem
+> <listitem
+><para
+><ulink url="http://www.linuxdoc.org/"
+>&Linux; Documentation Project</ulink
+></para
+></listitem
+> <listitem
+><para
+><ulink url="http://www.mainmatter.com/"
+>&Linux; Frequently Asked Questions with Answers</ulink
+></para
+></listitem
+> <listitem
+><para
+><ulink url="http://www.linux.org/index.html"
+>The &Linux; Home Page at &Linux; Online</ulink
+></para
+></listitem
+> <listitem
+><para
+>Usenet novičarske skupine kot so comp.os.linux.*</para
+></listitem
+> </itemizedlist>
+<para
+>Da lahko poganjate &kde; na &Linux;u morate vzpostaviti delujoče X-e. &X-Windows; je de facto &GUI; na sistemih &UNIX;. Morda si boste želeli ogledati naslednje vire:</para>
+<itemizedlist
+> <listitem
+><para
+><ulink url="http://www.x.org/"
+>X.org</ulink
+></para
+></listitem
+> <listitem
+><para
+><ulink url="http://www.xfree86.org/"
+>XFree86(TM): Home Page</ulink
+></para
+></listitem
+> <listitem
+><para
+>Novičarske skupine usenet kot sta na primer comp.os.linux.x in comp.windows.x.*.</para
+></listitem
+> </itemizedlist>
+<para
+>Končno ste pripravljeni za pričetek namestitve &kde;. Prosim, pričnite brati v naslednjem razdelku. Kako pridobite &kde; si, prosim, preberite v <xref linkend="where-to-get-kde"/>. Na koncu, ne pa nazadnje, če naletite na težave pri nameščanje &kde;, prosim, ne oklevajte in uporabite <link linkend="mailing-lists"
+>poštne sezname</link
+> &kde; in <link linkend="newsgroups"
+>novičarske skupine</link
+>. Vendar pa se zavedajte: nobeno vprašanje ni preneumno, da bi ga zastavili, nekatera pa so, da bi jih odgovorili - posebej še, če so že bila odgovorjena v tem <acronym
+>FAQ</acronym
+>.</para>
+<para
+>Veliko sreče in lepo se zabavajte!</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Dosegljivi paketni formati</para>
+</question>
+<answer>
+
+<para
+>Ekipa &kde; ponuja šest različnih vrst paketov: <acronym
+>RPM</acronym
+> (binarne in izvorno kodo), izvorno kodo in binarne <filename
+>.tgz</filename
+> (<filename
+>.tar.gz</filename
+>) datoteke ter izvorne in binarne datoteke Debian. Najprej so običajno objavljeni paketi <filename
+>.tgz</filename
+> z izvorno kodo, vendar pa se ostali formati pojavijo kmalu. Od nedavnega so na voljo tudi datoteke <filename
+>.tar.bz2</filename
+> z izvorno in binarno kodo. Prosim, preglejte še <xref linkend="bzip2"/>, kjer najdete informacije o odpakiranju datotek s končnico <filename
+>.bz2</filename
+>. Poleg tega so se pojavili paketi <filename
+>pkg</filename
+> za &Solaris; 2.6 in 7.</para
+> 
+<para
+>Namestitveni proces je odvisen od formata paketa, ki ga izberete. Po namestitvi sledijo ponamestitveni postopki, ki veljajo za vse pakete. Vedite, da je v primeru, da ste neizkušen uporabnik &UNIX; in imate sistem osnovan na <acronym
+>RPM</acronym
+> najbolje, da izberete binarne pakete <acronym
+>RPM</acronym
+>, ki jih ponuja vaš distributer. Binarne pakete <acronym
+>RPM</acronym
+> bodo preko svojih strežnikov &FTP; ponudili vsaj Caldera, Delix in S.u.S.E.</para>
+<para
+>Če potrebujete posebne nastavitvene možnosti (ker imate <abbrev
+>npr.</abbrev
+> shadow passwords in želite uporabljati ohranjevalnike zaslona), je najbolje, da uporabite pakete izvorne kode in sami prevedete &kde;. <note
+><para
+><ulink url="mailto:bill.mote@bigfoot.com"
+>Bill Mote</ulink
+> je objavil domačo stran z naslovom "Namestitev KDE 1.1 preko RPM". Oglejte si jo <ulink url="http://home.fuse.net/bmote/kde.htm"
+>tu</ulink
+>.</para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="prerequisites">
+<para
+>Zahteve</para>
+</question>
+<answer>
+<para
+>Za &kde; 2.0 rabite knjižnico &Qt; različice 2.2 ali višje, medtem ko rabite za &kde; 1.1, &kde; 1.1.1, in &kde; 1.1.2 različico 1.42 ali višjo. Poskrbite prosim, da naložite pravilno različico &Qt;. <caution
+><para
+>&kde; 1.x ne bo deloval s &Qt; 2.0 ali višjimi.</para
+></caution
+> Prav tako boste rabili header datoteke, če želite sami prevesti &kde;. Na voljo so zastonj na <ulink url="http://www.trolltech.com/products/download"
+>http://www.trolltech.com/download</ulink
+>. Poleg tega so tu še opcijske knjižnice, ki bodo morda izboljšale &kde;, če jih namestite na vaš sistem. Zgled bi lahko bila libssl, ki omogoča &konqueror;ju da varno brska po spletnih straneh.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Opis osnovnih paketov</para>
+</question>
+<answer>
+<para
+>Osnovna distribucija je trenutno sestavljena iz enajstih paketov. Nekateri so nujno potrebni, druge pa lahko namestite po želji. Vsak paket je dosegljiv v vseh prej omenjenih paketnih formatih.</para>
+<variablelist
+> <varlistentry
+> <term
+>kdesupport</term
+> <listitem
+> <para
+>Priporočen</para
+> <para
+>Ta paket vsebuje podporne knjižnice, ki niso bile napisane kot del projekta &kde; vendar pa so vseeno potrebne. Če knjižnice iz tega pakete že imate (libgif, libjpegm libmime, libuu, libgdbm) in so ustrezne različice, potem vam tega paketa ni potrebno namestiti. Če ste v dvomih, ga namestite. Upoštevajte, da je za debianove pakete ta paket nujen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>kdelibs</term
+> <listitem
+> <para
+>Obvezno</para
+> <para
+>Ta paket vsebuje deljene knjižnice, ki jih rabijo vsi programi &kde;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>kdebase</term
+> <listitem
+> <para
+>Obvezno</para
+> <para
+>Ta paket vsebuje osnovne programe, ki sestavljajo jedro namiznega okolja K (KDE), kot so okenski upravljalnik, terminalski emulator, nadzorno središče, datotečni upravljalnik in pult.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>kdegames</term
+> <listitem
+> <para
+>Opcijski</para
+> <para
+>Različne igre kot so mahjongg, snake, asteroids, in tetris.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>kdegraphics</term
+> <listitem
+> <para
+>Opcijski</para
+> <para
+>Razni, z grafiko povezani programi, kot so pregledovalnik &PostScript; in &DVI; ter risarski program.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>kdeutils</term
+> <listitem
+> <para
+>Opcijski</para
+> <para
+>Različna namizna okolja, kot so kalkulator, urejevalnik in druge prijetne stvari.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>kdemultimedia</term
+> <listitem
+> <para
+>Opcijski</para
+> <para
+>Večpredstavni programi, kot sta predvajalnik &CD; in mixer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>kdenetwork</term
+> <listitem
+> <para
+>Opcijski</para
+> <para
+>Omrežni programi. Trenutno vsebuje majhen e-poštni program, bralnik novic in več z omrežjem povezanih programov.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>kdeadmin</term
+> <listitem
+> <para
+>Opcijski</para
+> <para
+>Programi za upravljanje sistema.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>kdetoys</term
+> <listitem
+> <para
+>Opcijski</para
+> <para
+>Igrače!</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>&korganizer;</term
+> <listitem
+> <para
+>Opcijski</para
+> <para
+>Vaše namizje bi bilo brez organizatorja nepopolno, kajne?</para
+> </listitem
+> </varlistentry
+> </variablelist>
+<para
+>kdesupport mora biti (če je potreben) nameščen pred vsem drugim. Naslednji (ali prvi) paket mora biti kdelibs. Ostale pakete lahko namestite v poljubnem vrstnem redu.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Navodila za namestitev paketov različnih formatov</para>
+</question>
+<answer>
+<para
+><important
+> <para
+>Prosim, ne pozabite prebrati datotek <filename
+>README</filename
+> in <filename
+>INSTALL</filename
+>, če sta na voljo.</para
+> </important
+></para>
+<variablelist
+> <varlistentry
+> <term
+>Namestitev debianovih paketov</term
+> <listitem
+> <para
+>Debianovi paketi nameščajo programe skladno s prihajajočim FHS (File Hierarchy Standard).</para
+> <procedure
+> <step performance="required"
+><para
+>postanite superuporabnik</para
+></step
+> <step performance="required"
+><para
+>poženite <command
+>dpkg <option
+>-i <replaceable
+>packagename.deb</replaceable
+></option
+></command
+> za vsak paket, ki ga želite namestiti.</para
+></step
+> </procedure
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Namestitev paketov <acronym
+>RPM</acronym
+></term
+> <listitem
+> <procedure
+> <title
+>Da namestite binarne <acronym
+>RPM</acronym
+></title
+> <step performance="required"
+><para
+>postanite superuporabnik</para
+></step
+> <step performance="required"
+><para
+>izvedite <command
+>rpm <option
+>-ivh <replaceable
+>packagename.rpm</replaceable
+></option
+></command
+></para
+></step
+> </procedure
+> <procedure
+> <title
+>Da ustvarite in namestite binarni <acronym
+>RPM</acronym
+> iz <acronym
+>SRPM</acronym
+></title
+> <step performance="required"
+><para
+>postanite superuporabnik</para
+></step
+> <step performance="required"
+><para
+>poženite <command
+>rpm <option
+>-ivh <replaceable
+>packagename.src.rpm</replaceable
+></option
+></command
+></para
+></step
+> <step performance="required"
+><para
+><command
+>cd /usr/src/redhat/SPECS</command
+></para
+></step
+> <step performance="required"
+><para
+><command
+>rpm <option
+>-bb <replaceable
+>packagename.spec</replaceable
+></option
+></command
+></para
+></step
+> <step performance="required"
+><para
+><command
+>cd ../RPMS/<replaceable
+>i386</replaceable
+></command
+> (oziroma katerokoli arhitekturo pač uporabljate)</para
+></step
+> <step performance="required"
+><para
+><command
+>rpm <option
+>-ivh <replaceable
+>packagename.i386.rpm</replaceable
+></option
+></command
+></para
+></step
+> </procedure
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Namestitev datoteke <filename
+>.tar.gz</filename
+> z izvorno kodo</term
+> <listitem
+> <para
+>Paket izvorne kode <filename
+>.tgz</filename
+> namešča privzeto v imenik <filename class="directory"
+>/usr/local/kde</filename
+>. Nastavitev lahko povozite z uporabo možnosti <option
+>--prefix</option
+> skripta <filename
+>configure</filename
+>.</para
+> <procedure
+> <step performance="required"
+><para
+>odpakirajte paket s <command
+>tar <option
+>xvzf <replaceable
+>packagename.tar.gz</replaceable
+></option
+></command
+></para
+></step
+> <step performance="required"
+><para
+>postavite se v imenik s paketom: <command
+>cd <replaceable
+>packagename</replaceable
+></command
+></para
+></step
+> <step performance="required"
+><para
+>nastavite (prilagodite) paket: <command
+>./configure</command
+> <note
+><para
+>Nekateri paketi (naj omenim kdebase) imajo posebne nastavitvene možnosti, ki so morda uporabne na vašem sistemu. Vtipkajte <command
+>./configure <option
+>--help</option
+></command
+> da vidite vse dosegljive možnosti.</para
+></note
+></para
+></step
+> <step performance="required"
+><para
+>zgradite paket: <command
+>make</command
+></para
+></step
+> <step performance="required"
+><para
+>namestite paket: <command
+>su <option
+>-c "make install"</option
+></command
+> (če še niste prijavljeni kot root). Če ste, potem vtipkajte <command
+>make <option
+>install</option
+></command
+>.</para
+></step
+> </procedure
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Namestitev binarnih datotek <filename
+>.tar.gz</filename
+></term
+> <listitem
+> <para
+>Binarni paket .tar.gz namešča v imenik <filename class="directory"
+>/opt/kde</filename
+>.</para
+> <procedure
+> <step performance="required"
+><para
+>postanite superuporabnik</para
+></step
+> <step performance="required"
+><para
+><command
+>cd /</command
+></para
+></step
+> <step performance="required"
+><para
+><command
+>tar <option
+>xvzf <replaceable
+>packagename.tar.gz</replaceable
+></option
+></command
+></para
+></step
+> </procedure
+> </listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Postopki po namestitvi</para>
+</question>
+<answer>
+<para
+>Najprej se prepričajte, da ste dodali &kde; binarni namestitveni imenik (<abbrev
+>npr.</abbrev
+> <filename class="directory"
+>/opt/kde/bin</filename
+>) v vašo spremenljivko <envar
+>PATH</envar
+> in imenik &kde;, v katerem so nameščene knjižnice, v vaš <envar
+>LD_LIBRARY_PATH</envar
+> (potrebno le na sistemih, ki ne podpirajo rpath; v &Linux; &ELF;, bi moralo delati brez tega). Ta spremenljivka okolja se na različnih sistemih lahko imenuje različno, lahko je <abbrev
+>npr.</abbrev
+> imenovana <envar
+>SHLIB_PATH</envar
+> (na &IRIX;). Potem postavite spremenljivko <envar
+>KDEDIR</envar
+> na koren vašega drevesa &kde;, <abbrev
+>npr.</abbrev
+> <filename class="directory"
+>/opt/kde</filename
+>. <caution
+> <para
+>Zavedajte se, da je precej nespametno nastaviti <envar
+>LD_LIBRARY_PATH</envar
+> na slepo. V večini primerov je nepotrebno in lahko naredi več slabega kot dobrega. O tej temi izveste več na spletni strani, ki jo je spisal <ulink url="mailto:barr@cis.ohio-state.edu"
+>Dave Barr</ulink
+> in razlaga nevarnosti <envar
+>LD_LIBRARY_PATH</envar
+>, najdete pa jo lahko na <ulink url="http://www.cis.ohio-state.edu/~barr/ldpath.html"
+>http://www.cis.ohio-state.edu/~barr/ldpath.html</ulink
+>.</para
+> </caution
+> </para>
+<para
+>Čeprav lahko večino programov &kde; uporabljate tako, da jih preprosto prikličete, lahko v celoti pridobite napredne zmožnosti &kde;, če uporabljate okenski upravljalnik &kde; in njegove pomočnike.</para>
+<para
+>Da vsem vse skupaj olajšamo, smo poskrbeli za preprosti skript, imenovan <filename
+>startkde</filename
+>, ki je nameščen v <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/bin</filename
+> in je torej v vaši sistemsko dosegljivi poti (path).</para>
+<para
+>Uredite datoteko <filename
+>.xinitrc</filename
+> v vašem domačem imeniku (najprej naredite varnostno kopijo!), odstranite vse, kar izgleda kot klicanje okenskega upravljalnika in vrinite namesto tega <command
+>startkde</command
+>. Ponovno poženite &X-Windows;. Če uporabljate &kdm;/<application
+>xdm</application
+>, boste morali urediti datoteko <filename
+>.xsession</filename
+> namesto <filename
+>.xinitrc</filename
+>. Če v vašem imeniku ni datoteke <filename
+>.xinitrc</filename
+> ali pa <filename
+>.xsession</filename
+>, preprosto ustvarite novo, ki vsebuje le eno samo vrstico <command
+>startkde</command
+>. <note
+> <para
+>Nekateri sistemi (omeniti velja &RedHat; &Linux;) uporabljajo namesto tega <filename
+>.Xclients</filename
+> .</para
+> </note
+></para>
+<para
+>To bi vam moralo predstaviti novo, sijoče namizje &kde;. Sedaj lahko pričnete raziskovati čudovit svet &kde;. Če najprej želite prebrati nekaj dokumentacije, vam toplo priporočamo <ulink url="http://www.kde.org/documentation/quickstart/index.html"
+>Hitri vodič po KDE</ulink
+>. Še več, vsak program ima sprotno pomoč, ki je dosegljiva preko menuja pomoči.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Micro-HOWTO: Prevajanje &kde; 1.1.1 na &SGI; &IRIX; 6.x</para>
+</question>
+<answer>
+<para
+><ulink url="mailto:berry@ieeecs.concordia.ca"
+>Chris Berry</ulink
+> je objavil na comp.windows.x.kde naslednji osveženi micro-HOWTO.</para>
+<para
+>To je (namerna) modifikacija originalnega Micro-HOWTO, ki ga je objavil <ulink url="mailto:sterritt@mrj.com"
+>Chris Sterritt</ulink
+>. Veljaven je za &kde;-1.1.1 na &IRIX; 6.5. Na drugih platformah ga nisem preveril. Nekaj elementov ni povsem ustreznih: dobim mnogo, mnogo opozoril o definicijah &Qt; ki so ?preempted?, o libkdecore <abbrev
+>itd.</abbrev
+> (toliko definicij je bilo, da bi lahko napisal slovar), i18n stvari ne delujejo (v 1.0 pa so) in &kikbd; ne dela v &konsole; (drugače dela v redu). Vse komentarje ali vprašanja lahko naslovite na <email
+>berry@ieeecs.concordia.ca</email
+>. Prav tako bom obdržal kopijo tega HOWTO na moji osebni spletni strani: <ulink url="http://alcor.concordia.ca/~c_berry/"
+>http://alcor.concordia.ca/~c_berry/</ulink
+>.</para>
+<para
+>Prav tako sem naložil binarne datoteke kde-1.1.1 in egcs-1.1.2 na <ulink url="ftp://ftp.cmc.ec.gc.ca/pub/hbc/sgi/"
+>ftp://ftp.cmc.ec.gc.ca/pub/hbc/sgi/</ulink
+>. &kde; je bil preveden z deljenimi knjižnicami, tako da vam ni treba imeti libstdc++.so.2.9.0 Priporočil bi tudi nalaganje binarnih datotek egcs. Naložite in <emphasis
+>preberite</emphasis
+> prosim tudi datoteko README v imeniku, saj vsebuje pomembne informacije o namestitvi.</para>
+<para
+>Na koncu naj poudarim, da ne jaz ne Environment Canada ne sprejmemo odgovornosti o vrednosti teh navodil. Zame so delovala. Če vam delajo, je to dobro, če ne, vam ne morem pomagati ne jaz ne kdo drug pri EC. Zavedajte se, da mnoge stvari ne delujejo tako, kot bi morale. Če uspete rešiti te probleme, obvestite o tem še druge. Sam ne bom mogel preveriti nobenih popravkov po 20. avgustu 1999, saj se bom vrnil v šolo (in uporabljal SunOS). </para>
+<para
+>Uživajte!</para>
+
+<procedure
+> <title
+>Prevajanje &kde; 1.1.1 na &SGI; &IRIX; 6.x</title
+> <step performance="required"
+> <para
+>Namestite &Qt; 1.42 ali novejši</para
+> </step
+> <step performance="required"
+> <para
+> &kde; nameščam kot uporabnik (ne kot root), tako da imam spremenljivko <envar
+>KDEDIR</envar
+>, ki je postavljena na nekaj drugega kot /usr/local/ ali karkoli drugega pač je privzeto. Tako da bom to spodaj omenil, vam pa pa morda ne bo treba. Poleg tega ima &SGI; jpeg in png knjižnici, vendar pa sta zastareli in tudi drugače napačni. Tako boste morali slediti libpng in libz izvorni kodi (jpeg je v kdesupport); našel sem ju kot source <acronym
+>RPM</acronym
+> na enem izmed &RedHat; &FTP; zrcal.</para
+> </step
+> <step performance="required"
+> <para
+> Priskrbite si <application
+>egcs</application
+> 1.1.1 ali novejši in prevedite z <option
+>-fsquangle</option
+> podporo. To je zato, ker &SGI;jev zbirnik ne zna ravnati z velikimi objektnimi imeni, ki jih proizvede običajen <application
+>g++</application
+> in <application
+>gas</application
+> evidentno še ne dela za &SGI;. Prav tako boste morali zgraditi &gcc;jeve knjižnice z uporabo te binarne datoteke. Poskrbite, da je v vaši spremenljivki <envar
+>PATH</envar
+> le ta prevajalnik (če se drugje namestili še kakšen &gcc;). Ko vtipkam <command
+>g++ <option
+>-v</option
+></command
+> dobim:</para
+> <screen
+><computeroutput
+>gcc version egcs-2.91.60 19981201 (egcs-1.1.1 release)</computeroutput>
+</screen
+> </step
+> <step performance="required"
+> <para
+> Izvedite <command
+>setenv <option
+>LDFLAGS " "</option
+></command
+> saj skripti configure vztrajajo na <command
+>g++ <option
+>-s</option
+></command
+> pri prevajanju poskusnega programa, kar na &SGI; vedno strmoglavi.</para
+> </step
+> <step performance="required"
+> <para
+> Odpakirajte "kdesupport" in vstopite v imenik. Poženite configure z <option
+>--prefix</option
+> če morate:</para
+> <screen
+>./configure --prefix=$KDEDIR --x-includes=/usr/include/X11 \
+--x-libraries=/usr/lib32 --with-qt-includes=/opt/kde-1.1.1 \
+--with-qt-libs=/opt/kde-1.1.1 --enable-shared
+</screen
+> <para
+>Spremenite to, da ustreza vašemu realnemu sistemu. V mojem primeru imam &Qt; v istem imeniku kot &kde;, tako da sem moral eksplicitno poimenovati imenika includes in libs. Včasih configure še vedno ne bo videl vključnega (includes) imenika &Qt;. Preglejte vašo datoteko <filename
+>.login</filename
+> da to popravite (saj ste nastavili vaš <filename
+>.login</filename
+> kot so zahtevala navodila v namestitvi &Qt;?</para
+> </step
+> <step performance="required"
+> <para
+> Poženite skript (ki ga vključujem spodaj):</para
+> <screen
+><command
+>find <option
+>. -name Makefile -exec ../FixMakesSq {} \;</option
+></command
+></screen
+> <para
+>To popravi vse vrstice prevajanja, tako da so vse "podvojene" knjižnice (jpeg in png) nameščene s polnimi potmi in ne bodo povezane z &SGI;jevimi.</para
+> <note
+><para
+>V originalnem HOWTO je bil <option
+>-fsquangle</option
+> dodan vsaki datoteki makefile. To je povzročilo napake pri prevajanju. Ugotovil sem, da je bilo resnično potrebno le v eni datoteki. To bom omenil spodaj.</para
+> </note
+> <para
+>Tukaj je skript FixMakesSq:</para
+> <programlisting
+>#!/bin/perl -ni.bak
+ 
+if ((/-lpng/) || (/-ljpeg/))
+{
+    if (/^(.*)-lpng(.*)$/)
+    {
+        $b4 = $1;
+        $af = $2;
+        print "$b4 /path/to/KDE/libs/libpng.a $af\n";
+    }
+    if (/^(.*)-ljpeg(.*)$/)
+    {
+        $b4 = $1;
+        $af = $2;
+        print "$b4 /path/to/KDE/libs/libjpeg.a $af\n";
+    }
+}
+        
+#NOTE!! Uncomment this section if you want to add
+#-D_LANGUAGE_C_PLUS_PLUS to all
+#makefiles.  I personally have not tried this, but it should not break
+#anything.
+# Alternately, add the flag in the places noted below.
+
+#elsif (/cxxflags\s*=(.*)$/i)
+#{
+#    print "CXXFLAGS =  -D_LANGUAGE_C_PLUS_PLUS $1\n";
+#}
+else
+{
+    print;
+}
+</programlisting
+> <para
+>Naredite:</para
+> <screen
+><command
+>gmake</command>
+<command
+>gmake <option
+>install</option
+></command>
+</screen
+> </step
+> <step performance="required"
+> <para
+> Pojdite v imenik z izvorno kodo <filename
+>libz</filename
+>:</para
+> <screen
+><command
+>./configure <option
+>--prefix=$KDEDIR</option
+></command>
+<command
+>gmake</command>
+<command
+>gmake install</command>
+</screen
+> </step
+> <step performance="required"
+> <para
+> Pojdite v imenik z izvorno kodo <filename
+>libpng</filename
+>:</para
+> <screen
+><command
+>./configure <option
+>--prefix=$KDEDIR</option
+></command>
+<command
+>gmake</command>
+<command
+>gmake <option
+>install</option
+></command>
+</screen
+> </step
+> <step performance="required"
+> <para
+> Odpakirajte kdelibs in vstopite v imenik. Upoštevajte argument <option
+>--enable-new-stuff</option
+> pri <command
+>./configure</command
+> (to morda ne bo potrebno, vendar se nič ne pritoži, če ga uporabljate): </para
+> <screen
+><command
+>./configure <option
+>--prefix=$KDEDIR --x-includes=/usr/include/X11 \
+--x-libraries=/usr/lib32 --with-qt-includes=/opt/kde-1.1.1 \
+--with-qt-libs=/opt/kde-1.1.1 --enable-shared --enable-new-stuff</option
+></command>
+<command
+>find <option
+>. -name Makefile -exec ../FixMakesSq {} \;</option
+></command>
+</screen
+> </step
+> <step performance="required"
+> <para
+>Najdite <filename
+>kprocctrl.cpp</filename
+> in popravite <filename
+>Makefile</filename
+> v tem imeniku. Le če niste odstranili komentarja v razdelku, ki doseže to v skriptu FixMakesSq, dodajte opcijo <option
+>-D_LANGUAGE_C_PLUS_PLUS</option
+> vrstici CXXFLAGS. To poskrbi, za pravo definicijo za signalne funkcije (ima int arg).</para
+> </step
+> <step performance="required"
+> <para
+> Poiščite <filename
+>addressbook.cc</filename
+> in popravite <filename
+>Makefile</filename
+> v tem imeniku. Dodajte <option
+>-fsquangle</option
+> v vrstico CXXFLAGS. To omogoča rokovanje z velikim imenom, ki se bo pojavilo.</para
+> <screen
+><command
+>gmake</command>
+<command
+>gmake <option
+>install</option
+></command>
+</screen
+> </step
+> <step performance="required"
+> <para
+> Odpakirajte kdebase in vstopite v imenik. Izvedite:</para
+> <screen
+><command
+>./configure <option
+>--prefix=$KDEDIR  --x-includes=/usr/include/X11 \
+--x-libraries=/usr/lib32 --with-qt-includes=/opt/kde-1.1.1 \
+--with-qt-libs=/opt/kde-1.1.1 --enable-shared </option
+></command>
+<command
+>find <option
+>. -name Makefile -exec ../FixMakesSq {} \;</option
+></command>
+</screen
+> </step
+> <step performance="required"
+> <para
+> Popravite <filename
+>memory_sgi.cpp</filename
+> (v imeniku <filename
+>kdebase</filename
+>). Sam sem le #ifdef vsebino celotne funkcije... ne prevede se na mojem računalniku in tako ali tako nikoli ne odprem tega dela &kpanel;a :-).</para
+> </step
+> <step performance="required"
+> <para
+> Popravite <filename
+>TEShell.C</filename
+> (v imeniku <filename
+>kdebase-1.1.1/konsole/src/</filename
+> ). Je operacija za pridobivanja pty za novo &konsole;. Ker ni bila pisana z mislijo na &IRIX; jo je treba popraviti z diff, ki je vključen spodaj:</para
+> <programlisting
+>*** TEShell.C   Mon Apr 12 00:12:37 1999
+--- /users/dor/aspg/ber/data/kdedown/kdebase-1.1.1/konsole/src/TEShell.C
+Wed Jul 14 15:15:35 1999
+***************
+*** 169,174 ****
+--- 169,177 ----
+    pid_t pid = waitpid(-1,&amp;status,WNOHANG);
+    Shell* sh = shells.find(pid);
+    if (sh) { shells.remove(pid); sh-&gt;doneShell(status); }
++ #if defined(sgi)
++   signal(SIGCHLD,catchChild);
++ #endif
+  }
+  
+  void Shell::doneShell(int status)
+***************
+*** 234,239 ****
+--- 237,252 ----
+        }
+      }
+    }
++ #endif
++
++ #if defined(sgi) /* Irix */
++
++   needGrantPty = FALSE;
++   char* line;
++   line = _getpty(&amp;ptyfd, O_RDWR|O_NDELAY, 0600, 0);
++   strcpy(ptynam,"/dev/ptc");
++   strcpy(ttynam,line);
++
+  #endif
+  
+    if (ptyfd &lt; 0) // Linux, FIXME: Trouble on other systems?
+</programlisting
+> <para
+>Nadaljujmo: </para
+> <screen
+><command
+>gmake</command>
+<command
+>gmake <option
+>install</option
+></command>
+</screen
+> </step
+> <step performance="required"
+> <para
+> Odpakirajte kdeutils.</para
+> <screen
+><command
+>./configure <option
+>--prefix=$KDEDIR  --x-includes=/usr/include/X11 \
+--x-libraries=/usr/lib32 --with-qt-includes=/opt/kde-1.1.1 \
+--with-qt-libs=/opt/kde-1.1.1 --enable-shared </option
+></command>
+<command
+>find <option
+>. -name Makefile -exec ../FixMakesSq {} \;</option
+></command>
+</screen
+> </step
+> <step performance="required"
+> <para
+> Poiščite <filename
+>kcalc_core.cpp</filename
+> in popravite <filename
+>Makefile</filename
+> kot ste že <filename
+>kprocctrl.cpp</filename
+> zgoraj. </para
+> <screen
+>gmake
+gmake install
+</screen
+> </step
+> <step performance="required"
+> <para
+> Odpakirajte degames, kdegraphics in kdetoys in za vsakega v njegovem imeniku poženite: </para
+> <screen
+><command
+>./configure <option
+>--prefix=$KDEDIR  --x-includes=/usr/include/X11 \
+--x-libraries=/usr/lib32 --with-qt-includes=/opt/kde-1.1.1 \
+--with-qt-libs=/opt/kde-1.1.1 --enable-shared</option
+></command>
+<command
+>find <option
+>. -name Makefile -exec ../FixMakesSq {}</option
+></command>
+<command
+>gmake</command>
+<command
+>gmake <option
+>install</option
+></command>
+</screen
+> </step
+> <step performance="required"
+> <para
+> Ta korak je opcijski za &kde;-1.1. Mislim, da ni potreben za &kde;-1.1.1. &knotes; se mi ni nikoli zrušil. Poiščite imenik <filename
+>knotes</filename
+>. Pojdite tja, izvedite <command
+>make <option
+>clean</option
+></command
+>, nato spremenite CXXFLAGS v <filename
+>Makefile</filename
+>. Vrstica z CXXFLAGS ima opcijo <option
+>-O2</option
+>, spremenite jo v <option
+>-g</option
+>. Nato izvedite <command
+>make</command
+> in <command
+>make <option
+>install</option
+></command
+>. Razlog za to je, da sem ugotovil, da se je &knotes; zrušil nekaj minut po zagonu; ko pa sem ga prevedel z opcijo <option
+>-g</option
+> (<abbrev
+>to je</abbrev
+> s podporo razhroščevanju) namesto <option
+>-O2</option
+> (optimalizacija) pa je delal čisto lepo. Pa ugotovite to sami :-). </para
+> </step
+> </procedure>
+<para
+>In to je vse. Sedaj vam bi moralo uspeti pognati &kde;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Moram, preden namestim novo različico, odstraniti staro xyz?</para>
+</question>
+<answer>
+<para
+>Načeloma ni potrebno. Paketa <acronym
+>RPM</acronym
+> in Debian bi morala poskrbeti za odvisnosti.</para>
+<para
+>Če sami prevajate izvorno kodo, boste morda morali paziti, da ne prevedete različnih različic &kde; paketov. Če torej nameščate novo različico, prosim najprej zgradite in namestite kdesupport, nato kdelibs nato pa kdebase.</para>
+<para
+>Izogibati pa se morate eni stvari: nameščanju dveh ali več različic &kde; vzporedno. To se lahko zgodi, če določite drugačen ciljni imenik za eno izmed različic. Rezultat je lahko nepredvidljiv. Isto velja v primeru, da imate hkrati nameščeni različni različici &Qt;. To se lahko zgodi hitro, če že imate starejšo različico &Qt;, ki je bila nameščena z distribucijo &Linux;.</para>
+<!--create a new entry called "how to make KDE 1.x coexist with KDE 2"
+and link it from here-->
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="startkde">
+<para
+>Kako poženem &kde;?</para>
+</question>
+<answer>
+<para
+>Najbolj udoben načina zagona &kde; predstavlja uporaba skripta <filename
+>startkde</filename
+>. Na konec vaše datoteke <filename
+>.xsession</filename
+> (ali pa <filename
+>.xinitrc</filename
+> oziroma <filename
+>.Xclients</filename
+> če ne uporabljate &kdm; ali <application
+>xdm</application
+>) dodajte <command
+>startkde</command
+>. Odstranite vrstice, ki poženejo vaš prejšnji okenski upravljalnik. Če v vašem imeniku nimate datoteke <filename
+>.xsession</filename
+>, <filename
+>.xinitrc</filename
+> ali <filename
+>.Xclients</filename
+>, preprosto ustvarite novo, ki vsebuje le eno samo vrstico: <command
+>startkde</command
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Vedno, ko poženem &kde;, se pritoži nad "shadow passwords". Zakaj?</para>
+</question>
+<answer>
+<para
+>Vaš sistem uporablja shadow passwords, lahko ohranjevalnik zaslona teče le, če je nastavljen suid bit. To da ohranjevalniku zaslona korenske privilegije, ki so potrebni za dostop do shadow passwords. <caution
+><para
+>Ohranjevalnik zaslona bo morda nastavljen za zavarovanje računalnika, dokler ne bo vnešeno geslo.</para
+></caution
+></para>
+<procedure
+> <title
+>Nastavljanje suid bita za ohranjevalnike zaslona</title
+> <step performance="required"
+><para
+>postanite root</para
+></step
+> <step performance="required"
+><para
+><command
+>chown root $<envar
+>KDEDIR</envar
+>/bin/*.kss</command
+></para
+></step
+> <step performance="required"
+><para
+><command
+>chmod u+s $<envar
+>KDEDIR</envar
+>/bin/*.kss</command
+></para
+></step
+> </procedure>
+<para
+>Alternativno lahko, če prevedete &kde; iz izvorne kode, uporabite <command
+>./configure <option
+>--with-shadow</option
+></command
+> da nastavite kdebase. Tedaj je suid bit samodejno nastavljen med <command
+>make install</command
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Je mogoče namestiti &kde; v uporabniški imenik?</para>
+</question>
+<answer>
+<para
+>Da, &kde; lahko namestite v katerikoli imenik želite. To, kar morate storiti, je odvisno od vrste paketa, ki ga želite namestiti:</para>
+<procedure
+><title
+>Paketi izvorne kode</title
+> <step performance="required"
+><para
+>Nastavite (prilagodite) in namestite paket z uporabo <command
+>configure <option
+>--prefix=<replaceable
+>/users/myhome/kde</replaceable
+></option
+>; make; make install</command
+>, s čimer boste nameščali v <filename class="directory"
+>/users/myhome/kde</filename
+>.</para
+></step
+> <step performance="required"
+><para
+>V vaše init datoteke dodajte spodnje vrstice. Upoštevajte, da vam ni potrebno nastaviti <envar
+>LD_LIBRARY_PATH</envar
+>, bolje je ta korak izpustiti.</para
+> <para
+>Za csh ali tcsh:</para
+> <programlisting>
+setenv KDEDIR /users/myhome/kde
+
+if ( $?LD_LIBRARY_PATH ) then
+   setenv LD_LIBRARY_PATH $KDEDIR/lib:$LD_LIBRARY_PATH
+else
+   setenv LD_LIBRARY_PATH $KDEDIR/lib
+endif
+
+if ( ! $?LIBRARY_PATH ) then
+   setenv LIBRARY_PATH $LD_LIBRARY_PATH
+endif  
+</programlisting
+> <para
+>Za <application
+>bash</application
+>:</para
+> <programlisting>
+KDEDIR=/users/myhome/kde
+PATH=$KDEDIR/bin:$PATH
+LD_LIBRARY_PATH=$KDEDIR/lib:$LD_LIBRARY_PATH
+LIBRARY_PATH=$LD_LIBRARY_PATH
+export KDEDIR PATH LD_LIBRARY_PATH LIBRARY_PATH
+</programlisting
+></step
+> </procedure>
+<procedure
+><title
+><acronym
+>RPM</acronym
+> paketi</title
+> <step performance="required"
+><para
+><command
+>rpm</command
+> vam omogoča uporabo možnosti <option
+>--prefix</option
+> s katero izberete imenik, v katerega želite nameščati. Če na primer izvedete <command
+>rpm <option
+>-i --prefix=<replaceable
+>/users/myhome/kde package.rpm</replaceable
+></option
+></command
+>, bo paket nameščen v <filename class="directory"
+>/users/myhome/kde</filename
+>.</para
+></step
+> </procedure>
+<para
+><note
+> <para
+>Čeprav bo &kde; deloval z uporabniškega imenika, so z nekaterimi programi, ki zahtevajo suid root težave. Sem spadajo <abbrev
+>npr.</abbrev
+> programi v paketu kdeadmin. Ker pa niso namenjeni za uporabo, kadar ste prijavljeni kot običajni uporabnik (user), vam glede tega ni treba skrbeti.</para
+> <para
+>Na sistemih, ki uporabljajo shadow password, morajo biti ohranjevalniki zaslona suid root, da omogočijo dostop do gesla za odklenitev zaslona, tako da ta možnost ne bo delovala.</para
+> </note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+><command
+>startkde</command
+> strmoglavi s sporočilom <errorname
+>can not connect to X server</errorname
+> (ne morem se povezati s strežnikom X). Kaj je narobe?</para>
+</question>
+<answer>
+<para
+>Verjetno ste poskušali pognati strežnik X z ukazom <command
+>startkde</command
+>. Strežnik X se požene z <command
+>startx</command
+>. <command
+>startkde</command
+> je skript, ki naj bi se pognal iz <filename
+>.xinitrc</filename
+>, <filename
+>.xsession</filename
+> ali <filename
+>.Xclients</filename
+>, da aktivira okenski upravljalnik in zahtevane strežniške deamone za &kde;. Poglejte še v <xref linkend="startkde"/>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Pri nameščanju debianovih paketov z <command
+>dpkg</command
+> se izpiše <errorname
+>giflib2 is missing</errorname
+> (giflib2 manjka)</para>
+</question>
+<answer>
+<para
+>Včasih se pri nameščanju debianovih paketov &kde; <command
+>dpkg</command
+> pritoži nad težavami z <errorname
+>odvisnostjo datotek: giflib2 is missing</errorname
+>. Ker giflib2 ni potreben, je rešitev preprosta: <command
+>dpkg <option
+>-i --ignore-depends=giflib2 <replaceable
+>package.deb</replaceable
+></option
+></command
+> </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kde; na &AIX;?</para>
+</question>
+<answer>
+<para
+>Če imate težave z izgradnjo &kde; na &AIX; preverite stran Stefana Westerfelda <ulink url="http://space.twc.de/~stefan/kde/aix.html"
+>Running &kde; on Aix</ulink
+>, kjer najdete pomoč za izgradnjo &kde; na tej izjemni različici &UNIX;.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Pri nameščanju &RedHat; paketov se pojavi izpis <errorname
+>libncurses.so.3.0 is needed</errorname
+> (zahtevan je libncurses.so.3.0)</para>
+</question>
+<answer>
+<para
+>Če zanje ni rpm-a na vašem &RedHat; &CD-ROM;, preiščite &RedHat; &FTP; stran in njena zrcala, da ga naložite. Ne pozabite, da libncurses-3 in -4 sobivata in ni potrebe po zamenjavi ene z drugo, tako bo <abbrev
+>npr.</abbrev
+> zadoščal <command
+>rpm -i</command
+>.</para>
+<para
+>Lahko pa (kot root) poizkusite naslednje:</para>
+<procedure
+> <step performance="required"
+><para
+><command
+>cd /usr/lib</command
+></para
+></step
+> <step performance="required"
+><para
+><command
+>ln <option
+>-s libncurses.so.4 libncurses.so.3</option
+></command
+></para
+></step
+> <step performance="required"
+><para
+><command
+>ldconfig</command
+></para
+></step
+> </procedure>
+<para
+>Ker sta libncurses-3 in -4 100% usklajena (kompatibilna) na binarnem kot tudi nivoju izvorne kode, je namestitev obeh potrata prostora.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>&kde; na prenosnem računalniku?</para>
+</question>
+<answer>
+<para
+>Če lahko v delovanje prepričate &X-Windows;, potem ne bi smeli imeti težav z delovanjem &kde;. Naslednje povezave vam bodo morda pomagale:</para>
+<itemizedlist
+> <listitem
+> <para
+><ulink url="http://www.cs.utexas.edu/users/kharker/linux-laptop/"
+>http://www.cs.utexas.edu/users/kharker/linux-laptop/</ulink
+></para
+> </listitem
+> <listitem
+> <para
+><ulink url="http://www.yy.cs.keio.ac.jp/~sanpei/how2800x600.html"
+>http://www.yy.cs.keio.ac.jp/~sanpei/how2800x600.html</ulink
+></para
+> </listitem
+> </itemizedlist>
+<para
+>Če imate prenosnik z eksotično ločljivostjo, kot je na primer 1024x600, lahko poizkusite urediti datoteko <filename
+>XF86Config</filename
+> (v <filename class="directory"
+>/etc/X11</filename
+> če uporabljate &RedHat;). Če imate izkušnje s to datoteko, potem veste, da je v njej več različnih vrstic za opis načina prikaza ("Modeline"). Dodati morate le še eno za vašo ločljivost. Na žalost pa je format teh vrstic precej ezoteričen; kar pomeni, da morate prebrati precej stvari. Eden izmed virov podatkov bi lahko bil <ulink url="http://sunsite.unc.edu/LDP/HOWTO/XFree86-Video-Timings-HOWTO.html"
+>XFree86 Video Timings HOWTO</ulink
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Privzet imenik &kde; po namestitvi mi ni všeč. Kako ga premaknem, ne da bi kaj pokvaril?</para>
+</question>
+<answer>
+<para
+>Če predvidevamo, da je privzet <filename class="directory"
+>/opt/kde</filename
+> in ga želite premakniti v <filename class="directory"
+>/usr/local/kde</filename
+>, potem morate narediti naslednje:</para>
+<procedure
+> <step performance="required"
+><para
+>prijavite se kot superuporabnik (če še niste)</para
+></step
+> <step performance="required"
+><para
+><command
+>mv /opt/kde /usr/local/kde</command
+></para
+></step
+> <step performance="required"
+><para
+><command
+>ln -s /usr/local/kde /opt/kde</command
+></para
+></step
+> </procedure>
+<para
+>To bo premaknilo vse vaše &kde; datoteke v <filename class="directory"
+>/usr/local/kde</filename
+>, vendar pa je vse še vedno dosegljivo z <filename class="directory"
+>/opt/kde</filename
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kam je izginil configure v trenutnem posnetku kode?</para>
+</question>
+<answer>
+<para
+>Morda je bilo to že popravljeno, vendar pa je v primeru, da še ni rešitev naslednja: <command
+>make <option
+>-f admin/Makefile.common cvs</option
+></command
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="bzip2">
+<para
+>Kako odpakiram ("odzipam") pakete s podaljškom bz2?</para>
+</question>
+<answer>
+<para
+>Najprej rabite paket bzip2. Če ga še nimate, ga naložite z vaše najljubše &FTP; strani. Da si ogledate vsebino vtipkajte <command
+>bzip2 -cd <replaceable
+>files.tar.bz2</replaceable
+> | tar tvf -</command
+>. Da datoteke izvlečete pa <command
+>bzip2 -cd <replaceable
+>files.tar.bz2</replaceable
+> | tar xvf -</command
+>. Seveda pa lahko uporabite tudi kaj takšnega: <command
+>tar --use-compress-program bzip2 -xvf <replaceable
+>files.tar.bz2</replaceable
+></command
+> če to vaš <application
+>tar</application
+> podpira. Za nadaljnje informacije uporabite prosim <command
+>man tar</command
+> in <command
+>man bzip2</command
+>, morda pa boste želeli prebrati tudi Bzip2 mini-HOWTO. Mimogrede, domača stran bzip2 je <ulink url="http://sources.redhat.com/bzip2/index.html"
+>http://sources.redhat.com/bzip2/index.html</ulink
+>.</para>
+<!--add a link to Bzip2 mini-HOWTO-->
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Katere datoteke z mojega namestitvenega imenika &kde; lahko zbrišem? Lahko varno odstranim vse datoteke <filename
+>*.h</filename
+>, <filename
+>*.c</filename
+> in <filename
+>*.o</filename
+> ?</para>
+</question>
+<answer>
+<para
+>Ni potrebe, da bi obdržali datoteke <filename
+>.c</filename
+> in <filename
+>.o</filename
+>, vendar pa boste morda želeli obdržati datoteke <filename
+>.h</filename
+>, saj jih rabite, če boste kdaj želeli prevesti vaše lastne &kde; programe. Če pa želite izvorni kodi programov dodajati popravke, ki se pojavijo (namesto, da bi znova nalagali vse skupaj), potem morajo ostati.</para
+> 
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Bom izgubil svoje trenutne nastavitve, če nadgradim &kde;?</para>
+</question>
+<answer>
+<para
+>Poročila o rezultatih prehoda iz &kde; 1.x v &kde; 2.0 so mešana. Namestitve so shranjene v podimeniku <filename class="directory"
+>.kde</filename
+> znotraj vašega domačega imenika. Prišlo je do mnogih sprememb nastavitev tako globalno kot znotraj posameznih programov. Najboljše rezultate boste dosegli, če prepišete star imenik <filename class="directory"
+>.kde</filename
+> na lokacijo za rezervne kopije, namestite &kde; 2.0 in prepišete nazaj vse potrebne nastavitve za pošto in novice. Večina drugih nastavitev se je spremenila toliko, da jih je najbolje prilagoditi neposredno znotraj &kde; 2.0. Naj povemo, da obstajajo tudi poročila o neposrednih nadgradnjah, brez odstranitve starega imenika <filename class="directory"
+>.kde</filename
+>, ki so uspele. Vaše izkušnje lahko od tega odstopajo.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Prevajanje kde izpiše napako <errorname
+>bin/sh: msgfmt: command not found</errorname
+>!</para>
+</question>
+<answer>
+<para
+>Rabite program <acronym
+>GNU</acronym
+> <application
+>msgfmt</application
+>, ki je del paketa <acronym
+>GNU</acronym
+> i18n <application
+>gettext</application
+>. Nahajati bi se moral na vsakem spodobnem zrcalnem strežniku <acronym
+>GNU</acronym
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako lahko odstranim programe &kde;, ki sem jih prevedel iz izvorne kode?</para>
+</question>
+<answer>
+<para
+>Programe lahko odstranite z ukazom <command
+>make uninstall</command
+>, ki ga vnesete v imeniku, kjer ste izvedli <command
+>make install</command
+>. Če ste ta imenik že likvidirali, potem je na voljo še ena, a slaba pot: pojdite v imenik <filename class="directory"
+>$<envar
+>KDEDIR</envar
+>/bin</filename
+> in pričnite brisati datoteke eno za drugo.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question id="gif">
+<para
+>Kako je s podporo &GIF;?</para>
+</question>
+<answer>
+<para
+>To ima opraviti s Unisysovim patentom &LZW; Podpora za &GIF; je od &Qt; različice 1.44 dalje privzeto onemogočena. Uporabite starejše &Qt; (če še vedno uporabljate &kde; 1.x), ali pa jih ponovno prevedite z vključeno podporo za &GIF; z uporabo <command
+>./configure <option
+>-gif</option
+></command
+>.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para
+>Kako namestim &kde; teme?</para>
+</question>
+<answer>
+<para
+>V &kde; 2 še ni upravljalnika tem, prosim, poglejte raje v <ulink url="http://kde.themes.org/php/comments.phtml?forum=news.26.34"
+> http://kde.themes.org/php/comments.phtml?forum=news.26.34</ulink
+>.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+

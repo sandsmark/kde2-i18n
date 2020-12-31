@@ -1,0 +1,1355 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kate;"
+><!-- replace kapp here -->
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % Slovenian "INCLUDE"
+><!-- change language only here -->
+<!-- Do not define any other entities; instead, use the entities
+from kde-genent.entities and $LANG/user.entities. -->
+]>
+
+<!-- The language must NOT be changed here. -->
+
+<book lang="&language;">
+<title
+>Priročnik za &kate;</title>
+
+<bookinfo>
+<authorgroup
+>   
+<author
+> <firstname
+>Seth</firstname
+> <surname
+>Rothberg</surname
+> <affiliation
+> <address
+><email
+>sethmr@bellatlantic.net</email
+></address
+> </affiliation
+> </author>
+</authorgroup>
+
+<othercredit role="translator"
+><contrib
+>Prevod</contrib
+><firstname
+>Andrej</firstname
+><surname
+>Vernekar</surname
+><affiliation
+><address
+><email
+>andrej.vernekar@kiss.uni-lj.si</email
+></address
+></affiliation
+></othercredit>
+
+<copyright>
+<year
+>2000</year>
+<year
+>2001</year>
+<holder
+>Seth M. Rothberg</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!-- Date and version information of the documentation
+Don't forget to include this last date and this last revision number, we
+need them for translation coordination !
+Please respect the format of the date (DD/MM/YYYY) and of the version
+(V.MM.LL), it could be used by automation scripts.
+Do NOT change these in the translation. -->
+
+<date
+>2001-05-30</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<!-- Abstract about this handbook -->
+
+<abstract>
+<para
+>&kate; je programerski urejevalnik za KDE 2.2 ali novejši.</para>
+
+<para
+>Ta priročnik dokumentira &kate; različice 1.0.</para>
+</abstract>
+
+<!-- This is a set of Keywords for indexing by search engines.
+Please at least include KDE, the KDE package it is in, the name
+of your application, and a few relevant keywords. -->
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdebase</keyword>
+<keyword
+>Kate</keyword>
+<keyword
+>text</keyword>
+<keyword
+>editor</keyword>
+<keyword
+>programmer</keyword>
+<keyword
+>programming</keyword>
+<keyword
+>projects</keyword>
+<keyword
+>MDI</keyword>
+<keyword
+>Multi</keyword>
+<keyword
+>Dokument</keyword>
+<keyword
+>Vmesnik</keyword>
+<keyword
+>terminial</keyword>
+<keyword
+>console</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Uvod</title>
+
+<para
+> Dobrodošli v &kate;, programerski urejevalnik za &kde; različice 2.2 in novejše. Nekatere izmed mnogih zmožnosti &kate; vključujejo prilagodljivo barvanje skladnje za jezike od C in C++ do <acronym
+>HTML</acronym
+>in skript bash, zmožnost ustvarjanja in vzdrževanja projektov vmesnik multiple documents interface (<acronym
+>MDI</acronym
+>) in terminalski emulator. </para>
+
+<para
+> Vendar pa je &kate; več kot le programerski urejevalnik. Zaradi zmožnosti, da ima lahko odprtih več datotek naenkrat je idealen za urejevanje mnogih &UNIX;-ovih nastavitvenih datotek. Ta dokument je bil spisan v &kate;. </para>
+</chapter>
+
+<chapter id="fundamentals">
+<title
+>Osnove</title>
+
+<para
+> Če st kdajkoli uporabljali ureejvalnik besedil ne boste imeli težav pri uporabi &kate;. V nsalednjih dveh razdelkih <link linkend="starting-kate"
+>Zagon &kate; </link
+> in v <link linkend="working-with-kate"
+>Delo s &kate;</link
+> vam bomo prikazali vse potrebno za hiter pričetek dela. </para>
+
+<sect1 id="starting-kate">
+<title
+>Zagon &kate;</title>
+
+<para
+> &kate; lahko poženete iz <guimenu
+>menuja K</guimenu
+> ali pa iz ukazne vrstice. </para>
+
+<sect2 id="starting-from-the-menu">
+<title
+>Iz menuja</title>
+<para
+> Odprite programski menu <acronym
+>KDE</acronym
+> s klikom na ikono z <guiicon
+>velikim K</guiicon
+>. Premaknite kurzor nad menu <guimenu
+>Urejevalniki</guimenu
+>. Pojavil se bo seznam dosegljivih urejevalnikov. Izberite <guimenu
+>&kate;</guimenu
+>. </para>
+
+<para
+> V kolikor &kate; ne nastavite drugače, bo program naložil zadnje datoteke, ki ste jih urejali. Oglejte si <link linkend="configure"
+>Nastavitev &kate;</link
+>, da izveste, kako vključite/izključite to možnost. </para>
+
+</sect2>
+
+<sect2 id="starting-from-the-command-line">
+<title
+>Iz ukazne vrstice</title>
+
+<para
+> &kate; lahko poženete tako, da vtipkate ime programa v ukazno vrstico. Če podate še ime datoteke, kot v spodnjem primeru, bo ta datoteka odprta ali pa ustvarjena. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate</command
+><parameter
+><replaceable
+>myfile.txt</replaceable
+></parameter
+></userinput>
+</screen
+> </informalexample>
+
+<para
+> Če imate aktivno povezavo in dovoljenja, lahko izkoristite omrežno preglednost &kde; in odprete datoteke v internetu. </para>
+
+<informalexample
+> <screen>
+<prompt
+>%</prompt
+><userinput
+><command
+>kate</command
+><option
+><replaceable
+>ftp://ftp.kde.org/pub/kde/README_FIRST</replaceable
+></option
+></userinput>
+</screen
+> </informalexample>
+
+<sect3 id="command-line-options">
+<title
+>Možnosti ukazne vrstice</title>
+<para
+>&kate; sprejme naslednje možnosti ukazne vrstice:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help</option
+></userinput
+></term
+> <listitem
+> <para
+> To izpiše najbolj osnovne možnosti, ki so dosegljive z ukazne vrstice. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-qt</option
+></userinput
+></term
+> <listitem
+> <para
+> To izpiše možnosti, ki so dosegljive za spreminjanje načina interakcije &kate; s &Qt;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-kde</option
+></userinput
+></term
+> <listitem
+> <para
+> To izpiše možnosti, ki so dosegljive za spreminjanje načina interakcije &kate; s &kde;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--help-all</option
+></userinput
+></term
+> <listitem
+> <para
+> To izpiše seznam vseh možnosti ukazne vrstice. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--author</option
+></userinput
+></term
+> <listitem
+> <para
+> Našteje avtorje &kate; v terminalskem oknu. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--version</option
+></userinput
+></term
+> <listitem
+> <para
+> Izpiše podatke o različicah &Qt;, &kde; in &kate;. Na voljo tudi preko <userinput
+><command
+>kate</command
+> <option
+>-V</option
+></userinput
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+><command
+>kate</command
+> <option
+>--licence</option
+></userinput
+></term
+> <listitem
+> <para
+> Prikaže informacije o licenci. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+</sect2>
+
+<sect2 id="drag-and-drop">
+<title
+>Povleci in spusti</title>
+<para
+> &kate; uporablja &kde;-jev protokol Povleci in spusti. Datoteke lahko na &kate; povlečete in spustite z namizja, &konqueror;ja ali oddaljene ftp strani, ki je odprta v enem izmed &konqueror;jevih oken. </para>
+</sect2>
+</sect1>
+
+<sect1 id="working-with-kate">
+<title
+>Delo s &kate;</title>
+<para
+> <link linkend="quick-start"
+>Quick Start</link
+> vam bo prikazal, kako preklapljati med preprostimi možnostmi, ki vam bodo kar takoj omogočile prikrojevanje nekaterih obširnejših zmožnosti &kate;. <link linkend="keystroke-commands"
+> Keystroke Commands</link
+> našteje nekaj ukazov s tipkami za tiste, ki ne morejo ali pa nočejo uporabljati miške. </para>
+
+<sect2 id="quick-start">
+<title
+>Hiter start</title>
+
+<para
+> Ta razdelek bo opisal nekaj izmed elementov menuja <guimenu
+>Nastavitve</guimenu
+>, tako da lahko hitro prilagodite &kate; kot želite. </para>
+
+<para
+> Ko boste prvič pognali &kate;, boste videli dve okni z belim ozadjem. Nad njima je orodna vrstica z običajnimi ikonami. Nad njo pa je menujska vrstica. </para>
+
+<para
+> Okno na levi strani je premična stranska letev. Združuje seznam in izbirnik datotek. Med njima preklapljate s klikom na vrhu okna. </para>
+
+<para
+> Če ste pognali &kate; z datoteko, bo desno okno prikazovalo datoteko, ki jo urejate in seznam datotek na levi strani bo prav tako prikazoval to datoteko. Za odpiranje datotek uporabite izbirnik datotek. </para>
+
+<para
+> Med seznamom in izbirnikom datotek lahko preklapljate v menuju <guimenu
+>Nastavitve</guimenu
+>. Ta menu ponuja prvi vpogled v moč in prilagodljivost, ki jo ponuja &kate;. V tem razdelku si bomo pogledali štiri možnosti. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Prikaži <accel
+>o</accel
+>rodjarno</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Vklaplja in izklaplja orodjarno </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenuitem
+>Prikaži seznam datotek</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Vklaplja/izklaplja seznam datotek. Če je okno Seznama/izbirnika datotek odprto, &kate; požene stransko polje ko ločeno okno. Da ga vključite nazaj, zgrabite dve tanki vzporedni črti nad listi tako, da nanju kliknete z &LGM; in držite pritisnjen gumb. Povlecite okno v okno &kate; in spustite &LGM;, ko ste okno seznama/izbirnika datotek namestili tja, kamor hočete. </para
+> <tip
+> <para
+> Če ste uspešno zgrabili dve vzporedni vrstici, se bo kurzor miške med vlečenjem spremenil v dve prekrižani puščici. </para
+> </tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Prikaži izbirnik datotek</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Vklaplja in izklaplja izbiralnika datotek. Ta izbira je enaka <guimenuitem
+>Prikaži seznam datotek</guimenuitem
+> z eno razliko. Vklop prikliče okno z izbiralnikom datotek na vrhu. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenuitem
+>Prikaži <accel
+>k</accel
+>onzolo</guimenuitem
+></menuchoice
+></term
+> <listitem
+> <para
+> Vklaplja/izklaplja emulator konzole na dnu okna &kate;. Z drugimi besedami, pobnuja vam ukazno vrstico znotraj programa. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="keystroke-commands">
+<title
+>Ukazi s tipkami</title>
+
+<para
+> Mnogi izmed bližnjic (s pomočjo tipk) v &kate; lahko nastavite v menuju <link linkend="settings"
+>Nastavitve</link
+>. Privzeto &kate; nagradi naslednje tipkovne vezi. </para>
+
+<informaltable>
+<tgroup cols="2">
+<tbody
+> <row
+><entry
+><para
+><keycap
+>Vstavi</keycap
+></para
+></entry
+> <entry
+><para
+> Preklopi med načinoma Vstavi in Prepiši. Pri načinu vstavljanja bo urejevalnik dodal vtipkane znake v besedilo in potisnil prej vnešeno besedilo na desno od kurzorja. Način prepisovanja povzroči, da vnešenit znaki povozijo znak neposredno na desni strani kurzorja.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Leva puščica</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Premakni kurzor en znak na levo </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo
+><keycap
+>Desna puščica</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Premakni kurzor en znak na levo </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Puščica navzgor</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Premakni kurzor eno vrstico navzgor </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Puščica navzdol</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Premakni kurzor eno vrstico navzdol </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Page Up</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Premakni kurzor za eno stran navzgor </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Page Down</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Premakni kurzor za eno stran navzdol </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Backspace</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Izbriši znak levo od kurzorja </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Domov</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Premakni kurzor na začetek vrstice </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>End</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Premakni kurzor na konec vrstice </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Izbriši</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Izbriši znak desno od kurzorja (ali katerokoli izbrano besedilo)</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Leva puščica</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Označi besedilo en znak na levo </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>Desna puščica</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Označi besedilo en znak na desno </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Pomoč</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+><keycap
+>F1</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="whats-this"
+>Kaj je to?</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>F</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find"
+> Poišči</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>F3</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="find-again"
+> Najdi znova</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>B</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Postavi zaznamek</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Prepiši označeno besedilo na odložišče. </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> <link linkend="new"
+>Nov</link
+> dokument</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="print"
+>Natisni</link
+> </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Končaj - zapri aktivno kopijo urejevalnika </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>R</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="replace"
+> Zamenjaj</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Shrani vašo datoteko.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+> Prilepi.</para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+>Izbriši označeno besedilo in ga prepiši na odložišče. </para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="undo"
+>Razveljavi</link
+></para
+></entry
+> </row
+> <row
+> <entry
+><para
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>Z</keycap
+></keycombo
+></para
+></entry
+> <entry
+><para
+><link linkend="redo"
+>Obnovi</link
+></para
+></entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="menu-entries">
+<title
+>Menujske izbire</title>
+<sect1 id="file-menu">
+<title
+>Menu <guimenu
+>Datoteka</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <anchor id="new"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>ov</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ta ukaz <action
+>odpre nov dokument</action
+> v urejevalnem oknu. V <guibutton
+>seznamu datotek</guibutton
+> na levi strani je nova datoteka poimenovana kot <emphasis
+>Neimenovano</emphasis
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>dpri</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ta ukaz ne <action
+>odpre datoteke</action
+>. Požene &kde;-jevo pogovorno okno za odpiranje datotek, ki čaka, da izberete datoteko, ki jo želite odpreti. </para
+> <para
+> Pogovorno okno odpiranja deluje kot poenostavljena različica &konqueror;ja. Z &LGM; kliknite na ime datoteke in izberite datoteko. Dvojni klik na tej datoteki jo bo odprl. Ko ste enkrat izbrali ime datoteke, lahko tudi pritisnete gumb <guibutton
+>V redu</guibutton
+>, da jo odprete. </para
+> <tip
+> <para
+> Več datotek naenkrat izberete s pritiskom tipke <keycap
+>Ctrl</keycap
+> ali pa <keycap
+>Shift</keycap
+> ob hkratni uporabi &LGM;.<keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><mousebutton
+>levi</mousebutton
+> </keycombo
+> klik izbere eno datoteko naenkrat. <keycombo action="simul"
+> <keycap
+>Shift</keycap
+><mousebutton
+>levi</mousebutton
+></keycombo
+> klik izbere zaključen nabor datotek. </para
+> </tip
+> <para
+> Klik na ime imenika v oknu izbiranja datotek odpre ta imenik in prikaže njegovo vsebino. Klik na ime datoteke prikaže pomanjšan ogled datoteke v okencu na desni strani sistemskega okna.. </para
+> <para
+> Uporabite gumbe in kombinirano polje v orodni vrstici na izbrialnikom datotek, da se premaknete po datotečnem sistemu ali pa da prilagodite lastnosti pogovornega okna odpiranja datotek. </para
+> <para
+> Pod izbirnim oknom je kombinirano lokacijsko polje. Sem vtipkajte ime datoteke, ki jo želite urejati. Če kliknete na puščico na desni strani spustnega polja, lahko izberete nedavno uporabljene datoteke. Vač datotek odprete z navedbo vsakega imena posebej. </para
+> <para
+> Pod lokacijskim poljem je kombinirano polje filtra. Vnesite datotečni vzorec, da filtrirate vrste datotek, ki so prikazane v izbirnem oknu. Vnos filtra <literal role="extension"
+>*.txt</literal
+> in pritisk na <keycap
+>Enter</keycap
+> bo omejil prikaz datotek na tiste s končnico <literal role="extension"
+>.txt</literal
+>. Filtrirno polje vsebuje seznam nazadnje uporabljenih filtrov. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-recent"/> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+>Odpri <accel
+>n</accel
+>edavne</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ta ukaz vam omogoča <action
+>odpiranje datoteke</action
+> iz podmenuja, ki vsebuje seznam nazadnje urejanih datotek. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>hrani</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ta ukaz <action
+>shrani datoteko</action
+>. Uporabljajte ga pogosto. Če ima datoteka ime <emphasis
+>Neimenovano</emphasis
+>, potem <guimenuitem
+>Shrani</guimenuitem
+> postal <guimenuitem
+>Shrani kot</guimenuitem
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-as"/> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+>Shrani <accel
+>k</accel
+>ot</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> S tem ukazom <action
+>poimenujete in preimenujete</action
+> datoteke. Požene pogovorno okno shranjevanja, ki deluje enako kot pogovorno okno odpiranja datoteke. Uporabite ga lahko za premikanje po datotečnem sistemu, za ogled obstoječih datotek ali pa filtiranje datotek s končnicami. </para
+> <para
+> Vnesite ime, ki ga želite dati datoteki, ki jo shranjujete, v lokacijsko vrstico in pritisnite gumb <guibutton
+>V redu</guibutton
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="save-all"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+>Shrani <accel
+>v</accel
+>se</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ta ukaz <action
+>shrani vse odprte datoteke</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="reload"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+>Pov<accel
+>r</accel
+>ni</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Ponovno naloži datoteka z diska</action
+>. Ta ukaz je uporaben, če je kateri drug program ali proces spremenil datoteko medtem, ko ste jo odprli v &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="open-with"/> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+><accel
+>O</accel
+>dpri z</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ta ukaz sproži pogovorno okno, ki vam omogoča, <action
+>da za odpiranje aktivne datoteke izberete drug program</action
+>. Datoteka bo še vedno odprta v &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="print"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+>Na<accel
+>t</accel
+>isni</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Natisne aktivno datoteko</action
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+><accel
+>Z</accel
+>apri</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> S tem ukazom <action
+>zaprete aktivno datoteko</action
+>. Če ste datoteke shranili, boste pozvani, da jih shranite, preden jih &kate; zapre. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="close-all"/> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+>Zapri <accel
+>v</accel
+>se</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ta ukaz <action
+>zapre vse datoteke, ki ste jih odprli</action
+> v &kate;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="new-window"/> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+>Novo <accel
+>o</accel
+>kno</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> <action
+>Odpre nov izvod &kate;</action
+>. Nov izvod je enak prejšnjemu. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <anchor id="quit"/> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atoteka</guimenu
+> <guimenuitem
+><accel
+>K</accel
+>ončaj</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ta ukaz <action
+>zapre</action
+> &kate; in vse datoteke, ki ste jih imeli odprte. Če ste na datoteke spremenili in jih niste shranili, boste pozvani, da jih. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+</chapter>
+
+<chapter id="configuring-kate">
+<title
+>Nastavitev Kate</title>
+<para
+> <anchor id="settings"/> <anchor id="configure"/> <anchor id="whats-this"/> <anchor id="find"/> <anchor id="find-again"/> <anchor id="replace"/> <anchor id="undo"/> <anchor id="redo"/> To poglavje vam bo prikazalo vse možnosti prilagajanja &kate;. </para>
+</chapter>
+
+<chapter id="credits">
+
+<!-- Include credits for the programmers, documentation writers, and
+contributors here. The license for your software should then be included
+below the credits with a reference to the appropriate license file
+included in the KDE distribution. -->
+
+<title
+>Zahvala in licence</title>
+
+<para
+> &kate; Copyright 2000, 2001, Christoph Cullmann. </para>
+
+<!-- To save you some work, here's Kate's author list (I could mark it -->
+<!-- up too if you want, I just didn't want to interfere too much :) -->
+
+<!-- 
+Kate was written by
+Christoph Cullmann <cullmann@kde.org>
+Anders Lund <anders@alweb.dk>
+Joseph Wenninger <jowenn@bigfoot.com>
+Michael Bartl <michael.bartl1@chello.at>
+Phlip <phlip_cpp@my-deja.com>
+Waldo Bastian <bastian@kde.org>
+Matt Newell <newellm@proaxis.com>
+Michael McCallum <gholam@xtra.co.nz>
+Jochen Wilhemly <digisnap@cs.tu-berlin.de>
+Michael Koch <koch@kde.org>
+Christian Gebauer <gebauer@bigfoot.com>
+Simon Hausmann <hausmann@kde.org>
+Glen Parker <glenebob@nwlink.com>
+Scott Manson <sdmanson@alltel.net>
+John Firebaugh <jfire@uclink.berkeley.edu>
+-->
+
+<para
+> Documentation copyright 2000,2001 Seth Rothberg, <email
+>sethmr@bellatlantic.net</email
+> </para>
+
+<para
+>Prevod: Andrej Vernekar <email
+>andrej.vernekar@kiss.uni-lj.si</email
+></para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underGPL;               <!-- GPL License -->
+
+</chapter>
+
+
+&documentation.index;
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-namecase-general: t
+sgml-namecase-entity: nil
+sgml-general-insert-case: lower
+sgml-minimize-attributes: nil
+sgml-omittag: nil
+End:
+-->
+
+
+

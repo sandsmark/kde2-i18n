@@ -1,0 +1,52 @@
+dirs=`find */docs -type d ! -name CVS | grep -v templates`
+for dir in $dirs; do 
+   if test ! -f $dir/Makefile.am; then
+	echo "copying Makefile.am into $dir"
+       cp de/docs/Makefile.am $dir
+   fi
+   lang=`echo $dir | sed -e "s#^./##; s#/.*##"`
+   if ! egrep -q "KDE_LANG *= *$lang\$" $dir/Makefile.am; then
+      echo "wrong lang in $dir/Makefile.am"
+      sed -e "s#^KDE_LANG.*#KDE_LANG = $lang#" $dir/Makefile.am > $dir/Makefile.am.new && mv $dir/Makefile.am.new $dir/Makefile.am
+   fi
+   if test ! -f $dir/.cvsignore; then
+       cp de/docs/.cvsignore $dir 
+   fi
+done
+
+dirs=`find */messages -type d ! -name CVS | grep -v messages/docs | grep -v others`
+for dir in $dirs; do
+   if test ! -f $dir/Makefile.am; then
+        echo "copying Makefile.am into $dir"
+       cp de/messages/Makefile.am $dir
+   fi
+   lang=`echo $dir | sed -e "s#^./##; s#/.*##"`
+   if ! egrep -q "KDE_LANG *= *$lang" $dir/Makefile.am; then
+      echo "wrong lang in $dir/Makefile.am"
+      sed -e "s#^KDE_LANG.*#KDE_LANG = $lang#" $dir/Makefile.am > $dir/Makefile.am.new && mv $dir/Makefile.am.new $dir/Makefile.am
+   fi
+   if test ! -f $dir/.cvsignore; then
+       cp de/messages/.cvsignore $dir
+   fi
+done
+
+list=`find . -name Makefile.am  | grep '\./[^/]*/[^/]*/[^/]*/[^/]*/[^/]*/Makefile.am' `
+for i in $list; do
+  subdir=`echo $i | sed -e "s#.*docs/[^/]*/##; s#/Makefile.am##"`
+  if egrep -q  'KDE_DOCS *= *AUTO' $i; then
+    echo "patching $i"
+    sed -e "s#KDE_DOCS *= *AUTO#KDE_DOCS = $subdir#" $i > $i.new && mv $i.new $i
+  fi
+done
+
+list=`ls -1 */docs/kdelibs/api/Makefile.am 2>/dev/null`
+for i in $list; do 
+   if ! grep -q index.cache.bz2 $i; then
+      echo "$i is not using rules"
+   fi
+done
+
+list=`ls -1 */messages/others/Makefile.am 2>/dev/null`
+for i in $list; do
+   echo "$i shouldn't exist"
+done

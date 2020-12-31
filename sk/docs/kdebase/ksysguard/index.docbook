@@ -1,0 +1,607 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ksysguard;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Slovak "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Manuál pre &ksysguard;</title>
+
+<authorgroup>
+<author
+> <firstname
+>Chris</firstname
+> <surname
+>Schlaeger</surname
+> <affiliation
+> <address
+><email
+>cs@kde.org</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Chris</firstname>
+<surname
+>Schlaeger</surname>
+<affiliation>
+<address
+><email
+>cs@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Vývojár</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation>
+<address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Recenzent</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>Stanislav</firstname
+> <surname
+>Višňovský</surname
+> <affiliation
+> <address
+><email
+>visnovsky@nenya.ms.mff.cuni.cz</email
+></address
+> </affiliation
+><contrib
+>Preklad</contrib
+></othercredit>
+
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Chris Schlaeger</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract
+><para
+>&ksysguard; je správca úloh a monitor systému s podporou siete, spolu s funkciami programu <application
+>top</application
+>.</para
+></abstract
+> 
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KSysGuard</keyword>
+<keyword
+>monitor procesov</keyword>
+<keyword
+>top</keyword>
+<keyword
+>ps</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Úvod</title>
+
+<para
+>&ksysguard; je správca úloh a monitor výkonu pre KDE. Je postavený na architektúre klient/server, takže umožňuje kontrolu lokálnych a aj vzdialených počítačov. Grafické rozhranie používa pre získanie zobrazovaných informácií takzvané senzory. Senzor môže vracať jednoduchú hodnotu, ale aj napríklad tabuľku hodnôt. Pre každý typ informácií existuje niekoľko typov displejov. Displeje sa ukladajú do pracovných zošitov, ktoré sa dajú ukladať na disk a neskôr znovu načítať. Preto &ksysguard; nie je iba jednoduchý správca úloh, ale aj výkonný nástroj na monitorovanie veľkých fariem serverov.</para>
+
+</chapter>
+
+
+<chapter id="usingtheksysguard">
+<title
+>Použitie &ksysguard;</title>
+
+<sect1 id="gettingstarted">
+<title
+>Začíname</title>
+
+<para
+>&ksysguard; môžete spustiť z hlavného menu, pomocou položky <guimenuitem
+>KDE Strážca systému</guimenuitem
+> v menu <guimenu
+>Systém</guimenu
+>. Alebo môžete zadať príkaz <command
+>ksysguard</command
+> v termináli.</para>
+
+<para
+>Hlavné okno &ksysguard; obsahuje menu, nepovinný panel nástrojov, stavový riadok, prehliadač senzorov a pracovný priestor. Na začiatku je v prehliadači senzorov zobrazený lokálny počítač ako <guilabel
+>localhost</guilabel
+> a dve stránky v pracovnom priestore. Toto je štandardné nastavenie.</para>
+
+<para
+>Toto nastavenie je dostatočné pre väčšinu menej skúsených používateľov ako nástroj pre správu systému. Pokročilý používatelia a administrátori veľkých počítačových laboratórií majú iné potreby. Preto musí byť &ksysguard; veľmi flexibilný.</para>
+</sect1>
+
+<sect1 id="the-sensor-browser">
+<title
+>Prehliadač senzorov</title>
+
+<para
+>Prehliadač senzorov zobrazuje registrované počítače a ich senzory ako strom. Pomocou myši sa dajú jeho časti zabaliť a rozbaliť. Každý senzor monitoruje jednotlivé systémové hodnoty.</para>
+
+<sect2 id="connectingtootherhosts">
+<title
+>Pripojenie k iným počítačom</title>
+
+<para
+>Na nový počítač sa môžete pripojiť pomocou <guimenuitem
+>Spojiť sa s hostiteľom</guimenuitem
+> z menu <guimenu
+>Súbor</guimenu
+>. V dialógu, ktorý sa zobrazí, môžete zadať meno hostiteľa, s ktorým sa chcete spojiť. Pod menom môžete vybrať spôsob pripojenia. Štandardne je to <application
+>ssh</application
+>, zabezpečený shell. Alebo môžete použiť <application
+>rsh</application
+>, vzdialený shell. Kliknutím na <guibutton
+>OK</guibutton
+> vytvoríte spojenie. Za chvíľu sa nový hostiteľ objaví v prehliadači senzorov a môžete s ním začať pracovať.</para>
+
+<para
+>Aby bolo vytvorené spojenie, na vzdialenom počítači sa spustí program <application
+>ksysguardd</application
+>. Tento program tam musí byť nainštalovaný a musí byť vo vašej ceste <envar
+>PATH</envar
+>. Bohužiaľ, ssh nenačítava automaticky súbor <filename
+>.profile</filename
+>, takže vaše obvyklé nastavenie cesty nebude dostupné. Namiesto neho sa použije štandardná cesta <envar
+>PATH</envar
+>, napríklad <parameter
+>/bin:/usr/bin</parameter
+>. Pravdepodobne KDE nebude v týchto priečinkoch nainštalované, takže musíte vytvoriť alebo aktualizovať súbor <parameter
+>environment</parameter
+> v podpriečinku <filename
+>.ssh</filename
+> vášho domovského priečinku. Prečítajte si podrobnosti v manuálovej stránke pre <filename
+>ssh</filename
+>. Súbor musí obsahovať niečo takéto:</para>
+
+<screen>
+<userinput
+>PATH=/bin:/usr/bin:/opt/kde2/bin</userinput>
+</screen>
+
+<para
+>za predpokladu, že <application
+>ksysguardd</application
+> je v súbor <filename
+>/opt/kde2/bin/ksysguardd</filename
+>.</para>
+
+<note
+><para
+>Pre expertov: <application
+>ksysguardd</application
+> je veľmi malý program, ktorý je linkovaný iba s libc. Môže sa teda použiť aj na počítačoch, kde nie je nainštalované kompletné KDE, napríklad serveroch. Ak sa rozhodnete upraviť príkaz pre jeho spustenie, určite zadajte celú cestu.</para
+></note>
+
+<tip
+><para
+>Ak používate <application
+>ssh</application
+>, overte, že máte na vzdialenom počítači nainštalovaný súbor identity.pub a kľúč vzdialeného počítača je už na vašom počítači registrovaný. Najjednoduchšie to overíte príkazom <command
+>ssh <option
+>počítač:ksysguardd</option
+></command
+>. Ak vás privíta <application
+>ksysguardd</application
+>, môžete zadať <userinput
+>quit</userinput
+> a všetko je v poriadku.</para
+></tip>
+</sect2>
+
+<sect2 id="disconnecting-hosts">
+<title
+>Odpojenie počítačov</title>
+
+<para
+>Od počítača sa odpojíte tak, že ho vyberiete v prehliadači senzorov a vyberiete <guimenuitem
+>Odpojiť sa od hostiteľa</guimenuitem
+> z menu <guimenu
+>Súbor</guimenu
+>. V prípade, že ešte používate niektoré senzory, budú ich okraje šedé a displeje sa prestanú aktualizovať.</para>
+</sect2>
+</sect1>
+
+<sect1 id="the-workspace">
+<title
+>Pracovná plocha</title>
+
+<para
+>Pracovná plocha je organizovaná ako pracovné zošity. Pomocou <guimenuitem
+>Nový</guimenuitem
+> z menu <guimenu
+>Súbor</guimenu
+> vytvoríte nový pracovný zošit. Zobrazí sa dialóg, kde môžete zadať meno a rozmery pracovného zošita. Zošit odstránite pomocou <guimenuitem
+>Zavrieť</guimenuitem
+> z menu <guimenu
+>Súbor</guimenu
+>. Všetky zmeny budú uložené do súboru pracovného zošita. V prípade, že ste ešte nikdy neuložili súbor pracovného zošita, objaví sa výzva, aby ste meno súboru zadali. Pracovné zošity obsahujú bunky v mriežke.</para>
+
+<para
+>Každá bunka môže byť vyplnená displejom pre jeden alebo viac senzorov. Displej umiestnite jeho ťahaním z prehliadača senzorov a pustením na požadovanú bunku. V prípade, že existuje viac typov displejov pre  váš typ senzoru, zobrazí sa kontextové menu. Môžete si vybrať, ktorý displej chcete používať. Viac senzorov do jedného displeja pridáte tak, že ich pustíte na už existujúci displej.</para>
+
+<para
+>Displeje môžete ďalej nastaviť kliknutím pravým tlačidlom myši. V kontextovom menu potom môžete vybrať vlastnosti, ak ich chcete zmeniť, alebo môžete displej odstrániť zo zošita.</para>
+
+<sect2 id="signal-plotter">
+<title
+>Kreslenie signálu</title>
+
+<para
+>Kreslenie signálu ukazuje priebeh jedného alebo viacerých senzorov v závislosti na čase. Ak kreslí naraz viacero senzorov, použije rôzne farby. Ak je displej dosť veľký, zobrazí sa aj mriežka pre intervaly kreslených hodnôt. Ak nastavíte minimálnu a maximálnu hodnotu na 0, kresliť sa bude v automatickom režime, inak sa použijú zadané hodnoty.</para>
+</sect2>
+
+<sect2 id="multimeter">
+<title
+>Multimeter</title>
+
+<para
+>Multimeter zobrazuje hodnoty senzoru ako digitálny multimeter. Vo vlastnostiach sa dajú určiť minimálne a maximálne hodnoty. V prípade, že bude tento interval presiahnutý, displej sa zafarbí na červenú a zobrazí sa varovanie.</para>
+</sect2>
+
+<sect2 id="process-controller">
+<title
+>Ovládač procesov</title>
+
+<para
+>Ovládač procesov zobrazuje zoznam procesov na vašom počítači. Zoznam môžete utriediť podľa ľubovoľného stĺpca. Jednoducho kliknite ľavým tlačidlom myši na jeho hlavičku. </para>
+
+<para
+>Zoznam ukazuje nasledujúce informácie o každom procese. Uvedomte si, že nie všetky vlastnosti sú dostupné na každom operačnom systéme.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>PID</guilabel
+></term
+> <listitem
+><para
+><abbrev
+>ID</abbrev
+> procesu. Jednoznačné číslo pre každý proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Meno</guilabel
+></term
+> <listitem
+><para
+>Meno spustiteľného súboru, ktorý spustil proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>ID používateľa</guilabel
+></term
+> <listitem
+><para
+>Používateľ, ktorý spustil proces.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>CPU</guilabel
+></term
+> <listitem
+> <para
+>Zaťaženie procesora procesom v percentách.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Čas</guilabel
+></term
+> <listitem
+><para
+>Celkový čas výpočtu procesu doteraz.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nice</guilabel
+></term
+> <listitem
+><para
+>Priorita pre plánovanie. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Stav</guilabel
+></term
+> <listitem
+><para
+>Stav procesu. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Pamäť</guilabel
+></term
+> <listitem
+><para
+>Celkové množstvo pamäti  (v kilobajtoch), ktoré proces používa. Započítaná je aj zdieľaná pamäť.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Rezidentná</guilabel
+></term
+> <listitem
+><para
+>Množstvo fyzickej pamäti (v kilobajtoch), ktorú proces používa.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zdieľaná</guilabel
+></term
+> <listitem
+><para
+>Množstvo pamäti (v kilobajtoch), ktorú proces zdieľa s ostatnými procesmi.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Pod tabuľkou nájdete štyri tlačidlá, ktoré teraz popíšeme zľava doprava.</para>
+
+<sect3 id="thetreeview">
+<title
+>Pohľad <guibutton
+>Strom</guibutton
+></title>
+
+<para
+>Stromový pohľad je určený na zobrazenie vzťahov medzi bežiacimi procesmi. Proces, ktorý je spustený iným procesom sa nazýva potomok procesu. Strom je elegantný spôsob, ako zobraziť tento vzťah. Proces <emphasis
+>init</emphasis
+> je predkom všetkých procesov.</para>
+
+<para
+>Ak vás nezaujímajú potomci niektorého procesu, kliknite na malé políčko vedľa rodičovského procesu a podstrom sa zabalí. Opakovaným kliknutím podstrom zase rozbalíte.</para>
+
+</sect3>
+
+<sect3 id="theprocessfilter">
+<title
+>Filter procesov </title>
+
+<para
+>Filter procesov sa dá použiť pre zníženie počtu zobrazených procesov. Môžete odfiltrovať tie, ktoré vás nezaujímajú. Momentálne môžete zobraziť buď všetky procesy, len systémové procesy, len používateľské procesy alebo iba vaše procesy.</para>
+
+</sect3>
+
+<sect3 id="thepausebutton">
+<title
+>Tlačidlo <guibutton
+>Pauza</guibutton
+></title>
+
+<para
+>Ak chcete zastaviť automatickú aktualizáciu zoznamu procesov, použite tlačidlo <guibutton
+>Pauza</guibutton
+>.</para>
+</sect3>
+
+<sect3 id="therefreshbutton">
+<title
+>Tlačidlo <guibutton
+>Aktualizovať</guibutton
+> </title>
+
+<para
+>Toto tlačidlo môžete použiť pre vynútenie okamžitej aktualizácie zoznamu procesov.</para>
+
+</sect3>
+
+<sect3 id="thekillbutton">
+<title
+>Tlačidlo <guibutton
+>Ukončiť úlohu</guibutton
+> </title>
+
+<para
+>Ak ste vybrali jeden alebo viacero procesov, stlačením tlačidla pre zabitie ich môžete zabiť. Procesom sa pošle takzvaný signál SIGKILL, ktorý ich okamžite ukončí. Ak tieto aplikácie obsahujú neuložené dáta, tieto budú stratené. Takže toto tlačidlo používajte opatrne.</para>
+
+</sect3>
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-licenses">
+<title
+>Licencie a autori</title>
+
+<para
+>&ksysguard; momentálne vyvíja a spravuje Chris Schl&auml;ger <email
+>cs@kde.org</email
+>. &ksysguard; je prepísaný správca úloh <application
+>KTop</application
+> z KDE 1.x. Na <application
+>KTop</application
+> pracovalo niekoľko ľudí:</para>
+
+<itemizedlist
+> <listitem
+><para
+> A. Sanda <email
+>alex@darkstar.ping.at</email
+></para
+></listitem
+> <listitem
+><para
+> Ralf Mueller <email
+>ralf@bj-ig.de</email
+></para
+></listitem
+> <listitem
+><para
+> Bernd Johannes Wuebben <email
+>wuebben@math.cornell.edu</email
+></para
+></listitem
+> <listitem
+><para
+> Nicolas Leclercq <email
+>nicknet@planete.net</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Port na iné platformy než Linux implementovali:</para>
+
+<itemizedlist
+> <listitem
+><para
+> FreeBSD: Hans Petter Bieker &lt;zerium@traad.lavvu.no&gt;</para
+></listitem
+> </itemizedlist>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Inštalácia</title>
+
+<sect1 id="howtoobtainksysguard">
+<title
+>Ako získať &ksysguard;</title>
+
+<para
+>&ksysguard; je súčasťou projektu KDE <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &ksysguard; nájdete na <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, hlavnom FTP serveri projektu KDE.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Požiadavky</title>
+
+<para
+>Aby ste úspešne preložili &ksysguard;, potrebujete KDE 2.0 a Qt 2.2.x. Všetky požadované knižnice a aj &ksysguard; samotný nájdete na adrese <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>. </para>
+
+<para
+>Grafické rozhranie je dostupné na každej platforme, na ktorej beží KDE. Monitorovací agenti ale momentálne bežia iba na týchto typoch systému UNIX:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Linux 2.x</term
+> <listitem
+><para
+> Aby &ksysguard; fungoval, musíte preložiť kernel Linuxu s podporou súborového systému <filename
+>/proc</filename
+>. Je to štandardné nastavenia a väčšina distribúcií Linuxu ho podporujú.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>FreeBSD</term
+> <listitem
+><para
+>&ksysguard; vyžaduje, aby jeho skupina bola kmem a potrebuje mať nastavený bi setgid.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Podpora ostatných platforiem sa pripravuje. Privítame každú vašu pomoc.</para>
+
+</sect1>
+
+<sect1 id="compilationandinstallation">
+<title
+>Preklad a inštalácia</title>
+
+<para
+>Aby ste preložili a nainštalovali &ksysguard; na váš systém, zadajte tieto príkazy v základnom priečinku balíka kdeutils:</para>
+<screen>
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen>
+
+<para
+>Ak narazíte na problémy, oznámte ich v niektorej z konferencií KDE.</para>
+
+</sect1>
+
+</appendix>
+
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

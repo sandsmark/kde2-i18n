@@ -1,0 +1,311 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&klpq;">
+  <!ENTITY % Hungarian "INCLUDE">
+  <!ENTITY % addindex "IGNORE">
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title>A &klpq; kézikönyve</title>
+
+<authorgroup>
+<author>
+<firstname>Christoph</firstname>
+<surname>Neerfeld</surname>
+<affiliation>
+<address><email>chris@kde.org</email></address>
+</affiliation>
+</author>
+
+<author>
+<firstname>Hans Petter</firstname>
+<surname>Bieker</surname>
+<affiliation>
+<address><email>bieker@kde.org</email></address>
+</affiliation>
+</author>
+
+<othercredit role="translator">
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>tszanto@mol.hu</email></address></affiliation>
+<contrib>fordító</contrib>
+</othercredit>
+
+</authorgroup>
+
+<date>20/07/2000</date>
+<releaseinfo>1.00.01</releaseinfo>
+
+<copyright>
+<year>2000</year>
+<holder>Christoph Neerfeld</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<abstract><para>Ez a dokumentum a &klpq; 1.0.1-es változatát írja le.</para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KLpq</keyword>
+<keyword>nyomtatás</keyword>
+<keyword>nyomtatási sor</keyword>
+<keyword>lpq</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title>Bevezetés</title>
+
+<para>A &klpq; egy grafikus kezelőfelület a nyomtatósor-vezérlő programhoz. Elsődleges célja
+a nyomtatási sor tartalmának megjelenítése, lehetővé téve nyomtatási feladatok törlését a sorból. Megfelelő jogosultság
+birtokában engedélyezhető és letiltható a nyomtatás és a feladatok sorrendjét is
+módosítani lehet.</para>
+
+<para>A &klpq; nem közvetlenül módosítja a nyomtatási sort, hanem a sorkezelő segédprogramokkal,
+az <command>lpq</command>, az <command>lprm</command> és az
+<command>lpc</command> programok segítségével. Éppen ezért a &klpq; használata pontosan annyira
+biztonságos, amennyire az <command>lpq</command>, az <command>lprm</command> és az 
+<command>lpc</command>.</para>
+
+<itemizedlist>
+<listitem><para>támogatja a BSD, a PPR és az LPRng nyomtatósor-kezelőket</para></listitem>
+<listitem><para>működik hálózaton keresztül is</para></listitem>
+<listitem><para>támogatja a húzd-és-ejtsd műveleteket</para></listitem>
+</itemizedlist>
+
+</chapter>
+
+<chapter id="Installation">
+<title>Telepítés</title>
+
+<sect1 id="how-to-obtain-klpq">
+<title>A &klpq; megszerzése</title>
+
+<para>A &klpq; a KDE projekt (<ulink
+url="http://www.kde.org">http://www.kde.org</ulink>) része, megtalálható az <ulink
+url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink> címen, a KDE projekt
+központi FTP-kiszolgálóján.  A kiszolgáló bármelyik tükrözése is
+használható.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Követelmények</title>
+
+<para>A &klpq; sikeres lefordításához a libkdecore és a libkfm legújabb
+változata szükséges. Az összes szükséges programkönyvtár és a &klpq; forrása is
+megtalálható az <ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink> címen.</para>
+
+<para>A KDE könyvtármodulokon kívül a
+printcap (<filename>/etc/printcap</filename>) nyomtatóleíró fájlt is helyesen be kell állítani.</para>
+
+</sect1>
+
+<sect1 id="compilation-and-installation">
+<title>A program lefordítása és telepítése</title>
+
+<para>A &klpq; a kdeutils nevű KDE alapcsomag része, telepítése
+a csomag többi programjával együtt automatikusan megtörténik a KDE szokásos 
+telepítésekor.</para>
+
+<para>Ha saját maga szeretné a forrásprogramokból elvégezni a telepítést, akkor adja ki
+az alábbi parancsokat a &klpq; alkalmazás forrásának alapkönyvtárában:</para>
+
+<screen>
+<prompt>%</prompt> <command>./configure</command>
+<prompt>%</prompt> <command>make</command>
+<prompt>%</prompt> <command>make <option>install</option></command>
+</screen>
+
+<para>A &klpq; az <application>autoconf</application> segítségével készült, ezért remélhetően nem
+merül fel probléma a fordítás közben.  Ha mégis hibába ütközne, kérjen segítséget a KDE
+levelezőlistáin.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="usage">
+<title>A program használata</title>
+
+<sect1 id="startup">
+<title>A &klpq; parancssori paraméterei</title>
+
+      <cmdsynopsis>
+	<command>klpq</command>
+	<arg>
+	  <arg>-n</arg>
+	  <arg>-P nyomtató</arg>
+          fájl1 fájl2 URL1 URL2</arg>
+      </cmdsynopsis>
+
+<para>Az első indításkor a &klpq; megkérdezi, hogy milyen típusú nyomtatósort használjon. A támogatott 
+típusok a következők: BSD, PPR és LPRng. Ha nem tudja, hogy az Ön rendszere ezek közül melyiket
+használja, akkor válassza a legvalószínűbbet, a BSD-t. Ha a &klpq; nem tudja megjeleníteni a nyomtatósort,
+akkor próbálkozzon egy másik típussal (a sor típusát később is meg lehet változtatni
+a <menuchoice> <guimenu>Jellemzők</guimenu> <guimenuitem>Sorkezelő</guimenuitem>
+</menuchoice>).</para>
+
+<para>Paraméterek nélküli indításkor a &klpq; megpróbálja értelmezni a
+<envar>PRINTER</envar> környezeti változó értékét és megjeleníteni az ennek megfelelő
+nyomtatósort. Ha a <envar>PRINTER</envar> változó nincs beállítva, akkor az <filename>lp</filename>
+nevű nyomtatósorral próbálkozik. Ha nem létezik ilyen nevű sor, akkor
+a printcap fájlban található első nyomtatót fogja használni.</para>
+
+<para>A fájlnév paraméter segítségével a &klpq; az <command>lpr</command>
+parancs helyett használható. Nem szükséges beírni, hogy <command>lpr
+<replaceable>nyomtatandó_fájl</replaceable>; klpq</command>, hanem elég az, hogy
+<command>klpq <replaceable>nyomtatandó_fájl</replaceable></command>, mert a &klpq;
+automatikusan végrehajtja az <command>lpr</command> parancsot. A <option>-P</option> opcióval
+a nyomtatási területet (spool area) lehet megadni. Más <command>lpr</command> paramétert
+nem tud értelmezni a program.</para>
+
+<para>A <option>-n</option> opció hatására a program nem jeleníti meg a nyomtatósort, ha a parancssorban
+megadott egy fájlnevet. <abbrev>Pl.</abbrev> ha <command>klpq
+<option>-n <replaceable>nyomtatandó_fájl</replaceable></option></command> hatására
+a &klpq; kinyomtatja a fájlt és utána azonnal kilép. <command>klpq
+<option>-n</option></command> fájlnév paraméter nélkül azonos hatású a paraméter nélküli
+indítással.</para>
+      
+<para>A &klpq; lehetővé teszi <abbrev>URL</abbrev>-ek használatát is a parancssorban.
+A program a <application>Konqueror</application> használatával egy ideiglenes állományba másolja a
+nyomtatandó fájlt, majd ezt a helyi fájlt küldi ki a nyomtatóra.</para>
+
+<note><para>Ne felejtse el, hogy a &klpq;-nak futnia kell a letöltés végén. Ha a letöltés befejeződése
+előtt kilép a programból, akkor a nyomtatás nem fog megtörténni.</para></note>
+
+<para>A húzd-és-ejtsd módszer támogatása: ha megfog egy <abbrev>URL</abbrev>-t a 
+<application>Konqueror</application>-ban és ráejti a &klpq; ablakára, akkor a
+program egy ideiglenes fájlba letölti az <abbrev>URL</abbrev> tartalmát és a kapott fájlt
+kiküldi a nyomtatóra.</para>
+
+</sect1>
+
+<sect1 id="mainwindow">
+<title>A program főablaka</title>
+
+<para>Mint láthatja, a &klpq; használata nagyon egyszerű, ezért már csak a nem egyértelmű 
+funkciókról szeretnék egy pár szót szólni:</para>
+
+<para>Ha az <guibutton>Automatikus</guibutton> gomb le van nyomva, akkor a program
+megadott időközönként újraolvassa a nyomtatási sor tartalmát, anélkül, hogy megnyomná a
+<guibutton>Frissítés</guibutton> gombot. Az újraolvasási időköz megadásához válassza a
+<menuchoice> <guimenu>Jellemzők</guimenu> <guimenuitem>A frissítés gyakorisága...</guimenuitem>
+</menuchoice> menüpontot. Ha 0-ra állítja az időközt, akkor az
+<guilabel>Automatikus</guilabel> nyomógombot nem lehet majd megnyomni (le lesz tiltva).</para>
+
+<para>Ha azt a hibaüzenetet kapja, hogy <errorname>Ez egy rendszergazdai parancs</errorname>,
+akkor a root vagy egy másik rendszergazda nevében kell bejelentkeznie a parancs végrehajtásához.
+Ha nem így van bejelentkezve, és megpróbálja törölni egy másik felhasználó nyomtatási feladatát, akkor nem kap
+hibaüzenetet, de a program nem hajtja végre a parancsot.</para>
+
+<para>A következő gyorsítóbillentyűket lehet használni:</para>
+
+      <informaltable>
+	<tgroup cols="2">
+	  <thead>
+	    <row>
+	      <entry>Gyorsítóbillentyű:</entry>
+	      <entry>Parancs</entry>
+	    </row>
+	  </thead>
+	  <tbody>
+	    <row>
+	      <entry><keycap>U</keycap></entry>
+	      <entry>egyenértékű a <guibutton>Frissítés</guibutton> gomb
+	      megnyomásával</entry>
+	    </row>
+	    <row>
+	      <entry><keycap>R</keycap></entry>
+	      <entry>egyenértékű az <guibutton>Eltávolítás</guibutton> gomb
+	      megnyomásával</entry>
+	    </row>
+	    <row>
+	      <entry><keycap>T</keycap></entry>
+	      <entry>egyenértékű <guibutton>A sor elejére</guibutton> gomb
+	      megnyomásával</entry>
+	    </row>
+	    <row>
+	      <entry><keycap>A</keycap></entry>
+	      <entry>egyenértékű az <guibutton>Automatikus</guibutton> gomb
+	      megnyomásával</entry>
+	    </row>
+	    <row>
+	      <entry><keycap>balra</keycap></entry>
+	      <entry>az előző nyomtatósorra lép</entry>
+	    </row>
+	    <row>
+	      <entry><keycap>jobbra</keycap></entry>
+	      <entry>a következő nyomtatósorra lép</entry>
+            </row>					      
+	  </tbody>
+	</tgroup>
+      </informaltable>
+
+</sect1>
+
+<sect1 id="spooler-dialog">
+<title>A sorkezelő-beállítás párbeszédablaka</title>
+
+<para>Ebben a párbeszédablakban lehet kiválasztani, hogy a sor típusa BSD, PPR vagy
+LPRng legyen.  A sorkezelő parancsokat is felül lehet bírálni. Ha segítségre van szüksége,
+olvassa el a sorkezelő kézikönyvoldalait.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="todo">
+<title>Továbbfejlesztési tervek</title>
+
+<itemizedlist>
+<listitem><para>több KDE billentyűparancs támogatása a kkeyconfig-gal</para></listitem>
+<listitem><para>az összes nyomtatósor egyszerre megjelenítése</para></listitem>
+<listitem><para>a panelba dokkolható állapotjelző
+ablak</para></listitem> 
+<listitem><para>további <application>lprng</application> parancsok
+támogatása</para></listitem> 
+<listitem><para>a &klpq; teljes újraírása ;-)</para></listitem>
+</itemizedlist>
+
+<para>Kimaradt valami fontos?</para>
+</chapter>
+
+<chapter id="author">
+<title>A szerző</title>
+
+<para>Christoph Neerfeld-nek hívnak, alkalmazott informatikát hallgatok az Alkalmazott
+Tudományok Egyetemen (Sankt Augustin, Németország). Elérhető vagyok e-mailben,
+küldje el bátran a programmal kapcsolatos észrevételeit, a jókívánságait vagy egy képeslapot az Ön városáról. Nagyon 
+szeretem a képeslapokat!</para>
+
+<para>Hálás köszönet az alábbiaknak:</para>
+
+<itemizedlist>
+<listitem><para>Victor Kolossov-nak (<email>kolosov@iris1.itep.ru</email>) az 
+<application>LPRng</application> támogatás alapjainak elkészítéséért</para></listitem>
+<listitem><para>Remco Treffkorn-nak (<email>remco@rvt.com</email>) a
+<application>ppr</application> támogatás alapjainak elkészítéséért</para></listitem>
+</itemizedlist>
+
+<para>és azoknak, akik hibajelentéseket és továbbfejlesztési javaslatokat küldtek.</para>
+
+<para>&klpq; - Copyright Christoph Neerfeld
+(<email>chris@kde.org</email>), 1997-98.</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

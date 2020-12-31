@@ -1,0 +1,1744 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kcron;">
+  <!ENTITY % Portuguese "INCLUDE" 
+> <!-- change language only here -->
+  <!ENTITY % addindex "IGNORE">
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+
+<title
+>O Manual do &kcron;</title>
+
+<authorgroup>
+
+<author
+> <firstname
+>Morgan</firstname
+><othername
+>N.</othername
+><surname
+>Sandquist</surname
+><affiliation
+><address
+><email
+>morgan@pipeline.com</email
+></address
+></affiliation
+> </author>
+
+<othercredit role="developer">
+<firstname
+>Gary</firstname>
+<surname
+>Meyer</surname>
+<affiliation
+><address
+><email
+>gary@meyer.net</email
+></address>
+</affiliation>
+<contrib
+>Programador</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>lauri@kde.org</email
+></address>
+</affiliation>
+<contrib
+>Revisor</contrib>
+</othercredit>
+<othercredit role="translator"
+><firstname
+>José</firstname
+><surname
+>Pires</surname
+><affiliation
+><address
+><email
+>jncp@rnl.ist.utl.pt</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Morgan N. Sandquist</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>2.00.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>kdeadmin</keyword>
+<keyword
+>KCron</keyword>
+<keyword
+>cron</keyword>
+<keyword
+>crontab</keyword>
+<keyword
+>escalonador</keyword>
+</keywordset>
+
+<abstract
+><para
+>O &kcron; é uma aplicação que faz o escalonamento das aplicações a serem
+executadas.</para
+></abstract>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Introdução</title>
+
+<para
+>O &kcron; é uma aplicação para escalonar os programas para serem
+executados em segundo plano. É uma interface gráfica de utilizador para o
+<application
+>cron</application
+>, o escalonador do sistema &UNIX;.</para>
+
+</chapter>
+
+<chapter id="using-kcron">
+<title
+>Usar o &kcron;</title>
+
+<important
+><para
+>Não te esqueças de indicar ao sistema para iniciar antecipadamente o servidor
+<filename
+>crond</filename
+>, senão o &kcron; não irá funcionar.</para
+></important>
+
+<sect1 id="kcron-start-up">
+<title
+>Arranque do &kcron;</title>
+
+<para
+> Quando o &kcron; arranca irás ter uma vista geral sobre as tarefas já existentes em escalonamento e as variáveis de ambiente. Se estiveres a correr como administrador, irás ver esses itens para todos os utilizadores no computador, assim como as tarefas de sistema escalonadas. Cada uma das pastas pode ser expandida ou fechada.</para>
+
+<screenshot
+> <screeninfo
+>O &kcron; no arranque</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kcronstart.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>O &kcron; no arranque</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<sect2>
+<title
+>Tarefas Escalonadas</title>
+
+<para
+>As tarefas escalonadas aparecem dentro duma pasta 
+<guilabel
+>Tarefas</guilabel
+>. Para cada tarefa escalonada é apresentado o
+seguinte:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Nome</guilabel
+></term
+> <listitem
+><para
+>Nome para identificar a tarefa escalonada.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Valor</guilabel
+></term
+> <listitem
+><para
+>Ficheiro do programa e os parâmetros.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Descrição</guilabel
+></term
+> <listitem
+><para
+>Descrição em língua natural da tarefa escalonada.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Se uma tarefa foi desactivada, nenhum programa nem nenhuns parâmetros irão aparecer, e a descrição está desactivada.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Variáveis de Ambiente</title>
+
+<para
+>As variáveis de ambiente aparecem dentro duma pasta 
+<guilabel
+>Variáveis</guilabel
+>. Para cada variável de ambiente, é mostrado
+o seguinte: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Nome</guilabel
+></term
+> <listitem
+><para
+>Nome da variável.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Valor</guilabel
+></term
+> <listitem
+><para
+>Valor da variável.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Descrição</guilabel
+></term
+> <listitem
+><para
+>Descrição em língua natural da variável.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>As variáveis de ambiente que aqui aparecem irão sobrepor qualquer
+variável de ambiente existente para todas as tarefas escalonadas. Se uma
+variável de ambiente foi desactivada, o seu valor não aparecerá e a descrição
+estará desactivada.</para>
+
+<screenshot
+> <screeninfo
+>A janela principal do &kcron;</screeninfo
+> <mediaobject
+> <imageobject
+> <imagedata fileref="kcron.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>A janela principal do &kcron;</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+</sect2>
+</sect1>
+
+<sect1 id="new-task">
+<title
+>Adicionar Tarefas Escalonadas</title>
+
+<para
+>Para criar uma nova tarefa escalonável, primeiro selecciona a pasta <guilabel
+>Tarefas</guilabel
+>. Depois selecciona <menuchoice
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Novo...</guimenuitem
+> </menuchoice
+>. Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> e escolher <menuchoice
+><guimenuitem
+>Novo...</guimenuitem
+></menuchoice
+>, ou simplesmente carregar em <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>n</keycap
+></keycombo
+>.</para>
+
+<sect2>
+<title
+>A Janela <guilabel
+>Editar Tarefa</guilabel
+></title>
+
+<screenshot
+> <screeninfo
+>a janela <guilabel
+>Editar Tarefa</guilabel
+>.</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="newtask.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>a janela <guilabel
+>Editar Tarefa</guilabel
+></phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Comentário</guilabel
+></term
+> <listitem
+><para
+>Indica uma descrição da tarefa a escalonar.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Programa</guilabel
+></term
+> <listitem
+><para
+>Indica o nome do programa. Podes especificar um caminho ou 
+directoria relativo ou absoluto. Se quiseres procurar pelo programa, carrega
+em <guibutton
+>Procurar...</guibutton
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Activa</guibutton
+></term
+> <listitem
+><para
+>Para activar ou desactivar a tarefa, selecciona ou deselecciona a opção <guilabel
+>Activa</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Meses</guilabel
+></term
+> <listitem
+><para
+>Selecciona os meses durante os quais a tarefa deve ser executada.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Dias do Mês</guilabel
+></term
+> <listitem
+><para
+>Selecciona os meses durante os quais a tarefa deve ser executada.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Dias da Semana</guilabel
+></term
+> <listitem
+><para
+>Selecciona os dias da semana nos quais a tarefa deve ser executada.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Diariamente</guilabel
+></term
+> <listitem
+><para
+>Se queres que a tarefa se execute diariamente, selecciona <guibutton
+>Correr Todos os Dias</guibutton
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Horas</guilabel
+></term
+> <listitem
+><para
+>Selecciona as horas nas quais a tarefa deve ser executada.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Minutos</guilabel
+></term
+> <listitem
+><para
+>Selecciona os minutos nos quais a tarefa deve ser executada. O &kcron; não suporta escalonar tarefas em intervalos menores do que cinco minutos.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>OK</guibutton
+></term
+> <listitem
+><para
+>Completa a criação desta tarefa.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Cancelar</guibutton
+></term
+> <listitem
+><para
+>Cancela a criação desta tarefa.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Se seleccionares tanto os dias do mês como os da semana, a tarefa será
+executada em qualquer uma das condições. Por exemplo, se seleccionares o dia
+1 e o dia 15 e seleccionares o Domingo, o programa será executado em todos os
+dias 1 e 15 dos meses seleccionados (independentemente do dia da semana) assim
+como em todos os Domingos dos meses seleccionados (independentemente do dia
+do mês).</para>
+
+<para
+>A tarefa escalonada não está completamente configurada até o <filename
+>crontab</filename
+> ser gravado.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="manage-tasks">
+<title
+>Gerir as Tarefas Escalonadas</title>
+
+<para
+>Assim como ao criar tarefas novas, as alterações não terão efeito até
+o ficheiro <filename
+>crontab</filename
+> ser gravado.</para>
+
+<sect2>
+<title
+>Cortar Tarefas Escalonadas</title>
+
+<para
+>Para cortares uma tarefa escalonada, primeiro selecciona a tarefa a ser
+cortada. Depois selecciona <menuchoice
+><guimenu
+>Editar</guimenu
+> 
+<guimenuitem
+>Cortar</guimenuitem
+></menuchoice
+>.</para
+> <para
+>Alternativamente podes usar o menu do botão 
+<mousebutton
+>direito</mousebutton
+> do rato e escolher
+<menuchoice
+><guimenuitem
+>Cortar</guimenuitem
+></menuchoice
+>, ou simplesmente
+carregar em <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Copiar Tarefas Escalonadas</title>
+
+<para
+>Para copiares uma tarefa escalonada, primeiro selecciona a tarefa a ser
+copiada. Depois selecciona <menuchoice
+><guimenu
+>Editar</guimenu>
+<guimenuitem
+>Copiar</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> do rato e escolher <menuchoice
+><guimenuitem
+>Copiar</guimenuitem
+></menuchoice
+>, ou simplesmente carregar em <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>c</keycap
+></keycombo
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Colar Tarefas Escalonadas</title>
+
+<para
+>Para colares uma tarefa escalonada, é preciso ter cortado ou copiado uma
+tarefa escalonada para a Área de Transferência em primeiro lugar. Logo que
+uma tarefa tenha sido cortada ou copiada, a colagem estará activa. Então aí
+selecciona a pasta <guilabel
+>Tarefas</guilabel
+>. Finalmente selecciona
+<menuchoice
+> <guimenu
+>Editar</guimenu
+><guimenuitem
+>Colar</guimenuitem
+> 
+</menuchoice
+>.</para>
+
+<para
+> Alternativamente, podes usar o menu do botão
+<mousebutton
+>direito</mousebutton
+> do rato e escolher
+<menuchoice
+><guimenuitem
+>Colar</guimenuitem
+></menuchoice
+>, ou simplesmente
+carrega em <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Modificar Tarefas Escalonadas</title>
+
+<para
+>Para modificares uma tarefa escalonada, primeiro selecciona a tarefa a
+ser modificada. Então selecciona <menuchoice
+> <guimenu
+>Editar</guimenu>
+<guimenuitem
+>Modificar...</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> do rato e escolher <menuchoice
+><guimenuitem
+>Modificar...</guimenuitem
+></menuchoice
+>, ou carregar simplesmente em <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>o</keycap
+></keycombo
+>. Irás ver a janela de <guilabel
+>Editar Tarefa</guilabel
+>, com a qual irás modificar como descrito <link linkend="new-task"
+>acima</link
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Apagar Tarefas Escalonadas</title>
+
+<para
+>Para apagares uma tarefa escalonada, primeiro selecciona a tarefa a ser removida. Então selecciona <menuchoice
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Apagar</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> do rato e escolher <guimenuitem
+>Apagar</guimenuitem
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Activar/Desactivar Tarefas Escalonadas</title>
+
+<para
+>Para activares ou desactivares uma tarefa escalonada, primeiro selecciona a tarefa desactivada. As tarefas desactivadas terão <guilabel
+>Desactivado</guilabel
+> nas suas descrições. Então selecciona <menuchoice
+><guimenu
+>Editar</guimenu
+> <guimenuitem
+>Activo</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> do rato e escolher <menuchoice
+><guimenuitem
+>Activo</guimenuitem
+></menuchoice
+>. Deves confirmar se o nome do programa, os seus parâmetros e a descrição estão correctamente apresentados.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Correr Tarefas Escalonadas</title>
+
+<para
+>Para correres uma tarefa escolanada imediatamente, primeiro selecciona a tarefa. Depois selecciona <menuchoice
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Executar</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> do rato e escolher <menuchoice
+><guimenuitem
+>Executar</guimenuitem
+></menuchoice
+>.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="new-variable">
+<title
+>Adicionar Variáveis de Ambiente</title>
+
+<para
+>Para criares uma nova variável de ambiente, primeiro selecciona a pasta <guilabel
+>Variáveis</guilabel
+>. Depois selecciona <menuchoice
+><guimenu
+>Editar</guimenu
+><guimenuitem
+>Novo...</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> e escolher <menuchoice
+><guimenuitem
+>Novo...</guimenuitem
+></menuchoice
+>, ou simplesmente carregar em <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></para>
+
+<sect2>
+<title
+>A janela de <guilabel
+>Editar Variável</guilabel
+></title>
+
+<screenshot
+> <screeninfo
+>A janela de <guilabel
+>Editar Variável</guilabel
+>.</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="newvariable.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>A janela de <guilabel
+>Editar Variável</guilabel
+>.</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Variável</guilabel
+></term
+> <listitem
+><para
+>Indica o nome da variável de ambiente. Podes usar a lista correspondente para seleccionares o nome das variáveis de ambiente mais comuns que são usadas pelas tarefas escalonadas. Estas incluem:</para
+> <variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>HOME</guimenuitem
+></term
+> <listitem
+><para
+>A ser usada em vez da directoria pessoal do utilizador por omissão.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>MAILTO</guimenuitem
+></term
+> <listitem
+><para
+>Para enviar o resultado por 'email' para um endereço diferente do endereço de 'email' do utilizador por omissão.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>PATH</guimenuitem
+></term
+> <listitem
+><para
+>A ser usada para procurar pelos programas nas directorias indicadas.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>SHELL</guimenuitem
+></term
+> <listitem
+><para
+>A ser usada em vez da linha de comandos por omissão do utilizador.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Valor</guilabel
+></term
+> <listitem
+><para
+>Indica o nome da variável de ambiente.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Comentário</guilabel
+></term
+> <listitem
+><para
+>Indica uma descrição da variável de ambiente, por exemplo para que serve.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Activa</guilabel
+></term
+> <listitem
+> <para
+>Para activar ou desactivar a variável, activa ou desactiva a opção <guibutton
+>Activo</guibutton
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>OK</guibutton
+></term
+> <listitem
+> <para
+>Completa a alteração desta variável.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Cancelar</guibutton
+></term
+> <listitem
+> <para
+>Cancela a alteração desta variável.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>De facto, a variável de ambiente não é definida até o ficheiro <filename
+>crontab</filename
+> ser gravado.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="manage-variables">
+<title
+>Gerir as Variáveis de Ambiente</title>
+
+<note
+><para
+>Assim como na criação de novas variáveis, as alterações às mesmas não terão efeito até o ficheiro <filename
+>crontab</filename
+> ser gravado.</para
+></note>
+
+<sect2>
+<title
+>Cortar as Variáveis de Ambiente</title>
+
+<para
+>Para cortares uma variável de ambiente, primeiro selecciona a variável a ser cortada. Depois selecciona <menuchoice
+><guimenu
+>Editar</guimenu
+> <guimenuitem
+>Cortar</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente podes usar o menu do botão 
+<mousebutton
+>direito</mousebutton
+> do rato e escolher
+<menuchoice
+><guimenuitem
+>Cortar</guimenuitem
+></menuchoice
+>, ou simplesmente
+carregar em <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>X</keycap
+></keycombo
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Copiar Variáveis de Ambiente</title>
+
+<para
+>Para copiares uma variável de ambiente, primeiro selecciona a variável a ser copiada. Depois selecciona <menuchoice
+><guimenu
+>Editar</guimenu
+> <guimenuitem
+>Copiar</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> do rato e escolher <guimenuitem
+>Copiar</guimenuitem
+>, ou simplesmente carregar em <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>C</keycap
+></keycombo
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Colar Variáveis de Ambiente</title>
+
+<para
+>
+>Para colares uma variável de ambiente, primeiro é necessário ter sido copiada ou colada uma variável de ambiente para a Área de Transferência. Logo que uma variável de ambiente tenha sido cortada ou copiada, a colagem estará activada. Então deves seleccionar a pasta <guilabel
+>Variáveis</guilabel
+>. Finalmente selecciona <menuchoice
+><guimenu
+>Editar</guimenu
+> <guimenuitem
+>Colar</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes usar o menu do botão
+<mousebutton
+>direito</mousebutton
+> do rato e escolher
+<menuchoice
+><guimenuitem
+>Colar</guimenuitem
+></menuchoice
+>, ou simplesmente
+carrega em <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>V</keycap
+></keycombo
+>.</para>
+</sect2>
+
+<sect2>
+<title
+>Modificar Variáveis de Ambiente</title>
+
+<para
+>Para modificares uma variável de ambiente, primeiro selecciona a variável a ser modificada. Depois selecciona <menuchoice
+> <guimenu
+>Editar</guimenu
+> <guimenuitem
+>Modificar...</guimenuitem
+> </menuchoice
+>. Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> do rato e escolher <guimenuitem
+>Modificar...</guimenuitem
+>, ou simplesmente carregar em  <keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+>. Irás ver a janela de <guilabel
+>Editar Variável</guilabel
+>, com a qual irás modificar tal como foi descrito <link linkend="new-variable"
+>acima</link
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Apagar Variáveis de Ambiente</title>
+
+<para
+>Para apagares uma variável de ambiente, primeiro selecciona a variável a ser apagada. Depois selecciona <menuchoice
+><guimenu
+>Editar</guimenu
+><guimenuitem
+>Apagar</guimenuitem
+></menuchoice
+></para>
+
+<para
+>Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> do rato e escolher <guimenuitem
+>Apagar</guimenuitem
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Activar/Desactivar Variáveis de Ambiente</title>
+
+<para
+>Para activares ou desactivares, selecciona em primeiro lugar a variável desactivada. As variáveis desactivadas terão como descrição <guilabel
+>Desactivada</guilabel
+>. Então selecciona <menuchoice
+><guimenu
+>Editar</guimenu
+> <guimenuitem
+>Activo</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes usar o menu do botão <mousebutton
+>direito</mousebutton
+> do rato e escolher <menuchoice
+><guimenuitem
+>Activo</guimenuitem
+></menuchoice
+>.Deves confirmar se o nome e o valor da variável de ambiente estão apresentados correctamente.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="saving-crontab">
+<title
+>Gravar o ficheiro <filename
+>crontab</filename
+></title>
+
+<para
+>Logo que todas as tarefas escalonadas e variáveis de ambiente tenham sido criadas e/ou modificadas convenientemente, deves gravar o ficheiro <filename
+>crontab</filename
+>, seleccionando para isso <menuchoice
+> <guimenu
+>Ficheiro</guimenu
+> <guimenuitem
+>Gravar</guimenuitem
+> </menuchoice
+>.</para>
+
+<para
+>Alternativamente, podes simplesmente carregar em <keycombo
+>&Ctrl;<keycap
+>s</keycap
+></keycombo
+>. As adições ou alterações não serão realizadas até isto ser feito.</para>
+
+</sect1>
+
+<sect1 id="printing-crontab">
+<title
+>Imprimir o ficheiro <filename
+>crontab</filename
+></title>
+
+<para
+>Para imprimires o ficheiro <filename
+>crontab</filename
+> tal como foi gravado, selecciona <menuchoice
+> <guimenu
+>Ficheiro</guimenu
+> <guimenuitem
+>Imprimir</guimenuitem
+></menuchoice
+>.</para>
+
+<screenshot
+> <screeninfo
+>Imprimir o ficheiro <filename
+>crontab</filename
+>.</screeninfo
+> <mediaobject
+> <imageobject
+><imagedata fileref="print.png" format="PNG"/></imageobject
+> <textobject
+><phrase
+>Imprimir o ficheiro <filename
+>crontab</filename
+>.</phrase
+></textobject
+> </mediaobject
+> </screenshot>
+
+<para
+>Existem duas opções na janela de impressão:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Imprimir o Crontab</guilabel
+></term
+> <listitem
+> <para
+>Imprime o ficheiro <filename
+>crontab</filename
+> para o utilizador actual.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Imprimir Todos os Utilizadores</guilabel
+></term
+> <listitem
+> <para
+>Imprime os ficheiros <filename
+>crontab</filename
+> para todos os utilizadores. Esta opção só está activada para os utilizadores que tenham privilégios de super-utilizador.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="commands">
+<title
+>Referência de Comandos</title>
+
+<sect1 id="kcron-mainwindow">
+<title
+>A janela principal do &kcron;</title>
+
+<sect2>
+<title
+>O Menu <guimenu
+>Ficheiro</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+></shortcut
+><guimenu
+><accel
+>F</accel
+>icheiro</guimenu
+><guimenuitem
+><accel
+>G</accel
+>ravar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Grava as alterações no ficheiro crontab.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>F</accel
+>icheiro</guimenu
+><guimenuitem
+>Im<accel
+>p</accel
+>rimir...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Imprime</action
+> o ficheiro <filename
+>crontab</filename
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+></shortcut
+><guimenu
+><accel
+>F</accel
+>icheiro</guimenu
+><guimenuitem
+>Sai<accel
+>r</accel
+></guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Sai</action
+> do &kcron;.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+<sect2>
+<title
+>O Menu <guimenu
+>Editar</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+></shortcut
+><guimenu
+><accel
+>E</accel
+>ditar</guimenu
+> <guimenuitem
+>Cor<accel
+>t</accel
+>ar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Corta a tarega ou variável seleccionada.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+></shortcut
+><guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+><accel
+>C</accel
+>opiar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Copia a tarefa ou variável seleccionada.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+></shortcut
+><guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+>Co<accel
+>l</accel
+>ar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Cola uma tarefa ou variável que tenha sido cortada ou copiada.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+></shortcut
+><guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+><accel
+>N</accel
+>ovo...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Cria uma nova tarefa ou variável.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>O</keycap
+></keycombo
+></shortcut
+><guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+><accel
+>M</accel
+>odificar...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Modifica a tarefa ou variável seleccionadas.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+>A<accel
+>p</accel
+>agar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Apaga a tarefa ou variável seleccionadas.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+>Ac<accel
+>t</accel
+>ivo</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+><action
+>Activa/desactiva a tarefa ou variável seleccionadas.</action
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>ditar</guimenu
+><guimenuitem
+>E<accel
+>x</accel
+>ecutar</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Corre a tarefa seleccionada agora.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>O Menu <guimenu
+>Opções</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>pções</guimenu
+><guimenuitem
+>Mostrar Barra de <accel
+>F</accel
+>erramentas</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Mostra a barra de ferramentas.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>O</accel
+>pções</guimenu
+><guimenuitem
+>Mostrar Barra de <accel
+>E</accel
+>stado</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Mostra a barra de estado onde aparecem as informações.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2>
+<title
+>O Menu <guimenu
+>Ajuda</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut action="simul"
+><keycap
+>F1</keycap
+></shortcut
+><guimenu
+><accel
+>A</accel
+>juda</guimenu
+><guimenuitem
+><accel
+>C</accel
+>onteúdo...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Invoca o sistema de Ajuda do KDE</action
+> a começar nas páginas de ajuda do &kcron; (este documento).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>A</accel
+>juda</guimenu
+><guimenuitem
+>O Que é Is<accel
+>t</accel
+>o?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Muda o cursor do rato para uma combinação duma seta com um ponto de interrogação.</action
+>. Carregando nos itens dentro do &kcron; abrirá uma janela de ajuda (se existir alguma para o item em particular) a explicar a função do item.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>juda</guimenu
+><guimenuitem
+>Comunica<accel
+>r</accel
+> Erro...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Abre a janela de comunicação de erros</action
+> onde podes comunicar um erro ou fazer um <quote
+>pedido</quote
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>juda</guimenu
+><guimenuitem
+><accel
+>A</accel
+>cerca do KCron</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Isto irá mostrar informações sobre a versão e o autor.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>juda</guimenu
+><guimenuitem
+>Acerca do <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Isto mostr a versão do KDE e outras informações básicas.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Perguntas e Respostas</title>
+
+<qandaset id="questions-and-answers">
+<qandaentry>
+<question>
+<para
+>Porque é que as alterações que estou a fazer às tarefas escalonadas e
+variáveis de ambiente não estão a fazer efeito?</para>
+</question>
+<answer
+><para
+>As adições ou alterações às tarefas escalonadas não ocorrem de facto até o ficheiro <filename
+>crontab</filename
+> ter sido <link linkend="saving-crontab"
+>gravado</link
+>.</para>
+</answer>
+</qandaentry>
+</qandaset>
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Créditos e Licença</title>
+
+<para
+>&kcron;</para>
+
+<para
+>Programa copyright 2000 Gary Meyer <email
+>gary@meyer.net</email
+></para>
+
+<para
+>Documentação copyright 2000 Morgan N. Sandquist <email
+>morgan@pipeline.com</email
+></para>
+<para
+>José Nuno Coelho Sanarra Pires</para>
+
+&underFDL;
+
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title
+>Instalação</title>
+
+<sect1 id="getting-kcron">
+<title
+>Como obter o &kcron;</title>
+
+<para
+>O &kcron; faz parte do projecto do &kde; <ulink url="http://www.kde.org"
+>http://www.kde.org/</ulink
+>.</para>
+
+<para
+>O &kcron; pode ser encontrado no pacote kdeadmin em <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, o 'site' &FTP; principal do projecto do &kde;.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Requisitos</title>
+
+<para
+>Para compilar com sucesso o &kcron;, precisas das seguintes bibliotecas:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Um <command
+>cron</command
+>, como por exemplo o <command
+>vixie-cron</command
+>.  O &kcron; usa o comando <filename
+>crontab</filename
+> para modificar as tarefas escalonadas do utilizador.</para
+></listitem
+> <listitem
+><para
+>Um &UNIX; compatível com o POSIX, tal como o oferecido pela glibc. O &kcron; usa algumas chamadas de sistema 'standard' do &UNIX; para a localização de datas e horas.</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Compilação e Instalação</title>
+
+<para
+>Para poder compilar e instalar o &kcron; no sistema, deves introduzir os seguintes comandos na directoria base da distribuição do &kcron;:</para>
+
+<screen width="40"
+><prompt
+>%</prompt
+><userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+><userinput
+><command
+>make</command
+></userinput
+><prompt
+>%</prompt
+><userinput
+><command
+>make install</command
+></userinput>
+</screen>
+
+<para
+>Dado que o &kcron; usa o <command
+>autoconf</command
+> e o <command
+>automake</command
+> não deve haver problemas a compilá-lo. Se ocorrerem problemas deves comunicá-los nas 'mailing lists' do &kde;.</para>
+
+</sect1>
+
+</appendix>
+
+&documentation.index; 
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->     

@@ -1,0 +1,1035 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&ark;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title
+>Das &ark;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Matt</firstname
+> <surname
+>Johnston</surname
+> <affiliation
+> <address
+><email
+>mattj@flashmail.com</email
+></address
+> </affiliation
+> </author>
+
+<othercredit role="reviewer">
+<firstname
+>Lauri</firstname>
+<surname
+>Watts</surname>
+<affiliation
+><address
+><email
+>vampyr@atconnex.net</email
+></address
+></affiliation>
+<contrib
+>Gegengelesen von</contrib>
+</othercredit>
+
+<othercredit role="translator"
+><firstname
+>Gregor</firstname
+><surname
+>Zumstein</surname
+><affiliation
+><address
+><email
+>zumstein@ssd.ethz.ch</email
+></address
+></affiliation
+><contrib
+>Übersetzung von</contrib
+></othercredit>
+</authorgroup>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Matt Johnston</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>1.90.00</releaseinfo>
+
+<abstract
+><para
+>Dieses Handbuch beschreibt &ark; Version 1.9 </para
+> 
+<para
+>&ark; ist eine Archiv-Verwaltung für KDE.</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>gzip</keyword>
+<keyword
+>gunzip</keyword>
+<keyword
+>tar</keyword>
+<keyword
+>archiv</keyword>
+<keyword
+>zip</keyword>
+<keyword
+>komprimierung</keyword>
+<keyword
+>lha</keyword>
+<keyword
+>kdeutils</keyword>
+<keyword
+>ark</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+>&ark; ist ein Programm, um verschiedene Archiv-Formate in KDE zu verwalten. Archive können eingesehen, erzeugt, geändert und Dateien daraus extrahiert werden. Das Programm kann mit verschiedensten Formaten wie tar, gzip, bzip2, zip und lha umgehen (sofern entsprechende Kommandozeilenprogramme installiert sind). &ark; arbeitet eng mit <application
+>Konqueror</application
+> zusammen, um Archive zu bearbeiten.</para>
+
+<sect1 id="ark-revhistory">
+<title
+>&ark; Revisionsgeschichte der Dokumentation</title>
+
+<itemizedlist
+> <listitem
+><para
+>0.05.00 - Ursprüngliche &ark; Dokumentation - Robert Palmbos</para
+></listitem
+> <listitem
+><para
+>1.90.00 - Dokumentation für KDE2 - Matt Johnston</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+</chapter>
+
+
+<chapter id="using-ark">
+<title
+>Wie benutze ich &ark;</title>
+
+<sect1 id="ark-open">
+<title
+>Archive öffnen</title>
+
+<para
+>Um ein Archiv in &ark; zu öffnen, wählen Sie <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Öffnen</guimenuitem
+> im Menü. Sie können Archivdateien auch öffnen, indem Sie sie aus dem Dateimanager <application
+>Konqueror</application
+> herüberziehen. Normalerweise sind Archivdateien &ark; zugeordnet, so dass Sie einfach mit der rechten Maustaste auf eine Datei klicken und dann den Eintrag <guimenuitem
+>ark-Archivprogramm</guimenuitem
+> anwählen können.</para>
+
+
+</sect1>
+<sect1 id="ark-work-files">
+<title
+>Arbeiten mit Dateien</title>
+
+<para
+>Wenn ein Archiv einmal geöffnet ist, können Sie auf die enthaltenen Dateien verschiedene Funktionen anwenden. Klicken Sie mit der rechten Maustaste auf eine Datei des Archivs oder wählen Sie eine Datei aus und benutzen das <guimenu
+>Aktionsmenü</guimenu
+>. Folgende Funktionen stehen Ihnen dann zur Auswahl:</para>
+
+<itemizedlist
+> <listitem
+><para
+><guimenuitem
+>Ansehen</guimenuitem
+> öffnet die Datei mit dem standardmäßig zugewiesenen Programm.</para
+></listitem
+> <listitem
+><para
+><guimenuitem
+>Öffnen mit...</guimenuitem
+> erlaubt, die Datei mit einem von Ihnen gewählten Programm zu öffnen.</para
+></listitem
+> <listitem
+><para
+><guimenuitem
+>Bearbeiten mit...</guimenuitem
+> erlaubt, die Datei mit einem von Ihnen gewählten Programm zu öffnen. Der Unterschied zu <guimenuitem
+>Öffnen mit... </guimenuitem
+> besteht darin, dass die getätigten Änderungen in das Archiv übernommen werden.</para
+></listitem
+> <listitem
+><para
+><guimenuitem
+>Löschen</guimenuitem
+> entfernt die ausgewählte(n) Datei(en) aus dem Archiv.</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+<sect1 id="ark-extract">
+<title
+>Ein Archiv entpacken</title>
+
+<para
+>Ein in &ark; geöffnetes Archiv kann entpackt werden. Dazu müssen Sie entweder <guimenuitem
+>Entpacken...</guimenuitem
+> im Menü <guimenu
+>Aktion</guimenu
+> oder aus dem Kontextmenu (rechter Mausklick) wählen. Im Entpacken-Dialog geben Sie an, wohin die Dateien entpackt werden sollen. Ebenso können Sie angeben, welche Dateien entpackt werden sollen:</para>
+
+<itemizedlist
+> <listitem
+><para
+>"<guimenuitem
+>Aktuell</guimenuitem
+>" entpackt die zuletzt ausgewählte Datei, auch wenn mehrere Dateien ausgewählt sind.</para
+></listitem
+> <listitem
+><para
+>"<guimenuitem
+>Alle</guimenuitem
+>" entpackt das ganze Archiv.</para
+></listitem
+> <listitem
+><para
+>"<guimenuitem
+>Ausgewählte Dateien</guimenuitem
+>" entpackt alle ausgewählten Dateien.</para
+></listitem
+> <listitem
+><para
+>"<guimenuitem
+>Maske</guimenuitem
+>" erlaubt Ihnen anzugeben, diejenigen Dateien zu entpacken, welche dem Muster entsprechen, z.B. <filename
+>*.txt</filename
+> oder <filename
+>*.jpg</filename
+>. Beachten Sie bitte, dass Sie nur ein Muster gleichzeitig angeben können.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Wohin die Dateien entpackt werden, geben Sie im Textfeld "<guilabel
+>Entpacken nach: </guilabel
+>" an. (Wenn Sie das Standardverzeichnis ändern wollen, wählen Sie <guimenu
+>Einstellungen</guimenu
+>-><guimenuitem
+>Verzeichnisse... </guimenuitem
+> aus dem Menü.) Unter dem Register "Erweitert" können Sie Parameter für das jeweils gewählte Archivformat einstellen.</para>
+
+</sect1>
+<sect1 id="ark-create">
+<title
+>Erzeugen von Archiven und Hinzufügen von Dateien</title>
+
+<para
+>Um mit &ark; ein neues Archiv zu erzeugen, wählen Sie <guimenu
+><accel
+>D</accel
+>atei</guimenu
+>-><guimenuitem
+><accel
+>N</accel
+>eu</guimenuitem
+>.</para>
+
+<para
+>Hier geben Sie den Dateinamen an, sowie die Erweiterung für das gewünschte Archivformat (<filename
+>tar.gz</filename
+>, <filename
+>zip</filename
+>, <filename
+>bz2</filename
+> <abbrev
+>usw.</abbrev
+>). Um einem Archiv einzelne Dateien hinzuzufügen wählen Sie <guimenu
+>Aktion</guimenu
+>-><guimenuitem
+>Datei hinzufügen...</guimenuitem
+>. Möchten Sie gleich ganze Verzeichnisse hinzufügen wählen Sie <guimenu
+>Aktion</guimenu
+>-><guimenuitem
+>Verzeichnis hinzufügen...</guimenuitem
+>.</para>
+
+<para
+>Um zu einem Archiv weitere Dateien hinzuzufügen, können Sie diese auch aus einem <application
+>Konqueror</application
+>-Fenster auf das Hauptfenster von &ark; herüberziehen.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title
+>Befehls-Referenz</title>
+
+<sect1 id="filemenu">
+<title
+>Das <guimenu
+>Datei</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>n</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>N</accel
+>eu</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Erzeugt ein neues Archiv.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>o</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>Ö</accel
+>ffnen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet ein Archiv.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Zu<accel
+>l</accel
+>etzt geöffnete Dateien</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Zeigt eine Liste mit den zuletzt benutzten Archiven, in der Sie eines davon wählen können.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Speichern <accel
+>u</accel
+>nter</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Hier können Sie das Archiv unter einem anderen Namen speichern.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Neues <accel
+>F</accel
+>enster</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Öffnet ein weiteres &ark;-Fenster.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>E<accel
+>r</accel
+>neut laden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Lädt das aktuelle Archiv neu von der Festplatte. So können Sie die Anzeige von &ark; aktualisieren, wenn ein anderes Programm das Archiv verändert hat.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Archiv <accel
+>s</accel
+>chließen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schließt das aktuelle Archiv.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>B<accel
+>e</accel
+>enden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Beendet &ark;.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+<sect1 id="editmenu">
+<title
+>Das <guimenu
+>Bearbeiten</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Aus<accel
+>w</accel
+>ählen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Hier können Sie Dateien anhand ihres Dateinamens auswählen.</action
+> Zum Beispiel können Sie <filename
+>*.txt</filename
+> benutzen, um alle txt-Dateien auszuwählen. Beachten Sie, dass Sie nur einen Filter gleichzeitig benutzen können.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>lles auswählen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Wählt alle Dateien im Archiv aus.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Auswahl a<accel
+>u</accel
+>fheben</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Nach diesem Befehl gibt es keine ausgewählten Dateien mehr.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Auswahl <accel
+>u</accel
+>mkehren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Kehrt die Auswahl um, d.h. ausgewählte Dateien sind nicht mehr ausgewählt, nicht ausgewählte hingegen schon.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+>Shellausgabe <accel
+>b</accel
+>etrachten</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet das <guilabel
+>Shellausgabe</guilabel
+> Fenster, welches die <action
+>Ausgabe des zuletzt von &ark; ausgeführten Kommandozeilenbefehls anzeigt</action
+>. Dies ist manchmal nützlich, wenn Sie Probleme haben, denen Sie auf den Grund gehen wollen.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="actionmenu">
+<title
+>Das <guimenu
+>Aktion</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ktion</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>atei hinzufügen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet die Dialogbox <guilabel
+>Hinzufügen</guilabel
+>, wo Sie Dateien auswählen können. Sie können mehrere Dateien gleichzeitig auswählen, wenn Sie während des Klickens auf eine weitere Datei die <keycap
+>Strg</keycap
+>-Taste gedrückt halten. Wenn Sie in der Verzeichnisstruktur in ein höher gelegenes Verzeichnis wechseln wollen, müssen Sie im Verzeichnisbereich die rechte Maustaste drücken und den Eintrag "<guimenuitem
+>Nach oben</guimenuitem
+>" wählen (Eine Vereinfachung dafür steht in Aussicht). Auf der Registerseite "<guilabel
+>Erweitert</guilabel
+>" können Sie archivspezifische Einstellungen vornehmen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ktion</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>erzeichnis hinzufügen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet die Dialogbox "<guilabel
+>Verzeichnis hinzufügen</guilabel
+>", wo Sie ein <action
+>Verzeichnis auswählen können</action
+>. Wählen Sie dieses mit der rechten Maustaste aus und drücken Sie anschließend den <guibutton
+>Ok-Knopf</guibutton
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ktion</guimenu
+> <guimenuitem
+><accel
+>L</accel
+>öschen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Entfernt die ausgewählten Dateien aus dem Archiv.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ktion</guimenu
+> <guimenuitem
+><accel
+>E</accel
+>ntpacken</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet die Dialogbox "<guilabel
+>Entpacken</guilabel
+>", wo Sie angeben können, <action
+>welche Dateien wohin entpackt werden sollen</action
+>:</para
+> <itemizedlist
+> <listitem
+><para
+>"<guimenuitem
+>Aktuell</guimenuitem
+>" entpackt die zuletzt ausgewählte Datei, auch wenn mehrere Dateien ausgewählt sind.</para
+></listitem
+> <listitem
+><para
+>"<guimenuitem
+>Alle</guimenuitem
+>" entpackt das ganze Archiv.</para
+></listitem
+> <listitem
+><para
+>"<guimenuitem
+>Ausgewählte Dateien</guimenuitem
+>" entpackt alle ausgewählten Dateien.</para
+></listitem
+> <listitem
+><para
+>"<guimenuitem
+>Maske</guimenuitem
+>" erlaubt Ihnen anzugeben, diejenigen Dateien zu entpacken, welche dem Muster entsprechen, z.B. <filename
+>*.txt</filename
+> oder <filename
+>*.jpg</filename
+>. Beachten Sie bitte, dass Sie nur jeweils ein einziges Muster angeben können.</para
+></listitem
+> </itemizedlist
+> <para
+>Wohin die Dateien entpackt werden, geben Sie im Textfeld "<guilabel
+>Entpacken nach: </guilabel
+>" an. (Wenn Sie das Standardverzeichnis ändern wollen, wählen Sie <guimenu
+>Einstellungen</guimenu
+>-><guimenuitem
+>Verzeichnisse... </guimenuitem
+> aus dem Menü.) Unter dem Register "Erweitert" können Sie Parameter für das jeweils gewählte Archivformat einstellen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ktion</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>nsehen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>öffnet die Datei mit dem standardmäßig zugewiesenen Programm. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ktion</guimenu
+> <guimenuitem
+><accel
+>Ö</accel
+>ffnen mit...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>erlaubt, die Datei mit einem von Ihnen gewählten Programm zu öffnen. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>A</accel
+>ktion</guimenu
+> <guimenuitem
+><accel
+>B</accel
+>earbeiten mit..</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>ermöglicht, die Datei mit einem von Ihnen gewählten Programm zu öffnen und zu bearbeiten.</action
+> Die vorgenommenen Änderungen werden in die Archivdatei übernommen. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="settingsmenu">
+<title
+>Das <guimenu
+>Einstellungen</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Werk<accel
+>z</accel
+>eugleiste anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Anzeige der Werkzeugleiste an und aus. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>tatuszeile anzeigen</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Schaltet die Anzeige der Statuszeile an und aus. </action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>E</accel
+>instellungen speichern</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Speichert die aktuellen Einstellungen auf die Festplatte, so dass sie auch beim nächsten Start von &ark; ungeändert vorhanden sind.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>astenzuordnungen vornehmen...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet die Dialogbox "<guilabel
+>Tastenzuordnungen</guilabel
+>". <action
+>Hier können Sie den meisten Menüeinträgen eine Funktionstaste zuordnen.</action
+> Um eine Zuordnung zu ändern, wählen Sie eine Aktion aus der Liste, klicken Sie "benutzerdef. Tasten" an und drücken auf die Taste unterhalb. Jetzt müssen Sie nur noch den gewünschten Buchstaben tippen und allenfalls die Umschalttasten (Shift/Strg/Alt) ankreuzen. Fertig! </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>V</accel
+>erzeichnisse...</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+>Öffnet die Dialogbox <guilabel
+>Verzeichnis-Einstellungen</guilabel
+>, wo Sie die <action
+>Standardverzeichnisse einstellen können</action
+>. Das "<guilabel
+>Letzte Startverzeichnis</guilabel
+>" meint dasjenige Verzeichnis, das für die gewählte Funktion zuletzt benutzt wurde. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+
+</chapter>
+
+<chapter id="credits">
+
+<title
+>Danksagung und Lizenz</title>
+
+<para
+> &ark; Copyright 1997-2000, die verschiedenen &ark;-Entwickler </para>
+<para
+>Beiträge von:</para>
+<itemizedlist
+> <listitem
+><para
+>Robert Palmbos <email
+>palm9744@kettering.edu</email
+></para
+></listitem
+> <listitem
+><para
+>Fran&ccedil;ois-Xavier Duranceau <email
+>duranceau@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Corel Corporation (Entwicklerin: Emily Ezust) <email
+>emilye@corel.com</email
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>Copyright für die Dokumentation 2000 Matt Johnston <email
+>mattj@flashmail.com</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-ark">
+<title
+>Woher Sie &ark; erhalten</title>
+
+<para
+>&ark; ist Teil des kdeutils-Pakets und sollte kompiliert werden, wie im Hauptverzeichnis des Paket beschrieben. Neue Versionen von kdeutils finden Sie auf der Seite <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>. </para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen</title>
+
+<para
+>Um &ark; benutzen zu können, benötigen Sie KDE 2.0, <abbrev
+>GNU</abbrev
+> <application
+>tar</application
+> v1.12 (oder höher) und ein aktuelles <application
+>gzip</application
+>. Um andere Archivformate zu nutzen, benötigen Sie die entsprechenden Befehlszeilenprogramme wie <application
+>zip</application
+>, <application
+>unzip</application
+>, <application
+>ar</application
+> oder <application
+>lha</application
+>. </para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilierung und Installation</title>
+
+<para
+>Um &ark; auf Ihrem System zu kompilieren und installieren, geben Sie Folgendes im obersten Verzeichnis des kdeutils-Pakets ein:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+>./configure</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make</userinput>
+<prompt
+>%</prompt
+> <userinput
+>make install</userinput>
+</screen>
+
+<para
+>Da &ark; <application
+>autoconf</application
+> und <application
+>automake</application
+> benutzt, sollten Sie beim Kompilieren keine Probleme haben. Falls doch, teilen Sie bitte Ihr Problem auf den KDE-Mailinglisten mit.</para>
+
+</sect1>
+
+</appendix>
+
+
+
+&documentation.index; 
+</book>
+<!--
+Local Variables:
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+End:
+-->
+

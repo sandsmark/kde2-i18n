@@ -1,0 +1,842 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+ <!ENTITY kappname "&kdm;">
+ <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE">
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title>A &kdm; kézikönyve</title>
+
+<authorgroup>
+<author>
+<firstname>Neal</firstname>
+<surname>Crook</surname>
+<affiliation><address><email>nac@forth.org</email></address></affiliation>
+</author>
+<othercredit role="developer">
+<firstname>Steffen</firstname>
+<surname>Hansen</surname>
+<affiliation><address><email>stefh@dit.ou.dk</email></address></affiliation>
+<contrib>fejlesztő</contrib>
+</othercredit>
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+<contrib>lektor</contrib>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>tszanto@mol.hu</email></address></affiliation>
+<contrib>fordító</contrib>
+</othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2000</year>
+<holder>Neal Crook</holder>
+</copyright>
+
+<date>12/12/2000</date>
+<releaseinfo>0.05.02</releaseinfo>
+
+<abstract>
+<para>Ez a dokumentum a &kdm;-nek, a KDE képernyőkezelőjének a leírását tartalmazza. A &kdm;-et általában
+<quote>Bejelentkezéskezelő</quote>-nek szokták nevezni.</para>
+</abstract>
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>kdm</keyword>
+<keyword>xdm</keyword>
+<keyword>képernyőkezelő</keyword>
+<keyword>bejelentkezéskezelő</keyword>
+</keywordset>
+</bookinfo>
+
+<!-- ********************************************************************** -->   
+<chapter id="Introduction"> 
+
+<title>Bevezetés</title> 
+
+<para> A &kdm; biztosítja azt a grafikus felületet, amelyen keresztül be lehet jelentkezni
+a rendszerbe. Bekéri a felhasználónevet és a jelszót, elvégzi a bejelentkeztetést és
+elindítja a "munkafolyamatot".  A &kdm; az <application>xdm</application>, az X 
+képernyőkezelő helyettesítésére szolgál a KDE környezetben, annál lényegesen több
+funkcióval rendelkezik.</para> <para> A &kdm; felhasználói felülete két párbeszédablakból
+áll. Az első párbeszédablak részei:</para>
+
+<itemizedlist> 
+<listitem><para>A "<guilabel>Név</guilabel>" szöveges mezőben kell megadni
+a felhasználónevet.</para></listitem>
+<listitem><para>A "<guilabel>Jelszó</guilabel>" szöveges mezőben kell megadni
+a jelszót.</para></listitem>
+<listitem><para>A "<guilabel>Név</guilabel>" és a
+"<guilabel>Jelszó</guilabel>" mezőktől balra eső területen vagy egy (statikus) képet
+vagy egy analóg órát lehet megjeleníteni.</para></listitem>
+<listitem><para>Beállítható az is, minden felhasználóhoz egy kép tartozzon (például az adott 
+felhasználó fényképe). Ha a képre kattint, akkor a felhasználónév automatikusan bekerül
+a "<guilabel>Név</guilabel>" mezőbe (nem kell begépelni). Ez az ötlet egyébként az
+IRIX operációs rendszerből származik.</para></listitem> 
+<listitem><para>A "<guilabel>Környezet</guilabel>" kombinált listában választható ki a
+munkafolyamat során használt ablakkezelő program vagy grafikus környezet, például
+a KDE, a KDE2 vagy a GNOME. Csak a rendszerben telepített programok közül lehet
+választani.</para></listitem>
+<listitem><para>Ha a "<guibutton>Belépés</guibutton>" gombra kattint, a program leellenőrzi
+a megadott nevet és jelszót, és megpróbálja elindítani a kiválasztott ablakkezelőt vagy grafikus
+környezetet.</para></listitem>
+<listitem><para>A "<guibutton>Mégsem</guibutton>" gomb lenyomásával lehet törölni
+a "<guilabel>Név</guilabel>" és a "<guilabel>Jelszó</guilabel>" mezők
+tartalmát.</para></listitem>
+<listitem><para>Meg lehet jeleníteni egy "<guibutton>Leállítás</guibutton>" gombot is, mellyel
+a "<guibutton>Leállítás és újraindítás</guibutton>" párbeszédablak hozható elő.</para></listitem>
+</itemizedlist>
+
+<para>Ebben a párbeszédablakban olyan választógombok találhatók, melyekkel a rendszer
+(vagy valamelyik alrendszer) újraindítását lehet elérni:</para>
+
+<variablelist>
+<varlistentry>
+<term>Leállítás</term>
+<listitem><para>A rendszer szabályos lezárása, olyan állapotba hozása,
+hogy utána áramtalanítani lehessen a gépet.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>Újraindítás</term>
+<listitem><para>A rendszer lezárása és újraindítása. Ha a <application>Lilo</application>
+rendszerindítás-kezelő telepítve van a gépen, akkor megjeleníthető egy kombinált lista, mely
+az újraindításnál használható operációs rendszer változatokat (kerneleket) 
+tartalmazza.</para></listitem>
+</varlistentry>
+<varlistentry>
+<term>Az X-kiszolgáló újraindítása</term> 
+<listitem><para>Az X-kiszolgáló leállítása és újraindítása. Erre leggyakrabban akkor van
+szükség, ha megváltoztatta az X bizonyos beállításait, és azt szeretné, hogy a módosítások
+életbe lépjenek.</para></listitem> 
+</varlistentry>
+<varlistentry>
+<term>Konzol mód</term>
+<listitem><para>Az X-kiszolgáló leállítása és újraindulás konzol módban. Ennek érdekében
+az operációs rendszer átvált a 3-as futási szintre. A rendszergazdának szüksége lehet
+erre, ha frissíteni vagy újrakonfigurálni szeretné az 
+X11-et.</para></listitem> 
+</varlistentry>
+</variablelist>
+
+<para>Ha megnyomja az "<guibutton>OK</guibutton>" gombot, akkor a leállítás elkezdődik a beállításoknak
+megfelelően. Ha megnyomja a "<guibutton>Mégsem</guibutton>" gombot, akkor visszajut a &kdm;
+fő párbeszédablakába. </para>
+
+<para>A következő fejezet a &kdm; beállításának részletes leírását tartalmazza, azután pedig
+elmagyarázzuk, hogyan kell a &kdm;-et lefordítani és telepíteni
+a forrásprogramból kiindulva, és hogyan tudhat meg többet a &kdm;-ről és a KDE
+projektról.</para> 
+
+</chapter>
+
+<!-- *********************************************************************** -->
+<chapter id="Configuring-kdm">
+<title>A &kdm; beállításai</title>
+
+<para>Ebben a fejezetben feltételezzük, hogy a &kdm; már fut a rendszeren és csak
+a működést befolyásoló beállításokat szeretné módosítani. Ha problémákba ütközik a
+&kdm; futása során, olvassa el a későbbi fejezeteket. </para> 
+
+<para>Amikor a &kdm; elindul, először beolvassa a <filename>kdmrc</filename>
+fájl tartalmát. Minthogy a &kdm;-nek azelőtt is futni kell, hogy valaki belépett volna
+a rendszerbe, ezért egyik felhasználóhoz sem tartozik. Más konfigurációs fájloktól
+eltérően nincs belőle felhasználófüggő példány (pl.: <filename>$HOME/share/config/kdmrc</filename>),
+minden felhasználó a közös <filename>kdmrc</filename> fájlt használja, melynek elérési útja:
+<filename>$KDEDIR/share/config/kdmrc</filename>. Ebből következik, hogy a &kdm; beállításait
+csak azok a felhasználók módosíthatják, akik írási jogosultsággal rendelkeznek
+a <filename>$KDEDIR/share/config/kdmrc</filename> fájlhoz (általában
+csak a "root" felhasználók). </para> 
+
+<!-- ** nac TODO the link to local kderc doesn't work.. I get a security ** -->
+<!-- error; yet I can point to the file manually. what should it be? --> 
+
+<para>A megfelelő jogosultság birtokában megtekintheti a <filename>kdmrc</filename> fájl
+tartalmát(alapértelmezett elérési útja: <filename>$KDEDIR/share/config/kdmrc</filename>)
+és a bejegyzések módosításával végrehajthatja a beállítást. Ugyanezt a módosítást kényelmesebben is
+elvégezheti, ha a Vezérlőközpont megfelelő beállítómodulját használja (megtalálható a
+<menuchoice><guisubmenu>Beállítások</guisubmenu>
+<guisubmenu>Rendszer</guisubmenu> <guimenuitem>Bejelentkezéskezelő
+</guimenuitem></menuchoice> menüpontban). A modul dokumentációja megtalálható a <ulink
+url="help:/kcontrol/login-manager.html">Vezérlőközpont dokumentumai között</ulink>.</para>
+
+<para>A fejezet hátralevő részében a <literal>kdmrc</literal> fájlban
+használható bejegyzésekkel foglalkozunk. Ha a grafikus beállítómodult
+használja szívesebben, akkor ezt a részt átugorhatja.</para>
+
+<!-- ** nac: updated KDM keys list from code of 2000-06-06 -->
+
+<para>A <literal>kdmrc</literal> fájlban 4 szekció található:</para>
+
+<sect1 id="KDM">
+<title>KDM</title>
+<para>Ebben a következő kulcsok használhatók:</para>
+<screen>StdFont
+FailFont
+GreetFont
+GreetString
+SessionTypes
+LogoArea
+LogoPixmap
+ShutdownButton
+Shutdown
+Restart
+ConsoleMode
+UserView
+Users
+NoUsers
+SortUsers
+GUIStyle
+</screen>
+
+<para>A kulcsok rövid leírása:</para>
+<variablelist>
+
+<varlistentry>
+<term><parameter>*Font</parameter></term>
+<listitem><para>A betűtípus azonosítója a következőhöz hasonló formában:
+Courier,12,5,iso-8859-2,50,0.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>GreetString</parameter></term>
+<listitem><para>A bejelentkezési ablak üdvözlő szövegének betűtípusa.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>SessionTypes</parameter></term>
+<listitem><para>A használható ablakkezelő programok és grafikus környezetek
+listája, vesszővel elválasztva. Az alapértelmezés:
+<option>SessionTypes=kde,failsafe</option>.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>LogoArea</parameter></term>
+<listitem><para>Itt lehet megadni, hogy milyen objektum kerüljön a bejelentkezési ablak bal
+alsó sarkába. Lehet <option>KdmLogo</option> (ekkor a <option>LogoPixMap</option> sor
+által megadott képfájl fog megjelenni) vagy lehet
+<option>KdmClock</option> (ekkor egy analóg óra fog megjelenni).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>LogoPixmap</parameter></term>
+<listitem><para>A bejelentkezési ablak bal alsó sarkában megjelenő kép nevét
+tartalmazza. Csak akkor van hatása, ha a LogoArea értéke KdmLogo.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>ShutdownButton</parameter></term>
+<listitem><para>Ez a beállítás azt befolyásolja, hogy mikor jelenik meg a Leállítás
+gomb. Lehetséges értékei: <option>All</option>, <option>None</option>,
+<option>RootOnly</option> és <option>ConsoleOnly</option>. Az <option>All</option> esetén
+mindig, a <option>None</option> esetén soha nem jelenik meg a gomb. A
+<option>Csak konzolról</option> esetén a leállítás nem végezhető el távolról. A
+<option>Csak rendszergazda</option> választás esetén a leállítás megkezdése előtt be kell írni a
+root felhasználó jelszavát.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>Shutdown és Restart</parameter></term>
+<listitem><para>A rendszer leállítását ill. újraindítását végző
+parancsok. (Az alapértelmezések: <command>/sbin/halt</command> ill.
+<command>/sbin/reboot</command>.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>ConsoleMode</parameter></term>
+<listitem><para>Az a parancs, amely a konzol módba átváltást végzi, ha kiválasztja a
+"<guibutton>Lezárás</guibutton>" gombon belül a Konzol mód opciót. (Alapértelmezés: 
+<command>/sbin/init<option>3</option></command>). Ez a beállítás nem használható BSD alatt.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>UserView</parameter></term>
+<listitem><para>Ha ennek értéke "<option>1</option>", akkor a bejelentkezési ablakban
+látható lesz a felhasználók listája.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>Users</parameter></term>
+<listitem><para>Azoknak a felhasználóneveknek a vesszővel elválasztott listája,
+amelyek megjelennek a bejelentkezési ablakban. Ha a <parameter>UserView</parameter> paraméter értéke
+"<replaceable>1</replaceable>" és a <parameter>Users</parameter> bejegyzés hiányzik,
+akkor a &kdm; a passwd fájlból veszi a felhasználóneveket (ennek elérési útja:
+<filename>/etc/passwd</filename>). Csak azok a felhasználónevek kerülnek be a listába,
+amelyek teljes névvel, saját könyvtárral és alapértelmezett parancsértelmezővel rendelkeznek - az összes
+többi kimarad. A &kdm; a
+<filename>$KDEDIR/share/apps/kdm/pics/users/</filename> könyvtárban fogja keresni a felhasználónevekhez tartozó
+ikonokat. Ha például létezik egy <filename>ikovacs.png</filename> nevű ikon, akkor a &kdm; azt fogja megjeleníteni
+az alapértelmezett kép helyett az ikovacs felhasználónál. Ha nem található megfelelő kép, akkor az
+alapértelmezett <filename>default.png</filename> kép fog látszani. </para> 
+<para>A &kdm; alkalmazkodni tud az ikon méretéhez, de a végeredmény esetleg mégsem
+elfogadható. A jó minőségű megjeleníthetőség érdekében használja például a KDE
+<application>Pixie</application> programját, a <application>gimp</application>-et
+(GNU Image Manipulation Program) vagy John Bradley
+<application>XV</application> programját a képek azonos méretűvé konvertálásához. Az
+ajánlott 64x64-es méret legtöbbször megfelelő, ekkorák a &kdm;-hez adott alapértelmezett
+ikonok is. Az említett programokkal a szükséges képformátum-konverzió is elvégezhető,
+ha a képek nem PNG formátumúak.</para></listitem> 
+</varlistentry>
+
+<varlistentry>
+<term><parameter>NoUsers</parameter></term>
+<listitem><para>Azon felhasználónevek vesszővel elválasztott listája, amelyeket nem kell megjeleníteni. Így lehet
+a legkönnyebben kiszűrni az olyan "pszeudo-felhasználókat" mint a <literal>sync</literal>, a
+<literal>shutdown</literal> stb.</para>  </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>SortUsers</parameter></term>
+<listitem><para>Ha az értéke "<option>0</option>", akkor a felhasználók sorrendje a listában
+a beolvasási sorrend lesz. Az alapértelmezés szerint a felhasználók listája növekvő sorrendben
+rendezett.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>GUIStyle</parameter></term>
+<listitem><para>A grafikus megjelenés stílusa, lehet <option>Motif</option> vagy
+<option>Windows</option>.</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+<sect1 id="KDMDESKTOP">
+<title>KDMDESKTOP</title>
+
+<para>Ezt a szekciót már nem használja a &kdm;. Régebbi verzióknál a bejelentkezési képernyő
+hátterének beállítására szolgált. A fájlt létrehozó szkript esetleg még elkészíti ezt a
+szekciót, de a &kdm; már nem használja.</para>
+
+</sect1>
+
+<sect1 id="Locale">
+<title>Locale</title> 
+
+<para>Ezt a szekciót a KDE standard könyvtárai kezelik. Az alábbi bejegyzéseknek lehet
+jelentősége:</para>
+
+<screen>Country
+Language
+Charset
+</screen>
+
+<para>A kulcsok rövid leírása:</para>
+
+<variablelist>
+
+<varlistentry>
+<term><parameter>Country</parameter></term>
+<listitem><para>Az ország azonosítója. A
+<filename>$KDEDIR/share/locale/l10n</filename> fájlban megtalálható a rendszer által támogatott
+országkódok listája. Az országkód ismeretében megtalálható a
+<filename>$KDEDIR/share/locale/l10n/[országkód]/entry.desktop</filename> fájl,
+melyben megtalálható az illető országgal kapcsolatos összes szükséges információ, például az idő-
+és dátumformátum, a hivatalos fizetőeszköz neve és azonosítója.</para> </listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>Language</parameter></term>
+<listitem><para>A &kdm; által használt nyelvet jelöli (az alapértelmezés:
+<option>C</option>, az amerikai angolt jelöli). Ezt az értéket felül lehet bírálni
+a <envar>KDE_LANG</envar> környezeti változó beállításával.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>Charset</parameter></term>
+<listitem>
+<para>A &kdm; által használt karakterkészlet azonosítója (az alapértelmezés:
+<option>iso-8859-1</option>).</para></listitem>
+</varlistentry>
+</variablelist>
+
+<note><para>Ha a fenti nyelvi beállítások megváltoztatása után a párbeszédablakok szövegei továbbra is
+angol nyelvűek maradnak, akkor feltehetően nem telepítette a programszövegek fordításait tartalmazó
+fájlokat.</para></note>
+
+</sect1>
+
+<sect1 id="Lilo">
+<title><application>Lilo</application></title> 
+<para>A <application>Lilo</application> (a "Linux Loader" rövidítése) a GNU/Linux rendszerekben
+legelterjedtebben használt rendszerindítás-kezelő. A Lilo-hoz részletes dokumentáció készült (lásd
+<ulink url="man:lilo">man lilo</ulink>). Ebben a szekcióban a
+rendszer újraindításával kapcsolatos <application>Lilo</application> beállítások találhatók. A következő
+kulcsokat lehet használni:</para>
+
+<screen>
+Lilo
+LiloCommand
+LiloMap
+</screen>
+
+<para>A kulcsok rövid leírása: </para>
+
+<variablelist>
+<varlistentry>
+<term><parameter>Lilo</parameter></term>
+<listitem><para>Azt jelzi, hogy a <application>Lilo</application> programot kell
+használni a rendszer újraindításához (alapértelmezés: <option>FALSE</option>). Ha a kulcs
+értéke <option>TRUE</option>, akkor a "leállítási" párbeszédablakben megjelenik egy kombinált
+lista az "Újraindítás" választógomb mellett, melyben az újraindításnál használt
+kernelt (vagy más operációs rendszert) lehet kiválasztani. A kernelek
+listája a Lilo térképfájl tartalma alapján jön létre.</para></listitem>
+</varlistentry> 
+
+<varlistentry>
+<term><parameter>LiloCommand</parameter></term>
+<listitem>
+<para>A <application>Lilo</application> programfájl neve elérési úttal (alapértelmezés:
+<filename>/sbin/lilo</filename>).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><parameter>LiloMap</parameter></term>
+<listitem><para>A <application>Lilo</application> térképfájl neve elérési úttal.
+A térképfájlt a <application>Lilo</application> hozza létre, az indításnál választható
+kerneleket (vagy más operációs rendszerek indítófájljait) tartalmazza (alapértelmezés:
+<filename>/boot/map</filename>).</para></listitem> </varlistentry>
+</variablelist>
+
+</sect1>
+
+</chapter>
+
+<!-- ************************************************************ -->   
+<chapter id="Configuring-your-system-for-kdm">
+<title>A rendszer beállítása a &kdm; használatához</title>
+
+<para>Ebben a fejezetben feltételezzük, hogy a gépen már működik az
+X Windows, és már csak a grafikus bejelentkezéshez szükséges
+módosításokat kell elvégezni.</para>
+
+<sect1 id="setting-up-kdm">
+<title>A &kdm; beállítása</title>
+
+<para>Az alap operációs rendszer a számítógép elindítása után vagy egy parancsértelmező ablakot jelenít
+meg, ahol be lehet jelentkezni (konzol mód) vagy egy grafikus felületű bejelentkező ablakot,
+ha az alapértelmezett futásszint úgy van beállítva.  A futásszint értékét az <application>
+<ulink url="man:init">/sbin/init</ulink></application> program állítja be
+az <filename>/etc/inittab</filename> konfigurációs fájl alapján. A futásszintek
+értékei eltérhetnek az egyes Unix változatokban, de
+ha megtekinti az <filename>/etc/inittab</filename> fájl tartalmát, akkor
+valami hasonlót kell találnia:</para>
+
+<screen># Az alapértelmezett futásszint. A Red Hat Linux által használt értékek:
+# 0 - leállítás (ez NE legyen alapértelmezés)
+# 1 - egyfelhasználós mód
+# 2 - normál többfelhasználós mód (NFS nélkül)
+# 3 - normál többfelhasználós mód
+# 4 - (nem használt)
+# 5 - grafikus felületű indítási mód (X11)
+# 6 - újraindítás (ez NE legyen alapértelmezés)
+
+id:3:initdefault:  
+</screen>
+
+<para>Az utolsó sort kivéve minden csak megjegyzés, melyekből kiderül,
+hogy az 5-ös futásszint van hozzárendelve az X11-hez és a 3-as futásszint tartozik
+a karakteres módú indításhoz. Az utolsó sor azt jelenti, hogy az alapértelmezett
+futásszint jelenleg a 3-as (a karakteres mód). Ha az Ön
+rendszere grafikus felületű bejelentkezést használ most, akkor
+az alapértelmezett futásszint feltehetően
+az 5-ös.</para>
+
+<para>A grafikus felület futásszintje általában az 5-ös, de néhány
+disztribúció eltér ettől:</para>
+
+<itemizedlist>
+<listitem><para>5 - Red Hat 3.x vagy újabb és Mandrake esetén</para></listitem>
+<listitem><para>4 - Slackware esetén</para></listitem>
+<listitem><para>3 - SuSE 4.x, 5.x esetén</para></listitem>
+</itemizedlist>
+
+<para>A beállítás első lépéseként győződjön meg arról, hogy
+a &kdm; elindítható parancssorból. Ha ezt leellenőrizte, akkor
+módosítsa úgy a rendszerindítási paramétereket, hogy a &kdm;
+automatikusan elinduljon indításkor.</para>
+
+<para>A &kdm; teszteléséhez tehát először át kell váltani konzol módba.
+Ehhez adja ki a következő
+parancsot:</para>
+
+<screen><command>/sbin/init <option>3</option></command>
+</screen>
+
+<para>Változtassa meg a "<option>3</option>" értéket, ha az Ön
+rendszerében nem ez a konzol mód futásszintje.</para>
+
+<para>Ezután meg kell keresni az <application>xdm</application> program beállításait
+tartalmazó könyvtárt, mely általában az <filename>/etc/X11/xdm/</filename> vagy
+a <filename>/usr/X11R6/lib/X11/xdm/</filename>. Ez a könyvtár tartalmaz
+egy <filename>Xsetup_0</filename> nevű fájlt. Ha a &kdm;-et saját maga fordította
+le és a <filename>configure</filename> parancs nem találta meg ezt a könyvtárat,
+akkor egy új <filename>Xsetup_0</filename> fájlt készített
+a &kdm; forrásai közt található sablon alapján. Beszúrhatja ezt a sort:</para> 
+
+<screen>kdmdesktop</screen>
+
+<!-- ** nac: TODO 14Jul2000 not sure whether kdmdesktop still works.
+     ** The binary still exists; it is built in kdebase/kdesktop but it
+     ** doesn't use the kdmrc file; from the source code it seems to read
+     ** the kdmdesktoprc file, which does not exist -->
+
+<para>a fájlba ha szép háttereket szeretne látni (képeket és változatos
+háttérszíneket). (Az újabb változatokban ez esetleg már nem működik, de régebben
+sem volt kötelező).  Ha a <envar>KDEDIR</envar> környezeti változó értéke nem
+<filename>/opt/kde</filename>, akkor lehet, hogy be kell írni a
+<filename>kdmdesktop</filename> elérési útját is.</para>
+
+<para>Ha a rendszer a <abbrev>PAM</abbrev> (Pluggable Authentication Modules)
+jogosultsági mechanizmust használja (ilyen az összes korszerű disztribúció),
+akkor ellenőrizni kell, hogy a <abbrev>PAM</abbrev> beállítások megengedik-e
+az <literal>xdm</literal> szolgáltatáson keresztüli belépést. Ha korábban már
+használta az <application>xdm</application>-et, akkor
+a &kdm; használatához semmit sem kell módosítani a <abbrev>PAM</abbrev> 
+beállítófájljában (ez vagy <filename>/etc/pam.conf</filename> vagy
+<filename>/etc/pam.d/xdm</filename>). A <abbrev>PAM</abbrev> beállításainak részletes
+ismertetésére nem vállalkozhatunk, tanulmányozza át a
+<abbrev>PAM</abbrev> dokumentációját, ha nem tudja, mi a teendő (próbáljon keresni a
+<filename>/usr/doc/pam*/html</filename> könyvtárban).</para>
+
+<para>Most már kipróbálhatja a &kdm;-et a következő parancs
+kiadásával:</para>
+
+<screen><command>kdm <option>-nodaemon</option></command>
+</screen>
+
+<para>Ha megjelenik a &kdm; bejelentkezési ablaka és sikerül belépni, akkor
+eddig rendben van.  A leggyakoribb hiba ebben a fázisban az, hogy a linker
+nem találja meg a megosztott Qt vagy KDE könyvtármodulokat.  Ha RPM vagy DEB csomagból
+telepítette a KDE könyvtármodulokat, akkor ellenőrizze, hogy a &kdm; 
+a megfelelő helyre került-e (általában az
+<filename>/opt/kde/bin</filename> könyvtárba) és állítsa be az 
+esetleg hiányzó környezeti változók értékét. Például:</para>
+
+<screen><command>export <option>KDEDIR=<replaceable>/opt/kde</replaceable></option></command>
+<command>export <option>QTDIR=<replaceable>/usr/local/qt</replaceable></option></command>
+<command>export <option>PATH=<replaceable>$KDEDIR/bin:$QTDIR/bin:$PATH</replaceable></option></command>
+<command>export <option>LD_LIBRARY_PATH=<replaceable>$KDEDIR/lib:$QTDIR/lib</replaceable></option></command>
+</screen>
+
+<para>Ha ezután sem sikerül a &kdm; indítása, próbálkozzon inkább az <application>xdm</application>
+indításával, hogy ki lehessen zárni az X hibás telepítéséből vagy beállításából
+eredő hibákat.</para>
+
+<para>Ha sikerült elindítani a &kdm;-et, lépjen tovább, és
+cserélje ki az <application>xdm</application>-re való hivatkozást a &kdm;-mel. A beállítás
+módja eltérhet a különböző disztribúcióknál.</para>
+
+<itemizedlist>
+
+<listitem><para>Red Hat disztribúció esetén nyissa meg egy szövegszerkesztőben az <filename>/etc/inittab</filename> fájlt, 
+keresse meg az xdm-re hivatkozó részt és cserélje ki &kdm;-re (elérési úttal).</para></listitem>
+
+<listitem><para>Mandrake disztribúció esetén az X11-hez tartozó futásszinten 
+az <filename>/etc/inittab</filename> fájl egy
+<filename>/etc/X11/prefdm</filename> nevű szkriptet indít el, mely az egyéb beállításokat
+megvizsgálva indítja el a megfelelő ablakkezelőt (például a &kdm;-et). Ellenőrizze az elérési utak
+helyes beállítását.</para> </listitem>
+
+<listitem><para><abbrev>SuSE</abbrev> disztribúció esetén adja hozzá a következő sort
+az <filename>/sbin/init.d/xdm</filename> fájl elejéhez:</para>
+
+<screen>. /etc/rc.config
+DISPLAYMANAGER=kdm
+export DISPLAYMANAGER
+</screen>
+</listitem>
+
+<listitem><para>A többi disztribúció általában a fenti megoldások egyikét
+használja.</para></listitem>
+</itemizedlist>
+
+<para>Ha nem akarja megváltoztatni az <filename>inittab</filename> tartalmát, akkor
+nevezze át az <filename>xdm</filename> fájlt <filename>xdm.bak</filename>-ra, majd hozzon létre
+egy <filename>xdm</filename> nevű, a &kdm;-re mutató szimbolikus linket.</para>
+
+<para>A következő lépésben próbálja ki, hogy a &kdm; elindul-e az X11-hez
+rendelt futásszinten. Ehhez adja ki a következő parancsot:</para>
+
+<screen><command>/sbin/init <option>5</option></command>
+</screen>
+
+<para>Az "<option>5</option>" helyett írja be az Ön rendszerében érvényes
+X11 futásszintértéket, ha az eltér ettől.</para>
+
+<para>Utolsó teendőként pedig még módosítani kell az <parameter>initdefault</parameter>
+bejegyzés értékét az <filename>/etc/inittab</filename> fájlban,
+hogy a gép indulásakor automatikusan a grafikus X11 mód induljon el.</para>
+
+<warning><para>Mielőtt végrehajtaná ezt a módosítást, győződjön meg arról, hogy
+újra tudja indítani a rendszert hiba esetén. Ehhez általában egy olyan
+rendszerindító floppy lemez szükséges, amelyet a telepítéskor lehet létrehozni,
+vagy valamilyen helyreállító eszköz, például a <literal>tomsrtbt</literal>. Az adatai
+biztonsága érdekében csak indokolt esetben hagyja ki ezt a lépést.</para></warning> 
+
+<para>A rendszer újraindítása után már a &kdm; grafikus bejelentkezési ablakának
+kell megjelennie.</para>
+
+<para>Ha ez a lépés sikertelen, akkor annak legvalószínűbb oka a rendszerindításkori
+környezet és a &kdm; kipróbálásánál használt konzol-módú környezet közötti
+eltérés. Ellenőrizze például az
+<filename>/etc/X11/xdm/Xsetup_0</filename> fájlt (és a benne meghívott összes szkriptet),
+hogy az elérési út nem változik-e meg nem várt módon. Ha a KDE két különböző
+verziója van telepítve, akkor ellenőrizze, hogy
+a <envar>PATH</envar> és az <envar>LD_LIBRARY_PATH</envar> változó
+beállításai megfelelnek-e a használni kívánt verziónak, és az indítószkriptek
+tévedésből nem bírálják-e felül valamelyik értékét.</para>
+
+</sect1>
+
+<sect1 id="different-window-managers-with-kdm">
+<title>Több ablakkezelő támogatása</title>
+
+<para>A &kdm; bejelentkezési ablakának bal alsó sarkában látható egy "<guilabel>Környezet
+</guilabel>" nevű kombinált lista, melyben kiválaszthatja a kívánt ablakkezelő
+környezetet. A következő részben azokat a teendőket ismertetjük, amelyek
+elvégzése szükséges ennek a lehetőségnek a beállításához.</para>
+
+<para>A "<guilabel>Környezet</guilabel>" kombinált lista tartalmának
+módosításához <ulink url="KDM">meg kell változtatni</ulink> a <filename>kdmrc</filename> fájl
+<literal>KDM</literal> szekciójában néhány bejegyzést.</para> 
+
+<para>Ha a &kdm; segítségével jelentkezik be, akkor az elindítja az
+<filename>Xsession</filename> nevű szkriptet, melynek paraméterként adja át a megadott 
+ablakkezelő környezet értékét.  Az <filename>Xsession</filename> fájl Red Hat és Mandrake
+disztribúcióknál az <filename>/etc/X11/xdm/</filename> könyvtárban, SuSE esetén
+az <filename>/usr/X11R6/lib/X11/xdm/</filename> könyvtárban található. Hibakeresésnél
+segíthet, ha hozzáadja az alábbi sort az
+<filename>Xsession</filename> fájlhoz:</para>
+      
+<screen>echo "$0 || $1 || $2" > $HOME/.Xsession_args </screen>
+
+<para>A további teendő az ablakkezelő környezet elindítási módjától 
+függ. Az alábbiakban két eltérő indítási konvenciót ismertetünk, mindkét esetben
+megadva a módosítás lépéseit:</para>
+
+<itemizedlist>
+
+<listitem><para>Az ablakkezelő környezet indítása az <filename>Xsession</filename>
+szkriptből történik. Ilyenkor egy 'case' utasítás beszúrásával lehet a kívánt
+ablakkezelő indítását elérni. Például a Mandrake disztribúciók ezt a megoldást használják.
+Alább látható egy részlet egy ilyen <filename>Xsession</filename> fájlból:</para>
+
+<screen># now, we see if xdm/gdm/kdm has asked for a specific environment
+case $# in
+1)
+    case $1 in
+        kde)
+        source /opt/kde2/bin/kde1
+        exec startkde
+        ;;
+        kde2)
+        source /opt/kde2/bin/kde2
+        exec startkde
+        ;;
+    	failsafe)
+	exec xterm -geometry 80x24-0-0
+	;;
+	default)
+	;;
+	*)
+	exec /bin/sh -c "$(/usr/sbin/chksession -x=$1)"
+	;;
+     esac
+esac
+</screen>
+</listitem>
+
+<listitem><para>Egy másik módszer az, hogy az ablakkezelő egy olyan szkriptből indul,
+amelyet az <filename>Xsession</filename> indított el. Ilyenkor ellenőrizni kell,
+hogy az <filename>Xsession</filename> továbbadja-e a másik szkriptnek
+a paraméterként kapott ablakkezelő nevét. Alább látható egy példa az ilyen
+indításra:</para>
+
+<screen><command>exec <option>$startup</option></command></screen>
+
+<para>Ezt meg kell változtatni erre:</para>
+
+<screen><command>exec <option>$startup</option> <option>$@</option></command></screen>
+
+<para>Ha végrehajtotta ezt a változtatást, akkor végig kell követnie az elindulás
+folyamatát, keresse meg, hogy az ablakkezelő indítása hol történik. Ez történhet
+például az <filename>xinitrc</filename> fájlban,
+mely az összes felhasználóra érvényes (pontos elérési útja:
+<filename>/etc/X11/xinit/xinitrc</filename>) vagy a felhasználó saját könyvtárában 
+található <filename>$HOME/.xinitrc</filename> fájlban. Ha megváltoztatja az
+<filename>$HOME/.xinitrc</filename> fájlt, akkor az új változat egy másolatát
+helyezze el az <filename>/etc/skel</filename> könyvtárban is, hogy az újonnan
+létrehozott felhasználók saját könyvtárába automatikusan átkerülhessen.
+Alább látható egy példa az <filename>xinitrc</filename> fájlra az utóbbi
+módszer használata esetén:</para>
+
+<screen>#!/bin/bash
+#
+# .xsession/.xinitrc
+#
+# choose a window manager
+#
+
+defaultwm=kde
+#set the window manager to $1 if it was supplied
+windowmgr=${1:-$defaultwm}
+
+#start the respective window managers
+case ${windowmgr} in
+  kde|kwm|kdestart)
+	WINDOWMANAGER=startkde
+	;;
+  fvwm|fvwm2)
+	WINDOWMANAGER=fvwm2
+	;;
+
+  fvwm95)
+	WINDOWMANAGER=fvwm95
+	;;
+
+  *)    WINDOWMANAGER=windowmgr   # default for unknown wm's
+
+esac
+
+#
+# load resources
+#
+
+if [ -f /usr/X11R6/lib/X11/Xmodmap ]; then
+    xmodmap /usr/X11R6/lib/X11/Xmodmap
+fi
+
+if [ -f ~/.Xmodmap ]; then
+    xmodmap ~/.Xmodmap
+fi
+
+if [ -f ~/.Xdefaults ]; then
+    xrdb -merge ~/.Xdefaults
+fi
+
+if [ -f ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources
+fi
+# 
+# finally start the window manager
+#
+exec $WINDOWMANAGER
+</screen>
+
+</listitem>
+</itemizedlist>
+
+
+</sect1>
+</chapter>
+
+<!-- *********************************************************************** -->
+<chapter id="Building-and-Installing-kdm">
+<title>A kdm lefordítása és telepítése</title>
+
+<para>A &kdm; a KDE projekt része. A KDE funkcionálisan összetartozó részei
+ún. csomagokba vannak csoportosítva. A &kdm; a kdebase nevű csomagban
+található. A KDE forráskódja megtalálható sok Linux és BSD disztribúció
+CD-in, vagy letölthető a <ulink
+url="http://www.kde.org">www.kde.org</ulink> címről vagy annak valamelyik tükrözéséről.
+Ha nem a legfrissebb KDE forrással rendelkezik, akkor valamelyik KDE cvsup kiszolgálóról
+felfrissítheti azt minimális hálózati terhelés mellett.
+</para>
+
+<para>A kdebase lefordítása előtt először a Qt 2.x változatát kell lefordítani és telepíteni,
+majd a kdesupport és a kdelibs csomagot, pontosan ebben a
+sorrendben.</para>
+
+<para>A fentiek elvégzése előtt szükség van még az X Windows,
+a C++ fordítóprogram és két GNU segédprogram, 
+az <application>automake</application> és
+az <application>autoconf</application> telepítésére.</para>
+
+<para>Ha az utolsó bekezdések tartalma nem eléggé világos Ön előtt,
+akkor vagy a dokumentum olyan részére tévedt, amellyel nem Önnek kell foglalkoznia,
+vagy éljen az alkalommal, és mélyedjen el a technikai kérdésekben.</para>
+
+<para>Ha sikerült eleget tenni az összes előfeltételnek, akkor valószínűleg
+nem fog problémába ütközni a kdebase lefordítása és telepítése során. A &kdm; 
+a "<filename>$KDEDIR/bin</filename>" könyvtárba fog kerülni.</para>
+
+<note><para>A <command>make <option>install</option></command> parancs eredményeként
+a telepítés felülírja a meglevő <filename>kdmrc</filename> fájlt.</para></note>
+
+</chapter>
+
+
+<!-- *********************************************************************** -->
+<chapter id="Other-Information">
+<title>További információk</title>
+
+<para>A &kdm; készítésénél az <application>xdm</application>-ből indultak ki a fejlesztők, ezért az
+<ulink url="man:xdm">xdm man oldalon</ulink> sok hasznos információt
+találhat. Az X-szel kapcsolatos leírásokat találhat az <ulink
+url="man:X">X</ulink> és <ulink url="man:startx">startx</ulink> man oldalakon. Végül,
+ha minden kötél szakad, és olyan problémába ütközik, amelyre nem talál megoldást ebben a dokumentumban,
+akkor használja ki, hogy a &kdm; a <abbrev>GNU</abbrev> Public License alá esik,
+tehát szabadon tanulmányozhatja a forráskódot.
+</para>
+
+</chapter>
+
+<!-- *********************************************************************** -->
+<chapter id="credits"><title>A szerzők névsora és a licencegyezmény</title>
+
+<para>A &kdm; az <application>xdm</application> programra
+épül, több részt is tartalmazva az eredeti programkódból.</para>
+
+<para>A &kdm; 0.1-es változatát Matthias Ettrich készítette. Az összes későbbi változat
+Steffen Hansen munkája.</para>
+
+<para><application>Xdm</application>: Copyright (c) 1990, X
+Consortium.</para>
+
+<para>A &kdm; programkódjának egyéb részei a szerzők szellemi tulajdona, 
+a <ulink url="common/gpl-license.html">GNU
+GPL</ulink> licencfeltételeivel használhatók. A &kdm; kódja szabadon módosítható és terjeszthető, ha az
+eredeti változat szerzői fel vannak tüntetve.</para>
+
+<para>A &kdm; a Qt programkönyvtárra épül: Copyright Troll Tech AS.</para>
+
+<para>A dokumentáció készítésében résztvettek:
+<itemizedlist>
+<listitem><para>Az eredeti dokumentáció szerzője: Steffen Hansen <email>stefh@dit.ou.dk</email></para></listitem>
+
+<listitem><para>A dokumentációt átdolgozta: Gregor Zumstein<email>zumstein@ssd.ethz.ch</email>. A legutolsó
+frissítés dátuma: 1998. július 9.</para></listitem>
+
+<listitem><para>A dokumentációt felfrissítette a KDE 2-höz: Neal Crook<email>nac@forth.org</email>. A legutolsó
+frissítés dátuma: 2000. július 6.</para></listitem>
+</itemizedlist></para>
+
+<para>Documentation copyright Steffen Hansen, Gregor Zumstein és Neal Crook.</para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+
+

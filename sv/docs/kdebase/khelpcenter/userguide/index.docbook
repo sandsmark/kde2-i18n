@@ -1,0 +1,4113 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kde; User's Guide">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>KDE skrivbordsmiljö</title>
+<authorgroup>
+<author
+> <surname
+>KDE-gruppen</surname
+> </author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@telia.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2000-11-06</date>
+<releaseinfo
+>2.00.00</releaseinfo>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>KDE-gruppen</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<!-- Please note: This is NOT the final KDE Users Guide, which is not complete.
+This is a quick rewrite of the KDE 1.1x user guide, because it was badly out of
+date, and so that KDE wasn't released without a users guide entirely.  -->
+
+<abstract
+><para
+>Det här är KDE:s användarhandbok, en komplett dokumentation av K skrivbordsmiljön från användarens perspektiv. K skrivbordsmiljön är en samling verktyg som gör ditt liv med Unix lättare och mer njutbart. </para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>användare</keyword>
+<keyword
+>handbok</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="about-this-preview">
+<title
+>Om den här förhandsupplagan </title>
+
+<para
+>Välkommen till KDE:s användarhandbok! Fastän den här boken ännu inte är komplett och mycket av informationen i den fortfarande håller på att skrivas om, hoppas vi att den här förhandsupplagan är användbar för att besvara några av de frågor som en ny KDE-användare kan ha. </para>
+
+<para
+>Den här boken innehåller en komplett inledning, en guide för att installera KDE, en beskrivning av användargränssnittet, tre praktiska exempel på hur KDE kan användas i det dagliga arbetet och en beskrivning av hur KDE-skrivbordet anpassas. Dessutom ingår en tabell med snabbtangenter och några tips &amp; trick.</para>
+
+</chapter>
+
+<chapter id="introduction">
+<title
+>Inledning </title>
+
+<epigraph>
+<attribution
+>The <abbrev
+>CEO</abbrev
+> of a big software company, at the
+beginning of the 80s...</attribution>
+<para
+>640kB ought to be enough for everyboy </para>
+</epigraph>
+
+<para
+>Sedan UNIX utveckling började, har det funnits ett stort problem: Det fanns stabila kärnor, och bra, kraftfull programvara. Tyvärr kunde bara ett fåtal människor använda Unix, eftersom det huvudsakligen skrivits för de studenter och proffs som hade studerat systemet sedan länge. Till exempel, standardsättet att läsa Usenet diskussionsgrupper var </para>
+
+<screen
+><userinput
+><command
+>find</command
+> <filename
+>/var/spool/news</filename
+> <parameter
+>-name '[0-9]*' -exec cat {} \;</parameter
+> | <command
+>more</command
+></userinput>
+</screen>
+
+<para
+>Det här problemet har lösts. Idag finns det många bra program tillgängliga, som <application
+>tin</application
+> och <application
+>Knode</application
+>, som ger ett lättanvänt intuitivt grafiskt användargränssnitt (<acronym
+>GUI</acronym
+>). Tyvärr saknar dessa <acronym
+>GUI</acronym
+> ett gemensamt utseende och känsla. Kommersiella bibliotek för programmerare som <application
+>Motif</application
+> lovade en lösning för detta, men de här biblioteken förblir alltför dyra och alltför långsamma. </para>
+
+<para
+>Inställningen av program är också ofta svår. Medan kompilering ofta görs med en kommandorad som <userinput
+><command
+>./configure</command
+> &amp;&amp; <command
+>make</command
+> &amp;&amp; <command
+>make <option
+>install</option
+></command
+></userinput
+> kan bara ett fåtal program ställas in med menyer eller skript. I de flesta fall, måste du själv redigera textbaserade konfigurationsfiler. Det händer ofta att en felplacerad punkt förstör hela filen, och tvingar dig att starta om hela konfigurationsprocessen. När du än behöver ändra dina inställningar eller konfigurera om ett program, så dyker hela röran upp igen. </para>
+
+<para
+>Allt detta bidrar till det faktum att Linux och andra Unix-system inte lyckas nå en bredare publik. På samma gång, är många människor inte nöjda med sina nuvarande operativsystem, främst på grund av den avsaknad av stabilitet och prestanda som finns i dessa operativsystem. Andra människor hatar att behöva köpa en ny dator varje gång en ny version av programmet de inte kan vara utan ges ut, därför att det behöver mer <acronym
+>RAM</acronym
+> och mer diskutrymme. Ofta ger den nya versionen funktioner som få verkligen behöver. </para>
+
+<para
+> <emphasis
+>KDE är annorlunda.</emphasis
+> Även om vi inte försöker ersätta det vanliga Unix-skalet, arbetar vi på ett verktyg som kommer att göra det enklare att använda Unix. Vi vill också locka fler användare till Unix-miljön. Enkla saker blir lätta och komplexa saker är fortfarande möjliga i KDE. Dessutom tillhandahålls ett enda gränssnitt, istället för de dussintal som krävs för närvarande. </para>
+
+<sect1 id="what-kde-can-do-for-you">
+<title
+>Vad KDE kan göra för dig </title>
+
+<para
+>Vi konstruerade KDE i huvudsak för de som är nykomlingar till Unix, och andra som vill undvika den komplicerade processen att lära sig nya tekniker och kommandon som inte finns i deras gamla operativsystem. Vi tillhandahåller dock också mycket av värde för den vane Unix-användaren. </para>
+
+<variablelist
+> <varlistentry
+> <term
+>För de som är nykomlingar till Unix:</term
+> <listitem
+><para
+>Försök inte ens att använda något annat, därför att du är exakt den sorts person som vi skrev den här programvaran åt. För dig bidrar vi med:</para
+> <itemizedlist
+> <listitem
+><para
+>En lättanvänd fönstermiljö som ser bra ut </para
+></listitem
+> <listitem
+><para
+>En kraftfull och användarvänlig filhanterare </para
+></listitem
+> <listitem
+><para
+>En enkel, centraliserad inställning </para
+></listitem
+> <listitem
+><para
+>Ett hjälpsystem som stödjer dig i alla situationer </para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>För de med mer erfarenhet av Unix</term
+> <listitem
+><para
+>Som en erfaren Unix-användare, kommer du att välkomna de nya funktioner som KDE kan erbjuda:</para
+> <itemizedlist
+> <listitem
+><para
+>En bra, praktisk, och snabb fönsterhanterare </para
+></listitem
+> <listitem
+><para
+>Ett enhetligt gränssnitt för dina program. Du behöver inte längre gissa om <mousebutton
+>höger</mousebutton
+> eller <mousebutton
+>vänster</mousebutton
+> musknapp gör vad du förväntar dig</para
+></listitem
+> <listitem
+><para
+>En lättviktig terminalemulator som inte fyller ditt minne när flera sessioner är öppna samtidigt.</para
+></listitem
+> <listitem
+><para
+>Ett stilrent skrivbord som gör dina vänner avundsjuka </para
+></listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="background-of-kde">
+<title
+>KDE:s bakgrund </title>
+
+<para
+>I oktober 1996, initierade den tyske <application
+>LyX</application
+>-utvecklaren Matthias Ettrich utvecklingen av KDE med ett Usenet-inlägg. Snart därefter, började ett antal intresserade utvecklare att planera och programmera delar av det nya projektet. Ett år senare, släpptes fönster- och filhanteraren, terminalemulatorn, hjälpsystemet och skärminställningsverktyget för alfa- och betatester och visade sig vara relativt stabila. </para>
+
+<para
+>I juli 1998, släpptes KDE 1.0. Det var den stabila versionen under de följande sex månaderna, medan utvecklare fortsatte arbeta på att förbättra KDE utan begränsningar på grund av stabilitetshänsyn. I januari 1999, samlades och integrerades deras förbättringar för att ge ut KDE 1.1, den nya stabila standardversionen. </para>
+
+<para
+>Utvecklare och intresserade användare kommunicerar via flera e-postlistor som beskrivs i avsnittet <link linkend="mailing-lists"
+>E-postlistor</link
+>. Om du vill hjälpa till, gör gärna det! Vi letar fortfarande efter fler som kan hjälpa till. </para>
+
+</sect1>
+
+<sect1 id="legal-status">
+<title
+>Legala notiser</title>
+
+<para
+>KDE är fri programvara enligt <link linkend="license"
+>GNU General Public License (GPL)</link
+>, som följer med varje KDE-komponent. Du kan kopiera och distribuera KDE och dess komponenter som du vill, så länge du alltid inkluderar hela källkoden. Se avsnittet <link linkend="license"
+> GNU General Public License (GPL)</link
+> i appendix för detaljer. </para>
+
+</sect1>
+
+<sect1 id="getting-kde">
+<title
+>Hur man skaffar nya komponenter </title>
+
+<para
+>Den huvudsakliga platsen för KDE är <ulink url="http://www.kde.org/"
+>http://www.kde.org</ulink
+>. Här hittar du all viktig information rörande KDE, inklusive tillkännagivanden, rättade fel, utvecklingsinfo, stilguider, åtskilligt med dokumentation (inklusive den senaste versionen av den här boken), och mycket mer. För uppdateringar av programvara, besök vår ftp-plats, <ulink url="ftp://ftp.kde.org/"
+>ftp://ftp.kde.org</ulink
+> eller använd en spegelserver om det finns en nära dig. </para>
+
+<para
+>Katalogen <filename
+>unstable</filename
+> innehåller alltid purfärsk programvara, men den är ofta otestad och kanske inte ens går att kompilera. Om du letar efter mer tillförlitliga komponenter, ta en titt i katalogen <filename
+>stable</filename
+>, där vi lägger beta- och slutversioner. </para>
+
+<para
+>Om du är intresserad av att utveckla KDE-program själv, bör du också besöka Troll Techs server (<ulink url="http://www.troll.no/"
+>http://www.troll.no</ulink
+>) som har en hel mängd information om Qt-biblioteket som används av KDE. För utvecklingsarbete är det också lämpligt att gå med i <link linkend="mailing-lists"
+>utvecklarnas e-postlista.</link
+></para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="installation">
+<title
+>Installation </title>
+
+<epigraph>
+<attribution
+>Linus Torvalds, after finding one of his file systems smashed by a
+new Beta kernel</attribution>
+<para
+>Core dumping fsck's tend to make me nervous</para>
+</epigraph>
+
+<para
+>Ta det lungt! Även om användning av en del beta-programvara kan orsaka mycket sorg, är det inte troligt att din hårddisk krossas av att installera KDE. I själva verket är det här kapitlet avsett att guida dig igenom installationsprocessen så att du kan ta en titt på ditt nya skrivbord så snabbt (och med så lite bekymmer) som möjligt. Som vid alla installationer av nya fönsterhanterare, rekommenderas du att säkerhetskopiera alla dina X11-specifika konfigurationsfiler innan du börjar installera. Om du inte vet exakt var de finns, försök med alla de dolda filerna (<filename
+>.*</filename
+>) i din hemkatalog och katalogen <filename
+>/usr/X11/lib/X11/xdm</filename
+>. </para
+> 
+
+<sect1 id="requirements">
+<title
+>Krav </title>
+
+<para
+>Innan du installerar KDE, försäkra dig om att ditt system uppfyller följande krav: </para>
+
+<itemizedlist
+> <listitem
+><para
+>Ett fungerande Unix-system som uppfyller POSIX-standarden. Unix-system som vi vet fungerar med KDE innefattar: FreeBSD, Solaris, HP-UX, och MkLinux. Vi arbetar med att göra KDE tillgängligt på fler plattformar snart. </para
+></listitem
+> <listitem
+><para
+>Lite ledigt hårddiskutrymme på partitionen där <filename
+>/opt/kde</filename
+> kommer att skapas. Vi rekommenderar att du reserverar mer än 50 Mibyte om ditt system stöder delade bibliotek, och väsentligt mycket mer om det inte gör det. Om du behöver eller vill bygga KDE från källkodsträdet, kom ihåg att reservera omkring 100 Mibyte i <filename
+>/usr/src</filename
+>.</para
+></listitem
+> <listitem
+><para
+>Ett fungerande X11-system med eller utan <application
+>xdm</application
+>. Om du inte har installerat X-Window systemet än, kontrollera först om det finns en version som kan installeras med din Unix-installation. Om du inte hittar en version som fungerar, besök <ulink url="http://www.xfree86.org"
+>XFree86 webbsida</ulink
+> för mer information om hur man skaffar och installerar X-Window systemet, eller kontakta din Unix-leverantör. </para
+></listitem
+> <listitem
+><para
+>Qt-biblioteken, version 2.2. Du kan skaffa dem på <ulink url="ftp://ftp.troll.no/pub/qt"
+>Troll Techs FTP-server</ulink
+> med både rpm och tgz format. </para
+> </listitem
+> </itemizedlist>
+
+<warning
+><para
+>En varning innan du startar: Innan du uppgraderar från en tidigare version av KDE, rekommenderar vi att du gör följande:</para>
+
+<screen
+> 
+<command
+>cd <filename
+>/opt/kde</filename
+></command
+> 
+<command
+>tar <option
+>cfvz <replaceable
+>~/KDE-gammal-version-kopia.tar.gz</replaceable
+> * </option
+></command>
+</screen>
+</warning>
+
+</sect1>
+
+<sect1 id="linux-installing-rpms">
+<title
+>Linux: Installera RPM-paket för RedHat, Caldera och Suse.</title>
+
+<para
+>Att använda RPM-paket är det lättaste sättet att få igång KDE. Besök bara din favorit KDE spegelserver och titta i katalogen <filename
+>/pub/kde/stable/distribution/rpm</filename
+>. Där ser du kataloger för olika operativsystem. För närvarande stöds arkitekturerna i386, alpha och sparc. RPM-paketen finns också på Red Hat platser som sunsite.unc.edu eller ftp.redhat.com. </para>
+
+<para
+>Det grundläggande systemet består av filerna <filename
+>kde-<replaceable
+>komponent</replaceable
+>.<replaceable
+>arkitektur</replaceable
+>.rpm</filename
+> Du behöver åtminstone kdesupport, kdelibs och kdebase. Efter att ha skaffat den grundläggande distributionen, ladda gärna hem alla andra RPM-paket som du tror kan vara bra att ha. </para>
+
+<para
+>Därefter, börja installera med de grundläggande paketen. Om du installerar KDE för första gången, använd </para>
+
+<screen
+> 
+<userinput
+><command
+>rpm</command
+> <option
+>-i</option
+> <filename
+>kdesupport.ark.rpm</filename
+></userinput>
+<userinput
+><command
+>rpm</command
+> <option
+>-i</option
+> <filename
+>kdelibs.ark.rpm</filename
+></userinput>
+<userinput
+><command
+>rpm</command
+> <option
+>-i</option
+> <filename
+>kdebase.ark.rpm</filename
+></userinput>
+</screen>
+ 
+<important
+><para
+>Det är viktigt att de här komponenterna installeras i samma ordning som visas, och att de installeras innan någon annan KDE-komponent.</para
+></important>
+
+<para
+>Om du uppgraderar från en tidigare utgåva, försök med <screen
+> 
+<userinput
+><command
+>rpm</command
+> <option
+>-Uvh</option
+> <filename
+>kde-<replaceable
+>komponent</replaceable
+>.<replaceable
+>ark</replaceable
+>.rpm</filename
+></userinput>
+</screen
+> </para>
+
+<para
+>Igen, ordningen som anges ovan ska behållas, och de angivna komponenterna ska installeras innan någon annan KDE-komponent.</para>
+
+<para
+>Det här packar upp den grundläggande distributionen och installerar den i den förvalda katalogen <filename
+>/opt/kde</filename
+>.</para>
+
+<para
+>Om installationen av de grundläggande paketen lyckades, kan du installera de återstående paketen på samma sätt (återigen använd <option
+>-Uvh</option
+> istället för <option
+>-i</option
+> för att uppdatera en existerande version). </para>
+
+</sect1>
+
+<sect1 id="installing-debian">
+<title
+>Linux: Installera <acronym
+>DEB</acronym
+>s för debian</title>
+
+<para
+>Installationen för ett Debian-system är också ganska rättfram. Du hittar bara KDE 2.0-paket för Debian 2.2 (Potato) och 3.0 (Woody). Här beskriver vi hur man installerar paketen för Debian 2.2, som är den stabila versionen, eftersom Debian 3.0 fortfarande utvecklas. Hursomhelst är installationen nästan identisk för de båda versionerna. Den huvudsakliga skillnaden är att KDE ingår officiellt i Debian 3.0 och du behöver inte ange någon speciell plats för att hitta deb-paketen för KDE.</para>
+
+<para
+>Det första steget är att tala om för ditt system var det kan hitta KDE:s deb-paket. En lista av platser för Debian-paket finns på din hårddisk i <filename
+>/etc/apt/sources.list</filename
+>. Du ska lägga till följande rad i den filen: <userinput
+>http://kde.tdyc.com/ stable kde2</userinput
+></para>
+
+ 
+<para
+>Därefter måste du uppdatera din lokala paketdatabas så att ditt system vet att det finns nya paket tillgängliga. Skriv följande kommando:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>update</option
+></userinput>
+</screen>
+ 
+<para
+>Till slut ska du installera KDE:s grundläggande komponenter. Det här gör du genom att skriva:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdebase</option
+></userinput>
+</screen>
+ 
+<para
+>Om du vill installera andra komponenter kan du prova med några eller alla av de här kommandona:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdenetwork</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdeadmin</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdetoys</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdeutils</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdemultimedia</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdegraphics</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdepim</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdegames</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-koffice</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdebase-docs</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdm</option
+></userinput>
+</screen>
+
+<para
+>Du kanske också är intresserad av att installera ditt språk.</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install
+kde-i18n-<replaceable
+>xx</replaceable
+></option
+></userinput>
+ </screen>
+<para
+>där <replaceable
+>xx</replaceable
+> måste ersättas med landskoden.</para>
+
+<para
+>Kontrollfilerna för en del KDE-program läggs i <filename class="directory"
+>/etc/kde2</filename
+>, de körbara filerna hamnar i <filename class="directory"
+>/usr/bin</filename
+> och de flesta andra filer i <filename class="directory"
+>/usr/share</filename
+> i olika kataloger. </para>
+
+<para
+>Om du uppgraderar från en tidigare version av KDE ska du utföra följande steg. Uppdatera först filen <filename
+>/etc/apt/sources.list</filename
+> genom att byta raden med platsen för KDE-paketen mot raden: <userinput
+>http://kde.tdyc.com/ stable kde2</userinput
+>. Uppdatera därefter din paketdatabas:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>update</option
+></userinput>
+</screen>
+ 
+<para
+>Installera till sist KDE:s grundläggande paket:</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdebase</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>dist-upgrade</option
+></userinput>
+</screen>
+ 
+<para
+> Om du vill installera fler KDE-komponenter prova några eller alla av de här kommandona.</para>
+
+<screen>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdenetwork</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdeadmin</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdetoys</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdeutils</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdemultimedia</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdegraphics</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdepim</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-kdegames</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install task-koffice</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdebase-docs</option
+></userinput>
+<userinput
+><command
+>apt-get</command
+> <option
+>install kdm</option
+></userinput>
+</screen>
+
+</sect1>
+
+<sect1 id="source-distribution">
+<title
+>Använda TGZ för att installera över andra system </title>
+
+<para
+>Om din Linux-distribution inte har ett RPM- eller DEB-arkivformat, eller om du inte använder Linux alls, måste du kompilera KDE själv. I framtiden planerar vi att tillhandahålla en binär distribution som innehåller ett eget installationsprogram. </para>
+
+<para
+>För att kunna kompilera och installera KDE riktigt, behöver du följande saker installerade på din hårddisk: </para>
+
+<itemizedlist
+> <listitem
+><para
+>En ANSI-C compiler, <abbrev
+>t.ex.</abbrev
+> <abbrev
+>GNU</abbrev
+> C kompilatorn. </para
+></listitem
+> <listitem
+><para
+>En ANSI-C++ kompilator, <abbrev
+>t.ex.</abbrev
+> <abbrev
+>GNU</abbrev
+> C++. </para
+></listitem
+> <listitem
+><para
+>Verktyget <application
+>make</application
+>. </para
+></listitem
+> <listitem
+><para
+>Qt utvecklingsversion 2.2 eller senare.</para
+></listitem
+> <listitem
+><para
+>X11 utvecklingsversion (include-filer saknas ofta) </para
+></listitem
+> </itemizedlist>
+
+<para
+>När du väl har alla hjälpprogram som behövs, gå till din favoritspegelserver för KDE och hämta följande filer från katalogen <filename
+>/pub/kde/stable/<replaceable
+>senaste version</replaceable
+></filename
+>:</para>
+
+<itemizedlist
+> <listitem
+><para
+><filename
+>kdesupport-<replaceable
+>version</replaceable
+>.tar.gz</filename
+></para
+></listitem
+> <listitem
+><para
+><filename
+>kdelibs-<replaceable
+>version</replaceable
+>.tar.gz</filename
+> </para
+></listitem
+> <listitem
+><para
+><filename
+>kdebase-<replaceable
+>version</replaceable
+>.tar.gz</filename
+></para
+></listitem
+> <listitem
+><para
+>alla övriga paket som du vill installera. Vi råder dig att hämta åtminstone kdeutils. </para
+></listitem
+> </itemizedlist>
+
+<para
+>I alla ovannämnda fall, står <replaceable
+>version</replaceable
+> för det nuvarande versionsnummret. När du har laddad ner allt du behöver packa då upp filerna i <filename
+>/usr/src</filename
+>. Den här processen ska resultera i följande katalogstruktur:</para>
+
+<itemizedlist
+> <listitem
+><para
+><filename
+>/usr/src/kdesupport</filename
+></para
+></listitem
+> <listitem
+><para
+><filename
+>/usr/src/kdelibs</filename
+></para
+></listitem
+> <listitem
+><para
+><filename
+>/usr/src/kdebase</filename
+></para
+></listitem
+> <listitem
+><para
+><filename
+>/usr/src/...</filename
+> (alla andra paket)</para
+></listitem
+> </itemizedlist>
+
+<para
+>Kontrollera att du har skrivrättigheter till <filename
+>/opt/kde</filename
+>.</para>
+
+<para
+>Därefter måste du kompilera och installera paketen enligt det följande: </para>
+
+<procedure
+> <step
+><para
+><command
+>cd</command
+> till katalogen med det paket som du vill installera (se ovan)</para
+></step
+> <step
+><para
+><command
+>./configure</command
+> (med de argument som du vill ange)</para
+></step
+> <step
+><para
+><command
+>make</command
+></para
+></step
+> <step
+><para
+><command
+>make install</command
+></para
+></step
+> </procedure>
+
+<para
+>Applicera de ovanstående stegen för varje paket som du vill installera.</para>
+
+<note
+><para
+>De här instruktionerna kan användas för nästan alla tillgängliga källkodspaket, inte bara KDE-paket. </para
+></note>
+
+<para
+>Varje configure-skript har flera alternativ tillgängliga. En del är gemensamma för alla paket, medan andra är speciella för ett individuellt paket. Det som följer är en del av resultatet av kommandot <command
+>configure <option
+>--help</option
+></command
+> i kdelibs:</para>
+
+<screen>
+<computeroutput>
+  --disable-fast-perl     disable fast Makefile generation (needs perl)
+  --enable-debug          creates debugging code [default=no]
+  --enable-strict         compiles with strict compiler options (may not work!)
+  --enable-profile        creates profiling infos [default=no]
+  --enable-final          build size optimized apps (experimental - needs lots of memory)
+  --disable-closure       don't delay template instantiation
+  --enable-shared[=PKGS]  build shared libraries [default=yes]
+  --enable-static[=PKGS]  build static libraries [default=no]
+  --enable-fast-install[=PKGS]  optimize for fast installation [default=yes]
+  --with-gnu-ld           assume the C compiler uses GNU ld [default=no]
+  --disable-libtool-lock  avoid locking (might break parallel builds)
+  --with-pic              try to use only PIC/non-PIC objects [default=use both]
+  --with-extra-includes=DIR
+                          adds non standard include paths
+  --with-extra-libs=DIR   adds non standard library paths
+  --with-qt-dir=DIR       where the root of Qt is installed
+  --with-qt-includes=DIR  where the Qt includes are.
+  --with-qt-libraries=DIR where the Qt library is installed.
+  --disable-rpath         do not use the rpath feature of ld
+  --disable-path-check    don't try to find out, where to install
+  --with-xdmdir           If the xdm config dir can't be found automaticly
+  --with-pam[=ARG]        enable support for PAM: ARG=[yes|no|service name]
+  --with-shadow           If you want shadow password support
+  --with-krb4[=PATH]      Compile in Kerberos v4 support.
+  --with-afs              Compile in AFS support (requires KTH krb4).
+  --with-ldap[=PATH]      Compile in LDAP support.
+  --with-samba-libs=path  Use Samba-tng libs in 'path'                [search]
+  --without-gl            disable 3D GL modes
+  --without-xpm           disable color pixmap XPM tests
+  --without-dpms          disable DPMS power saving
+  --with-x                use the X Window System
+  --with-motif-includes=DIR    Motif include files are in DIR
+  --with-motif-libraries=DIR   Motif libraries are in DIR                           
+</computeroutput>
+</screen>
+
+<para
+>Flera alternativ behövs inte och är bara användbara som sätt att komma runt kända problem (<abbrev
+>t.ex.</abbrev
+> <option
+>--disable-FUNKTION</option
+>). Eftersom vissa är viktiga alternativ, såsom <emphasis
+>--with-shadow</emphasis
+>, bör du alltid kontrollera de tillgängliga alternativen.</para>
+
+<para
+>Ett viktigt alternativ är <option
+>--prefix</option
+>. Det här alternativet anger sökvägen där configure ska installera (för kdesupport och kdelibs) eller var biblioteken kan hittas (för övriga paket). Normalt tittar configure i <filename
+>/opt/kde</filename
+> . Om du vill installera KDE i <filename
+>/usr/local/kde</filename
+>, måste du använda <command
+>configure <option
+>--prefix /usr/local/kde</option
+></command
+>.</para>
+
+<para
+>Om du har installerat Qt-biblioteken på ett ovanligt ställe, såsom i <filename
+>$HOME/src/qt</filename
+>, måste du använda  <command
+>configure <option
+>--with-qt-dir=$HOME/src/qt</option
+></command
+>. Normalt tittar configure på de vanligaste platserna efter QT innan det ger upp.</para>
+
+<para
+>Om du har problem som du inte lyckas lösa, skicka en kopia av filen <filename
+>config.log</filename
+> till adressen i filen <filename
+>README</filename
+> i paketet som inte fungerar.</para>
+
+<para
+>Du måste installera KDE i följande ordning: kdesupport, kdelibs, och sedan programpaketen (till exempel kdebase). Alla programpaket ska bara bero på kdelibs, så du kan kompilera dem samtidigt (om du har en kraftfull maskin).</para>
+
+<para
+>Om du vill utnyttja ett multiprocessorsystem, försök med <command
+>make <option
+> -j <replaceable
+>antal processorer</replaceable
+></option
+></command
+> istället för <command
+>make</command
+>. </para>
+
+<sect2>
+<title
+>Plattformsspecifika noter </title>
+
+<sect3>
+<title
+>Linux </title>
+
+<para
+>För Linux finns de flesta verktyg som behövs för att bygga KDE antingen på <ulink url="ftp://sunsite.unc.edu/pub/Linux/GCC"
+>ftp://sunsite.unc.edu/pub/Linux/GCC</ulink
+> eller <ulink url="ftp://sunsite.unc.edu/pub/GNU"
+>ftp://sunsite.unc.edu/pub/GNU</ulink
+>. Qt-biblioteken finns på <ulink url="ftp://ftp.troll.no/pub/qt/linux"
+>ftp://ftp.troll.no/pub/qt/linux</ulink
+>, och är tillgängliga i källkodsform eller på RPM-format för Linux. Båda innehåller detaljerade instruktioner om hur de ska installeras. Include-filer för X11-program ska finnas på <ulink url="ftp://ftp.xfree86.org"
+>ftp://ftp.xfree86.org</ulink
+> i avsnittet xdevel. </para>
+
+</sect3>
+</sect2>
+</sect1>
+
+<sect1 id="suse-install">
+<title
+>Nödvändiga ändringar i dina konfigurationsfiler </title>
+<para
+> Efter du har lagt KDE:s binärfiler i sina destinationskataloger, finns det ett antal justeringar du måste göra i dina uppstartsskript. </para>
+<para
+> Följande procedur har provats på Suse Linux 5.0, och bör fungera med de andra populära Unix-systemen också. <emphasis
+>Gör alltid säkerhetskopior av konfigurationsfiler innan du ändar dem!</emphasis
+> Lägg till följande i slutet på din /etc/profile: </para>
+<para
+> <screen
+>export PATH=$PATH:/opt/kde/bin 
+export KDEDIR=/opt/kde
+</screen
+> </para>
+<para
+>Redigera därefter .xinitrc-filen i din hemkatalog. Leta efter raden som anropar din fönsterhanterare och byt den mot <literal
+>startkde</literal
+>.</para>
+<para
+>Nu när allt som behövs för att köra KDE har installerats, kan du fortsätta med kapitel 4, där du startar KDE för första gången. Om något går fel, kan du behöva kompilera KDE själv. Läs <emphasis
+> <link linkend="source-distribution"
+>att använda TGZ för att installera över andra system</link
+> </emphasis
+>för mer information. </para>
+<para
+>Vi har gjort installationen så säker som möjligt, så du bör inte stöta på några allvarliga problem om din konfiguration inte är exotisk. Om du råkar ut för svårigheter tveka inte att använda <link linkend="mailing-lists"
+>KDE:s e-postlistor</link
+> </para>
+</sect1>
+</chapter>
+
+<chapter id="first-impressions">
+<title
+>De första intrycken </title>
+
+<epigraph>
+<attribution
+>Origin unknown</attribution>
+<para
+>You see to sea to see all that you can see is sea</para>
+</epigraph>
+
+<para
+>De första intrycken är så viktiga - det här är inte bara sant för Agatha Christies berömda thriller "Råttfällan" - men också för KDE. Som vi nämnt tidigare, är det meningen att KDE ska vara det mest intuitiva, lättlärda användargränssnittet som finns. I själva verket har vi nått målet när användare inte längre behöver den här boken för att arbeta med KDE, så att författarna förlorar sina (obetalda och frivilliga) arbeten med att skriva dokument. </para>
+
+<sect1 id="starting-kde">
+<title
+>Starta KDE </title>
+
+<para
+>När du startar ett Unix-system, händer en av två saker (dvs. om systemet fungerar riktigt, allt annat är ett odokumenterat tredje fall). Antingen förblir du i textläge och får ett loginmeddelande eller så visas ett grafiskt inloggningsfönster. I det första fallet måste du logga in på systemet och skriva: </para>
+
+<screen
+>  
+<command
+>startx</command
+>  
+</screen>
+
+<para
+>Om installationen lyckades, ska KDE skrivbordet visas efter några få sekunders initiering. </para>
+
+<para
+>Om ett grafiskt inloggningsfönster visas, är allt som krävs ditt användarnamn och lösenord. Under förutsättning att KDE installationen lyckades, ska KDE starta utan vidare inblandning. </para>
+
+<para
+>Om du inte har gjort det redan, rekommenderar vi att du ändrar din X-skärmhanterare från <application
+>xdm</application
+> till <application
+>kdm</application
+>, som innehåller samma funktionalitet, men med de avancerade funktionerna i K skrivbordsmiljön. </para>
+
+</sect1>
+
+<sect1 id="desktop-components">
+<title
+>Skrivbordets komponenter </title>
+
+<para
+>Efter allting har startat, ta dig lite tid att utforska den nya omgivningen. Om du redan har arbetat med <emphasis
+>Windows 95</emphasis
+> eller <emphasis
+>OS/2 Warp 4</emphasis
+>, bör en hel del verka bekant. De tre viktigaste delarna på ett KDE-skrivbord är skrivbordet självt, panelen och aktivitetsfältet. </para>
+
+<sect2 id="kde-logout">
+<title
+>Panelen </title>
+
+<para
+>När du startar KDE första gången, återfinns panelen i skärmens nederkant. Härifrån startar du dina program och växlar mellan de virtuella skärmarna. </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guiicon
+>K</guiicon
+>-knappen</term
+> <listitem
+><para
+>En av de viktigaste platserna på ditt KDE-skrivbord är "<guiicon
+>K</guiicon
+>"-knappen. Härifrån kan du starta alla KDE-program som är installerade. Senare, när du lär dig <link linkend="adding-programs"
+>K-menyeditorn</link
+>, kan du dessutom också lägga till andra program här. För att starta ett program, klicka bara på knappen. Du kommer att se en lista av olika kategorier, och några speciella poster. Så fort du flyttar musen över en post som har en högerpil, visas en ny meny. När du har hittat programmet du vill starta, klicka bara på det med <mousebutton
+>vänster</mousebutton
+> musknapp.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Knappar för virtuella skrivbord</term
+> <listitem
+><para
+>När du startar KDE första gången, observera de fyra knapparna med de passande namnen "Ett", "Två", "Tre", och "Fyra". Dessa representerar dina fyra <emphasis
+>skrivbord</emphasis
+>. Klicka bara på en av dem. Ta det lungt, även om de har "försvunnit", så är alla öppna fönster fortfarande aktiva (ta bara en titt i aktivitetsfältet). Att använda flera skrivbord är en av de mest kraftfulla funktionerna i KDE och X-Window systemet. Istället för att lägga ett fönster över ett annat, som du skulle göra med Windows eller OS/2, kan du säga "Ja, på det första skrivbordet skriver jag KDE:s användarhandbok. På det andra skrivbordet kör jag <abbrev
+>sgml2latex</abbrev
+> kompilatorn och tittar på mina resultat medan jag kompilerar min Linux-kärna på det tredje skrivbordet, och läser min e-post på det fjärde." </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Ikonraden</term
+> <listitem
+> <para
+>En del människor är så lata att de anser att till och med två eller tre förflyttningar genom programmenyn är för mycket (inklusive jag själv). För dem kan ytterligare knappar placeras intill skrivbordsknapparna, t.ex. genvägar till din hemkatalog, till din papperskorg, till kvt-terminalemulatorn och till de dokument som du ofta använder. För information om hur man lägger till ikoner i aktivitetsfältet, läs <link linkend="icons-add"
+>Lägg till ikoner i ditt aktivitetsfält</link
+>. </para
+> <para
+>KDE installerar ett antal vanliga förvalda knappar, inklusive länkar till <application
+>Khelpcenter</application
+>, <application
+>KWrite</application
+> och <application
+>KDE:s inställningscentral</application
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Tid och datum</term
+> <listitem
+><para
+>Längst till höger i KDE:s panel, kan du alltid se klockan med datum.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Aktivitetsfältet</term
+> <listitem
+> <para
+>I en annan del av panelen hittar du en knapp för varje öppet fönster. Klicka bara på knappen som motsvarar det fönster som du vill visa. Ett klick till minimerar fönstret. Ett <mousebutton
+>höger</mousebutton
+>klick med musen visar en meny som låter dig flytta fönstret till ett annat skrivbord, ändra dess storlek, eller avsluta programmet.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+<sect2>
+<title
+>Använda fönster </title>
+
+<variablelist
+> <varlistentry
+> <term
+>Fönstermenyn</term
+> <listitem
+> <para
+>Om du <mousebutton
+>höger</mousebutton
+>klickar i namnlisten i fönstret (där programmets namn visas), kan du se en meny för att hantera fönstret. Detta är samma meny som du ser om du <mousebutton
+>höger</mousebutton
+>klickar på en programikon i panelens aktivitetsfält. När du klickar på den, visas en sammanhangsberoende meny som innehåller kommandon för att hantera fönstret. Tillgängliga kommandon är:</para
+> <variablelist
+> <varlistentry
+> <term
+><guimenuitem
+>Flytta</guimenuitem
+></term
+> <listitem
+><para
+>Låter dig flytta fönstret med musen. Klicka med <mousebutton
+>vänster</mousebutton
+> musknapp när fönstret är där du vill ha det.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Storlek</guimenuitem
+></term
+> <listitem
+><para
+>Gör det möjligt att göra fönstret mindre eller större. Flytta runt musen och klicka när du är nöjd med den nya storleken.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Minimera</guimenuitem
+></term
+> <listitem
+><para
+>Gömmer fönstret, och lämnar bara en ikon i aktivitetsfältet. Observera att namnet på fönstret nu visas inom (parenteser). För att få tillbaka fönstret på skrivbordet igen, klicka på ikonen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Maximera</guimenuitem
+></term
+> <listitem
+><para
+>Det här expanderar fönstret till den största möjliga storleken. Observera att KDE tar storleken från ditt <emphasis
+>virtuella skrivbord</emphasis
+>, vilket betyder att fönstret kan vara större än din skärm. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Rulla upp</guimenuitem
+></term
+> <listitem
+><para
+>Lämnar bara namnlisten synlig, genom att "rulla" upp fönstret. Du åstadkommer samma effekt genom att dubbelklicka på namnlisten. För att visa hela fönstret igen, välj <guimenuitem
+>Rulla upp</guimenuitem
+> igen, eller dubbelklicka i namnlisten.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Alltid överst</guimenuitem
+></term
+> <listitem
+><para
+>Genom att välja det här läggs alltid det här fönstret över alla andra program, även när det inte har fokus.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Dekoration</guimenuitem
+></term
+> <listitem
+><para
+>Låter dig ändra utseendet, och i en del fall platsen, för alla fönster i KDE. Det här ändrar grafikkomponenterna för fönsterdekoration, inklusive namnlistens knappar, men också saker som kryssrutor och knappar i dialoger, rullningslister, och namnlisten själv. KDE2 är förvalt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Till skrivbord</guimenuitem
+></term
+> <listitem
+><para
+>Låter dig flytta ett fönster till ett annat skrivbord. Välj skrivbordet där du vill att fönstret ska vara. Fönstret försvinner genast. För att se ditt fönster igen, välj motsvarande  <guiicon
+>skrivbordsknapp</guiicon
+> i KDE:s <application
+>panel</application
+>. Genom att välja <guimenuitem
+>Alla skrivbord</guimenuitem
+> blir fönstret "klistrigt" - det visas samtidigt på alla skrivbord, så att du alltid kan se det.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenuitem
+>Stäng</guimenuitem
+></term
+> <listitem
+><para
+>Det här stänger fönstret. Ibland låter programmet dig spara ditt arbete, men i en del fall  (<abbrev
+>t.ex.</abbrev
+> gamla X11-program) fungerar inte detta. Det är bästa att stänga ett program med ett eget kommando, och bara använda det här menyvalet som en sista utväg.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Klistrig knapp</term
+> <listitem
+><para
+>Den här knappen ser ut som ett häftstift. Den utför samma åtgärd som att välja <guimenuitem
+>alla skrivbord</guimenuitem
+> i <guimenu
+>fönstermenyn</guimenu
+>, men kräver färre steg.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Namnlisten</term
+> <listitem
+><para
+>Namnlisten innehåller fönstrets namn, och kan dubbelklickas för att rulla upp fönstret. Använd <mousebutton
+>höger</mousebutton
+> musknapp: <guimenu
+>fönstermenyn</guimenu
+> visas igen, så att du kan maximera, minimera, flytta, ändra storlek eller klistra upp fönstret för att flytta det till ett annat skrivbord (det här fungerar snabbare än metoden med den klistriga knappen). När ett program inte reagerar längre, kan du stänga det (vilket ibland ger dig möjlighet att spara ditt arbete). </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guibutton
+>Minimera</guibutton
+>, <guibutton
+>maximera</guibutton
+> och <guibutton
+>stäng knappar</guibutton
+></term
+> <listitem
+><para
+>Till höger om namnlisten finns det två knappar som också kan användas för att minimera eller maximera fönstret (det här är snabbare än att använda fönstermenyn för åtgärden). Minimerade fönster kan återställas med ett klick i aktivitetsfältet. </para
+> <para
+>Längst till vänster i namnlisten (med den förvalda fönsterdekorationen) finns en knapp för att stänga fönstret.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>För att flytta ett fönster, håll nere <mousebutton
+>vänster</mousebutton
+> musknapp med markören i namnlisten. Utan att släppa musknappen, flytta fönstret till den plats du vill ha det, och släpp sedan musknappen. Om du vill ändra storlek på ett fönster, flytta markören till den kant du vill ändra. När du når rätt ställe ändras markören från en vanlig pil till en dubbelpil. Håll nere <mousebutton
+>vänster</mousebutton
+> musknapp och dra sidan ifråga dit du vill ha den, och släpp sedan knappen. Observera att du kan dra sidor eller hörn (som justerar storleken i två dimensioner samtidigt).</para>
+
+<para
+>Att använda menyraden som finns i varje KDE-fönster är lätt. Klicka bara på vad du vill göra, och det blir gjort.</para>
+
+<para
+>Under menyraden finns ett antal verktygssymboler som du kan använda för att utföra kommandon. När du flyttar markören över dem, markeras bilder som är aktiva. Men verktygsraden kan göra ännu mer åt dig. Ser du den smala streckade raden till vänster om menyn och ikonraderna? Tryck ner din <mousebutton
+>högra</mousebutton
+> musknapp och en sammanhangsberoende meny visas, som gör att du kan flytta verktygsraden <guimenuitem
+>längst upp</guimenuitem
+>, <guimenuitem
+>till vänster</guimenuitem
+>, <guimenuitem
+>till höger</guimenuitem
+>, eller <guimenuitem
+>längst ner</guimenuitem
+> i fönstret. Du kan också gömma verktygsraden genom att välja <guimenuitem
+>ihopfälld</guimenuitem
+>.</para>
+
+</sect2>
+
+<sect2>
+<title
+>Hämta hjälp </title>
+
+<para
+>Hjälp är tillgängligt praktiskt taget överallt. På skrivbordet, använd bara <mousebutton
+>höger</mousebutton
+> musknapp och välj <guimenuitem
+>Hjälp om skrivbordet</guimenuitem
+>. I KDE:s panel, öppna programmenyn och välj <guimenu
+>Hjälp</guimenu
+>. Alla KDE-program har en hjälpmeny. All hjälp är baserad på HTML, så att använda hjälpsystemet är lika lätt som att använda din favoritwebbläsare! </para>
+
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Komma igång </title>
+
+<epigraph>
+<attribution
+>Help for one of the toughest riddles in <quote
+>The 7th
+Guest</quote
+></attribution>
+<para
+>Using only what you see, can you get from A to B?</para>
+</epigraph>
+
+<para
+>Hittills kanske KDE inte verkar vara mycket mer än en annan fönsterhanterare med några praktiska skrivbordsfunktioner. Men häng kvar, i de följande avsnitten introducerar vi funktioner som gör dig säker på att du aldrig vill använda ditt Unix-system utan KDE i fortsättningen!</para>
+
+<sect1 id="editing-files">
+<title
+>Redigera filer </title>
+
+<para
+>Eftersom du inte bara har KDE-program installerade på ditt system, känner du förmodligen till röran med att redigera konfigurationsfiler med <abbrev
+>ASCII</abbrev
+>-text. Men i själva verket finns det många andra sorters filer som behöver redigeras på det här sättet. Till exempel skrevs den ursprungliga engelska <abbrev
+>SGML</abbrev
+>-koden till det här dokumentet med <abbrev
+>ASCII</abbrev
+>-text, liksom källkoden för KDE-programmen själva. Vi kommer nu att visa dig hur du kan använda <application
+>Texteditor</application
+>-verktyget i KDE för att redigera <abbrev
+>ASCII</abbrev
+>-filer själv. </para>
+
+<sect2 id="the-filemanager-screen">
+<title
+>Öppna ett fönster som innehåller din hemkatalog </title>
+
+<para
+>Klicka på <guibutton
+>starta program</guibutton
+> och välj <guimenuitem
+>Hemkatalogen</guimenuitem
+>. Ett fönster som visar innehållet i din hemkatalog dyker upp. För att se en mer detaljerad listning på filer i din hemkatalog, gör det följande: </para>
+
+<procedure
+> <step
+><para
+>Välj <guimenuitem
+>Visa gömda filer</guimenuitem
+> från menyn <guimenu
+>Visa</guimenu
+>.</para
+></step
+> <step
+><para
+>Välj <guimenuitem
+>Visa sidrad</guimenuitem
+> från menyn <guimenu
+>Fönster</guimenu
+>.</para
+></step
+> </procedure>
+
+<para
+>Till vänster i fönstret, ska en trädvy av din filsystemstruktur visas, inklusive alla "dolda filer" - filer eller kataloger som börjar med en punkt. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Filhanterarens fönster </title>
+
+<para
+>Vi har försökt göra filhanteraren så enkel som möjligt att använda, och om du känner till andra fönsterhanterare (inklusive de som finns inbyggda i andra operativsystem) med integrerad filhantering, är många av de följande begreppen säkert redan bekanta: </para>
+
+<para
+>Längst upp finns menyn <guimenu
+>Plats</guimenu
+> som innehåller funktioner för att öppna och stänga filhanterarens fönster. Du kan också skriva ut det aktuella innehållet. </para>
+
+<note
+><para
+>Vill du besöka en plats på Internet? Välj bara <menuchoice
+><guimenu
+>Plats</guimenu
+><guimenuitem
+>Öppna plats</guimenuitem
+></menuchoice
+> (eller tryck <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+>) och skriv in en webbadress. </para
+> <para
+>Om du till exempel vill besöka KDE:s hemsida, skriv då in <userinput
+>http://www.kde.org</userinput
+>. Du kan också snabbt hantera <abbrev
+>FTP</abbrev
+>-filer på det här sättet. KDE är "Internetredo", vilket betyder att du inte bara  kan ladda och spara filer på din lokala hårddisk, utan också på fjärrservrar för <abbrev
+>FTP</abbrev
+> och <abbrev
+>HTTP</abbrev
+>. KDE skiljer inte på lokala filsystem och fjärrsystem, i motsats till andra operativsystem och skrivbord. </para
+></note>
+
+<para
+>Menyn <guimenu
+>Redigera</guimenu
+> erbjuder funktioner för att välja, kopiera och flytta filer. Vi kommer att använda dem senare. Eftersom du redan har använt menyn <guimenu
+>Visa</guimenu
+>, har du säkert redan märkt att du kan visa innehållet på många olika sätt. Lek en stund och se vad som händer. </para>
+
+<para
+>Du kommer utan tvekan tycka att <guimenu
+>Bokmärken</guimenu
+> är verkligt användbar: nu kan du komma ihåg praktiskt taget varje länk, vare sig den är till den lokala maskinen eller någonstans på Internet. </para>
+
+<para
+>Menyn <guimenu
+>Verktyg</guimenu
+> hjälper dig hitta de ökända filer som du lagt någonstans men inte längre kommer ihåg var. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Navigera genom kataloger </title>
+
+<para
+>Nu tar vi en av dina konfigurationsfiler och redigerar den. Först måste vi byta katalog i filhanteraren. Rulla neråt i trädvyn till vänster i fönstret tills du hittar katalogen <filename
+>/etc</filename
+>. Dubbelklicka på <filename
+>etc</filename
+>. Du kommer då att se en lista med filer i det högra fönstret. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Redigera en fil </title>
+
+<para
+>Rulla nedåt tills du hittar filen <filename
+>motd</filename
+>  och klicka på den med <mousebutton
+>höger</mousebutton
+> musknapp. I den <guimenu
+>sammanhangsberoende menyn</guimenu
+>, välj <guimenuitem
+>Öppna med</guimenuitem
+>. Ett nytt fönster dyker upp. Skriv <userinput
+>kedit</userinput
+> och klicka på <guibutton
+>Ok</guibutton
+> eller tryck på <keycap
+>Enter</keycap
+>. Voila! </para>
+
+</sect2>
+
+<sect2>
+<title
+>Editorskärmen </title>
+
+<para
+>Ju mer du arbetar med KDE, ju mer märker du att de flesta fönster och program har samma utseende och känsla. Menyn <guimenu
+>Arkiv</guimenu
+> i <application
+>Texteditor</application
+> är ett utmärkt exempel på detta. Nästan alla andra KDE-program har samma meny, som gör att du kan skapa nya filer, öppna befintliga filer från ditt lokala filsystem eller (snart tillgängligt) från nätet, spara dem (snart också på nätet), skriva ut eller e-posta till någon annan.</para>
+
+<para
+>Menyn <guimenu
+>Redigera</guimenu
+> finns också i de flesta KDE-program, och gör att du kan klippa och klistra information mellan olika program. Du kan också söka eller ersätta text. Genom att använda menyn <guimenu
+>Inställningar</guimenu
+> kan du anpassa texteditorn på många olika sätt. Du kan till exempel öka teckenstorleken för att passa din bildskärms upplösning - och dina ögon. Precis som i alla andra KDE-program finns det förstås en <guimenu
+>hjälp</guimenu
+>meny, som direkt ger dig hjälp närhelst du behöver. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Använda editorn </title>
+
+<para
+>De flesta <filename
+>motd</filename
+>-filer innehåller onödigheter som "Glöm inte att säkerhetskopiera dina data" eller "Stör inte systemadministratören". Tråkigt! Låt oss ändra texten så att användare som loggar in får verkligt viktig information. Du kan leta dig igenom texten med piltangenterna, och markera delar av texten med <keycombo
+><keycap
+>Shift</keycap
+> <keycap
+>piltangent</keycap
+> </keycombo
+> eller genom att använda musen med <mousebutton
+>vänster</mousebutton
+> musknapp nere. Använd menyn <guimenu
+>Redigera</guimenu
+> för att klippa och klistra text. Skriv in vad du vill, eller använd följande (utmärkta) exempel: </para>
+
+<screen
+><userinput
+>Välkommen!
+ 
+Den här maskinen har nu KDE installerat, som ger dig tillgång till ett 
+utmärkt, lättanvänt gränssnitt med enhetligt utseende och känsla 
+för alla dina program. För mer information om hur du får KDE att köra 
+i ditt konto, skicka e-post till din systemadministratör. </userinput
+></screen>
+
+</sect2>
+
+<sect2 id="drag-and-drop">
+<title
+>Spara ditt arbete </title>
+
+<para
+>När du nu har ändrat filen <filename
+>motd</filename
+>, är det dags att spara den, så att ändringarna får effekt. För att göra detta, kan du antingen använda menyn <guimenu
+>Arkiv</guimenu
+>, eller ikonen <guiicon
+>Spara</guiicon
+> i verktygsraden. Till slut, avsluta ditt arbete genom att stänga texteditorns och filhanterarens fönster. Du kan göra detta genom att klicka på <guibutton
+>X</guibutton
+>-knappen överst till vänster i fönstren, genom att använda fönstermenyn i namnlisten eller genom att välja <menuchoice
+><guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+></menuchoice
+>. Enkelt och elegant, inte sant? </para>
+
+</sect2>
+</sect1>
+
+<sect1 id="moving-files-with-drag-and-drop">
+<title
+>Flytta filer med drag och släpp </title>
+
+<para
+>Som du såg i förra avsnittet, är det lätt som en plätt att arbeta med filer. Men hela affären med att kopiera och klistra in kan bli irriterande när du vill kopiera och flytta filer. Ta det lungt, en procedur som kallas "dra och släpp" låter dig kopiera och flytta filer ännu snabbare och lättare. </para>
+
+<sect2>
+<title
+>Öppna två filhanterarfönster </title>
+
+<para
+>Innan du kan börja måste du öppna två filhanterarfönster. Det enklaste sättet att öppna ett nytt fönster är att klicka på kugghjulet till höger i verktygsraden. Om du inte ser trädvyn i det nya fönstret, aktivera den (<menuchoice
+><guimenu
+>Fönster</guimenu
+><guimenuitem
+>Visa sidrad</guimenuitem
+> </menuchoice
+>). </para>
+
+</sect2>
+
+<sect2>
+<title
+>Dra en fil från ett fönster till ett annat </title>
+
+<para
+>I det första fönstret, öppna katalogen <filename
+>/etc</filename
+> och rulla neråt tills du ser filen <filename
+>motd</filename
+> som vi ändrade i förra avsnittet.</para>
+
+<para
+>Öppna din hemkatalog i det andra fönstret.</para>
+
+<para
+>Klicka på filen <filename
+>motd</filename
+>. Håll nere den <mousebutton
+>vänstra</mousebutton
+> musknappen och dra din fil till din hemkatalog. Släpp <mousebutton
+>vänstra</mousebutton
+> musknappen (det här kallas att <emphasis
+>släppa</emphasis
+> filen). Du får tre alternativ att välja på: <guimenuitem
+>Kopiera hit</guimenuitem
+>, <guimenuitem
+>Flytta hit</guimenuitem
+> och <guimenuitem
+>Länka hit</guimenuitem
+>. <guimenuitem
+>Länka hit</guimenuitem
+> skapar en symbolisk länk till filen, medan <guimenuitem
+>Kopiera hit</guimenuitem
+> och <guimenuitem
+>Flytta hit</guimenuitem
+> gör precis vad de säger. Välj <guimenuitem
+>Kopiera hit</guimenuitem
+>. Du bör nu ha en kopia av filen <filename
+>motd</filename
+> i din hemkatalog. </para>
+
+</sect2>
+</sect1>
+
+<sect1 id="using-command-line-and-terminals">
+<title
+>Använda kommandoraden och terminaler </title>
+
+<para
+>Hittills har du bara arbetat med verktygen och programmen som KDE tillhandahåller. Utan tvekan vill du också använda andra Unix-program. Det finns två sätt att köra dem: snabbkommandoraden och terminalen. </para>
+
+<sect2>
+<title
+>Snabbkommandoraden </title>
+
+<para
+>Ett litet fönster där du kan skriva in ett kommando dyker upp när du trycker <keycombo
+><keycap
+>Alt</keycap
+> <keycap
+>F2</keycap
+></keycombo
+>. Observera att du inte kommer att se någon textutmatning från ett program som startas på det här sättet! Den här metoden rekommenderas bara för att starta X-Window program eller för att köra verktyg där du inte behöver se eller skriva in något. Du behöver fortfarande använda terminalen för andra program. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Unix terminalemulator </title>
+
+<para
+>Välj <menuchoice
+><guisubmenu
+>System</guisubmenu
+><guimenuitem
+>Terminal</guimenuitem
+> </menuchoice
+> i programmenyn. Ett terminalfönster öppnas. Du kan använda vanliga Unix-kommandon här: <command
+>ls</command
+>, <command
+>cat</command
+>, <command
+>less</command
+> och så vidare. Med inställningsmenyn kan du anpassa terminalen för att passa dina behov. </para>
+
+</sect2>
+</sect1>
+
+<sect1 id="finding-your-lost-files">
+<title
+>Hitta dina förlorade filer </title>
+
+<para
+>Alla har säkert stött på följande problem: Du startar ftp, loggar in på en utmärkt plats, som ftp.kde.org, och börjar ladda hem filer. Det är sent på kvällen och du stänger av din maskin efter att ha avslutat överföringen. Nästa morgon sitter du vid tangentbordet igen och börjar fundera på vilken katalog du använde för filerna som du nyss överförde. Med KDE:s <application
+>Filsökning</application
+>sverktyg hittar du de förlorade filerna i en handvändning. </para>
+
+<sect2>
+<title
+>Starta <application
+>Filsökning</application
+> </title>
+
+<para
+>Att starta <application
+>Filsökning</application
+> är enkelt: Välj  <guimenuitem
+>Filsökning</guimenuitem
+> i <guimenu
+>Starta program</guimenu
+>. <application
+>Filsökning</application
+> använder ett gränssnitt som du nog inte sett tidigare: registerflikar. När <application
+>Filsökning</application
+> starter, ser du att <guilabel
+>Namn och plats</guilabel
+> är valt. När du klickar på <guilabel
+>Datumintervall</guilabel
+>, ändras registerinnehållet. Eftersom du aldrig har gjort en sökning tidigare, är de flesta ikoner i verktygsraden och menyvalen avstängda. Nu kommer vi att ändra på detta. </para>
+
+</sect2>
+
+<sect2>
+<title
+>Söka efter en fil genom att veta delar av dess namn </title>
+
+<para
+>Det är lätt att söka om du kan en del av filnamnet. Välj fliken <guilabel
+>Namn och plats</guilabel
+>, och skriv in filnamnet. Jokertecken kan användas om det behövs. För att prova, skriv in <userinput
+>*.tar.gz</userinput
+>. Normalt börjar sökningen i din hemkatalog, men du kan välja vilken startkatalog som helst genom att klicka på <guilabel
+>Sök i</guilabel
+> eller <guibutton
+>Bläddra...</guibutton
+>. Klicka på ikonen till vänster i verktygsraden (som ser ut som ett förstoringsglas ovanför ett papper) för att börja söka. Efter en liten stund visas en lista med filer i resultatfönstret. Om de inte visas, började du söka i fel katalog, stavade filnamnet fel eller så finns det inga filer som slutar med <filename
+>.tar.gz</filename
+> på din maskin. </para>
+
+</sect2>
+
+<sect2 id="finding-with-complex-criteria">
+<title
+>Söka efter en fil med mer komplexa sökvillkor </title>
+
+<para
+>Det finns många kategorier du kan använda för att precisera din sökning. <emphasis
+>Ju mer du vet om en fil, desto större är chansen att du hittar den</emphasis
+>.</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Datumintervall</guilabel
+></term
+> <listitem
+><para
+>Här kan du ange att du bara vill söka efter filer vars senaste ändring ägt rum inom ett givet tidsintervall. Du kan också ange att du bara vill se filer vars senaste ändring ägde rum för ett visst antal månader eller dagar sedan.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Av typ</guilabel
+> under fliken <guilabel
+>Avancerat</guilabel
+>.</term
+> <listitem
+><para
+>Om du vet att filen var av en särskild typ (<abbrev
+>t.ex.</abbrev
+>, ett tar/gzip arkiv eller en jpeg bild), kan du begära att <application
+>Filsökning</application
+> bara ska söka efter filer av den här typen. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Innehållande text</guilabel
+> under fliken <guilabel
+>Avancerat</guilabel
+></term
+> <listitem
+> <para
+>Du kan ange en text som filen måste innehålla. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vars storlek är</guilabel
+>, också under fliken <guilabel
+>Avancerat</guilabel
+></term
+> <listitem
+><para
+>Om du känner till filstorleken, kan du begränsa sökningen i det här avseendet också. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>&kfind; har många fler alternativ för att förfina sökningar, utforska allihop!</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="using-multiple-desktops">
+<title
+>Använda flera skrivbord </title>
+
+<para
+>Användning av flera skrivbord hjälper dig att organisera ditt arbete. Du kan lägga dina program på olika skrivbord, och namnge skrivborden så att du vet vad du gör där. Detta ökar och optimerar ditt arbetsutrymme. Det hjälper också när du surfar på nätet istället för att arbeta och din chef kommer in. Men det är förstås sällsynt, åtminstone på kontoret där jag arbetar ;). </para>
+
+<para
+>Du kan byta mellan skrivbord genom att klicka på skrivbordsknapparna i KDE:s panel. Om du vill döpa om dem, kan du göra det genom att dubbelklicka på dem. </para>
+
+<para
+>Du kan använda fönster på flera skrivbord. Om du vill att ett fönster ska synas överallt, klicka bara på den klistriga knappen överst till vänster i fönstret. För att skicka ett fönster till ett annat skrivbord, klicka på namnlisten med höger musknapp, välj <guimenuitem
+>Till skrivbord</guimenuitem
+> och ange skrivbordet dit du vill flytta fönstret. </para>
+
+</sect1>
+
+<sect1 id="quitting-kde">
+<title
+>Avsluta KDE </title>
+
+<para
+>Du kan använda <guimenuitem
+>Logga ut</guimenuitem
+> i <guimenu
+>Starta program</guimenu
+> för att sluta arbeta med KDE. Du blir tillfrågad om du verkligen vill avsluta KDE. Alla fönster stängs och du kommer tillbaka till din konsol eller inloggningshanterare när du avslutar. Läs <link linkend="kde-logout"
+>noter om hur man loggar ut</link
+> för information om hur program kan spara ditt arbete vid utloggning. </para>
+
+</sect1>
+</chapter>
+
+<chapter id="all-about-your-desktop">
+<title
+>Allt om ditt skrivbord</title>
+
+<epigraph>
+<attribution
+>Little Red Riding Hood</attribution>
+<para
+>Grandma, what big eyes you have!</para>
+</epigraph>
+
+<epigraph>
+<attribution
+>The Wolf</attribution>
+<para
+>The better to see you!</para>
+</epigraph>
+
+<para
+>Ju mer du ser, desto effektivare kan du använda ditt skrivbord. KDE ger dig möjlighet att få skrivbordet att se ut och fungera som du föredrar, och på så sätt göra att du kan arbeta fortare och mer produktivt. Du har till och med möjlighet att bli varnad om en varg försöker äta upp dig, eller (om du råkar vara mormor) när Rödluvan är på väg med godsaker. Tala om service! </para>
+
+<sect1 id="the-autostart-folder">
+<title
+>Autostartmappen</title>
+
+<para
+>Innan jag upptäckte autostartmappen bestod min dagliga uppstartsrutin med KDE av följande: Starta <application
+>KDE</application
+>, starta <application
+>Texteditor</application
+>, starta <application
+>Terminal</application
+>, starta <application
+>Netscape</application
+>, och starta <application
+>kscd</application
+>. Det här tog tid som jag kunde ha spenderat på ett bättre sätt. KDE:s egna program som är öppna vid slutet på en session sparar sitt tillstånd och dyker åter upp när du loggar in igen, men det finns en del program (som <application
+>Netscape</application
+>) som inte gör det. Du kan använda <filename
+>Autostart</filename
+>mappen för de här programmen.</para>
+
+<para
+>För att köra program när KDE startas, gör det följande:</para>
+
+<procedure
+> <step
+><para
+>Öppna <filename
+>Autostart</filename
+>mappen. Du hittar den troligen i övre vänstra hörnet på ditt skrivbord.</para
+></step
+> <step
+><para
+>Öppna ett <application
+>Konqueror</application
+>-fönster och bläddra till programmet du vill lägga till. Om du inte vet hur du gör det här, så behandlades det i  <xref linkend="the-filemanager-screen"/></para
+></step
+> <step
+><para
+>Drag och släpp programmet du vill ha från <application
+>Konqueror</application
+>-fönstret till <filename
+>Autostart</filename
+>mappen. När du blir tillfrågad, välj <guimenuitem
+>Länka hit</guimenuitem
+> för att skapa en symbolisk länk istället för en riktig kopia, eftersom det sparar en hel del diskutrymme.</para
+></step
+> <step
+><para
+>Upprepa ovanstående steg för varje program som du vill köra när KDE startas. Kom ihåg, du behöver inte lägga till KDE:s egna program, bara lämna dem öppna när du loggar ut, och de kommer att öppnas igen som om ingenting hade hänt, nästa gång du loggar in till KDE.</para
+></step
+> <step
+><para
+>Starta om KDE om du vill se autostart-funktionen i verkligheten.</para
+></step
+> </procedure>
+
+<para
+>Dina program bör nu köra automatiskt när KDE startas om. Om du vill lägga till något speciellt (<abbrev
+>t.ex.</abbrev
+> om du vill se en särskild webbsida när systemet kommer igång), läs <link linkend="using-templates"
+>Använda mallar</link
+>. Procedurerna som beskrivs där fungerar för alla mappar, så du kan också applicera dem på <filename
+>Autostart</filename
+>mappen.</para>
+
+</sect1>
+
+<sect1 id="adding-programs">
+<title
+>Lägga till program och genvägar i din <guimenu
+>K-meny</guimenu
+> och panel</title>
+
+
+<para
+><guimenu
+>K-menyn</guimenu
+> och <application
+>panelen</application
+> är inte begränsade till inställningen du får direkt efter du har installerat KDE. Panelen är gjord för att kunna utökas, och det finns två sätt att åstadkomma detta: lägga till nya program och lägga till genvägar i form av ikoner.</para>
+
+<sect2 id="menu-items-add">
+<title
+>Lägga till menyval</title>
+
+<para
+>För att lägga till dina favoritprogram i KDE:s panel, kan du använda menyeditorn. För att starta den, använd <guiicon
+>starta program</guiicon
+> och välj <menuchoice
+><guimenuitem
+>System</guimenuitem
+><guimenuitem
+>Menyeditor</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Ett fönster öppnas som visar den befintliga <guimenu
+>K-menyn</guimenu
+> till vänster och en tom menyvalsdialog till höger.</para>
+
+<para
+>I det här exemplet lägger vi till ett menyval för <application
+>Gimp</application
+> i undermenyn <guisubmenu
+>Bild</guisubmenu
+>. Om du redan har <guimenuitem
+>Gimp</guimenuitem
+> där och inte vill ha en till, kan du fortfarande följa med i det här exemplet men bara låta bli att klicka på <guibutton
+>Verkställ</guibutton
+> när du är klar.</para>
+
+<procedure
+> <step
+><para
+>Navigera neråt till vänster till posten <guisubmenu
+>Bild</guisubmenu
+>.</para
+></step
+> <step
+><para
+>Klicka en gång på den med <mousebutton
+>vänster</mousebutton
+> musknapp för att expandera posten.</para
+></step
+> <step
+><para
+>Klicka på ikonen som heter <guiicon
+>Ny post</guiicon
+> i verktygsraden, eller välj <menuchoice
+><guimenu
+>Arkiv</guimenu
+><guimenuitem
+>Ny post</guimenuitem
+></menuchoice
+> på menyraden.</para
+></step
+> <step
+><para
+>Skriv in namnet du vill att ditt nya menyval ska få i dialogrutan som dyker upp. För detta exempel, skriv <userinput
+>Gimp</userinput
+>.</para
+><para
+>Klicka sedan på <guibutton
+>Ok</guibutton
+> i dialogen.</para
+></step
+> <step
+><para
+>Klicka på den nya menyposten <guimenuitem
+>Gimp</guimenuitem
+> som skapades åt dig i undermenyn <guisubmenu
+>Bild</guisubmenu
+>. Menyvalsdialogen till höger ändras nu, och är nästan tom förutom namnet du redan angivit.</para
+></step
+> <step
+><para
+>Fyll i en valfri <guilabel
+>kommentar</guilabel
+>. Du kanske vill skriva <userinput
+>En bildeditor</userinput
+> för det här exemplet. Text som skrivs in här visas som verktygstips i <guimenu
+>Starta program</guimenu
+></para
+></step
+> <step
+><para
+>Skriv in kommandot du skulle skriva på kommandoraden för att starta ditt program i rutan som heter <guilabel
+>Kommando</guilabel
+>. I det här exemplet är det <command
+>gimp</command
+>. Du kan också skriva in eventuella kommandoparametrar om du vill. Du kan använda detta för att t.ex. skapa ett menyval som alltid öppnar ett särskilt dokument eller en särskild bild. Titta i programmets dokumentation för att hitta mer om kommandoradsparametrar.</para
+></step
+> <step
+><para
+>Om du vill att programmet ska arbeta i en särskild katalog (till exempel om <application
+>Gimp</application
+> ska visa en viss katalog i dialogen <guilabel
+>Load image</guilabel
+>) skriv in sökvägen i fältet som heter <guilabel
+>Arbetskatalog</guilabel
+>. Detta är valfritt.</para
+></step
+> <step
+><para
+>Om du vill ändra ikonen från det förvalda "okänd", klicka på <guiicon
+>ikonen</guiicon
+> till höger i dialogen för att öppna en KDE standardikonväljare.</para
+></step
+> <step
+><para
+>En del program måste <guilabel
+>köras i terminal</guilabel
+>fönster (till exempel <application
+>Pine</application
+>). Om så är fallet markera den lämpliga rutan.</para
+></step
+> <step
+><para
+>Om du vill köra ditt program som en annan användare, markera rutan som heter <guilabel
+>Kör som en annan användare</guilabel
+> och skriv in det riktiga användarnamnet i textrutan.</para
+></step
+> <step
+><para
+>När du är nöjd med ditt menyval, klicka på <guibutton
+>Verkställ</guibutton
+>. Om du vill börja om från början, klicka på <guibutton
+>Återställ</guibutton
+>.</para
+></step
+> </procedure>
+
+<para
+>Och det är allt. Du har nu ett nytt menyval.</para>
+
+</sect2>
+
+<sect2 id="icons-add">
+<title
+>Genvägar</title>
+
+<para
+>Även om KDE är mycket bekvämare än en vanlig Unix fönsterhanterare, vill alla ha en lösning på hur man startar ett program med ett enda klick. Senare kommer du att få lära dig hur man skapar länkar och filer på skrivbordet, men detta har också några nackdelar: ibland är alla dina skrivbord fyllda med fönster, och du kan inte nå dina ikoner utan att minimera alla fönster som täcker dem. För program som används ofta, kan du minimera det här problemet och snabba upp åtkomsten genom att skapa genvägar i KDE:s panel.</para>
+
+<para
+>För att skapa en genväg i KDE:s panel har du några olika möjligheter: dra och släpp, eller via en meny. </para>
+
+<procedure
+> <title
+>Lägga till en genväg med menyn</title
+> <step
+><para
+>Klicka på <guiicon
+>starta program</guiicon
+> och välj <menuchoice
+><guisubmenu
+>Anpassa panel </guisubmenu
+><guisubmenu
+>Lägg till</guisubmenu
+><guimenuitem
+>Knapp</guimenuitem
+> </menuchoice
+>.</para
+></step
+> <step
+><para
+>Du kommer att se toppnivån i <guimenu
+>starta program</guimenu
+> igen. Leta igenom menyerna för att hitta valet som du vill skapa en genväg till, som <guimenuitem
+>Hemkatalogen</guimenuitem
+> eller <guimenuitem
+>Konqueror webbläsare</guimenuitem
+>. Klicka på programmet du vill ha.</para
+> </step
+> </procedure>
+
+<para
+>En ny ikon dyker upp i panelen. Klicka på den, och programmet startar.</para>
+
+<para
+>Lägga till en genväg med drag och släpp är ännu enklare. Dra bara vilken ikon som helst från ditt skrivbord eller ett <application
+>Konqueror</application
+>-fönster till en tom plats i panelen.</para>
+
+<para
+>Vad som händer när du drar ett objekt till panelen beror på vilket sorts objekt det är:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Om du drar en katalog...</term
+> <listitem
+><para
+>En meny dyker upp och ger dig valen <guimenuitem
+>Lägg till som webbadress för filhanteraren</guimenuitem
+> eller <guimenuitem
+>Lägg till som snabbläddrare</guimenuitem
+>. Väljer du det första får du en ikon som öppnar ett <application
+>Konqueror</application
+>-fönster som visar den här katalogen, medan det senare öppnar katalogen som en meny från panelen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Om du drar en genväg från skrivbordet...</term
+> <listitem
+><para
+>Kopieras den till panelen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Om du drar ett dokument...</term
+> <listitem
+><para
+>En länk skapas i panelen, och originalet lämnas på sin plats. Dokumentet öppnas med sitt förvalda program när man klickar på ikonen som skapats.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Hur som helst, klicka på ikonen med <mousebutton
+>höger</mousebutton
+> musknapp och välj <guimenuitem
+>Flytta</guimenuitem
+> om du vill flytta ikonen. Flytta ikonen till den plats du vill och tryck på <mousebutton
+>vänster</mousebutton
+> musknapp. Om du vill ta bort ikonen, klicka på den med <mousebutton
+>höger</mousebutton
+> musknapp och välj <guimenuitem
+>Ta bort</guimenuitem
+>. Du kan också flytta ikonen genom att klicka med <mousebutton
+>mitten</mousebutton
+>knappen och dra den till sin nya plats.</para>
+
+</sect2>
+</sect1>
+
+<sect1 id="creating-new-files-on-your-desktop">
+<title
+>Skapa nya filer på ditt skrivbord</title>
+
+<para
+>Ditt skrivbord kan vara en effektiv plats att arbeta med. Varje gång du startar KDE, kan du se alla filer, kataloger och webbadresser som du använder ofta.</para>
+
+<para
+>Det finns två sätt att skapa och redigera filer på ditt skrivbord. I alla program kan du säga att du vill spara ditt arbete i underkatalogen Desktop i din hemkatalog. Till exempel om min hemkatalog är <filename
+>/home/dumhund</filename
+>, är min Desktopkatalog <filename
+>/home/dumhund/Desktop</filename
+>. Allt du sparar där hamnar på ditt skrivbord.</para>
+
+<para
+>Om du vill flytta befintliga filer till ditt skrivbord, är det bästa sättet att göra detta att använda <application
+>Konqueror</application
+>. Öppna ett filhanteringsfönster och dra filerna du behöver till skrivbordet. Du kan välja att kopiera dem om du vill ha alla dina vanliga saker på skrivbordet nu, eller du kan skapa symboliska länkar till de riktiga filerna. Allt du ändrar i de länkade filerna kommer automatiskt att gälla för originalen. För mer information om hur man använder filhanteraren eller drag och släpp, se kapitlet <link linkend="drag-and-drop"
+>Flytta filer med drag och släpp.</link
+></para>
+
+</sect1>
+
+<sect1 id="using-templates">
+<title
+>Placera länkar på ditt skrivbord</title>
+
+<para
+>Att lägga filer på ditt skrivbord kan göra sökvägarna du måste skriva in kortare. Ibland kan det dock vara trevligt om du kunde starta <application
+>Texteditor</application
+> med en fil som du ofta redigerar redan öppnad. Och hur ofta blir du frustrerad efter att ha bläddrat igenom ändlösa listor med bokmärken för att hitta en webbsida som du besöker ofta? Vore det inte trevligt om allt som behövde göras för att hamna på sidan gjordes automatiskt efter ett enda klick på en ikon?</para>
+
+<sect2 id="using-mimetype">
+<title
+>Använda mallar</title>
+
+<para
+>Mallar tillhandahåller en bekväm mekanism för att utföra uppgifter liknande de som beskrivits ovan. Mallar kan också användas för att associera särskilda filändelser med ett specifikt program. När du dubbelklickar på en fil som slutar med en känd filändelse, startas programmet som är associerat med den automatiskt. I korthet hjälper <emphasis
+>mallar</emphasis
+> dig att få ut så mycket som möjligt av KDE.</para
+> 
+
+<para
+>Ett exempel: du vill placera en ikon för att besöka KDE:s hemsida på ditt skrivbord.</para>
+
+<procedure
+> <step
+><para
+><mousebutton
+>Höger</mousebutton
+>klicka på ett tomt utrymme på skrivbordet.</para
+></step
+> <step
+><para
+>Välj <menuchoice
+><guisubmenu
+>Skapa ny</guisubmenu
+><guimenuitem
+>Länk till plats (URL)</guimenuitem
+></menuchoice
+> från menyn.</para
+></step
+> <step
+><para
+>En dialogruta dyker upp där du kan skriva in adressen som du gör en genväg till.</para
+></step
+> <step
+><para
+>En ny ikon skapas på ditt skrivbord.</para
+></step
+> </procedure>
+
+<para
+>Din nya internetgenväg kan anpassas precis som alla andra genvägar. <mousebutton
+>Höger</mousebutton
+>klicka på ikonen och välj <guimenuitem
+>Egenskaper</guimenuitem
+>, och du kan ändra ikonen eller namnet på genvägen som du önskar.</para>
+
+</sect2>
+<sect2>
+
+<title
+>Använda MIME-typer</title>
+
+<para
+>MIME-typer är mycket kraftfulla. Genom att använda dem, kan du lätt anpassa ditt system så att programmet som är associerat med en viss filtyp startas när man klickar på filen. Till exempel, skulle alla .mod filer kunna starta <emphasis
+>kmodplayer</emphasis
+>, .html files skulle kunna öppna ett <emphasis
+>kfm</emphasis
+>-fönster och en minnesdump skulle kunna visas med binäreditorn genom att klicka på filen. <emphasis
+>Varning:</emphasis
+> även om MIME-typer är mycket kraftfulla är de inte utan faror. Att ändra omkring MIME-typer som systemadministratör (root) kan skada ett KDE-system så allvarligt att det inte kan startas om! I det här exemplet, skapar du en <emphasis
+>personlig</emphasis
+> MIME-stil, som bara är relevant för dig. Den påverkar bara andra användare om du kopierar eller flyttar den till  /opt/share/mimelnk.</para>
+
+<para
+>För att länka en viss filtyp med ett särskilt program:</para>
+
+<procedure
+> <step
+><para
+>Försäkra dig om att programmet som du vill ska starta med den här filtypen har en post i <guimenu
+>starta program</guimenu
+> menyn.</para
+></step
+> <step
+><para
+>Hitta eller skapa en fil med filändelsen som du vill länka till i <application
+>Konqueror</application
+>.</para
+></step
+> <step
+><para
+><mousebutton
+>Höger</mousebutton
+>klicka på filen, och välj <guimenuitem
+>Redigera filtyp</guimenuitem
+> från den sammanhangsberoende menyn, eller välj <menuchoice
+><guimenu
+>Redigera</guimenu
+><guimenuitem
+>Redigera filtyp</guimenuitem
+></menuchoice
+> i <application
+>Konqueror</application
+>s menyrad.</para
+></step
+> <step
+><para
+>Lägg till filmasker för programmet genom att klicka på <guibutton
+>Lägg till</guibutton
+> knappen, och ange det filmönster du vill ha. Kom ihåg att Unix skiljer på små och stora bokstäver, så du kanske behöver ange varianter - till exempel för *.mp3 kan du också behöva lägga till *.MP3. Lägg till så många ändelser som du vill på det här sättet.</para
+></step
+> <step
+><para
+>Lägg till en beskrivning om du vill. Det här är valfritt.</para
+></step
+> <step
+><para
+>I avsnittet som heter <guilabel
+>Föredragen ordning av program</guilabel
+>, klicka på knappen <guibutton
+>Lägg till</guibutton
+>. En minikopia av menyn <guimenu
+>Starta program</guimenu
+> visas, där du kan välja det program du vill att filer av den här typen ska öppnas med.</para
+></step
+> <step
+><para
+>Ibland vill du använda olika program för att öppna den här filtypen. Till exempel, du kanske vill använda <application
+>Avancerad editor</application
+> för att öppna textfiler som du vill redigera, och <application
+>Texteditor</application
+> för textfiler som du bara vill ta en snabbtitt i. Du kan lägga till flera program på samma sätt som du gjorde i det senaste steget, och du kan ändra den föredragna ordningen med knapparna <guibutton
+>Flytta upp</guibutton
+> och <guibutton
+>Flytta ner</guibutton
+>.</para
+></step
+> <step
+><para
+>När du är nöjd med dina val, kan du klicka på knappen <guibutton
+>Verkställ</guibutton
+> för att spara dina ändringar utan att stänga dialogrutan. Det här ger dig möjlighet att prova i <application
+>Konqueror</application
+>-fönstret att din filbindning är riktig. Du kan välja <guibutton
+>Ok</guibutton
+> för att spara dina ändringar och stänga dialogrutan, eller <guibutton
+>Avbryt</guibutton
+> om du ändrar dig och bara vill stänga dialogrutan.</para
+></step
+> </procedure>
+  
+<para
+>Försäkra dig om att du provar din nya bindning genom att öppna en katalog som innehåller en fil av typen du just valde. Klicka på filen, och programmet som behövs för att redigera den ska starta.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="using-the-trashcan">
+<title
+>Använda papperskorgen</title>
+
+<para
+>I normalfall kan man inte ta bort en fil i Unix och sedan ångra sig. I KDE:s filhanterare kan du dock välja <guimenuitem
+>Flytta till papperskorgen</guimenuitem
+> istället för <guimenuitem
+>Ta bort</guimenuitem
+>. Det här flyttar filen till katalogen <filename
+>Papperskorg</filename
+>, som normalt är tillgänglig som en ikon på ditt skrivbord. Ifrån <filename
+>Papperskorg</filename
+>, kan du alltid återställa borttagna filer. Kom ihåg att tömma papperskorgen regelbundet genom att klicka på den med höger musknapp och välja <guimenuitem
+>Töm papperskorgen</guimenuitem
+>, annars kan du få slut på diskutrymme eftersom filerna fortfarande behöver utrymme i papperskorgen. Observera dock att när du väl har tömt katalogen <filename
+>Papperskorg</filename
+>, är filerna som fanns där borta för alltid.</para>
+
+</sect1>
+</chapter>
+
+<chapter id="shortcuts">
+<title
+>Tips &amp; trick för ditt dagliga arbete </title>
+
+<epigraph>
+<attribution
+>Fortune Cookies</attribution>
+<para
+>Everyone can make an omelet with eggs. The trick is to make one with none.</para>
+</epigraph>
+
+<para
+>Nästan vem som helst kan använda KDE: det är därför utvecklarna skapade det. Det finns inga kryptiska väljare att hantera, och få konfigurationsfiler som du måste redigera med <acronym
+>ASCII</acronym
+>-text. Det finns dock några saker som kan göra ditt arbete mer elegant, och spara tid för de verkligt viktiga sakerna, som Tetris.</para>
+
+<sect1 id="shortcut-table">
+<title
+>Tabell med snabbtangenter </title>
+
+<variablelist
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><keycap
+>Tab</keycap
+> </keycombo
+> eller<keycombo
+><keycap
+>Alt</keycap
+><keycap
+>Shift</keycap
+><keycap
+>Tab</keycap
+></keycombo
+></term
+> <listitem
+><para
+>Gå igenom fönster cykliskt </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Tab</keycap
+> </keycombo
+> eller <keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Shift</keycap
+><keycap
+>Tab</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Gå igenom skrivbord cykliskt </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><keycap
+>F2</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Minikommandorad</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><keycap
+>F3</keycap
+></keycombo
+></term
+> <listitem
+><para
+>Fönstermeny </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><keycap
+>F4</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Stäng aktuellt fönster </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>F{1..8}</keycap
+></keycombo
+></term
+> <listitem
+><para
+>Byt till ett särskilt skrivbord </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Esc</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Förstör fönster (varje fönster som du klickar på förstörs) </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Backspace</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Det här avslutar KDE (utan att spara)! Använd det som en sista utväg. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Numeriskt tangentbord +</keycap
+></keycombo
+></term
+> <listitem
+><para
+>Byt till nästa skärmupplösning cykliskt</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Ctrl</keycap
+><keycap
+>Alt</keycap
+><keycap
+>Numeriskt tangentbord -</keycap
+> </keycombo
+></term
+> <listitem
+><para
+>Byt till föregående skärmupplösning cykliskt </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+<sect1 id="mouse-techniques">
+<title
+>Musteknik </title>
+
+<variablelist
+> <varlistentry
+> <term
+>Klicka på en kant eller namnlist</term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><mousebutton
+>Vänster</mousebutton
+></term
+> <listitem
+><para
+>Aktiverar och höjer fönstret.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Mitten</mousebutton
+></term
+> <listitem
+><para
+>Sänker fönstret</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Höger</mousebutton
+></term
+> <listitem
+><para
+>Visar <guimenu
+>fönstermenyn</guimenu
+> om fönstret är aktivt, annars aktiveras fönstret.</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dubbelklick på fönstrets namnlist</term
+> <listitem
+><para
+>Rullar upp fönstret </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dra i namnlisten</term
+> <listitem
+><para
+>Flyttar runt fönstret </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Dra på hörn eller kanter</term
+> <listitem
+><para
+>Ändrar storlek på fönstret </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><mousebutton
+>vänster</mousebutton
+></keycombo
+>knapp</term
+> <listitem
+><para
+>Flyttar runt fönstret </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><mousebutton
+>mitten</mousebutton
+> </keycombo
+>knapp</term
+> <listitem
+><para
+>Höjer fönstret </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><keycombo
+><keycap
+>Alt</keycap
+><mousebutton
+>höger</mousebutton
+> </keycombo
+>knapp</term
+> <listitem
+><para
+>Ändrar storlek på fönstret </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Klick på ikonen överst till vänster</term
+> <listitem
+><para
+>Stänger programmet</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Klick på den klistriga knappen</term
+> <listitem
+><para
+>byter tillstånd mellan klistrig och inte </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Klick på maximera</term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><mousebutton
+>Vänster</mousebutton
+></term
+> <listitem
+><para
+>Maximerar fönstret</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Mitten</mousebutton
+></term
+> <listitem
+><para
+>Maximerar bara vertikalt</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><mousebutton
+>Höger</mousebutton
+></term
+> <listitem
+><para
+>Maximerar horisontellt</para
+></listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<!-- LW FIXME START -->
+
+
+</sect1>
+
+</chapter>
+
+<chapter id="kdebase-applications">
+<title
+>Program i kdebase</title>
+<para
+>Du får med följande program i distributioner av kdebase:</para>
+
+<para
+>Stabila program är relativt felfria och finns i källkods- och binärformat.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Instabila versioner ändras dagligen och finns bara i källkodsform, vilket betyder att du måste kompilera dem för att få en fungerade version. Kom ihåg att de är instabila och kanske inte ens går att kompilera. Om du har problem med ett instabilt program, rapportera problemen så kommer det troligen att rättas i en framtida version.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Kwin</application
+></term
+> <listitem
+><para
+>KDE:s egen fönsterhanterare</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Konqueror</application
+></term
+> <listitem
+><para
+>Surfa på nätet, hantera din hårddisk eller leta på en FTP-plats, allt på samma enkla sätt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kicker</application
+></term
+> <listitem
+><para
+>KDE:s panel, som innefattar ett aktivitetsfält, personsökare, klocka och <guimenu
+>K</guimenu
+>-menyn.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Konsole</application
+></term
+> <listitem
+><para
+>En mycket anpassningsbar X-terminalemulator</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Klipper</application
+></term
+> <listitem
+><para
+>Ett annorlunda klippbordsverktyg. Du kan ställa in olika åtgärder beroende på vad du kopierar.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kdesktop</application
+></term
+> <listitem
+><para
+>Själva skrivbordet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Khelpcenter</application
+></term
+> <listitem
+><para
+>KDE:s egen hjälpcentral, också med möjlighet att läsa manual- och infosidor.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdm</application
+></term
+> <listitem
+><para
+>KDE:s inloggningshanterare</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kcontrol</application
+></term
+> <listitem
+><para
+>Inställningscentralen. Nästan allt du kan anpassa i KDE kan anpassas härifrån, och nästan allting i KDE kan anpassas efter din smak.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kwrite</application
+></term
+> <listitem
+><para
+>En mycket anpassningsbar editor, med syntaxfärgläggning.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kappfinder</application
+></term
+> <listitem
+><para
+>Ett verktyg för att lägga till program som inte hör till KDE i din <guimenu
+>K</guimenu
+>-meny, så att du inte behöver göra det för hand.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kscreensaver</application
+></term
+> <listitem
+><para
+>Alla älskar skärmsläckare, och KDE kommer med en rejäl portion sådana.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Ksysguard</application
+></term
+> <listitem
+><para
+>En nätverksredo systemövervakare, som dessutom innehåller funktionaliteten från <application
+>top</application
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Ktip</application
+></term
+> <listitem
+><para
+>Trollkarlen Kandalf finns alltid till hands med praktiska råd, och intressant information.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kmenuedit</application
+></term
+> <listitem
+><para
+>Arrangera om eller lägg till i din <guimenu
+>K</guimenu
+>-meny med det här verktyget.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>DrKonqi</application
+></term
+> <listitem
+><para
+>Kraschhanteraren, som innehåller möjlighet att rapportera fel direkt till utvecklarna.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="kdeadmin-applications">
+<title
+>Program i kdeadmin</title>
+
+<para
+>Du får med följande program i distributioner av kdeadmin:</para>
+
+<para
+>Stabila program är relativt felfria och finns i källkods- och binärformat.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Instabila versioner ändras dagligen och finns bara i källkodsform, vilket betyder att du måste kompilera dem för att få en fungerade version. Kom ihåg att de är instabila och kanske inte ens går att kompilera. Om du har problem med ett instabilt program, rapportera problemen så kommer det troligen att rättas i en framtida version.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Kcron</application
+></term
+> <listitem
+><para
+>KDE ger en snygg och användarvänlig aktivitetsschemaläggning med alla egenskaper från <application
+>Cron</application
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kuser</application
+></term
+> <listitem
+><para
+>En grafisk användarhanterare (kräver root-rättigheter för att köras)</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kpackage</application
+></term
+> <listitem
+><para
+>Håll ditt system uppdaterat med KDE:s egen pakethanterare.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kdat</application
+></term
+> <listitem
+><para
+>Ett säkerhetskopieringsverktyg för ägare av bandstationer.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>ksysv</application
+></term
+> <listitem
+><para
+>En SysV-starteditor, som håller din dators uppstart organiserad.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kwuftpd</application
+></term
+> <listitem
+><para
+>Ett grafiskt gränssnitt för att ställa in FTP-demonen <application
+>wuftpd</application
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSysctrl</application
+></term
+> <listitem
+><para
+>Ta reda på vad som verkligen finns i din dator, ett systeminformationsverktyg.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="kdepim-applications">
+<title
+>Program i kdepim</title>
+
+<para
+>Du får med följande program i distributioner av kdeadmin:</para>
+
+<para
+>Stabila program är relativt felfria och finns i källkods- och binärformat.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Instabila versioner ändras dagligen och finns bara i källkodsform, vilket betyder att du måste kompilera dem för att få en fungerade version. Kom ihåg att de är instabila och kanske inte ens går att kompilera. Om du har problem med ett instabilt program, rapportera problemen så kommer det troligen att rättas i en framtida version.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Korganizer</application
+></term
+> <listitem
+><para
+>Organisera din tid med den här praktiska almanackan, dagboken och aktivitetsschemaläggaren.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kab2</application
+></term
+> <listitem
+><para
+>KDE:s adressbok</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kpilot</application
+></term
+> <listitem
+><para
+>Ett verktyg som synkroniserar din Palm Pilot med din dator.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+<chapter id="entertainment-applications">
+<title
+>Program för underhållning</title>
+
+<para
+>Du får med följande program i distributioner av kdegames:</para>
+
+<para
+>Stabila program är relativt felfria och finns i källkods- och binärformat.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+<para
+>Instabila versioner ändras dagligen och finns bara i källkodsform, vilket betyder att du måste kompilera dem för att få en fungerade version. Kom ihåg att de är instabila och kanske inte ens går att kompilera. Om du har problem med ett instabilt program, rapportera problemen så kommer det troligen att rättas i en framtida version.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>KAbalone</application
+></term
+> <listitem
+><para
+>Ett nätverksredo brädspel som du kan spela mot datorn eller mot en annan spelare i ditt nätverk.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KAsteriods</application
+></term
+> <listitem
+><para
+> Ett litet shoot'em up i rymden. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KAtomic</application
+></term
+> <listitem
+><para
+> Atomunderhållning. Ett konfunderande litet logiskt pusselspel, där du får bygga dina egna molekyler. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KBlackbox</application
+></term
+> <listitem
+><para
+> Svarta lådan. En omskrivning för KDE av det klassiska <application
+>Emacs</application
+>-spelet svarta lådan. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KJumpingCube</application
+></term
+> <listitem
+><para
+> Hoppande kuben. Ett taktiskt spel för en eller två spelare som är svårare än det verkar. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kmahjongg</application
+></term
+> <listitem
+><para
+> Det klassiska brickspelet. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KMines</application
+></term
+> <listitem
+><para
+> Minröjaren. Hitta minorna utan att få dem att explodera. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Konquest</application
+></term
+> <listitem
+><para
+> Erövring. Expandera ditt interstellära imperium över galaxen, och förstås, krossa dina medtävlare medan du håller på. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KPat</application
+></term
+> <listitem
+><para
+> Ingen dator är komplett utan patiens. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KPoker</application
+></term
+> <listitem
+><para
+> En KDE version av de där beroendeframkallande enarmade banditerna. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KReversi</application
+></term
+> <listitem
+><para
+> Othello. En KDE version av det klassiska spelet. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSame</application
+></term
+> <listitem
+><para
+> SameGame. Beroendeframkallande litet logikspel. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KShisen</application
+></term
+> <listitem
+><para
+> Shisen-Sho. Ett annat brickspel. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSirtet</application
+></term
+> <listitem
+><para
+> Spela antingen en version av Tetris, eller det (i Japan) välkända spelet Puyo-Puyo. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSmiletris</application
+></term
+> <listitem
+><para
+> En Tetrisklon som avviker något från normen. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSnake</application
+></term
+> <listitem
+><para
+> Orm-race. Det klassiska spelet får en uppdatering och hastighetsökning. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSokoban</application
+></term
+> <listitem
+><para
+> Knuffa de där blocken för att ta dig dit du måste gå. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSpaceDuel</application
+></term
+> <listitem
+><para
+> Rymdduell. Skjut ner din fiende i ett utmanande arkadspel för två spelare. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KTron</application
+></term
+> <listitem
+><para
+> Tron. Klassiskt "håll dig borta" spel. Håll dig borta från din fiende, väggarna och din egen svans. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KTuberling</application
+></term
+> <listitem
+><para
+> Potatismannen. Något för småttingarna, vem kan motstå potatismannen? </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Lskat</application
+></term
+> <listitem
+><para
+> Officersskat. Ett knepigt kortspel. </para
+></listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+<chapter id="graphical-applications">
+<title
+>Grafikprogram</title>
+<para
+>Du får med följande program i distributioner av kdegraphics:</para>
+<para
+>Stabila program är relativt felfria och finns i källkods- och binärformat.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Instabila versioner ändras dagligen och finns bara i källkodsform, vilket betyder att du måste kompilera dem för att få en fungerade version. Kom ihåg att de är instabila och kanske inte ens går att kompilera. Om du har problem med ett instabilt program, rapportera problemen så kommer det troligen att rättas i en framtida version.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Pixie</application
+></term
+> <listitem
+><para
+> En annorlunda bildredigerare </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Ksnapshot</application
+></term
+> <listitem
+><para
+> Dumpa skärmen. Ett verktyg för att fånga skärmdumpar. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KFract</application
+></term
+> <listitem
+><para
+> En liten fraktalgenererare </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kview</application
+></term
+> <listitem
+><para
+> En kraftfull bildvisare, som klarar av att hantera en stor mängd format. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kghostview</application
+></term
+> <listitem
+><para
+> KDE:s egen Postscript-visare. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kfax</application
+> och <application
+>Kfaxview</application
+></term
+> <listitem
+><para
+> Verktyg för att visa och hantera telefax. </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdvi</application
+></term
+> <listitem
+><para
+> En DVI-visare. </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="multimedia-applications">
+<title
+>Multimediaprogram</title>
+
+<para
+>Du får med följande program i distributioner av kdemultimedia:</para>
+
+<para
+>Stabila program är relativt felfria och finns i källkods- och binärformat.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Instabila versioner ändras dagligen och finns bara i källkodsform, vilket betyder att du måste kompilera dem för att få en fungerade version. Kom ihåg att de är instabila och kanske inte ens går att kompilera. Om du har problem med ett instabilt program, rapportera problemen så kommer det troligen att rättas i en framtida version.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Kmix</application
+></term
+> <listitem
+><para
+>En ljudmixningspanel.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>AKtion</application
+></term
+> <listitem
+><para
+>En uppspelare av av filmer och animeringar, med stöd för många format.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+>&noatun;</term
+> <listitem
+><para
+>En mediespelare för ljudfiler, med stöd för många format.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KSCD</application
+></term
+> <listitem
+><para
+>En CD-spelare för KDE, med stöd för CDDB.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kmid</application
+></term
+> <listitem
+><para
+> En MIDI-spelare med stöd för sångtexter. Din egen Karaoke-maskin! </para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KMidi</application
+></term
+> <listitem
+><para
+> En MIDI-spelare som låter bra men är ganska CPU-krävande </para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="network-applications">
+<title
+>Nätverksprogram </title>
+<para
+>Du får med följande program i distributioner av kdenetwork:</para>
+<para
+>Stabila program är relativt felfria och finns i källkods- och binärformat.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+> </para>
+<para
+>Instabila versioner ändras dagligen och finns bara i källkodsform, vilket betyder att du måste kompilera dem för att få en fungerade version. Kom ihåg att de är instabila och kanske inte ens går att kompilera. Om du har problem med ett instabilt program, rapportera problemen så kommer det troligen att rättas i en framtida version.</para>
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Kmail</application
+></term
+> <listitem
+><para
+>Ett fullständig e-postprogram, som hanterar flera servrar och identiteter.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Knode</application
+></term
+> <listitem
+><para
+>Ett kraftfullt diskussionsgruppsprogram för Usenet, med stöd för flera NNTP-servrar.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Keystone</application
+></term
+> <listitem
+><para
+>Ett KDE VNC-visarprogram.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kit</application
+></term
+> <listitem
+><para
+>Ett AOL Instant Messenger program, som använder <abbrev
+>TOC</abbrev
+> protokollet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Ksirc</application
+></term
+> <listitem
+><para
+>Ett IRC program</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Korn</application
+></term
+> <listitem
+><para
+>Ett Biff-miniprogram. <application
+>Korn</application
+> kontrollerar om det finns ny e-post och talar om för dig när det finns e-post att ladda ner från din server.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KPPP</application
+></term
+> <listitem
+><para
+>Uppringningsprogram för Internet</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Ktalkd</application
+></term
+> <listitem
+><para
+> </para
+></listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+<chapter id="utility-applications">
+<title
+>Verktyg</title>
+<para
+>Du får med följande program i distributioner av kdeutils:</para>
+
+
+<para
+>Stabila program är relativt felfria och finns i källkods- och binärformat.</para>
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/stable/latest/distribution/"
+>ftp.kde.org/pub/kde/stable/latest/distribution/stable</ulink
+></para>
+
+<para
+>Instabila versioner ändras dagligen och finns bara i källkodsform, vilket betyder att du måste kompilera dem för att få en fungerade version. Kom ihåg att de är instabila och kanske inte ens går att kompilera. Om du har problem med ett instabilt program, rapportera problemen så kommer det troligen att rättas i en framtida version.</para>
+
+
+<para
+><ulink url="ftp://ftp.kde.org/pub/kde/unstable/CVS/snapshots/current/"
+>ftp.kde.org/pub/kde/unstable/CVS/snapshots/current</ulink
+></para>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Kab</application
+></term
+> <listitem
+><para
+>Ett annat sätt att titta på KDE:s adressbok</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kcharselect</application
+></term
+> <listitem
+><para
+>Teckenväljare (visar alla tecken som är tillgängliga i ett visst teckensnitt, inklusive de som saknar tangenter på ditt tangentbord)</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdepasswd</application
+></term
+> <listitem
+><para
+>Ett KDE-program som hanterar Unix passwd kommando.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdessh</application
+></term
+> <listitem
+><para
+>Ett KDE-program som hanterar ssh. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>kdf</application
+></term
+> <listitem
+><para
+>Ett KDE-program som hanterar <application
+>df</application
+>-verktyget, med utökad funktionalitet</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kfloppy</application
+></term
+> <listitem
+><para
+>En diskettformaterare</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kedit</application
+></term
+> <listitem
+><para
+>En liten, enkel editor, precis som den välkända Anteckningar. Den är lämpligt för små redigeringsuppgifter, eller som en enkel textfilsläsare. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kfind</application
+></term
+> <listitem
+><para
+><application
+>Filsökning</application
+> är en grafisk ersättning av verktyget <application
+>find</application
+></para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Karm</application
+></term
+> <listitem
+><para
+>Ett tidmätningsverktyg. Du kan skriva in en lista med "aktiviteter", starta klockan i den <application
+>personliga tidmätaren</application
+>, och den räknar antal minuter du använder för den markerade aktiviteten.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KHexedit</application
+></term
+> <listitem
+><para
+>En fullständig binäreditor</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KJots</application
+></term
+> <listitem
+><para
+>Anteckningsblock. Ett litet program för att göra anteckningar.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>klaptopdaemon</application
+></term
+> <listitem
+><para
+>Tillhandahåller batteriövervakning och hantering för bärbara datorer</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>KLjettool</application
+></term
+> <listitem
+><para
+>En kontrollpanel för HP LaserJet skrivare</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Klpq</application
+></term
+> <listitem
+><para
+>Klpq är ett program som hanterar <application
+>lpq</application
+>, <application
+>lprm</application
+> och <application
+>lpc</application
+>. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Knotes</application
+></term
+> <listitem
+><para
+>Anteckningslappar. Ett användbart anteckningsverktyg som ser snyggt ut.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Kpm</application
+></term
+> <listitem
+><para
+> Ett verktyg som omfattar funktionalitet från <application
+>top</application
+> och <application
+>ps</application
+> </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</chapter>
+
+<chapter id="frequently-asked-questions">
+<title
+>Vanliga frågor om KDE </title>
+
+<epigraph>
+<attribution
+>Batman Animated Series</attribution>
+<para
+>What are you?</para>
+<para
+>I'm your worst nightmare...</para>
+</epigraph>
+
+<para
+>Det finns vissa frågor som alltid kommer upp på KDE:s e-postlistor. För att hålla trafiken så låg som möjligt (vilket gör listorna mer läsbara), har vi inkluderat dem i det här avsnittet. Så var snäll och ställ inte de här frågorna till e-postlistorna längre, tänk på citatet ovan! </para>
+
+<qandaset id="faq">
+<qandaentry>
+<question
+><para
+>Vad betyder "KDE"?</para
+></question>
+<answer
+><para
+>KDE betyder <emphasis
+>"K Desktop Environment",</emphasis
+>, eller K skrivbordsmiljö, och har för avsikt att vara en samling små verktyg, en fönsterhanterare, en filhanterare och verktyg som håller ihop allt detta. Den är skapat för att förenkla ditt liv med Unix. </para
+></answer>
+</qandaentry>
+<qandaentry>
+<question
+><para
+>Jag kan inte kompilera paketet xxx</para
+></question>
+<answer
+><para
+>Försäkra dig om att du har den senaste versionen av KDE-biblioteken installerad. Programvaran är under ständig utveckling, så beroenden kan ändras från dag till dag. Du kan också finna att <link linkend="source-distribution"
+>generella kompileringstips</link
+> är till hjälp. Ett annat problem kan vara att du använder ett program skrivet för en mycket gammal version av KDE, som beror på för gamla include-filer. Var god kontrollera fildatum. De bör vara nyare än datum för din nuvarande version av KDE. </para
+></answer>
+</qandaentry>
+<qandaentry>
+<question
+><para
+>Är inte KDE stabilt?</para
+></question>
+<answer
+><para
+>Man kan i allmänhet skaffa KDE på många sätt. Att hämta förkompilerade binärfiler i ett paketformat (rpm,deb,tgz) namngivna med en särskild version (<abbrev
+>t.ex.</abbrev
+> 2.2) är det bästa sättet att försäkra dig om stabilitet hos ditt KDE-skrivbord. </para>
+<para
+>Priset för stabilitet är att man måste vänta på varje utgåva för att få nya funktioner. Om du vill ha den nyaste och bästa versionen av programvara, kanske du måste använda källkod, till och med så långt som att hämta en <abbrev
+>CVS</abbrev
+>-version. Här finns dagliga versioner av det som utvecklarna arbetar med, och en del saker fungerar garanterat inte.</para>
+<para
+>LITA INTE PÅ <abbrev
+>CVS</abbrev
+>-VERSIONER FÖR ATT UNDERHÅLLA OPERATIONELLA SKRIVBORD. Du råkar illa ut förr eller senare!</para>
+</answer>
+</qandaentry>
+</qandaset>
+
+</chapter>
+
+<chapter id="more-help">
+<title
+>Ytterligare hjälp</title>
+
+<sect1 id="mailing-lists">
+<title
+>Hjälp från andra källor </title>
+
+<para
+>Ta en titt på <ulink url="http://www.kde.org"
+>KDE:s hemsida</ulink
+> för den senaste informationen som är tillgänglig om KDE på nätet. Du kanske också vill prenumerera på våra e-postlistor. </para>
+
+<para
+>Skicka e-post till den angivna adressen med <userinput
+>subscribe</userinput
+> <userinput
+>din e-postadress</userinput
+> i rubriken för att börja prenumerera: </para>
+
+<simplelist
+> <member
+>KDE:s allmänna e-postlista, <email
+>kde-request@kde.org</email
+> </member
+> <member
+>KDE-utvecklarnas e-postlista, <email
+>kde-devel-request@kde.org</email
+></member
+> <member
+>Diskussioner om "utseende och känsla", <email
+>kde-look-request@kde.org</email
+></member
+> <member
+>KDE tillkännagivanden, <email
+>kde-announce-request@kde.org</email
+></member
+> <member
+>KDE licensfrågor, <email
+>kde-licensing-request@kde.org</email
+></member
+> <member
+>KDE-användarnas lista, <email
+>kde-user-request@kde.org</email
+></member
+> <member
+>Lista för de som dokumenterar KDE, <email
+>kde-doc-request@kde.org</email
+></member
+> </simplelist>
+
+</sect1>
+</chapter>
+
+<chapter id="docu-staff">
+<title
+>Epilog </title>
+
+<epigraph>
+<attribution
+>The end of Evita</attribution>
+<para
+>She had her moments, she had some style, the best show in town was the crowd, outside the Casa Rosada crying 'Eva Peron'; but that's all gone now...</para
+></epigraph>
+
+<para
+>Vi hoppas att du fann den här dokumentationen användbar, informativ och kanske till och med roande. Det som följer är inte nödvändigt för att förstå KDE skrivbordsmiljön, men du kanske vill läsa det ändå. </para>
+
+<sect1 id="the-k-documentation-staff">
+<title
+>K dokumentationsgruppen </title>
+
+<para
+>Den här handboken har uppdaterats för 2.0, och underhålls för närvarande av Lauri Watts <email
+>vampyr@atconnex.net</email
+></para>
+
+<para
+>Övriga som har bidragit till den här guiden.</para>
+<itemizedlist
+> <listitem
+><para
+>Pablo de Vicente <email
+>vicente@oan.es</email
+>, som uppdaterade avsnittet om installation på Debian för KDE 2.0</para
+></listitem
+> <listitem
+><para
+>Andreas Buschka <email
+>andi@circe.tops.net</email
+></para
+></listitem
+> <listitem
+><para
+>Robert D. Williams <email
+>rwilliam@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Poul Gerhard</para
+></listitem
+> <listitem
+><para
+>John Waalkes</para
+></listitem
+> <listitem
+><para
+>Vernon Wells</para
+></listitem
+> <listitem
+><para
+>Kay Lutz</para
+></listitem
+> <listitem
+><para
+>Stephan Kulow</para
+></listitem
+> </itemizedlist>
+</sect1>
+
+<sect1 id="we-still-need-people">
+<title
+>Vi behöver fortfarande folk! </title>
+
+<para
+>KDE är ett enormt projekt, och varje KDE-anhängare har redan insett det. Vi försöker alla skapa ett användargränssnitt som är lättanvänt och kanske också har möjligheten att göra Unix klart för PC:n på skrivbordet. Du har chansen att också delta i projektet, och vi blir tacksamma om du gör det. Utvecklare och intresserade användare kommunicerar via flera olika e-postlistor som beskrivs i <xref linkend="mailing-lists"/>. Om du vill hjälpa till, gör det gärna! Vi letar fortfarande efter folk som kan hjälpa till med följande delar: </para>
+
+<itemizedlist
+> <listitem
+><para
+>Utveckling (bibliotek och program)</para
+></listitem
+> <listitem
+><para
+>Dokumentation</para
+></listitem
+> <listitem
+><para
+>Grafik</para
+></listitem
+> <listitem
+><para
+>Betatester</para
+></listitem
+> <listitem
+><para
+>och på alla andra ställen också :-) </para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="legal-notices">
+<title
+>Legala notiser </title>
+
+<para
+>Det här dokumentet innehåller material med copyright av Andreas Buschka, Gerhard Poul och Robert David Williams. Alla nämnda varumärken och varunamn hör till sina respektive lagliga ägare. </para>
+
+</sect1>
+
+<sect1 id="sources-of-information-used-during-the-creat">
+<title
+>Informationskällor använda för att skapa den här boken </title>
+
+<para
+>För att skapa det här dokumentet, använde författarna följande källor för information: </para>
+
+<itemizedlist
+> <listitem
+><para
+>KDE:s e-postlistor </para
+></listitem
+> <listitem
+><para
+>Olika <filename
+>README</filename
+> och <abbrev
+>HTML</abbrev
+> hjälpfiler som ingår i KDE-komponenterna </para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="license">
+<title
+>Licens</title>
+
+&underFDL;
+
+</sect1>
+</chapter>
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag:nil
+sgml-shorttag:t
+sgml-namecase-general:t
+sgml-general-insert-case:lower
+sgml-minimize-attributes:nil
+sgml-always-quote-attributes:t
+sgml-indent-step:0
+sgml-indent-data:nil
+sgml-parent-document:nil
+sgml-exposed-tags:nil
+sgml-local-catalogs:nil
+sgml-local-ecat-files:nil
+End:
+-->
+

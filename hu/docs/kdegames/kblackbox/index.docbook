@@ -1,0 +1,480 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kblackbox "<application>KBlackBox</application>">
+  <!ENTITY kappname "&kblackbox;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE">
+  <!ENTITY % ents PUBLIC "-//KDE//ENTITIES Application-Variable Entities V2.0//EN" "entities/kde-prologue.entities">
+  
+]>
+
+<book lang="&language;">
+
+<bookinfo>
+<title>A &kblackbox; játék kézikönyve</title>
+
+<authorgroup>
+<author>
+<firstname>Robert</firstname>
+<surname>Cimrman</surname>
+<affiliation><address><email>cimrman3@students.zcu.cz</email></address></affiliation>
+</author>
+
+<othercredit role="developer">
+<firstname>Robert</firstname>
+<surname>Cimrman</surname>
+<affiliation><address><email>cimrman3@students.zcu.cz</email></address></affiliation>
+<contrib>fejlesztő</contrib>
+</othercredit>
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname>
+<surname>Watts</surname>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+<contrib>lektor</contrib>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Tamás</firstname>
+<surname>Szántó</surname>
+<affiliation><address><email>tszanto@mol.hu</email></address></affiliation>
+<contrib>fordító</contrib>
+</othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>1998</year><year>2000</year>
+<holder>Robert Cimrman</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+    
+<date>02/10/2000</date>
+<releaseinfo>0.03.00</releaseinfo>
+
+<abstract><para>A &kblackbox; egy nagyszerű, grafikus felületű logikai játék, mely az
+<application>emacs</application> fekete dobozának mintájára készült.</para></abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>KBlackBox</keyword>
+<keyword>kdegames</keyword>
+<keyword>blackbox</keyword>
+<keyword>játék</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="what-is-kblackbox">
+<title>Milyen program a &kblackbox;?</title>
+
+<para>A &kblackbox; egy nagyszerű :-) logikai játék, mely az
+<application>emacs</application> fekete dobozának mintájára készült. Ez a dokumentum több részletet is tartalmaz
+az eredeti program dokumentációjából. </para> 
+
+<para>A &kblackbox; játék célja megtalálni az elrejtett golyókat egy négyzetrácsos pályán. Az ellenfél
+(a számítógép irányítja az ellenfelet) elrejt a játék kezdetén néhány golyót a
+játékmezőn. A pálya széléről fénysugarakat lehet irányítani a játéktér belsejébe, és a sugarak
+irányváltozásából kell rájönni a golyók elhelyezkedésére. Minél kevesebb sugarat használ fel a
+golyók helyének kitalálásához, annál jobb lesz az eredmény.</para>
+
+</chapter>
+
+<chapter id="installation">
+<title>Telepítés</title>
+
+<para>
+A &kblackbox; a KDE projekt
+<ulink url="http://www.kde.org">http://www.kde.org</ulink> része.
+A &kblackbox; megtalálható a kdegames csomagban az
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink> címen, a
+KDE projekt központi FTP-kiszolgálóján. </para>
+
+<sect1 id="compilation">
+<title>Lefordítás és telepítés</title>
+
+<para>
+A &kblackbox; lefordításához és telepítéséhez a következő parancsokat kell kiadni
+a kdegames forráscsomag alapkönyvtárában:</para>
+<screen width="40">
+<prompt>%</prompt> <command>./configure</command>
+<prompt>%</prompt> <command>make</command>
+<prompt>%</prompt> <command>make install</command>
+</screen>
+
+
+<para>Minthogy a &kblackbox; az <application>autoconf</application> és az
+<application>automake</application> használatával készült, ezért remélhetően nem fog problémába ütközni a
+telepítés közben. Ha mégis hiba lépne fel a telepítés közben, akkor kérjen segítséget a KDE 
+levelezőlistáin.</para> 
+
+</sect1>
+</chapter>
+
+
+<chapter id="game-description">
+<title>A játék leírása</title>
+
+<para>Először a játéktérrel kapcsolatos legfontosabb információkról olvashat,
+majd a játék kezelésével kapcsolatos tudnivalók következnek, végül 
+a játékszabályok részletes magyarázatát találhatja.</para>
+
+<sect1 id="game-board-descritpion">
+<title>A játéktér felépítése</title>
+
+<para>A táblán található mezők a következő típusúak lehetnek: </para>
+
+<variablelist>
+<varlistentry>
+<term><interface>Fekete mezők</interface></term>
+<listitem><para>A fekete mezők alkotják a "fekete dobozt".  Ezek közül kell megjelölni azokat, amelyek Ön szerint
+golyót rejtenek.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><interface>Zöld mezők</interface></term>
+<listitem><para>Innen indulnak ki a fénysugarak, ha bekapcsolja a mezőben a sugarak
+kibocsátását.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><interface>Világosszürke mezők</interface></term>
+<listitem><para>Itt nem található semmi, csak a táblát
+szegélyezik.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><interface>Kék golyók</interface></term>
+<listitem><para>&quot;Ott van egy!&quot; - gondolja Ön.  Kék golyókkal
+jelölje meg azokat a mezőket, ahol golyót sejt.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><interface>Világoskék golyók</interface></term>
+<listitem><para>Ezek mutatják a játék végén a golyók tényleges helyzetét.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><interface>Piros golyók</interface></term>
+<listitem><para>Ezek mutatják a játék végén azokat a golyókat, amelyeket rossz helyre
+tett le.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><interface>Barna mezők</interface></term>
+<listitem><para>A megjelölés színe (ahol nem lehet golyó)</para></listitem>
+</varlistentry>
+</variablelist>
+
+<note><para>Az előbb felsorolt színek csak a mezők funkcióinak megkülönböztetésére
+szolgálnak. <emphasis>Előfordulhat</emphasis>, hogy a képernyőn megjelenő
+színek eltérnek a megadottól. Összefoglalva: középen vannak a fekete
+mezők, körülöttük a lézerek, a szélen pedig a határoló mezők. A színek azonosítását
+végezze el Ön :-). </para></note>
+
+</sect1>
+
+<sect1 id="user-interaction">
+<title>A játék kezelése</title>
+
+<para>A kurzor (általában egy sárga négyzet) a játéktéren belül a normál kurzorbillentyűkkel
+vagy az egérrel mozgatható. A lézereket ki-be kapcsolni és fekete mezőket kijelölni
+a <mousebutton>bal</mousebutton> egérgombbal kattintva vagy a 
+<keycap>Return</keycap> és <keycap>Enter</keycap> billentyűk lenyomásával lehet.</para>
+
+<para>Azokat a mezőket is meg lehet jelölni, ahol biztosan nincs golyó. Ehhez a 
+<mousebutton>jobb</mousebutton> egérgombbal kell kattintani. Ez a fajta kijelölés segíthet
+behatárolni a golyót rejtő mezőket. Jelölést törölni (kéket vagy barnát is) a
+<mousebutton>bal</mousebutton> egérgombbal kattintva lehet. Barna jelölés nem
+cserélhet le kék jelölést közvetlenül, hogy ne lehessen kék jelölést (a golyók feltételezett helyét) véletlenül
+felülírni, ha a <mousebutton>jobb</mousebutton> gombbal kattintgat. </para>
+
+<para>Amikor úgy érzi, hogy a golyók helyzete megfelelő, kattintson az egér
+középső gombjával. A program tájékoztatni fogja Önt arról, hogy eltalálta-e a golyók
+helyzetét, és kiszámolja az elért pontszámot. Az eredmény a lézereknél kiírt betűk
+és számok összege plusz 5 pont minden hibásan lerakott golyóért. A rosszul elhelyezett
+golyók színe pirosra változik, és világoskék színnel jelennek meg a golyók a
+tényleges pozíciójukban.</para>
+
+</sect1>
+
+<sect1 id="game-rules">
+<title>Játékszabályok</title>
+
+<para>Meg kell találni a fekete mezőkben elhelyezett golyókat. A keresésre csak egyfajta eszköz használható -
+a játékteret körülvevő lézereket ki- és be lehet kapcsolni. A fénysugárral három
+dolog történhet: </para>
+
+<anchor id="detour"/>
+<variablelist>
+
+<varlistentry>
+<term>eltérül</term>
+<listitem><para>A fény megtörik és valahol távozik a
+dobozból. A játéktér szélén azonosítószámok mutatják a belőtt fénysugár
+útját - azt a két mezőt, ahol a fénysugár behatolt és ahol
+távozott.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>visszaverődik</term>
+<listitem><para>Ha a fénysugár visszaverődik egy golyóról, akkor ugyanazon
+a helyen távozik a dobozból, ahol behatolt annak belsejébe. Egy
+<guilabel>R</guilabel> betű jelöli az ilyen sugarat.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>eltalál egy golyót</term>
+<listitem><para>Ha a fénysugár beleütközik egy golyóba, akkor az elnyeli a fényt, tehát a sugár
+nem távozik a dobozból. A játéktér szélén az ilyen sugarat
+<guilabel>H</guilabel> betű jelöli.</para></listitem>
+</varlistentry>
+</variablelist>
+
+<para>Egyszerű szabály írja le, hogy a golyók milyen esetben térítik el illetve
+verik vissza a sugarakat.</para>
+
+<para>Ha a sugár egy golyó szélét találja el, akkor kilencven fokkal eltérül. A sugár a dobozból
+kilépésig többször is eltérülhet. Az alábbi ábrákon vízszintes vonás jelképezi az üres,
+&quot;O&quot; betű pedig a golyót tartalmazó mezőket. A fénysugarak belépési és kilépési
+pontját azonosítószámok jelölik, mint ahogy az <link
+linkend="detour">Eltérülés</link> részben már leírtuk. Érdemes megjegyezni, hogy a be- és kilépési
+pontok mindig felcserélhetők. &quot;*&quot; karakter mutatja a fénysugár által
+megtett utat.</para>
+
+<para>Figyelje meg, hogy a fénysugár és a golyó relatív pozíciója milyen irányú
+eltérítést okoz.</para>
+
+<screen>
+           1                                            
+         - * - - - - - -         - - - - - - - -         - - - - - - - -       
+         - * - - - - - -         - - - - - - - -         - - - - - - - -       
+       1 * * - - - - - -         - - - - - - - -         - O - - - - O -       
+         - - O - - - - -         - - O - - - - -         - - * * * * - -
+         - - - - - - - -         - - - * * * * * 2     3 * * * - - * - -
+         - - - - - - - -         - - - * - - - -         - - - O - * - -      
+         - - - - - - - -         - - - * - - - -         - - - - * * - -       
+         - - - - - - - -         - - - * - - - -         - - - - * - O -       
+                                       2                         3</screen>
+
+<para>Visszaverődés történik, ha a fénysugár ott lép ki a dobozból, ahol
+belépett. Figyelem, ez többféle esetben is megtörténhet!</para>
+
+<screen>
+         - - - - - - - -         - - - - - - - -          - - - - - - - -
+         - - - - O - - -         - - O - O - - -          - - - - - - - -
+       R * * * * - - - -         - - - * - - - -          O - - - - - - -
+         - - - - O - - -         - - - * - - - -        R - - - - - - - -
+         - - - - - - - -         - - - * - - - -          - - - - - - - -
+         - - - - - - - -         - - - * - - - -          - - - - - - - -
+         - - - - - - - -       R * * * * - - - -          - - - - - - - -
+         - - - - - - - -         - - - - O - - -          - - - - - - - -</screen>
+
+<para>Az első példában a fénysugár először eltalálja a felső golyót, lefelé térül, majd
+az alsó golyó balfelé téríti és végül visszajut a kiindulási ponthoz.
+A második példa hasonlít az elsőhöz. A harmadik példában egy olyan eset látható,
+amikor a fénysugár rögtön a dobozba belépéskor oldalról eltalál egy golyót,
+és visszaverődik róla. Ezt úgy is fel lehet fogni, hogy a sugár azonnal lefelé térül el és ezért
+kilép a dobozból.</para>
+
+<para>Találat akkor fordul elő, ha a sugár egy golyó közepét találja el:</para>
+
+<screen>
+         - - - - - - - -         - - - - - - - -          - - - - - - - -
+         - - - - - - - -         - - - - - - - -          - - - - O - - -
+         - - - - - - - -         - - - - O - - -        H * * * * - - - -
+         - - - - - - - -       H * * * * O - - -          - - - * - - - -
+         - - - - - - - -         - - - - O - - -          - - - O - - - -
+       H * * * O - - - -         - - - - - - - -          - - - - - - - -
+         - - - - - - - -         - - - - - - - -          - - - - - - - -
+         - - - - - - - -         - - - - - - - -          - - - - - - - -</screen>
+
+<para>Vegye észre a különbséget a találat második és a visszaverődés 
+első példája között.</para>
+
+</sect1>
+</chapter>
+<chapter id="gui-description">
+<title>A kezelőfelület leírása</title>
+
+<sect1 id="game-menu">
+<title>A <guimenu>Játék</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>Játék</guimenu>
+<guimenuitem>Új</guimenuitem></menuchoice></term>
+<listitem><para>Új játék megkezdése (az éppen futó játék
+félbeszakad).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Játék</guimenu>
+<guimenuitem>Feladás</guimenuitem></menuchoice></term>
+<listitem><para>Megmutatja a golyók tényleges helyzetét (és vége a játéknak).</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Játék</guimenu>
+<guimenuitem>Kész</guimenuitem></menuchoice></term>
+<listitem><para>Ellenőrzi a golyók helyzetét. Ha minden golyóra van tipp,
+akkor a játék befejeződik, a program kiszámolja a végeredményt és kijelzi a golyók tényleges
+helyzetét. A <mousebutton>középső</mousebutton> egérgombbal kattintva ugyanezt a funkciót
+lehet elérni. </para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Játék</guimenu>
+<guimenuitem>Átméretezés</guimenuitem></menuchoice></term>
+<listitem><para>Az ablak méretét kiigazítja a tartalomnak
+megfelelően. Ez akkor lehet hasznos, ha véletlenül elállította az ablak méretét és
+vissza akar állni a normál méretre...</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Játék</guimenu>
+<guimenuitem>Kilépés</guimenuitem></menuchoice></term>
+<listitem><para>A program bezárása</para></listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="settings-menu">
+<title>A <guimenu>Beállítások</guimenu> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice><guimenu>Beállítások</guimenu>
+<guisubmenu>Méret</guisubmenu></menuchoice></term>
+<listitem><para>A játéktér méretét lehet itt kiválasztani.  A választási lehetőségek a
+következők: <guimenuitem>8 x 8</guimenuitem>, <guimenuitem>10 x 10</guimenuitem> és
+<guimenuitem>12 x 12</guimenuitem>.  Az alapértelmezés a <guimenuitem>8 x
+8</guimenuitem>.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Beállítások</guimenu>
+<guisubmenu>Golyók</guisubmenu></menuchoice></term>
+<listitem><para>Az elrejtett golyók számát lehet itt megadni. Az
+alapértelmezés értéke <guimenuitem>4</guimenuitem>. </para>
+</listitem>
+	</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Beállítások</guimenu>
+<guimenuitem>Bemutató</guimenuitem></menuchoice></term>
+<listitem><para>A bemutató mód ki- és bekapcsolása.  Az opció bekapcsolása esetén
+játék közben látszik a golyók tényleges pozíciója.</para></listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+<sect1 id="help">
+<title>A <guimenuitem>Segítség</guimenuitem> menü</title>
+
+<variablelist>
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo><keycap>F1</keycap></keycombo></shortcut>
+<guimenu>Segítség</guimenu><guimenuitem>Tartalom</guimenuitem></menuchoice></term>
+<listitem>
+<para>Elindítja a KDE Segítség rendszerét és megnyitja ennek a dokumentumnak a 
+kezdőlapját.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<shortcut><keycombo><keycap>Shift</keycap><keycap>F1</keycap></keycombo></shortcut>
+<guimenu>Segítség</guimenu><guimenuitem>Mi ez?</guimenuitem></menuchoice></term>
+<listitem>
+<para>Ennek hatására az egérmutató alakja egy nyíl és egy kérdőjel kombinációja lesz.
+Ha ezután rákattint a program valamelyik elemére, akkor egy szöveges ablakban
+megjelenik az elem funkciójának rövid leírása (ha létezik leírás).</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice><guimenu>Segítség</guimenu>
+<guimenuitem>Hibabejelentés</guimenuitem></menuchoice></term>
+<listitem><para>Hibajelentést vagy bővítési kérést lehet küldeni ezen keresztül
+a szerzőknek.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Segítség</guimenu><guimenuitem>A KBlackBox névjegye</guimenuitem></menuchoice></term>
+<listitem>
+<para>A program verziószáma és a szerzők neve jeleníthető meg.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><menuchoice>
+<guimenu>Segítség</guimenu><guimenuitem>A KDE névjegye</guimenuitem></menuchoice></term>
+<listitem>
+<para>Rövid tájékoztató szöveg jeleníthető meg a KDE projekt tevékenységéről.</para>
+</listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+
+<sect1 id="toolbar">
+<title>Az eszköztár gombjai</title>
+
+<variablelist>
+<varlistentry>
+<term><guiicon>Kilépés</guiicon></term>
+<listitem><para>A program bezárása</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guiicon>Új</guiicon></term>
+<listitem><para>Új játék kezdése.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guiicon>Feladás</guiicon></term>
+<listitem><para>A golyók tényleges helyzetének felfedése.</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guiicon>Kész</guiicon></term>
+<listitem><para>Ellenőrzi, hogy minden golyó el van-e helyezve. Ha igen, akkor a
+játék végetér, a program kiszámolja a végeredményt és felfedi a golyók tényleges
+helyzetét. A <mousebutton>középső</mousebutton> egérgombbal kattintva ugyanezt a
+funkciót lehet elérni. </para></listitem>
+</varlistentry>
+</variablelist>
+</sect1>
+</chapter>
+
+<chapter id="credits-and-license">
+<title>A szerzők névsora és a licencegyezmény</title>
+
+<para>&kblackbox;</para>
+
+<para>Copyright Robert Cimrman
+<email>cimrman3@students.zcu.cz</email>, 1998-2000.</para>
+
+<para>A dokumentációt Robert Cimrman készítette.  A dokumentáció frissítését és DocBook formátumra
+konvertálását Lauri Watts <email>vampyr@atconnex.net</email> végezte el.</para>
+
+&underFDL;
+&underGPL;
+
+
+</chapter>
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

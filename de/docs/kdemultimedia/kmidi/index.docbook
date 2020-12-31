@@ -1,0 +1,1468 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+<!ENTITY kappname "&kmidi;">
+<!ENTITY timidity "<application
+>TiMidity</application
+>">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % German "INCLUDE">
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &kmidi;-Handbuch</title>
+<authorgroup>
+<author
+> <firstname
+>Bernd Johannes</firstname
+> <surname
+>Wuebben</surname
+> <affiliation
+> <address
+><email
+>wuebben@kde.org</email
+></address
+> </affiliation
+> </author>
+<author
+> <firstname
+>Greg</firstname
+> <surname
+>Lee</surname
+> <affiliation
+> <address
+><email
+>lee@hawaii.edu</email
+></address
+> </affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+><affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+><contrib
+>Übersetzung</contrib
+></othercredit>
+</authorgroup>
+    
+<copyright>
+<year
+>1999</year>
+<year
+>2000</year>
+<holder
+>Greg Lee</holder>
+</copyright>
+   
+<date
+>2000-12-16</date>
+<releaseinfo
+>1.03.00</releaseinfo>
+<abstract>
+<para
+> &kmidi; kann Midi-Dateien unter Verwendung von Instrumenten-Patches wiedergeben. Was eine Soundkarte wie die GUS (Gravis UltraSound) oder Sound Blaster AWE in Hardware bewerkstelligen, erledigt KMidi in Software. </para>
+
+</abstract>
+<keywordset>
+<keyword
+>KMidi</keyword>
+<keyword
+>Midi</keyword>
+<keyword
+>Spieler</keyword>
+<keyword
+>Timidity</keyword>
+<keyword
+>Midi</keyword>
+<keyword
+>zu</keyword>
+<keyword
+>Wav</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einleitung</title>
+
+<para
+> &kmidi; kann Midi-Dateien unter Verwendung von Instrumenten-Patches wiedergeben. Was eine Soundkarte wie die GUS (Gravis UltraSound) oder der Sound Blaster AWE in Hardware bewerkstelligen, erledigt &kmidi; in Software. Sie benötigen lediglich eine einfache Soundkarte mit einem billigen Soundchip. Selbst wenn Sie über eine GUS oder AWE verfügen, lohnt sich ein Versuch. </para>
+
+<para
+> Falls Sie der Klang nicht zufrieden stellt, können Sie sogar selbst Hand anlegen, da der Quelltext frei verfügbar ist. </para>
+
+<para
+> &kmidi; benötigt allerdings einen gewissen Anteil an der <acronym
+>CPU</acronym
+>-Zeit, um seine Aufgabe zu erledigen. Das Öffnen von neuen Fenstern oder manchmal bereits das Rollen eines Fensterinhalts kann Aussetzer in der Musikwiedergabe verursachen. Sie benötigen zusätzlich einige Patch-Sätze (siehe unten). Sie sind zu groß (10-12 MB), um sie in eine KDE-Distribution aufzunehmen, daher sind nur 5 Beispiel-Patches beigelegt. Das Programm kann 257 Bänke mit je 128 Instrumenten verwalten. </para>
+
+<para
+> &kmidi; basiert auf Tuukka Toivonens wundervollem <application
+>TiMidity</application
+>-Programm. Es erledigt die meiste Arbeit. &kmidi; ist ein <acronym
+>GUI</acronym
+> für <application
+>TiMidity</application
+> und daher ist <application
+>TiMidity</application
+> selbst und andere Benutzeroberflächen in der Quelltextdistribution von &kmidi; enthalten. Vielen Dank an Tuukka! </para>
+
+<para
+> &kmidi; unterstützt zur Zeit (Version 1.3) die folgenden Plattformen: </para>
+
+<itemizedlist
+> <listitem
+> <para
+>&Linux;</para
+> </listitem
+> <listitem
+> <para
+>FreeBSD</para
+> </listitem
+> <listitem
+> <para
+>DEC OSF/1 </para
+> </listitem
+> <listitem
+> <para
+>&HP-UX;</para
+> </listitem
+> <listitem
+> <para
+>SunOS</para
+> </listitem
+> <listitem
+> <para
+>Sun &Solaris;</para
+> </listitem
+> </itemizedlist>
+
+<para
+> Portierungen auf andere Plattformen sollten einfach sein. Kontaktieren Sie mich bitte, wenn Sie &kmidi; auf ein anderes System portiert haben. </para>
+
+<para
+> Weitere Informationen zur Benutzung, die nicht in dieser Dokumentation enthalten sind, finden Sie auf den <command
+>timidity</command
+>-Handbuchseiten (man-pages). </para>
+
+<para
+> Da Midi-Dateien typischerweise lediglich einen Umfang von 50 KB oder weniger haben, können Sie leicht heruntergeladen werden, so dass es Ihnen niemals an großartigen MIDI-Dateien zum Abspielen mangeln wird. </para>
+
+<para
+> Viel Spaß mit &kmidi;! </para>
+
+<para
+> Bernd Johannes Wuebben<email
+>wuebben@kde.org</email
+> </para>
+
+</chapter>
+
+<chapter id="usage">
+<title
+>Benutzung </title>
+
+<sect1 id="getting-started">
+<title
+>Allgemeines zur Benutzung </title>
+
+<para
+> Beim ersten Start von &kmidi; sehen Sie den Namen einer Beispiel-Mididatei im schwarzen Fenster. Klicken Sie zum Abspielen auf den Wiedergabe-Knopf. Bewegen Sie den Mauszeiger von Knopf zu Knopf und Sie erhalten jeweils eine kurze Beschreibung der jeweiligen Funktion. </para>
+
+<para
+> Klicken Sie auf das <guiicon
+>KMidi</guiicon
+>-Logo links oben, um die untere Anzeige einzublenden. Sie zeigt in einem schwarzen Fenster, der <interface
+>Kanal-Anzeige</interface
+>, ein Säulendiagramm der Noten, die auf den 16 Midi-Kanälen abgespielt werden. Auf der linken Seite befindet sich ein Listenfeld zur Auswahl eines Patch-Satzes und zur Musikstückauswahl. Ein Mausklick auf das Liedtextlistenfeld zeigt eine Liste aller Beispieldateien, die der &kmidi;-Distribution beiliegen. Sie können eine zur Wiedergabe auswählen. </para>
+
+<para
+> Klicken Sie auf den Knopf <guiicon
+>Informationen anzeigen</guiicon
+>, um Informationen über die aktuelle Mididatei und <quote
+>Karaoke</quote
+>-Texte zu sehen (falls die Midi-Datei solche enthält). </para>
+
+<para
+> Klicken Sie auf <guiicon
+>Stückliste öffnen</guiicon
+>, um eine Stückliste zu öffnen. Wählen Sie im Menü <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Stückliste bearbeiten...</guimenuitem
+>, um in Ihrem System nach Midi-Dateien zu suchen und eine Stückliste zusammenzustellen. Es werden nur Midi-Dateien im Dialog angezeigt (die Dateierweiterungen können <literal role="extension"
+>.mid</literal
+> oder <literal role="extension"
+>.kar</literal
+> sein). Doppelklicken Sie auf einen Dateinamen, um ihn in die Stückliste (auf der rechten Seite) aufzunehmen. </para>
+
+<para
+> Wundern Sie sich nicht, dass einige Midi-Dateien wenige oder gar keine Klänge produzieren. &kmidi; hat standardmäßig nur eine geringe Anzahl an Instrumenten-Patches. Wie Sie weitere Patches erhalten, erfahren Sie im entsprechenden Kapitel dieser Dokumentation. </para>
+
+</sect1>
+
+<sect1 id="playlists">
+<title
+>Stücklisten</title>
+
+<para
+> Klicken Sie auf den Knopf <guiicon
+>Auswerfen</guiicon
+>, um den Stücklistenmanager zu öffnen. Links sehen Sie das Verzeichnis, in dem Sie das letzte Mal die Stückliste editiert haben. Auf der rechten Seite sehen Sie Ihre augenblickliche Stückliste. Wählen Sie eine Datei auf der linken Seite zur Wiedergabe aus, indem Sie darauf doppelklicken. Alternativ können Sie auch auf die Datei klicken und den Knopf <guibutton
+>Hinzufügen</guibutton
+> betätigen. </para>
+
+<para
+> In der linken Liste werden nur Midi-Dateien angezeigt. Dabei werden keine komprimierten Midi-Dateien erkannt. Wenn Sie komprimierte Midi-Dateien (<abbrev
+>z.B.</abbrev
+> mit <command
+>gzip</command
+> komprimierte Dateien) verwenden, schalten Sie den Dateifilter durch Klicken auf <guibutton
+>Filter</guibutton
+> unten im Dialog aus. Dadurch werden alle Dateien angezeigt. &kmidi; verwendet übrigens nicht die Dateinamenserweiterung, um den Dateityp festzustellen, sondern liest einige Bytes am Anfang der Datei, um festzustellen, dass es sich um eine Midi-Datei handelt. Daher müssen Sie nicht die Endung <literal role="extension"
+>.mid</literal
+> für Ihre Midi-Dateien verwenden. </para>
+
+<para
+> In der unteren Liste werden die bereits definierten Stücklisten angezeigt. Anfangs gibt es nur eine einzige Liste mit dem Namen <guilabel
+>default</guilabel
+> (Standard). Sie enthält die Beispieldateien der &kmidi;-Distribution. Sie können den Inhalt dieser Stückliste ändern, indem Sie diese Stückliste auswählen (falls sie noch nicht ausgewählt ist) und im Menü <menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Speichern</guimenuitem
+></menuchoice
+> auswählen. Dadurch wird der Inhalt der Stückliste durch die aktuell ausgewählten Musikstücke ersetzt. Wählen Sie stattdessen <menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+>Anhängen</guimenuitem
+></menuchoice
+>, um die Stücke der Stückliste zur Stücklistendatei hinzuzufügen. Sie können eine neue Stücklistendatei erstellen, indem Sie <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Speichern unter...</guimenuitem
+></menuchoice
+> auswählen. Es erscheint ein Dialog zur Eingabe des neuen Stücklistennamens. Doppelklicken Sie auf den Namen einer Stückliste, um die aktuelle Stückliste durch den Inhalt dieser Stücklistendatei zu ersetzen. Das können Sie auch durch Klicken auf <guilabel
+>Stückliste auswählen</guilabel
+> und die Auswahl einer Stückliste im Hauptfenster erreichen. </para>
+
+<para
+> Um eine Stückliste zu entfernen, wählen Sie sie durch Klicken auf ihren Namen aus und wählen Sie im Menü <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Löschen</guimenuitem
+></menuchoice
+> aus. </para>
+
+<para
+> Die vertikale Trennleiste zwischen den beiden Listen kann durch Ziehen mit der Maus verschoben werden. Ebenso kann die horizontale Trennleiste oberhalb der Stücklistennamen verschoben werden. </para>
+
+</sect1>
+
+<sect1 id="midi-filenames">
+<title
+>Midi-Dateinamen </title>
+
+<para
+> Die angezeigten Midi-Dateinamen im Hauptfenster unterscheiden sich geringfügig von den wirklichen Dateinamen, da &kmidi; zur besseren Lesbarkeit jedes Auftreten eines <quote
+>_</quote
+> im Namen durch ein Leerzeichen ersetzt und eine eventuelle Endung auf <literal role="extension"
+>.mid</literal
+> oder <literal role="extension"
+>.MID</literal
+> weggelassen wird. </para>
+
+</sect1>
+
+<sect1 id="configuring">
+<title
+>Einrichtung </title>
+
+<para
+> Klicken Sie auf <guibutton
+>KMidi einrichten</guibutton
+>, um den Einrichtungsdialog aufzurufen. Sie können hier die Hintergrundfarbe und die <acronym
+>LED</acronym
+>-Farbe der beiden Anzeigefenster auswählen. Die Farbe für Percussion in der Kanal-Anzeige ist nicht veränderbar -- sie ist fest eingestellt auf gelb. </para>
+
+</sect1>
+
+<sect1 id="patchsets">
+<title
+>Patch-Sätze </title>
+
+<para
+> In der unteren Anzeige befindet sich auf der linken Seite oben das Listenfeld <guilabel
+>Patch-Satz wählen</guilabel
+>. Standardmäßig gibt es hier drei Einträge: <guilabel
+>piano+guitar</guilabel
+>, <guilabel
+>piano</guilabel
+> und <guilabel
+>guitar</guilabel
+>. Der zweite und dritte Eintrag sind lediglich zur Illustration angegeben. Wenn Sie über einige Patch-Sätze verfügen, können Sie sie in diesem Listenfeld auswählen. Dazu müssen Sie &kmidi; entsprechend einrichten: </para>
+
+<para
+> Erstellen Sie für jeden Patch-Satz eine <literal role="extension"
+>.cfg</literal
+>-Datei, die eine Beschreibung der Patches, die Bänke und die Instrumentennummern (Midi-Programmnummern) enthält. Danach fügen Sie zur Datei <filename
+>timidity.cfg</filename
+> eine Zeile <userinput
+>source <replaceable
+>Dateiname</replaceable
+></userinput
+> und davor eine Zeile if <replaceable
+>n</replaceable
+> ein, wobei <replaceable
+>Dateiname</replaceable
+> der Name der Beschreibungsdatei ist und <replaceable
+>n</replaceable
+> die Zeilennummer angibt, in der <replaceable
+>Dateiname</replaceable
+> in &kmidi;s Listenfeld <guilabel
+>Patch-Satz wählen</guilabel
+> erscheint. Dort können Sie dann auf den Namen klicken, um den Patch-Satz auszuwählen. Die Patch-Satznummern beginnen mit 0. </para>
+
+<para
+> Die Bänke/Drumsets und die Namen von Patches müssen in den <literal role="extension"
+>.cfg</literal
+>-Dateien immer angegeben werden, da sie sonst nicht geladen werden, selbst wenn sie vorhanden sind (<acronym
+>GUS</acronym
+> Patch-Dateien oder Soundfonts). So ist es einfach, gewisse Patches von einem Soundfont außen vor zu lassen und bessere aus einem nachfolgenden Soundfont zu laden. Geben Sie sie einfach nicht an, bevor Sie den Soundfont geladen haben. </para>
+
+<para
+> Falls der Patch in der gleichen Bank oder dem gleichen Drumset mehrfach auftritt, beachtet &kmidi; nur die erste Deklaration. Sie sollten also ihre besten Soundfonts vorn eintragen. </para>
+
+<para
+> Es existiert ein Hilfsprogramm namens <command
+>sf2cfg</command
+>, um eine <literal role="extension"
+>cfg</literal
+>-Datei automatisch zu erzeugen, die alle Patches enthält, die in einem <literal role="extension"
+>sbk</literal
+>/<literal role="extension"
+>sf2</literal
+>-Soundfont enthalten sind. Beigelegt sind eine <literal role="extension"
+>cfg</literal
+>-Beispieldatei für die Soundfonts <filename
+>chaos8m.sf2</filename
+> und <filename
+>chaos12m.sf2</filename
+> hinzugefügt. </para>
+
+</sect1>
+
+<sect1 id="polyphony">
+<title
+>Mehrstimmigkeit (Polyphonie) </title>
+
+<para
+> Hören Sie Aussetzer? Es ist möglich, dass &kmidi; beim Berechnen der Tonhöhe der Instrumenent-Patches, beim Signalfiltern, Notenkombinieren <abbrev
+>u.s.w.</abbrev
+> nicht schnell genug ist. Sie können die Situation eventuell verbessern, indem Sie die Mehrstimmigkeit im Drehregler <guilabel
+>Mehrstimmigkeit einstellen</guilabel
+> anpassen. Damit wird die maximale Anzahl unterschiedlicher <quote
+>Stimmen</quote
+> begrenzt, die gleichzeitig wiedergegeben werden. Durch Verringerung der Mehrstimmigkeit wird die Wiedergabe weniger rechenintensiv. Allerdings gehen dadurch vielleicht einige Chor- oder Hall-Effekte verloren, oder es werden einige Noten abgeschnitten oder gar völlig weggelassen. (In einigen Fällen generiert &kmidi; zusätzliche Noten, um die Effekte Midi-Chor oder Hall anzunähern.) </para>
+
+</sect1>
+
+<sect1 id="effects">
+<title
+>Effekte </title>
+
+<para
+> Effekte haben Auswirkungen auf den Klang, wobei deren Auswirkungen nicht nicht immer ganz klar sind. Effekte können auf vier Arten eingeschaltet und auf zwei Arten gesteuert werden. </para>
+
+<para
+> Ein Midi-Stück kann Effekte für alle Instrumente auf jedem einzelnen der 16 Midi-Kanäle einstellen. Andererseits können mehrere Effekte für mehrere Kanäle eingeschaltet werden. Klicken Sie auf den Knopf <guibutton
+>eff</guibutton
+> unten rechts im Hauptfenster, um folgende Midi-Effekte anzunähern: Chor, Hall, Celeste und Phaser. Jeder dieser Effekte wird aber nur dann angewandt, wenn er durch das Midi-Stück verwendet wird. Für zwei weitere Midi-Standardeffekte, nämlich Harmonics und Helligkeit (Brightness), sind noch keine Filter implementiert (die anderen Filter stammen von Nicolas Witczak). </para>
+
+<para
+> Ist der Knopf <guibutton
+>eff</guibutton
+> nicht gedrückt, werden dennoch eine Art von Chor und Hall auf Anforderung eingesetzt. Diese werden aber auf eine andere Weise erzeugt. Es werden anstatt Filtern zusätzliche Noten erzeugt. Sie werden für den Chor-Effekt leicht verstimmt und für den Hall-Effekt leicht verzögert. Außerdem wird die Hüllkurve und das Vibrato angepasst. Bei ausgeschaltetem <guibutton
+>eff</guibutton
+>  werden Celeste- und Phaster-Effekte nicht wiedergegeben. </para>
+
+<para
+> Effekte können zweitens durch einen Patch eingeschaltet werden. Das bedeutet, dass das Instrument eine bestimmte Chor- und/oder Hallstärke enthält . AWE-Patches enthalten in der Regel Effekte, während Gravis-Forte Patches keine enthalten. (Daher klingen AWE-Patch-Sätze in der Regel voller.) Auf diese Art angeforderte Effekte werden durch <guibutton
+>Geisternoten</guibutton
+> implementiert und werden nicht durch den Knopf <guibutton
+>eff</guibutton
+> beeinflusst. </para>
+
+<para
+> Drittens können Sie selbst Effekte anfordern. Dazu befinden sich rechts unten im Hauptfenster vier Ankreuzfelder. Jedes der Felder kann einen von drei Zuständen annehmen: <guilabel
+>Normal</guilabel
+> (Standardeinstellung), <guilabel
+>Extra</guilabel
+> und <guilabel
+>Aus</guilabel
+>. Die mittleren beiden Felder kontrollieren Chor und Hall. Bei <guilabel
+>Normal</guilabel
+> werden die Effekte wie oben beschrieben eingesetzt. Werden Sie auf <guilabel
+>Extra</guilabel
+> geschaltet, werden für alle Instrumente und alle Kanäle extra Noten für Chor und Hall erzeugt. Das geschieht zusätzlich zu den Noten, die durch Klicken auf <guibutton
+>eff</guibutton
+> angefordert werden. Werden Sie auf <guilabel
+>Aus</guilabel
+> geschaltet, werden keine extra Chor- oder Hall-Noten erzeugt. </para>
+
+<para
+> Schließlich können Effekte durch Midi-Systemnachrichten in einer Midi-Datei angefordert werden -- <quote
+>sysexes</quote
+>. Sie sind zur Kontrolle der Hardware spezieller Synthesizer gedacht. &kmidi; enthält eine Anzahl Dekoder für Sysexes der RolandGS- und YamahaXG-Synthesizer und versucht die Wirkung dieser Effekte möglichst gut nachzuempfinden. Chor, Hall und ihre Variationen werden durch <quote
+>Geisternoten</quote
+> simuliert und können durch die im vorherigen Absatz beschriebenen Ankreuzfelder ausgeschaltet werden. Wenn allerdings die Celeste-Variation eines Chores mit einer XG-sysex angefordert wird, aktiviert das Witczak's Celeste-Filter falls der Knopf <guibutton
+>eff</guibutton
+> gedrückt ist. </para>
+
+</sect1>
+
+<sect1 id="command-line-options">
+<title
+>Befehlszeilen-Parameter</title>
+
+<para
+> Bis auf die Angabe von einem oder mehreren Midi-Dateinamen auf der Befehlszeile ist das Wissen um die weiteren Parameter in diesem Abschnitt wahrscheinlich nicht besonders nützlich für Sie. Falls Sie diese Optionen dennoch benötigen, bevorzugen Sie vermutlich die Verwendung der Befehlszeilenversion dieses Programmes: <application
+>timidity</application
+>. </para>
+
+<cmdsynopsis>
+<command
+>kmidi</command>
+<group
+><option
+>options</option
+> <arg
+>filename</arg>
+</group>
+</cmdsynopsis>
+
+<para
+> Verwenden Sie &quot;-&quot; als Dateiname, um eine MIDI-Datei von <filename class="devicefile"
+>stdin</filename
+> zu lesen. </para>
+
+<variablelist
+> <title
+>Optionen:</title
+> <varlistentry
+> <term
+><option
+>-o</option
+> <parameter
+>Dateiname</parameter
+></term
+> <listitem
+> <para
+> Leitet die Ausgabe um in eine Datei. Dabei kann es sich um eine echte Datei, ein Gerät oder einen HP-UX-Audioserver handeln, abhängig vom Ausgabemodus, der mit der Option <option
+>-O</option
+> eingestellt wird. Die Spezialdatei ``-'' leitet die Ausgabe nach <filename class="devicefile"
+>stdout</filename
+> um. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-O</option
+> <parameter
+>Modus</parameter
+></term
+> <listitem
+> <para
+> Wählt den Ausgabemodus aus den vorhanden Möglichkeiten aus. Modus muss mit einem der von <application
+>TiMidity</application
+> unterstützten Ausgabemodusnamen beginnen. Führen Sie TiMidity mit der Option <option
+>-h</option
+> aus, um eine Liste anzeigen zu lassen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-s</option
+> <parameter
+>Frequenz</parameter
+></term
+> <listitem
+> <para
+> Sampling-Frequenz <parameter
+>Frequenz</parameter
+> (Hz oder kHz) einstellen. Nicht alle Soundgeräte unterstützen alle Frequenzen -- implementationsabhängig kann eine angenäherte Frequenz verwendet werden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-a</option
+></term
+> <listitem
+> <para
+> Antialiasing-Filter aktivieren. Samples werden vor der Wiedergabe durch einen Tiefpassfilter geleitet. Dadurch wird das bei niedrigen Resampling-Frequenzen produzierte Aliasing-Geräusch verringert. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-f</option
+></term
+> <listitem
+> <para
+> Schnelles Ausklingen aktivieren. Schaltet schnelle Hüllkurven ein. Einige Midi-Dateien klingen besser, wenn die Noten langsamer ausklingen -- das erzeugt einen Eindruck von Nachhall (Reverb). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-p</option
+> <parameter
+>n</parameter
+></term
+> <listitem
+> <para
+> Stellt die Mehrstimmigkeit ein (Anzahl gleichzeitig wiedergegebener Stimmen). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-A</option
+> <parameter
+>n</parameter
+></term
+> <listitem
+> <para
+> Lautstärke um <parameter
+>n</parameter
+> Prozent erhöhen (kann zu Clipping führen). </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-C</option
+> <parameter
+>n</parameter
+></term
+> <listitem
+> <para
+> Setzt das Verhältnis von Sampling- und Kontrollfrequenz fest. Hier wird eingestellt, wie oft die Hüllkurve neu berechnet wird -- ein kleines Verhältnis führt zu besserer Wiedergabequalität, benötigt aber mehr <acronym
+>CPU</acronym
+>-Zeit. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-E</option
+></term
+> <listitem
+> <para
+> Schaltet Witczak's Effektfilter für Chor, Hall (Reverb), Phaser und Celeste ein. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-&num;</option
+> <parameter
+>n</parameter
+></term
+> <listitem
+> <para
+> Patch-Satz wählen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-L</option
+> <parameter
+>Verzeichnis</parameter
+></term
+> <listitem
+> <para
+> Füge Verzeichnis zum Suchpfad hinzu. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-c</option
+> <parameter
+>Datei</parameter
+></term
+> <listitem
+> <para
+> Zusätzliche Konfigurationsdatei einlesen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-I</option
+> <parameter
+>n</parameter
+></term
+> <listitem
+> <para
+> Standardmäßig Programmnummer <parameter
+>n</parameter
+> verwenden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-P</option
+> <parameter
+>Datei</parameter
+></term
+> <listitem
+> <para
+> Benutze <parameter
+>Datei</parameter
+> als Patch-Datei für alle Programme </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-D</option
+> <parameter
+>n</parameter
+></term
+> <listitem
+> <para
+> Spiele Schlagzeug auf Kanal <parameter
+>n</parameter
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-Q</option
+> <parameter
+>n</parameter
+></term
+> <listitem
+> <para
+> Ignoriere Kanal <parameter
+>n</parameter
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-F</option
+></term
+> <listitem
+> <para
+> Schnelles "Panning" aktivieren </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-U</option
+></term
+> <listitem
+> <para
+> Instrumenten-Patches zwischen der Wiedergabe von Midi-Dateien aus dem Speicher entfernen </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-i</option
+> <parameter
+>Modus</parameter
+></term
+> <listitem
+> <para
+> Benutzeroberfläche auswählen (siehe <link linkend="user-interfaces"
+>Liste</link
+>) </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-B</option
+> <parameter
+>n</parameter
+></term
+> <listitem
+> <para
+> Anzahl Puffer-Fragmente festlegen </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-h</option
+></term
+> <listitem
+> <para
+> Hilfeinformationen anzeigen </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Verfügbare Ausgabemodi (<option
+>-0</option
+></title
+> <varlistentry
+> <term
+><option
+>-O</option
+> <parameter
+>d</parameter
+></term
+> <listitem
+> <para
+> &Linux; <filename class="devicefile"
+>dsp</filename
+>-Gerät </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-O</option
+> <parameter
+>w</parameter
+></term
+> <listitem
+> <para
+> RIFF-WAVE-Datei </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><option
+>-O</option
+> <parameter
+>r</parameter
+></term
+> <listitem
+> <para
+> Rohe Wellenformdaten </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Ausgabeformatoptionen (anhängen an <option
+>-O</option
+></title
+> <varlistentry
+> <term
+><parameter
+>`8'</parameter
+></term
+> <listitem
+> <para
+> 8-bit Samplebreite </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`1'</parameter
+></term
+> <listitem
+> <para
+> 16-bit Samplebreite </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`U'</parameter
+></term
+> <listitem
+> <para
+> uLaw Kodierung </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`l'</parameter
+></term
+> <listitem
+> <para
+> lineare Kodierung </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`M'</parameter
+></term
+> <listitem
+> <para
+> Mono </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`S'</parameter
+></term
+> <listitem
+> <para
+> Stereo </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`s'</parameter
+></term
+> <listitem
+> <para
+> Vorzeichenbehaftete Ausgabe </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`u'</parameter
+></term
+> <listitem
+> <para
+> Vorzeichenlose Ausgabe </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`x'</parameter
+></term
+> <listitem
+> <para
+> Ausgabe Byte-vertauscht </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Verfügbare Benutzeroberflächen (<option
+>-i</option
+>)</title
+> <varlistentry
+> <term
+><parameter
+>q</parameter
+></term
+> <listitem
+> <para
+> &kmidi; &Qt;-Oberfläche </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>d</parameter
+></term
+> <listitem
+> <para
+> einfache (dumb) Oberfläche </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<variablelist
+> <title
+>Oberflächen-Einstellungen (anhängen an <option
+>-i</option
+><parameter
+>?</parameter
+>)</title
+> <varlistentry
+> <term
+><parameter
+>`v'</parameter
+></term
+> <listitem
+> <para
+> Mehr Informationen anzeigen (kumulativ) </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`q'</parameter
+></term
+> <listitem
+> <para
+> Weniger Informationen anzeigen (kumulativ) </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>`t'</parameter
+></term
+> <listitem
+> <para
+> Wiedergabe verfolgen (Trace) </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><parameter
+>-i</parameter
+></term
+> <listitem
+> <para
+> Benutzeroberfläche auswählen (siehe weiter unten) </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+</chapter>
+
+<chapter id="questions-and-answers">
+<title
+>Fragen und Antworten</title>
+
+<qandaset>
+<qandaentry>
+<question>
+<para
+> Woher bekomme ich einen vollständigen Patch-Satz? </para>
+</question>
+<answer>
+<para
+> Bitte lesen Sie dazu gehörigen <link linkend="patches"
+>Abschnitt</link
+> im Kapitel zur Installation von &kmidi;. </para>
+</answer>
+</qandaentry>
+</qandaset>
+
+</chapter>
+
+<chapter id="design">
+<title
+> Design </title>
+
+<sect1 id="processes">
+<title
+>Prozesse </title>
+
+<para
+> &kmidi; ist eine Benutzeroberfläche, die die Bildschirmdarstellung übernimmt und Benutzereingaben verarbeitet. &kmidi; wird als eigenständiger Prozess neben &timidity; ausgeführt. Das letztere Programm liest Midi-Dateien und gibt sie wieder. </para>
+</sect1>
+
+<sect1 id="synthesis-model">
+<title
+>Synthesizer-Modell</title>
+
+<para
+> &timidity; hat einen Tongenerator, zwei Hüllkurvengeneratoren, drei Sinusoszillatoren für tiefe Frequenzen, einen Tiefpassfilter und eine Einheit für Effekte. (Der Tiefpassfilter wird nur verwendet, wenn die vierte Interpolationsoption von &kmidi; gewählt und der Knopf <quote
+>filt</quote
+> gedrückt ist -- momentan funktioniert das noch nicht zuverlässig.) </para>
+
+<para
+> Der Tongenerator resampelt Intrumenten-Patches mit den Grundfrequenzen, die für die wiedergegebenen Noten geeignet sind. (Der Interpolationsalgorithmus kann durch vier Ankreuzfelder im oberen Hauptfenster ausgewählt werden.) </para>
+
+<para
+> Der Hüllkurvengenerator moduliert jede Note nacheinander mit einer Attack-, einer Hold-, einer Abkling- und einer Release-Phase. Einer der Generatoren beeinflusst die Amplitude, der andere die Tonhöhe und/oder die Grenzfrequenz des Tiefpassfilters. </para>
+
+<para
+> Die Oszillatoren für tiefe Frequenzen modulieren die Amplitude (für Tremolo), die Frequenz (für Vibrato) und die Grenzfrequenz des Tiefpassfilters (XG <quote
+>rezo sweep</quote
+>). </para>
+
+<para
+> Die Einheit für Effekte liefert Echo-, Verstimmungs-, Hall-, Chor-, Celeste- und Phaser-Effekte. Echo (durch zusätzlich generierte Echonoten) und Hall (durch einen Filter erzeugt) erzeugen zusammen Midi-Hall (Midi-Reverberation). Verstimmung (Detuning--durch Erzeugung von zusätzlichen in der Höhe veränderten Noten) und Chor (durch einen Filter erzeugt) implementieren zusammen Midi-Chor. (Die Effektfilter von &kmidi; sind nur aktiv, wenn der Knopf <guibutton
+>eff</guibutton
+> gedrückt ist. Echo und Verstimmung können mit den mittleren beiden Ankreuzfeldern auf der rechten Seite des unteren Hauptfenster und durch die <guimenu
+>Chor</guimenu
+>- und <guimenu
+>Hall</guimenu
+>-Menüs eingestellt werden.) </para>
+
+<para
+> Instrumente können ein oder zwei Tonelemente und für jedes davon einen Patch-Satz mit Patches für unterschiedliche Bereiche der Lautstärke (üblich für Klaviere) und Tonhöhe beinhalten. GUS Patch-Sätze enthalten allerdings lediglich ein Tonelement und einen Lautstärkebereich pro Instrument. (Wählen Sie das Ankreuzfeld ganz rechts aus, um &kmidi; zur Anzeige der Patch-Satznamen im Informationsfenster beim Laden anzuzeigen. Dabei wird der Lautstärkebereich angezeigt und <quote
+>(2)</quote
+> bei zwei Tonelementen.) </para>
+</sect1>
+
+<sect1 id="midi-implementation">
+<title
+>Midi-Implementierung </title>
+
+<para
+> Fast alle Midi- und Kontrollnachrichten sind irgendwie implementiert (was bedeutet, dass sie irgend etwas bewirken, wenn auch nicht notwendigerweise das Richtige). NRPN-Kontrollnachrichten zum Senden von Attack- und Abklingzeit sind nicht implementiert, da der Entwickler keine Midi-Dateien gefunden hat, die diese verwenden. Die "flanging"-Kontrollnachricht ist nicht implementiert (obwohl "flanging" innerhalb eines XG sysex-Dumps implementiert ist). Nur wenige der Kontrollnachrichten für Roland und Yamaha sysex-dumps sind implementiert. </para>
+
+<para
+> &timidity; kann Midi-Dateien verwalten, die zur Wiedergabe auf bis zu vier verschiedenen Synthesizern gedacht sind. Für jeden der vier Synthesizer werden die 16 Kanäle getrennt verwaltet. Allerdings müssen die Synthesizer innerhalb der Midi-Datei mit Hilfe von Port-Befehlen (in Roland-GS oder Yamaha-XG sysex-dumps) ausgewählt werden. Einige Midi-Dateien für mehrere Synthesizer haben diese Port-Befehle nicht. (Das Informationsfenster zeigt Port-Befehle an, falls sie vorhanden sind.) </para>
+
+<para
+> &kmidi;s Säulenanzeige der Kanalaktivität ist auf 16 Kanäle begrenzt. Das Kanaldiagramm der Patches mit horizontalen Balken für Steuerwerte ist auf einen Satz von 16 Kanälen begrenzt. </para>
+</sect1>
+
+<sect1 id="volume">
+<title
+>Lautstärke </title>
+
+<para
+> Lautstärkeunterschiede sind im Vergleich zum originalen &timidity; stark reduziert. Das verringert clipping (Abschneiden von Informationen) und erhöht die dynamischen Unterschiede. (Bei geringen Lautstärken können allerdings leider Artefakte entstehen). Falls Sie eine größere Lautstärke benötigen, sollten Sie diese an einer anderen Stelle einstellen. Verwenden Sie entweder &kmix;, um die Line-oder Mixerlautstärke für <filename class="devicefile"
+>/dev/dsp</filename
+> zu erhöhen oder Sie erhöhen die Lautstärke an ihren Kopfhörern oder Aktivboxen. </para>
+</sect1>
+
+<sect1 id="computation-issues">
+<title
+>Geschwindigkeitsaspekte</title>
+
+<para
+> &timidity; liefert unter Umständen die Daten nicht schnell genug an den Sound-Treiber und die Folge sind Aussetzer in der Musik. &timidity; versucht solche Aussetzer zu vermeiden, indem es seinen Pufferinhalt überwacht und beim Leerlaufen des Puffers den Berechnungsaufwand verringert: es verwendet einen gröberen Interpolationsalgorithmus zum Resampeln, es fügt keine Extranoten für Echo und Verstimmung für Hall- und Chor-Effekte ein, und es beendet Noten früher oder übergeht einzelne Noten vollständig. Daher kann es abhängig von Musikstück, Patch-Satz und Systemleistung zu einer Verringerung der Qualität kommen, wenn auch Aussetzer unterbleiben. Die <acronym
+>LED</acronym
+>s des Hauptfensters von &kmidi; zeigen an, welche Anstrengungen &timidity; machen muss, um komplette Aussetzer zu vermeiden. (Anzeichen von "Verzweiflung": Die Puffer-<acronym
+>LED</acronym
+> ändert die Farbe von einem gesunden grün auf geschäftiges orange, die Interpolations-<acronym
+>LED</acronym
+> geht aus (was bedeutet, dass lediglich lineare Interpolation zum Resampeln verwendet wird), die Echo-<acronym
+>LED</acronym
+> oder die Verstimmungs-<acronym
+>LED</acronym
+> geht aus (was bedeutet, dass keine Extranoten oder verstimmte Noten wiedergegeben werden). </para>
+
+<para
+> Zur Überwachung des Ausgabepuffers muss der Soundtreiber gefragt werden, wie viele Daten er gepuffert hat. Das funktioniert für Hannu Savolainen's <acronym
+>OSS</acronym
+>-Treiber (für &Linux; und einige andere Systeme), vielleicht auf älteren Sun-Workstations (es hat zumindest funktioniert), aber nicht auf anderen System. </para>
+
+<para
+> Durch verschiedene Einstellungen kann man die von &timidity; verursachte Systemlast verringern. </para>
+
+<orderedlist
+> <listitem
+> <para
+> Man verringert die erlaubte Polyphonie (Drehregler auf der unteren Leiste). </para
+> </listitem
+> <listitem
+> <para
+> Man schaltet den <guibutton
+>eff</guibutton
+>-Knopf aus. </para
+> </listitem
+> <listitem
+> <para
+> Man wählt eine billigere Interpolationsmethode (eines der Ankreuzfelder links auf der oberen Leiste). </para
+> </listitem
+> <listitem
+> <para
+> Man schaltet Echo, Verstimmung und Stereo mit den drei linken Ankreuzfeldern der unteren Leiste aus. </para
+> </listitem
+> <listitem
+> <para
+> Man wählt die Einstellung <guimenuitem
+>Trocken</guimenuitem
+> im Menü <guimenu
+>Hall</guimenu
+>. </para
+> </listitem
+> </orderedlist>
+
+<para
+> Natürlich ist das mit einem Qualitätsverlust verbunden. Den <guibutton
+>filt</guibutton
+>-Knopf einzuschalten kostet nichts, solange gleichzeitig die Option <guibutton
+>C-Spline+Filter</guibutton
+>-Interpolation gewählt ist. </para>
+
+</sect1>
+
+<sect1 id="memory-issues">
+<title
+>Speicheraspekte </title>
+
+<para
+> &timidity; kann eine große Menge Speicher für Patches verbrauchen. Anzeichen dafür ist eine geringe Antwortgeschwindigkeit ihrer Arbeitsoberfläche oder gar ein Absturz. Dieses Problem tritt wahrscheinlich nur bei großen sf2-Soundfonts mit mehr als 30 MB auf. Die Klavier-Patches des Personal Choice's PC400 Soundfonts können beispielsweise je 25 MB Speicher belegen. Nach der Wiedergabe einiger Midi-Dateien, die drei dieser Patches verwenden, sind 75 MB Speicher belegt. Im Einrichtungsdialog von &kmidi; können Sie die Obergrenze des von &kmidi; verwendeten Speichers festlegen. Das bedeutet, dass &timidity; früher geladene Patches verwirft, wenn die Obergrenze erreicht ist. Die Standardeinstellung von 60 MByte funktioniert auf einem System mit 48 MB RAM und 196 MB Cache-Speicher. Je niedriger Sie diesen Wert ansetzen, um so mehr Patches müssen während der Wiedergabe einer Stückliste zwischendurch nachgeladen werden. Wenn Sie über sehr viel RAM verfügen, können sie den Wert auf <quote
+>no limit</quote
+> setzen.  </para>
+
+<para
+> Wenn Sie den Wert hoch genug ansetzen, können ganze Soundfont-Dateien anstatt einzelner Patches geladen werden. Setzen Sie den Wert zu gering an, so ist das nachteilig, da Soundfont-Dateien in einem Stück weniger Speicher benötigen als die Patches, wenn Sie einzeln geladen werden (der Grund ist unklar). </para>
+
+<para
+> Auf Little-Endian-Systemen wie x86 werden sf2-Dateien nicht eingelesen, sondern in den Speicher abgebildet. Damit erfolgt der Start wesentlich schneller. Für Big-Endian-Systeme konnte das bis jetzt noch nicht implementiert werden. </para>
+
+<para
+> Nach der Wiedergabe jeder Midi-Datei gibt &kmidi; die durch Patches belegte Speichermenge im Informationsfenster aus. </para>
+
+<para
+> Wenn Sie nur über wenig Speicher oder Auslagerungsspeicher verfügen, kann ihr System trotz einer niedrigen Obergrenze des von &kmidi; verwendeten Speichers abstürzen. Seien Sie daher vorsichtig mit großen Soundfonts. </para>
+</sect1>
+
+</chapter>
+
+<chapter id="license-and-credits">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+> &kmidi; verwendet Tuukka Toivonen's &timidity;-0.2i-Programm Copyright (C) 1995 Tuukka Toivonen <email
+>toivonen@clinet.fi</email
+>. Eine erweiterte Version von Tuukka's Programm mit fünf weiteren Benutzerschnittstellen gehört zur &kmidi;-Distribution. (Informationen zur Kompilierung und Installation von &timidity; findet man weiter unten.) </para>
+
+<para
+> &kmidi; und &timidity; verwenden AWE-SoundFont-Erweiterungen von Takashi Iwai <email
+>iwai@dragon.mm.t.u-tokyo.ac.jp</email
+> und die <acronym
+>AMD</acronym
+> InterWave-Erweiterungen von Greg Lee <email
+>lee@hawaii.edu</email
+>, welche die Verwendung von SoundFonts (<literal role="extension"
+>.sbk</literal
+>/<literal role="extension"
+>.sf2</literal
+>-Dateien) und <acronym
+>IW</acronym
+>-Patchsätze (<literal role="extension"
+>.fff</literal
+>/<literal role="extension"
+>.dat</literal
+>-Dateien) zusätzlich zu Gravis/Forte <literal role="extension"
+>.pat</literal
+>-Dateien. </para>
+
+</chapter>
+
+<chapter id="copyright">
+<title
+>Copyright </title>
+
+<para
+> &kmidi; Copyright 1997 Bernd Johannes Wuebben <email
+>wuebben@kde.org</email
+> </para>
+
+<para
+> &kmidi; verwendet Tuukka Toivonen's &timidity;-0.2i-Programm, Copyright &copy; 1995 Tukka Toivonen <email
+>toivonen@clinet.fi</email
+>. </para>
+
+<para
+>Deutsche Übersetzung der Dokumentation Frank Schütte <email
+>F.Schuette@t-online.de</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="how-to-obtain-kmidi">
+<title
+>Wie Sie &kmidi; bekommen</title>
+
+<para
+> &kmidi; ist ein Teil des &kde;-Projekts (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>). Sie finden &kmidi; auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, dem Haupt-&FTP;-Server des &kde;-Projekts. </para>
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Anforderungen</title>
+
+<para
+> Um &kmidi; erfolgreich kompilieren zu können, brauchen Sie die neueste Version von <literal
+>kdelibs</literal
+>. Alle benötigten Bibliotheken wie auch &kmidi; selbst finden Sie auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde</ulink
+>. </para>
+
+<para
+> Die <quote
+>dumb</quote
+> Befehlszeilenoberfläche von &timidity; sollte auf jedem Standard-&UNIX; zu kompilieren sein. Die anderen Benutzeroberflächen stellen spezielle Anforderungen (Informationen in den verschiedenen <filename
+>README</filename
+>-Dateien der Distribution). Die &Motif;-Oberfläche funktioniert zufriedenstellend unter <application
+>Lesstif</application
+>, aber besser mit &Motif;. </para>
+
+</sect1>
+
+<sect1 id="compilation-and-installation">
+
+<title
+>Kompilierung und Installation</title>
+
+<para
+> Wenn Sie &kmidi; bereits installiert haben, so stellen Sie bitte sicher, dass Sie eine Sicherungskopie der Konfigurationsdateien haben (typischerweise zu finden unter <filename
+>&dollar;<envar
+>KDEDIR</envar
+>/share/apps/kmidi/config/</filename
+>), bevor Sie &kmidi; installieren, da diese sonst überschrieben werden. Genauso sollten Sie vor der Installation einer neuen Version von &timidity; (nicht-&kde;-Version) die Dateien unter <filename class="directory"
+>/usr/local/lib/timidity/</filename
+> sichern. Wenn Sie umgekehrt eine komplett neue Installation dieser beiden Programme vornehmen wollen, sollten Sie diese Dateien löschen, da sie unter Umständen von der neuen Version nicht überschrieben werden. </para>
+
+<para
+> Wenn Sie die komplette kdemultimedia-Distribution haben, wechseln Sie ins kdemultimedia-Verzeichnis und tippen: </para>
+
+<screen
+><prompt
+>&percnt;</prompt
+><userinput
+><command
+>./configure</command
+></userinput
+></screen>
+
+<para
+> Um alle Benutzeroberflächen einzubeziehen, tippen Sie folgendes: <anchor id="user-interfaces"/> </para>
+
+<screen
+><prompt
+>&percnt;</prompt
+><userinput
+><command
+>./configure</command>
+<option
+>--enable-interface</option
+>=<parameter
+>ncurses</parameter
+>,<parameter
+>xaw</parameter
+>,<parameter
+>gtk</parameter
+>,<parameter
+>tcltk</parameter
+>,<parameter
+>slang</parameter
+>,<parameter
+>motif</parameter
+></userinput
+></screen>
+
+<para
+> Bleiben Sie in diesem Verzeichnis, wenn Sie alle Multimedia-Programme erzeugen wollen oder wechseln Sie ins Verzeichnis <filename class="directory"
+>kmidi</filename
+>, falls Sie nur dieses eine Programm wollen. Dort tippen Sie: </para>
+
+<screen>
+<prompt
+>&percnt;</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>&percnt;</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>Die Nicht-&kde;-Version von &timidity;, <command
+>timidity</command
+>, wird auf die gleiche Art kompiliert und installiert wie &kmidi;. (Die Manualseite (<command
+>man</command
+>) <filename
+>timidity.1</filename
+> wird allerdings nicht automatisch in <filename class="directory"
+>/usr/man/man1</filename
+> installiert. </para>
+
+</sect1>
+
+<sect1 id="patches">
+<title
+>Woher bekommt man einen vollständigen Satz Patches?</title>
+
+<para
+> &kmidi;/&timidity; kann zwei Arten von Patch-Sätzen benutzen: <acronym
+>GUS</acronym
+>-Patches und AWE32 SoundFonts (<literal role="extension"
+>sf2</literal
+>). Ein Patch ist eine Menge von Samples und Parametern für ein einzelnes Instrument. Bei <acronym
+>GUS</acronym
+> befindet sich jeder Patch in einer eigenen Datei. AWE32 SoundFonts packen alles zusammen in eine einzige <literal role="extension"
+>.sf2-</literal
+>-Datei (oder <literal role="extension"
+>.sbk</literal
+>). </para>
+
+<para
+> Der Autor empfiehlt <literal role="extension"
+>.sf2</literal
+> Soundfonts, und davon besonders die bereits erwähnten Chaos-Fonts. </para>
+
+<para
+> Im Einrichtungsdialog von &kmidi; finden Sie Hinweise zu Webseiten mit Patch-Sätzen. Hier sind einige zusätzliche Quellen: </para>
+
+<para
+> Dan Hollis<email
+>goemon@anime.net</email
+> hat einen Patch-Satz zusammengestellt. Bitte besuchen Sie seine Seite auf <ulink url="http://www.anime.net/~goemon/timidity"
+> http://www.anime.net/~goemon/timidity</ulink
+> und helfen Sie ihm, diesen zum besten verfügbaren Satz zu machen. </para>
+
+<para
+><emphasis
+>Neu:</emphasis
+> Ich habe den oben erwähnten Patch-Satz auf ftp.kde.org hinaufgeladen. Der genaue Ort ist zur Zeit auf <ulink url="ftp://fiwi02.wiwi.uni-tuebingen.de/pub/kde/stable/Beta2/apps/multimedia/sound/"
+> ftp://fiwi02.wiwi.uni-tuebingen.de/pub/kde/stable/Beta2/apps/multimedia/sound/</ulink
+>. &lt;Diese Stelle kann sich allerdings noch ändern. Schauen Sie also auf ftp.kde.org ein wenig herum.</para>
+
+<para
+>Patches können auch als .dep oder .rpm Module im Sunsite Archiv gefunden werden:</para>
+
+<para
+><itemizedlist
+> <listitem
+> <para
+>Debian (.dep): <ulink url="ftp://sunsite.unc.edu/pub/Linux/./distributions/debian/bo/source/sound/timidity-patches_0.1.tar.gz"
+>timidity-patches_0.1.tar.gz</ulink
+></para
+> </listitem
+> <listitem
+> <para
+>.rpm: <ulink url="ftp://sunsite.unc.edu/pub/Linux/distributions/redhat/contrib/oldrpms/contrib-2.0.x/RPMS/timidity-patches-1-1.i386.rpm"
+>timidity-patches-1-1.i386.rpm</ulink
+></para
+> </listitem
+> <listitem
+> <para
+>.srpm: <ulink url="ftp://sunsite.unc.edu/pub/Linux/distributions/redhat/contrib/oldrpms/contrib-2.0.x/SRPMS/timidity-patches-1-1.src.rpm-try2"
+>timidity-patches-1-1.src.rpm-try2</ulink
+></para
+> </listitem
+> </itemizedlist
+> </para>
+
+<para
+>Der Autor hat die oben genannten Patches (bis jetzt) nicht ausprobiert. Er selbst verwendet den Midia Patch-Satz sowie einige zusätzliche Patches und Schlagzeug-Sätze. Sie finden den Midia Patch-Satz auf <ulink url="ftp://archive.cs.umbc.edu/pub/midia/"
+>ftp://archive.cs.umbc.edu/pub/midia/</ulink
+>.</para>
+
+<para
+>Weitere Patches finden Sie auf <ulink url="ftp://ftp.cdrom.com/pub/gus/sound/patches/files/"
+>ftp://ftp.cdrom.com/pub/gus/sound/patches/files/</ulink
+>. (Probieren Sie die gsdrum- und wow-Patches aus!)</para>
+
+<para
+>Vincent Pagel hat eine Sammlung von Patches zusammengestellt. Dieser Link kann nur während der Nachtstunden in Paris erreicht werden: <ulink url="ftp://sig.enst.fr/pub/midi/instruments/"
+>ftp://sig.enst.fr/pub/midi/instruments/</ulink
+> Sie finden die Konfigurationsdatei, die zu seinem Patch-Satz passt auf: <ulink url="ftp://sig.enst.fr/pub/midi/timidity_pagel.cfg"
+>ftp://sig.enst.fr/pub/midi/timidity_pagel.cfg</ulink
+></para>
+
+<para
+>Besuchen Sie auch die <ulink url="http://www.clinet.fi/~toivonen/timidity/"
+>TiMidity-Seite</ulink
+></para>
+
+<para
+>und Takashis Homepage: <ulink url="http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/midi.html#TiMidity"
+>http://bahamut.mm.t.u-tokyo.ac.jp/~iwai/midi.html#TiMidity</ulink
+>. Takashis Homepage empfiehlt den 8 MB AWE32 SoundFont <literal
+>chaos8m.sf2</literal
+> und den 12 MB großen AWE32 SoundFont <literal
+>chaos12m.sf2</literal
+>, welche ganz gut sind. Sie sind erhältlich unter <ulink url="http://soback.kornet.nm.kr/~chaos/sbawe32/sbawe32.htm"
+>http://soback.kornet.nm.kr/~chaos/sbawe32/sbawe32.htm</ulink
+>, abgelegt als selbstextrahierende <literal
+>.exe</literal
+>-Datei.</para>
+
+<sect2 id="patch-set-installation">
+<title
+>Installation von Patch-Sätzen</title>
+
+<para
+>Jeder der oben genannten Patch-Sätze (Sie benötigen nur einen) sollte eine <literal role="extension"
+>.cfg</literal
+>-Datei enthalten, ähnlich jener, die in KMidi enthalten ist und sich in <filename class="directory"
+>KDEDIR/share/apps/kmidi/config</filename
+> befindet. &kmidi; hat für eine Reihe von verbreiteten Patch-Sätzen, wie den Midia-Satz, fertige Konfigurationsdateien für Sie bereit. Für <literal role="extension"
+>.sf2</literal
+> Soundfonts gibt es ein Hilfsprogramm, <literal role="extension"
+>sf2cfg</literal
+>, das eine <literal role="extension"
+>cfg</literal
+>-Datei aus einer <literal role="extension"
+>.sf2</literal
+>-Datei erzeugt. Es wird zusammen mit &timidity; kompiliert.</para>
+
+<para
+>Es ist nicht nötig, den Konfigurationsdateien die Endung <literal role="extension"
+>.cfg</literal
+> geben. Es handelt sich um Textdateien, deren Struktur an einer anderen Stelle dieser Dokumentation beschrieben ist.</para>
+
+<para
+>Zum Abschluss der Installation eines Patch-Satzes muss die Datei <filename
+>timidity.cfg</filename
+> geändert und die Konfigurationsdatei des heruntergeladenen Patch-Satzes eingebunden werden. Wenn Sie einen Blick in die <filename
+>timidity.cfg</filename
+>-Datei werfen, wird Ihnen völlig klar, was gemeint ist. Das war's. Jetzt können Sie auch die anderen MIDIs abspielen, die sich im &kmidi; Paket befinden (und natürlich alle anderen auch).</para>
+
+</sect2>
+
+<sect2 id="miscellaneous">
+<title
+>Verschiedenes</title>
+
+<para
+>Gelegentlich werden Sie erleben, dass &kmidi; einen Patch für ein spezielles Instrument nicht findet. (Öffnen Sie das Informationsfenster, um eine Fehlermeldung zu sehen.) In diesem Fall müssen Sie sich nur den fehlenden Patch besorgen und ihn installieren, indem Sie ihn in das Verzeichnis <literal role="extension"
+>patch/</literal
+> kopieren und Ihre Konfigurationsdatei bearbeiten, um &kmidi; anzuzeigen, dass der neue Patch nun verfügbar ist. </para>
+
+<para
+>Manchmal klingt auch ein bestimmtes Instrument nicht besonders gut. In diesem Fall können Sie sich in einem der Ultrasound-Archive einen neuen Patch besorgen und damit den schlechteren ersetzen. Wie Sie feststellen werden, ist es völlig Ihnen überlassen, wie gut jedes Instrument klingt. Sie können sogar Ihre eigenen Patches mit dem <command
+>pat2wav</command
+> Programm herstellen, das in der &kmidi;-Distribution enthalten ist.</para>
+</sect2>
+</sect1>
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

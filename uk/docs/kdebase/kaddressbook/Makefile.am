@@ -1,0 +1,3 @@
+
+KDE_LANG=uk
+KDE_DOCS=AUTO

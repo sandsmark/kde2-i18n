@@ -1,0 +1,273 @@
+<sect1 id="sndserver">
+<sect1info>
+
+<authorgroup>
+<author
+> <firstname
+>Mike</firstname
+> <surname
+>McBride</surname
+> </author>
+<author
+> <firstname
+>Jost</firstname
+> <surname
+>Schenck</surname
+> </author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@telia.com</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2001-07-24</date>
+<releaseinfo
+>2.20.00</releaseinfo>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Kcontrol</keyword>
+<keyword
+>ljudserver</keyword>
+<keyword
+>ljud</keyword>
+<keyword
+>aRts</keyword>
+</keywordset>
+</sect1info>
+
+<title
+>Ljudserver</title>
+
+<para
+>Den här inställningsmodulen används för att anpassa inställningarna för &arts; ljudserver (&kde;:s ljudserver).</para>
+
+<sect2 id="sndserver-general">
+<title
+>Allmänt</title>
+
+<para
+>Det översta alternativet, som heter <guilabel
+>Starta aRts ljudserver vid uppstarten av KDE</guilabel
+>, aktiverar (eller stänger av) <application
+>aRts ljudserver</application
+>. </para>
+
+<para
+>Resten av panelen består av tre alternativ för <application
+>aRts ljudserver</application
+>.</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Aktivera nätverkstransparens</term
+> <listitem
+> <para
+>Om det här alternativet är valt, kommer begäran om ljud från nätverket att hanteras av ljudservern. Om det här alternativet är avstängt kommer ljudservern bara att hantera en begäran från den lokala datorn.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Utbyt säkerhets- och referensinformation över X11</guilabel
+></term
+> <listitem
+><para
+>Om du har aktiverat nätverkstransparens, kommer det här alternativet tillåta utbyte av sökerhets- och referensinformation. Om du tvekar, och du har aktiverat nätverkstransparens, bör det här alternativet markeras.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kör ljudservern med realtidsprioritet</guilabel
+></term
+> <listitem
+><para
+>Om det här alternativet aktiveras får ljudservern prioritet över andra program, som hjälper lindra eventuella problem med att leverera ljud utan avbrott.</para
+> <note
+><para
+>Det här alternativet kräver rättigheter som du inte har som vanlig användare.</para
+> <para
+>Det här alternativet beror också på realtidsstöd från ditt system som kanske inte är tillgängligt.</para
+> <para
+>Även om du inte har nödvändiga rättigheter, eller om ditt system inte har det nödvändiga realtidsstödet, orsakas inga problem av att aktivera det här alternativet.</para
+></note
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Stäng av automatiskt om overksam i</guilabel
+></term
+> <listitem
+> <para
+>Normalt så låser &arts; ljudkortsenheten så att andra program inte kan använda den. Om du aktiverar det här alternativet, och &arts; har varit overksam i den tid du valt, kommer den att stänga av sig själv, och tillåta att andra program kommer åt ljudhårdvaran. Om &arts; tar emot en ny begäran så startar den igen, och forsätter som vanligt. Genom att aktivera det här alternativet kan en liten fördröjning uppstå när du startar ett &arts;-program.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Visa meddelanden med</guilabel
+></term
+> <listitem
+> <para
+>Programmet som används för att visa meddelanden från &arts;-servern. Förvalt är <application
+>artsmessage</application
+> och det ska troligen inte ändras om du inte har läst igenom &arts;-dokumentationen noggrant.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Visa meddelanden</guilabel
+></term
+> <listitem
+> <para
+>Du kan välja hur detaljerade meddelanden som &arts; visar. Du kan välja att se bara felmeddelanden, avlusningsmeddelanden som är användbara för utvecklarna (du vill troligen bara ha den nivån om du är en utvecklare, eller en av dem har bett dig välja den). Du kan också välja att se allmänna informationsmeddelanden när &arts; gör någonting, som stänga av sig. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Nederst på den här sidan finns en knapp som låter dig <guibutton
+>Testa ljud</guibutton
+>.</para>
+
+</sect2>
+
+<sect2 id="sndserver-soundio">
+<title
+>Ljud I/O</title>
+
+<para
+>Det första alternativet du kan ställa in under <guilabel
+>Ljud I/O</guilabel
+> fliken är <guilabel
+>I/O-metod för ljud</guilabel
+>. Det talar om för aRts vilket ljudsystem som ska användas för inmatning och utmatning av ljud. Nuvarande val är <acronym
+>ALSA</acronym
+> (Advanced &Linux; Sound Architecture), <acronym
+>OSS</acronym
+> (Open Sound System), inget ljud alls och upptäck automatiskt. I de flesta fall är <quote
+>Upptäck automatiskt</quote
+> perfekt för dig.</para>
+
+<para
+>Övriga alternativ är:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Aktivera full duplex</guilabel
+></term
+> <listitem
+><para
+>Det här alternativet låter ljudservern spela upp och spela in ljud samtidigt. Det här alternativet ska aktiveras om du använder program (som Internettelefoner) som kräver samtidig inspelning och uppspelning.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Använd egen ljudenhet</guilabel
+></term
+> <listitem
+> <para
+>Normalt så använder ljudservern en enhet som kallas <filename class="devicefile"
+>/dev/dsp</filename
+> för ljudutmatning. Det ska fungera i de flesta fall. Ett undantag är om du använder devfs, då ska du använda <filename class="devicefile"
+>/dev/sound/dsp</filename
+> istället. Andra alternativ är namn som  <filename class="devicefile"
+>/dev/dsp0</filename
+> eller <filename class="devicefile"
+>/dev/dsp1</filename
+> om du har ett ljudkort som stöder flera utgångar, eller om du har flera ljudkort.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Använd egen samplingsfrekvens</guilabel
+></term
+> <listitem
+> <para
+>Normalt använder ljudservern en samplingsfrekvens på 44100 Hz (<acronym
+>CD</acronym
+>-kvalitet), som stöds på nästan all hårdvara. Om du använder vissa Yamaha-ljudkort, kan du behöva ändra detta till 48000 Hz här. Om du använder gamla SoundBlaster kort, som SoundBlaster Pro, kan du behöva ändra detta till 22050 Hz. Alla andra värden är också möjliga, och kan vara riktiga i vissa fall (t.ex. proffsstudioutrustning).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Andra anpassningsbara alternativ</guilabel
+></term
+> <listitem
+><para
+>Det finns vissa alternativ som erbjuds av &arts;, som kanske inte är tillgängliga i den här modulen, så här kan du lägga till kommandoradsalternativ som skickas direkt till <application
+>artsd</application
+>. Alternativen läggs till sist, så om det finns tveksamheter gäller de istället för valen som gjorts i det grafiska gränssnittet. För att se möjliga val, öppna ett terminalfönster och skriv <userinput
+><command
+>artsd</command
+> <option
+>-h</option
+></userinput
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Storlek på ljudbuffer (svarstid)</guilabel
+></term
+> <listitem
+><para
+>Det här skjutreglaget avgör hur snabbt ljudservern kan använda din dators resurser. Ju snabbare svarstid, desto högre blir <acronym
+>CPU</acronym
+>-lasten.</para
+> <tip
+><para
+>Jag skulle rekommendera att du börjar med ljudservern satt till 250 ms, och använder &kde; ett tag. Om du märker att ljudet inte fungerar riktigt, minska svarstiden ett steg i taget till problemet försvinner.</para
+></tip
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="sndserver-author">
+<title
+>Avsnittsförfattare</title>
+
+<para
+>Det här avsnittet är skrivet av Mike McBride <email
+>mpmcbride7@yahoo.com</email
+></para>
+
+<para
+>Uppdaterad av Jost Schenck <email
+>jost@schenck.de</email
+></para>
+
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@telia.com</email
+> 2001-07-23</para>
+</sect2>
+</sect1>
+
+
+

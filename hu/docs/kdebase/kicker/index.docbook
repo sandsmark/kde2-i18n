@@ -1,0 +1,2116 @@
+<?xml version="1.0" ?><!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kicker;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE" > <!-- change language only here -->
+  
+  
+]>
+
+<!-- Translators: I've experimented a little with the source formatting for this -->
+<!-- document, and I would VERY much appreciate any feedback.  Did the -->
+<!-- reformatting make the document any easier/more difficult to translate? or -->
+<!-- no difference?  Either way, please let me know (Lauri, vampyr@atconnex.net -->
+
+<!-- The language must NOT be changed here. -->
+
+<book lang="&language;">
+
+<bookinfo>
+<title>&kicker; kézikönyv</title>
+
+<authorgroup>
+<author>
+<firstname>Dirk</firstname>
+<surname>Doerflinger</surname>
+<affiliation>
+<address><email>ddoerflinger@web.de</email></address>
+</affiliation>
+</author>
+
+<!-- LW: FIXME - Add developers and Me -->
+
+<othercredit role="reviewer">
+<firstname>Lauri</firstname><surname>Watts</surname>
+<contrib>Ellenőrzés</contrib>
+<affiliation><address><email>vampyr@atconnex.net</email></address></affiliation>
+</othercredit>
+
+<othercredit role="translator">
+<firstname>Árpád</firstname><surname>Bíró</surname>
+<contrib>Fordítás</contrib>
+<affiliation><address><email>biro_arpad@hotmail.com</email></address></affiliation>
+</othercredit>
+
+</authorgroup>
+
+<copyright>
+<year>2001</year>
+<holder>Dirk Doerflinger</holder>
+</copyright>
+
+<legalnotice>&FDLNotice;</legalnotice>
+
+<date>14/01/2001</date>
+<releaseinfo>0.09.00</releaseinfo>
+
+<abstract>
+<para>
+A &kicker; a &kde; alkalmazásindító panelja. Tartalmaz hasznos kisalkalmazásokat
+és kiterjesztéseket is. Általában a képernyő alján látható.
+</para>
+</abstract>
+
+<keywordset>
+<keyword>KDE</keyword>
+<keyword>Kicker</keyword>
+<keyword>kdebase</keyword>
+<keyword>panel</keyword>
+<keyword>alkalmazás</keyword>
+<keyword>indító</keyword>
+<keyword>alkalmazásindító</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+<title>Bevezetés</title>
+
+
+<para>
+A &kicker; a KDE (K Munkaasztali Környezet) alkalmazásindító panelja.
+A <guimenu>K</guimenu> menün kívül - amellyel alkalmazások indíthatók -
+a &kicker; támogatja különféle dokkolható kisalkalmazások
+(mint például a lapozó, a feladatlista vagy az óra) és kiterjesztések
+(például gyermek-panelek) futtatását.
+</para>
+
+<para>
+A &kicker; általában a képernyő alján található, de a képernyő bármely szélére
+áttehető. Ha esetleg problémája adódik a programmal kapcsolatban, vagy javaslatot
+kíván tenni annak továbbfejlesztésére, írjon a megfelelő &kde; levelezőlistára.
+</para>
+
+</chapter>
+
+<chapter id="using-kicker">
+<title>A &kicker; használata</title>
+
+<para>
+Egy frissen telepített &kde; kinézete az alábbiakhoz hasonló lesz.
+Ha Ön alacsonyabb grafikus felbontást használ, akkor lehetséges, hogy nem lesz
+látható az összes ikon. Azért, hogy a példaként szereplő képernyőkép alacsonyabb
+felbontás esetén is látható legyen, a képernyőkép két részre lett osztva.
+</para>
+
+<screenshot>
+<screeninfo>A &kicker; bal oldali része</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="screenshot_left.png" format="PNG"/></imageobject>
+<textobject>
+<phrase>Képernyőkép - bal oldal</phrase>
+</textobject>
+<caption>
+<para>
+A &kicker; bal oldali része
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<screenshot>
+<screeninfo>Ez pedig a jobb oldal</screeninfo>
+<mediaobject>
+<imageobject>
+<imagedata fileref="screenshot_right.png" format="PNG"/></imageobject>
+<textobject>
+<phrase>Képernyőkép - jobb oldal</phrase>
+</textobject>
+<caption>
+<para>
+Ez pedig a jobb oldal
+</para>
+</caption>
+</mediaobject>
+</screenshot>
+
+<para>
+Természetesen ez csak az egyik lehetséges kinézet, ahogyan a &kicker; megjelenhet a képernyőn.
+Ezen kívül sokféle egyéb beállítás lehetséges.
+</para>
+
+<sect1 id="newbie">
+<title>Tömör bevezetés új &kde;-felhasználóknak</title>
+
+<para>
+Ha van tapasztalata az ilyen fajta alkalmazásindítókkal kapcsolatban,
+akkor figyelmen kívül hagyhatja ezt a fejezetet, és folytathatja a dokumentum
+olvasását a <link linkend="basics">&kicker; - alapok</link> fejezettel.
+</para>
+
+<para>
+Természetesen a &kicker; leggyakrabban alkalmazásindításra van használva.
+Ez a panel illetve a <guimenu>K</guimenu> menü ikonjaira való kattintással érhető el.
+A &kicker;-ben további funkciók is találhatók, ezek a továbbiakban kerülnek ismertetésre.
+</para>
+
+<para>
+A fentebbi képernyőképekre tekintve a következők láthatók balról jobbra haladva:
+</para>
+
+<variablelist>
+<varlistentry>
+<term>Az <guibutton>elrejtő</guibutton> nyomógomb</term>
+<listitem>
+<para>
+Ez a gomb - amely a jobb oldalon is megjelenik - lehetővé teszi a &kicker; elrejtését
+annak érdekében, hogy több hely lehessen a képernyőn. Amikor a &kicker; el van rejtve,
+olyankor csak az <guibutton>elrejtő</guibutton> gomb látszik, amellyel ilyenkor vissza
+lehet állítani a &kicker;-t.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>A <guimenu>K</guimenu> menü</term>
+<listitem>
+<para>
+Alkalmazások és egyéb hasznos dolgok indítására használható. További információk
+<link linkend="k-menu">A <guimenu>K</guimenu> menü</link> című fejezetben találhatók.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Alkalmazásindító nyomógombok</term>
+<listitem>
+<para>
+Itt néhány nyomógomb található bizonyos gyakran használatos alkalmazásokhoz.
+A nyomógombok mozgathatók és eltávolíthatók, továbbá újak vehetők fel.
+Néhánynak speciális jelentése van, erről a <link linkend="basics">&kicker; - alapok</link>
+fejezetben található további információ. Az egérkurzort - kattintás nélkül - egy nyomógomb
+felett tartva megjelenik az adott alkalmazás neve és leírása (ha így volt beállítva a
+<link linkend="configuring">beállítási párbeszédablakban</link>).
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>A lapozó kisalkalmazás</term>
+<listitem>
+<para>
+Megjeleníti a virtuális munkaasztalok kis méretű nézetét. A megfelelő részre kattintva
+aktiválódik az illető munkaasztal. További információ a
+<link linkend="applets">Kisalkalmazások</link> fejezetben.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>A feladatlista</term>
+<listitem>
+<para>
+A feladatlistában az összes futó alkalmazás egy-egy gombként jelenik meg.
+Egy alkalmazás gombjára kattintva az adott alkalmazás ablaka legfelülre kerül.
+Ha korábban legfelül volt, akkor pedig minimalizálva lesz.
+További információ a <link linkend="applets">Kisalkalmazások</link> fejezetben.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Rendszertálca</term>
+<listitem>
+<para>
+A rendszertálca képes arra, hogy &quot;magába fogadjon&quot; bizonyos alkalmazásokat, mint
+például a &klipper;. Több hasznos alkalmazás is van a rendszertálcához.
+Kattintson az egyes alkalmazásokra a <mousebutton>bal oldali</mousebutton> illetve a
+<mousebutton>jobb oldali</mousebutton> egérgombbal, és figyelje meg, hogy mi történik.
+A rendszertálca tartalmaz két kis gombot is. A lakatot ábrázolóval le lehet zárni
+a képernyőt arra az esetre, ha Ön egy időre elhagyja a &kde;-t futtató gépét, és
+nem szeretné, hogy mások láthassák vagy használhassák azt. A másik gombbal pedig
+leállítható a &kde; és az X-szerver.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Óra</term>
+<listitem>
+<para>
+Az óra kisalkalmazás egy kis méretű és hasznos óra. Többféle kinézete lehet;
+ezzel kapcsolatban további információ a
+<link linkend="applets">Kisalkalmazások</link> fejezetben.
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para>
+Az eddigiekben a &kicker; alapértelmezett funkcióiról esett szó.
+A program sokféleképpen beállítható, például különféle stílusok alkalmazhatók rá,
+és további kisalkalmazások vehetők fel.
+Kiterjesztések is felvehetők, mint például külső feladatlista.
+További információk a következő helyeken találhatók:
+<link linkend="basics">&kicker; - alapok</link>, <link linkend="applets">Kisalkalmazások</link>
+és <link linkend="extensions">Kiterjesztések</link>.
+</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="basics">
+<!-- LW: was sect1 -->
+<title>&kicker; - alapok</title>
+
+<sect1 id="general-usage">
+<title>Általános használat</title>
+
+<para>
+Ahogyan az előzőekben olvasható, a &kicker; többféle dologgal bővíthető.
+Jelen szakasz az alkalmazások indításáról, a könyvtárak böngészéséről és
+különböző fajta kisalkalmazások illetve kiterjesztések felvételéről szól.
+Többféle tevékenység elvégezhető a <guimenu>helyi menü</guimenu> segítségével,
+illetve a <guimenu>K</guimenu> menü <guisubmenu>A panel beállításai</guisubmenu>
+almenüjében.
+</para>
+
+<sect2 id="adding-apps">
+<title>Alkalmazások felvétele</title>
+
+<para>
+A &kicker; háromfajta lehetőséget nyújt alkalmazások felvételére:
+</para>
+
+<variablelist>
+<varlistentry>
+<term>Húzd-és-ejtsd</term>
+<listitem>
+<para>
+A &konqueror;-ból szimpla húzással át lehet vinni bármilyen fájlt a &kicker;-be.
+Ez a módszer a <guimenu>K</guimenu> menü bejegyzéseire is működik. Az alkalmazásokra
+vonatkozó tulajdonságok - mint például az opcionális parancssori paraméterek vagy
+az alkalmazás ikonja - a megfelelő nyomógombra való, <mousebutton>jobb oldali</mousebutton>
+egérgombbal történő kattintással, majd a megjelenő <guimenu>helyi menüben</guimenu>
+a <guimenuitem>Tulajdonságok</guimenuitem> menüpont kiválasztásával módosíthatók.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>A helyi menü használata egy &kde;-alkalmazás felvételére</term>
+<listitem>
+<para>
+Kattintson a <mousebutton>jobb oldali</mousebutton> egérgombbal a &kicker;
+paneljén található bármely szabad felületre, majd válassza ki a
+<guisubmenu>Hozzáadás</guisubmenu> almenüben a
+<guisubmenu>Nyomógomb</guisubmenu> almenüt. Itt kiválasztható egy alkalmazás,
+amely arra a helyre lesz téve, ahova Ön az egérrel kattintott.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>A <guimenu>helyi menü</guimenu> használata régi alkalmazás felvételére</term>
+<listitem>
+<para>
+A &quot;régi alkalmazás&quot; itt azt jelenti, hogy nem-&kde; alkalmazás; ilyen például az
+<application>xosview</application> vagy az <application>xemacs</application>.
+Kattintson a <mousebutton>jobb oldali</mousebutton> egérgombbal a &kicker;-panel
+bármely szabad területére, és válassza ki a menüből a
+<guisubmenu>Hozzáadás</guisubmenu> almenüt, majd abból a
+<guimenuitem>Régi alkalmazás</guimenuitem> menüpontot.
+Válassza ki az alkalmazást, amelyet fel kíván venni. Az ezután megjelenő ablakban
+megadható egy <guilabel>opcionális parancssor</guilabel>, előírható, hogy az
+alkalmazás terminálon induljon, illetve kiválasztható az ikonja, amely majd a
+&kicker;-panelen fog megjelenni. Az ikon a <guiicon>fogaskereket</guiicon> ábrázoló
+gombra kattintva adható meg. Ha a felhasználó nem ad meg ikont, akkor alapértelmezésként
+a fogaskerék lesz az alkalmazás ikonja.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+<para>
+Az alkalmazások nyomógombjának mozgatása illetve eltávolítása a <mousebutton>jobb oldali</mousebutton>
+egérgomb lenyomására megjelenő menüből végezhető a <guimenuitem>Mozgatás</guimenuitem>
+illetve az <guimenuitem>Eltávolítás</guimenuitem> menüpontokkal.
+A nyomógombok a <mousebutton>középső</mousebutton> egérgombbal közvetlenül is mozgathatók.
+</para>
+
+</sect2>
+
+<sect2 id="adding-folders">
+<title>Könyvtárak felvétele</title>
+
+<para>
+Könyvtárakat egyszerűen fel lehet venni a panelre; egy adott könyvtár felvételéhez
+a &kicker;-panel valamely szabad területére kell húzni azt.
+Gyorsböngészők is felvehetők, erre a <guimenu>helyi menü</guimenu> és a
+<guimenu>K</guimenu> menü egyaránt használható.
+</para>
+
+<para>
+Könyvtárat kétféleképpen lehet felvenni a &kicker; paneljére. A két lehetőség közül
+az ikonnak a panelre való ejtése után lehet választani a megjelenő menüben.
+A menü figyelmen kívül hagyása esetén fájlkezelő <acronym>URL</acronym>-ként lesz
+felvéve a könyvtár.
+</para>
+
+<variablelist>
+<varlistentry>
+<term>Hozzáadás mint fájlkezelő &URL;</term>
+<listitem>
+<para>Ezt kiválasztva egy link lesz létrehozva az adott könyvtárra.
+Az így létrehozott <guiicon>könyvtár</guiicon>-nyomógombra kattintva a &konqueror; megjeleníti
+a könyvtár tartalmát.</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Hozzáadás gyorsböngészőként</term>
+<listitem>
+<para>Ha ezzel a módszerrel vesz fel könyvtárt, akkor az egy &kicker;-almenüként
+fog megjelenni. Ezen almenü tartalmazni fog egy
+<guimenuitem>Megnyitás a fájlkezelővel</guimenuitem> menüpontot, amely pontosan
+ugyanazt a funkciót látja el, mint egy fájlkezelő &URL;, illetve
+egy <guimenuitem>Megnyitás terminálablakban</guimenuitem> menüpontot,
+amely pedig megnyit egy olyan terminált, amelyben az adott könyvtár lesz az
+aktuális munkakönyvtár.
+A fentieken kívül az almenüben megjelenik az adott könyvtár tartalma is.
+A könyvtárban levő alkönyvtárak almenükként vannak megjelenítve (mint ahogyan maga
+a gyorsböngésző is). A megjeleníthető elemek maximális száma beállítható a
+<link linkend="configuring">beállítási párbeszédablakban</link>.</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para>
+Mindkét fajta könyvtár-nyomógomb mozgatható illetve eltávolítható a
+<mousebutton>jobb oldali</mousebutton> egérgomb lenyomására megjelenő menüből
+a <guimenuitem>Mozgatás</guimenuitem> illetve az <guimenuitem>Eltávolítás</guimenuitem>
+funkciót választva.
+Egy nyomógomb a <mousebutton>középső</mousebutton> egérgomb használatával is mozgatható.
+</para>
+
+<para>
+A fájlkezelő &URL;-ek a <guimenu>helyi menü</guimenu> használatával is
+beállíthatók, éppen úgy, mint az összes többi könyvtár a &kde;-ben.
+</para>
+
+</sect2>
+
+<sect2 id="adding-special-icons">
+<title>Speciális nyomógombok</title>
+
+<para>
+A &kicker; bizonyos nyomógombjainak speciális jelentése van. Ezeket a gombokat
+a <guimenu>helyi menü</guimenu>ben levő <guisubmenu>Hozzáadás</guisubmenu> almenüből
+való kiválasztással lehet felvenni a panelre.
+</para>
+
+<variablelist>
+<varlistentry>
+<term>A <guimenu>K</guimenu> menü nyomógombja</term>
+<listitem>
+<para>
+<guiicon><inlinemediaobject><imageobject><imagedata fileref="k_menu_icon.png"
+format="PNG"/></imageobject></inlinemediaobject></guiicon> A <guiicon>K menü
+nyomógombja</guiicon> az egyik legfontosabb gomb a &kicker;-ben. Ennek a gombnak
+a használatával nyitható ki a <guimenu>K</guimenu> menü, amelyről további információk
+olvashatók a következő helyen: <link linkend="k-menu">A K menü</link>.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>A munkaasztal-hozzáférés nyomógombja</term>
+<listitem>
+<para>
+<guiicon><inlinemediaobject><imageobject><imagedata fileref="desktop_icon.png"
+format="PNG"/></imageobject></inlinemediaobject></guiicon> A
+<guiicon>munkaasztal-hozzáférés nyomógombja</guiicon> lehetővé teszi a munkaasztalon
+levő objektumokhoz való gyors hozzáférést azáltal, hogy minimalizálja az összes
+futó alkalmazást. A nyomógombra kattintva megjelenik a munkaasztal. A
+<guiicon>gomb</guiicon> lenyomva marad mindaddig, amíg a felhasználó újra
+rá nem kattint (ami által a minimalizált alkalmazások vissza lesznek állítva)
+vagy a feladatlista használatával újra nem aktivál bizonyos alkalmazásokat.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Az ablaklista</term>
+<listitem>
+<para>
+<guiicon><inlinemediaobject><imageobject><imagedata
+fileref="windowlist_icon.png"
+format="PNG"/></imageobject></inlinemediaobject></guiicon> Erre a
+<guiicon>nyomógomb</guiicon>ra kattintva megjelenik egy <guimenu>ablaklista</guimenu>.
+A lista első eleme, <guimenuitem>Az ablakok egyenletes elrendezése</guimenuitem>,
+egy olyan funkció, amellyel az aktuális munkaasztalon levő ablakok olyan módon
+rendezhetők el, hogy a lehető legtöbb legyen közülük látható.
+</para>
+
+<para>
+<guimenuitem>Az ablakok lépcsőzetes elrendezése</guimenuitem>: az aktuális munkaasztal
+összes ablakát egymásra helyezi olyan módon, hogy a legutóbb használt ablak legyen
+legfelül, a többi pedig a legutóbbi használat időpontjára rendezve következzen.
+</para> <para>Az említett két bejegyzés alatt a jelenleg futó alkalmazások listája
+található, munkaasztalok szerint csoportokba rendezve.
+Egy munkaasztal nevére való kattintással az adott asztalra lehet váltani, egy alkalmazás
+nevére kattintva pedig aktiválódik az adott alkalmazás.
+</para>
+
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="adding-applets">
+<title>Kisalkalmazások felvétele</title>
+
+<para>
+A &kicker; több kiegészítő kisalkalmazással rendelkezik, ilyenek például a feladatlista
+és a lapozó. Ezek felvehetők egyrészt a <guimenu>K</guimenu> menü
+<guisubmenu>A panel beállításai</guisubmenu> almenüjéből, másrészt
+a <guimenu>helyi menü</guimenu>ből; mindkét helyen a <guisubmenu>Hozzáadás</guisubmenu> almenü
+<guisubmenu>Kisalkalmazás</guisubmenu> almenüjében található a megfelelő funkció.
+</para>
+
+<!--FIXME: Applet distibution? -->
+
+<para>
+Az alkalmazások nyomógombjai a <mousebutton>középső</mousebutton> egérgomb lenyomva tartása
+mellett történő húzással mozgathatók. Ugyanez elérhető a <guimenu>helyi menü</guimenu>
+<guimenuitem>Mozgatás</guimenuitem> funkciójának kiválasztásával is.
+A nyomógombok eltávolítása pedig a <guimenu>helyi menü</guimenu>
+<guimenuitem>Eltávolítás</guimenuitem> funkciójával lehetséges.
+</para>
+
+<para>
+A kisalkalmazásokkal kapcsolatosan további információ található
+a <link linkend="applets">Kisalkalmazások</link> fejezetben.
+</para>
+
+</sect2>
+
+<sect2 id="adding-extensions">
+<title>Kiterjesztések felvétele</title>
+
+<para>
+Lehetőség van arra is, hogy a felhasználó külső kiterjesztéseket adjon a &kicker;
+paneljéhez, mint például: külső feladatlista, alkalmazásdokkoló a
+WindowMaker-t használó dokkolható alkalmazások számára,
+<application>KasBar</application> (ikonos feladatlista), továbbá
+gyermek-panelek (ez utóbbiak egy-egy új &kicker;-ként viselkednek).
+</para>
+
+<para>
+Minden kiterjesztés áthelyezhető a képernyő bármely szélére a kiterjesztés bal
+oldalán vagy felső részén levő fogantyúnak a <mousebutton>bal oldali</mousebutton>
+egérgombbal történő húzásával. A gyermek-panelek áthelyezése ezenkívül végezhető
+a kérdéses panel bármely szabad területére való, <mousebutton>bal oldali</mousebutton>
+egérgombbal történő kattintást követően a panel húzásával is.
+Egy kiterjesztés eltávolítása a <guimenu>helyi menü</guimenu>jében szereplő
+<guimenuitem>Eltávolítás</guimenuitem> menüponttal lehetséges. Az említett menü
+általában a fogantyú segítségével hozható elő.
+</para>
+
+<para>
+A kiterjesztésekről további információ található a
+<link linkend="extensions">Kiterjesztések</link> fejezetben.
+</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="configuring-apps">
+<title>Az alkalmazás-nyomógombok beállítása</title>
+
+<para>
+Minden <guiicon>alkalmazás-indítónak</guiicon> vannak beállítási lehetőségei;
+ezek a megfelelő <guimenu>helyi menü</guimenu>kben érhetők el.
+Az alkalmazásoknak és a könyvtáraknak általában ugyanazok a beállítási
+lehetőségeik vannak, amik a &konqueror;-ban. Csak a <guimenu>K</guimenu> menüben
+levő alkalmazásoknak (tapasztalt felhasználók számára: azok, amelyeknek van
+<literal role="extension">*.desktop</literal> fájlja az <filename
+class="directory">applnk</filename> könyvtárban) van speciális beállítási
+párbeszédablakuk.
+</para>
+
+<sect2 id="general-tab">
+<title>Az <guilabel>Általános</guilabel> lap</title>
+
+<para>
+Itt az alkalmazásra mutató link bizonyos adatait lehet látni. Kiválasztható
+egy ikon az <guibutton>ikon-nyomógombra</guibutton> kattintva, továbbá módosítható
+a linkfájl neve. Ez akkor lehet hasznos, ha a felhasználó azt akarja elérni, hogy
+a panelen levő nyomógomb másképpen viselkedjen, mint ahogyan a
+<guimenu>K</guimenu> menüben levő hasonló menüpont.
+</para>
+
+</sect2>
+
+<sect2 id="permissions-tab">
+<title>A <guilabel>Jogosultságok</guilabel> lap</title>
+
+<para>
+Itt a linkfájlra vonatkozó engedélyek állíthatók be. Az engedélyekkel (jogosultságokkal)
+kapcsolatosan további információ az operációs rendszer kézikönyvéből szerezhető.
+</para>
+
+</sect2>
+
+<sect2 id="execute-tab">
+<title>A <guilabel>Futtatás</guilabel> lap</title>
+
+<para>
+Az alkalmazás végrehajtáskori viselkedése állítható be a párbeszédablak ezen lapján.
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Parancs</guilabel></term>
+<listitem>
+<para>
+Általában itt csak a nyomógombra való kattintáskor végrehajtandó program neve szerepel.
+Kereshető egy másik alkalmazás a <guibutton>Tallózás</guibutton> nyomógombra való
+kattintással, továbbá felvehetők kiegészítő parancssori paraméterek az alkalmazás számára.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Beágyazás a panelba</guilabel></term>
+<listitem>
+<para>
+Ez a funkció még nincs megvalósítva ;-(
+</para>
+</listitem>
+<!--<listitem><para>&kicker; has the possibility to swallow some applications
+like <abbrev>e.g.</abbrev> <application>XOSView</application>. This means that
+the application will show up directly in the panel.  Therefore you have to
+insert the exact title of the application window in the <guilabel>Window
+Title</guilabel> Textfield. You can also specify an application that will be
+executed when clicking on the swallowed application by typing it's name in the
+<guilabel>Execute on click</guilabel> field.</para></listitem>-->
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Futtatás terminálban</guilabel></term>
+<listitem>
+<para>
+Ha be van jelölve ez az opció, akkor az alkalmazás egy terminálablakban lesz
+végrehajtva. Speciális terminál-opciók is megadhatók.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Futtatás más felhasználóként</guilabel></term>
+<listitem>
+<para>
+Az opció bejelölése lehetővé teszi, hogy az alkalmazás egy másik felhasználó
+jogosultságaival legyen futtatva. Ezen másik felhasználó neve a
+<guilabel>Felhasználónév</guilabel> mezőben adható meg. Amikor az alkalmazás
+elindításra kerül, Önnek be kell majd írnia a megadott felhasználó jelszavát.
+Ez az opció hasznosnak bizonyulhat akkor, amikor Ön rendszergazdai jogosultsággal
+szeretne futtatni bizonyos programokat.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="application-tab">
+<title>Az <guilabel>Alkalmazás</guilabel> lap</title>
+
+<para>
+Ha itt megad egy nevet és egy megjegyzést, akkor azok &quot;tippként&quot; fognak megjelenni
+a megfelelő nyomógombon a következő formában: &quot;név - megjegyzés&quot;.
+</para>
+
+<para>
+A <guilabel>Fájltípusok</guilabel> részben kiválasztható, hogy mely fájltípusok
+legyenek ezzel az alkalmazással kezelve. Ezzel kapcsolatban további információ
+a &konqueror; kézikönyvében.
+</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+<chapter id="configuring">
+<title>A &kicker; beállítása</title>
+
+<para>
+Jelen fejezetben ismertetésre kerülnek a &kicker; beállítására használható módszerek.
+A fejezet csak az alapvető &kicker;-beállításokat tárgyalja; a kisalkalmazások beállítása
+a <link linkend="applets">Kisalkalmazások</link> fejezetben kerül ismertetésre.
+</para>
+
+<para>
+A beállítások többféle módszerrel módosíthatók: a <guimenu>helyi menü</guimenu>
+<guimenuitem>Beállítások</guimenuitem> funkciójával,
+a <guimenu>K</guimenu> menü <guisubmenu>A panel beállításai</guisubmenu> almenüjével,
+vagy a <application>&kde; Vezérlőközpont</application> alkalmazás <guilabel>Kinézet</guilabel>
+moduljában.
+</para>
+
+
+<sect1 id="panel-general">
+<title><guilabel>Általános</guilabel></title>
+
+<para>
+Az <guilabel>Általános</guilabel> lapon beállítható a &kde;-panel néhány alapvető
+tulajdonsága (vagyis azok a tulajdonságok, amelyek más panel-alkalmazásokra is jellemzők;
+a későbbiekben szó lesz az &quot;érdekesebb&quot; jellemzőkről is).
+</para>
+
+<para>
+<guilabel>A panel helye</guilabel> keretben megadható, hogy a képernyő
+melyik széléhez legyen rögzítve a panel. Általában jobb helykihasználást jelent,
+ha a panel vízszintes helyzetben van, vagyis a képernyő felső vagy alsó széléhez
+van rögzítve. Ha kísérletezni szeretne a különböző beállításokkal, egyszerűbben
+megváltoztathatja a panel helyzetét a panelnek a képernyő egy másik szélére való
+húzásával.
+</para>
+
+<para>
+A panel mérete lehet apró, kicsi, közepes vagy nagy. Attól függően, hogy milyen
+kisalkalmazásokat tesz a felhasználó a panelre, bizonyos kisalkalmazások esetén
+érdemes lehet módosítani a panelméretet.
+</para>
+
+<para>
+A képernyőfelbontástól függően esetleg úgy gondolhatja a felhasználó, hogy a panel
+túl sok helyet foglal el a képernyőből. Azért, hogy kevesebb képernyőhely is elegendő
+legyen, a panel rendelkezik automatikus elrejtési funkcionalitással.
+Amikor be van kapcsolva ez a lehetőség, akkor a panel elrejtésre kerül, ha az egérkurzor
+nem tartózkodott felette egy bizonyos (beállítható) ideig. Ebben az esetben az
+egérkurzornak a képernyő megfelelő széléhez való helyezése esetén ismét megjelenik
+a panel. Ha aktiválni kívánja ezt a lehetőséget, jelölje be az
+<guilabel>Automatikus elrejtés</guilabel> keretben található
+<guilabel>Az automatikus elrejtés engedélyezése</guilabel> opciót.
+<guilabel>A késleltetési idő másodpercben</guilabel> csúszka használatával
+beállítható, hogy mennyi időnek kell eltelni ahhoz, hogy a panel elrejtésre kerüljön.
+</para>
+
+<para>
+<guilabel>A preferált parancsértelmező</guilabel>: az a terminálprogram,
+amely indításra kerül akkor, amikor a felhasználó a gyorsböngészőben kiválasztja
+a <guilabel>Megnyitás terminálablakban</guilabel> funkciót.
+Nem valószínű, hogy szükség lesz a módosítására.
+</para>
+
+</sect1>
+
+<sect1 id="panel-looknfeel">
+<title><guilabel>Kinézet</guilabel></title>
+
+<para>
+A <guilabel>Kinézet</guilabel> lap használatával beállítható a panel megjelenése.
+</para>
+
+<para>
+Ha a panel elrejtő gombjai be vannak kapcsolva, akkor egy-egy, nyilat ábrázoló gomb
+látható a panel mindkét végén. A gombok valamelyikére kattintva a panel az adott
+irányba mozdulva félrecsúszik. Ezután egy gomb lesz látható a megfelelő sarokban,
+amely gomb használatával a panel ismét megjeleníthető.
+A funkció aktiválásához jelölje be <guilabel>Az elrejtő gombok engedélyezése</guilabel>
+opciót. Az itt levő csúszka használatával beállítható a gombok mérete.
+<!-- If <guilabel>Highlight on mouse over</guilabel> option is enabled, the hide
+buttons will be highlighted when the mouse cursor is moved over them. -->
+</para>
+
+<para>
+<guilabel>A kézi elrejtés animálása</guilabel> illetve
+<guilabel>Az automatikus elrejtés animálása</guilabel> opciók használatával
+(az előbbi az elrejtő gombokra, az utóbbi pedig az automatikus elrejtésre vonatkozik)
+beállítható, hogy elrejtéskor a panel látható mozgást végezzen vagy egyszerűen csak eltűnjön.
+Az egyes animációk a megfelelő engedélyezési opcióval kapcsolhatók be illetve ki,
+a sebességük pedig a megfelelő csúszkával állítható be.
+</para>
+
+<para>
+A panelhez - mint ahogyan a munkaasztalokhoz is - hozzárendelhető egy <guilabel>háttérkép</guilabel>,
+azaz egy olyan kép, amely a háttér megrajzolásához használatos.
+Ha szeretne panelhátteret, akkor jelölje be a <guilabel>Háttérkép engedélyezése</guilabel>
+opciót. A lentebb levő mezőben megadható egy képfájl neve, vagy
+kiválasztható egy fájl a <guibutton>Tallózás</guibutton> gomb használatával.
+A jobb oldalon meg fog jelenni a kiválasztott kép gyorsnézete.
+</para>
+
+<!-- <para>The <guilabel>Fade out applet handles</guilabel> option will hide the
+small handles used to move panel applets. The handles will only show when the
+mouse cursor is moved over them.</para> -->
+
+</sect1>
+
+<sect1 id="panel-menus">
+<title>Menük</title>
+
+<para>
+A <guilabel>Menük</guilabel> lapon a panel-menü viselkedése állítható be.
+A beállítások hatással vannak a <guimenu>K</guimenu> menüre (amely alkalmazásindításra
+használatos), a böngészőmenükre (amelyek használatával könyvtárak érhetők el) és
+egyéb menükre, mint például &quot;A legutóbbi dokumentumok&quot; menü.
+</para>
+
+<para>
+<guilabel>A K menü elrendezése</guilabel> keret olyan opciókat kínál, amelyekkel
+a <guimenu>K</guimenu> menü állítható be.
+<guilabel>A &quot;Könyvjelzők&quot; almenü megjelenítése</guilabel> és
+<guilabel>&quot;A legutóbbi dokumentumok&quot; almenü megjelenítése</guilabel>
+opciókkal a <application>Konqueror</application>-könyvjelzőket
+illetve a &kde;-alkalmazásokkal legutóbb megnyitott dokumentumokat megjelenítő
+almenük kapcsolhatók be illetve ki.
+
+<guilabel>A &quot;Gyorsböngésző&quot; almenü megjelenítése</guilabel> opció
+a böngészőmenüt kapcsolja be illetve ki.
+</para>
+
+<para>
+<guilabel>A különböző menühelyek összevonása</guilabel> opció bekapcsolásának hatására
+az összes alkalmazás ugyanazon almenükben lesz megjelenítve, függetlenül attól,
+hogy a megfelelő beállításfájlok hol találhatók. Például: az opció bekapcsolása
+esetén a rendszerszintű alkalmazások és a felhasználó saját alkalmazásai is
+az <guilabel>Alkalmazások</guilabel> menüben jelennek meg.
+Ha viszont ki van kapcsolva az opció, akkor lesz egy &quot;Alkalmazások&quot;
+menü a teljes rendszerre vonatkozóan, és egy további egy olyan almenüben, amely
+a felhasználó személyes bejegyzéseit tartalmazza.
+</para>
+
+<para>
+A menü-gyorstár arra szolgál, hogy a segítségével gyorsabban jelenjenek meg a
+panel-menük a képernyőn. Ahelyett, hogy minden egyes alkalommal, amikor a felhasználó
+előhív egy menüt, újra lenne olvasva a menüinformáció a lemezről, a panel
+&quot;megjegyzi&quot; a menü-bejegyzéseket az első hozzáférésnél.
+A felhasználó gépében levő memória mennyiségétől függően érdemes lehet előírni,
+hogy a gyorstár egy bizonyos idő elteltével kiürítésre kerüljön.
+Jelölje be <guilabel>A menü-gyorstár törlése</guilabel> opciót, ha szeretné, hogy
+így történjen. A lentebb található csúszka használatával beállítható, hogy mennyi idő
+elteltével kerüljön kiürítésre a menü-gyorstár.
+</para>
+
+<para>
+A <guilabel>Böngészőmenük</guilabel> keretben beállítható, hogy a panel böngészőmenüi
+megjelenítsék-e a rejtett fájlokat (Unix-rendszereken azok a fájlok a rejtettek,
+amelyek neve ponttal kezdődik), továbbá hogy maximum hány fájl legyen megjelenítve egy
+böngészőmenüben. Az utóbbi opció különösen hasznos lehet alacsony képernyőfelbontás
+esetén, mivel ilyenkor a sok fájlt tartalmazó könyvtárak böngészése közben a
+böngészőmenük gyorsan megtöltik a képernyőt.
+</para>
+
+<para>
+A <guimenu>K</guimenu> menü &quot;gyorsindító&quot; része gyors hozzáférést nyújt
+a gyakran illetve legutóbb használt programokhoz.
+<guilabel>A &quot;Gyorsindító&quot; szakasz tartalma</guilabel> keretben
+kiválasztható, hogy a menü ezen része a legutóbb használt programokat jelenítse meg,
+vagy pedig a leggyakrabban használtakat.
+<guilabel>A &quot;Gyorsindító&quot; bejegyzéseinek max. száma</guilabel>
+opció használatával beállítható, hogy hány program legyen megjelenítve a menü
+&quot;gyorsindító&quot; részében.
+</para>
+
+</sect1>
+
+<sect1 id="panel-buttons">
+<title>Gombok</title>
+
+<para>
+A &kde;-panel támogatja a <quote>háttérképpel ellátott nyomógombokat</quote>.
+Ez azt jelenti, hogy a panelen levő gombok (a beállítás szerinti) háttérképekkel
+jelennek meg. A gombok háttérképeinek bekapcsolásához jelölje be a
+<guilabel>Képek engedélyezése a gombok hátterében</guilabel> opciót a
+<guilabel>Gombok</guilabel> lapon. Ezt követően be lehet állítani a háttérképeket
+a különféle nyomógombokhoz.
+</para>
+
+<para>
+Az említett lapon minden nyomógombfajtához van egy keret; az azokban szereplő
+<guilabel>Bekapcsolva</guilabel> opcióval kapcsolható be illetve ki a megfelelő
+fajta (azaz megfelelő kategóriába tartozó) nyomógombok háttere.
+Ha egy kategóriában be van kapcsolva a háttérkép, akkor ott kiválasztható
+egy háttérkép a lentebb levő legördülő listából. A jobb oldalon levő négyzetben
+látható a kiválasztott kép.
+</para>
+
+<para>
+A gomb-kategóriák (gombfajták) a következők:
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>A K menü háttere</guilabel></term>
+<listitem>
+<para>
+A <guiicon>K menü</guiicon> ikonja háttérképpel lesz megjelenítve
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>A gyorsböngésző háttere</guilabel></term>
+<listitem>
+<para>A <guiicon>gyorsböngészők</guiicon> ikonjai háttérképpel lesznek megjelenítve
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Az alkalmazásindító háttere</guilabel></term>
+<listitem>
+<para>
+Az alkalmazások indítására szolgáló ikonok háttérképpel lesznek megjelenítve
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>
+<guilabel>A régi alkalmazások indítójának háttere</guilabel>
+</term>
+<listitem>
+<para>
+A régi alkalmazások ikonjai háttérképpel lesznek megjelenítve
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Az ablaklisták háttere</guilabel></term>
+<listitem>
+<para>
+Az <guiicon>Ablaklista</guiicon> ikon háttérképpel lesz megjelenítve
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>A munkaasztali gombok háttere</guilabel></term>
+<listitem>
+<para>Az <guiicon>Asztali hozzáférés</guiicon> (asztal megjelenítése) ikon
+háttérképpel lesz megjelenítve</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="panel-applets">
+<title>Kisalkalmazások</title>
+
+<para>
+A kisalkalmazások kisméretű modulok, amelyek kiterjesztik a panel funkcionalitását.
+A &kde; tartalmaz néhány kisalkalmazást, és elképzelhető, hogy továbbiak is
+beszerezhetők más forrásokból. A panel-kisalkalmazások kétféle módon indíthatók
+el: belülről illetve kívülről. Javasolt a <quote>belülről</quote> történő betöltés
+használata, viszont ebben az esetben egy rosszul megírt kisalkalmazás
+stabilitási és biztonsági problémákat okozhat.
+Az ilyen problémák kezelése érdekében a kisalkalmazások
+<quote>megbízhatónak</quote> jelölhetők. Érdemes beállítani a panelt oly módon, hogy
+a megbízható kisalkalmazásokat a nem megbízhatóktól eltérő módon kezelje.
+A lehetőségek a következők:
+</para>
+
+<itemizedlist>
+<listitem>
+<para>
+<guilabel>csak a megbízható kisalkalmazások betöltése történhet belülről</guilabel>:
+A <quote>megbízhatónak</quote> jelölteket kivéve az összes kisalkalmazás külső alkalmazással
+lesz betöltve.
+</para>
+</listitem>
+
+<listitem>
+<para>
+<guilabel>a KDE indításakor induló kisalkalmazások betöltése belülről történjen</guilabel>:
+A &kde; indulásakor megjelenő kisalkalmazások belülről lesznek betöltve,
+a többi pedig külső alkalmazással.</para></listitem>
+
+<listitem><para><guilabel>az összes kisalkalmazás betöltése belülről történjen</guilabel>:
+Minden kisalkalmazást belülről fog betölteni, függetlenül attól, hogy azok megbízhatók-e
+vagy sem.
+</para>
+</listitem>
+</itemizedlist>
+
+<para>
+Stabilitási és biztonsági okokból javasolt az első kettő lehetőség valamelyikét
+használni. Továbbá javasolt, hogy csak a &kde; alapcsomagokban levő
+kisalkalmazások legyenek megbízhatónak jelölve.
+</para>
+
+<para>
+Ahhoz, hogy a kisalkalmazásokat <quote>megbízhatónak</quote> illetve
+<quote>nem megbízhatónak</quote> jelölje, helyezze azokat a megfelelő listába.
+Ha kiválaszt egy kisalkalmazást a megbízhatók listájából, majd rákattint a
+<guibutton>&gt;&gt;</guibutton> nyomógombra, akkor a kiválasztott kisalkalmazás
+átkerül a másik listába. A <guibutton>&lt;&lt;</guibutton> gomb hatása ezzel
+ellentétes: az elérhető kisalkalmazások listájáról helyezi át a kiválasztott
+kisalkalmazást a megbízhatók listájára.
+</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="k-menu">
+<title>A <guimenu>K</guimenu> menü</title>
+
+<para>
+A <guimenu>K</guimenu> menü a &kicker; egyik központi eleme.
+</para>
+
+<para>
+A <guimenu>K</guimenu> menüben öt fő csoport található; ezek a következőkben
+kerülnek ismertetésre, lentről felfelé haladva.
+</para>
+
+<sect1 id="kde-group">
+<title>A <acronym>KDE</acronym> csoport</title>
+
+<para>
+A <guimenu>K</guimenu> menü ezen csoportjában az általános &kde;-kellékek találhatók.
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guimenuitem>Kilépés</guimenuitem></term>
+<listitem>
+<para>
+A &kde; munkafolyamat befejezésére szolgál. Az <trademark class="registered">X Windows</trademark>
+rendszert is leállítja.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>A képernyő zárolása</guimenuitem></term>
+<listitem>
+<para>Ezzel a funkcióval a képernyőt zárolhatja le, ha nem akarja, hogy bárki más
+hozzáférhessen az Ön munkaasztalához. Zárolást követően, ha volt beállítva képernyővédő,
+akkor azon képernyővédő elkezd futni, ha pedig nem volt, akkor a képernyő
+fekete színt vesz fel. Lezárt állapot esetén bármely billentyű lenyomásának hatására
+be lesz kérve a felhasználó jelszava. Ez független az esetleges képernyővédő
+jelszóbeállításaitól.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guisubmenu>A panel beállításai</guisubmenu></term>
+<listitem>
+<para>Ebben az almenüben módosítani lehet a &kicker; beállításait (ahogyan
+<link linkend="configuring">A &kicker; beállítása</link> fejezetben le van írva),
+hozzá lehet adni bizonyos elemeket a &kicker;-panelhez
+(további információk a <link linkend="basics">&kicker; - alapok</link> fejezetben),
+továbbá el lehet indítani a <application>Menüszerkesztő</application> alkalmazást.
+A <guisubmenu>Segítség</guisubmenu> menü is elérhető innen, de mivel Ön jelenleg
+éppen a dokumentációt olvassa, ezért valószínűleg ezt már megtalálta.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+<sect1 id="run-command">
+<title>Parancs végrehajtása</title>
+
+<para>
+Előhoz egy kisméretű, de nagy tudású alkalmazásindító párbeszédablakot.
+</para>
+
+<para>
+Általános esetben a felhasználó begépel egy parancsot és lenyomja az
+<keycap>Enter</keycap> billentyűt vagy rákattint a <guibutton>Futtatás</guibutton>
+nyomógombra. A <guibutton>Beállítások</guibutton> nyomógombra való kattintás
+előhoz néhány indítási beállítást.
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Futtatás terminálban</guilabel></term>
+<listitem>
+<para>
+Az opció bekapcsolása esetén az alkalmazás egy terminálban fog elindulni.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Futtatás más felhasználóként</guilabel></term>
+<listitem>
+<para>
+Ha ez az opció be van jelölve, akkor a <guilabel>felhasználónév</guilabel>
+mezőben megadható egy felhasználó, akinek a jogosultságaival az alkalmazásnak
+futni kell. Ha Ön más felhasználót ad meg, akkor a lentebb levő mezőben meg kell adni
+a megfelelő jelszót.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Futtatás más prioritással</guilabel></term>
+<listitem>
+<para>
+Jelölje be ezt az opciót, ha azt szeretné, hogy a parancs az alapértelmezettől
+eltérő prioritással fusson. Magasabb prioritás esetén az operációs rendszer
+több feldolgozási időt ad az illető alkalmazásnak.
+A prioritás a lentebb található csúszkával állítható be. Ha az alkalmazásnak
+az alapértelmezettnél (a középső pozíció a csúszkán) magasabb prioritást kíván adni,
+akkor meg kell adnia a rendszergazdai jelszót a lentebb levő szövegmezőben.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Ütemező</guilabel></term>
+<listitem>
+<para>
+Az ütemező az operációs rendszer azon része, amely meghatározza, hogy mely
+folyamatok legyenek futtatva és melyeknek kell várakozniuk.
+Általában egy alkalmazás normál ütemezéssel fut, ami azt jelenti, hogy az alkalmazás
+annyi feldolgozási időt használhat fel, amennyit számára az operációs rendszer biztosít.
+A normál ütemezésen kívül választható <guilabel>valós idejű</guilabel> ütemezés is,
+ami azt jelenti, hogy az alkalmazás mindaddig rendelkezik a teljes feldolgozási idővel,
+amíg le nem mond arról. A <guilabel>valós idejű</guilabel> ütemezés használatához
+meg kell adni a rendszergazdai jelszót.
+</para>
+
+<warning>
+<para>
+Ez veszélyes lehet. Ha az alkalmazás lefagy, és nem képes visszaadni a vezérlést,
+akkor az egész rendszer lefagyhat.
+</para>
+</warning>
+
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+<sect1 id="browsers">
+<title>Böngészők</title>
+
+<para>
+Ez a csoport néhány hasznos böngészőt tartalmaz:
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guisubmenu>Gyorsböngésző</guisubmenu></term>
+<listitem>
+<para>Ez az almenü gyorsböngészőket tartalmaz három hasznos könyvtárhoz:
+saját könyvtár, gyökérkönyvtár illetve rendszerbeállítások.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guisubmenu>A legutóbbi dokumentumok</guisubmenu></term>
+<listitem>
+<para>Ez a menü a legutóbb használt dokumentumok neveit tartalmazza (jelenleg csak
+a &kde;-hez írt alkalmazásokkal működik). <guimenuitem>A napló törlése</guimenuitem>
+menüpontra kattintva a menü tartalma törlésre kerül, ami a személyes adatok védelme
+szempontjából hasznos lehet.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guisubmenu>Könyvjelzők</guisubmenu></term>
+<listitem>
+<para>Ez az almenü a személyes könyvjelzőket jeleníti meg, éppen úgy, ahogy azt a
+&konqueror; teszi. További részleteket a &konqueror; kézikönyvéből tudhat meg.
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+<sect1 id="application-group">
+<title>Az alkalmazások csoportja</title>
+
+<para>
+Ebben a csoportban az alkalmazások indítására szolgáló almenük találhatók.
+Bejegyzések felvételére, eltávolítására és áthelyezésére a &kmenuedit;
+program használható.
+</para>
+</sect1>
+
+<sect1 id="most-recently-group">
+<title>A legutóbb használt alkalmazások</title>
+
+<para>
+Ez a csoport a legutóbb vagy a leggyakrabban használt alkalmazások neveit
+tartalmazza. Ezzel kapcsolatban további információk a
+<link linkend="panel-menus">Menük</link> szakaszban találhatók.
+</para>
+</sect1>
+
+</chapter>
+
+<chapter id="applets">
+<title>Kisalkalmazások</title>
+
+<para>
+A kisalkalmazások kisméretű programok, amelyek a &kicker; alkalmazáson
+belül futnak. A &kicker; paneljén az <guiicon>alkalmazásindító nyomógombokon</guiicon>
+kívül majdnem minden kisalkalmazással van megoldva.
+Kisalkalmazások a panelre a <guimenu>helyi menü</guimenu>nek vagy a <guimenu>K</guimenu> menü
+<guisubmenu>A panel beállításai</guisubmenu> almenüjének használatával vehetők fel;
+mindkét helyen a <guisubmenu>Hozzáadás</guisubmenu> almenü <guisubmenu>Kisalkalmazás</guisubmenu>
+almenüje használandó erre a célra.
+</para>
+
+<sect1 id="taskbar-applet">
+<title>A &quot;feladatlista&quot; kisalkalmazás</title>
+
+<para>
+A feladatlista az éppen futó alkalmazásokat jeleníti meg nyomógombok formájában.
+A fókuszt birtokló alkalmazás lenyomott gombként van megjelenítve.
+A minimalizált alkalmazások neve szürke színnel jelenik meg a feladatlistában.
+</para>
+
+<tip>
+<para>
+Ha a felhasználó az éppen aktív (vagyis a fókuszt birtokló) alkalmazás gombjára
+kattint, akkor azon alkalmazás minimalizálásra kerül. Ez azt is jelenti, hogy
+egy inaktív alkalmazás gombjára való kétszeri kattintásnak szintén minimalizáló
+hatása van.
+</para>
+</tip>
+
+<para>
+A <mousebutton>jobb oldali</mousebutton> egérgombbal egy nyomógombra kattintva
+megjelenik a szabványos alkalmazásmenü egy <guimenuitem>Az aktuális asztalra</guimenuitem>
+funkcióval kiegészítve; ez utóbbi funkció használatával az aktuális munkaasztalra lehet
+helyezni egy alkalmazást (abban az esetben, ha a feladatlista úgy lett beállítva, hogy
+az összes munkaasztalon levő alkalmazásokat jelenítse meg).
+</para>
+
+<para>
+A feladatlista bal oldalán vagy felső részén található egy kisméretű nyomógomb,
+amelynek neve <guibutton>ablaklista-gomb</guibutton>. A gombbal egy menü hozható elő.
+A menüben levő első bejegyzés, <guimenuitem>Az ablakok egyenletes elrendezése</guimenuitem>
+funkciója az, hogy az aktuális asztalon levő ablakokat megpróbálja olyan módon
+áthelyezni, hogy minél több legyen látható közülük.
+<guimenuitem>Az ablakok lépcsőzetes elrendezése</guimenuitem> funkció az aktuális
+asztal összes ablakát egymás tetejére helyezi olyan módon, hogy a legutóbb használt
+ablakot helyezi legfelülre, a többit pedig a legutóbbi használat időpontja szerint
+rendezve.
+</para>
+
+<para>
+A fent említett bejegyzések alatt az éppen futó alkalmazások listája látható, azon
+asztalok szerint csoportosítva, amely asztalokon futnak. Egy munkaasztal nevére való
+kattintás az adott asztalra való kapcsolást eredményez, egy alkalmazásra kattintva
+pedig a megfelelő asztal és az adott alkalmazás is aktív lesz.
+</para>
+
+<sect2 id="configure-taskbar-applet">
+<title>A &quot;feladatlista&quot; kisalkalmazás beállítása</title>
+
+<para>
+A feladatlista beállítása a fogantyújára való, a <mousebutton>jobb oldali</mousebutton>
+egérgombbal történő kattintással kezdeményezhető.
+</para>
+
+<variablelist>
+<varlistentry>
+<term>Az összes ablak megjelenítése</term>
+<listitem>
+<para>
+Ha ez az opció be van kapcsolva, akkor a feladatlista az összes asztalon futó összes
+alkalmazást megjeleníti. Ellentétes esetben csak az aktuális asztal alkalmazásai vannak
+megjelenítve.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Az ablaklista gomb megjelenítése</term>
+<listitem>
+<para>Ha be van jelölve az opció, akkor meg lesz jelenítve az <guibutton>ablaklista-gomb</guibutton>,
+ha pedig nincs bejelölve, akkor nem lesz megjelenítve.
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="pager-applet">
+<title>A &quot;mini lapozó&quot; kisalkalmazás</title>
+
+<para>
+Ez a kisalkalmazás megjeleníti a munkaasztalok gyorsnézeteit, és lehetővé teszi
+a munkaasztalok közti váltást. Munkaasztal-váltás a <mousebutton>bal oldali</mousebutton>
+egérgombbal végezhető a megfelelő gyorsnézetre kattintva.
+</para>
+
+<para>
+Van egy hasznos <guimenu>helyi menü</guimenu> is:
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guimenuitem>Előkép</guimenuitem></term>
+<listitem>
+<para>Ez az opció lehetővé teszi, hogy a &quot;lapozó&quot; kisalkalmazás az asztalokat
+egy-egy kisméretű gyorsnézet formájában jelenítse meg, amelyekben a futó alkalmazások
+ablakait szimbolikus téglalapok jelölik.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Szám</guimenuitem></term>
+<listitem>
+<para>
+Ha ez az opció be van jelölve, akkor a lapozó az asztalok számait fogja megjeleníteni.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Név</guimenuitem></term>
+<listitem>
+<para>
+Lehetővé teszi, hogy a lapozó az asztalok neveit jelenítse meg. A nevek beállíthatók
+a &quot;Tulajdonságok&quot; funkcióval vagy a <application>Vezérlőközpontban</application>.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Az előnézeti kép engedélyezése</guimenuitem></term>
+<listitem>
+<para>
+Ha ez az opció be van jelölve, akkor a lapozón található egy kisméretű gomb,
+amely gomb használatával a munkaasztaloknak egy nagyobb méretű előnézeti képe jeleníthető meg.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guimenuitem>Tulajdonságok</guimenuitem></term>
+<listitem>
+<para>
+Itt beállítható, hogy hány darab munkaasztal legyen, és mi legyen azok neve.
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+<sect1 id="clock-applet">
+<title>Az &quot;óra&quot; kisalkalmazás</title>
+
+<para>
+Ahogyan bizonyára sejthető, az &quot;óra&quot; kisalkalmazás egy kisméretű óra, amely a
+&kicker; paneljén található.
+</para>
+
+<para>
+A <mousebutton>bal oldali</mousebutton> egérgombbal az órára kattintva megjelenik
+egy kisméretű naptár. A <guibutton>nyilakat</guibutton> ábrázoló gombokkal lehet hónapot
+váltani, a <guibutton>dupla nyilakat</guibutton> ábrázolókkal pedig évet váltani.
+Ennek nincsen hatása a dátumbeállításra, hanem csak információt nyújt.
+</para>
+
+<para>
+Az &quot;óra&quot; kisalkalmazásnak van néhány további lehetősége, amelyek a
+<guimenu>helyi menü</guimenu>ben érhetők el.
+</para>
+
+<sect2 id="clock-type">
+<title><guisubmenu>Típus</guisubmenu></title>
+
+<para>
+Az óra megjelenése háromféle lehet:
+</para>
+
+<variablelist>
+<varlistentry>
+<term>digitális</term>
+<listitem>
+<para>
+Ebben az esetben digitális formában jelenik meg az óra.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>analóg</term>
+<listitem>
+<para>
+Ha ez a lehetőség van beállítva, akkor az óra a régi stílusú analóg formában fog
+megjelenni. Megjegyzés: ezt csak akkor érdemes használni, ha a &kicker; panelje
+normál (azaz közepes) vagy nagy méretűre van állítva.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>különleges</term>
+<listitem>
+<para>
+Ez egy rendhagyó stílusú időkijelző. Próbálja ki, valóban különleges!
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect2>
+
+<sect2 id="clock-preferences">
+<title><guimenuitem>Tulajdonságok</guimenuitem></title>
+
+<para>
+Itt az &quot;óra&quot; kisalkalmazás néhány általános beállítása módosítható.
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Típus</guilabel></term>
+<listitem>
+<para>
+Itt az órastílusok közül választhat, éppen úgy, mint ahogyan a
+<guimenu>helyi menü</guimenu>ben.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>A <guilabel>Digitális óra</guilabel> lap</term>
+<listitem>
+<para>A <guilabel>Beállítások</guilabel> keretben megadható, hogy szükség van-e
+a dátum, a másodperc illetve villogó pontok megjelenítésére.
+A <guilabel>Színek</guilabel> keretben választani lehet a megszokott
+<acronym>LCD</acronym>-kinézet és a saját megadású színek közt.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Az <guilabel>Analóg óra</guilabel> lap</term>
+<listitem>
+<para>
+A <guilabel>Beállítások</guilabel> keretben megadható, hogy szükség van-e
+a dátum illetve a másodperc-érték megjelenítésére. A <guilabel>Színek</guilabel>
+keretben pedig megadható, hogy a megszokott <acronym>LCD</acronym>-kinézet
+legyen-e használva, vagy saját megadású színek.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>A <guilabel>Különleges óra</guilabel> lap</term>
+<listitem>
+<para>
+A <guilabel>Beállítások</guilabel> keretben beállítható, hogy meg legyen-e
+jelenítve a dátum. Egy csúszkával pedig be lehet állítani a
+<guilabel>Különlegesség</guilabel> mértékét. Ez utóbbinak a jelentését nehéz lenne a
+dokumentációban leírni; érdemes kísérletezéssel megállapítani, mi a különbség az
+egyes értékek közt. A <guilabel>Színek</guilabel> keretben lehet színeket és
+betűtípust választani a &quot;különleges óra&quot; számára.
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect2>
+
+<sect2 id="adjust-time">
+<title><guimenuitem>A dátum és az idő beállítása</guimenuitem></title>
+
+<para>
+Ez a funkció elindítja a <application>&kde; Vezérlőközpont</application>
+&quot;Dátum és idő&quot; beállítómodulját.
+</para>
+
+<note>
+<para>
+A dátum és az idő beállításához szükség van a rendszergazdai jelszóra.
+</para>
+</note>
+
+</sect2>
+
+<sect2 id="date-format">
+<title><guimenuitem>Dátum- és időformátum</guimenuitem></title>
+
+<para>
+Ezt kiválasztva megnyílik a <application>&kde; Vezérlőközpont</application>
+&quot;Ország és nyelv&quot; modulja, ahol be lehet állítani a megfelelő
+dátum- és időformátumot. Ehhez nem szükséges semmiféle különleges jogosultság.
+</para>
+
+</sect2>
+
+<sect2 id="copy-date">
+<title><guisubmenu>Másolás</guisubmenu></title>
+
+<para>
+Ha egy másik alkalmazásban (például szövegszerkesztőben) szükség van az aktuális
+időpontra illetve dátumra, akkor ezzel az almenüvel a vágólapra másolható
+a megfelelő adat a kívánt formátumban. A kívánt formátum kiválasztása után az
+aktuális időpont illetve dátum a megfelelő formátumban a vágólapra kerül,
+ahonnan ezután beilleszthető bármely más &kde; alkalmazásba.
+</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="launcher-applet">
+<title>A &quot;gyorsindító&quot; kisalkalmazás</title>
+
+<para>
+Ez egy tömör alkalmazásindító. Különösen akkor hasznos, ha a panel normál (azaz közepes)
+vagy nagy méretűre van állítva. Alkalmazásokat &quot;Húzd-és-ejtsd&quot; módon lehet
+rá felvenni vagy a <guimenu>helyi menü</guimenu> használatával. A <guimenu>helyi menü</guimenu>
+egy felvett alkalmazás eltávolítására is használható.
+</para>
+</sect1>
+
+<sect1 id="systemtray-applet">
+<title>A &quot;Rendszertálca&quot; kisalkalmazás</title>
+
+<para>
+A Rendszertálca arra szolgál, hogy bizonyos speciális alkalmazásoknak helyet adjon,
+mint például a &klipper;-nek vagy a <application>KTeaTime</application>-nak. Ezenkívül található
+még itt két, általánosan használt gomb: a <guibutton>lakatot</guibutton> ábrázoló gombbal
+a képernyőt lehet lezárni, ha a felhasználó egyedüliként használja a &kde;-t futtató
+gépet, és nem szeretné, ha bárki is hozzáférhetne a &kde;-hez; a másik gomb pedig
+egy <guibutton>kikapcsológomb</guibutton>, amellyel az aktuális &kde;-munkafolyamatból
+lehet kilépni.
+</para>
+
+</sect1>
+
+<sect1 id="run-applet">
+<title>Az &quot;alkalmazásindító&quot; kisalkalmazás</title>
+
+<para>
+Ez a kisalkalmazás egy egyszerű, a &kicker; paneljébe beleágyazott parancssort nyújt.
+</para>
+
+</sect1>
+
+<sect1 id="naughty-applet">
+<title>Az elszabadult folyamatokat kezelő kisalkalmazás</title>
+
+<para>
+Ez a kisalkalmazás egy mosolygó arcot jelenít meg, amely haragos arckifejezésűvé
+válik, ha bármely folyamat túl sok rendszererőforrást köt le. Ha egy alkalmazás
+túl sok erőforrást használ, akkor megjelenik egy párbeszédablak, amelyben
+megadható, hogy hogyan legyen kezelve az adott alkalmazás.
+</para>
+
+<para>
+A <mousebutton>bal oldali</mousebutton> egérgombbal az arcot ábrázoló gombra kattintva
+megjelenik egy beállítási párbeszédablak. Ebben megadható a
+<guilabel>Frissítési időköz</guilabel> (másodpercben) és a
+<guilabel>CPU-terhelési korlát</guilabel>. Kísérletezzen a különböző értékekkel,
+hogy megtalálja a megfelelőt. Ezek a beállítások valószínűleg változni fognak valamelyik
+jövőbeli verzióban. A párbeszédablakban van egy
+<guilabel>Figyelmen kívül hagyandó programok</guilabel> feliratú rész is, ahol megadhatók
+azon alkalmazások nevei, amely alkalmazások normál körülmények között is sok erőforrást
+kötnek le (például fordítóprogramok vagy 3D renderelők).
+</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="extensions">
+<title>Kiterjesztések</title>
+
+<para>
+Vannak a &kicker; panelén kívül megjelenő objektumok is, ezeket kiterjesztéseknek
+nevezzük. Kiterjesztések a <guimenu>K</guimenu> menü
+<guisubmenu>A panel beállításai</guisubmenu> almenüjének használatával vagy a
+<guimenu>helyi menü</guimenu>vel vehetők fel.
+Mindkét helyen a <guisubmenu>Hozzáadás</guisubmenu> almenü <guisubmenu>Kiterjesztés</guisubmenu>
+almenüje használandó erre a célra. Egy kiterjesztést el lehet helyezni a képernyő bármely
+széléhez, ehhez a kiterjesztés bal oldalán vagy felső részén levő fogantyúval kell a megfelelő
+helyre húzni azt. Egy kiterjesztés eltávolítása a fogantyújára való,
+a <mousebutton>jobb oldali</mousebutton> egérgombbal történő kattintást követően
+az <guimenuitem>Eltávolítás</guimenuitem> funkcióval lehetséges.
+</para>
+
+<sect1 id="external-taskbar-extension">
+<title>A &quot;külső feladatlista&quot; kiterjesztés</title>
+
+<para>
+A külső feladatlista ugyanolyan, mint a &quot;feladatlista&quot; kisalkalmazás,
+az egyetlen különbség az, hogy a külső feladatlista saját panelen jelenik meg.
+További információk <link linkend="taskbar-applet">A &quot;feladatlista&quot; kisalkalmazás</link>
+szakaszban.
+</para>
+
+</sect1>
+
+<sect1 id="child-panel-extension">
+<title>A &quot;gyermek-panel&quot; kiterjesztés</title>
+
+<para>
+Ez pontosan olyan panel, mint a &kicker;-panel. Felvehető rá az összes olyan
+objektum, amely a &kicker;-re felvehető. Ezáltal több &kicker; is lehet a képernyőn a
+felhasználó igénye szerint. A felhasználó teendője annyi, hogy felvesz egy gyermek-panelt, ezután
+elhelyezhet azon mindenféle alkalmazást és kisalkalmazást.
+</para>
+
+</sect1>
+
+<sect1 id="kasbar-extension">
+<title>A &quot;KasBar&quot; kiterjesztés</title>
+
+<para>
+A KasBar egy ikon-alapú feladatlista. Az összes munkaasztalon futó összes alkalmazás
+ikonját megjeleníti, ezek között a <mousebutton>bal oldali</mousebutton> egérgombbal
+lehet váltani. Az aktív ablak ikonja ki van emelve, a minimalizált ablakok
+ikonjának jobb alsó részén pedig egy kisméretű háromszög jelenik meg (normál esetben
+itt egy négyzet látható).
+</para>
+</sect1>
+
+<sect1 id="dock-application-bar-extension">
+<title>Az &quot;alkalmazásdokkoló&quot; kiterjesztés</title>
+
+<para>
+Az alkalmazásdokkoló egy külső panel, amely lehetővé teszi a WindowMaker-alkalmazások
+dokkolását. Indítsa el a dokkolható WindowMaker-programjait, és ha az alkalmazásdokkoló
+fut, akkor azok a programok automatikusan dokkolásra kerülnek.
+</para>
+</sect1>
+
+</chapter>
+
+<chapter id="kfind">
+<title>Fájlok keresése</title>
+
+<para>
+A <guimenuitem>Fájlkereső</guimenuitem> funkció elindítja a &kfind; nevű
+programot, amely egy könnyen használható alkalmazás fájlok illetve fájlokban
+előforduló kifejezések keresésére.
+</para>
+
+<sect1 id="name-tab">
+<title>A Név/hely lap</title>
+
+<para>
+A &kfind; indításakor egy eléggé egyszerű ablak jelenik meg. Írja be a keresett
+fájl nevét a <guilabel>Fájlnév</guilabel> feliratú mezőbe, adja meg azon könyvtár
+nevét, amelyben keresni szeretne (gépelje be a könyvtár nevét
+<quote><guilabel>A keresés helye</guilabel></quote> mezőbe, vagy kattintson a
+<guibutton>Tallózás</guibutton> gombra), majd nyomja le az <keycap>Enter</keycap>
+billentyűt vagy kattintson a <guibutton>Keresés</guibutton> nyomógombra.
+Ha be van jelölve <guilabel>Az alkönyvtárakban is</guilabel> opció, akkor
+nem csak a megadott könyvtár, hanem annak összes alkönyvtára is végig lesz
+keresve. A keresés eredményei a lentebb levő mezőben jelennek meg.
+</para>
+
+<tip>
+<para>
+A következő helyettesítőkarakterek használhatók:
+</para>
+</tip>
+
+<variablelist>
+<varlistentry>
+<term>Csillag: <quote><keycap>*</keycap></quote></term>
+<listitem>
+<para>
+A csillag akármennyi karaktert helyettesíthet, akár 0 darab karaktert is.
+Ez azt jelenti, hogy például <filename>marc*</filename> keresése esetén
+a következő fájlok találatnak fognak minősülni: <filename>marc</filename>,
+<filename>marc.png</filename>, <filename>marc_must_not_read_this.kwd</filename>.
+Ha pedig <filename>mar*.kwd</filename> a keresési minta, akkor találat lesz a
+<filename>marketplace.kwd</filename> és a <filename>marc_must_not_read_this.kwd</filename>
+nevű fájl.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Kérdőjel: <quote><keycap>?</keycap></quote></term>
+<listitem>
+<para>
+A csillaggal ellentétben a kérdőjel pontosan 1 karaktert helyettesíthet,
+tehát <filename>mar?</filename> keresése esetén találat lesz a <filename>marc</filename>,
+de <filename>marc?</filename> fájlokat keresve nem lesz találat sem a
+<filename>marc</filename> nevű fájl, sem a <filename>marc.png</filename> nevű.
+A keresési mintában akármennyi kérdőjel szerepelhet. Ha egymás mellett szerepel
+több kérdőjel, akkor az a kérdőjel-sorozat pontosan annyi számú karaktert jelent,
+ahány kérdőjelből áll a sorozat.
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+<para>
+Ezen két helyettesítőkarakter kombinálható is a keresési mintában.
+</para>
+
+</sect1>
+
+<sect1 id="kfind-date-range">
+<title>A Dátumtartomány lap</title>
+
+<para>
+Ezen a lapon beállítható, hogy mely dátum-intervallumban létrehozott
+illetve módosított fájlok minősüljenek találatnak.
+</para>
+
+<para>
+A <guilabel>Minden fájl</guilabel> opciót kiválasztva a &kfind; nem fogja
+figyelembe venni a dátumokat a keresésnél. Ha viszont
+<guilabel>Az alábbi időszakban létrehozott vagy utoljára módosított fájlok</guilabel>
+opció van bejelölve, akkor megadható egy időszak, amelyre a keresésnek vonatkozni kell.
+Az időszak megadása 3 különböző módon történhet: megadható az időszak kezdetét és végét
+jelölő egy-egy dátum, vagy megadható, hogy az előző valahány hónap illetve nap jelentse
+az időszakot.
+</para>
+
+</sect1>
+
+<sect1 id="kfind-advanced">
+<title>A Továbbá lap</title>
+
+<para>
+Itt finomítani lehet a keresési feltételeket, például megadható, hogy
+a fájlnak tartalmazni kell egy bizonyos szöveget.
+</para>
+
+<para>
+A következő beállítások érhetők el:
+</para>
+
+<variablelist>
+<varlistentry>
+<term><guilabel>Fájltípus</guilabel></term>
+<listitem>
+<para>
+Itt megadható, hogy milyen típusú fájlokra terjedjen ki a keresés.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Tartalmazott szöveg</guilabel></term>
+<listitem>
+<para>
+Adja meg azt a szót vagy kifejezést, amelyet a keresett fájlok tartalmaznak.
+Megjegyzés: Ha meg van adva egy keresendő szöveg, és a keresés egy nagyobb méretű könyvtárban
+történik illetve be van jelölve <guilabel>Az alkönyvtárakban is</guilabel> opció, akkor
+a keresés hosszú ideig tarthat.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>Méret</guilabel></term>
+<listitem>
+<para>Itt igény esetén megadható egy minimális vagy maximális fájlméret (KByte-ban),
+amely a keresendő fájlok körét szűkíteni fogja.
+</para>
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term><guilabel>nagybetűérzékeny</guilabel></term>
+<listitem>
+<para>
+Általában a &kfind; nem veszi figyelembe a kis- és nagybetűk közti különbséget,
+tehát <filename>marc.png</filename> nevű fájl keresése esetén találat lesz a
+<filename>marc.png</filename> és a <filename>Marc.png</filename> is.
+Ha viszont ez az opció be van jelölve, akkor csak azon fájlok lesznek találatok,
+amelyek esetén pontosan megegyeznek a keresési mintában levő kis- és nagybetűk
+a fájlnévben levőkkel, vagyis az előző példában szereplő keresésnek ekkor már csak
+a <filename>marc.png</filename> lesz találata, a <filename>Marc.png</filename> nevű
+fájl nem.
+</para>
+</listitem>
+</varlistentry>
+
+</variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="commands">
+<title>Parancsok</title>
+
+<sect1 id="panel">
+<title>A panel</title>
+
+<para>
+A &kicker;-ben egyetlen szabványos billentyűkombináció van:</para>
+
+<variablelist>
+<varlistentry>
+<term><keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo></term>
+<listitem>
+<para>
+Megnyitja a <guimenu>K</guimenu> menüt.
+</para>
+</listitem>
+</varlistentry>
+</variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="faq">
+<title>Kérdések és válaszok</title>
+
+<qandaset id="faqlist">
+<qandaentry>
+<question>
+<para>
+Hogyan lehet alkalmazásokat, kisalkalmazásokat vagy egyéb objektumokat a
+panelre helyezni?
+</para>
+</question>
+<answer>
+<para>
+Kattintson a <mousebutton>jobb oldali</mousebutton> egérgombbal a &kicker; bármely
+szabad felületére, és válassza a <guisubmenu>Hozzáadás</guisubmenu> funkciót.
+A megjelenő almenüből kiválasztható a felveendő objektum.
+További információk a <link linkend="basics">&kicker; - alapok</link> fejezetben.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Lehet külső feladatlistát létrehozni, mint ahogyan az a &kde; 1-ben van?
+</para>
+</question>
+<answer>
+<para>
+Igen. Kattintson a <mousebutton>jobb oldali</mousebutton> egérgombbal a &kicker; bármely
+szabad felületére, majd válassza a <guisubmenu>Hozzáadás</guisubmenu> almenü
+<guisubmenu>Kiterjesztés</guisubmenu> almenüjéből a
+<guimenuitem>Külső feladatlista</guimenuitem> menüpontot.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Hogyan lehet a &kicker;-panelt áthelyezni a képernyőnek egy másik széléhez?
+</para>
+</question>
+
+<answer>
+<para>
+Egyszerűen kattintson a <mousebutton>bal oldali</mousebutton> egérgombbal
+a &kicker;-panel bármely szabad felületére, majd az egérgombot lenyomva tartva
+húzza a panelt a képernyő megfelelő széléhez.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Hogyan lehet a kiterjesztéseket áthelyezni a képernyő másik széléhez?
+</para>
+</question>
+
+<answer>
+<para>
+Kattintson a <mousebutton>bal oldali</mousebutton> egérgombbal a kiterjesztés
+bal oldalán vagy felső részén levő <guibutton>fogantyúra</guibutton>, majd az
+egérgomb lenyomva tartása mellett húzza a kiterjesztést a képernyő valamely széléhez.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Megoldható-e az, hogy a feladatlista az összes futó alkalmazást jelenítse meg,
+függetlenül attól, hogy azok mely munkaasztalon futnak?
+</para>
+</question>
+<answer>
+<para>
+Igen. Kattintson a <mousebutton>jobb oldali</mousebutton> egérgombbal a feladatlista
+<guibutton>fogantyújára</guibutton>, majd válassza a <guimenuitem>Tulajdonságok</guimenuitem>
+funkciót, és jelölje be <guilabel>Az összes ablak megjelenítése</guilabel> opciót a megjelenő
+párbeszédablakban.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Hogyan érhető el a <guimenu>K</guimenu> menü az egér használata nélkül?
+</para>
+</question>
+<answer>
+<para>
+Használja az <keycombo action="simul"><keycap>Alt</keycap><keycap>F1</keycap></keycombo>
+billentyűkombinációt a menü megjelenítéséhez.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Fel lehet-e venni a panelre egy olyan menüt, amely az összes munkaasztali ikont tartalmazza?
+</para>
+</question>
+<answer>
+<para>
+Indítsa el a &konqueror;-t, navigáljon a saját könyvtárába, majd húzza a
+<guiicon>KDesktop</guiicon> ikont a &kicker; bármely szabad felületére.
+Az ezután megjelenő menüből pedig válassza a
+<guimenuitem>Hozzáadás gyorsböngészőként</guimenuitem> lehetőséget.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Hogyan lehet megváltoztatni a &kicker; színét és stílusát?
+</para>
+</question>
+<answer>
+<para>
+A panel színeit a <application>Vezérlőközpont</application> színbeállítási
+moduljával lehet módosítani. A panel stílusa is megváltoztatható, erről
+további információ a <link linkend="panel-buttons">Gombok</link> szakaszban
+található.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Miért nem a megfelelő időt mutatja az óra?
+</para>
+</question>
+<answer>
+<para>
+Bizonyos &RedHat; rendszereken az óra mindig <acronym>GMT</acronym> szerint
+mutatja az időt. Ez egy, a &RedHat; szoftverben található hiba következménye.
+A kijavítása a következő paranccsal végezhető el (a parancs egy szimbolikus linket
+hoz létre):
+<userinput><command>ln</command>
+<option>-s</option> <filename>/usr/share/zoneinfo</filename>
+<filename>/usr/lib/zoneinfo</filename></userinput>.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Le lehet cserélni a panelen levő <guiicon>K</guiicon> nyomógomb képét egy másik képre?
+</para>
+</question>
+<answer>
+<para>
+Keresse meg a <filename>$HOME/.kde/share/apps/kicker/pics/go.png</filename> és a
+<filename>$HOME/.kde/share/apps/kicker/pics/mini/go.png</filename> képfájlokat, és
+helyettesítse azokat a kívánt képekkel.
+A képekben csak 1 réteg legyen, különben nem fognak megjelenni a panelen.
+Ha valamelyik könyvtár nem létezik, hozza létre azt. A fájlok lecserélése után
+indítsa újra a &kicker;-t.
+</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question>
+<para>
+Miért nem működik a <guisubmenu>Beállítások</guisubmenu> menü?
+</para>
+</question>
+<answer>
+<para>
+Valószínűleg összekeveredtek a menübejegyzések. Egyszerűen futtassa le a
+<command>kbuildsycoca</command> programot egy parancssorból indítva.
+</para>
+</answer>
+</qandaentry>
+</qandaset>
+
+&reporting.bugs;
+<!-- &updating.documentation; -->
+
+</chapter>
+
+<chapter id="credits">
+
+<title>Készítők és licenc</title>
+
+<para>
+&kicker;
+</para>
+
+<para>
+Program copyright 1999-2000, a KDE fejlesztőcsapat
+(<ulink url="http://www.kde.org">www.kde.org</ulink>).
+</para>
+
+<itemizedlist>
+<listitem>
+<para>
+Matthias Elter <email>elter@kde.org</email>
+</para>
+</listitem>
+
+<listitem>
+<para>
+Matthias Ettrich <email>ettrich@kde.org</email>
+</para>
+</listitem>
+
+<listitem>
+<para>
+Wilco Greven <email>greven@kde.org</email>
+</para>
+</listitem>
+
+<listitem>
+<para>
+Rik Hemsley <email>rik@kde.org</email>
+</para>
+</listitem>
+
+<listitem>
+<para>
+Daniel M. Duley <email>mosfet@kde.org</email>
+</para>
+</listitem>
+
+<listitem>
+<para>
+Preston Brown <email>pbrown@kde.org</email>
+</para>
+</listitem>
+
+</itemizedlist>
+
+<para>
+Dokumentáció copyright 2001, Dirk Doerflinger <email>ddoerflinger@web.de</email>
+</para>
+
+&underFDL;               <!-- FDL: do not remove -->
+&underBSDLicense;        <!-- BSD License -->
+
+</chapter>
+
+<appendix id="installation">
+<title>Telepítés</title>
+
+<sect1 id="getting-kapp">
+<title>A &kicker; megszerzése</title>
+
+<para>
+A &kicker; része a &kde;-nek <ulink url="http://www.kde.org">http://www.kde.org</ulink>.
+A &kicker; megtalálható a kdebase csomagban a következő címen:
+<ulink url="ftp://ftp.kde.org/pub/kde/">ftp://ftp.kde.org/pub/kde/</ulink>, amely a
+&kde; Projekt fő &FTP;-helye.
+</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title>Követelmények</title>
+
+<para>
+Ahhoz, hogy sikeresen használhassa a &kicker;-t, szükség van a &kde; 2.1-es verziójára.
+A teljes &kde; nélkül nincs sok értelme a &kicker; használatának.
+</para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title>Lefordítás és telepítés</title>
+
+<para>
+A &kicker; lefordításához és telepítéséhez gépelje be a következőket
+a kdebase-disztribúció alapkönyvtárában:
+</para>
+
+<screen width="40">
+<prompt>%</prompt> <userinput><command>./configure</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command></userinput>
+<prompt>%</prompt> <userinput><command>make</command> <option>install</option></userinput>
+</screen>
+
+<para>
+Mivel a &kicker; <application>autoconf</application>-ot és
+<application>automake</application>-et használ, ezért valószínűleg problémamentes
+lesz a lefordítása. Amennyiben probléma merül fel, jelentse azt be a &kde;
+levelezőlistákon.
+</para>
+
+</sect1>
+
+<sect1 id="configuration">
+<title>Beállítás</title>
+
+<para>
+A beállítással kapcsolatban a kdebase könyvtárban levő <filename>INSTALL</filename>
+fájl tartalmaz információkat.
+</para>
+
+</sect1>
+
+</appendix>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes: nil
+sgml-general-insert-case: lower
+sgml-intent-step:0
+sgml-indent-data:nil
+End:
+-->
+
+

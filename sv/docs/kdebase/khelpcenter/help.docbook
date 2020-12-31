@@ -1,0 +1,840 @@
+<chapter id="help-system-user-manual">
+<chapterinfo>
+<date
+>2001-05-14</date>
+<releaseinfo
+>0.08.00</releaseinfo>
+</chapterinfo>
+<title
+>Handbok för KDE:s hjälpsystem</title>
+<anchor id="help"/>
+
+<sect1 id="help-introduction">
+<title
+>KDE:s hjälpsystem</title>
+	
+<para
+>&kde;:s hjälpsystem är utformat för att enkelt komma åt &UNIX;:s hjälpsystem (<application
+>man</application
+> och <application
+>info</application
+>), lika väl som &kde;:s egna dokumentation (XML). </para>
+	
+<para
+> Alla &kde;:s basprogram är fullständigt dokumenterade tack vare dokumentationsgruppens arbete. Om du vill hjälpa till så kan du skriva till Lauri Watts <email
+>lauri@kde.org</email
+>, som är samordnare för dokumenteringen. Du behöver inte ha någon erfarenhet, utan det räcker med entusiasm och tålamod. </para>
+
+<para
+> Om du skulle vilja hjälpa till med att översätta &kde;:s dokumentation till ditt modersmål så kan du kontakta Thomas Diehl <email
+>thd@kde.org</email
+>, som är samordnare för översättningarna. Mer information, inklusive samordnarna för översättningen av de olika språken, kan du hitta på <ulink url="http://i18n.kde.org"
+>Webbplatsen för internationalisering</ulink
+>, samt i <link linkend="contact"
+>kontakt</link
+>-sektionen av det här dokumentet. </para>
+
+<sect2 id="installation">
+<title
+>Installation</title>
+
+<para
+> &khelpcenter; är en integrerad del av &kde;:s basinstallation, och installeras med varje kopia av &kde; från paketet kdebase. </para>
+
+</sect2>
+</sect1>
+
+<sect1 id="invoking-help">
+<title
+>Starta hjälpcentralen</title>
+
+<para
+> &khelpcenter; kan startas på flera sätt: </para>
+
+<variablelist
+> <varlistentry
+> <term
+>Från <guimenu
+>Hjälp</guimenu
+>menyn</term
+> <listitem
+> <para
+> Det vanligaste sättet är förmodligen från något program. Välj <menuchoice
+><guimenu
+>Hjälp</guimenu
+> <guimenuitem
+>Innehåll</guimenuitem
+></menuchoice
+> för att öppna programmets hjälpfil. Du startar då på innehållssidan. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Från <guimenu
+>K</guimenu
+>-menyn</term
+> <listitem
+> <para
+> Klicka på det stora <guiicon
+>K</guiicon
+>:et i panelen och välj <guimenuitem
+>Hjälp</guimenuitem
+> för att öppna &khelpcenter;. Du startar då på välkomstsidan. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Från panelen</term
+> <listitem
+> <para
+> &kicker; innehåller som standard en ikon som heter &khelpcenter;. Välkomstsidan kommer att visas igen. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Från kommandoraden</term
+> <listitem
+> <para
+> &khelpcenter; kan startas genom att använda en webbadress för att visa en fil. Webbadresser har även lagts till för <command
+>info</command
+>- och <command
+>man</command
+>-sidor. Du kan använda dem på följande sätt: </para
+> <variablelist
+> <varlistentry
+> <term
+>Hjälpfil till ett program</term
+> <listitem
+> <para
+> <command
+>khelpcenter</command
+> <option
+>help:/<replaceable
+>kedit</replaceable
+></option
+> </para
+> <para
+> Öppnar hjälpcentralen för &kedit; på innehållssidan. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>En lokal webbadress</term
+> <listitem
+><para
+> <command
+>khelpcenter</command
+> <option
+>file:/ <replaceable
+>usr/local/src/qt/html/index.html</replaceable
+></option
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>En manualsida</term
+> <listitem
+> <para
+> <command
+>khelpcenter</command
+> <option
+>man:/<replaceable
+>strcpy</replaceable
+></option
+> </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>En infosida</term
+> <listitem
+> <para
+> <command
+>khelpcenter</command
+> <option
+>info:/<replaceable
+>gcc</replaceable
+></option
+> </para
+> </listitem
+> </varlistentry
+> </variablelist
+> <para
+> Då <command
+>khelpcenter</command
+> körs utan några parametrar så öppnas välkomstsidan. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect1>
+
+<!-- Interface - Basics, using Konqueror -->
+<sect1 id="interface-basics">
+<title
+>Gränssnittet i &khelpcenter;</title>
+
+<para
+> Gränssnittet i &khelpcenter; består av två avdelningar med information. </para>
+
+<para
+> Verktygsfältet och menyerna förklaras närmare i sektionen <xref linkend="menu-and-toolbar-ref"/>. </para>
+
+<para
+> De flesta dokumenten innehåller sina egna navigeringsverktyg som gör det möjligt att läsa dokumentets delar i ordning med länkarna <guilabel
+>Nästa</guilabel
+> och <guilabel
+>Föregående</guilabel
+>, alternativt att förflytta sig mindre strukturerat med hjälp av länkarna. </para>
+
+<para
+> Länkar kan förflytta dig till andra delar av samma dokument eller till ett annat dokument. Du kan använda ikonerna <guiicon
+>Bakåt</guiicon
+> (en pil åt vänster) eller <guiicon
+>Framåt</guiicon
+> (en pil åt höger) i verktygsraden för att förflytta dig genom de dokument som du har läst tidigare. </para
+> 
+
+<para
+> I den vänstra avdelningen visas hjälpsystemets innehåll, och i den högra visas själva hjälpfilerna. </para>
+
+<sect2 id="contents-pane">
+<title
+>Avdelningen <guilabel
+>Innehåll</guilabel
+></title>
+
+<para
+> Avdelningen <guilabel
+>Innehåll</guilabel
+> i &khelpcenter; visas i den vänstra sidan av fönstret. Som du kanske har gissat så kan du flytta på avgränsningskanten så att du på ett bekvämt sätt kan läsa innehållet i de båda avdelningarna. </para
+> 
+
+<para
+> Avdelningen <guilabel
+>Innehåll</guilabel
+> är dessutom uppdelad i tre flikar, en som innehåller en <link linkend="contents-menu"
+>meny</link
+> som visar all hjälpinformation som &khelpcenter; känner till, samt en annan flik som ger dig möjlighet att <link linkend="search"
+>Söka</link
+> efter specifik information. En tredje flik innehåller <link linkend="kde-glossary"
+>ordförklaringar</link
+> med &kde; och datatermer. </para>
+
+<sect3 id="contents-menu">
+<title
+><guilabel
+>Innehålls</guilabel
+>menyn</title>
+
+<para
+> <guilabel
+>Innehåll</guilabel
+> har följande poster som standard: </para
+> 
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Introduktion</guilabel
+></term
+> <listitem
+><para
+>Välkommen till &kde; - en introduktion till K skrivbordsmiljö.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Introduktion till &kde;</guilabel
+></term
+> <listitem
+> <para
+> Snabbstartsvägledningen i &kde; innehåller en rundvisning av gränssnitt, specifik hjälp och tips för hur du kan arbeta smartare med &kde;. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&kde;:s bruksanvisning</guilabel
+></term
+> <listitem
+> <para
+> Användarhandboken är en ingående genomgång av &kde;, som tar upp inställningar, anpassning och användning. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Program manualer</guilabel
+></term
+> <listitem
+> <para
+> Dokumentation för program som ingår i &kde;. Alla &kde;-program har dokumentation i XML-format som konverteras till HTML när de visas. Den här sektionen innehåller en lista med alla &kde;-program med kortfattade beskrivningar och länkar till den fullständiga dokumentationen. </para
+> <para
+> Programmen visas i en trädstruktur som motsvarar den förinställda strukturen i <guimenu
+>K</guimenu
+>-menyn, vilket gör det enkelt att hitta programmet som du letar efter. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Manualsidor för Unix</guilabel
+></term
+> <listitem
+> <para
+> &UNIX; manualsidor är det traditionella formatet på dokumentationen för UNIX-system. De flesta program i ditt system har en manualsida. Dessutom finns det manualsidor för programmeringsfunktioner och filformat. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bläddra bland informationssidor</guilabel
+></term
+> <listitem
+> <para
+> TeXinfo-dokumentation används av många &GNU;-program, bland annat <application
+>gcc</application
+> (C/C++-kompilatorn), <application
+>emacs</application
+> och många andra. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Snabbstartsguide</guilabel
+></term
+> <listitem
+> <para
+> Enkel, steg för steg baserad vägledning. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vanliga frågor om KDE</guilabel
+></term
+> <listitem
+> <para
+> Vanliga frågor om &kde; och svaren till dem. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&kde; på Internet</guilabel
+></term
+> <listitem
+> <para
+> Länkar till &kde; på webben, KDE:s officiella webbplats och andra användbara platser. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Kontaktinformation</guilabel
+></term
+> <listitem
+> <para
+> Information om hur du kan kontakta &kde;-utvecklare, och hur du går med i &kde;:s e-postlistor. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Att stödja &kde;</guilabel
+></term
+> <listitem
+> <para
+> Hur du kan hjälpa till, och hur du gör för att engagera dig. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect3>
+
+<sect3 id="search">
+<title
+>Fliken <guilabel
+>Sök</guilabel
+></title>
+
+<para
+> För att kunna söka måste du ha programmet <application
+>ht://Dig</application
+> installerat. Information om hur du installerar och ställer in sökindexet finns tillgänglig i dokumentet. Inställningen av sökindexet görs i <application
+>&kcontrol;</application
+> genom att välja <menuchoice
+><guisubmenu
+>Hjälp</guisubmenu
+> <guimenuitem
+>Index</guimenuitem
+></menuchoice
+>, och detaljerad hjälp finns tillgänglig i den modulen. </para>
+
+<para
+> För ändamålet med det här dokumentet så antar vi att du redan har installerat och ställt in detta. </para>
+
+<para
+> Att söka bland hjälpfilerna är ganska enkelt, skriv sökordet i textrutan, välj eventuella alternativ och klicka på <guibutton
+>Sök</guibutton
+>. Resultaten visas i avdelningen till höger. </para>
+
+<para
+>Alternativen är:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Metod</guilabel
+></term
+> <listitem
+> <para
+> Väljer hur den ska söka när flera sökord angivits. <guilabel
+>och</guilabel
+> visar resultat som innehåller alla sökorden du angav på samma sida. <guilabel
+>eller</guilabel
+> returnerar träffar som innehåller <emphasis
+>endera</emphasis
+> av sökorden. <guilabel
+>boolesk</guilabel
+> tillåter dig att kombinera sökorden. </para
+> <para
+> Boolesk syntax gör att du kan använda operatorer som <literal
+>AND</literal
+>, <literal
+>OR</literal
+> och <literal
+>NOT</literal
+> för att skapa komplicerade sökningar. Några exempel:</para
+> <variablelist
+> <varlistentry
+> <term
+><userinput
+>katt and hund</userinput
+></term
+> <listitem
+><para
+>Söker efter sidor som har båda orden <userinput
+>katt</userinput
+> och <userinput
+>hund</userinput
+> i sig. Sidor som bara ett av orden kommer inte med i resultatet.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+>katt not hund</userinput
+></term
+> <listitem
+><para
+>Söker efter sidor som innehåller <userinput
+>katt</userinput
+> men de får samtidigt inte heller innehålla ordet <userinput
+>hund</userinput
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><userinput
+>katt or (hund not nos)</userinput
+></term
+> <listitem
+><para
+>Söker efter sidor som innehåller <userinput
+>katt</userinput
+>, samt för sidor som innehåller <userinput
+>hund</userinput
+> men inte <userinput
+>nos</userinput
+>. Sidor som innehåller både <userinput
+>katt</userinput
+> och <userinput
+>nos</userinput
+> kommer med, men sidorna som innehåller alla tre ord utelämnas.</para
+></listitem
+> </varlistentry
+> </variablelist
+> <para
+>Returnerar dina söksvar inte vad du hade tänkt dig, bör du kontrollera att du har rätt sökmetod och inte missat ett <literal
+>NOT</literal
+> eller bortsprungen parentes.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Max. resultat</guilabel
+></term
+> <listitem
+><para
+>Begränsar antalet svar som din sökning kan returnera.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Format</guilabel
+></term
+> <listitem
+><para
+>Visar en kort eller längre del av svaren som sökningen gav.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Sortera</guilabel
+></term
+> <listitem
+><para
+>Sorterar resultaten i <guilabel
+>Poäng</guilabel
+> hur bra sidan passade till sökningen, alfabetisk ordning på <guilabel
+>Titel</guilabel
+> eller i <guilabel
+>Datum</guilabel
+> ordning. Väljer man <guilabel
+>Omvänd ordning</guilabel
+>, så visas svaren naturligtvis i omvänd ordning.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Uppdatera index</guilabel
+></term
+> <listitem
+><para
+>Uppdaterar sökindexet för att man ska kunna söka på nytillkomna dokument, eller om databasen kanske är gammal, tom eller trasig. Uppdateringar kan ibland ta lång tid.</para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect3>
+</sect2>
+
+<sect2 id="man-and-info">
+<title
+><application
+>Man</application
+> och <application
+>Info</application
+> sektioner</title>
+
+<para
+>Man sidor är standard UNIX manualsidor, dessa har används i många operativsystem och år. De är mycket detaljerade och det bästa källan till information för de flesta Linux-kommandon och program. När man säger engelska <quote
+>RTFM</quote
+>, är det ofta dessa manualer man hänvisar till.</para>
+
+<para
+>Man sidor är inte helt perfekta. De är mycket detaljerade men också mycket tekniska, oftast skriva av utvecklare för utvecklare. I några fall något ogästvänliga om inte omöjliga för flera att förstå.</para>
+
+<para
+>Har du någon gång funderat över vad det är för nummer som skrivs vid manualer som tex man(1). Numret talar om vilken sektion manualen tillhör. &khelpcenter; använder också dessa sektioner för att gruppera alla manualer så att det ska bli enklare att hitta den information du letar efter.</para>
+
+<para
+>Tillgängliga är även alla info sidor som var tänktes vara en ersättning till man sidor. Vissa utvecklare uppdaterar inte längre man sidorna och finns det både en man och info sida är det troligt att info sidan är den mest aktuella. Vanligast är att man har en man eller en info sida. Många &GNU;-program har oftast en info sida.</para>
+
+<sect3 id="navigation">
+<title
+>Navigera bland <application
+>Info</application
+> sidor</title>
+
+<para
+>Info sidorna är arrangerade i en hierarki där varje sida kallas en nod. Alla info dokument har en <guilabel
+>topp</guilabel
+>nod, <abbrev
+>d.v.s.</abbrev
+> första sida. Man kan återgå till <guilabel
+>topp</guilabel
+>en av ett info dokument genom att trycka på <guilabel
+>topp</guilabel
+>.</para>
+
+<para
+><guibutton
+>Föregående</guibutton
+> &amp; <guibutton
+>Nästa</guibutton
+> används till att förflytta sig föregående/nästa nod på den aktuell nivå i hierarkin.</para>
+
+<para
+>Genom att klicka på en länk i dokumentet förflyttas man till en lägre nivå i hierarkin. För att komma upp ur hierarkin trycker man <guibutton
+>Upp</guibutton
+>.</para>
+
+<para
+>Man fungerar nästan som info, med ett index som toppnod och varje man sida på nivån under. Man sidor har bara en lång sida.</para>
+
+</sect3>
+</sect2>
+
+<sect2 id="kde-glossary">
+<title
+>&kde;:s ordförklaringar</title>
+
+<para
+> Ordförklaringar tillför en snabbreferens där man kan slå upp ord och beteckningar som du kanske inte känner till. De är en hel skala av &kde; specifika program och teknologier till vanliga &UNIX;-termer. </para>
+
+<para
+> I den vänstra avdelningen finns det ett trädvy med två val: <guilabel
+>Alfabetiskt</guilabel
+> och <guilabel
+>Efter ämne</guilabel
+>. Båda har samma innehåll, men är sorterade olika, för att du enkelt ska hitta det du söker. </para>
+
+<para
+> Man väljer i trädvyn till vänster och innehållet man valt visas till höger. </para>
+
+</sect2>
+
+<sect2 id="menu-and-toolbar-ref">
+<title
+>Menyer och verktygsrad.</title>
+
+<para
+> &khelpcenter; har inte så många funktioner, vilket gör att man kan koncentrera sig mer på att leta efter hjälpen än att lära sig hur man letar. </para>
+
+<para
+> Följande ikoner finns på verktygsmenyn: </para>
+
+<variablelist
+> <title
+>Verktygsikoner</title
+> <varlistentry
+> <term
+><guiicon
+>Skriv ut ram</guiicon
+></term
+> <listitem
+> <para
+> Skriv ut den aktuella sidan. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Sök</guiicon
+></term
+> <listitem
+> <para
+> Sök på denna sida. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Öka teckenstorlek</guiicon
+></term
+> <listitem
+> <para
+> Ökar storleken på texten i avdelningen till höger. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Minska teckenstorlek</guiicon
+></term
+> <listitem
+> <para
+> Minskar storleken på texten. Detta är bara möjligt om du innan har förstorat texten. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+> Menyn innehåller följande: </para>
+
+<variablelist
+> <varlistentry
+> <term
+><guimenu
+>Arkiv</guimenu
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Skriv ut ram</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Skriv ut den aktuella sidan. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>A</accel
+>rkiv</guimenu
+> <guimenuitem
+>Stän<accel
+>g</accel
+></guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Stäng och avsluta &khelpcenter; </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenu
+>Redigera</guimenu
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>M</accel
+>arkera alla</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Markera all text i aktuell avdelning. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>R</accel
+>edigera</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>ök</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Sök på aktuell sida. </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guimenu
+>Visa</guimenu
+></term
+> <listitem
+> <variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guimenuitem
+>Visa dokumentets källa</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Visar <acronym
+>HTML</acronym
+>-källan från aktuell sida. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>V</accel
+>isa</guimenu
+> <guisubmenu
+>Ang<accel
+>e</accel
+> kodning</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+> Ändrar teckenöversättningen för aktuell sida. I normala fall behöver man inte ändra från <guimenuitem
+>Auto</guimenuitem
+> men om du får problem med något språk så kan du prova att ändra här. </para
+> </listitem
+> </varlistentry
+> </variablelist
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+</sect1>
+
+<sect1 id="credits">
+<title
+>Tack till och licens</title>
+
+<para
+>&khelpcenter;</para>
+
+<para
+>Ursprungligen utvecklad av by Matthias Elter <email
+>me@kde.org</email
+></para>
+<para
+>Nuvarande underhållare Matthias Hoelzer-Kluepfel <email
+>mhk@kde.org</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</sect1>
+</chapter>
+
+

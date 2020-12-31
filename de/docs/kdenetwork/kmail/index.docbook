@@ -1,0 +1,6071 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kmail;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &kmail;-Handbuch</title>
+
+<!-- note from daniel.naber@t-online.de, 2001-05-05: I'm working on this
+"by hand" (using nedit) so please don't mix up the formatting too much. -->
+
+<!-- TODO: 
+* is it "message", "mail" or "email" ??? 
+* what is section / tab / ... ?
+* better markup instead of 'quote'
+-->
+
+<authorgroup>
+<author
+> <firstname
+>Daniel</firstname
+> <surname
+>Naber</surname
+> <affiliation
+><address
+> <email
+>daniel.naber@t-online.de</email
+> </address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>David</firstname
+> <surname
+>Rugge</surname
+> <affiliation
+><address
+> <email
+>davidrugge@mindspring.com</email
+> </address
+></affiliation
+> </author>
+
+<othercredit role="translator"
+><firstname
+>Matthias</firstname
+><surname
+>Kiefer</surname
+> <affiliation
+><address
+><email
+>matthias.kiefer@gmx.de</email
+></address
+></affiliation
+> <contrib
+>Deutsche Übersetzung</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Alexander</firstname
+><surname
+>Gretencord</surname
+> <affiliation
+><address
+><email
+>arutha@gmx.de</email
+></address
+></affiliation
+> <contrib
+>Überarbeitung</contrib
+></othercredit
+> <othercredit role="translator"
+><firstname
+>Frank</firstname
+><surname
+>Schütte</surname
+> <affiliation
+><address
+><email
+>F.Schuette@t-online.de</email
+></address
+></affiliation
+> <contrib
+>Überarbeitung ab Version 1.3</contrib
+></othercredit
+>  
+
+</authorgroup>
+
+<date
+>2001-09-27</date>
+<releaseinfo
+>1.03.02</releaseinfo>
+
+<copyright>
+<year
+>1999</year>
+<year
+>2000</year>
+<year
+>2001</year>
+<holder
+>David Rugge</holder>
+</copyright>
+
+<abstract>
+	
+<para
+>&kmail; ist das leistungsstarke und benutzerfreundliche E-Mail-Programm von &kde;.</para>
+
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Mail</keyword>
+<keyword
+>e-mail</keyword>
+<keyword
+>Client</keyword>
+<keyword
+>POP3</keyword>
+<keyword
+>IMAP</keyword>
+<keyword
+>PGP</keyword>
+<keyword
+>GnuPG</keyword>
+<keyword
+>GPG</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="intro">
+<title
+>Einführung</title>
+
+<para
+>Das &kmail;-Team begrüßt Sie zu &kmail;, dem komfortablen E-Mail-Programm für KDE. Unser Ziel ist eine hübsche und intuitive Oberfläche, ohne dabei die Funktionalität zu vernachlässigen. </para>
+
+<para
+>Falls Sie vorher noch nie ein E-Mail-Programm auf einem &UNIX;-System eingerichtet haben, schlagen wir vor, dass Sie zuerst den Abschnitt <link linkend="getting-started"
+>Erste Schritte</link
+> lesen. Damit sollte es möglich sein, alles Nötige ohne große Probleme einzustellen.</para>
+
+<para
+>Da viele Leute nicht gerne Dokumentation lesen, haben wir hier für Sie eine Zusammenstellung mit den nützlichsten Tipps:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Sie müssen &kmail; nicht mit der Maus bedienen. Alle Funktionen sollten sollten auch mit der Tastatur ausführbar sein. &kmail; unterstützt alle Standardtasten wie z.B. <keycap
+>Tabulator</keycap
+>. <keycap
+>Pfeil nach links</keycap
+>/<keycap
+>Pfeil nach rechts</keycap
+> springen immer zur nächsten/vorherigen Nachricht, wenn Sie aber &Ctrl; gedürckt halten, können Sie diese Tasten benutzen, um in der Ordnerliste zu navigieren und <keycap
+>Pfeil nach oben</keycap
+>/<keycap
+>Pfeil nach unten</keycap
+>, um im Header-Bereich zu navigieren. Benutzen Sie <keycombo action="simul"
+>&Ctrl;<keycap
+>Leertaste</keycap
+></keycombo
+> um den Ordner zu öffnen, den Sie ausgewählt haben.</para
+> </listitem
+> <listitem
+> <para
+>Im Fenster <guilabel
+>"Nachrichten erstellen"</guilabel
+> können Sie Text mit der Maus auswählen und umherziehen.</para
+> </listitem
+> <listitem
+> <para
+>Obwohl &kmail; als stabil bezeichnet werden kann, sollten Sie Sicherungen Ihrer Dateien vornehmen. Kopieren Sie einfach <filename class="directory"
+>~/Mail</filename
+> an einen sicheren Ort.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>&kmail;'s Homepage finden Sie unter <ulink url="http://kmail.kde.org"
+>http://kmail.kde.org</ulink
+>. Das Archiv der Entwickler-Mailingliste finden Sie unter <ulink url="http://lists.kde.org/?l=kde-kmail&amp;r=1&amp;w=2"
+>lists.kde.org</ulink
+>.</para>
+
+<para
+>Bitte informieren Sie uns über Probleme mit &kmail; über <menuchoice
+><guimenu
+>Hilfe</guimenu
+><guimenuitem
+> Berichten Sie Probleme oder Wünsche...</guimenuitem
+></menuchoice
+></para>
+
+<para
+>Wir hoffen, Ihnen gefällt &kmail; !</para>
+
+</chapter>
+
+<chapter id="getting-started">
+<title
+>Erste Schritte</title>
+
+<para
+>Dieser Abschnitt ist eine kurze Einführung in &kmail; und seine Benutzung, so dass Sie gleich damit arbeiten können! Für weitergehende Informationen sehen Sie bitte im Abschnitt <link linkend="using-kmail"
+>&kmail; benutzen</link
+> nach.</para>
+
+<para
+>Der erste Aufruf von &kmail; erstellt in Ihrem Heimatverzeichnis ein Mail-Verzeichnis, das die notwendigen Mailordner (<filename
+>inbox</filename
+>, <filename
+>outbox</filename
+>, <filename
+>sent-mail</filename
+> und <filename
+>trash</filename
+>) enthält. Benutzen Sie <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>&kmail; einrichten</guimenuitem
+> </menuchoice
+>, um einige Informationen einzugeben, die &kmail; benötigt, um Ihre Nachrichten korrekt empfangen und versenden zu können.</para>
+
+<para
+>Der Einstellungen-Dialog besteht aus sieben Karteikarten: <guilabel
+> Identität</guilabel
+>, <guilabel
+>Netzwerk</guilabel
+>, <guilabel
+> Erscheinungsbild</guilabel
+>, <guilabel 
+>Nachrichten erstellen</guilabel
+>, <guilabel 
+>MIME-Vorspann</guilabel
+>, und <guilabel 
+>Sicherheit</guilabel
+>, <guilabel 
+>Verschiedenes</guilabel
+>. Um Nachrichten senden und empfangen zu können, müssen Sie nur die Einstellungen in den Karteikarten <guilabel 
+>Identität</guilabel
+> und <guilabel 
+>Netzwerk</guilabel
+> ändern.</para>
+
+<sect1 id="setting-your-identity">
+<title
+>Einstellen Ihrer Identität</title>
+
+<para
+>Die Einstellungen unter <guilabel
+>Identität</guilabel
+> sind ziemlich klar. Füllen Sie das Feld <guilabel
+>Name</guilabel
+> mit Ihrem vollen Namen (z.B. <userinput
+>Martin Mustermann</userinput
+>) aus, das Feld <guilabel
+>Organisation</guilabel
+> ist optional. Als nächstes tragen Sie bitte Ihre E-Mail-Adresse in die Felder <guilabel
+>E-Mail-Adresse</guilabel
+> und <guilabel
+>Antwortadresse</guilabel
+> (optional) ein. Falls Sie <application
+>PGP</application
+> oder <application
+>GnuPG</application
+> benutzen füllen Sie bitte das Feld<guilabel
+>PGP-Nutzeridentität</guilabel
+> entsprechend aus.</para>
+
+<para
+>Die Position optionalen der <guilabel
+>Signaturdatei</guilabel
+> legt man im gleichnamigen Feld fest. Wenn man eine Zufallssignatur generieren will, markiert man <guilabel
+>Die Datei ist ein Programm</guilabel
+> und spezifiziert ein Programm.</para>
+
+<para
+>Wenn man eine neue Identität hinzufügt, erscheint ein Feld <guilabel
+>Transport hinzufügen...</guilabel
+> ( dieser Knopf existiert für die <guilabel
+>Standard</guilabel
+>-Identität nicht). Damit kann eine Möglichkeit für einen anderen Nachrichtenversand verwendet werden, z.B. möchte man vielleicht einen anderen <acronym
+>SMTP</acronym
+>-Server für eine der Identitäten verwenden.</para>
+
+</sect1>
+
+<sect1 id="setting-up-your-account">
+<title
+>Einstellen der Postfächer</title>
+
+<para
+>Die Karteikarte <guilabel 
+>Netzwerk</guilabel
+> enthält die Einstellungen, die festlegen wie &kmail; Ihre Nachrichten verschicken oder empfangen soll. Viele dieser Einstellungen hängen sehr stark von Ihren System-Einstellungen und der Art des Netzwerks, über das Sie Ihren Mail-Server erreichen, ab. Falls Sie nicht wissen, welche Einstellungen Sie wählen sollen oder was Sie in ein Feld eintragen müssen, fragen Sie Ihren Internet Service Provider (<acronym
+>ISP</acronym
+>) oder Ihren Systemadministrator.</para>
+
+<sect2 id="sending-mail">
+<title
+>Sende Mail</title>
+
+<para
+>Der Abschnitt <guilabel
+>Sende Mail</guilabel
+> enthält zwei Optionen, E-Mail zu verschicken: <guilabel 
+>Sendmail</guilabel
+> und <guilabel 
+>SMTP</guilabel
+>. <application 
+>Sendmail</application
+> hat den Ruf, schwierig zu konfigurieren zu sein. Falls Sie also nicht schon eine funktionierende <application 
+>sendmail</application
+>-Installation haben, sollten Sie <guilabel 
+>SMTP</guilabel
+> wählen und im Feld <guilabel 
+>Server</guilabel
+> den Namen und die Domain Ihres Mail-Servers eintragen. Den Eintrag des Feldes <guilabel 
+>Port</guilabel
+> können Sie mit großer Wahrscheinlichkeit beibehalten.</para>
+
+<para
+>Falls Sie <application
+>sendmail</application
+> benutzen wollen und eine Wählverbindung benutzen, folgen Sie den Anweisungen zum Einrichten von sendmail für eine Wählverbindung in der <link linkend="faq"
+>FAQ</link
+> Sektion.</para>
+
+<para
+>Die hier eingestellt Versandart wird für die Standard-Identität und alle die Identitäten verwendet, für die keine eigene Versandart angegeben wurde. Man kann für verschiedene Identitäten verschiedene Arten für den Nachrichtenversand mit <guilabel
+>Transport hinzufügen...</guilabel
+> auf der Karteikarte <guilabel
+>Identität</guilabel
+> bestimmen.</para>
+
+</sect2>
+      
+<sect2 id="properties">
+<title
+>Eigenschaften</title>
+
+<para
+>Im Bereich <guilabel
+>Beim Senden vom Mail</guilabel
+> können Sie bestimmen wann und wie Nachrichten gesendet werden.</para>
+
+<para
+>Die Option <guilabel
+>Standard-Sendemethode</guilabel
+> lässt Sie bestimmen was passiert, wenn eine Nachricht gesendet wird. Wenn <guilabel
+>Sofort senden</guilabel
+> ausgewählt ist, wird die Nachricht sofort an den Mailserver geschickt. Ist <guilabel
+> Später senden</guilabel
+> aktiviert, so wird die Nachricht zuerst in den Postausgang (<guilabel
+>Postausgang</guilabel
+>-Ordner) übertragen, um später automatisch oder mit <menuchoice
+><guimenu
+>Datei </guimenu
+><guimenuitem
+>Postausgang versenden</guimenuitem
+></menuchoice
+> gesendet zu werden, abhängig von den Einstellungen auf der Karteikarte <guilabel
+> Verschiedenes</guilabel
+>.</para>
+
+<para
+>Mit der Option <guilabel 
+>Nachrichtenteil-Eigenschaften</guilabel
+> können Sie einstellen wie Ihre Nachricht codiert werden soll, wenn Sie verschickt wird. <guilabel 
+>Erlaube 8-Bit</guilabel
+> bedeutet, dass KMail Ihre Nachricht im Format 8 Bit ASCII schickt, was heißt, dass alle Spezialzeichen, wie z.B. Umlaute, so gesendet werden wie sie sind. Falls <guilabel 
+>MIME-verträglich</guilabel
+> aktiviert ist, dann werden Spezialzeichen mit dem standard MIME-Verfahren codiert. Dies ermöglicht möglicherweise einen besseren Austausch mit anderen Mailsystemen als 8-Bit ASCII. Der Standardwert sollte nicht geändert werden müssen. </para>
+
+<para
+>In dem Feld <guilabel
+>Vorverarbeitungs-Befehl</guilabel
+> kann man einen Befehl bestimmen, der vor dem Versand jeder Nachricht ausgeführt wird.</para>
+
+<para
+>Wenn man das Feld <guilabel
+>Vor Versenden nachfragen</guilabel
+> markiert, wird ein Bestätigungsdialog aktiviert, der jedesmal bei Betätigung von <guilabel
+>Senden</guilabel
+> um Bestätigung bittet.</para>
+
+</sect2>
+
+<sect2 id="receiving-mail">
+<title
+>Eingehende E-Mail</title>
+
+<para
+>Um ein Konto für den Empfang von E-Mail zu konfigurieren, klickt man <guibutton
+>Hinzufügen...</guibutton
+> im Bereich <guilabel
+>Eingehende E-Mail</guilabel
+>. Man hat die Wahl, welche Kontoart man erstellen möchte. In den meisten Fällen ist das entweder <guilabel
+>Pop3</guilabel
+> oder <guilabel
+>IMAP</guilabel
+>.</para>
+
+<para
+>Nach Drücken von <guilabel 
+>OK</guilabel
+> erscheint ein Dialogfenster zum Einstellen des Postfachs. Geben Sie zuerst einen Namen für das Postfach im Feld <guilabel 
+>Name</guilabel
+> an. In die Felder <guilabel 
+>Benutzer</guilabel
+>, <guilabel 
+>Passwort</guilabel
+> und <guilabel 
+>Rechner</guilabel
+> müssen Sie die entsprechenden Informationen von Ihrem Internet Service Provider(ISP) oder von Ihrem Systemadministrator eingeben. Wieder sollte es nicht nötig sein, die Einstellung von <guilabel 
+>Port</guilabel
+> zu ändern (der Standard für POP3 ist <userinput
+>110</userinput
+>, der Standard für IMAP ist <userinput
+>143</userinput
+>).</para>
+
+<sect3 id="receiving-mail-imap">
+<title
+>Optionen die nur IMAP betreffen</title>
+
+<para
+>Falls man IMAP auswählt, kann man optional einen Pfad im Feld <guilabel
+>Präfix für Ordner</guilabel
+> angeben. Damit kann man angeben, wo &kmail; die Verzeichnisse des Benutzers auf dem Server findet. Falls man einen Shell-Zugang auf diesem Rechner besitzt und die E-Mails im Persönlichen Verzeichnis gespeichert sind, ist es sinnvoll, sie in einem Unterverzeichnis <filename class="directory"
+>/Mail/</filename
+> zu speichern. Damit &kmail; E-Mail-Verzeichnisse und andere Dateien nicht mischt, sollte man diesen Pfad bei <guilabel
+>Präfix für Ordner</guilabel
+> verwenden. Falls man daran nicht interessiert ist, lässt man das Feld einfach leer.</para>
+
+<para
+>Wenn man <guilabel
+>Als gelöscht markierte Nachrichten automatisch beseitigen</guilabel
+> markiert, entfernt &kmail; die vom Benutzer gelöschten Nachrichten vom Server, sobald der Benutzer das Verzeichnis verlässt. Ansonsten werden die E-Mails nur als gelöscht markiert und man muss diese Nachrichten manuell durch Auswahl von <guimenuitem
+>Alle Verzeichnisse komprimieren</guimenuitem
+> entfernen.</para>
+
+<para
+>Falls man <guilabel
+>Versteckte Verzeichnisse anzeigen</guilabel
+> markiert, werden auch die Verzeichnisse angezeigt, deren Namen mit einem Punkt beginnen.</para>
+
+</sect3>
+
+<sect3 id="receiving-mail-pop3">
+<title
+>Optionene die nur POP3 betreffen</title>
+
+<para
+>Wählen Sie <guilabel
+>Nachrichten vom Server löschen</guilabel
+> falls Sie Ihre Nachrichten nicht auf dem Server lassen wollen, nachdem sie heruntergeladen wurden.</para>
+
+<para
+>Um ein Konto von der automatischen Überprüfung auszunehmen, die durch <menuchoice
+><guimenu
+>Nach E-Mail sehen...</guimenu
+></menuchoice
+> ausgelöst wird, markiert man <guilabel
+>Von "Nach E-Mail sehen" ausnehmen</guilabel
+>. Man kann dennoch manuell nach neuen Nachrichten suchen lassen durch <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Nach Mail sehen in</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Wählen Sie <guilabel
+>Posteingang regelmässig überprüfen</guilabel
+> falls Sie möchten, dass &kmail; automatisch auf neue Nachrichten prüft. Das Intervall kann unter <guilabel
+>Prüfintervall</guilabel
+> eingestellt werden.</para>
+
+<para
+><guilabel
+>Posteingang</guilabel
+> ist der Standardordner für eingehende Nachrichten. Falls Sie dies aus irgendeinem Grund ändern wollen, können Sie dies über <guilabel
+>Zielordner</guilabel
+> tun. Aber Sie wollen wahrscheinlich <link linkend="filters"
+>Filter</link
+> benutzen, was nichts mit dieser Option zu tun hat</para>
+
+<para
+>Unter <guilabel
+>Vorverarbeitungs-Befehl</guilabel
+> kann man ein beliebiges Programm angeben, das von &kmail; vor dem Abrufen von E-Mail ausgeführt werden woll. Man muss hier den ganzen Pfad angeben und &kmail; fährt mit der Programmausführung erst fort, wenn das externe Programm beendet ist.</para>
+
+</sect3>
+
+<sect3 id="receiving-mail-imap-pop3">
+<title
+>Einstellungen für IMAP und POP3</title>
+
+<para
+>Wenn <guilabel
+>POP-Passwort in Konfigurationsdatei speichern</guilabel
+> bzw. <guilabel
+>IMAP-Passwort in Konfigurationsdatei speichern</guilabel
+> auswählt, speichert &kmail; das Passwort und man muss es nicht jedes Mal eintippen, wenn man mit &kmail; neue E-Mails abrufen will.</para>
+
+<warning
+><para
+>Seien Sie gewarnt, wir können Ihr Passwort nicht wirklich verschlüsseln, so dass Leute, die Ihre Konfigurationsdatei lesen können (z.B. der Systemadministrator) sehr leicht an Ihr Passwort gelangen können.</para
+></warning>
+
+<para
+>&kmail; unterstützt Verschlüsselung per <guilabel
+>SSL</guilabel
+> und <guilabel
+>TLS</guilabel
+> (<guilabel
+>TLS</guilabel
+>sollte verwendet werden, falls es vorhanden ist).</para
+> 
+
+<para
+>Für POP3 unterstützt &kmail;<guilabel
+>Einfacher Text</guilabel
+>, <guilabel
+>PLAIN</guilabel
+>, <guilabel
+>CRAM-MD5</guilabel
+> und <guilabel
+>APOP</guilabel
+> Authentifizierung. <guilabel
+>APOP</guilabel
+> und <guilabel
+>CRAM-MD5</guilabel
+> sind von sich aus sicher, alle anderen Optionen sind nur sicher, wenn <guilabel
+>SSL</guilabel
+> oder <guilabel
+>TLS</guilabel
+> verwendet wird. Sie sollten <guilabel
+>Einfacher Text</guilabel
+> nur benutzen wenn Ihr Server keine andere Möglichkeit bietet. Für IMAP wird zusätzlich <guilabel
+>Anonym</guilabel
+> unterstützt.</para>
+
+<para
+>Sie sind nun bereit Nachrichten zu senden und zu empfangen. Für IMAP klicken Sie auf das<guilabel
+>+</guilabel
+> Zeichen in der Ordnerliste in &kmail;'s Hauptfenster. &kmail; wird sich dann mit Ihrem Server verbinden und die Ordner anzeigen, die es findet. Für POP3 benutzen Sie <menuchoice
+><guimenu
+>Datei</guimenu
+> <guimenuitem
+> Nach E-Mail sehen</guimenuitem
+></menuchoice
+>.</para>
+
+</sect3>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="testing-your-setup">
+<title
+>Testen der Einstellungen</title>
+
+<para
+>Zunächst sollten Sie sich selbst eine Nachticht senden, um die Einrichtung zu testen. Um eine Nachricht zu senden, drücken Sie <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+>, wählen Sie das <guiicon
+>Neue Nachricht</guiicon
+> Symbol (das leere Blatt Papier) oder wählen Sie <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guimenuitem
+>Neue Nachricht</guimenuitem
+></menuchoice
+>. Das <guilabel
+>Nachricht erstellen</guilabel
+> Fenster wird erscheinen. Füllen Sie das Feld <guilabel
+>An:</guilabel
+> mit Ihrer Adresse und schreiben Sie etwas in das Feld <guilabel
+>Betreff</guilabel
+> Senden Sie die Nachricht, indem Sie <menuchoice
+><guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Senden</guimenuitem
+></menuchoice
+> wählen.</para>
+      
+<para
+>Um nachzuschauen, ob neue E-Mail vorhanden ist, wählen Sie <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Nach E-Mail sehen</guimenuitem
+></menuchoice
+> In der rechten unteren Ecke wird angezeigt, wieviele E-Mails von Ihrem Postfach geholt werden. Wenn Sie die Nachricht erhalten, die Sie gerade gesendet haben, dann Herzlichen Glückwunsch! Falls Sie während dieses Test irgendeine Fehlermeldung erhalten, prüfen Sie die Verbindung zum Netzwerk und schauen Sie nochmal genau Ihre Einstellungen durch, indem Sie <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>&kmail; einrichten...</guimenuitem
+></menuchoice
+> wählen.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="using-kmail">
+<title
+>&kmail; benutzen</title>
+
+<sect1 id="the-mail-reader-window">
+<title
+>Das Hauptfenster</title>
+
+<para
+>Das Hauptfenster erscheint nach dem Start von &kmail;. Es ist in drei Bereiche unterteilt:</para>
+
+<variablelist
+> <varlistentry
+> <term
+>Ordnerbereich (links)</term
+> <listitem
+> <para
+>Dieser Bereich enthält eine Liste Ihrer Nachrichtenordner (andere E-Mail-Programme nennen diese Postfächer). Um einen Ordner auszuwählen, müssen Sie einfach auf diesen klicken. Die Nachrichten, die er enthält werden dann im Header-Bereich (rechts oben) angezeigt. Die Gesamtzahl und die der ungelesenen Nachrichten wird in der Statuszeile am unteren Bildschirmrand angezeigt. 
+Der Ordnerbereich kann auf zwei Arten angezeigt werden, eine kurze Ansicht, die nur einen kleinen Bereich des Fensters benutzt, oder eine lange Ansicht, die die gesamte linke Seite des Fensters benutzt. In <guilabel
+>Erscheinungsbild</guilabel
+>/<guilabel
+>Layout</guilabel
+> in dem Dialog<guilabel
+>&kmail; einrichten...</guilabel
+> kann zwischen beiden Ansichten umgeschaltet werden.Nähere Informationen über Benutzung der Ordner bekommen Sie im Kapitel <link linkend="folders"
+>Nachrichtenordner</link
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Header-Bereich (oben rechts)</term
+> <listitem
+> <para
+>In diesem Bereich werden Informationen (Status der Nachricht, Absender, Betreff und Absendedatum) über die Nachrichten im ausgewählten Ordner angezeigt. Wenn Sie auf einen Header klicken, wird die dazugehörige Nachricht ausgewählt und im Nachrichtenbereich angezeigt. Sie können mehrere Nachrichten auswählen indem Sie auf einen Header klicken, die <keycap
+>Shift</keycap
+>-Taste gedrückt halten, und auf einen zweiten Header klicken. Alle Nachrichten zwischen den beiden angeklickten (einschließlich dieser) sind damit ausgewählt. Durch Gedrückt halten der Taste &Ctrl; kann man zwei Nachrichten ohne die Nachrichten dazwischen auswählen. Um Nachrichten zu sortieren, klickt man einfach auf das Feld in der Kopfzeile der Spalte, nach der man sortieren will. Klickt man mehrmals hintereinander auf die selbe Spalte, wird die Sortierrichtung zwischen Vorwärts und Rückwärts umgeschaltet. Klickt man auf <guilabel
+>Betreff</guilabel
+>, so kann man zwischen <guilabel
+>Betreff</guilabel
+> vorwärts/rückwärts sortieren, ebenso bei <guilabel
+>Status</guilabel
+> vorwärts/rückwärts. Ähnlich verhält es sich, wenn man auf <guilabel
+>Datum</guilabel
+> klickt. Es wird zwischen aufsteigender/absteigender Sortierung nach <guilabel
+>Datum</guilabel
+> (Eingangsdatum) umgeschaltet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Nachrichtenbereich (unten rechts)</term
+> <listitem
+> <para
+>Dieser Bereich zeigt den Header und den Text der ausgewählten Nachricht an. Anhänge erscheinen am unteren Rand der Nachricht. Sie können den Text seitenweise mit den Tasten <keycap
+>Bild hoch</keycap
+> und <keycap
+>PageDown</keycap
+>, oder zeilenweise mit den Pfeiltasten durchlaufen. Um zu einer anderen Nachricht zu gelangen, ohne die Maus benutzen zu müssen, können Sie folgende Tastenkürzel verwenden:</para
+> <informaltable
+> <tgroup cols="2"
+> <thead
+> <row
+> <entry
+>Tastenzuordnungen</entry
+> <entry
+>Aktion</entry
+> </row
+> </thead
+> <tbody
+> <row
+> <entry
+><keycap
+>Leertaste</keycap
+></entry
+> <entry
+>Scrollt in der gewählten Nachricht nach unten oder geht zur nächsten ungelesenen Nachricht, falls Sie schon am unteren Rand sind.</entry
+> </row
+> <row
+> <entry
+><keycap
+>Pfeil Rechts</keycap
+> Taste oder <keycap
+>N</keycap
+></entry
+> <entry
+>Nächste Nachricht im aktuellen Ordner</entry
+> </row
+> <row
+> <entry
+><keycap
+>Pfeil Links</keycap
+> Taste oder <keycap
+>P</keycap
+></entry
+> <entry
+>Vorige Nachricht im aktuellen Ordner</entry
+> </row
+> <row
+> <entry
+><keycap
+>+</keycap
+></entry
+> <entry
+>Nächste ungelesene Nachricht in diesem Ordner</entry
+> </row
+> <row
+> <entry
+><keycap
+>-</keycap
+></entry
+> <entry
+>Vorig ungelesene Nachricht in diesem Ordner</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+></entry
+> <entry
+>Nächster Ordner, der ungelesene Nachrichten enthält</entry
+> </row
+> <row
+> <entry
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+></entry
+> <entry
+>Voriger Ordner mit ungelesenen Nachrichten</entry
+> </row
+> </tbody
+> </tgroup
+> </informaltable
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Nachrichten können einen (nicht mehr) bestimmten Status haben, der über den Menüeintrag <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guimenuitem
+>Status setzen </guimenuitem
+></menuchoice
+> geändert werden kann. Die verschiedenen Möglichkeiten werden im folgenden aufgeführt:</para>
+
+<informaltable>
+<tgroup cols="2">
+<thead
+> <row
+> <entry
+>Status</entry
+> <entry
+>Symbol</entry
+> <entry
+>Bedeutung</entry
+> </row
+> </thead>
+<tbody
+> <row
+> <entry
+><guimenuitem
+>Neu</guimenuitem
+></entry
+> <entry
+>Roter Punkt</entry
+> <entry
+>Die Nachricht wurde zum ersten Mal empfangen und noch nicht gelesen.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Ungelesen</guimenuitem
+></entry
+> <entry
+>Grüner Punkt</entry
+> <entry
+>Die Nachricht ist schon mindestens einmal vom Server geholt worden, wurde aber noch nicht gelesen.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Gelesen</guimenuitem
+></entry
+> <entry
+>Bindestrich</entry
+> <entry
+>Die Nachricht wurde gelesen</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Beantwortet</guimenuitem
+></entry
+> <entry
+>Blauer, gedrehter Pfeil</entry
+> <entry
+>Zu dieser Nachricht wurde eine Antwort verfasst.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Wartend</guimenuitem
+></entry
+> <entry
+>Umschlag</entry
+> <entry
+>Die Nachricht wurde in den Postausgang gelegt, um später gesendet zu werden.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Gesendet</guimenuitem
+></entry
+> <entry
+>Gewinkelter Briefumschlag</entry
+> <entry
+>Die Nachricht wurde versandt.</entry
+> </row
+> <row
+> <entry
+><guimenuitem
+>Markiert</guimenuitem
+></entry
+> <entry
+>Flagge</entry
+> <entry
+>Dieser Status wird nicht automatisch von &kmail; gesetzt. Sie können ihn frei verwenden, um Nachrichten zu markieren, die in irgendeiner Weise wichtig für Sie sind.</entry
+> </row
+> </tbody>
+</tgroup>
+</informaltable>
+
+</sect1>
+
+<sect1 id="the-composer-window">
+<title
+>Nachrichten erstellen</title>
+
+<para
+>Neue Nachrichten können Sie im <guilabel
+>'Nachrichten erstellen'</guilabel
+>-Fenster schreiben. Es kann entweder aus dem <menuchoice
+><guimenu
+> Datei</guimenu
+></menuchoice
+> -Menü oder über das <guiicon
+>Neue Nachricht</guiicon
+>-Icon auf der <guilabel
+>Werkzeugleiste</guilabel
+> aufgerufen werden. Falls Sie noch keine Signatur-Datei angegeben haben und die Option <guilabel
+> Signatur automatisch anhängen</guilabel
+> aktiviert haben (auf der Karteikarte <guilabel
+>Nachrichten erstellen</guilabel
+> im <guilabel 
+>&kmail; einrichten</guilabel
+>-Dialog), werden Sie bevor das Fenster erscheint nach dem Namen der Signatur-Datei gefragt.</para>
+
+<sect2 id="composing-a-message">
+<title
+>Eine Nachricht schreiben</title>
+
+<para
+>Um eine neue Nachricht zu schreiben, muss man die passenden Felder im Dialog <guilabel
+>Neue Nachricht</guilabel
+> ausfüllen. Es gibt einige Tastenkürzel, die beim Schreiben einer Nachricht nützlich sein können. Der Knopf <guiicon
+>...</guiicon
+> rechts von <guilabel
+>An:</guilabel
+>, <guilabel
+>Kopie:</guilabel
+> und <guiicon
+>Blindkopie (Bcc):</guiicon
+> dient zum Aufruf des Adressbuches, um dort eine Adresse auszuwählen.</para>
+
+<para
+>Wenn Sie anfangen eine Adresse in das Feld <guilabel
+>An:</guilabel
+>/<guilabel
+>Kopie </guilabel
+>/<guilabel
+>Blindkopie</guilabel
+> einzugeben, wird ein Ausklappmenü erscheinen, welches entsprechende Adressen anbietet, welche Sie vor Kurzem benutzt haben, oder die in Ihrem Adressbuch vorhanden sind. Beachten Sie, dass diese Autovervollständigung auf Groß/Kleinschreibung achtet. Falls Sie also <guilabel
+>Max</guilabel
+>eingeben, wird <guilabel
+>Max Mustermann &lt;mustermann@test.de&gt;</guilabel
+> nicht automatisch erscheinen. Falls Sie die Autovervollständigung nicht mögen, können Sie sie ausschalten, indem Sie mit der rechten Maustaste auf das Feld klicken und einen anderen Modus auswählen.</para>
+
+<para
+>Wannimmer Sie mehr als einen Empfänger in einem der Felder eingeben wollen, trennen Sie diese bitte mit einem Komma. Sie müssen u.U. vollständige Adressen (also <userinput
+>benutzer@domain.de</userinput
+>) auch für lokale Benutzer angeben.</para>
+
+<para
+>Sie können den Menüpunkt <menuchoice
+><guimenu
+>Ansicht</guimenu
+></menuchoice
+> benutzen um die Header Felder festzulegen. Wenn Sie mit Ihrer Nachricht fertig sind, drücken Sie den <guiicon
+>Senden</guiicon
+> Knopf (der Briefumschlag) um die Nachricht zu senden oder in die Warteschlange zu setzen. Wenn Sie Ihre Nachricht noch nicht senden wollen, wählen Sie <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guimenuitem
+>In Entwürfe-Ordner speichern</guimenuitem
+></menuchoice
+>. </para
+> 
+
+</sect2>
+
+<sect2 id="attachments">
+<title
+>Dateien anhängen (Attachments)</title>
+
+<para
+>Folgende Möglichkeiten gibt es, Dateien an eine Nachricht anzuhängen:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Klicken Sie auf den Knopf mit der <guiicon
+>Büroklammer</guiicon
+> und wählen Sie die Datei, die Sie anhängen wollen.</para
+> </listitem
+> <listitem
+> <para
+>Ziehen Sie eine Datei mit der Maus von der Arbeitsfläche oder einem Verzeichnis in das Fenster zum Erstellen der Nachrichten und lassen Sie sie dort fallen.</para
+> </listitem
+> <listitem
+> <para
+>Wählen Sie einen Punkt aus dem Menü <guilabel
+>Anhängen</guilabel
+>.</para
+> </listitem
+> </itemizedlist>
+
+<para
+>Es erscheint dann der Dialog <guilabel
+>Nachrichtenteil Eigenschaften</guilabel
+>, in dem Sie zusätzliche Informationen über die anzuhängende Datei eingeben können. Die Felder <guilabel 
+>&MIME;-Typ</guilabel
+> und <guilabel
+>Name</guilabel
+> werden automatisch ausgefüllt. Der &MIME;-Typ kann manchmal falsch sein. Sie können ihn dann selber eintippen, oder aus einer Liste den korrekten Typ wählen. Sie können auch noch eine Kodierungsmethode auswählen (normalerweise ist der Standardwert in Ordnung).</para>
+
+<para
+>Wenn eine Datei angehängt wurde, erscheint diese im Anhang-Bereich am unteren Ende des 'Nachrichten erstellen'-Fensters. Sie können eine angehängte Datei wieder entfernen, speichern oder die Eigenschaften ändern, indem Sie sie im Anhang-Bereich markieren und dann im <guilabel
+>Anhängen</guilabel
+>-Menü <guilabel 
+>Entfernen</guilabel
+>, <guilabel 
+>Speichern</guilabel
+> oder <guilabel 
+>Eigenschaften</guilabel
+> wählen. </para>
+
+<para
+>Sie können auch  <application
+>PGP</application
+>/<application
+>GnuPG</application
+> Schlüssel anhängen, indem Sie die entsprechende Option aus dem <guilabel
+>Anhängen</guilabel
+>-Menü auswählen. Angehängte <acronym
+>PGP</acronym
+>-Schlüssel werden wie angehängte Dateien behandelt.</para>
+
+<!-- copied from below -->
+<warning
+><para
+>Sie können Ihre Nachricht mit &kmail; verschlüsseln, das heisst aber nicht, dass auch Anhänge verschlüsselt werden ! Sie müssen Anhänge selber verschlüsseln bevor Sie sie anhängen.</para
+></warning>
+<!-- / copied from below -->
+
+</sect2>
+
+<sect2 id="checking-the-spelling-of-your-message">
+<title
+>Die Nachricht auf Rechtschreibfehler überprüfen</title>
+
+<para
+>Um die Rechtschreibung Ihrer Nachricht zu überprüfen benutzen Sie <menuchoice
+><guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Rechtschreibung...</guimenuitem
+></menuchoice
+>. &kmail; benutzt &kspell; um die Rechtschriebung zu überprüfen. &kspell; ist die &kde; Oberfläche für <application
+>ispell</application
+> oder <application
+>aspell</application
+>. Bitte beachten Sie, dass das Rechtschreibprogramm über <menuchoice
+><guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Rechtschreibprüfung...</guimenuitem
+></menuchoice
+>.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="folders">
+<title
+>Nachrichtenordner</title>
+
+<para
+>Nachrichtenordner sind nützlich, um Ihre Nachrichten zu organisieren. Standardmäßig werden alle Nachrichtenordner im Verzeichnis <filename class="directory"
+>Mail</filename
+>, das in Ihrem Persönlichen Verzeichnis erstellt wird, gespeichert. Beim ersten Start von &kmail; werden die Ordner <guilabel
+>Posteingang</guilabel
+>, <guilabel
+>Postausgang</guilabel
+>, <guilabel
+>Gesendete Nachrichten</guilabel
+>, <guilabel
+>Papierkorb</guilabel
+> und <guilabel
+>Entwürfe</guilabel
+> automatisch angelegt. Diese Ordner haben spezielle Funktionen:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Posteingang:</guilabel
+></term
+> <listitem
+> <para
+>Hier legt &kmail; Ihre neu abgeholten Nachrichten ab. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Postausgang:</guilabel
+></term
+> <listitem
+> <para
+>Enthält Nachrichten, die später versendet werden. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Gesendete Nachrichten:</guilabel
+></term
+> <listitem
+> <para
+>Enthält Kopien von allen Nachrichten, die Sie versendet haben. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Papierkorb:</guilabel
+></term
+> <listitem
+> <para
+>Hier werden die gelöschten Nachrichten abgelegt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Entwürfe:</guilabel
+></term
+> <listitem
+> <para
+>Enthält Nachrichten, die Sie angefangen, aber nicht fertiggestellt haben.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Möglicherweise genügen Ihnen die Ordner, die standardmäßig erstellt werden. Eventuell werden Sie aber mehr Ordner brauchen, um Ihre Nachrichten zu organisieren. Um einen neuen Ordner zu erstellen, wählen Sie <menuchoice
+><guimenu
+> Ordner</guimenu
+><guimenuitem
+>Neu...</guimenuitem
+></menuchoice
+>. Sie werden dann nach einem Namen für den Ordner gefragt und ob er Unterordner eines bereits vorhandenen werden soll. Wenn Sie die Einstellungen eines Ordners ändern wollen, müssen Sie ihn im Ordnerbereich markieren und dann <menuchoice
+><guimenu
+> Ordner</guimenu
+><guimenuitem
+>Eigenschaften</guimenuitem
+> </menuchoice
+> wählen.</para>
+
+<para
+>Um Nachrichten von einem Ordner in einen anderen zu verschieben, markieren Sie diese und drücken dann die Taste <keycap
+>M</keycap
+> oder wählen <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guimenuitem
+>Verschieben nach </guimenuitem
+></menuchoice
+> Wählen Sie den gewünschten Zielordner aus. Alternativ können Sie die Nachrichten auch mit der Maus aus dem Header-Bereich auf den gewünschten Ordner im Ordnerbereich ziehen.</para>
+
+<para
+>Wenn Sie alle Nachrichten eines Ordners entfernen wollen, markieren Sie diesen und wählen Sie <menuchoice
+><guimenu
+>Ordner</guimenu
+><guimenuitem
+>Leeren</guimenuitem
+></menuchoice
+>. Alle Nachrichten in diesem Ordner werden dann in den <guilabel
+>Papierkorb</guilabel
+>-Ordner verschoben. Wenn Sie diese Aktion im <guilabel 
+>Papierkorb</guilabel
+>-Ordner ausführen, werden die Nachrichten endgültig gelöscht.</para>
+
+</sect1>
+
+<sect1 id="the-address-book">
+<title
+>Das Adressbuch</title>
+
+<para
+>Im Adressbuch können Sie immer wieder genutzte E-Mail-Adressen speichern. Sie können das Adressbuch aufrufen im <menuchoice
+><guimenu
+>Datei</guimenu
+> </menuchoice
+>-Menü, mit dem <guiicon
+>Adressbuch</guiicon
+>-Knopf im Hauptfenster oder mit dem <guiicon
+>Adressbuch</guiicon
+>-Knopf im <guilabel
+>'Nachricht erstellen'</guilabel
+>-Fenster.</para>
+
+<para
+>Sie können das zu verwendende Adressbuch über <guilabel
+>Erscheinungsbild</guilabel
+>/ <guilabel
+>Adressbuch</guilabel
+> in &kmail;'s <guilabel
+>&kmail; einrichten</guilabel
+> Fenster auswählen.</para>
+
+<para
+>Das Standardadressbuch ist &kaddressbook;, welches seine <ulink url="help:/kaddressbook"
+>eigene Dokumentation </ulink
+> hat.</para>
+
+<sect2 id="the-address-book-simple">
+<title
+>&kmail;'s einfaches <quote
+>traditionelles</quote
+> Adressbuch.</title>
+
+<para
+>Um eine Adresse hinzuzufügen, geben Sie die Adresse in das Eingabefeld ein und drücken den Knopf <guibutton 
+>Hinzufügen</guibutton
+>. Die E-Mail-Adresse erscheint daraufhin in der Liste. Um eine Adresse zu löschen, wählen Sie diese aus der Liste aus und drücken den Knopf <guibutton
+>Entfernen</guibutton
+>. </para>
+
+<para
+>Ein weiterer Weg, E-Mail-Adressen zum Adressbuch hinzuzufügen, ist, im Nachrichtenbereich des Hauptfensters mit der rechten Maustaste auf eine E-Mail-Adresse in den Feldern <guilabel
+>An:</guilabel
+> oder <guilabel 
+>Von:</guilabel
+> zu klicken und dann <guilabel 
+>Zum Adressbuch hinzufügen</guilabel
+> zu wählen.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="filters">
+<title
+>Filter</title>
+<anchor id="filters-id"/>
+
+<para
+>Wenn Sie &kmail; eine Weile benutzt haben, haben Sie vielleicht Probleme neue Nachrichten in Ihrem Posteingang auszusortieren. Filter erlauben es Ihnen, automatisch bestimmte Aktionen auf eingehende Nachrichten anzuwenden oder manuell auf ausgewählte Nachrichten in einem Ordner.</para>
+
+<para
+>Filter bestehen aus Suchmustern, deren Regeln bestimmen, ob der Filter auf eine Nachricht angewendet werden soll und welche Aktionen ausgeführt werden sollen. Lesen Sie mehr zu Suchmustern und Filteraktionen in den folgenden Unterabschnitten.</para>
+
+<caution
+><para
+> Filter werden der Reihe nach abgearbeitet beginnend mit dem ersten Filter in der Liste. Der erste Filter, dessen Muster passt wird ausgeführt. Sie können wählen, ob nachstehende Filter  ebenfalls angewendet werden sollen, oder ob das Anwenden von Filtern für diese Nachricht angehalten werden soll. </para
+></caution>
+
+<para
+>Normalerweise werden Filter auf eingehende Nachrichten angewandt, aber sie können ebenso auf einzelne oder mehrere Nachrichten angewandt werden. Dazu markieren Sie die Nachrichten, die Sie filtern wollen, und drücken Sie <keycombo action="simul"
+>&Ctrl;<keycap
+>J</keycap
+></keycombo
+> , oder wählen Sie <menuchoice
+><guimenu
+>Nachrichten</guimenu
+><guimenuitem
+> Filter anwenden</guimenuitem
+></menuchoice
+>. Beachten Sie, dass alle Filter auf diese Nachrichten angewandt werden. Es gibt keine Möglichkeit nur bestimmte Filter zu verwenden.</para>
+
+<sect2 id="filter-quick">
+<title
+>Schnelle Filtererstellung</title>
+
+<para
+>Es gibt zwei Möglichkeiten Filter anzuwenden. Die schnelle Methode benutzt <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guimenuitem
+>Filter anlegen </guimenuitem
+></menuchoice
+>. Dies wird den Filter Dialog mit einem neuen Filter aufrufen, dessen erste Regel und Aktion (<quote
+>Verschieben in Ordner</quote
+>) gesetzt sind. In vielen Fällen müssen Sie nur noch einen Ordner auswählen, in den die Nachricht verschoben werden soll, aber Sie können den Filter natürlich einstellenw ie Sie möchten.</para>
+
+<para
+>Das Interessante an dieser Methode ist, dass das Anlegen eines Filters für eine Mailing-Liste alles versuchen wird, um einen Header zu finden, der eine Nachricht, die zu dieser Liste gehört eindeutig identifiziert. Falls dies gelingt, wird der wahrscheinliche Name der Liste in <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guisubmenu
+> Filter anlegen</guisubmenu
+><guimenuitem
+>Nach Mailing-Liste filtern...</guimenuitem
+></menuchoice
+> eingefügt.</para>
+
+<tip
+><para
+>in vielen Fällen funktioniert das sehr gut, aber manchmal sollten Sie Teile des Header Inhaltes die sich wahrscheinlich wieder ändern löschen. Normalerweise funktioniert es mit der List Adresse sehr gut.</para
+></tip>
+
+<para
+>Die zweite Methode ist, einen Filter manuell durch Aufruf von <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Filter einrichten...</guimenuitem
+></menuchoice
+> zu erzeugen. Der Filter-Dialog wird im folgenden Abschnitt detailiert beschrieben.</para>
+</sect2>
+
+<sect2 id="filter-dialog">
+<title
+>Der Filter-Dialog</title>
+<anchor id="filter-dialog-id"/>
+
+<para
+>Dieser Dialog erlaubt es Ihnen Ihre Liste mit Filtern zu verwalten und zu ändern.</para>
+
+<para
+>Man kann ihn durch <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guisubmenu
+>Filter anlegen</guisubmenu
+></menuchoice
+> oder durch <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Filter einrichten</guimenuitem
+></menuchoice
+> aufrufen.</para>
+
+<para
+>Um diesen Dialog zu verlassen, ohne die Änderungen zu speicher, klicken Sie auf <guibutton
+>Abbrechen</guibutton
+> oder drücken Sie &Esc;.</para>
+
+<para
+>Dieser DIalog ist in vier Hauptteile getrennt.</para>
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Vorhandene Filter</guilabel
+></term
+> <listitem
+><para
+>Diese Gruppe enthält eine Liste mit Filtern und Aktionsknöpfen um Filter zu ändern. Filter können hinzugefügt werden, in der Liste nach oben oder unter verschoben werden, oder gelöscht oder umbenannt werden. Wenn Sie ienen Filter in der Liste auswählen, werden seine Eigenschaften in rechten Hälfte des Dialogs angezeigt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Filterkriterien</guilabel
+></term
+> <listitem
+><para
+>In dieser Gruppe können Sie die Muster ändern, denen eine Nachricht entsprechen muss, damit der Filter auf sie anspricht. Sie können hier auch auswählen, ob alle Muster zutreffen müssen, oder ob es reicht, wenn eines der Muster passt. Sehen Sie dazu auch <link linkend="filter-criteria"
+>Suchmuster</link
+> weiter unten für eine detailierte Beschreibung der einzelnen Regeltypen.</para
+> <para
+> Sie können <guibutton
+>Mehr</guibutton
+> klicken um eine zusätzliche (leere) Filterregel zu erhalten, falls Sie komplexere Muster festlegen wollen. Oder wählen Sie <guibutton
+>Weniger</guibutton
+> um die letzte Regel zu entfernen. <guibutton
+>Löschen</guibutton
+> löscht das Muster, also es werden alle bis auf zwei Regeln vom Bildschirm entfernt und diese werden zurückgesetzt.</para
+> <para
+>Ungültige oder leere Regeln werden nicht abgearbeitet. Ob eine Regel als ungültig angesehen wird kommt auf den Typ an, aber als Faustregel können Sie sich merken, dass Regeln als ungültig angesehen werden, wenn die Domäne (das erste Auswahlfeld in jeder Reihe) oder der Suchtext (das Feld am Ende jeder Zeile) leer sind. Um eine Regel zu löschen müssen Sie also nur eines dieser Felder löschen.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Filter Aktionen</guilabel
+></term
+> <listitem
+><para
+>In dieser Gruppe können Sie die Liste der Aktionen, die auf Nachrichten angewendet werden, die dem Suchmuster entsprechen ändern. Siehe<link linkend="filter-action"
+>Filteraktionen</link
+> weiter unten für eine genauer Beschreibung jedes Aktionstyps.</para
+> <para
+> Man kann auf <guibutton
+>Mehr</guibutton
+> klicken, um eine neue leere Filteraktion zu bekommen, falls man mehr als eine Filteraktion benötigt, und auf <guibutton
+>Weniger</guibutton
+>, um die letzte Aktion zu entfernen. <guibutton
+>Zurücksetzen</guibutton
+> löscht die Liste, entfernt also alle bis auf die letzte Aktion und setzt diese zurück.</para
+> <para
+>Ungültige und leere Aktionen werden nicht ausgeführt. Intern werden sie sogar entfernt. Ob eine Aktion ungültig ist, hängt von verschiedenen Bedingungen ab. Generell kann man sagen, das eine Aktion leer ist, solange kein Typ ausgewählt wurde oder - bei Aktionen, die einen Textparameter erfordern (wenn ein Parameter in einem Eingabefeld angegeben werden muss) - der Parameter leer ist. Um also eine Aktion zu entfernen, muss man lediglich seinen Typ entfernen, indem man im Auswahlfeld den letzten (leeren) Eintrag auswählt.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Weitere Einstellungen</guilabel
+></term
+><listitem
+><para
+> In diesem Abschnitt können einige Einstellungen zur Verfeinerung des Filters geändert werden.</para
+> <para
+>Mit Hilfe der Auswahlbox können Sie auswählen, aus welche Nachrichten der entsprechende Filter angewendet wird. <guilabel
+>Eingehende Nachrichten</guilabel
+> zeigt, dass der Filter auf gerade ankommende Nachrichten angewendet wird, <guilabel
+>Ausgehende Nachrichten</guilabel
+> gilt entsprechend für gesendete Nachrichten.</para
+> <note
+><para
+>Es ist zu beachten, dass es momentatn nicht möglich ist, einen Filter zu definieren, der nicht manuell verwendet werden kann. Das ist eine bekannte Einschränkung. </para
+></note
+></listitem
+> </varlistentry
+> </variablelist>
+
+<note
+><para
+>Filter werden automatisch benannt, wenn man sie nicht explizit durch Klicken auf den Knopf <guibutton
+>Umbenennen</guibutton
+> benennt. Der Dialog nimmt an, das die automatische Benennung verwendet werden soll, solange der Filtername mit <quote
+>&lt;</quote
+> beginnt. </para
+></note>
+
+<para
+>Durch Klicken auf <guibutton
+>OK</guibutton
+> wird der Dialog geschlossen und die Änderungen übernommen. Durch Klicken auf <guibutton
+>Anwenden</guibutton
+> werden die Änderungen übernommen ohne das der Dialog geschlossen wird und durch Klicken auf <guibutton
+>Abbrechen</guibutton
+> wird der Dialog ohne Übernahme der Änderungen geschlossen.</para>
+
+<note
+> <para
+> Klickt man auf <guibutton
+>OK</guibutton
+> oder <guibutton
+>Anwenden</guibutton
+>, werden nur gültige Filter in den internen Filter-Manager übernommen.</para
+> <para
+>Ein Filter ist ungültig, wenn</para
+> <orderedlist
+> <listitem
+><para
+>die Filterbedingungen nur leere Regeln enthalten oder</para
+></listitem
+> <listitem
+><para
+>die Liste der Aktionen leer ist.</para
+></listitem
+> </orderedlist
+> <para
+>Genauso werden leere Regeln und Aktionen von der Liste der Filterbedingungen und Aktionen entfernt, bevor der Filter gespeichert wird.</para
+> </note>
+
+</sect2>
+
+<sect2 id="filter-criteria">
+<title
+>Filterbedingungen</title>
+
+<para
+>Die häufigste Verwendung von FIltern stellen Filter nach dem Absender der Nachricht dar. Das kann durch Auswahl von <guilabel
+>From</guilabel
+> erreicht werden. Für eine Mailingliste könnte man <guilabel
+>&lt;An oder Kopie&gt;</guilabel
+> verwenden. Es gibt aber auch andere Kriterien für Filter. Eine Filter kann nach folgenden Einträgen suchen:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>&lt;Nachricht&gt;</guilabel
+></term
+> <listitem
+> <para
+>Durchsucht die gesamte Nachricht (also Header, Nachricht und Anhänge, falls vorhanden).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;Nachrichtentext&gt;</guilabel
+></term
+> <listitem
+> <para
+>Durchsucht den Nachrichtentext.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;Feld im Vorspann&gt;</guilabel
+></term
+> <listitem
+> <para
+>Durchsucht den Vorspann der Nachricht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;An oder Kopie&gt;</guilabel
+></term
+> <listitem
+> <para
+>Durchsucht die <quote
+>An</quote
+> und <quote
+>Kopie</quote
+> Header.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;Größe&gt;</guilabel
+></term
+> <listitem
+> <para
+>Setzt eine Unter- und Obergröße für die Nachricht fest.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>&lt;Alter in Tagen&gt;</guilabel
+></term
+> <listitem
+> <para
+>Setzt obere und untere Grenze für das Alter einer Nachricht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Irgendein anderer Text</term
+> <listitem
+> <para
+>Durchsucht des Vorspann-Feld, das durch diesen Namen angegeben ist.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="filter-action">
+<title
+>Filter Aktion</title>
+
+<para
+>Die häufigste Anwendung für Filter ist die Einsortierung von eingehenden Nachrichten in verschiedene Eingangsverzeichnisse. Das kann durch <guilabel
+>verschieben in Ordner</guilabel
+> erreicht werden. Folgende Aktionen sind möglich:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Verschieben nach</guilabel
+></term
+> <listitem
+> <para
+>Verschiebt Nachrichten in einen anderen Ordner. Sie können derzeit keine <acronym
+> IMAP</acronym
+> Ordner als Ziel benutzen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>markieren als</guilabel
+></term
+> <listitem
+> <para
+>Dies erlaubt es, eine Nachricht als gelesen oder wichtig (flagged) aber auch als weitergeleitet, beantwortet usw. zu markieren.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Identität setzen</guilabel
+></term
+> <listitem
+> <para
+>Diese Aktion setzt <emphasis
+>Ihre</emphasis
+> Identität für die Antwort auf diese Nachricht fest.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Versandart setzen</guilabel
+></term
+> <listitem
+> <para
+>Diese Aktion setzt die Versandart (z.B. <acronym
+>SMTP</acronym
+>) für die Antwort auf diese Nachricht fest.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Antwortadresse festlegen</guilabel
+></term
+> <listitem
+><para
+>Diese Aktion ändert das Feld <guilabel
+>Antwortadresse</guilabel
+> dieser Nachricht. Das kann für eine Mailingliste sinnvoll sein, da diese automatisch eine Antwortadresse einsetzen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>weiterleiten an</guilabel
+></term
+> <listitem
+><para
+>Leitet die Nachricht an einen anderen Empfänger weiter.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>weiterleiten an</guilabel
+></term
+> <listitem
+><para
+>Leitet die Nachricht an einen anderen Empfänger weiter.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>zurückschicken</guilabel
+></term
+> <listitem
+><para
+>Versucht die Nachricht als unzustellbar an den Absender zurückzusenden.</para
+> <caution
+><para
+>Dies wird nur funktionieren, wenn die Absenderadresse korrekt gesetzt ist. Für die meiste Werbepost ist dies<emphasis
+>nicht</emphasis
+> der Fall.</para
+></caution
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zustellung bestätigen</guilabel
+></term
+> <listitem
+><para
+>Versucht eine Nachricht zum Absender zurückzusenden, um ihn zu benachrichtigen, dass die Mail angekommen ist.</para
+> <para
+>Mit dieser Aktion kann ausgewählt werden, wer von Ihnen eine Zustellungsbestätigung erhält. Obwohl man den Versand einer Zustellungsbestätigung im Dialog <guilabel
+>&kmail; einrichten...</guilabel
+> (Karteikarte <guilabel
+>Sicherheit</guilabel
+>), ist es empfehlenswert, nicht jedem eine solche Bestätigung zu senden, da ansonsten Versender von Spam-Mail eine leichte Kontrolle haben.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vorspann entfernen</guilabel
+></term
+> <listitem
+> <para
+>Entfernt <emphasis
+>alle</emphasis
+> Vorspannfelder mit dem angegebenen Namen aus der Nachricht. Das ist nützlich, um ungewünschte <quote
+>Antwortadressen</quote
+> zu entfernen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vorspannn hinzufügen</guilabel
+></term
+> <listitem
+> <para
+>Wenn noch kein Vorspannfeld dieses Namens existiert, wird eines hinzugefügt. Existiert bereits eines, wird dessen Inhalt überschrieben. Gibt es bereits mehrere Vorspannfelder dieses Namens (z.B. <quote
+>Received:</quote
+>-Vorspann) wird ein zufällig ausgewähltes überschrieben und die Anderen nicht verändert. Das ist eine bekannte Einschränkung. Man kann diesen Filter mit dem Filter <guilabel
+>Vorspann entfernen</guilabel
+> kombinieren, um sicher zu stellen, dass nur eine Vorspannzeile vorhanden ist.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vorspann neu schreiben</guilabel
+></term
+> <listitem
+> <para
+>Liest das bisherige Vorspannfeld, verändert seinen Inhalt und schreibt diesen veränderten Inhalt. Der Suchtext ist immer ein regulärer Ausdruck mit Unterscheidung der Klein-/Großschreibung. Der Ersetzungstext wird wörtlich eingefügt, außer den Sonderzeichen <userinput
+>\n</userinput
+>, <userinput
+>$n</userinput
+> und <userinput
+>${nn}</userinput
+>, wobei <userinput
+>n</userinput
+> für eine positive (mit Ausnahme der dritten Form einziffrige) Zahl oder <userinput
+>0</userinput
+> steht. Diese Sonderzeichen verweisen zurück auf Teiltexte in Anführungszeichen, die im Suchtext vorkamen.</para
+><para
+>Analog zur <guilabel
+>add header</guilabel
+> Aktion bestehen auch hier einschränkungen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Befehl ausführen</guilabel
+></term
+> <listitem
+> <para
+>Führt ein Programm aus, verändert aber nicht die Nachricht. Der gesamte Pfad zum Programm muss angegeben werden. &kmail; wird bis zur Beendigung dieses Programms blockiert. Man kann dem Programm Nachrichtenteile übergeben: <symbol
+>&percnt;0</symbol
+>, <symbol
+>&percnt;1</symbol
+> usw. stehen für Dateien, die die Nachrichtenteile repräsentieren. Für übliche Nachrichten steht <symbol
+>&percnt;0</symbol
+> für den Nachrichtentext, <symbol
+>&percnt;1</symbol
+> für den ersten Anhang und so weiter. Zusätzlich wird die gesamte Nachricht über den Standardeingabe <acronym
+>stdin</acronym
+> dem Programm übergeben.</para
+> <caution
+><para
+>Das funktioniert bisher nur für Nachrichten, die <emphasis
+>mindestens</emphasis
+> einen Anhang haben. Nicht einmal <symbol
+>&percnt;0</symbol
+> funktioniert ansonsten!</para
+></caution
+> <tip
+><para
+> Man kann hier beliebig komplexe Shell-Befehle verwenden, da &kmail; diese in einer Subshell ausführt. Daher funktioniert sogar (mit Einschränkungen) dieser Befehl: <userinput
+><command
+>uudecode</command
+> <option
+>-o</option
+> <parameter
+>$(mktemp kmail-uudecoded.XXXXXX)</parameter
+> &amp;&amp; <command
+>echo</command
+> <parameter
+>$'\a'</parameter
+></userinput
+></para
+></tip
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>durch Programm leiten</guilabel
+></term
+> <listitem
+> <para
+>Das leitet die Nachricht durch ein Programm. Wenn das Programm eine Ausgabe liefert, wird die gesamte Nachricht durch die erzeugte Ausgabe (einschließlich des Vorspanns) ersetzt. Wenn das Programm keine Ausgabe liefert, wird die Nachricht nicht verändert. Der volle Programmpfad muss angegeben werden.</para
+> <caution
+><para
+>Diese Aktion muss mit Vorsicht eingesetzt werden, da man leicht seine Nachrichten zerstören kann, wenn das Filterprogramm nur Müll oder zusätzliche Zeilen zurückgibt.</para
+></caution
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="filter-examples">
+<title
+>Beispiele für Filter</title>
+
+<para
+>Wenn man in der Mailingliste für &kde;-Benutzer eingetragen ist, könnte man einen extra Ordner für Nachrichten aus dieser Liste erstellen (er könnte z.B. <replaceable
+>KDE-Benutzer</replaceable
+> heißen) und einen Filter benutzen, um automatisch von dieser Liste eingehende Nachrichten in diesen Ordner zu verschieben. Hier ist eine Beschreibung, wie man einen solchen Filter erstellt:</para>
+
+<procedure
+> <title
+>Eine Mailingliste herausfiltern</title
+> <step
+> <para
+>Wenn <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guisubmenu
+>Filter anlegen</guisubmenu
+><guimenuitem
+>Nach Mailingliste filtern...</guimenuitem
+></menuchoice
+> die Mailingliste identifizieren kann, erscheint der Name der Liste im Menüeintrag. Im Beispiel funktioniert es und ein Filter mit dem Eintrag <quote
+>X-Mailing-List <guilabel
+>gleich</guilabel
+> &lt;kde@lists.netcentral.net&gt;</quote
+> wird erzeugt. Man kann den gewünschten Zielordner aus dem Auswahlfeld der Gruppe <guilabel
+>Filteraktionen</guilabel
+> auswählen und der Filter ist fertig.</para
+> <para
+>Überlegen Sie sich einen eindeutigen Weg zum Identifizieren der Nachrichten, die Sie filtern wollen. Das eindeutige Kennzeichen der Nachrichten aus der Liste für &kde; Benutzer ist, dass die Felder <guilabel
+>An:</guilabel
+> oder <guilabel
+>Kopie:</guilabel
+> immer <quote
+>kde@lists.netcentral.net</quote
+> enthalten.</para
+> </step
+> <step
+> <para
+>Man wählt <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Filter einrichten...</guimenuitem
+></menuchoice
+>.</para
+> </step
+> <step
+> <para
+>Wählen Sie <guibutton
+>Neu</guibutton
+>, um einen leeren Filter zu erzeugen. Er erscheint als <guilabel
+>&lt;Unbenannt&gt;</guilabel
+>.</para
+> </step
+> <step
+> <para
+>Im Bereich <guilabel
+>Filterkriterien</guilabel
+> wählen Sie <guilabel
+>&lt;An oder Kopie&gt;</guilabel
+> aus der ersten Auswahlliste und <guilabel
+>enthält</guilabel
+> aus der zweiten Liste. In das Textfeld geben Sie <userinput
+>kde@lists.netcentral.net</userinput
+> ein.</para
+> </step
+> <step
+> <para
+>Wechseln Sie in den Aktionen-Bereich und wählen Sie <guilabel
+>Verschieben in Ordner</guilabel
+> aus der ersten Auswahlliste. Es erscheint daraufhin eine neue Auswahlliste, die die möglichen Ordner enthält. Wählen Sie den Ordner, in den Sie die Nachrichten übertragen möchten, falls sie den Filterkriterien entsprechen. In diesem Beispiel würden Sie den Ordner <guilabel
+>KDE-General</guilabel
+>wählen.</para
+> </step
+> </procedure>
+
+<para
+>Vielleicht brauchen Sie kompliziertere Kriterien, um Ihre Nachrichten zu filtern. So könnten Sie z.B. nur Nachrichten aus der &kde; Benutzerliste speichern wollen, die von Ihrem Freund Martin Mustermann &lt;mm@irgendwo.de&gt; geschrieben wurden. Hier kommen die restlichen Filterkriterien ins Spiel:</para>
+
+<procedure
+> <title
+>Den Filter erweitern</title
+> <step
+> <para
+>Öffnen Sie das Fenster <guilabel
+>Filterregeln</guilabel
+> und markieren Sie den gerade erstellten Filter.</para
+> </step
+> <step
+> <para
+>Da Sie alle Nachrichten filtern wollen, die <quote
+>kde@lists.netcentral.net</quote
+> im Feld <guilabel 
+>An:</guilabel
+> oder <guilabel
+>Kopie:</guilabel
+> haben <emphasis
+>und</emphasis
+> die von Martin Mustermann sind, wählen Sie den Auswahlknopf <guibutton
+>Trifft auf alle Folgenden zu</guibutton
+>.</para
+> </step
+> <step
+> <para
+>Gehen Sie jetzt zum zweiten Filterkriterium und wählen Sie folgendes aus den Auswahllisten aus: <guilabel
+>From</guilabel
+> und <guilabel
+>enthält</guilabel
+>. Im Eingabefeld geben Sie dann <userinput
+>mm@irgendwo.com</userinput
+> ein.</para
+> </step
+> </procedure>
+
+<para
+>Sie haben nun einen Filter, der alle Nachrichten von Martin Mustermann aus der &kde; Benutzerliste überträgt.</para>
+</sect2>
+</sect1>
+
+<sect1 id="multiple-accounts">
+<title
+>Mehrere Postfächer</title>
+
+<para
+>Wenn Sie E-Mail von mehreren E-Mail-Adressen und/oder Mailservern bekommen, müssen Sie weitere Postfächer anlegen. Wählen Sie <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>&kmail; einrichten...</guimenuitem
+></menuchoice
+> und benutzen Sie die Karteikarte <guilabel
+>Netzwerk</guilabel
+>, um Postfächer hinzuzufügen oder zu ändern. Für Details zu den Einstellungen auf der Karteikarte <guilabel
+>Netzwerk</guilabel
+> schauen Sie bitte im Kapitel <link linkend="getting-started"
+>Nutzung von KMail</link
+> nach.</para>
+
+<para
+>Um neue Nachrichten für ein bestimmtes Postfach abzurufen, wählt man das Untermenü <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Nach E-Mail sehen in...</guimenuitem
+></menuchoice
+> und wählt dort das gewünschte Postfach aus. Man kann auch die linke Maustaste auf dem Symbol <guiicon
+>Nachrichten abrufen</guiicon
+> für einige Zeit gedrückt halten, um eine Liste der Postfächer zu erhalten.</para>
+
+</sect1>
+
+<sect1 id="pgp">
+<!-- This section is from Andreas Gungl, 2000-05-21 -->
+<title
+><application
+>Pretty Good Privacy</application
+> (<application
+>PGP</application
+>) / <application
+>GNU Privacy Guard</application
+> (<application
+>GnuPG</application
+>)</title>
+
+<para
+>Dies ist eine kurze Einleitung zur Konfiguration von &kmail;'s <application
+>PGP</application
+>-Unterstützung. Es sind außerdem einige Hinweise zur Verwendung von <application
+>PGP</application
+> enthalten. Der Abschnitt ist für Anfänger geschrieben. Wenn Sie mit der Bedienung von <application
+>PGP</application
+> vertraut sind, können Sie die meisten Schritte überspringen. Diese Dokumentation (und die &kmail; Benutzeroberfläche) gehen hauptsächlich auf <quote
+>PGP</quote
+> ein, treffen aber für <application
+>PGP</application
+> und <application
+>GnuPG</application
+> zu, wenn auch einige Befehlszeilenparameter von <application
+>GnuPG</application
+> unterschiedlich sein können.</para>
+
+<para
+>Informationen zu <application
+>PGP</application
+> findet man außerdem unter <link linkend="pgp-faq"
+>&FAQ; zu <application
+>PGP</application
+></link
+>.</para>
+
+<warning
+><para
+>Sie können Ihre Nachricht mit &kmail; verschlüsseln, das heisst aber nicht, dass auch Anhänge verschlüsselt werden ! Sie müssen Anhänge selber verschlüsseln bevor Sie sie anhängen.</para
+></warning>
+
+<warning
+><para
+>&kmail; ist auf die Ausgabe von <application
+>PGP</application
+> angewiesen. Das Ausgabeformat hat sich bei <application
+>PGP</application
+> mehrfach zwischen den Versionen geändert. Daher ist es unbedingt notwendig, die Verschlüsselung zu testen, bevor man sie ernsthaft verwendet. &kmail; warnt <emphasis
+>nicht</emphasis
+> in jedem Fall, wenn etwas schiefgeht. Man sollte sicherheitshalber <guilabel
+>Nach Erstellung chiffrierten/signierten Text anzeigen</guilabel
+> aktivieren. </para
+></warning>
+
+<para
+>Um die <application
+>PGP</application
+>-Unterstützung in &kmail; verwenden zu können, muss man zunächst <application
+>PGP</application
+> installieren und einrichten. Hier kann keine vollständige Einführung zu <application
+>PGP</application
+> gegeben werden. Die wichtigsten Schritte zur Einrichtung von <application
+>PGP</application
+> werden aber erläutert. Detailierte Informationen findet man in der hervorragenden <application
+>PGP</application
+>-Dokumentation oder in <ulink url="http://www.gnupg.org/docs.html#guides"
+>The GNU Privacy Handbook</ulink
+>.</para
+> 
+
+<para
+>Es ist sicherlich hilfreich, diese Dokumentation und eine generelle Einführung in Verschlüsselung mit öffentlichen Schlüsseln (z.B. aus dem Paket zu <application
+>PGP</application
+> 6.5.x) zu lesen. Dort werden die grundlegenden Konzepte erläutert, die ein Verständnis des Ablaufes erleichtern. Außerdem werden dort viele sicherheitsrelevante Themen erläutert.</para>
+
+<para
+>Beginn der Erklärung.</para>
+
+<sect2 id="pgp-preconditions">
+<title
+>Voraussetzungen</title>
+
+<para
+>&kmail; erwartet, dass Ihr <application
+>PGP</application
+> Programm den Namen <command
+>pgp</command
+> hat. Falls Sie <application
+>GnuPG</application
+> verwenden wird nach <command
+>gpg</command
+> gesucht. Sollten Ihre Programme andere Namen haben, machen Sie einfach einen symbolischen Link.</para>
+
+<para
+>Falls noch nicht erfolgt, muss zunächst ein Schlüsselpaar (aus öffentlichem und privatem Schlüssel) für die eigene Identität erzeugt werden. Das wird in einem Konsolenfenster gemacht (der Befehl lautet <userinput
+><command
+>pgp</command
+> <option
+>-kg</option
+></userinput
+>). Es gibt in &kmail; noch keine Unterstützung für diese Prozedur der Schlüsselerzeugung. Die Identität (überlicherweise der Name gefolgt von der E-Mail-Adresse in spitzen Klammern, wie z.B. <userinput
+>Hans Mustermann &lt;Hans.Mustermann@beispiel.de&gt;</userinput
+>) und das Passwort sind wichtig für das Zusammenspiel zwischen &kmail; und <application
+>pgp</application
+>.</para>
+
+</sect2>
+
+<sect2 id="pgp-settings">
+<title
+>Einstellungen zu <application
+>PGP</application
+> innerhalb von &kmail;</title>
+
+<para
+>Man muss die <application
+>PGP</application
+>-Identität in das Feld <guilabel
+>PGP-Nutzeridentität</guilabel
+> im Abschnitt <guilabel
+>Identität</guilabel
+> eintragen. Dann wählt man die Karteikarte <guilabel
+>PGP</guilabel
+> im Abschnitt <guilabel
+>Sicherheit</guilabel
+> des Einrichtungsdialogs. Dort findet man die folgenden Einstellmöglichkeiten:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Passwort im Speicher halten</guilabel
+></term
+> <listitem
+> <para
+>Wenn dieses Ankreuzfeld nicht markiert ist, fragt &kmail; bei jeder Signierung  oder der Auswahl einer verschlüsselten Nachricht nach dem Passwort. Wenn man dieses Feld markiert, speichert &kmail; das Passwort nach der ersten erfolgreichen Abrage bis zum Programmende. Das Passwort wird im Arbeitsspeicher gehalten und nicht auf die Festplatte geschrieben.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Zusätzlich eigenen Schlüssel verwenden</guilabel
+></term
+> <listitem
+> <para
+>Wenn dieses Ankreuzfeld nicht markiert ist, kann man nach dem Versenden einer verschlüsselten Nachricht diese nach der Verschlüsselung selbst auch nicht mehr lesen. Will man selbst die Nachricht noch lesen können, sollte man diese Option aktivieren.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Nach Erstellung chiffrierten/signierten Text anzeigen</guilabel
+></term
+> <listitem
+> <para
+>Ist dieses Feld markiert, wird das Resultat der Verschlüsselung oder Signierung noch einmal angezeigt, bevor die Nachricht versandt wird. Auf diese Weise kann man den Versand stoppen, falls ein Fehler passiert ist. Diese Option sollte man möglichst aktivieren.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Verschlüsselungsprogramm</guilabel
+></term
+> <listitem
+> <para
+>Hier können Sie auswählen, ob Sie <application
+>PGP</application
+> , <application
+> GnuPG</application
+>.oder gar kein Verschlüsselungsprogramm verwenden wollen. Das Programm, welches Sie verwenden wollen muss natürlich auf Ihrem System installiert sein. Es ist ausserdem wichtig, die richtige Version auszuwählen.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+<para
+>Im Abschnitt <guilabel
+>Nachrichten erstellen</guilabel
+> kann man die Option <guilabel
+>Signatur automatisch anhängen</guilabel
+> auswählen. Damit werden alle Nachrichten vor dem Versand signiert. (Damit entfällt für den Benutzer die manuelle Signatur jeder Nachricht.)</para>
+
+<para
+>Nun ist man in der Lage, eigene Nachrichten vor dem Versand zu signieren. Damit andere Benutzer Nachrichten an Sie schicken und Ihre Signatur überprüfen können, muss man seinen öffentlichen Schlüssel an diese Personen senden oder an einen öffentlichen Key-Server schicken, von dem sie dann herunter geladen werden können. Um verschlüsselte E-Mails an andere Personen versenden zu können oder um signierte Nachrichten anderer Personen zu überprüfen, benötigt man die öffentlichen Schlüssel dieser Personen. Man kann seine öffentlichen Schlüssel auf einem öffentlichen <application
+>PGP</application
+>-Key-Server wie z.B. <ulink url="http://www.cam.ac.uk.pgp.net/pgpnet/"
+>http://www.cam.ac.uk.pgp.net/pgpnet/</ulink
+> speichern.</para>
+
+</sect2>
+
+<sect2 id="pgp-sign-your-messages">
+<title
+>Signieren von Nachrichten</title>
+
+<para
+>Man erstellt seine Nachricht wie gewöhnlich im Dialog <guilabel
+>Nachricht erstellen</guilabel
+> von &kmail;. Vor dem Versand der Nachricht klickt man auf <guibutton
+>Nachricht signieren</guibutton
+> in der Werkzeugleiste. Nun kann man die Nachricht versenden. Für die Signierung benötigt &kmail; das <application
+>PGP</application
+>-Passwort. Wenn man nicht <guilabel
+>Passwort im Speicher halten</guilabel
+> auf der Seite <guilabel
+>Sicherheit</guilabel
+> bei den Einstellungen von &kmail; gewählt hat, fragt &kmail; nach dem Passwort. Andernfalls wird die Nachricht ohne Nachfrage von &kmail; signiert, falls man das Passwort bereits einmal eingegeben hatte.</para>
+
+</sect2>
+
+<sect2 id="pgp-send-your-public-key">
+<title
+>Den öffentlichen Schlüssel versenden</title>
+
+<para
+>Man schreibt zunächst eine Nachricht an die Person, die den öffentlichen Schlüssel erhalten soll. Dann wählt man <menuchoice
+><guimenu
+>Anhängen</guimenu
+><guimenuitem
+>Öffentlichen Schlüssel anhängen...</guimenuitem
+></menuchoice
+> im Dialog <guilabel
+>Nachricht erstellen</guilabel
+>. Damit wird der öffentliche Schlüssel an die Nachricht angefügt. Nun kann man die Nachricht abschicken.</para>
+
+<para
+>Man sollte daran denken, das die Signierung der Nachricht kein verlässlicher Weg ist, den Schlüsselversand abzusichern. Die Nachricht kann auf dem Weg abgefangen werden ("man-in-the-middle"-Attacke) und von einer Person mit einem falschen Schlüssel versehen und mit diesem falschen Schlüssel auch signiert werden. Daher sollte der Schlüsselempfänger die Signatur mit einer Signatur vergleichen, die er auf einem sicheren Weg erhalten hat. Genauere Hinweise dazu findet man in der Dokumentation zu <application
+>PGP</application
+>.</para>
+
+</sect2>
+
+<sect2 id="pgp-you-got-an-encrypted-message">
+<title
+>Empfang einer verschlüsselten Nachricht</title>
+
+<para
+>Man muss lediglich die Nachricht in &kmail; auswählen. Dann wird man nach dem Passwort gefragt. &kmail; versucht nun, die Nachricht zu entschlüsseln und zeigt danach den unverschlüsselten Text, wenn die Nachricht mit dem öffentlichen Schlüssel verschlüsselt worden ist (falls nicht, ist das Ergebnis unleserlich). &kmail; speichert diese Nachricht verschlüsselt ab, sodass niemand ohne Passwort die Nachricht lesen kann.</para>
+
+</sect2>
+
+<sect2 id="pgp-receiving-a-public-key">
+<title
+>Einen öffentlichen Schlüssel erhalten</title>
+
+<para
+>Sie können einen öffentlichen Schlüssel als Anhang oder per http, ftp oder Diskette erhalten. Bevor Sie diesen Schlüssel benutzen, um eine Nachricht an den Besitzer zu verschlüsseln, sollten Sie den Schlüssel überprüfen (Überprüfen Sie den Fingerabdruck oder schauen Sie nach vertrauenswürdigen Signaturen). Danach können Sie den Schlüssel Ihrem Schlüsselbund hinzufügen, indem Sie folgendes eingeben an der Kommandozeile eingeben: Für <application
+>PGP</application
+>: <userinput
+><command
+>pgp</command
+><option
+>ka</option
+> <replaceable
+>Dateiname</replaceable
+></userinput
+> oder für <application
+>GPG</application
+> <userinput
+><command
+>gpg</command
+><option
+>--import</option
+><replaceable
+> Dateiname</replaceable
+></userinput
+> Falls Sie <application
+>PGP</application
+> benutzen und der Schlüssel keine vertrauenswürdige Signatur enthält, können Sie &kmail; nicht benutzen, um Nachrichten damit zu verschlüsseln, es sei denn Sie signieren den Schlüssel (Benutzen Sie dazu <userinput
+><command
+>pgp </command
+><option
+>ks</option
+><replaceable
+>Identität des Schlüssels</replaceable
+></userinput
+> Mit <application
+>GnuPG</application
+> ist es möglich auch Nachrichten mit einem nicht vertrauenswürdigen Schlüssel zu verschlüsseln.</para>
+
+</sect2>
+
+<sect2 id="pgp-encrypt-your-messages">
+<title
+>Verwendung öffentlicher Schlüssel von anderen Personen - Verschlüsselung von Nachrichten</title>
+
+<para
+>Um jemandem, dessen öffentlichen Schlüssel man besitzt, eine verschlüsselte Nachricht zu senden, schreibt man die Nachricht zunächst im Dialog <guilabel
+>Nachricht erstellen</guilabel
+>. Vor dem Versand der Nachricht klickt man auf das Symbol <guilabel
+>Nachricht verschlüsseln</guilabel
+> in der Werkzeugleiste. Dann kann die Nachricht versandt werden.</para>
+
+<para
+>&kmail; verwendet immer den ersten Schlüssel, der zur Adresse des Empfängers passt, um die Nachricht zu verschlüsseln. Falls &kmail; keinen passenden Schlüssel findet, wird eine Liste der vorhandenen Schlüssel angezeigt. Man kann den geeigneten Schlüssel aus der Liste wählen oder den Vorgang abbrechen. &kmail; zeigt außerdem Fehler an, die während der Verschlüsselung passieren.</para>
+
+<para
+>Weiter oben wurde bereits erwähnt, dass man nicht in der Lage ist, die verschlüsselte Nachricht wieder zu entschlüsseln, wenn man nicht bei den Einstellungen unter <guilabel
+>Sicherheit</guilabel
+> das Ankreuzfeld <guilabel
+>Zusätzlich eigenen Schlüssel verwenden</guilabel
+> markiert hat.</para>
+
+</sect2>
+
+</sect1>
+</chapter>
+
+<chapter id="configure">
+<title
+>&kmail; einstellen</title>
+
+<para
+>Das Einstellungen-Fenster von &kmail; gibt Ihnen die Möglichkeit, &kmail; in vielerlei Hinsicht an Ihre Wünsche anzupassen.</para>
+
+<sect1 id="identity-tab">
+<title
+>Identität</title>
+
+<para
+>Die Karteikarte Identität wird im Abschnitt <link linkend="getting-started"
+>Erste Schritte</link
+> beschrieben.</para>
+
+</sect1>
+
+<sect1 id="network-tab">
+<title
+>Netzwerk</title>
+
+<para
+>Die Karteikarte Netzwerk wird im Abschnitt <link linkend="setting-up-your-account"
+>Einstellen der Postfächer</link
+> beschrieben.</para>
+
+</sect1>
+
+<sect1 id="appearance-tab">
+<title
+>Erscheinungsbild</title>
+
+<sect2 id="appearance-tab-fonts">
+<title
+>Schriftarten</title>
+
+<para
+>Dieser Abschnitt erlaubt die Änderung von Art, Größe und Zeichensatz der verwendeten Schriften. <guilabel
+>Nachricht</guilabel
+> stellt den Zeichensatz für die Nachrichtenanzeige und den Dialog <guilabel
+>Nachricht erstellen</guilabel
+> ein. Für den Bereich <guilabel
+>Nachrichtenliste - Datumsfeld</guilabel
+> gibt es einen eigenen Eintrag, damit man einen nicht-proportionalen Zeichensatz zur Erhöhung der Lesbarkeit verwenden kann.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-colors">
+<title
+>Farben</title>
+
+<para
+>Diese Karteikarte erlaubt die Änderung der Textfarbe. <guilabel
+>Farben bei tief verschachtelten Zitaten wiederholen</guilabel
+> bedeutet, dass selbst Text, der mehr als dreimal zitiert wurde, farbig erscheint.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-layout">
+<title
+>Gestaltung</title>
+
+<para
+>Das Ankreuzfeld <guilabel
+>Lange Ordnerliste anzeigen</guilabel
+> erlaubt das ein-/ausschalten der langen Ordnerliste. Ist die Option markiert, erstreckt sich die Ordnerliste über die gesamte Höhe des Fensters von &kmail;'s Hauptfenster. In der kurzen Ansicht reicht die Ordnerliste nur bis zum Nachrichtenfeld herunter. Wenn man <guilabel
+>Größe der Nachricht anzeigen</guilabel
+> auswählt, erscheint in der Nachrichtenliste eine zusätzliche Spalte, die die Nachrichtengröße in Byte anzeigt. <guilabel
+>Nachrichten nach Betreff gruppieren</guilabel
+> zeigt in der Nachrichtenliste die Nachrichten in einer Art Baumstruktur an, in der die Antworten auf eine Nachricht unterhalb der Nachricht erscheinen.</para>
+
+<para
+>Im Abschnitt <guilabel
+>Einstellungen zur Gruppierung der Nachrichten</guilabel
+> kann man die Bedingungen auswählen, unter der eine Nachrichtengruppe als geöffnet angezeigt wird. Man kann manuelle jede Nachrichtengruppe öffnen/schließen mit den Knöpfen <guilabel
+>+</guilabel
+>/<guilabel
+>-</guilabel
+>, wenn das nicht durch diese Einstellung deaktiviert wurde.</para>
+
+<para
+>Im Abschnitt <guilabel
+>Datumsanzeige</guilabel
+> kann man zwischen verschiedenen Datumsformaten wählen. Das <guilabel
+>Lokale Format</guilabel
+> ist dasjenige, das man in &kcontrol; einstellen kann.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-profiles">
+<title
+>Profile</title>
+
+<para
+>Diese Karteikarte enthält eine Liste möglicher Standardeinstellungen.</para>
+
+</sect2>
+
+<sect2 id="appearance-tab-addressbook">
+<title
+>Adressbuch</title>
+
+<para
+>Diese Karteikarte erlaubt die Auswahl zwischen verschiedenen Adressbüchern, wobei <guilabel
+>Traditionelles KMail</guilabel
+> ein sehr einfaches und <guilabel
+>&kaddressbook;</guilabel
+> ein sehr umfangreiches ist - empfohlen wird die Verwendung von &kaddressbook;. Für <guilabel
+>KAB</guilabel
+> ist das Paket kdeutils erforderlich.</para>
+
+<para
+>Während die Datenbank vom Eintrag <guilabel
+>Traditionelles KMail</guilabel
+> unabhängig ist (man bekommt keine Adressen in <guilabel
+>KAB</guilabel
+>/<guilabel
+>&kaddressbook;</guilabel
+> zu sehen, die man im <guilabel
+>Traditionellen KMail</guilabel
+> eingetragen hat), verwenden <guilabel
+>KAB</guilabel
+> und <guilabel
+>&kaddressbook;</guilabel
+> die selbe Datenbank.</para>
+
+</sect2>
+
+<!--
+<sect2 id="appearance-tab-messages-scoring">
+<title
+>Messages Scoring</title>
+
+<para
+>In this section you can manage rules that define a message's score.
+If at least one rule is defined for a folder, a <guilabel
+>Score</guilabel>
+column will appear in the Headers pane of that folder. Each rule has a
+name, a list of folders where it is active, one or more conditions that
+decide whether the rule matches a message, and one or more actions that get
+triggered if a condition is matched. This concept is very similar to that
+of <link linkend="filters"
+>filters</link
+>.</para>
+
+<para
+>The most useful action is <guilabel
+>adjust score</guilabel
+>. It will
+increase or decrease the score of a message. The idea is that important
+messages have a high score and you can then use the
+<guilabel
+>Score</guilabel
+> column to sort your messages.</para>
+
+<para
+>The <guilabel
+>display message</guilabel
+> action will display
+a dialog when you enter a folder with a matching message.</para>
+-->
+
+<!-- fixme?: date + less than/greater than broken in kmail -->
+<!-- fixme?: "group" wording in program -->
+
+<!--
+</sect2>
+-->
+
+</sect1>
+
+<sect1 id="composer-tab">
+<title
+>Nachrichten erstellen</title>
+
+<sect2 id="composer-tab-general">
+<title
+>Allgemein</title>
+
+<para
+>Im Bereich <guilabel 
+>Redewendungen</guilabel
+> können Sie Textzeilen definieren, die automatisch in Antworten, weitergeleitetete Nachrichten und zitierten Text eingefügt werden. Es sind verschiedene Platzhalter vorhanden, die durch bestimmte Texte ersetzt werden. Diese werden oberhalb dieses Bereiches angezeigt: <symbol
+>%D</symbol
+> - um das Datum einzufügen, <symbol
+>%S</symbol
+> um den Betreff einzufügen, <symbol
+>%F</symbol
+> um den Sender einzufügen, und <symbol
+>%%</symbol
+> um ein Prozentzeichen darzustellen, <symbol
+>%_</symbol
+> für einen Zwischenraum und <symbol
+>%L</symbol
+> für einen Zeilenumbruch. Man kann für verschiedene Sprachen unterschiedliche Redewendungen verwenden, indem man den Knopf <guilabel
+>Sprache</guilabel
+> verwendet. Es können nur die Sprachen verwendet werden, deren i18n-Paket installiert wurde.</para>
+
+<para
+>Das Feld <guilabel 
+>Einrückung</guilabel
+> enthält das Zeichen, das zitiertem Text vorangestellt wird (hier sollte man die Standardeinstellung beibehalten).</para>
+
+<para
+>Markiert man <guilabel
+>Signatur automatisch anhängen</guilabel
+>, so wird an jede E-Mail automatisch der auf der Karteikarte <link linkend="setting-your-identity"
+><guilabel
+>Identität</guilabel
+></link
+> unter <guilabel
+>Signatur</guilabel
+> angehängt.</para>
+
+<para
+>Bei Markierung von <guilabel
+>Intelligent zitieren</guilabel
+> wird versucht, umgebrochene lange Zeilen dennoch korrekt zu zitieren (nämlich das Zeichen <quote
+>&gt;</quote
+> am Zeilenanfang einzufügen).</para>
+
+<para
+>Markiert man das Ankreuzfeld <guilabel
+>Nachrichten automatisch mit PGP signieren</guilabel
+>, so werden alle Nachrichten standardmäßig signiert. Das kann natürlich dennoch für einzelne Nachrichten im Dialog <guilabel
+>Nachricht erstellen</guilabel
+> manuell abgeschaltet werden.</para>
+
+<para
+>Die Einstellung <guilabel
+>Zeilenumbruch bei Spalte</guilabel
+> steuert den automatischen Umbruch von zu langen Zeilen im Dialog <guilabel
+>Nachricht erstellen</guilabel
+>. Ist das Ankreuzfeld markiert, so wird nach der eingestellten Spalte umgebrochen (der Standardwert von <userinput
+>78</userinput
+> Zeichen sollte möglichst nicht geändert werden).</para>
+
+</sect2>
+
+<sect2 id="composer-tab-editor">
+<title
+>Externer Editor</title>
+
+<para
+>Man kann anstatt dem Dialog <guilabel
+>Nachricht erstellen</guilabel
+> einen anderen Editor zur Erstellung von Nachrichten festlegen. Trotz dieser Einstellung wird zunächst immer der Dialog <guilabel
+>Nachricht erstellen</guilabel
+> geöffnet. Sobald man jedoch das erste Zeichen der Nachricht eintippt, wird der externe Editor gestartet. Nach der Erstellung der Nachricht speichert man den Text und schließt den Editor. Sofort erscheint der Text im Dialog <guilabel
+>Nachricht erstellen</guilabel
+> und kann nun von dort abgeschickt werden.</para>
+
+</sect2>
+
+<sect2 id="composer-tab-subject">
+<title
+>Betreff</title>
+
+<para
+>Dieser Abschnitt enthält eine Liste von Präfixen für <quote
+>Antworten</quote
+> und <quote
+>weitergeleitete Nachrichten</quote
+>. Falls man Nachrichten erhält, die andere Präfixe für diesen Zweck verwenden, kann man sie der Liste in &kmail; hinzufügen, damit &kmail; sie von nun an erkennt (auf diese Weise kann &kmail; diese Präfixe bei der Sortierung von Nachrichten ignorieren und optional ersetzen ).</para>
+
+</sect2>
+
+<sect2 id="composer-tab-charset">
+<title
+>Zeichensatz</title>
+
+<para
+>Auf der Karteikarte <guilabel
+>Zeichensatz</guilabel
+> kann man die verfügbaren Zeichensätze für eigene Nachrichten verwalten. Die Zeichensätze dieser Liste erscheinen im Dialog <guilabel
+>Nachricht erstellen</guilabel
+> im Menü unter <menuchoice
+><guimenu
+>Optionen</guimenu
+><guimenuitem
+>Kodierung festlegen...</guimenuitem
+></menuchoice
+>.</para>
+
+<para
+>Der Abschnitt <guilabel
+>Standardzeichensatz</guilabel
+> erlaubt die Auswahl eines Zeichensatzes für eigene Nachrichten. Wenn man zusätzlich <guilabel
+>Eigenen Standardzeichensatz bei Beantwortung oder Weiterleitung verwenden</guilabel
+> markiert, wird der ursprüngliche Zeichensatz ignoriert und statt dessen der eigene Standardzeichensatz bei Beantwortung oder Weiterleitung verwendet.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="mime-tab">
+<title
+>Abschnitt &MIME;-Vorspann</title>
+<!-- fixme in kmail, too: "headers tab" -->
+
+<para
+>Der Abschnitt <guilabel
+>Eigene Vorspannfelder für ausgehende Nachrichten</guilabel
+> erlaubt die Definition von eigenen Vorspannfeldern. Markiert man <guilabel
+>Eigene Nachrichten-ID-Vorspannfelder erzeugen</guilabel
+> erlaubt die Definition eines eigenen Nachrichten-ID-Feldes. Die Nachrichten-ID muss ein weltweit eindeutiges Suffix haben. Abhängig von der Konfiguration des Computers kann das bereits der Fall sein. Man kann sich selbst eine Nachricht senden und deren Vorspann überprüfen. Wenn die Nachrichten-ID mit <quote
+>localhost</quote
+> oder einem anderen nicht garantiert eindeutigen Suffix endet, sollte man <guilabel
+>Eigene Nachrichten-ID-Vorspannfelder erzeugen</guilabel
+> markieren und ein eindeutiges Suffix erzeugen. Üblicherweise wird hier der Name einer Domain verwandt, deren Besitzer man ist.</para>
+
+<para
+>Der Abschnitt <guilabel
+>Definieren Sie hiere eigene MIME-Zuweisungen</guilabel
+> legt die Vorspannfelder fest, die &kmail; für den Versand von Nachrichten verwendet. Man kann entweder neue Felder erfinden oder existierende überschreiben. Diese Einstellmöglichkeit ist für Anfänger nicht sinnvoll.</para>
+
+</sect1>
+
+<sect1 id="security-tab">
+<title
+>Sicherheit-Karteikarte</title>
+
+<sect2 id="security-tab-general">
+<title
+>Allgemein</title>
+
+<para
+>Die Einstellung <guilabel
+>HTML-Ansicht vor Klartext bevorzugen</guilabel
+> zeigt <acronym
+>HTML</acronym
+>-Nachrichten in ihrem <acronym
+>HTML</acronym
+>-Format und -Layout. Diese Option sollte möglichst nicht ausgewählt werden, da die Darstellung von <acronym
+>HTML</acronym
+> in Nachrichten ernste Sicherheitsprobleme aufwirft. Auch wenn dieses Feld nicht markiert ist, ist man dennoch in der Lage <acronym
+>HTML</acronym
+>-Nachrichten zu lesen, allerdings lediglich als unformatierte Texte.</para>
+
+<para
+><guilabel
+>Externe Referenzen aus dem Internet laden</guilabel
+> lädt externe Bilder, Stilvorlagen usw. aus dem Internet, wenn man eine <acronym
+>HTML</acronym
+>-Nachricht liest. Diese Option sollte möglichst nicht gewählt werden (sie hat allerdings keine Auswirkungen, wenn <guilabel
+>HTML-Ansicht vor Klartext bevorzugen</guilabel
+> nicht markiert ist). Durch externe Referenzen können Leute, die Spam-Mail versenden, leicht überprüfen, ob man die Nachricht gelesen hat. Zu beachten ist, dass diese Einstellung keinen Effekt auf Java, Javascript und Plugins hat - diese sind für E-Mails generell deaktiviert und können auch nicht aktiviert werden.</para>
+
+<para
+><guilabel
+>Automatische Empfangs- und Lesebestätigungen senden</guilabel
+> sendet automatisch eine Bestätigung (in Form einer neuen E-Mail) an den Absender einer Nachricht, wenn dieser eine solche angefordert hat. Falls man dieses Ankreuzfeld nicht markiert, wird keinesfalls eine Bestätigung verserndet. Falls man im Einzelfall dennoch eine Bestätigung versenden möchte, kann man das mit Hilfe der Filteraktion <guilabel
+>Zustellung bestätigen</guilabel
+> bewerkstelligen.</para>
+
+</sect2>
+
+<sect2 id="security-tab-pgp">
+<title
+>PGP</title>
+
+<para
+>Zur Erläuterung der Karteikarte <guilabel
+>PGP</guilabel
+> kann man im Abschnitt <link linkend="pgp-settings"
+><application
+>PGP</application
+></link
+> nachlesen.</para>
+
+</sect2>
+
+</sect1>
+
+<sect1 id="misc-tab">
+<title
+>Verschiedenes</title>
+
+<sect2 id="misc-tab-trash-folder">
+<title
+>Papierkorb</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Papierkorb beim Beenden leeren</guilabel
+></term
+> <listitem
+> <para
+>Wenn diese Option aktiviert ist, dann werden beim Verlassen von &kmail; alle Nachrichten im Papierkorb gelöscht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Größe für Mülleimer immer kleiner als...</guilabel
+></term
+> <listitem
+> <para
+>Beim Beenden werden alte Nachrichten gelöscht, wenn der Mülleimer mehr als diese Obergrenze an Daten enthält.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Beim Beenden Nachrichten aus dem Mülleimer löschen, die älter sind als...</guilabel
+></term
+> <listitem
+> <para
+>Wenn diese Option aktiviert ist, dann werden beim Verlassen von &kmail;alle Nachrichten die älter als das angegebene Alter sind gelöscht.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="misc-tab-folders">
+<title
+>Ordner</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guilabel
+>Nachrichten im Postausgang bei Abholung senden</guilabel
+></term
+> <listitem
+> <para
+>Alle Nachrichten im Postausgang werden automatisch gesendet, wenn Sie neue Mail abholen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Bei Beenden alle Ordner komprimieren</guilabel
+></term
+> <listitem
+> <para
+>Komprimiert alle Ordner am Programmende von &kmail;. Komprimieren heißt, dass alle gelöschten Nachrichten endgültig entfernt werden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guilabel
+>Vor dem Leeren der Ordner nachfragen</guilabel
+></term
+> <listitem
+> <para
+>Einen Ordner leeren bedeutet, die enthaltenen Nachrichten in den Ordner <guilabel
+>Mülleimer</guilabel
+> zu verschieben (und sie nur dann wirklich zu löschen, wenn sie sich bereits im Ordner <guilabel
+>Mülleimer</guilabel
+> befinden). Obwohl man also normalerweise keine Nachricht verliert, kann man dennoch einen Bestätigungsdialog aktivieren, der vor dem Leeren eines Ordners nachfragt.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="misc-tab-new-mail-notification">
+<title
+>Benachrichtigung bei neuen Nachrichten</title>
+
+<para
+>Hier lassen sich Aktionen einstellen, die beim Eintreffen neuer E-Mail durchgeführt werden sollen. Beachtenswert ist, dass das automatische Abrufen neuer E-Mail in den Einstellungen im Abschnitt Netzwerk unter <link linkend="receiving-mail"
+>Eingehende E-Mail</link
+> konfiguriert werden kann.</para>
+
+</sect2>
+
+</sect1>
+
+</chapter>
+
+
+<chapter id="menus">
+<title
+>Menüs und Tastenkombinationen</title>
+
+<para
+>Die einzelnen Menüeinträge sind unten beschrieben. Falls eine Tastenkombination existiert, die die entsprechende Funktion ausführt, ist diese dabei aufgeführt.</para>
+
+<sect1 id="main-mail-reader-window">
+<title
+>Das Hauptfenster</title>
+
+<sect2 id="reader-file-menu">
+<title
+>Menü <guimenu
+>Datei</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie Probleme oder Wünsche...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet ein neues <guilabel
+>Hauptfenster</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>F</accel
+>ile</guimenu
+> <guimenuitem
+>Speichern <accel
+>A</accel
+>ls...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Speichert die gerade angezeigte Nachricht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>D</accel
+>rucken...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Druckt die gerade angezeigte Nachricht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>A</accel
+>lle Ordner komprimieren</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Komprimiert alle Ordner, entfernt und verschiebt also alle die Nachrichten endgültig, die man in &kmail; gelöscht oder verschoben hat.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Na <accel
+>c</accel
+>h E-Mail sehen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+>Prüft nach neuen Nachrichten in allen Postfächern, außer denen, die man explizit durch Ankreuzen von <guilabel
+>Von &quot;Nach E-Mail sehen&quot; ausnehmen</guilabel
+> davon ausgeschlossen hat.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Nac<accel
+>h</accel
+> E-Mail sehen in</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Untermenü, aus dem Sie ein bestimmtes Postfach auswählen können, welches überprüft werden soll.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>P</accel
+>ostausgang versenden</guimenuitem
+> </menuchoice
+></term
+> <listitem
+> <para
+>Sendet die Nachrichten in Ihrem Postausgang</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Adress<accel
+>b</accel
+>uch...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet das <link linkend="the-address-book"
+>Adressbuch</link
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+><accel
+>I</accel
+>mportieren...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Startet <application
+>kmailcvt</application
+> (ein Programm aus kdenetwork). Dieses Programm erlaubt den Import der Nachrichten von verschiedenen proprietären E-Mail-Programmen in &kmail;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>D</accel
+>atei</guimenu
+> <guimenuitem
+>Schli<accel
+>e</accel
+>ßen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Schließt das aktuelle Hauptfenster oder beendet &kmail;, wenn nur dieses eine Fenster offen war.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-edit-menu">
+<title
+>Menü <guimenu
+>Bearbeiten</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>ückgängig</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Macht die letzte Lösch- oder Verschiebeoperation rückgängig. Zu beachten ist, dass eine Löschung im Mülleimer nicht rückgängig gemacht werden kann.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Text kopieren</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Kopiert markierten Text in die Zwischenablage.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>D</keycap
+> </shortcut
+> <guimenu
+>tearbeiten</guimenu
+> <guimenuitem
+>eöschen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Überträgt alle Nachrichten des ausgewählten Ordners in den Papierkorb. Falls der ausgewählte Ordner der Papierkorb ist, werden die Nachrichten endgültig gelöscht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>S</keycap
+> </shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Nachrichten durchsuchen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet ein Suchfenster, das die Suche nach Nachrichten mit bestimmten Eigenschaften, z.B. einem bestimmten Betreff, erlaubt. Die Suche wird durch Eingabe einiger Werte und Klicken auf <guibutton
+>Suchen</guibutton
+> gestartet. Klickt man auf eine der gefundenen Nachrichten, so erscheint sie in der <guilabel
+>Nachrichtenliste</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>tearbeiten</guimenu
+> <guimenuitem
+>.achricht durchsuchen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ermöglicht die Suche nach einer Zeichenkette in der aktuellen Nachricht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycap
+>K</keycap
+></shortcut
+><guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Alle Nachrichten auswählen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Wählt alle Nachrichten im aktuellen Ordner aus.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Text der Nachricht auswählen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Selektiert den Text der gerade angezeigten Nachricht.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+
+<sect2 id="reader-view-menu">
+<title
+>Menü <guimenu
+>Ansicht</guimenu
+></title>
+
+<!-- LW: This really needs to be broken up to one varlistentry per menu item, fixme -->
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>V</accel
+>iew</guimenu
+> <guimenuitem
+>Kurzer Vorspann</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Dekorativer Vorspann</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Standard-Vorspann</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Langer Vorspann</guimenuitem
+></menuchoice
+> <menuchoice
+> <guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Originalvorspann</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Verändert die Anzahl der angezeigten Header-Informationen sowie deren Formatierung im <guilabel
+>Nachrichtenbereich</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Anhänge als Symbole</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Elegante Anhänge</guimenuitem
+> </menuchoice
+> <menuchoice
+> <guimenu
+>Ansicht</guimenu
+> <guimenuitem
+>Eingebettete Anhänge</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Verändert die Anzeige der angehängten Dateien im <guilabel
+>Nachrichtenbereich</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-folder-menu">
+<title
+>Menü <guimenu
+>Ordner</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Ordner</guimenu
+> <guimenuitem
+>Erstellen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet den Dialog <guilabel
+>Ordner anlegen</guilabel
+>, mit desse Hilfe man neue Ordner anlegen kann. Der neue Ordner kann ein Unterordner sein, wenn man in der Liste <guilabel
+>nehört zu:</guilabel
+> einen übergeordneten Ordner auswählt. Wenn dieser Ordner einer Mailingliste zugeordnet werden soll, kann man diese unter <guilabel
+>Dazugehörige Mailingliste</guilabel
+> auswählen. Dadurch wird es möglich, den Menüeintrag <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guimenuitem
+>An Mailingliste antworten...</guimenuitem
+></menuchoice
+> zu verwenden. Es erstellt eine Antwortnachricht, bei der im Feld <guilabel
+>An:</guilabel
+> bereits die Mailingliste eingetragen wird (damit wird also das Feld <token
+>Antwort-An</token
+> der beantworteten Nachricht ignoriert). Eine zweite Möglichkeit ist, in der Ordnerliste mit der mittleren Maustaste zu klicken, um eine Nachricht an die zugehörige Mailingliste zu erstellen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>rdner</guimenu
+> <guimenuitem
+><accel
+>E</accel
+>igenschaften</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet den Dialog <guilabel 
+>Ordner ändern</guilabel
+>, in dem Sie die Einstellungen des markierten Ordners ändern können.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Ordner</guimenu
+> <guimenuitem
+>Komprimieren</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Komprimiert den Ordner, um seinen Speicherplatzbedarf zu reduzieren. Benutzen Sie diese Funktion, wenn Sie den Eindruck haben, dass Ihre Ordner viel größer sind, als Sie eigentlich sein sollten. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Ordner</guimenu
+> <guimenuitem
+>Leeren</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Überträgt alle Nachrichten des ausgewählten Ordners in den Papierkorb. Falls der ausgewählte Ordner der Papierkorb ist, werden die Nachrichten endgültig gelöscht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Ordner</guimenu
+> <guimenuitem
+>Entfernen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Entfernt den ausgewählten Ordner.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>O</accel
+>rdner</guimenu
+> <guimenuitem
+>H<accel
+>T</accel
+>ML-Ansicht vor Klartext bevorzugen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Zeigt die <acronym
+>HTML</acronym
+>-Nachrichten im <acronym
+>HTML</acronym
+>-Format an. Aus Sicherheitsgründen sollte diese Einstellung nur für vertrauenswürdige Nachrichten verwendet werden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Ordner</guimenu
+> <guimenuitem
+>Nachrichten gruppiert anzeigen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Zeigt die Nachrichten in der <guilabel
+>Nachrichtenliste</guilabel
+> in einer Baumstruktur, wobei die Antworten auf eine Nachricht unterhalb der ursprünglichen Nachricht erscheinen.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-message-menu">
+<title
+>Menü <guimenu
+>Nachricht</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Neue Nachricht...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet ein neues Fenster, so dass Sie eine neue Nachricht erstellen können. Falls der momentan ausgewählte Ordner eine Mailingliste beinhaltet und eine <guilabel
+>Sendeadresse</guilabel
+> definiert ist, wird diese Adresse für <guilabel
+>An:</guilabel
+> verwendet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>N</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Nächste</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Wählt die nächste Nachricht in der Nachrichtenliste. Das Tastenkürzel <keycap
+>Pfeil rechts</keycap
+> kann ebenfalls verwendet werden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>+</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Nächste ungelesene</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Zeigt die nächste ungelesene Nachricht an.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>P</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Vorherige</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Zeigt die vorherige Nachricht an.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>-</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>eetzte ungelesene</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Zeigt die vorherige ungelesene Nachricht an.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>R</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Antworten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet ein Fenster zum Nachrichten erstellen, mit dem Absender der ausgewählten Nachricht als Empfänger.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>A</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Allen antworten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet <guilabel
+>Nachricht erstellen</guilabel
+> und kopiert den Inhalt der Felder <guilabel
+>An</guilabel
+> und <guilabel
+>Anwortadresse</guilabel
+> der ausgewählten Nachricht in das Empfängerfeld und die Felder <guilabel
+>Kopie</guilabel
+> und <guilabel
+>Blindkopie (Bcc)</guilabel
+> in die entsprechenden Felder des Fensters <guilabel
+>Nachricht erstellen</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>L</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>An Mailingliste antworten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet den Dialog <guilabel
+>Nachricht erstellen</guilabel
+> und setzt das Feld <guilabel
+>An:</guilabel
+> mit der Adresse der Mailingliste. Natürlich funktioniert dieser Menüpunkt nur dann, wenn der aktuelle Ordner mit einer Mailingliste verbunden wurden. Ansonsten bleibt das Feld <guilabel
+>An:</guilabel
+> leer.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Alt;<keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Ohne Zitat antworten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet den Dialog <guilabel
+>Nachricht erstellen</guilabel
+> für die Antwort, zitiert aber den ursprünglichen Text nicht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>F</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Weiterleiten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Leitet die Nachricht an einen neuen Empfänger weiter. Der Nachrichtentext wird in die neue Nachricht kopiert und ein kurzer Text vorangestellt, der die Nachricht als weitergeleitet kennzeichnet. Anhänge werden ebenfalls angehängt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+> <keycap
+>F</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Als Anhang weiterleiten</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Leitet die Nachricht als Anhang weiter. Anhänge der ursprünglichen Nachricht werden ebenfalls als Anhänge weitergeleitet.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>E</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Umleiten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Funktioniert analog zu <guilabel
+>Weiterleiten</guilabel
+>, lediglich wird der Nachrichteninhalt nicht verändert (selbst das Feld <guilabel
+>Von:</guilabel
+> nicht). Der Benutzer, der die Nachricht umgeleitet hat, wird in speziellen Vorspannfeldern kenntlich gemacht (<literal
+>Redirect-From</literal
+>, <literal
+>Redirect-Date</literal
+>, <literal
+>Redirect-To</literal
+>, &etc;).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Zurückschicken...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Schickt die Nachricht an den Absender zurück. Es wird eine Notiz hinzugefügt, das die Nachricht nicht zugestellt werden konnte. Diese Nachricht stimmt beinahe überein mit der Nachricht eines Mailservers, wenn der adressierte Benutzer nicht existiert. Man könnte diese Option verwenden, um auf Spam zu <quote
+>antworten</quote
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Ernetu senden...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sendet die Nachricht noch einmal.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guisubmenu
+>Kodierung festlegen...</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Die zur Nachrichtenanzeige verwendete Kodierung kann eingestellt werden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>T</keycap
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Bearbeiten</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet die Nachricht zur Bearbeitung, falls möglich. Nur Nachrichten in den Ordnern <guilabel
+>Postausgang</guilabel
+> und <guilabel
+>Entwürfe</guilabel
+> können bearbeitet werden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guisubmenu
+>Filter anlegen</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet den Dialog <link linkend="filter-dialog-id"
+>Filter</link
+> mit einem neuen Filter. Dieser neue Filter basiert auf den Feldern der aktuellen Nachricht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guisubmenu
+>Status setzen</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Erlaubt es Ihnen den Status der ausgewählten Nachricht auf einen der folgenden Werte zu setzen (mehr als ein Status pro Nachricht wird bisher nicht unterstützt):</para
+> <itemizedlist
+> <listitem
+> <para
+><guimenuitem
+>Neu</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Ungelesen</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Gelesen</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Beantwortet</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Wartend</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Gesendet</guimenuitem
+></para
+> </listitem
+> </itemizedlist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guisubmenu
+>Verschieben nach:</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Verschiebt alle ausgewählten Nachrichten in einen bestimmten Ordner.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guisubmenu
+>Kopieren nach:</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Kopiert alle ausgewählten Nachrichten in einen bestimmten Ordner.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>J</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Filter anwenden</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Wendet die Filter auf die ausgewählten Nachrichten an.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Nachrichtencode ansehen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Zeigt in einem neuen Fenster den gesamten Nachrichtenvorspann und die Nachricht als unformatierten Text. Das kann für die Ermittlung des Ursprungs einer Nachricht nützlich sein. Es ist leicht, das Feld <literal
+>Von:</literal
+> einer Nachricht zu fälschen, dennoch kann man herausfinden, welche Mailserver für den Versand verwendet wurden, indem man sich die Inhalte der <literal
+>Received:</literal
+>-Vorspannfelder anschaut.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+<sect2 id="reader-settings-menu">
+<title
+><guimenu
+>Einstellungen</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Werk<accel
+>z</accel
+>eugleiste anzeigen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ist dieser Eintrag markiert, so ist die Werkzeugleiste sichtbar (die Werkzeugleiste die Leiste mit den Symbolen für Nachricht erstellen usw.).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>tatusleiste anzeigen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Wenn markiert ist die Statusleiste sichtbar (die Statusleiste ist die schmale Leiste unterhalb des Hauptfensters, die kurze Meldungen und Link-Adressen anzeigt).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>astenzuordnungen vornehmen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet ein Fenster zur Einrichtung der Tastenkürzel für viele Menüeinträge.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Werkzeugleisten einrichten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet ein Fenster, das die Auswahl der in einer Werkzeugleister sichtbaren Symbole erlaubt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>KMail einrichten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet den Dialog <link linkend="configure"
+>Einstellungen</link
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Filter einrichten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet den Dialog <link linkend="filters"
+>Filter einrichten...</link
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="reader-help-menu">
+<title
+><guimenu
+>Hilfe</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycap
+>F1</keycap
+> </shortcut
+> <guimenu
+>Hilfe</guimenu
+> <guimenuitem
+>Inhalt</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Ruft das &kde;-Hilfesystem auf und zeigt die Dokumentation zu &kmail; an.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Shift;<keycap
+>F1</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Was ist <accel
+>d</accel
+>as?</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Durch diesen Menüeintrag wird der Mauszeiger zu einem Pfeil mit Fragezeichen. Klickt man nun auf irgendeine Komponente von &kmail;, so erscheint eine kurze kontextsensitive Hilfe zu dieser Komponente (leider ist diese Funktion bisher in &kmail; größtenteils noch nicht programmiert).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Be<accel
+>r</accel
+>ichten Sie Probleme oder Wünsche...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet einen Dialog für eine Fehlernachricht. Man muss dazu allerdings eine Internetverbindung haben.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Hilfe</guimenu
+> <guimenuitem
+>Über KMail</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Zeigt die wichtigsten Informationen über &kmail; an (Version, Autoren, Lizenzbedingungen).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>H</accel
+>ilfe</guimenu
+> <guimenuitem
+>Über <accel
+>K</accel
+>DE</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Zeigt Informationen über &kde; an.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+</sect1>
+
+
+<sect1 id="composer-window-menus">
+<title
+>Nachrichten erstellen</title>
+
+<sect2 id="composer-file-menu">
+<title
+>Menü <guimenu
+>Nachricht</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Eingabe</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Senden</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sendet die Nachricht sofort.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>In Postausgang</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sendet die Nachricht gemäß Ihren Einstellungen. Entweder wird die Nachricht direkt gesendet oder in den Postausgang(outbox) geschrieben.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>In Entwürfe-Ordner speichern</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Speichert die Nachricht im Ordner <guilabel
+>Entwürfe</guilabel
+>. Man kann sie dort später weiter bearbeiten und dann senden.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachrichts</guimenu
+> <guimenuitem
+>Datei einfügen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Fügt eine Textdatei an der aktuellen Cursorposition in die Nachricht ein.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Drucken...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Druckt die gerade angezeigte Nachricht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Adressbuch...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet das Adressbuch.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Neue Nachricht...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet ein neues Fenster des Dialogs <guilabel
+>Nachricht erstellen</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>W</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Nachricht</guimenu
+> <guimenuitem
+>Schließen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Schließt das Fenster <guilabel
+>Nachricht erstellen</guilabel
+>.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+
+<sect2 id="composer-edit-menu">
+<title
+>Menü <guimenu
+>Bearbeiten</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+><accel
+>B</accel
+>earbeiten</guimenu
+> <guimenuitem
+><accel
+>R</accel
+>ückgängig</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Macht die Bearbeitungsschritte in der aktuellen Nachricht rückgängig.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Wiederherstellen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Stellt rückgängig gemachte Bearbeitungsschritte in der aktuellen Nachricht wieder her.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Ausschneiden</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Text ausschneiden funktioniert analog zu einem Textverarbeitungsprogramm. Man kann außerdem einen Textabschnitt markieren und mit dem Mauszeiger an eine neue Stelle ziehen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Kopieren</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Text kopieren funktioniert analog zu einem Textverarbeitungsprogramm. Alternativ kann man einen Textabschnitt markieren und bei gedrückter &Ctrl;-Taste mit der Maus an eine neue Stelle ziehen, um ihn zu kopieren.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>V</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Einfügen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Einfügen funktioniert analog zu einem Textverarbeitungsprogramm.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Alles auswählen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Markiert den gesamten Text der Nachricht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Suchen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Sucht eine Zeichenkette in der Nachricht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>R</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Ersetzen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Lässt Sie Wörter, Sätze oder Ausdrücke in der Nachricht durch andere Wörter oder Ausdrücke ersetzen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Zwischenräume komprimieren</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Es werden mehrere Leerzeichen durch ein einziges ersetzt. Falls Text ausgewählt ist, bezieht sich die Funktion auf die Selektion, ansonsten auf den gesamten Nachrichtentext.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Bearbeiten</guimenu
+> <guimenuitem
+>Rechtschreibung...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Verwendet &kspell;, um die Rechtschreibung des Nachrichtentextes zu überprüfen. Zu beachten ist, dass man &kspell; über <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>Rechtschreibprüfung... </guimenuitem
+></menuchoice
+> vor der ersten Benutzung einrichten muss.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="composer-view-menu">
+<title
+>Menü <guimenu
+>Ansicht</guimenu
+></title>
+
+<para
+>Dieses Menü lässt Sie unter anderem bestimmen, welche Felder des sorspanns im Dialog <guilabel
+>Nachricht erstellen</guilabel
+> angezeigt werden.</para>
+
+<para
+>Mögliche Einstellungen sind:</para>
+
+<itemizedlist
+> <listitem
+> <para
+><guimenuitem
+>Alle Felder</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Identität</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Versandart</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Von</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Antwort an</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>An</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Kopie</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Blindkopie</guimenuitem
+></para
+> </listitem
+> <listitem
+> <para
+><guimenuitem
+>Betreff</guimenuitem
+></para
+> </listitem
+> </itemizedlist>
+
+<para
+>Angezeigte Vorspannfelder haben einen Haken links neben dem Menüeintrag.</para>
+
+</sect2>
+
+<sect2 id="composer-options-menu">
+<title
+>Menü <guimenu
+>Optionen</guimenu
+></title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Optionen</guimenu
+> <guimenuitem
+>Dringend</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Legt die Priorität der Nachricht als dringend fest. Falls das E-Mail-Programm des Empfängers keine Prioritäten unterstützt, hat diese Einstellung keine Auswirkungen. &kmail; selbst unterstützt keine Prioritäten für eingehende Nachrichten.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Optionen</guimenu
+> <guimenuitem
+>austellung bestätigen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Wenn Sie diese Option aktivieren, werden Sie eine Bestätigungsnachricht erhalten, wenn Ihre Nachricht erfolgreich an den Zielrechner ausgeliefert wurde. Die Funktion hängt ebenfalls von den Fähigkeiten des E-Mail-Programmes des Empfängers ab.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Optionen</guimenu
+> <guimenuitem
+>Lesen bestätigen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Wenn Sie diese Option aktivieren, werden Sie eine Bestätigungsnachricht erhalten, wenn Ihre Nachricht vom Empfänger heruntergeladen und gelesen wurde. Die Funktion hängt ebenfalls von den Fähigkeiten des E-Mail-Programmes des Empfängers ab. </para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Optionen</guimenu
+> <guisubmenu
+>Kodierung festlegen...</guisubmenu
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Legt die Kodierung für diese Nachricht fest. Diese Einstellung erscheint im Vorspann der gesendeten E-Mail.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Optionen</guimenu
+> <guimenuitem
+>Zeilenumbruch</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Schaltet den automatischen Zeilenumbruch an/aus. Es kann sinnvoll sein, diese Funktion zu deaktivieren, wenn man lange Zeilen einfügen möchte und diese nicht umgebrochen werden sollen.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+
+<sect2 id="composer-attach-menu">
+<title
+>Menü <guimenu
+>Anhänge</guimenu
+></title>
+
+<para
+>In diesem Menü können Sie die Einstellungen bezüglich der angehängten Daten ändern.</para>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Anhängen</guimenu
+> <guimenuitem
+>Signatur anfügen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Fügt den Inhalt Ihrer Signatur-Datei (<quote
+>Fußnote</quote
+>) an die Nachricht an.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Anhängen</guimenu
+> <guimenuitem
+>Öffentlichen Schlüssel anhängen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Hängt den ausgewählten <application
+>PGP</application
+>-/<application
+>GnuPG</application
+>-Schlüssel unter Benutzung der Standardkodierung an die Nachricht an.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Anhängen</guimenu
+> <guimenuitem
+>Eigenen öffentlichen Schlüssel anhängen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Hängt den eigenen <application
+>PGP</application
+>-/<application
+>GnuPG</application
+>-Schlüssel unter Benutzung der Standardkodierung an die Nachricht an.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Anhängen</guimenu
+> <guimenuitem
+>Anhängen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Hängt eine Datei unter Benutzung der von Ihnen ausgewählten Kodierung an die Nachricht an. Der Dialog erlaubt durch Verwendung der &Ctrl;-Taste die Auswahl mehrerer Dateinamen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Anhängen</guimenu
+> <guimenuitem
+>Entfernen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Entfernt die angehängte Datei, die im Attachmentbereich markiert wurde.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Anhängen</guimenu
+> <guimenuitem
+>Speichern...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Speichert die angehängte Datei, die im Attachmentbereich markiert wurde, in eine Datei.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Anhängen</guimenu
+> <guimenuitem
+>Eigenschaften...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Zeigt die Eigenschaften des ausgewählten Anhangs an.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="composer-settings-menu">
+<title
+><guimenu
+>Einstellungen</guimenu
+>-Menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+>Werk<accel
+>z</accel
+>eugleiste anzeigen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Falls aktiviert, ist die Werkzeugleiste sichtbar (die Werkzeugleiste ist die Leiste mit dem Symbol Nachricht senden usw.).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>S</accel
+>tatusleiste anzeigen</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Falls aktiviert, ist die Statusleiste sichtbar (die Statusleiste ist die schmale Leiste am unteren Ende des Hauptfensters, die kurze nützliche Mitteilungen anzeigt).</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+><accel
+>E</accel
+>instellungen</guimenu
+> <guimenuitem
+><accel
+>T</accel
+>astenzuordnungen vornehmen...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet einen Dialog, der die Einrichtung von Tastenkürzeln für viele Menüeinträge erlaubt.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Werkzeugleisten einrichten...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Öffnet einen Dialog, der die Auswahl der in der Werkzeuleiste erscheinenden Symbole ermöglicht.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+> <menuchoice
+> <guimenu
+>Einstellungen</guimenu
+> <guimenuitem
+>Rechtschreibprüfung...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+> <para
+>Erlaubt es Ihnen &kspell;, die Rechtschreibprüfung von &kde;, zu konfigurieren.</para
+> </listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+
+<sect2 id="composer-help-menu">
+<title
+><guimenu
+>Hilfe</guimenu
+>-Menü</title>
+
+<para
+> Die Einträge in diesem Menü haben die gleiche Bedeutung wie die entsprechenden Einträge im <link linkend="reader-help-menu"
+>Hilfemenü des Hauptfensters</link
+>.</para>
+
+</sect2>
+</sect1>
+</chapter>
+
+<chapter id="faq">
+<title
+>Häufig gestellte Fragen (Frequently Asked Questions &FAQ;)</title>
+
+<qandaset id="faq-set">
+
+<qandaentry>
+<question
+><para
+>Die Größe meiner Ordner wächst, selbst wenn ich Nachrichten lösche.</para
+></question>
+<answer
+><para
+> Um Nachrichten wirklich von der Festplatte zu entferenn, muss man seine Ordner <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Alle Ordner komprimieren</guimenuitem
+></menuchoice
+> (standardmäßig passiert das jeweils beim Beenden von &kmail;).</para>
+<para
+>Es gibt allerdings einen bereits bekannten Fehler, der leider in der Version zu &kde; 2.2.0 (&kmail; 1.3) noch enthalten ist: manchmal lassen sich einzelne  Ordner weder automatisch noch manuell komprimieren. Es gibt eine Hilfe für diesen Fehler: man muss die Datei <filename
+>~/.kde/share/config/kmailrc</filename
+> öffnen, nach allen Vorkommen von <quote
+>Consistent=false</quote
+> suchen und diese durch <quote
+>Consistent=true</quote
+> ersetzen ( &kmail; darf währenddessen nicht geöffnet sein). Dieser Fehler wurde in &kde; 2.2.1 behoben. </para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Der Filter <guilabel
+>&lt;An oder Kopie&gt;</guilabel
+> <guilabel
+>enthält nicht</guilabel
+> <userinput
+>xxx</userinput
+> funktioniert nicht.</para
+></question>
+<answer
+><para
+>Das ist kein Fehler, sondern eine leicht misszuverstehende Syntax. Die Quelle der Verwirrung stammt daher, das man glauben kann, <guilabel
+>&lt;An oder Kopie&gt;</guilabel
+> <guilabel
+>enthält nicht</guilabel
+> <userinput
+>xxx</userinput
+> bedeutet, weder <guilabel
+>An</guilabel
+> noch <guilabel
+>Kopie</guilabel
+> dürfen die Zeichenkette <userinput
+>xxx</userinput
+> enthalten. Diese Annahme, dass <guilabel
+>enthält nicht</guilabel
+> eine Negierung der gesamten Regel bedeutet, ist falsch.</para>
+<para
+>Stattdessen ist <guilabel
+>enthält nicht</guilabel
+> nur ein weiterer <emphasis
+>Operator</emphasis
+>, so wie <guilabel
+>enthält</guilabel
+>. Er bedeutet nicht <quote
+>negiere die Regel</quote
+>. Genau so wie <guilabel
+>&lt;An oder Kopie&gt;</guilabel
+> <guilabel
+>enthält</guilabel
+> <userinput
+>xxx</userinput
+> bedeutet <quote
+><guilabel
+>An</guilabel
+> <guilabel
+>enthält</guilabel
+> <userinput
+>xxx</userinput
+> <emphasis
+>oder</emphasis
+> <guilabel
+>Kopie</guilabel
+> <guilabel
+>enthält</guilabel
+> <userinput
+>xxx</userinput
+></quote
+>, bedeutet <guilabel
+>&lt;An oder Kopie&gt;</guilabel
+> <guilabel
+>enthält nicht</guilabel
+> <userinput
+>xxx</userinput
+>, dass entweder <quote
+><guilabel
+>An</guilabel
+> <userinput
+>xxx</userinput
+> nicht enthält <emphasis
+>oder</emphasis
+> <guilabel
+>Kopie</guilabel
+> <userinput
+>xxx</userinput
+> nicht enthält</quote
+>.</para>
+<para
+>Man kann das gewünschte Verhalten allerdings durch die Kombination von zwei Regeln erreichen. Eine für <guilabel
+>An</guilabel
+> und eine für <guilabel
+>Kopie</guilabel
+>. Die nächste Version von &kmail; wird eine Erneuerung der Filterkriterien enthalten, die einen einfacheren Weg zu dieser Semantik eröffnet.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Wenn ich auf eine E-Mail antworte, erscheint ein Sonderzeichen vor der Signatur. Ich erhalte außerdem eine Warnung, dass sich der Zeichensatz geändert hat, wenn ich diese E-Mail zu senden versuche.</para
+></question>
+<answer>
+<para
+>Aktualisieren Sie Qt auf Version 2.3.1.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Wo kann ich eine Liste der Veränderungen einsehen, die von Version zu Version in &kmail; vorgenommen wurden?</para
+></question>
+<answer>
+<para
+>Das Begrüßungsfenster von &kmail; listet alle wichtigen Änderungen dieser Version auf. Wenn man eine neue Version von &kmail; das erste Mal startet, wird dieses Fenster angezeigt. Man kann dieses Fenster durch Klicken auf das Wurzelelement der Ordnerliste, also den Eintrag <guilabel
+>E-Mail</guilabel
+> erneut anzeigen lassen.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kann ich die Position meines Mail-Verzeichnisses ändern?</para
+></question>
+<answer>
+<para
+>Man muss &kmail; verlassen, eine Sicherungskopie von <filename
+>~/.kde/share/config/kmailrc</filename
+> anlegen, diese Datei dann in einem Editor öffnen und den Eintrag <userinput
+>folders=/home/username/.mail</userinput
+> im Abschnitt <quote
+>[General]</quote
+> hinzufügen. Dann muss man alle vorhandenen Mail-Ordner (einschließlich der versteckten Indexdateien) an die neue Position verschieben. Beim nächsten Start verwendet &kmail; <filename class="directory"
+>/home/username/.mail</filename
+> anstatt von <filename class="directory"
+>/home/username/Mail</filename
+> als Mail-Verzeichnis. Beachtenswert ist, dass &kmail; alle Filter verliert, falls man das Mail-Verzeichnis ändert, aber die vorhandenen Ordner nicht verschiebt.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Der Knopf für die Signierung von Nachrichten ist nicht mehr aktiviert. Er war es aber vor einiger Zeit.</para
+></question>
+<answer
+><para
+>Man muss nun im Feld <guilabel
+>PGP-Nutzeridentität</guilabel
+> im Abschnitt <guilabel
+>Identität</guilabel
+> im Einrichtungsdialog die gewünschte Identität eintragen. Ohne diesen Eintrag kann &kmail; nicht ermitteln, welcher Schlüssel für die Signierung der eigenen Nachrichten verwendet werden soll.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Meine E-Mails bestehen häufig aus mehr als 100 zitierten Zeilen und einer einzigen selbst geschriebenen Zeile. Aus für mich unerfindlichen Gründen ärgern sich andere Zeitgenossen darüber. Kann &kmail; hier für Abhilfe sorgen?</para
+></question>
+<answer
+><para
+>Aber sicher. Man wählt einfach den wichtigen Teil der Nachricht mit der Maus aus, bevor man antwortet. Dann wird nur dieser Teil in der Antwort zitiert.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&kmail; verschwindet/stürzt ab beim herunter laden von E-Mail.</para
+></question>
+<answer
+><para
+>Man muss für ausreichend Speicherplatz auf der Festplatte sorgen. &kmail; ist auf mangelnden Speicherplatz nicht eingestellt und beendet sich in einem solchen Fall selbst. Beachtenswert ist, dass dadurch keine Nachrichten verloren gehen. Nachrichten, die nicht gespeichert werden konnten, werden auf dem Server belassen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Unterstützt das Adressbuch von &kmail; Verteilungslisten?</para
+></question>
+<answer
+><para
+>Nein. Man kann allerdings mehrere E-Mail-Adressen zu einem Adressbucheintrag hinzufügen, wenn man das <quote
+>traditionelle</quote
+> Adressbuch von &kmail; verwendet.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Bei einigen Nachrichten ist der Eintrag im Feld <guilabel
+>Datum</guilabel
+> falsch. Er zeigt <guilabel
+>Wed Dec 31 17:00:00 1969</guilabel
+>.</para
+></question>
+<answer
+><para
+>Wahrscheinlich ist das Vorspannfeld <quote
+>Date:</quote
+> falsch oder die Zeitzoneninformationen fehlen in diesem Feld. Für diese Fälle haben wir eine Hilfe zur MIME-Bibliothek (mimelib) hinzugefügt. In &kde; 2.2 ist mimelib ein Teil vom Paket kdenetwork. Wichtig ist, dass diese Bibliothek und nicht eine andere Version auf dem System installiert ist.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Meine Signatur wird immer unterhalb von zwei Strichen eingefügt. Das gefällt mir nicht.</para
+></question>
+<answer>
+<para
+>Zwei Striche und ein Leerzeichen vor der Signatur sind ein üblicher und nützlicher E-Mail-Standard. Falls man sich damit gar nicht anfreunden kann, kann man immer noch den Quelltext von &kmail; ändern und diese Zeile wie gewünscht anpassen.</para>
+</answer>
+</qandaentry>
+
+<!-- TODO: kmail can beep, but how to add an icon to the taskbar
+<qandaentry>
+<question
+><para
+>How do I get a notification if new mail arrives?</para
+></question>
+<answer
+><para
+>fixme</para
+></answer>
+</qandaentry>
+-->
+
+<qandaentry>
+<question
+><para
+>&kmail; lädt die gleichen Nachrichten immer wieder herunter.</para
+></question>
+<answer
+><para
+>Das kann passieren, wenn man das Ankreuzfeld <guilabel
+>Nachrichten vom Server löschen</guilabel
+> deaktiviert hat und der POP3-Server den Befehl UIDL nicht unterstützt. Dafür gibt es keine andere Hilfe, als das Ankreuzfeld <guilabel
+>Nachrichten vom Server löschen</guilabel
+> auszuwählen. Eine ausführliche Erläuterung findet man in <ulink url="http://lists.kde.org/?l=kmail&amp;m=99220697415300&amp;w=2"
+>diesem Mailinglistenbeitrag</ulink
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Unterstützt &kmail; das <acronym
+>IMAP</acronym
+>-Protokoll?</para
+></question>
+<answer>
+<para
+>Ja, seit Version &kde; 2.2. Es ist noch nicht vollständig implementiert, aber für die meisten Fälle reicht es aus. Die aktuellen Einschränkungen sind bekannt, es ist also nicht nötig, diese für die Wunschliste einzureichen.</para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Gibt es Fehler in &kmail;?</para
+></question>
+<answer>
+<para
+>Eine Liste bisher bekannter Fehler findet man auf <ulink url="http://bugs.kde.org/db/pa/lkmail.html"
+>bugs.kde.org</ulink
+>. Zu beachten ist, dass nicht alle diese Fehlerbenachrichtigungen korrekt sind. Alles in allem ist &kmail; nach unserer Meinung inzwischen ein sehr gutes Programm.</para>
+<para
+><warning
+><para
+>Man sollte &kmail; nicht starten, während ein anderes E-Mail-Programm auf die Dateien im Ordner <filename class="directory"
+>~/Mail</filename
+> zugreift. Falls man das dennoch tut, verliert man eventuell Nachrichten. Man sollte sowieso immer Sicherheitskopien seiner Nachrichten anfertigen.</para
+></warning
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&kmail; zeigt <acronym
+>HTML</acronym
+>-Nachrichten nicht als <acronym
+>HTML</acronym
+> an. Es wird nur der Quelltext angezeigt.</para
+></question>
+<answer
+><para
+>Man muss <menuchoice
+><guimenu
+>Ordner</guimenu
+><guimenuitem
+>HTML-Ansicht vor Klartext bevorzugen</guimenuitem
+></menuchoice
+> auswählen. Aus Sicherheitsgründen sollte man das allerdings nur für unbedingt vertrauenswürdige Nachrichten tun. Außerdem werden Plugins (wie <trademark class="registered"
+>Macromedia</trademark
+> <application
+>Flash</application
+>), Java und Javascript in &kmail; grundsätzlich nicht angezeigt werden und es keine Weg gibt, das zu ändern.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kann man verschiedene Versionen von &kmail; parallel verwenden? Kann man von einer aktuellen Version auf eine ältere Version von &kmail; zurück gehen?</para
+></question>
+<answer
+><para
+>Man kann nur eine Instanz von &kmail; starten. Wir empfehlen außderdem, nicht zwischen verschiedenen Versionen hin- und herzuwechseln, sondern bei einer bestimmten Version zu bleiben. Zurück gehen zu einer älteren Version kann Probelem bringen, da sich vielleicht das Format der Indexdateien geändert hat. Auf eine aktuellere Version zu wechseln, sollte nie ein Problem darstellen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Unterstützt &kmail; uuenkodierte Dateien?</para
+></question>
+<answer
+><para
+>Nein. Allerdings kann man nach einer Beschreibung in <ulink url="http://lists.kde.org/?l=kmail&amp;m=98908576320145&amp;w=2"
+>diesem Mailinglistenbeitrag</ulink
+> einen Filter verwenden.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>&kmail; ist beim Schreiben einer E-Mail abgestürzt. Ist diese E-Mail jetzt verloren?</para
+></question>
+<answer
+><para
+>&kmail; versucht im Falle eines Absturzes, die Nachricht unter <filename
+>~/dead.letter</filename
+> zu sichern. Beim nächsten Start von &kmail; sollte der Dialog <guilabel
+>Nachricht erstellen</guilabel
+> mit dieser Nachricht wieder erscheinen. Falls nicht, kann man versuchen, <filename
+>~/dead.letter</filename
+> mit einem Editor zu öffnen. Wenn diese Datei nicht existiert, war der Absturz so schlimm, das &kmail; die Nachricht nicht sichern konnte.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Wenn ich versuche, einen Ordner mit einer Mailingliste zu verknüpfen, passiert nichts, wenn ich eine E-Mail von dieser Liste erhalte.</para
+></question>
+<answer
+><para
+>Einen Ordner mit einer Liste zu verknüpfen hat nichts mit dem Filtern von Nachrichten dieser Liste zu tun. Man muss eine Filterregel hinzufügen. Sobald man allerdings einen Ordner mit einer Liste verknüpft hat, kann man <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guimenuitem
+>An Mailingliste antworten...</guimenuitem
+></menuchoice
+> oder <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guimenuitem
+>Neue Nachricht...</guimenuitem
+></menuchoice
+> verwenden. In diesen Fällen wird die Mailinglistadresse automatisch in das Feld <guilabel
+>An:</guilabel
+> eingetragen. </para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Mein SMTP-Server verlangt eine Authentisierung. Wird das von &kmail; unterstützt?</para
+></question>
+<answer
+><para
+>Es gibt zwei verschiedene Techniken zur SMTP-Authentisierung: <quote
+>SMTP</quote
+> nach <quote
+>POP3</quote
+> und <quote
+>SMTP Auth</quote
+>. <quote
+>SMTP Auth</quote
+> wird augenblicklich nicht unterstützt. Um <quote
+>SMTP</quote
+> nach <quote
+>POP3</quote
+> zu verwenden, muss man alle E-Mails im Ordner <guilabel
+>Postausgang</guilabel
+> sammeln und abschicken, direkt nachdem man E-Mail abgeholt hat.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kann ich &kmail; und <application
+>procmail</application
+> verwenden?</para
+></question>
+<answer
+><para
+>Ja, aber die korrekte Verwendung ist wichtig, damit man keine E-Mails verliert. Um procmail und &kmail; zusammen zu verwenden, muss man &kmail; so konfigurieren, dass es neue Nachrichten aus der Spool-Datei abholt, in die sie von procmail abgelegt werden. procmail darf <emphasis
+>nicht</emphasis
+> so konfiguriert werden, dass es Nachrichten direkt in den Ordnern von &kmail; ablegt. Das kann nicht funktionieren.</para>
+<para
+>Man muss für jede Spool-Datei von procmail ein eigenes E-Mail-Konto anlegen. Außerdem muss die richtige Lock-Datei für dieses Konto angegeben werden. Wenn man ein Konto einrichtet, versucht &kmail;, die Konfigurationsdatei von procmail nach Lockdatei-Einträgen abzusuchen. Es zeigt dann alle Spooldateien und die gefundenen Lock-Dateien an. procmail erlaubt allerdings drei verschiedene Wege, um Lock-Dateien zu erstellen. Daher gibt es keine direkte Zuordnung von Spool-Dateien zu Lock-Dateien. Daher muss der Benutzer sicherstellen, dass die richtige Lock-Datei für eine Spool-Datei ausgewählt ist.</para>
+</answer>
+</qandaentry>
+
+<qandaentry id="pgp-faq">
+<question
+><para
+>Warum sollte ich <application
+>PGP</application
+>/<application
+>GnuPG</application
+> mit &kmail; verwenden?</para
+></question>
+
+<answer
+><para
+>&kmail; unterstützt die grundlegenden Funktionen dieser Programme auf einfache Weise. Dennoch sollte man allerdings diese beiden Programme grundlegend verstehen und die Stellen kennen, die deren Verwendung unsicher machen kann. Einige wichtige Dinge:</para>
+
+<itemizedlist
+> <listitem
+> <para
+>Man sollte <emphasis
+>unbedingt</emphasis
+> testen, ob die Verschlüsselung funktioniert, bevor man sie verwendet. &kmail; ist auf die Fehlermeldungen von <application
+>PGP</application
+>/<application
+>GnuPG</application
+> angewiesen. Diese können sich aber von Version zu Version ändern.</para
+> </listitem
+> <listitem
+> <para
+>Einem fremden öffentlichen Schlüssel ohne Überprüfung zu vertrauen ist keine gute Idee.</para
+> </listitem
+> <listitem
+> <para
+>&kmail; weigert sich, eine Nachricht mit einem nicht vertrauenswürdigen (unsignierten) öffentlichen Schlüssel zu verschlüsseln, wenn man <application
+>PGP</application
+> verwendet. Wenn man allerdings <application
+>GnuPG</application
+> verwendet, <emphasis
+>können</emphasis
+> von &kmail; nicht vertrauenswürdige Schlüssel verwendet werden.</para
+> </listitem
+> <listitem
+> <para
+>Wie die meisten Mail-Programme kann &kmail; nur die Nachricht verschlüsseln, <emphasis
+>nicht</emphasis
+> die Anhänge. Man muss sie zunächst manuelle verschlüsseln, bevor man sie anhängt.</para
+> </listitem
+> </itemizedlist>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Wie kann man &kmail; für die Verwendung von (also Lesen und Schreiben) Nachrichten mit Nicht-Latin1-Zeichen konfigurieren?</para
+></question>
+<answer
+><para
+>Im Abschnitt <guilabel
+>Erscheinungsbild</guilabel
+>/<guilabel
+>Schriftarten</guilabel
+> des Dialoges <guilabel
+>&kmail; einrichten...</guilabel
+> muss man den passenden <guilabel
+>Zeichensatz</guilabel
+> für die Nachrichtenliste und die Ordnerliste wählen. Wenn <guilabel
+>Unicode (ISO10646-1)</guilabel
+> verfügbar ist, sollte man diesen Eintrag wählen. Falls die Nachrichten immer noch nicht korrekt angezeigt werden, kann man im Menü <menuchoice
+><guimenu
+>Nachricht</guimenu
+><guimenuitem
+>Kodierung festlegen</guimenuitem
+></menuchoice
+> immer noch andere Einträge testen. Für das Schreiben von Nachrichten kann man unter <guilabel
+>Nachricht erstellen</guilabel
+>/<guilabel
+>Zeichensatz</guilabel
+> die gewünschte Kodierung festlegen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Die Rechtschreibprüfung erkennt keine nicht-englischen Buchstaben.</para
+></question>
+<answer
+><para
+>Vor der ersten Verwendung muss die Rechtschreibprüfung konfiguriert werden. Man kann das im Dialog <guilabel
+>Nachricht erstellen</guilabel
+> unter dem Menüeintrag <menuchoice
+><guimenu
+>sinstellungen</guimenu
+> <guimenuitem
+>rechtschreibprüfung...</guimenuitem
+></menuchoice
+> tun. Man kann das Wörterbuch und die Zeichenkodierung auswählen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Wie verwende ich meine <application
+>Eudora</application
+>/&Netscape;/<application
+>Outlook</application
+>/... Mail-Ordner in &kmail;?</para
+></question
+> 
+<answer
+><para
+>Siehe Kapitel <link linkend="importing"
+>Mailordner anderer Programme in &kmail; benutzen</link
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Wie kann ich Mail-Ordner verwenden, die sich nicht unter <filename class="directory"
+>~/Mail/</filename
+> befinden?</para
+></question>
+
+<answer
+><para
+>Man erstellt einfach einen symbolischen Link im Verzeichnis <filename class="directory"
+>~/Mail</filename
+> durch <userinput
+><command
+>ln</command
+> <option
+>-s</option
+> <filename
+>/irgendwo/Mail/meine_Postfachdatei</filename
+> <filename class="symlink"
+>~/Mail/entfernt</filename
+></userinput
+>. Wenn &kmail; startet, ist ein neuer Ordner mit dem Namen <guilabel
+>entfernt</guilabel
+> vorhanden, der die Nachrichten des entfernten Verzeichnisses enthält. Wenn man ein ganzes Mail-Verzeichnis hinzufügen will, verwendet man <userinput
+><command
+>ln</command
+> <option
+>-s</option
+> <filename
+>/irgendwo/Mail</filename
+> <filename class="symlink"
+>~/Mail/.entfernt.directory</filename
+></userinput
+>. In diesem Fall muss man einen leeren Ordner mit dem Namen <filename class="directory"
+>rntfernt</filename
+> mit &kmail; erzeugen. Der Ordner <filename class="directory"
+>entfernt</filename
+> enthält dann alle entfernten Mail-Ordner als Unterordner.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kann ich Verschlüsselung auf meinem normalen ( nicht <acronym
+>SSL</acronym
+>) <acronym
+> POP3</acronym
+>-Konto verwenden?</para
+></question>
+<answer
+><para
+>Wenn der <acronym
+>POP3</acronym
+>-Server einen <application
+>ssh</application
+>-Dämon  hat, kann man ssh verwenden mit dem folgenden Befehl verwenden, um eine getunnelte Verbindung zum<acronym
+>POP3</acronym
+>-Server herzustellen:</para>
+
+<para
+><userinput
+><command
+>ssh</command
+> <option
+>-L 110:127.0.0.1:110 Benutzer@Rechner</option
+></userinput
+></para>
+
+<para
+>Konfiguriert man nun &kmail;, die neue Mail per <acronym
+> POP3</acronym
+> von <userinput
+>localhost</userinput
+> abzuholen, stellt ssh automatisch eine getunnelte Verbindung her. Man benötigt root-Rechte für diesen Befehl. Alternativ kann man die erste Port-Nummer, also das erste Auftreten von <userinput
+>110</userinput
+> auf etwas oberhalb von 1024 ändern und &kmail; für diese Portnummer konfigurieren. <note
+><para
+>Falls bereits nicht verschlüsselte E-Mails über das Internet gesendet wurden, ist der einzige Vorteil von <application
+>ssh</application
+>, dass das <emphasis
+>Passwort</emphasis
+> verschlüsselt zum <acronym
+> POP3</acronym
+>-Server gesendet wird.</para
+></note
+></para>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Sperrt &kmail; die verwendeten Ordner?</para
+></question>
+<answer
+><para
+>&kmail; sperrt die Dateien in <filename class="directory"
+>~/Mail</filename
+> nicht.</para>
+<para
+>Um das Risiko von Datenverlusten zu vermeiden, falls man ein <emphasis
+>lokales Konto</emphasis
+> verwendet, ist es erforderlich, das &kmail; den selben Sperr-Mechanismus wie das E-Mail-Verteilungsprogramm verwendet.</para>
+
+<para
+>Für das Sperren gibt es fünf unterschiedliche Optionen:</para>
+
+<itemizedlist
+> <listitem
+><para
+><guilabel
+>Mutt dotlock (empfohlen)</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Mutt dotlock privileged</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>Procmail-Sperrdatei</guilabel
+></para
+></listitem
+> <listitem
+><para
+><guilabel
+>FCNTL</guilabel
+> (Standard)</para
+></listitem
+> <listitem
+><para
+><guilabel
+>Keine (mit Vorsicht zu benutzen)</guilabel
+></para
+></listitem
+> </itemizedlist>
+
+<para
+><guilabel
+>Mutt dotlock</guilabel
+> und <guilabel
+>Mutt dotlock privileged</guilabel
+> verwenden beide ein kleines Programm mit dem Namen <command
+>mutt_dotlock</command
+>, das mit mutt ausgeliefert wird. <guilabel
+>Mutt dotlock</guilabel
+> kann auf die gleiche Weise verwendet werden wie die <guilabel
+>Procmail eperrdatei</guilabel
+>-Option, mit der gleichen Einschänkung in bezug auf die <filename class="directory"
+>/var/spool/mail/</filename
+>-Ordner. Das Programm <guilabel
+>Mutt dotlock privileged</guilabel
+> kann darüber hinaus Sperrdateien im Verzeichnis <filename class="directory"
+>/var/spool/mail</filename
+> anlegen. <command
+>mutt_dotlock</command
+> ist ein setgid-Programm und diese Option wird im Modus setgid ausgeführt. Diese Optionen funktionieren natürlich nur dann, wenn mutt auf dem System installiert ist.</para>
+
+<para
+>Die <guilabel
+>Procmail lockfile</guilabel
+> verwendet ein kleines Programm mit Namen <command
+>lockfile</command
+>, das zu <application
+>procmail</application
+> gehört. Dieses kann man verwenden, falls sich die Mail-Ordner in einem Verzeichnis befinden, auf das man Schreibzugriff hat. Das funktioniert normalerweise nicht in <filename class="directory"
+>/var/spool/mail/user</filename
+>. Es erzeugt Dateien mit Namen <filename
+>.lock</filename
+> für das eigene Konto, wenn &kmail; nach neuen Nachrichten sucht. Diese Option funktioniert nur dann, wenn <application
+>procmail</application
+> auf dem System installiert ist.</para>
+
+<para
+>Die Standardoption <guilabel
+>FCNTL</guilabel
+> verwendet den <function
+>fcntl()</function
+> Systemaufruf.</para>
+
+<para
+>Falls man auf Sperrungen verzichten will, kann man die Option <guilabel
+>keine</guilabel
+> verwenden. Es besteht allerdings in diesem Fall die Gefahr von Datenverlusten.</para>
+
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Wie kann ich die Nachrichten auf dem Server lassen?</para
+></question>
+<answer
+><para
+>Öffnen Sie <menuchoice
+><guimenu
+>Einstellungen</guimenu
+><guimenuitem
+>&kmail; einrichten...</guimenuitem
+></menuchoice
+>. Gehen Sie zum Abschnitt <guilabel
+>Netzwerk</guilabel
+>. Wählen Sie aus der Postfachliste das gewünschte Postfach aus und drücken Sie den Knopf <guilabel
+>Bearbeiten</guilabel
+>. Dieser Dialog enthält die Option <guilabel
+>Nachrichten vom Server löschen</guilabel
+>, die Sie ausschalten müssen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Wie kann ich automatisch einen Text am Ende der Nachricht einfügen?</para
+></question>
+<answer
+><para
+>Der Fußnotentext wird eine Signaturdatei genannt. Wählen Sie <menuchoice
+><guimenu
+>sinstellungen</guimenu
+> <guimenuitem
+>&kmail; einrichten...</guimenuitem
+></menuchoice
+>. Schauen Sie im Abschnitt <guilabel
+>Identität</guilabel
+> im Feld <guilabel
+>Signatur hier eingeben...</guilabel
+>. Wählen Sie diesen Auswahlknopf aus und tippen Sie die gewünschte Signatur in das Feld darunter.</para
+></answer
+> 
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Warum fragt KMail mich ständig nach einer Signatur-Datei?</para
+></question>
+<answer
+><para
+>&kmail; fragt nach der Signatur-Datei, wenn Sie die Option <guilabel 
+>Signatur automatisch anhängen</guilabel
+> auf der Karteikarte <guilabel 
+>Nachrichten erstellen</guilabel
+> im <guilabel 
+>Einstellungen</guilabel
+>-Dialog aktiviert haben, aber auf der Karteikarte <guilabel
+>Identität</guilabel
+> keine Signatur-Datei eingetragen haben. Sie sollten entweder eine Signatur-Datei angeben, oder die Option <guilabel 
+>Signatur automatisch anhängen</guilabel
+> deaktivieren.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Wie kann ich bei einer Wählverbindung zum Internet <application
+>sendmail</application
+> für &kmail; konfigurieren?</para
+></question
+> 
+
+<answer
+><para
+>Zuerst sollte man überprüfen, ob die eigene &Linux;/BSD/... - Distribution das automatisch erledigen kann. Meisten passiert das bereits während der Installation.</para>
+
+<para
+>Wenn das nicht der Fall sein sollte, kann man auf <ulink url="http://www.linuxdoc.org/HOWTO/mini/Mail-Queue.html"
+>the Mail Queue HOWTO</ulink
+> oder auf <ulink url="http://www.leg.uct.ac.za/Articles/sendmail_dialup.html"
+>UCT Linux User's group page on configuring sendmail for Dial-up connections</ulink
+> nachschauen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ich habe Demonstrationen mit Fernsteuerung von &kmail; gesehen. Gibt es Unterlagen über die verfügbaren Schnittstellen?</para
+></question>
+<answer
+><para
+>Man kann eine Funktionsliste mit folgendem Befehl in einer Shell erhalten: <userinput
+><command
+>dcop</command
+> <option
+>kmail KMailIface</option
+></userinput
+>. Weiter Informationen kann man in <filename
+>kdenetwork/kmail/kmailIface.h</filename
+> und <filename
+>kdenetwork/kmail/mailcomposerIface.h</filename
+> finden.</para
+></answer>
+</qandaentry>
+
+</qandaset>
+
+</chapter>
+
+
+<chapter id="importing">
+<title
+>Mailordner anderer Programme in &kmail; benutzen</title>
+
+<para
+>&kmail; hat ein Importprogramm für einige Formate. Man kann dieses Programm über <menuchoice
+><guimenu
+>Datei</guimenu
+><guimenuitem
+>Importieren...</guimenuitem
+></menuchoice
+> aufrufen. Dieses Kapitel ist nur interessant, falls das Programm in Ihrem Fall nicht funktioniert.</para>
+
+<para
+>Dieses Kapitel ist für alle Benutzer, die ihre alten E-Mail-Nachrichten von ihrem vorherigen E-Mail-Programm zu &kmail; übernehmen wollen. &kmail; speichert die Nachrichten im <literal
+>mbox</literal
+>-Format, einem der am weitesten verbreiteten Formate auf &UNIX;-Systemen. Im mbox-Format werden die Nachrichten in einer Datei gespeichert, wobei der Anfang und das Ende der Nachrichten durch den <literal
+>From:</literal
+>-Vorspann identifiziert wird. Für viele &UNIX;-E-Mail-Programme müssen Sie nur Ihre Mailordner nach <filename class="directory"
+>~/Mail</filename
+> verschieben (oder <filename class="directory"
+>~/Mail</filename
+> als symbolische Verknüpfung zu Ihrem bisherigen Mailordner erstellen) und dann &kmail; aufrufen. Die Mailordner sollten dann korrekt angezeigt werden.</para>
+
+<para
+>Falls die eigenen Postfächer nicht im mbox-Format vorliegen, findet man weiter unten Informationen zum Import einiger gängiger Formate. Im  <ulink url="http://kmail.kde.org/download.html"
+>Download-Bereich von &kmail;'s Internetseite</ulink
+> kann man nachsehen, falls das eigene Programm hier nicht aufgeführt ist.</para>
+
+<warning
+><para
+>Man kann kein zweites Mail-Programm verwenden, das gleichzeitig mit &kmail; auf <filename class="directory"
+>~/Mail</filename
+> zugreift, ansonsten könnte Datenverlust auftreten. In diesem Abschnitt wird erklärt, wie man Postfächer in &kmail; importiert. Es ist nicht dazu gedacht, &kmail; und ein anderes Programm längere Zeit parallel für die gleichen Postfächer zu verwenden.</para
+></warning>
+
+<variablelist
+> <varlistentry
+> <term
+><application
+>Eudora Lite</application
+>/<application
+>Eudora Pro</application
+></term
+> <listitem
+> <para
+><application
+>Eudora</application
+> benutzt das mbox-Format für seine Mailordner. Um diese mit KMail zu benutzen, vergewissern Sie sich, dass die <application
+>Eudora</application
+>-Mailordner komprimiert sind, und kopieren Sie dann die <literal role="extension"
+>.mbx</literal
+>-Dateien (&Windows; <application
+>Eudora</application
+>) oder die <application
+>Eudora</application
+>  Mailbox-Dateien (&Mac; <application
+>Eudora</application
+>) in Ihr <filename class="directory"
+>~/Mail</filename
+>-Verzeichnis. Die Index-Dateien müssen nicht kopiert werden. Nachdem Sie &kmail; neu gestartet haben, sollten die Ordner im Ordnerbereich erscheinen und Sie sollten in der Nachrichtenliste auf die Nachrichten zugreifen können.</para
+> <para
+>Falls Ihre Nachrichten nicht in der Nachrichtenliste erscheinen, kann es sein, dass die Dateien &Windows;- oder &Mac;-Zeilenumbrüche enthalten. Benutzen Sie einen Texteditor, den Befehl <application
+>recode</application
+> oder ein Skript, um die &Windows;- oder &Mac;-Zeilenumbrüche durch &UNIX;-Zeilenumbrüche zu ersetzen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>MMDF</term
+> <listitem
+> <para
+>Dieses Format ist eng mit dem mbox-Format verwandt, so dass es &kmail; möglich sein sollte, diese Ordner zu benutzen, wenn Sie diese einfach in Ihr <filename class="directory"
+>~/Mail</filename
+> Verzeichnis kopieren. Wie auch immer, MMDF Mailordner wurden noch nicht mit &kmail; getestet, so dass die Ergebnisse unterschiedlich sein können. Wenn Sie es hinbekommen haben, dieses Format mit &kmail; zu benutzen, lassen Sie es uns wissen, so dass wir in der nächsten Version dieser Dokumentation spezifischere Angaben machen können.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>MH Mailordner</term
+> <listitem
+> <para
+>MH Mailordner sind Verzeichnisse, die Dateien enthalten, die jeweils zu einer Nachricht in diesem Mailordner gehören. In den Quellcode-Paketen von &kmail; ist ein Skript <command
+>mh2kmail</command
+> enthalten, um MH Mailordner in mbox-Mailordner umzuwandeln. Dieses ist aber nicht in den Binärpaketen enthalten, was sich aber in Zukunft ändern kann. Wenn Sie dieses Skript auf einen MH Ordner anwenden, erhalten Sie daraus eine mbox-Datei. Wir empfehlen dringend, zuerst Sicherheitskopien Ihrer MH Mailordner anzulegen, bevor Sie dieses Skript benutzen.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Forte <application
+>Agent</application
+></term
+> <listitem
+> <para
+>Im <application
+>Agent</application
+>:</para
+> <procedure
+> <step
+> <para
+>Wählen Sie die Nachrichten zum Export</para
+> </step
+> <step
+> <para
+>Wählen Sie <menuchoice
+><guimenu
+>FILE</guimenu
+><guimenuitem
+>SAVE MESSAGES AS</guimenuitem
+></menuchoice
+></para
+> </step
+> <step
+> <para
+>Markieren Sie die Ankreuzfelder <guilabel
+>UNIX FORMAT</guilabel
+> und <guilabel
+>SAVE RAW</guilabel
+>.</para
+> </step
+> <step
+> <para
+>Verwenden Sie die Erweiterung <literal role="extension"
+>.txt</literal
+> und speichern Sie.</para
+> </step
+> </procedure
+> <para
+>In &kde;:</para
+> <procedure
+> <step
+> <para
+>Verschieben Sie vorher gesicherte Dateien in den richtigen Ordner <filename class="directory"
+>~/Mail</filename
+></para
+> </step
+> <step
+> <para
+>Benennen Sie die Datei um ohne <literal role="extension"
+>.txt</literal
+>-Erweiterung</para
+> </step
+> </procedure
+> <para
+>Wenn man nun &kmail; öffnet, erscheint der neue Ordner mit den entsprechenden Nachrichten.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>&Netscape; Mail</term
+> <listitem
+> <para
+>Man kopiert die &Netscape;-Mail-Dateien von <filename class="directory"
+>~/nsmail/</filename
+> in <filename class="directory"
+>~/Mail</filename
+> und sorgt dafür, das sie geschrieben werden können (natürlich nur vom Benutzer). Beim nächsten Start erscheinen die Postfächer in &kmail;.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><application
+>Pegasus Mail</application
+></term
+> <listitem
+> <para
+>Das Programm <application
+>Pegasus</application
+> für Win32 verwendet einzelne Dateien als Ordner ähnlich zu &kmail;. <application
+>Pegasus mail</application
+>-Ordner haben die Erweiterung <literal role="extension"
+>.pmm</literal
+>, haben jedoch das gleiche Format wie mbox-Dateien mit dem einzigen Unterschied, das Nachrichten nicht mit dem <literal
+>Von</literal
+>-Vorspann sondern mit einem Steuerzeichen beginnen. Um diesen Unterschied zu beheben, ersetzt man jedes dieser Steuerzeichen durch <literal
+>From aaa@aaa Mon Jan 01 00:00:00 1997</literal
+>. Diese <literal
+>From</literal
+>-Zeile sollte die erste Zeile jeder Nachricht sein, bevor der <literal
+>Received:</literal
+>-Vorspann und andere Vorspannfelder folgen. Man muss einen Texteditor verwenden, der Dateien im &UNIX;-Format speichern kann, oder man erstellen in <application
+>Pegasus</application
+> neue Ordner, die im &UNIX;-Format sind und kopiert die E-Mails hinein.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Maildir / Outlook Express / xfmail</term
+> <listitem
+> <para
+>Hilfsprogramme zur Konvertierung dieser Formate findet man im <ulink url="http://kmail.kde.org/download.html"
+>DownloadBereich von &kmail;'s Internetseite</ulink
+>.</para
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+>Lotus <application
+>Notes</application
+>, BeOS Mail-Dateien, <application
+>cc: Mail</application
+>, usw. ...</term
+> <listitem
+> <para
+>Zuerst sollte man im <ulink url="http://kmail.kde.org/download.html"
+>Download-Bereich von &kmail;'s Internetseite</ulink
+> nachschauen, ob es dort Hilfsprogramme zur Konvertierung gibt.</para
+> <para
+>Hier oder auf der Internetseite nicht aufgeführte Programme arbeiten vermutlich nicht mit &kmail; zusammen, da sie proprietäre Mail-Formate verwenden, die &kmail; nicht versteht. Dennoch kann ein Versuch nicht schaden! Wenn die Postfach-Dateien ähnlich zum mbox-Format aussehen, kann man versuchen, die Postfach-Dateien (denken Sie daran, das die Index-Dateien nicht benötigt werden) in das Verzeichnis <filename
+>~/Mail</filename
+> zu kopieren und zu schauen, was &kmail; beim nächsten Start tut. Falls Sie Postfach-Dateien von Ihrem liebsten Mailprogramm nach &kmail; konvertieren können, lassen Sie uns das bitte wissen, damit wir entsprechende Instruktionen in zukünftige Versionen dieser Dokumentation aufnehmen können. </para
+> </listitem
+> </varlistentry
+> </variablelist>
+</chapter>
+
+
+<chapter id="credits-and-licenses">
+<title
+>Mitwirkende und Lizenz</title>
+
+<para
+>&kmail;: Copyright die &kmail;-Entwickler 1997-2001</para>
+
+&underGPL;
+&underFDL;
+
+<sect1 id="developers">
+<title
+>Ursprüngliche Entwickler</title>
+<!-- please keep in sync with the authors list on the webpage -->
+
+<itemizedlist
+> <listitem
+> <para
+>Stefan Taferner <email
+>taferner@alpin.or.at</email
+></para
+> </listitem
+> <listitem
+> <para
+>Markus Wuebben <email
+>markus.wuebben@kde.org</email
+></para
+> </listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="team">
+<title
+>Augenblickliches Team</title>
+
+<itemizedlist
+> <listitem
+><para
+>Waldo Bastian <email
+>bastian@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Andreas Gungl <email
+>a.gungl@gmx.de</email
+></para
+></listitem
+> <listitem
+><para
+>Michael Haeckel <email
+>michael@haeckel.net</email
+></para
+></listitem
+> <listitem
+><para
+>Lars Knoll <email
+>knoll@mpi-hd.mpg.de</email
+></para
+></listitem
+> <listitem
+><para
+>J. Nick Koston <email
+>bdraco@darkorb.net</email
+></para
+></listitem
+> <listitem
+><para
+>Marc Mutz <email
+>mutz@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Daniel Naber <email
+>daniel.naber@t-online.de</email
+></para
+></listitem
+> <listitem
+><para
+>Sven Radej <email
+>radej@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Espen Sand <email
+>espen@kde.org</email
+></para
+></listitem
+> <listitem
+><para
+>Don Sanders <email
+>sanders@kde.org</email
+> (Aktiver Betreuer)</para
+></listitem
+> <listitem
+><para
+>George Staikos <email
+>staikos@0wned.org</email
+></para
+></listitem
+> <listitem
+><para
+>Mario Weilguni <email
+>mweilguni@sime.com</email
+></para
+></listitem
+> <listitem
+><para
+>Robert D. Williams <email
+>rwilliams@kde.org</email
+></para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+<sect1 id="documentation">
+<title
+>Dokumentation</title>
+
+<para
+>Update von &kmail; 1.2 und 1.3 von Daniel Naber <email
+>daniel.naber@t-online.de</email
+>, <application
+>PGP</application
+>von Andreas Gungl <email
+>a.gungl@gmx.de</email
+>, Filter von Marc Mutz <email
+>Marc.Mutz@uni-bielefeld.de</email
+>. Andere Teile stammen von den unterschiedlichen &kmail;-Entwicklern.</para>
+
+<para
+>&kmail; 1.0 Dokumentation von David Rugge <email
+>davidrugge@mindspring.com</email
+>. Original-Dokumentation von Markus Wuebben <email
+>markus.wuebben@kde.org</email
+>, Robert Williams <email
+>rwilliams@kde.org</email
+> (Editor).</para>
+
+<para
+>Dank an Michael Elkins <email
+>me@cs.hmc.edu</email
+> für seine großartige Beschreibung der verschiedenen UNIX-Mail-Formate in der Dokumentation zu mutt.</para>
+
+<para
+>Dank an die folgenden Personen für Informationen zur Verwendung anderer Mail-Formate mit &kmail;:</para>
+
+<itemizedlist
+> <listitem
+><para
+>Mendel Mobach <email
+>mendel@mobach.nl</email
+> (&Netscape; mail)</para
+></listitem
+> <listitem
+><para
+>Ed Shapard <email
+>shapard@bigfoot.com</email
+> (<application
+>Pegasus</application
+> Mail)</para
+></listitem
+> <listitem
+><para
+>Ray Muir <email
+>rjmuir@ibm.net</email
+> (Forte <application
+>Agent</application
+>)</para
+></listitem
+> </itemizedlist>
+<para
+>Matthias Kiefer - deutsche Übersetzung <email
+>matthias.kiefer@gmx.de</email
+></para
+> <para
+>Frank Schütte - Überarbeitung für Version 1.3 <email
+>F.Schuette@t-online.de</email
+></para>
+
+</sect1>
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="getting-kmail">
+<title
+>Wie man &kmail; erhält</title>
+
+<para
+>&kmail; ist ein Teil des &kde;-Projektes <ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>. &kmail; befindet sich im Paket  kdenetwork auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, der Haupt-&FTP;-Seite des &kde;-Projektes. </para>
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Kompilation und Installation</title>
+
+<para
+>Um &kmail; zu kompilieren und auf Ihrem System zu installieren, tippen Sie die folgenden Befehle im Verzeichnis kdenetwork Ihrer Distribution:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <option
+>install</option
+></userinput>
+</screen>
+
+<para
+>Da &kmail; <application
+>autoconf</application
+> und <application
+>automake</application
+> verwendet, sollte man mit der Kompilation und Installatino keine Probleme haben. Sollten Probleme auftreten, kann man sich damit an die &kde;-Mailinglisten wenden.</para>
+
+</sect1>
+
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

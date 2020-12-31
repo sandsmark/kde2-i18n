@@ -1,0 +1,23 @@
+AC_INIT(acinclude.m4)
+
+AM_CONFIG_HEADER(config.h)
+
+KDE_SET_PREFIX
+
+AC_CONFIG_AUX_DIR(admin)
+AM_INIT_AUTOMAKE(kde-i18n, "2.2.2")
+AC_CREATE_KFSSTND(default)
+TOPSUBDIRS="";
+if test -f $srcdir/inst-apps; then
+  subdirsfile=$srcdir/inst-apps
+else
+  subdirsfile=$srcdir/subdirs
+fi
+for i in `cat $subdirsfile`; do
+  TOPSUBDIRS="$TOPSUBDIRS $i";
+done
+AC_SUBST(TOPSUBDIRS)
+AC_OUTPUT_SUBDIRS($TOPSUBDIRS)
+
+AC_OUTPUT(Makefile kde-i18n.spec)
+

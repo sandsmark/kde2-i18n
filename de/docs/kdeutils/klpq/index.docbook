@@ -1,0 +1,504 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&klpq;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % German "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+
+<book lang="&language;">
+<bookinfo>
+<title
+>Das &klpq;-Handbuch</title>
+
+<authorgroup>
+<author
+> <firstname
+>Christoph</firstname
+> <surname
+>Neerfeld</surname
+> <affiliation
+><address
+><email
+>chris@kde.org</email
+></address
+></affiliation
+> </author>
+
+<author
+> <firstname
+>Hans Petter</firstname
+> <surname
+>Bieker</surname
+> <affiliation
+><address
+><email
+>bieker@kde.org</email
+></address
+></affiliation
+> </author>
+<othercredit role="translator"
+><firstname
+>Dirk</firstname
+><surname
+>Dörflinger</surname
+><affiliation
+><address
+><email
+>ddoerflinger@web.de</email
+></address
+></affiliation
+><contrib
+>Deutsche Übersetzung</contrib
+></othercredit>
+</authorgroup>
+
+<date
+>2000-12-14</date>
+<releaseinfo
+>1.00.01</releaseinfo>
+
+<copyright>
+<year
+>2000</year>
+<holder
+>Christoph Neerfeld</holder>
+</copyright>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<abstract
+><para
+>Dieses Handbuch beschreibt &klpq; Version 1.0.1</para
+></abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KLpq</keyword>
+<keyword
+>printing</keyword>
+<keyword
+>queueing</keyword>
+<keyword
+>lpq</keyword>
+</keywordset>
+</bookinfo>
+
+<chapter id="introduction">
+<title
+>Einführung</title>
+
+<para
+>&klpq; ist eine graphische Oberfläche für die Druckerwarteschlange. Es ist hauptsächlich dazu gedacht, die Druckerwarteschlange zu überwachen und Aufträge daraus zu löschen. Außerdem kann das Drucken auch erlaubt/verboten werden, falls man die nötigen Rechte dazu besitzt.</para>
+
+<para
+>&klpq; verändert die Druckerwarteschlage nicht, sondern nutzt die Systemkommandos <command
+>lpq</command
+>, <command
+>lprm</command
+> and <command
+>lpc</command
+>. Deshalb sollte &klpq; eigentlich unkritisch sein, solange <command
+>lpq</command
+>, <command
+>lprm</command
+> und <command
+>lpc</command
+> dies sind.</para>
+
+<itemizedlist
+> <listitem
+><para
+>Unterstützt BSD, PPR und LPRng Drucksysteme.</para
+></listitem
+> <listitem
+><para
+>Ist netzwerktransparent.</para
+></listitem
+> <listitem
+><para
+>Unterstützt Drag &amp; Drop</para
+></listitem
+> </itemizedlist>
+
+</chapter>
+
+<chapter id="usage">
+<title
+>&klpq; verwenden</title>
+
+<sect1 id="startup">
+<title
+>Starten von &klpq;</title>
+
+      <cmdsynopsis>
+	<command
+>klpq</command>
+	<arg>
+	  <arg
+>-n</arg>
+	  <arg
+>-P printer</arg>
+          file1 file2 URL1 URL2</arg>
+      </cmdsynopsis>
+
+<para
+>Beim ersten Start von &klpq; erscheint ein Fenster mit der Frage, welches Druckersystem Sie benutzen. &klpq; unterstützt die Systeme BSD, PPR und LPRng. Falls Sie nicht wissen, welches Druckersystem auf Ihrem Computer läuft, versuchen Sie es mit BSD, welches auf den meisten gängigen Systemen läuft. Falls &klpq; die Druckerwarteschlange nicht anzeigt, probieren Sie eines der anderen Systeme (Sie können das System unter <menuchoice
+> <guimenu
+>Optionen</guimenu
+> <guimenuitem
+>Spooler</guimenuitem
+> </menuchoice
+> auswählen).</para>
+
+<para
+>Ohne Parameter gestartet, sucht &klpq; nach der Umgebungsvariablen <envar
+>PRINTER</envar
+> und versucht, den Inhalt der korrespondierenden Druckerwarteschlange anzuzeigen. Falls <envar
+>PRINTER</envar
+> nicht gesetzt sein sollte, zeigt &klpq; den Inhalt der Warteschlange <filename
+>lp</filename
+> an. Falls auch diese nicht existiert, wird die erste in <filename
+>/etc/printcap</filename
+> angezeigt.</para>
+
+<para
+>Mit einer Datei als Parameter können Sie &klpq; als Ersatz für <command
+>lpr</command
+> verwenden. Sie brauchen nicht <command
+>lpr <replaceable
+>dokument</replaceable
+>; klpq</command
+> einzugeben, <command
+>klpq <replaceable
+>dokument</replaceable
+></command
+> genügt. &klpq; startet <command
+>lpr</command
+> für Sie. Der Parameter <option
+>-P</option
+> spezifiziert die Druckerumgebung. Momentan werden keine weiteren Optionen von <command
+>lpr</command
+> unterstützt.</para>
+
+<para
+>Der Parameter <option
+>-n</option
+> zwingt &klpq;, die Warteschlange nicht anzuzeigen, wenn ein Dateiname übergeben wurde. <abbrev
+>Z.B.</abbrev
+> lässt <command
+>klpq <option
+>-n <replaceable
+>dokument</replaceable
+></option
+></command
+> &klpq; die Datei <filename
+>dokument</filename
+> an lpr senden und sich sofort wieder beenden. <command
+>klpq <option
+>-n</option
+></command
+> ohne Dateiname startet &klpq; ganz normal.</para>
+      
+<para
+>&klpq; unterstützt auch <abbrev
+>URL</abbrev
+>s als Kommandozeilenparameter. Hierfür wird <application
+>Konqueror</application
+> verwendet, um die Datei temporär als lokale Datei abzulegen und anschließend zu drucken.</para>
+
+<note
+><para
+>Bitte beachten Sie, dass &klpq; während des Downloads aktiv sein muss. Ansonsten wird die Datei nicht gedruckt.</para
+></note>
+
+<para
+>Unterstützung von Drag &amp; Drop: Sie können jegliche <abbrev
+>URL</abbrev
+> aus <application
+>Konqueror</application
+> auf das &klpq; Fenster herüber ziehen, um ihren Inhalt zu drucken.</para>
+
+</sect1>
+
+<sect1 id="mainwindow">
+<title
+>Das Hauptfenster</title>
+
+<para
+>&klpq; ist sehr einfach zu benutzen, daher hier nur ein paar kurze Worte über die Dinge, die nicht so offensichtlich sind:</para>
+
+<para
+>Wenn der Knopf <guibutton
+>Auto</guibutton
+> gedrückt ist, liest &klpq; alle "n" Sekunden die Warteschlange, sodass Sie den Knopf <guibutton
+>Aktualisieren</guibutton
+> nicht mehr drücken müssen. Sie können die "n" Sekunden unter <menuchoice
+> <guimenu
+>Optionen</guimenu
+> <guimenuitem
+>Aktualisierungsfrequenz</guimenuitem
+></menuchoice
+>einstellen. Wenn Sie "n" auf 0 setzen, wird der Knopf <guilabel
+>Auto</guilabel
+> komplett dektiviert.</para>
+
+<para
+>Falls Sie die Fehlermeldung "<errorname
+>Dies ist ein privilegierter Befehl und Sie haben keine Berechtigung, ihn auszuführen.</errorname
+>" erhalten, müssen Sie sich als root oder als anderer privilegierter Benutzer anmelden, um diesen Befehl ausführen zu können. Der Versuch, den Druckauftrag eines anderen Benutzers zu löschen, wird schlicht ignoriert.</para>
+
+<para
+>Es gibt verschiedene Tastaturkürzel:</para>
+
+      <informaltable>
+	<tgroup cols="2">
+	  <thead
+> <row
+> <entry
+>Taste:</entry
+> <entry
+>Ausführung</entry
+> </row
+> </thead>
+	  <tbody
+> <row
+> <entry
+><keycap
+>U</keycap
+></entry
+> <entry
+>Entspricht dem Drücken des Knopfes "<guibutton
+>Aktualisieren</guibutton
+>" (englisch: Update).</entry
+> </row
+> <row
+> <entry
+><keycap
+>R</keycap
+></entry
+> <entry
+>Entspricht dem Drücken des Knopfes "<guibutton
+>Entfernen</guibutton
+>" (englisch: Remove)</entry
+> </row
+> <row
+> <entry
+><keycap
+>T</keycap
+></entry
+> <entry
+>Entspricht dem Drücken des Knopfes "<guibutton
+>Nach oben setzen</guibutton
+>" (englisch: Make Top)</entry
+> </row
+> <row
+> <entry
+><keycap
+>A</keycap
+></entry
+> <entry
+>Entspricht dem Drücken des <guibutton
+>Auto</guibutton
+>-Knopfes. button</entry
+> </row
+> <row
+> <entry
+><keycap
+>Pfeil nach links</keycap
+></entry
+> <entry
+>Zeigt die vorherige Druckerwarteschlange</entry
+> </row
+> <row
+> <entry
+><keycap
+>Pfeil nach rechts</keycap
+></entry
+> <entry
+>Zeigt die nächste Druckerwarteschlange</entry
+> </row
+> </tbody>
+	</tgroup>
+      </informaltable>
+
+</sect1>
+
+<sect1 id="spooler-dialog">
+<title
+>Der Spooler Dialog</title>
+
+<para
+>Im Dialog Spooler kann das Drucksystem (BSD, PPR, LPRng) ausgewählt werden. Anschließend müssen noch die Pfade für die Druckkommandos gesetzt werden. Hilfe dazu finden Sie in den man-pages Ihres Drucksystemes.</para>
+
+</sect1>
+
+</chapter>
+
+<chapter id="todo">
+<title
+>Zu erledigen</title>
+
+<itemizedlist
+> <listitem
+><para
+>mehr KDE Tastaturbefehle mit kkeyconfig</para
+></listitem
+> <listitem
+><para
+>alle Warteschlangen gleichzeitig anzeigen</para
+></listitem
+> <listitem
+><para
+>ein kleines Statusfenster in <application
+>Kicker</application
+> integrieren</para
+></listitem
+> <listitem
+><para
+>Unterstützung von mehr Befehlen von <application
+>lprng</application
+></para
+></listitem
+> <listitem
+><para
+>&klpq; komplett neu schreiben ;-)</para
+></listitem
+> </itemizedlist>
+
+<para
+>War da noch was?</para>
+</chapter>
+
+<chapter id="author">
+<title
+>Autor</title>
+
+<para
+>Mein Name ist Christoph Neerfeld. Ich studiere angewandte Informatik an der Fachhochschule für angewandte Informatik Sankt Augustin, Deutschland. Wer will, kann mir gerne Berichte, Wünsche oder Postkarten aus seiner Heimatstadt schicken. Ich liebe es, Postkarten zu bekommen. (Anm. des Übersetzers: Postkarten an <email
+>chris@kde.org</email
+> kommen selten an ;-)</para>
+
+<para
+>Vielen Dank an</para>
+
+<itemizedlist
+> <listitem
+><para
+>Victor Kolossov <email
+>kolosov@iris1.itep.ru</email
+> für die Unterstützung zu <application
+>LPRng</application
+></para
+></listitem
+> <listitem
+><para
+>Remco Treffkorn <email
+>remco@rvt.com</email
+> für die Unterstützung zu <application
+>ppr</application
+></para
+></listitem
+> </itemizedlist>
+
+<para
+>und an viele andere für Fehlermeldungen und Vorschläge.</para>
+
+<para
+>&klpq; ist Copyright 1997/98 Christoph Neerfeld <email
+>chris@kde.org</email
+></para>
+<para
+>Copyright für die Dokumentation 2000 Dirk Dörflinger<email
+>ddoerflinger@web.de</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+
+<appendix id="installation">
+<title
+>Installation</title>
+
+<sect1 id="how-to-obtain-klpq">
+<title
+>Woher bekomme ich &klpq;?</title>
+
+<para
+>&klpq; ist Teil des <ulink url="http://www.kde.org"
+>KDE Projektes</ulink
+>. &klpq; ist unter <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, der Haupt-FTP-Seite des KDE Projektes, zu finden. Dort gibt es auch viele Links zu Spiegelservern auf der ganzen Welt.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Voraussetzungen</title>
+
+<para
+>Um &klpq; erfolgreich compilieren zu können, benötigen Sie zumindest das Paket kdelibs, zu finden auf <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>. Außerdem wird empfohlen, auch das Paket kdebase installiert zu haben.</para>
+
+<para
+>Zusätzlich benötigen Sie eine funktionierende Konfiguration der Datei <filename
+>/etc/printcap</filename
+>.</para>
+
+</sect1>
+
+<sect1 id="compilation-and-installation">
+<title
+>Kompilierung und Installation</title>
+
+<para
+>&klpq; ist normalerweise Bestandteil des Paketes kdeutils und wird im Laufe der Installation dieses Paketes mitinstalliert.</para>
+
+<para
+>Falls Sie nur &klpq; selbst übersetzen wollen, geben sie im Quelltextverzeichnis des Pakets kdeutils folgenden Befehl ein:</para>
+
+<screen>
+<prompt
+>%</prompt
+> <command
+>./configure</command>
+<prompt
+>%</prompt
+> <command
+>make</command>
+<prompt
+>%</prompt
+> <command
+>make <option
+>install</option
+></command>
+</screen>
+
+<para
+>Da &klpq; <application
+>autoconf</application
+> benutzt, sollten sich eigentlich keine Probleme bei der Installation ergeben. Falls doch welche auftauchen sollten, berichten Sie diese bitte in den KDE Mailinglisten.</para>
+
+</sect1>
+</appendix>
+
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

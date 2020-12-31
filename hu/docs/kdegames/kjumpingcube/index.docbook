@@ -1,0 +1,963 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.1-Based Variant V1.0//EN" "dtd/kdex.dtd" [
+  <!ENTITY kappname "&kjumpingcube;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Hungarian "INCLUDE" 
+> <!-- change language only here -->
+  
+  
+]>
+<book lang="&language;">
+
+<bookinfo>
+<title
+>A &kjumpingcube; kézikönyve</title>
+
+<authorgroup>
+<author
+> <firstname
+>Matthias</firstname
+> <surname
+>Kiefer</surname
+> <affiliation
+> <address
+><email
+>matthias.kiefer@gmx.de</email
+></address
+> </affiliation
+> </author>
+</authorgroup>
+
+<copyright>
+<year
+>1999</year>
+<year
+>2000</year>
+<holder
+>Matthias Kiefer</holder>
+</copyright>
+
+<othercredit role="translator"
+><firstname
+>Tamás</firstname
+><surname
+>Szántó</surname
+><contrib
+>Magyar fordítás</contrib
+><affiliation
+><address
+><email
+>tszanto@mol.hu</email
+></address
+></affiliation
+></othercredit>
+
+<legalnotice
+>&FDLNotice;</legalnotice>
+
+<date
+>2000-12-15</date>
+<releaseinfo
+>1.00.00</releaseinfo>
+
+<abstract
+><para
+>A &kjumpingcube; egy egyszerű logikai játék, melyet akár ketten is játszhatnak egymás ellen.</para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>KJumpingCube</keyword>
+<keyword
+>kdegames</keyword>
+<keyword
+>játék</keyword>
+<keyword
+>stratégia</keyword>
+</keywordset>
+
+</bookinfo>
+
+
+<chapter id="introduction">
+<title
+>Bevezetés</title>
+
+<para
+>A &kjumpingcube; egy egyszerű logikai játék. Játszható a gép vagy egy másik játékos ellen is. A négyzetrácsos játéktér mezői pontokat tartalmazhatnak. Ha rákattint valamelyik mezőre, akkor ott a pontok száma megnő eggyel, és ha a szám elérte a megengedett maximumot, akkor egy-egy pont átugrik a szomszédos mezőkbe, saját színűre festve azokat. Az győz, aki elfoglalja az összes mezőt.</para>
+
+</chapter>
+
+
+<chapter id="playing-kjumpingcube">
+<title
+>A játék kezelése</title>
+
+<sect1 id="rules">
+<title
+>Játékszabályok</title>
+
+<orderedlist
+> <listitem
+><para
+>Egy lépés abból áll, hogy rákattint valamelyik mezőre, megnövelve ott eggyel a pontok számát. Csak olyan mezőre lehet kattintani, amely még nem az ellenfélé. Ha olyan mezőre kattint, amelynek még nincs tulajdonosa, akkor az az Ön birtokába kerül. </para
+></listitem
+> <listitem
+><para
+>Ha egy mezőben több pont van, mint a vele szomszédosakban, akkor egy-egy pont átugrik azokba, megnövelve a pontok számát eggyel, és mindegyik mező az Ön birtokába kerül. </para
+></listitem
+> <listitem
+><para
+>Egy mezőnek csak négy szomszédja van, az átlósan fekvők nem számítanak annak.</para
+></listitem
+> <listitem
+><para
+>A győzelemhez el kell foglalni az összes mezőt.</para
+></listitem
+> </orderedlist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="menu-reference">
+<title
+>A parancsok felsorolása</title>
+
+<sect1 id="menus">
+<title
+>A menük</title>
+
+<sect2 id="game-menu">
+<title
+>A <guimenu
+>Játék</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+> <menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>N</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+>Ú<accel
+>j</accel
+></guimenuitem
+></menuchoice
+> </term
+> <listitem
+><para
+><action
+>Elkezd egy új játékot.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>O</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+><accel
+>B</accel
+>etöltés...</guimenuitem
+></menuchoice
+> </term
+> <listitem
+><para
+><action
+>Betölti az egyik elmentett játékállást.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>S</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+><accel
+>M</accel
+>entés</guimenuitem
+></menuchoice
+> </term
+> <listitem
+><para
+><action
+>Elmenti az aktuális játékot.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+>Mentés máské<accel
+>n</accel
+>t...</guimenuitem
+> </menuchoice
+> </term
+> <listitem
+><para
+><action
+>Elmenti az aktuális játékot más néven.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> <keycap
+>H</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+>Tipp akö<accel
+>v</accel
+>etkező lépésre</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>A program (segítségképpen) javaslatot tesz a következő lépésre.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycap
+>Esc</keycap
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+>A gondolkodás <accel
+>f</accel
+>élbeszakítása</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Félbeszakítja a gépi játékost vezérlő algoritmus futását.</action
+> A gép az addig megtalált legjobb lépést fogja megtenni.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+> <keycap
+>Ctrl</keycap
+><keycap
+>Q</keycap
+></keycombo
+></shortcut
+> <guimenu
+><accel
+>J</accel
+>áték</guimenu
+><guimenuitem
+><accel
+>K</accel
+>ilépés</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Bezárja</action
+> a programot.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="edit-menu">
+<title
+>A <guimenu
+>Szerkesztés</guimenu
+> menü</title>
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+> <shortcut
+><keycombo action="simul"
+><keycap
+>Ctrl</keycap
+><keycap
+>Z</keycap
+> </keycombo
+></shortcut
+> <guimenu
+>S<accel
+>z</accel
+>erkesztés</guimenu
+><guimenuitem
+>Vissza<accel
+>v</accel
+>onás</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Visszavonja az utoljára megtett lépést.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect2>
+
+<sect2 id="settings-menu">
+<title
+>A <guimenu
+>Beállítások</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+><guimenuitem
+>Az <accel
+>e</accel
+>szköztár megjelenítése</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Ki-be kapcsolja az eszköztárat.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+><guimenuitem
+>Az á<accel
+>l</accel
+>lapotsor megjelenítése</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Ki-be kapcsolja az állapotsort.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+><guimenuitem
+>A billentyűparancsok beállí<accel
+>t</accel
+>ása...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Megnyit egy párbeszédablakot, ahol meg lehet változtatni a programban használt billentyűparancsokat</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guisubmenu
+>A <accel
+>t</accel
+>áblaméret</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Itt lehet kiválasztani a játéktér méretét.</action
+></para
+> <para
+>A választási lehetőségek:</para
+> <simplelist
+> <member
+><guimenuitem
+><accel
+>5</accel
+>x5</guimenuitem
+></member
+> <member
+><guimenuitem
+><accel
+>6</accel
+>x6</guimenuitem
+></member
+> <member
+><guimenuitem
+><accel
+>7</accel
+>x7</guimenuitem
+></member
+> <member
+><guimenuitem
+><accel
+>8</accel
+>x8</guimenuitem
+></member
+> <member
+><guimenuitem
+><accel
+>9</accel
+>x9</guimenuitem
+></member
+> <member
+><guimenuitem
+><accel
+>1</accel
+>0x10</guimenuitem
+></member
+> </simplelist
+> </listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guisubmenu
+>Nehézségi <accel
+>s</accel
+>zint</guisubmenu
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Ebben az almenüben lehet kiválasztani a nehézségi szintet.</action
+> A gépi játékos erősségét adja meg (ha legalább az egyik játékost a gép irányítja).</para
+> <para
+>A választási lehetőségek:</para
+> <simplelist
+> <member
+><guimenuitem
+><accel
+>k</accel
+>önnyű</guimenuitem
+></member
+> <member
+><guimenuitem
+>kö<accel
+>z</accel
+>epes</guimenuitem
+></member
+> <member
+><guimenuitem
+><accel
+>n</accel
+>ehéz</guimenuitem
+></member
+> </simplelist
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>A gép játszik <accel
+>1</accel
+>. játékosként</guimenuitem
+></menuchoice
+> </term
+> <listitem
+><para
+><action
+>A gép fogja irányítani az 1. játékost.</action
+></para
+> <para
+>A gép önmaga ellen is játszhat, ha ezt is bejelöli: <guimenuitem
+>A gép játszik 2. játékosként</guimenuitem
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>A gép játszik <accel
+>2</accel
+>. játékosként</guimenuitem
+></menuchoice
+> </term
+> <listitem
+><para
+><action
+>A gép fogja irányítani a 2. játékost.</action
+></para
+> <para
+>A gép önmaga ellen is játszhat, ha ezt is bejelöli: <guimenuitem
+>A gép játszik 1. játékosként</guimenuitem
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>Az 1. játékos színe...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Megnyit egy színválasztó ablakot, ahol ki lehet jelölni az 1. játékos színét.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>B</accel
+>eállítások</guimenu
+> <guimenuitem
+>A 2. játékos színe...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Megnyit egy színválasztó ablakot, ahol ki lehet jelölni a 2. játékos színét.</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+
+<sect2 id="help-menu">
+<title
+>A <guimenu
+>Segítség</guimenu
+> menü</title>
+
+<variablelist
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycap
+>F1</keycap
+></shortcut
+> <guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+><accel
+>T</accel
+>artalom</guimenuitem
+> </menuchoice
+></term
+> <listitem
+><para
+><action
+>Megnyitja a program dokumentációját</action
+>.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>Shift</keycap
+> <keycap
+>F1</keycap
+></keycombo
+></shortcut
+><guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>Mi e<accel
+>z</accel
+>?</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Átvált Mi ez? módba</action
+>: az egérmutató alakja kérdőjel lesz, és ha ilyenkor rákattint a program ablakában egy elemre, akkor egy kis ablakban megjelenik az elem funkciójának leírása (ha tartozik hozzá).</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>egítség</guimenu
+> <guimenuitem
+>Hiba<accel
+>b</accel
+>ejelentés...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Megnyitja a hibabejelentő űrlapot (továbbfejlesztési kérés is elküldhető).</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>A K<accel
+>J</accel
+>umpingCube névjegye...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Megjeleníti a program verziószámát és a fejlesztők nevét</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><menuchoice
+><guimenu
+><accel
+>S</accel
+>egítség</guimenu
+><guimenuitem
+>A <accel
+>K</accel
+>DE névjegye...</guimenuitem
+></menuchoice
+></term
+> <listitem
+><para
+><action
+>Megjelenít néhány adatot a KDE projektről</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+</sect2>
+</sect1>
+
+<sect1 id="toolbars">
+<title
+>A &kjumpingcube; eszköztára</title>
+
+<variablelist
+> <varlistentry
+> <term
+><guiicon
+>Új</guiicon
+></term
+> <listitem
+><para
+><action
+>Elkezd egy új játékot.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Megnyitás</guiicon
+></term
+> <listitem
+><para
+><action
+>Betölti az egyik elmentett játékállást.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Mentés</guiicon
+></term
+> <listitem
+><para
+><action
+>Elmenti az aktuális játékot.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>A gondolkodás félbeszakítása</guiicon
+></term
+> <listitem
+><para
+><action
+>Félbeszakítja a gépi játékost irányító algoritmus futását.</action
+> A gép az addig megtalált legjobb lépést fogja végrehajtani.</para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Tipp kérése</guiicon
+></term
+> <listitem
+><para
+><action
+>A program (segítségképpen) javaslatot tesz a következő lépésre.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Visszavonás</guiicon
+></term
+> <listitem
+><para
+><action
+>Visszavonja az utoljára megtett lépést.</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><guiicon
+>Segítség</guiicon
+></term
+> <listitem
+><para
+><action
+>Megnyitja a program dokumentációját</action
+>.</para
+></listitem
+> </varlistentry
+> </variablelist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="questions-answers-tips">
+<title
+>Kérdések, válaszok, tippek</title>
+
+<sect1 id="Strategytips">
+<title
+>Néhány tanács a követendő stratégiához</title>
+
+<itemizedlist
+> <listitem
+><para
+>Olyan mezőkben próbálja növelni a pontok számát, amelyek nem állnak közvetlen kapcsolatban olyan, az ellenfélhez tartozó mezőkkel, amelyek hamarabb érhetik el a maximális pontértéket.</para
+></listitem
+> </itemizedlist>
+
+</sect1>
+
+</chapter>
+
+<chapter id="credits">
+<title
+>Köszönetnyilvánítások és a licencegyezmény</title>
+
+<para
+>&kjumpingcube; Copyright: Matthias Kiefer (<email
+>matthias.kiefer@gmx.de</email
+>), 1998, 1999.</para>
+
+<para
+>A &kjumpingcube;-ot egy régi, Commodore 64-en és más házi számítógépeken megjelent játék inspirálta. A játék szerzőjét sajnos nem tudtam kideríteni.</para>
+
+<para
+>Documentation Copyright: Matthias Kiefer (<email
+>matthias.kiefer@gmx.de</email
+>), 1999.</para>
+
+<para
+>A dokumentációt felfrissítette a KDE 2-höz: Lauri Watts (<email
+>vampyr@atconnex.net</email
+>)</para>
+
+<para
+>Magyar fordítás: Szántó Tamás <email
+>tszanto@mol.hu</email
+></para>
+
+&underFDL;
+&underGPL;
+
+</chapter>
+
+<appendix id="installation">
+<title
+>Telepítés</title>
+
+<sect1 id="getting-kjumpingcube">
+<title
+>A &kjumpingcube; megszerzése</title>
+
+<para
+>A &kjumpingcube; a KDE projekt (<ulink url="http://www.kde.org"
+>http://www.kde.org</ulink
+>) része, letölthető a kdegames csomag részeként innen: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>, a KDE projekt központi FTP-kiszolgálójáról.</para>
+
+</sect1>
+
+<sect1 id="requirements">
+<title
+>Követelmények</title>
+
+<para
+>A program lefordításához szükség van a KDE 2.0-ás vagy annál újabb változatára. Az összes szükséges programkönyvtár és a &kjumpingcube; is megtalálható itt: <ulink url="ftp://ftp.kde.org/pub/kde/"
+>ftp://ftp.kde.org/pub/kde/</ulink
+>. </para>
+
+</sect1>
+
+<sect1 id="compilation">
+<title
+>Lefordítás és telepítés</title>
+
+<para
+>A program lefordításához és telepítéséhez az alábbi parancsokat kell kiadni a program forráscsomagjának alapkönyvtárában:</para>
+
+<screen width="40">
+<prompt
+>%</prompt
+> <userinput
+><command
+>./configure</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+></userinput>
+<prompt
+>%</prompt
+> <userinput
+><command
+>make</command
+> <parameter
+>install</parameter
+></userinput>
+</screen>
+
+<para
+>És már kész is! A felmerült problémák leírását küldje el nekem a következő címre: <email
+>matthias.kiefer@gmx.de</email
+></para>
+
+</sect1>
+</appendix>
+
+</book>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

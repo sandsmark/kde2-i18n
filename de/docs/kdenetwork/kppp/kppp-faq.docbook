@@ -1,0 +1,602 @@
+<chapter id="faq">
+<title
+>Fragen und Antworten</title>
+
+&reporting.bugs;
+
+<qandaset id="faqlist">
+
+<qandadiv id="faq-dialling">
+<title
+>Fragen und Antworten</title>
+<qandaentry>
+<question
+><para
+>Ich kann Kppp nicht zum laufen bringen. Kppp erzählt mir, dass pppd beendet wurde oder dass eine Zeitüberschreitung eingetreten ist!</para
+></question>
+
+<answer
+><para
+>Haben Sie dieses Handbuch sorgfältig gelesen? Hier sind nochmal die häufigsten Fallen.</para>
+
+<itemizedlist
+> <listitem
+><para
+> Klicken Sie auf den <emphasis
+>Details</emphasis
+>-Knopf. <emphasis
+>Kppp</emphasis
+> zeigt Ihnen dann einen Auszug aus dem PPP-Log (funktioniert evtl. nicht auf nicht-Linux-System oder sogar mit einigen Distributionen). Diese Meldungen können Ihnen Helfen, den Fehler zu finden.</para
+></listitem
+> <listitem
+><para
+> Stellen Sie sicher, dass <emphasis
+>pppd</emphasis
+> wirklich das <emphasis
+>pppd</emphasis
+>-Programm ist, und kein Skript!</para
+></listitem
+> <listitem
+><para
+>  </para
+></listitem
+> <listitem
+><para
+> Stellen Sie sicher, das die Datei <literal
+>/etc/ppp/options</literal
+> existiert und keine widersprüchlichen Einträge enthält. Falls Sie sich nicht sicher sind, lassen Sie diese Datei leer. </para
+></listitem
+> <listitem
+><para
+> Stellen Sie sicher, dass Sie NICHT den Parameter ``lock'' für <emphasis
+>pppd</emphasis
+> angegeben haben (<emphasis
+>Kppp</emphasis
+> kümmert sich bereit um die Gerätesperrung)!</para
+></listitem
+> <listitem
+><para
+> Entfernen Sie den ``lock''-Parameter aus den Dateien <literal
+>/etc/ppp/options</literal
+> und <literal
+>&tilde;/.ppprc</literal
+>!</para
+></listitem
+> <listitem
+><para
+> Wenn Sie den symbolischen Link <literal
+>/dev/modem</literal
+> benutzen, kann das zu Konflikten führen. Verhindern Sie diese Art Ärger, indem Sie das reale Gerät verwenden, z.B. <literal
+>/dev/cuaX</literal
+> oder <literal
+>/dev/ttySX</literal
+>. Hinweis: COM1 ist ttyS0, COM2 ist ttyS1 usw. </para
+> <note
+><para
+> </para
+></note
+></listitem
+> <listitem
+><para
+>Stellen Sie sicher, dass Sie die richtigen Berechtigungen eingestellt haben. Im Fall von Problemen sollten Sie es vielleicht zuerst als root ausführen, und dann, wenn alles gut funktioniert, weniger gefährliche Berechtigungen nehmen, wenn Sie es sich nicht leisten können <emphasis
+>Kppp</emphasis
+> mit root-Rechten laufen zu lassen. Die richtige Vorgehensweise wäre vermutlich die Erzeugung einer eigenen ``modem''-Gruppe.</para
+></listitem
+> <listitem
+><para
+>Eventuell starten Sie <emphasis
+>pppd</emphasis
+> zu früh, z.B. bevor der entfernte Server bereit ist, eine PPP-Verbindung aufzubauen. Wenn Sie ein Login-Skript benutzen, sollten Sie das eingebaute Terminal benutzen, um Ihre Login-Prozedur zu überprüfen. Manche Provider erwarten von Ihnen ein einfaches "Send" oder "Send ppp", um PPP zu starten. Einige Benutzer berichteten, dass Sie "Pause 1" oder "Pause 2" an Ihr Skript anhängen mussten, um Timing-Probleme zu lösen.</para
+></listitem
+> </itemizedlist>
+
+<para
+>Wenn gar nichts hilft, sollten Sie evtl. Debug-Informationen aus Ihrem Systemlog erhalten, indem Sie folgendes eingeben:</para>
+
+<screen
+></screen>
+
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+></para
+></question>
+
+<answer
+><para
+>Das bedeutet, dass <emphasis
+>Kppp</emphasis
+> keine Berechtigung hat, das Modemgerät zu öffnen, oder dass Sie ein ungültiges Modemgerät auf der Modem-Karteikarte gewählt haben. Stellen Sie zunächst sicher, dass Sie das richtige Modemgerät gewählt haben. Wenn Sie sicher sind, dass dies der Fall ist, müssen Sie <emphasis
+>Kppp</emphasis
+> die richtige Berechtigung geben, um auf das Modemgerät zugreifen zu können, und in der Lage zu sein, <literal
+>/etc/resolv.conf</literal
+> zu ändern, im Fall, dass Sie möchten, dass <emphasis
+>Kppp</emphasis
+> den DNS richtig für Sie einstellt. Falls Sie in der Lage sind, <emphasis
+>Kppp</emphasis
+> als SETUID root auszuführen, würde das alle Zugriffsprobleme für Sie lösen, wenn nicht, müssen Sie herausfinden, was die richtigen Berechtigungen für Ihre Zwecke sind. Um <emphasis
+>Kppp</emphasis
+> SETUID root-Berechtigung zu geben, machen Sie Folgendes:</para>
+
+<screen>
+</screen>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kppp sagt mir, dass es keine Modemsperrung erzeugen kann.</para
+></question>
+
+<answer
+><para
+>In den meisten Fällen bedeutet das, dass Sie <emphasis
+>Kppp</emphasis
+> mit gesetztem SETUID-Bit installiert haben, während Sie, die Person, die <emphasis
+>Kppp</emphasis
+> ausführt, keine Schreiberechtigung für das Sperrdateiverzeichnis haben, das standardmäßig <literal
+>/var/lock</literal
+> ist. Das ist zum Beispiel der Fall auf RedHat-Systemen. Überprüfen Sie den Modem-Dialog nach der genauen Position der Sperrdatei. Die Lösung ist einfach, entweder <emphasis
+>Kppp</emphasis
+> SETUID laufen zu lassen, falls Sie können, oder normalen Benutzern Schreibzugriff auf <literal
+>/var/lock</literal
+> zu gewähren oder eine modem-Gruppe zu erstellen, die Zugriff auf die <literal
+>/var/lock</literal
+>-Datei hat.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Warum wird Kppp mit gesetztem SETUID-Bit installiert?</para
+></question>
+
+<answer
+><para
+>Das SETUID-Bit muss nicht gesetzt sein, wenn Sie sich ein bisschen mit Unix-Systemadministration auskennen. Erstellen Sie einfach eine Modemgruppe, fügen Sie alle Benutzer, denen Sie Zugriff auf das Modem gewähren wollen, dieser Gruppe hinzu und machen Sie das Modemgerät les- und schreibbar für diese Gruppe. Wenn Sie auch DNS-Konfiguration mit <emphasis
+>Kppp</emphasis
+> benutzen wollen, muss <literal
+>/etc/resolv.conf</literal
+> les- und schreibbar von den Mitgliedern dieser Gruppe sein. Das gleiche gilt für <literal
+>/etc/ppp/pap-secrets</literal
+> und <literal
+>/etc/ppp/chap-secrets</literal
+>, wenn Sie die eingebaute PAP- und CHAP-Unterstützung benutzen wollen.</para>
+
+<para
+>Das <emphasis
+>Kppp</emphasis
+>-Team hat in letzter Zeit sehr viel daran gearbeitet, um <emphasis
+>Kppp</emphasis
+> SETUID-Sicher zu machen. Aber es liegt an Ihnen, ob und wie Sie es installieren.</para>
+
+<para
+>Eventuell wollen Sie dazu auch das Kapitel <link linkend="security"
+>Kppp und die Sicherheit</link
+> lesen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+></para
+></question>
+
+<answer
+><para
+>Haben Sie an der CR/LF-Einstellung herumgespielt? Probieren Sie <emphasis
+>CR</emphasis
+>, <emphasis
+>LF</emphasis
+> oder <emphasis
+>CR/LF</emphasis
+>.</para>
+
+<para
+>Ihr Modem braucht vielleicht einige Zeit, um auf seine Initialisierung zu antworten. Öffnen Sie den <emphasis
+>Modembefehle</emphasis
+>-Dialog auf der <emphasis
+>Modem</emphasis
+>-Karteikarte und stellen Sie die Verzögerungen <emphasis
+>Pre-Init</emphasis
+> und <emphasis
+>Post-Init</emphasis
+> ein. Probieren Sie, ob Sie erfolgreich sind, wenn Sie die Werte drastisch senken und stellen Sie sie dann später genauer ein.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Der Verbindungsaufbau funktioniert gut, aber ich kann keine Programme starten.</para
+></question>
+
+<answer
+><para
+>Sie haben vielleicht die Option "<link linkend="auto-configure-hostname"
+>Konfiguriere Hostname automatisch von dieser IP</link
+>" aktiviert und der X-Server hat Probleme zum neu eingestellten Hostnamen zu verbinden. Falls Sie diese Option wirklich benötigen (wahrscheinlich eher nicht), müssen Sie auf eigene Faust die nötigen Authorisationen einstellen. Eingabe von "<literal
+>xhost +</literal
+>" löst das Problem, aber seien Sie <emphasis
+>gewarnt</emphasis
+> vor Sicherheitsrisiken, die sich daraus ergeben, da dann jeder Zugang zu Ihrem X-Server hat.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+></para
+></question>
+
+<answer
+><para
+>Versuchen Sie, mit <emphasis
+>ping</emphasis
+> einen anderen Server über seine IP-Adresse, zu erreichen, <literal
+>ping 195.0.254.76</literal
+>. Wenn das funktioniert, sollten Sie</para>
+
+<itemizedlist
+> <listitem
+><para
+>prüfen, ob Sie mindestens eine DNS-Adresse angegeben haben.</para
+></listitem
+> <listitem
+><para
+>den Inhalt von <literal
+>/etc/host.conf</literal
+> prüfen. Es sollte eine Zeile vorhanden sein, in der etwas ähnliches wie <literal
+>order hosts, bind</literal
+> steht. Der <literal
+>bind</literal
+>-Schlüsselbegriff sagt der resolver-Bibliothek, dass sie einen Nameserver einbinden soll, wenn Sie eine Adresse sucht.</para
+></listitem
+> </itemizedlist
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+></para
+></question>
+
+<answer
+><para
+>Schicken Sie einfach eine leere Zeichenfolge, so wie im folgenden Skript:</para>
+
+<informalexample
+> <screen>
+Send                   # eine leere Zeichenfolge senden
+Expect      ID:
+Send        itsme
+Expect      word:
+Send        forgot
+Expect      granted
+Send        ppp
+</screen
+> </informalexample>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+></para
+></question>
+<answer
+><para
+>Das bedeutet, dass Sie keine Berechtigung haben, eine Sperrdatei zu erzeugen. Wenn Sie eine Sperrdatei benutzen wollen, müssen Sie Schreibrechte in dem Verzeichnis haben, indem die Datei erzeugt werden soll (typischerweise /var/lock). Das ist natürlich kein Problem, wenn Sie <emphasis
+>Kppp</emphasis
+> SETUID-Berechtigung gegeben haben. Lesen Sie bitte den Abschnitt über die <link linkend="lock-files"
+>Modem-Sperrdatei</link
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Mein Modem macht beim Wählen großen Lärm!</para
+></question>
+
+<answer
+><para
+>Klicken Sie auf <emphasis
+>Einstellungen/Modem </emphasis
+> Sie können die Lautstärke des Modems hier in drei Schritten einstellen: aus, mittel, groß. Bei den meisten Modems bekommen Sie die gleiche Lautstärke für "mittel" und "groß". Falls das nicht funktioniert, stellen Sie sicher, dass Sie die richtigen Einstellungen in <emphasis
+>Einstellungen/Modem/Modembefehle</emphasis
+> eingestellt haben"</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ich habe die Modemlautstärke ausgeschaltet und die Modembefehle überprüft, aber ich höre immer noch Wählgeräusche!</para
+></question>
+
+<answer
+><para
+></para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+><emphasis
+>Kppp</emphasis
+> meldet ungewöhnliche Modemgeschwindigkeiten, wie 115200, 57600 oder ähnliches</para
+></question>
+
+<answer
+><para
+>Viele Modems melden standardmäßig nur die Geschwindigkeit der seriellen Schnittstelle und nicht die Geschwindigkeit über die Telefonleitung. Sie müssen diese Modem erst so einstellen, dass Sie die wirkliche Datenübertragungsgeschwindigkeit melden (fügen Sie dies dem Init- oder Wählstring bei). Bei vielen Modems ist der Befehl <emphasis
+>ATW2</emphasis
+>. Wenn Sie dies dem Wählstring (typischerweise <emphasis
+>ATD</emphasis
+>) beifügen wollen, wäre der neue Wählstring <emphasis
+>ATW2D</emphasis
+>.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+></para
+></question>
+
+<answer
+><para
+>Neue Modems haben oft komplizierte Verbindungsmeldungen wie "CONNECT LAP.M/V42.bis/115000:RX/31200:TX", und <emphasis
+>Kppp</emphasis
+> kann die Nachrichten nicht korrekt behandeln. Schalten Sie <emphasis
+>Zeige Log-Fenster</emphasis
+> ein, und Sie werden die Verbindungsgeschwindigkeit sehen. Ich arbeite gerade an einer Lösung dieses Problems, und der Parser ist schon viel besser, aber immer noch nicht perfekt.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Langsame Übertragungsgeschwindigkeiten</para
+></question>
+
+<answer
+><para
+>Wenn Sie mit der Modemgeschwindigkeit nicht zufrieden sind, stellen Sie sicher, dass die Verbindungsgeschwindigkeit (<emphasis
+>Einstellungen/Gerät/Geschwindigkeit</emphasis
+>) auf 57600 oder höher eingestellt ist. Stellen Sie sicher, dass Ihre serielle Schnittstelle höhere Geschwindigkeiten unterstützt. Viele auf i486 basierende Systeme arbeiten nicht korrekt, wenn die Geschwindigkeit auf 115200 eingestellt ist. Wenn Sie einen 8250 UART Chip haben, wird es nicht funktionieren. Wenn Sie einen 16550 oder 16550A haben, sollte es problemlos funktionieren.</para>
+
+<para
+>Schauen Sie zusätzlich in Ihrem Modem-Handbuch nach Init-Strings, die den Hochgeschwindigkeit-Modus aktivieren.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>SEHR langsame Übertragungsgeschwindigkeiten</para
+></question>
+
+<answer
+><para
+>Wenn die Datenübertragungsrate nur ein paar Byte pro Minute beträgt, sollten Sie Ihre Hardware-Einstellungen überprüfen. Falls Bewegungen der Maus die Datenübertragung beschleunigen, ist das auf jeden Fall ein Hardwareproblem.</para>
+
+<para
+>Sie erhalten Informationen über Ihre serielle Schnittstelle mit <literal
+>setserial -a /dev/ttySx</literal
+>. Schauen Sie nach Interrupt-Konflikten mit anderen Komponenten Ihres Systems.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Meine Telefonleitung benutzt das Impuls- anstatt das Tonwahlverfahren (oder umgekehrt)</para
+></question>
+<answer
+><para
+>Sie müssen den Modem-Wählstring verändern. Fast alle Modems unterstützen die folgenden AT-Befehle:</para>
+
+<variablelist
+> <varlistentry
+> <term
+><command
+></command
+></term
+> <listitem
+><para
+><action
+>ATDT - aktiviert das Tonwahlverfahren</action
+></para
+></listitem
+> </varlistentry
+> <varlistentry
+> <term
+><command
+></command
+></term
+> <listitem
+><para
+><action
+>ATDP - aktiviert das Impulswahlverfahren</action
+></para
+></listitem
+> </varlistentry
+> </variablelist>
+</answer>
+</qandaentry>
+
+</qandadiv>
+
+<qandadiv id="faq-telephone-cost-rules">
+<title
+></title>
+<qandaentry>
+<question
+><para
+>Wie schreibe ich eine Telefongebühren-Regel?</para
+></question>
+<answer
+><para
+>Sehen Sie sich die <literal
+>TEMPLATE</literal
+>-Regeldatei, die bei <emphasis
+>Kppp</emphasis
+> dabei ist, an. Sie sollten eine Kopie davon in <literal
+>&dollar;KDEDIR/doc/HTML/en/kppp</literal
+> finden. Benutzen Sie den Kommandozeilen-Parameter <literal
+>-r</literal
+> von <emphasis
+>Kppp</emphasis
+>, um die Syntax Ihrer Gebührenregel-Datei zu überprüfen.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Ich habe eine Gebührenregel-Datei für meine Region geschrieben. Wem kann ich sie schicken, so dass auch andere sie nutzen können?</para
+></question>
+<answer
+><!-- LW: Find out -->
+<!-- lukas: the answer is: send it to the kppp maintainer, Harri Porten --></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Kann meine Telefongebühren-Regeldatei Bruchteile einer Zeiteinheit enthalten, z.B. "(0.17,45.5)"?</para
+></question>
+<answer
+><para
+>Ja, das ist möglich. Aber Sie sollten kein ungewöhnlich kleinen Bruchteile benutzen (unter einer 1/10 Sekunde), da dies in einer höheren CPU-Belastung resultieren würde. (Obwohl ich nicht glaube, dass Sie das bei einer modernen CPU bemerken würden.:-)</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Mein Land hat außer Ostern noch einen verschiebbaren Feiertag.</para
+></question>
+<answer
+><para
+>In diesem Fall müssen Sie neuen Code schreiben, der Ihnen die Berechnung dieses Feiertags ermöglicht. Sehen Sie in <literal
+>ruleset.cpp</literal
+> nach und imitieren Sie das ``easter''-Beispiel. Dann senden Sie <ulink url="mailto:wuebben@math.cornell.edu"
+>mir</ulink
+> die Patches.</para
+></answer>
+</qandaentry>
+</qandadiv>
+
+<qandadiv id="faq-system-logs">
+<title
+></title>
+<qandaentry>
+<question
+><para
+></para
+></question>
+
+<answer
+><para
+>Kurze Antwort: Sie haben die PPP Software auf dem entfernten System nicht gestartet.</para>
+
+<!-- this doc doesn't exist.. help -->
+<!-- http://www.dejanews.com/getdoc.xp?AN="184945314" -->
+
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+></para
+></question>
+<answer
+><para
+>Wenn Sie die folgenden Zeilen sehen, haben Sie evtl. gerade einen Fehler wegen Zeitüberschreitung von <emphasis
+>Kppp</emphasis
+> erhalten. <emphasis
+>Kppp</emphasis
+> hat darauf gewartet, dass das PPP Interface startete, und hat dann nach einer bestimmten Zeit aufgegeben. Dem pppd wurde mit dem Signal 15 (i.A. SIGTERM) signalisiert, abzubrechen.</para>
+
+<informalexample
+> <screen
+><computeroutput>
+pppd[26921]: pppd 2.3.5 started by me, uid 500
+pppd[26921]: Using interface ppp0
+pppd[26921]: Connect: ppp0 &lt;--&gt; /dev/ttyS0
+pppd[26921]: Terminating on signal 15.
+pppd[26921]: Connection terminated.
+pppd[26921]: Exit.
+</computeroutput
+></screen
+> </informalexample>
+</answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>Receive serial link is not 8-bit clean</para
+></question>
+<answer
+><para
+>Der PPP Dämon wurde misstrauisch, da alle empfangenen Daten das Bit 8 auf Null gesetzt hatten. In den meisten Fällen zeigt das an, dass der entfernte PPP Server noch nicht gestartet ist. Es wird dabei vielleicht immer noch ein Anmeldeprompt geben, der alle Daten, die von Ihrem pppd gesendet wurden, zurücksendet.</para
+></answer>
+</qandaentry>
+
+<qandaentry>
+<question
+><para
+>can't locate module ppp-compress</para
+></question>
+<answer
+><para
+>Bekommen Sie folgende Nachrichten?</para>
+
+<informalexample
+> <screen
+><computeroutput>
+modprobe: can't locate module ppp-compress-21 
+modprobe: can't locate module ppp-compress-26 
+modprobe: can't locate module ppp-compress-24
+</computeroutput
+></screen
+> </informalexample>
+
+<para
+>Fügen Sie einfach diese Zeilen</para>
+
+<screen
+><userinput>
+alias ppp-compress-21 bsd_comp 
+alias ppp-compress-24 ppp_deflate 
+alias ppp-compress-26 ppp_deflate </userinput
+></screen>
+
+<para
+> zu Ihrer Datei <literal
+>/etc/conf.modules</literal
+> hinzu.</para>
+</answer>
+</qandaentry>
+
+</qandadiv>
+
+</qandaset>
+
+</chapter>
+
