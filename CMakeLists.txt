@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 project(kde2-i18n)
 find_package(kdelibs2 REQUIRED)
+find_package(Gettext REQUIRED)
 
 function(install_language LANGNAME)
     set(LANGPATH ${LANGNAME}/messages/)
@@ -9,6 +10,25 @@ function(install_language LANGNAME)
         ${LANGPATH}/entry.desktop
         ${LANGPATH}/flag.png
         DESTINATION "${KDE2_LOCALE}/${LANGNAME}")
+    file(GLOB_RECURSE POS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}/${LANGPATH}" "*.po")
+    list(FILTER POS EXCLUDE REGEX "\\.\\./" )
+
+    foreach(PO ${POS})
+        set(PO "${LANGPATH}${PO}")
+        get_filename_component(BASENAME ${PO} NAME_WE)
+        get_filename_component(DIR ${PO} DIRECTORY)
+        set(PO "${CMAKE_CURRENT_SOURCE_DIR}/${DIR}/${BASENAME}.po")
+        set(MO "${CMAKE_CURRENT_BINARY_DIR}/${DIR}/${BASENAME}.mo")
+        file(MAKE_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/${DIR}")
+        list(APPEND MOS ${MO})
+        add_custom_command(OUTPUT ${MO}
+            COMMAND ${GETTEXT_MSGFMT_EXECUTABLE} -o ${MO} ${PO}
+            WORKING_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}"
+            DEPENDS ${PO}
+            )
+    endforeach()
+    add_custom_target(${LANGNAME} ALL DEPENDS ${MOS})
+    install(FILES ${MOS} DESTINATION ${KDE2_LOCALE}/${LANGNAME}/LC_MESSAGES/)
 endfunction()
 
 install_language(af)
