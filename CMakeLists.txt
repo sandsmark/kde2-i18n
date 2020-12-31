@@ -75,7 +75,7 @@ install_language(ro)
 install_language(ru)
 install_language(sk)
 install_language(sl)
-install_language(sr)
+#install_language(sr) # TODO: has a broken PO
 install_language(sv)
 install_language(ta)
 install_language(th)
